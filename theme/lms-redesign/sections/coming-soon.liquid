@@ -12,7 +12,7 @@
   </div>
 
   <div class="cs-inner">
-    <h1 class="cs-h1">PLEASE WAIT WHILE&nbsp;THE FEATURE LOADS</h1>
+    <h1 class="cs-h1">PLEASE WAIT WHILE <br> THE FEATURE LOADS</h1>
 
     {%- comment -%} 16:9 screen with bouncing logo (desktop only) {%- endcomment -%}
     <div class="cs-box">
@@ -214,8 +214,10 @@
   }
 
   @media (max-width: 600px) {
+    /* Parchment comes from the page background so the fixed logo sits behind everything */
+    .cs-section { background: transparent; }
     .cs-box { display: none; }
-    .cs-stage { display: block; }
+    .cs-stage { display: block; z-index: -1; }
     .cs-inner { padding: 20px 16px 36px; }
     .cs-h1 { margin-bottom: 24px; }
     .cs-textblock { margin-top: 28px; }
