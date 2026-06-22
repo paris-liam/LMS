@@ -21,7 +21,7 @@
 
 /* ---- FONTS (self-hosted, OFL) ---- */
 @font-face { font-family:"Epilogue"; font-style:normal; font-weight:100 900; font-display:swap;
-  src:url("epilogue-variable.woff2") format("woff2-variations"); }
+  src:url("epilogue-variable.woff2") format("woff2"); }
 @font-face { font-family:"DM Mono"; font-style:normal; font-weight:300; font-display:swap;
   src:url("dm-mono-300.woff2") format("woff2"); }
 @font-face { font-family:"DM Mono"; font-style:normal; font-weight:400; font-display:swap;
