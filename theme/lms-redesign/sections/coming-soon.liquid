@@ -1,0 +1,282 @@
+{%- comment -%}
+  Pre-launch "Coming soon" page, used as the storefront password page main section.
+  DVD-screensaver logo bounce + intro copy + real newsletter capture.
+  Bounce mode is responsive: Boxed on desktop, Full page on mobile.
+  Tempo: Calm. Screen: Midnight.
+{%- endcomment -%}
+
+<div class="cs-section">
+  {%- comment -%} Full-page bounce stage (mobile only) {%- endcomment -%}
+  <div class="cs-stage" aria-hidden="true">
+    <img class="cs-stage-logo" src="{{ 'lms-logo-stacked.svg' | asset_url }}" alt="" width="150" height="80">
+  </div>
+
+  <div class="cs-inner">
+    <h1 class="cs-h1">PLEASE WAIT WHILE&nbsp;THE FEATURE LOADS</h1>
+
+    {%- comment -%} 16:9 screen with bouncing logo (desktop only) {%- endcomment -%}
+    <div class="cs-box">
+      <img class="cs-box-logo" src="{{ 'lms-logo-stacked.svg' | asset_url }}" alt="Little Movie Store" width="100" height="53">
+    </div>
+
+    <div class="cs-textblock">
+      <img class="cs-wordmark" src="{{ 'lms-logo-horizontal-brick.svg' | asset_url }}" alt="Little Movie Store" width="460" height="auto">
+      <p class="cs-pitch">A neighborhood movie store for <strong>South Philadelphia</strong>. VHS, DVD, Blu-Ray, 4K and all the movies you didn't know you loved. <span class="cs-underline">Opening soon.</span></p>
+
+      {%- form 'customer', class: 'cs-form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter, coming-soon">
+        {%- if form.posted_successfully? -%}
+          <p class="cs-success" role="status">Thanks — we'll let you know when the doors open.</p>
+        {%- else -%}
+          <label for="cs-email" class="cs-visually-hidden">Email address</label>
+          <input
+            id="cs-email"
+            class="cs-input"
+            type="email"
+            name="contact[email]"
+            placeholder="you@email.com"
+            autocomplete="email"
+            required
+          >
+          <button class="cs-btn" type="submit">Play</button>
+          {%- if form.errors -%}
+            <p class="cs-error" role="alert">
+              {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+            </p>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .cs-section {
+    position: relative;
+    flex: 1;
+    display: flex;
+    min-height: 100svh;
+    box-sizing: border-box;
+    padding: 28px;
+    background: var(--lms-parchment);
+    font-family: var(--lms-font-mono);
+  }
+
+  /* Full-page bounce stage — hidden on desktop, shown on mobile */
+  .cs-stage {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .cs-stage-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: auto;
+    will-change: transform;
+  }
+
+  .cs-inner {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    border: 1.5px solid #e6d2b8;
+    border-radius: 22px;
+    padding: 48px 32px 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .cs-h1 {
+    font-family: var(--lms-font-mono);
+    font-weight: 500;
+    font-size: clamp(22px, 4.6vw, 38px);
+    line-height: 1.12;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #1a0f0a;
+    text-align: center;
+    margin: 0 0 30px;
+    max-width: 800px;
+  }
+
+  /* 16:9 screen — shown on desktop, hidden on mobile */
+  .cs-box {
+    position: relative;
+    width: min(620px, 100%);
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(58, 32, 24, 0.22);
+  }
+  .cs-box-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: auto;
+    filter: brightness(0) invert(1);
+    will-change: transform;
+  }
+
+  .cs-textblock {
+    width: min(620px, 100%);
+    margin-top: 40px;
+  }
+  .cs-wordmark {
+    width: 460px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 18px;
+  }
+  .cs-pitch {
+    font-family: var(--lms-font-mono);
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--lms-mahogany);
+    margin: 0;
+    max-width: 540px;
+  }
+  .cs-pitch strong { font-weight: 500; }
+  .cs-pitch .cs-underline { text-decoration: underline; }
+
+  .cs-form {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+    max-width: 540px;
+    flex-wrap: wrap;
+  }
+  .cs-input {
+    flex: 1;
+    min-width: 200px;
+    font-family: var(--lms-font-mono);
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--lms-mahogany);
+    background: #fff;
+    border: 1.5px solid #e6d2b8;
+    border-radius: 8px;
+    padding: 14px 16px;
+    outline: none;
+  }
+  .cs-input:focus {
+    border-color: var(--lms-sage);
+    box-shadow: 0 0 0 3px rgba(95, 141, 122, 0.18);
+  }
+  .cs-btn {
+    font-family: var(--lms-font-mono);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lms-parchment);
+    background: var(--lms-brick);
+    border: 1.5px solid var(--lms-brick);
+    border-radius: 0;
+    padding: 14px 34px;
+    cursor: pointer;
+  }
+  .cs-btn:hover { filter: brightness(1.07); }
+  .cs-btn:active { transform: scale(0.97); }
+
+  .cs-success {
+    font-family: var(--lms-font-mono);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--lms-sage-dark);
+    margin: 30px 0 0;
+  }
+  .cs-error {
+    flex-basis: 100%;
+    font-family: var(--lms-font-mono);
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--lms-brick);
+    margin: 4px 0 0;
+  }
+
+  .cs-visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0);
+    white-space: nowrap; border: 0;
+  }
+
+  @media (max-width: 600px) {
+    .cs-box { display: none; }
+    .cs-stage { display: block; }
+    .cs-inner { padding: 20px 16px 36px; }
+    .cs-h1 { margin-bottom: 24px; }
+    .cs-textblock { margin-top: 28px; }
+    .cs-form { flex-direction: column; }
+    .cs-form .cs-btn { width: 100%; }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  (function () {
+    function init() {
+      var section = document.querySelector('.cs-section');
+      if (!section) return;
+      var box = section.querySelector('.cs-box');
+      var boxLogo = section.querySelector('.cs-box-logo');
+      var stage = section.querySelector('.cs-stage');
+      var stageLogo = section.querySelector('.cs-stage-logo');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var desktop = window.matchMedia('(min-width: 601px)');
+      var V = 0.9; // Calm tempo
+      var raf;
+
+      function active() {
+        return desktop.matches ? { c: box, l: boxLogo } : { c: stage, l: stageLogo };
+      }
+      function center(c, l) {
+        var lx = Math.max(0, (c.clientWidth - l.offsetWidth) / 2);
+        var ly = Math.max(0, (c.clientHeight - l.offsetHeight) / 2);
+        l.style.transform = 'translate(' + lx + 'px,' + ly + 'px)';
+      }
+      function start() {
+        if (raf) cancelAnimationFrame(raf);
+        var a = active(), c = a.c, l = a.l;
+        if (!c || !l) return;
+        if (reduce) { center(c, l); return; }
+        var x = 36, y = 28, vx = V, vy = V * 0.8;
+        (function step() {
+          var bw = c.clientWidth, bh = c.clientHeight, lw = l.offsetWidth, lh = l.offsetHeight;
+          x += vx; y += vy;
+          if (x <= 0) { x = 0; vx = Math.abs(vx); }
+          if (x + lw >= bw) { x = bw - lw; vx = -Math.abs(vx); }
+          if (y <= 0) { y = 0; vy = Math.abs(vy); }
+          if (y + lh >= bh) { y = bh - lh; vy = -Math.abs(vy); }
+          l.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+          raf = requestAnimationFrame(step);
+        })();
+      }
+
+      var t;
+      window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(start, 150); });
+      if (desktop.addEventListener) desktop.addEventListener('change', start);
+      start();
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Coming soon",
+  "settings": []
+}
+{% endschema %}
