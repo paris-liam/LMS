@@ -1,0 +1,11 @@
+# Shopify CLI
+.shopify/
+*.shopifyignore
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# Design handoff archive (large; extracted contents tracked separately if needed)
+Little Movie Store Design System-handoff.zip
