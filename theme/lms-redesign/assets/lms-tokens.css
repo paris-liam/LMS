@@ -14,26 +14,20 @@
      overrides win and our components can read both layers.
 
    FONTS: Epilogue + DM Mono are not in Shopify's font_picker library, so they
-   are self-hosted here. INTERIM: still served from Google's CDN below; swap the
-   src URLs for `{{ 'epilogue-*.woff2' | asset_url }}` once the .woff2 files are
-   uploaded to assets/.
+   are self-hosted in assets/ (SIL Open Font License). Epilogue ships as a
+   single variable woff2 (weight axis 100–900); DM Mono as three static weights.
+   Relative url()s resolve to the sibling files in the assets/ CDN folder.
    ========================================================================== */
 
-/* ---- FONTS (interim: Google CDN; migrate to self-hosted assets/) ---- */
-@font-face { font-family:"Epilogue"; font-style:normal; font-weight:400; font-display:swap;
-  src:url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYrYsh.woff2") format("woff2"); }
-@font-face { font-family:"Epilogue"; font-style:normal; font-weight:500; font-display:swap;
-  src:url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYsosh.woff2") format("woff2"); }
-@font-face { font-family:"Epilogue"; font-style:normal; font-weight:600; font-display:swap;
-  src:url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYpIth.woff2") format("woff2"); }
-@font-face { font-family:"Epilogue"; font-style:normal; font-weight:700; font-display:swap;
-  src:url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYwYth.woff2") format("woff2"); }
+/* ---- FONTS (self-hosted, OFL) ---- */
+@font-face { font-family:"Epilogue"; font-style:normal; font-weight:100 900; font-display:swap;
+  src:url("epilogue-variable.woff2") format("woff2-variations"); }
 @font-face { font-family:"DM Mono"; font-style:normal; font-weight:300; font-display:swap;
-  src:url("https://fonts.gstatic.com/s/dmmono/v14/aFTR7PB1QTsUX8KYthqQBK6PYK0.woff2") format("woff2"); }
+  src:url("dm-mono-300.woff2") format("woff2"); }
 @font-face { font-family:"DM Mono"; font-style:normal; font-weight:400; font-display:swap;
-  src:url("https://fonts.gstatic.com/s/dmmono/v14/aFTU7PB1QTsUX8KYvrGyIYSnbKX9Rlk.woff2") format("woff2"); }
+  src:url("dm-mono-400.woff2") format("woff2"); }
 @font-face { font-family:"DM Mono"; font-style:normal; font-weight:500; font-display:swap;
-  src:url("https://fonts.gstatic.com/s/dmmono/v14/aFTU7PB1QTsUX8KYvuGyIYSnbKX9Rlk.woff2") format("woff2"); }
+  src:url("dm-mono-500.woff2") format("woff2"); }
 
 :root {
   /* ==== COLOR — raw brand palette ==== */
