@@ -1,27 +1,21 @@
 {%- comment -%}
   Pre-launch "Coming soon" page, used as the storefront password page main section.
   DVD-screensaver logo bounce + intro copy + real newsletter capture.
-  Bounce mode is responsive: Boxed on desktop, Full page on mobile.
-  Tempo: Calm. Screen: Midnight.
+  Boxed 16:9 bounce on all viewports. Tempo: Calm. Screen: Midnight.
 {%- endcomment -%}
 
 <div class="cs-section">
-  {%- comment -%} Full-page bounce stage (mobile only) {%- endcomment -%}
-  <div class="cs-stage" aria-hidden="true">
-    <img class="cs-stage-logo" src="{{ 'lms-logo-stacked.svg' | asset_url }}" alt="" width="150" height="80">
-  </div>
-
   <div class="cs-inner">
     <h1 class="cs-h1">PLEASE WAIT WHILE <br> THE FEATURE LOADS</h1>
 
-    {%- comment -%} 16:9 screen with bouncing logo (desktop only) {%- endcomment -%}
+    {%- comment -%} 16:9 screen with bouncing logo {%- endcomment -%}
     <div class="cs-box">
       <img class="cs-box-logo" src="{{ 'lms-logo-stacked.svg' | asset_url }}" alt="Little Movie Store" width="100" height="53">
     </div>
 
     <div class="cs-textblock">
       <img class="cs-wordmark" src="{{ 'lms-logo-horizontal-brick.svg' | asset_url }}" alt="Little Movie Store" width="460" height="auto">
-      <p class="cs-pitch">A neighborhood movie store for <strong>South Philadelphia</strong>. VHS, DVD, Blu-Ray, 4K and all the movies you didn't know you loved. <span class="cs-underline">Opening soon.</span></p>
+      <p class="cs-pitch">A neighborhood movie store for <strong>South Philadelphia</strong>. VHS, DVD, Blu-Ray, 4K and all the movies you didn't know you loved. <a class="cs-underline" href="https://www.instagram.com/littlemoviestore" target="_blank" rel="noopener">Opening soon.</a></p>
 
       {%- form 'customer', class: 'cs-form' -%}
         <input type="hidden" name="contact[tags]" value="newsletter, coming-soon">
@@ -62,24 +56,6 @@
     font-family: var(--lms-font-mono);
   }
 
-  /* Full-page bounce stage — hidden on desktop, shown on mobile */
-  .cs-stage {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-  .cs-stage-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: auto;
-    will-change: transform;
-  }
-
   .cs-inner {
     position: relative;
     z-index: 1;
@@ -106,7 +82,7 @@
     max-width: 800px;
   }
 
-  /* 16:9 screen — shown on desktop, hidden on mobile */
+  /* 16:9 screen */
   .cs-box {
     position: relative;
     width: min(620px, 100%);
@@ -135,7 +111,7 @@
     max-width: 100%;
     height: auto;
     display: block;
-    margin-bottom: 18px;
+    margin: 0 auto 18px;
   }
   .cs-pitch {
     font-family: var(--lms-font-mono);
@@ -143,11 +119,13 @@
     font-size: 17px;
     line-height: 1.6;
     color: var(--lms-mahogany);
-    margin: 0;
+    margin: 0 auto;
     max-width: 540px;
+    text-align: center;
   }
   .cs-pitch strong { font-weight: 500; }
-  .cs-pitch .cs-underline { text-decoration: underline; }
+  .cs-pitch .cs-underline { color: inherit; text-decoration: underline; }
+  .cs-pitch .cs-underline:hover { text-decoration: none; }
 
   .cs-form {
     display: flex;
@@ -214,11 +192,6 @@
   }
 
   @media (max-width: 600px) {
-    /* Parchment comes from the page background so the fixed logo sits behind everything */
-    .cs-section { background: transparent; }
-    .cs-box { display: none; }
-    .cs-stage { display: block; z-index: -1; }
-    .cs-stage-logo { width: 96px; }
     .cs-inner {
       align-self: center;
       padding: 20px 16px 36px;
@@ -237,43 +210,35 @@
       var section = document.querySelector('.cs-section');
       if (!section) return;
       var box = section.querySelector('.cs-box');
-      var boxLogo = section.querySelector('.cs-box-logo');
-      var stage = section.querySelector('.cs-stage');
-      var stageLogo = section.querySelector('.cs-stage-logo');
+      var logo = section.querySelector('.cs-box-logo');
+      if (!box || !logo) return;
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var desktop = window.matchMedia('(min-width: 601px)');
       var V = 0.9; // Calm tempo
       var raf;
 
-      function active() {
-        return desktop.matches ? { c: box, l: boxLogo } : { c: stage, l: stageLogo };
-      }
-      function center(c, l) {
-        var lx = Math.max(0, (c.clientWidth - l.offsetWidth) / 2);
-        var ly = Math.max(0, (c.clientHeight - l.offsetHeight) / 2);
-        l.style.transform = 'translate(' + lx + 'px,' + ly + 'px)';
+      function center() {
+        var lx = Math.max(0, (box.clientWidth - logo.offsetWidth) / 2);
+        var ly = Math.max(0, (box.clientHeight - logo.offsetHeight) / 2);
+        logo.style.transform = 'translate(' + lx + 'px,' + ly + 'px)';
       }
       function start() {
         if (raf) cancelAnimationFrame(raf);
-        var a = active(), c = a.c, l = a.l;
-        if (!c || !l) return;
-        if (reduce) { center(c, l); return; }
+        if (reduce) { center(); return; }
         var x = 36, y = 28, vx = V, vy = V * 0.8;
         (function step() {
-          var bw = c.clientWidth, bh = c.clientHeight, lw = l.offsetWidth, lh = l.offsetHeight;
+          var bw = box.clientWidth, bh = box.clientHeight, lw = logo.offsetWidth, lh = logo.offsetHeight;
           x += vx; y += vy;
           if (x <= 0) { x = 0; vx = Math.abs(vx); }
           if (x + lw >= bw) { x = bw - lw; vx = -Math.abs(vx); }
           if (y <= 0) { y = 0; vy = Math.abs(vy); }
           if (y + lh >= bh) { y = bh - lh; vy = -Math.abs(vy); }
-          l.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+          logo.style.transform = 'translate(' + x + 'px,' + y + 'px)';
           raf = requestAnimationFrame(step);
         })();
       }
 
       var t;
       window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(start, 150); });
-      if (desktop.addEventListener) desktop.addEventListener('change', start);
       start();
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
