@@ -42,24 +42,29 @@
       {%- endform -%}
     </div>
 
-    {%- comment -%} Instagram reels grid (placeholder: same reel x6) {%- endcomment -%}
-    <div class="cs-ig" aria-label="Latest from Instagram">
-      {%- assign reel_url = 'https://www.instagram.com/reel/DYeovueNgtH/' -%}
-      {%- for i in (1..6) -%}
-        <blockquote class="instagram-media" data-instgrm-permalink="{{ reel_url }}" data-instgrm-version="14">
-          <a href="{{ reel_url }}" target="_blank" rel="noopener">View on Instagram</a>
-        </blockquote>
-      {%- endfor -%}
-    </div>
+    {%- comment -%} Instagram posts — managed via section blocks in the theme editor {%- endcomment -%}
+    {%- assign ig_blocks = section.blocks | where: 'type', 'reel' -%}
+    {%- if ig_blocks.size > 0 -%}
+      <div class="cs-ig" aria-label="Latest from Instagram">
+        {%- for block in ig_blocks -%}
+          {%- assign reel_url = block.settings.url | strip -%}
+          {%- if reel_url != blank -%}
+            <blockquote class="instagram-media" data-instgrm-permalink="{{ reel_url }}" data-instgrm-version="14" {{ block.shopify_attributes }}>
+              <a href="{{ reel_url }}" target="_blank" rel="noopener">View on Instagram</a>
+            </blockquote>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {% # theme-check-disable RemoteAsset %}
+      <script async src="//www.instagram.com/embed.js"></script>
+      {% # theme-check-enable RemoteAsset %}
+      <script>
+        if (window.instgrm && window.instgrm.Embeds) { window.instgrm.Embeds.process(); }
+      </script>
+    {%- endif -%}
   </div>
 </div>
-
-{% # theme-check-disable RemoteAsset %}
-<script async src="//www.instagram.com/embed.js"></script>
-{% # theme-check-enable RemoteAsset %}
-<script>
-  if (window.instgrm && window.instgrm.Embeds) { window.instgrm.Embeds.process(); }
-</script>
 
 {% stylesheet %}
   .cs-section {
@@ -280,6 +285,21 @@
 {% schema %}
 {
   "name": "Coming soon",
-  "settings": []
+  "settings": [],
+  "blocks": [
+    {
+      "type": "reel",
+      "name": "Instagram post",
+      "settings": [
+        {
+          "type": "text",
+          "id": "url",
+          "label": "Instagram post or reel URL",
+          "info": "Paste the full link, e.g. https://www.instagram.com/reel/XXXXXXXXX/"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12
 }
 {% endschema %}
