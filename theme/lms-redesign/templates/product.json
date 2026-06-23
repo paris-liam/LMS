@@ -187,25 +187,6 @@
               },
               "blocks": {}
             },
-            "supercycle_methods_JQikNk": {
-              "type": "shopify://apps/supercycle/blocks/methods/7b3228ed-a72a-4935-9fee-0cebe8daa0aa",
-              "settings": {
-                "default_method": "calendar",
-                "subtitle_alignment": "right",
-                "help_text_display": "tooltip",
-                "calendar_unavailable_start_dates": "",
-                "calendar_price_display": "price_per_day/from_price",
-                "calendar_dropdown_alignment": "left",
-                "calendar_duration_options": false,
-                "calendar_duration_options_display": "radio",
-                "subscription_price_interval": "day",
-                "subscription_price_interval_count": 1,
-                "subscription_price_format": "from_price",
-                "pricing_groups_display": "radio",
-                "membership_join_button_url": "",
-                "custom_css": ""
-              }
-            },
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
               "settings": {
@@ -272,7 +253,6 @@
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
-            "supercycle_methods_JQikNk",
             "buy_buttons_eYQEYi",
             "text_aEtTtq"
           ]
