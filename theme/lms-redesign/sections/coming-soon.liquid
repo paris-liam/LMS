@@ -42,27 +42,19 @@
       {%- endform -%}
     </div>
 
-    {%- comment -%} Instagram posts — managed via section blocks in the theme editor {%- endcomment -%}
-    {%- assign ig_blocks = section.blocks | where: 'type', 'reel' -%}
-    {%- if ig_blocks.size > 0 -%}
-      <div class="cs-ig" aria-label="Latest from Instagram">
-        {%- for block in ig_blocks -%}
-          {%- assign reel_url = block.settings.url | strip -%}
-          {%- if reel_url != blank -%}
-            <blockquote class="instagram-media" data-instgrm-permalink="{{ reel_url }}" data-instgrm-version="14" {{ block.shopify_attributes }}>
-              <a href="{{ reel_url }}" target="_blank" rel="noopener">View on Instagram</a>
-            </blockquote>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-
-      {% # theme-check-disable RemoteAsset %}
-      <script async src="//www.instagram.com/embed.js"></script>
-      {% # theme-check-enable RemoteAsset %}
-      <script>
-        if (window.instgrm && window.instgrm.Embeds) { window.instgrm.Embeds.process(); }
-      </script>
-    {%- endif -%}
+    {%- comment -%} Instagram feed (LightWidget embed) {%- endcomment -%}
+    <div class="cs-ig">
+      {% # theme-check-disable RemoteAsset, ParserBlockingJavaScript %}
+      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+      <iframe
+        src="//lightwidget.com/widgets/f499811476365393bcf281510dc81f1c.html"
+        scrolling="no"
+        allowtransparency="true"
+        class="lightwidget-widget"
+        style="width:100%;border:0;overflow:hidden;"
+      ></iframe>
+      {% # theme-check-enable RemoteAsset, ParserBlockingJavaScript %}
+    </div>
   </div>
 </div>
 
@@ -217,15 +209,6 @@
   .cs-ig {
     width: min(980px, 100%);
     margin-top: 48px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 16px;
-    align-items: start;
-  }
-  .cs-ig .instagram-media {
-    min-width: 0 !important;
-    width: 100% !important;
-    margin: 0 !important;
   }
 
   @media (max-width: 600px) {
@@ -286,21 +269,6 @@
 {% schema %}
 {
   "name": "Coming soon",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "reel",
-      "name": "Instagram post",
-      "settings": [
-        {
-          "type": "text",
-          "id": "url",
-          "label": "Instagram post or reel URL",
-          "info": "Paste the full link, e.g. https://www.instagram.com/reel/XXXXXXXXX/"
-        }
-      ]
-    }
-  ],
-  "max_blocks": 12
+  "settings": []
 }
 {% endschema %}
