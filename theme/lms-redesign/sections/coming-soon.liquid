@@ -40,22 +40,22 @@
           {%- endif -%}
         {%- endif -%}
       {%- endform -%}
+
+      {%- comment -%} Instagram feed (LightWidget) — under the email signup {%- endcomment -%}
+      <div class="cs-ig">
+        {% # theme-check-disable RemoteAsset %}
+        <script src="https://cdn.lightwidget.com/widgets/lightwidget.js" defer></script>
+        {% # theme-check-enable RemoteAsset %}
+        <iframe
+          src="//lightwidget.com/widgets/f499811476365393bcf281510dc81f1c.html"
+          scrolling="no"
+          allowtransparency="true"
+          class="lightwidget-widget"
+          style="width:100%;border:0;overflow:hidden;"
+        ></iframe>
+      </div>
     </div>
   </div>
-</div>
-
-{%- comment -%} Instagram feed (LightWidget) — placed outside the bordered card {%- endcomment -%}
-<div class="cs-ig">
-  {% # theme-check-disable RemoteAsset %}
-  <script src="https://cdn.lightwidget.com/widgets/lightwidget.js" defer></script>
-  {% # theme-check-enable RemoteAsset %}
-  <iframe
-    src="//lightwidget.com/widgets/f499811476365393bcf281510dc81f1c.html"
-    scrolling="no"
-    allowtransparency="true"
-    class="lightwidget-widget"
-    style="width:100%;border:0;overflow:hidden;"
-  ></iframe>
 </div>
 
 {% stylesheet %}
@@ -207,9 +207,9 @@
   }
 
   .cs-ig {
-    width: min(320px, 100%);
-    margin: 0 auto;
-    padding: 24px 16px 40px;
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto 0;
   }
 
   @media (max-width: 600px) {
