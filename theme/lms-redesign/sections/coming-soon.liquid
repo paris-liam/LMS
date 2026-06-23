@@ -44,8 +44,9 @@
 
     {%- comment -%} Instagram feed (LightWidget embed) {%- endcomment -%}
     <div class="cs-ig">
-      {% # theme-check-disable RemoteAsset, ParserBlockingJavaScript %}
-      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+      {% # theme-check-disable RemoteAsset %}
+      <script src="https://cdn.lightwidget.com/widgets/lightwidget.js" defer></script>
+      {% # theme-check-enable RemoteAsset %}
       <iframe
         src="//lightwidget.com/widgets/f499811476365393bcf281510dc81f1c.html"
         scrolling="no"
@@ -53,7 +54,6 @@
         class="lightwidget-widget"
         style="width:100%;border:0;overflow:hidden;"
       ></iframe>
-      {% # theme-check-enable RemoteAsset, ParserBlockingJavaScript %}
     </div>
   </div>
 </div>
