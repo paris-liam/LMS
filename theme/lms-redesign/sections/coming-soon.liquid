@@ -41,8 +41,25 @@
         {%- endif -%}
       {%- endform -%}
     </div>
+
+    {%- comment -%} Instagram reels grid (placeholder: same reel x6) {%- endcomment -%}
+    <div class="cs-ig" aria-label="Latest from Instagram">
+      {%- assign reel_url = 'https://www.instagram.com/reel/DYeovueNgtH/' -%}
+      {%- for i in (1..6) -%}
+        <blockquote class="instagram-media" data-instgrm-permalink="{{ reel_url }}" data-instgrm-version="14">
+          <a href="{{ reel_url }}" target="_blank" rel="noopener">View on Instagram</a>
+        </blockquote>
+      {%- endfor -%}
+    </div>
   </div>
 </div>
+
+{% # theme-check-disable RemoteAsset %}
+<script async src="//www.instagram.com/embed.js"></script>
+{% # theme-check-enable RemoteAsset %}
+<script>
+  if (window.instgrm && window.instgrm.Embeds) { window.instgrm.Embeds.process(); }
+</script>
 
 {% stylesheet %}
   .cs-section {
@@ -189,6 +206,20 @@
     padding: 0; margin: -1px;
     overflow: hidden; clip: rect(0, 0, 0, 0);
     white-space: nowrap; border: 0;
+  }
+
+  .cs-ig {
+    width: min(980px, 100%);
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    align-items: start;
+  }
+  .cs-ig .instagram-media {
+    min-width: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
   }
 
   @media (max-width: 600px) {
