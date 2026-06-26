@@ -1,0 +1,239 @@
+/* ============================================================================
+   Little Movie Store — Design Tokens for Shopify
+   ----------------------------------------------------------------------------
+   Single, self-contained stylesheet. No @imports, no build step.
+
+   HOW TO USE IN A SHOPIFY THEME (Dawn or custom):
+   1. Upload this file to the theme's `assets/` folder as `lms-tokens.css`.
+   2. In `layout/theme.liquid`, inside <head>, add:
+        {{ 'lms-tokens.css' | asset_url | stylesheet_tag }}
+      Load it BEFORE the theme's own base.css so your sections can use the
+      variables (and so a few opinionated base styles below take effect).
+   3. Fonts: Epilogue + DM Mono are loaded from Google Fonts below via
+      @font-face. If you'd rather use Shopify's native font_picker settings,
+      delete the @font-face block + the <link>/preconnect note and set
+      --font-display / --font-mono from your settings, e.g.:
+        --font-display: {{ settings.heading_font.family }}, sans-serif;
+      and add {{ settings.heading_font | font_face }} in theme.liquid.
+   4. Reference everywhere as var(--token-name).
+
+   NOTE on color-mix()/oklch(): supported in all evergreen browsers (2023+).
+   A few derived tints use them; fallbacks are noted inline where it matters.
+   ========================================================================== */
+
+/* ----------------------------------------------------------------------------
+   FONTS — Epilogue (headings) + DM Mono (body, eyebrow, UI)
+   Served from Google Fonts' CDN. For best performance also add this to
+   <head> in theme.liquid:
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+---------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Epilogue"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYrYsh.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Epilogue"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYsosh.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Epilogue"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYpIth.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Epilogue"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYwYth.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono"; font-style: normal; font-weight: 300; font-display: swap;
+  src: url("https://fonts.gstatic.com/s/dmmono/v14/aFTR7PB1QTsUX8KYthqQBK6PYK0.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("https://fonts.gstatic.com/s/dmmono/v14/aFTU7PB1QTsUX8KYvrGyIYSnbKX9Rlk.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("https://fonts.gstatic.com/s/dmmono/v14/aFTU7PB1QTsUX8KYvuGyIYSnbKX9Rlk.woff2") format("woff2");
+}
+
+:root {
+  /* ==========================================================================
+     COLOR — raw brand palette
+     ========================================================================== */
+  --lms-brick:       #973123;  /* PRIMARY — exposed-brick red */
+  --lms-mahogany:    #3a2018;  /* PRIMARY — deep wood-panel brown / ink */
+  --lms-sage:        #5f8d7a;  /* SECONDARY — soft flannel green */
+  --lms-hunter:      #343a31;  /* SECONDARY — grounded deep green */
+  --lms-parchment:   #fff9ef;  /* SECONDARY — warm paper background */
+  --lms-cyan:        #8fcdcf;  /* SECONDARY — soft cyan accent */
+
+  /* Tints & shades (derived). Hex fallbacks given for the oklch values. */
+  --lms-brick-dark:  #6f2417;  /* pressed brick (≈ oklch(0.42 0.12 36)) */
+  --lms-brick-tint:  #f3e2dc;  /* brick wash on parchment */
+  --lms-sage-dark:   #4a7264;
+  --lms-sage-tint:   #e4eee9;
+  --lms-cyan-tint:   #e6f3f3;
+  --lms-parchment-2: #fdf3e2;  /* slightly deeper paper */
+  --lms-parchment-edge: #f3e7d0; /* paper edge / hairline */
+
+  /* Ink ramp — mahogany-based neutrals (text + lines) */
+  --lms-ink-900: #2a1610;
+  --lms-ink-800: #3a2018;
+  --lms-ink-700: #4d2f25;
+  --lms-ink-500: #6b5147;
+  --lms-ink-400: #8a7568;
+  --lms-ink-300: #b3a294;
+  --lms-ink-200: #d8cbb9;
+  --lms-ink-100: #ece1cf;
+
+  /* ---- Semantic color aliases (use THESE in sections) ---- */
+  --color-bg:            var(--lms-parchment);
+  --color-bg-sunken:     var(--lms-parchment-2);
+  --surface-card:        #ffffff;
+  --surface-raised:      var(--lms-parchment);
+  --surface-inverse:     var(--lms-mahogany);
+
+  --text-strong:         var(--lms-mahogany);
+  --text-body:           var(--lms-ink-700);
+  --text-muted:          var(--lms-ink-500);
+  --text-on-dark:        var(--lms-parchment);
+  --text-on-brick:       var(--lms-parchment);
+
+  --color-primary:       var(--lms-brick);
+  --color-primary-press: var(--lms-brick-dark);
+  --color-accent:        var(--lms-sage);
+  --color-accent-cyan:   var(--lms-cyan);
+
+  --border-default:      var(--lms-parchment-edge);
+  --border-strong:       var(--lms-ink-800);
+  --border-hairline:     rgba(58, 32, 24, 0.14);
+
+  --focus-ring:          var(--lms-sage);
+
+  --color-success:       var(--lms-sage);
+  --color-info:          var(--lms-cyan);
+  --color-danger:        var(--lms-brick);
+
+  /* ==========================================================================
+     TYPOGRAPHY
+     ========================================================================== */
+  --font-display: "Epilogue", system-ui, sans-serif;                       /* headings */
+  --font-mono:    "DM Mono", ui-monospace, "SFMono-Regular", monospace;    /* body, eyebrow, UI */
+  --font-body:    var(--font-mono);
+
+  /* Weights */
+  --fw-mono-light: 300;
+  --fw-mono-reg:   400;
+  --fw-mono-med:   500;
+  --fw-head-reg:   400;
+  --fw-head-med:   500;
+  --fw-head-semi:  600;
+  --fw-head-bold:  700;
+
+  /* Type scale */
+  --fs-display: 3.5rem;    /* 56px hero */
+  --fs-h1:      1.875rem;  /* 30px */
+  --fs-h2:      1.5625rem; /* 25px */
+  --fs-h3:      1.25rem;   /* 20px */
+  --fs-h4:      1.0625rem; /* 17px */
+  --fs-body:    1rem;      /* 16px — Body 1 */
+  --fs-body-sm: 0.8125rem; /* 13px — Body 2 */
+  --fs-eyebrow: 0.75rem;   /* 12px */
+  --fs-caption: 0.6875rem; /* 11px */
+
+  /* Line heights */
+  --lh-tight:   1.1;
+  --lh-heading: 1.18;
+  --lh-snug:    1.4;
+  --lh-body:    1.6;
+
+  /* Tracking — eyebrow is the signature wide-tracked uppercase label */
+  --tracking-eyebrow: 0.22em;
+  --tracking-wide:    0.06em;
+  --tracking-normal:  0;
+
+  /* ==========================================================================
+     SPACING — 4px base
+     ========================================================================== */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+
+  /* ==========================================================================
+     RADII — buttons & tags are SQUARE (0); surfaces use soft corners
+     ========================================================================== */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-xl:   28px;
+  --radius-button: 0;      /* squared CTAs — brand decision */
+  --radius-pill: 999px;    /* retained for any pill use; buttons no longer use it */
+
+  /* Borders */
+  --border-width:        1.5px;
+  --border-width-strong: 2px;
+
+  /* ==========================================================================
+     SHADOWS — warm-tinted (mahogany), soft and low
+     ========================================================================== */
+  --shadow-xs:    0 1px 2px rgba(58, 32, 24, 0.08);
+  --shadow-sm:    0 2px 6px rgba(58, 32, 24, 0.10);
+  --shadow-md:    0 6px 18px rgba(58, 32, 24, 0.12);
+  --shadow-lg:    0 16px 40px rgba(58, 32, 24, 0.16);
+  --shadow-inset: inset 0 1px 0 rgba(255, 249, 239, 0.6);
+
+  /* ==========================================================================
+     LAYOUT + MOTION
+     ========================================================================== */
+  --container-max:  1200px;
+  --container-text: 660px;
+
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:  140ms;
+  --dur-base:  220ms;
+  --dur-slow:  420ms;
+}
+
+/* ----------------------------------------------------------------------------
+   OPTIONAL base styles — brand voice on the storefront body + headings.
+   Safe to delete if Dawn's own base rules conflict; the variables above are
+   the part that matters. Scoped lightly to avoid fighting theme resets.
+---------------------------------------------------------------------------- */
+body {
+  background: var(--color-bg);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-weight: var(--fw-mono-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  line-height: var(--lh-heading);
+  font-weight: var(--fw-head-med);
+}
+
+/* The signature eyebrow label — reuse as <span class="lms-eyebrow"> */
+.lms-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-mono-med);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+::selection {
+  background: var(--lms-cyan);
+  color: var(--lms-mahogany);
+}
