@@ -1,0 +1,43 @@
+/* Little Movie Store — Typography tokens
+   Epilogue for headings (Sentence case), DM Mono for body + eyebrow.
+   Hierarchy taken directly from the brand book type spec. */
+
+:root {
+  /* Families */
+  --font-display: "Epilogue", system-ui, sans-serif;   /* headings */
+  --font-mono:    "DM Mono", ui-monospace, "SFMono-Regular", monospace; /* body, eyebrow */
+  --font-body:    var(--font-mono);
+
+  /* Weights */
+  --fw-mono-light:  300; /* @kind other */
+  --fw-mono-reg:    400; /* @kind other */
+  --fw-mono-med:    500; /* @kind other */
+  --fw-head-reg:    400; /* @kind other */
+  --fw-head-med:    500; /* @kind other */
+  --fw-head-semi:   600; /* @kind other */
+  --fw-head-bold:   700; /* @kind other */
+
+  /* Type scale (rem; 1rem = 16px) — Epilogue headings */
+  --fs-display: 3.5rem;   /* 56px hero */
+  --fs-h1:      1.875rem; /* 30px — Heading 1 (Epilogue Medium) */
+  --fs-h2:      1.5625rem;/* 25px — Heading 2 (Epilogue Regular) */
+  --fs-h3:      1.25rem;  /* 20px */
+  --fs-h4:      1.0625rem;/* 17px */
+
+  /* Body — DM Mono */
+  --fs-body:    1rem;     /* 16px — Body 1 */
+  --fs-body-sm: 0.8125rem;/* 13px — Body 2 */
+  --fs-eyebrow: 0.75rem;  /* 12px — Eyebrow */
+  --fs-caption: 0.6875rem;/* 11px */
+
+  /* Line heights */
+  --lh-tight:   1.1; /* @kind other */
+  --lh-heading: 1.18; /* @kind other */
+  --lh-snug:    1.4; /* @kind other */
+  --lh-body:    1.6; /* @kind other */
+
+  /* Tracking — eyebrow is the signature wide-tracked uppercase label */
+  --tracking-eyebrow: 0.22em; /* @kind other */
+  --tracking-wide:    0.06em; /* @kind other */
+  --tracking-normal:  0; /* @kind other */
+}

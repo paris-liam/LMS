@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/styles.css">
+  <style>
+    * { box-sizing: border-box; }
+    @keyframes browsePop { 0%{transform:translateY(0)} 2%{transform:translateY(-18px)} 9%{transform:translateY(-18px)} 11%{transform:translateY(0)} 100%{transform:translateY(0)} }
+    @keyframes shelfScroll  { from{transform:translateX(0)}      to{transform:translateX(-50%)} }
+    @keyframes shelfScrollR { from{transform:translateX(-50%)}   to{transform:translateX(0)} }
+    @keyframes sweep { 0%{transform:translateX(-70%)} 100%{transform:translateX(420%)} }
+    @keyframes facefade { 0%{opacity:0} 3%{opacity:1} 19%{opacity:1} 23%{opacity:0} 100%{opacity:0} }
+    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+  </style>
+</helmet>
+
+<!-- ============ SHELF A — AUTO-BROWSE (a spine lifts in sequence) ============ -->
+<div style="position:absolute; left:40px; top:40px; width:460px;">
+  <div data-drags-parent="1" style="font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#6b5147; margin-bottom:12px;">Shelf A · Auto-browse</div>
+  <div style="background:#fff; border-radius:2px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:22px;">
+    <div style="border-radius:var(--radius-lg); overflow:hidden; border:2px solid var(--border-strong); box-shadow:var(--shadow-lg); background:var(--lms-mahogany);">
+      <div style="position:relative; aspect-ratio:5/4; background:var(--lms-parchment-2); overflow:hidden; display:flex; flex-direction:column; justify-content:center; gap:20px; padding:0 18px;">
+        <div style="display:flex; align-items:flex-end; gap:6px; height:130px; border-bottom:4px solid var(--lms-ink-700); padding-bottom:6px;">
+          <div style="width:16px; height:96px; background:var(--lms-brick); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:0s;"></div>
+          <div style="width:13px; height:78px; background:var(--lms-hunter); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:-1s;"></div>
+          <div style="width:19px; height:104px; background:var(--lms-mahogany); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:-2s;"></div>
+          <div style="width:12px; height:70px; background:var(--lms-sage); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:-3s;"></div>
+          <div style="width:21px; height:92px; background:var(--lms-ink-700); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:-4s;"></div>
+          <div style="width:14px; height:100px; background:var(--lms-brick-dark); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:-5s;"></div>
+          <div style="width:17px; height:76px; background:var(--lms-cyan); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:-6s;"></div>
+          <div style="width:13px; height:90px; background:var(--lms-hunter); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:-7s;"></div>
+          <div style="width:19px; height:84px; background:var(--lms-brick); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:-8s;"></div>
+          <div style="width:14px; height:98px; background:var(--lms-mahogany); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:-9s;"></div>
+          <div style="width:12px; height:72px; background:var(--lms-sage); border-radius:1px; transform-origin:bottom; animation:browsePop 11s ease-in-out infinite; animation-delay:-10s;"></div>
+        </div>
+      </div>
+      <div style="background:var(--lms-mahogany); padding:16px 20px; display:flex; align-items:center; gap:12px;">
+        <span style="font-family:var(--font-mono); font-weight:500; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--lms-cyan); white-space:nowrap;">▶ Browse the shelves</span>
+        <span style="font-family:var(--font-mono); font-weight:300; font-size:12px; color:color-mix(in oklch, var(--lms-parchment) 64%, transparent);">someone's always pulling one out</span>
+      </div>
+    </div>
+    <p style="font-family:var(--font-mono); font-weight:300; font-size:12px; line-height:1.6; color:#6b5147; margin:16px 2px 2px;">Spines lift one at a time, like a hand browsing the row. Quiet, hypnotic, and unmistakably the store.</p>
+  </div>
+</div>
+
+<!-- ============ SHELF B — FACE-OUT FEATURE (real cover among spines) ============ -->
+<div style="position:absolute; left:560px; top:40px; width:460px;">
+  <div data-drags-parent="1" style="font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#6b5147; margin-bottom:12px;">Shelf B · Face-out feature</div>
+  <div style="background:#fff; border-radius:2px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:22px;">
+    <div style="border-radius:var(--radius-lg); overflow:hidden; border:2px solid var(--border-strong); box-shadow:var(--shadow-lg); background:var(--lms-mahogany);">
+      <div style="position:relative; aspect-ratio:5/4; background:var(--lms-parchment-2); overflow:hidden; display:flex; align-items:flex-end; justify-content:center; padding:0 16px;">
+        <!-- back row of spines -->
+        <div style="position:absolute; left:16px; right:16px; bottom:6px; display:flex; align-items:flex-end; gap:5px; height:118px; border-bottom:4px solid var(--lms-ink-700); padding-bottom:6px; opacity:0.92;">
+          <div style="width:13px; height:80px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:11px; height:64px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:16px; height:88px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:11px; height:60px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:14px; height:78px; background:var(--lms-ink-700); border-radius:1px;"></div>
+          <div style="flex:1;"></div>
+          <div style="width:14px; height:74px; background:var(--lms-cyan); border-radius:1px;"></div><div style="width:11px; height:62px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:16px; height:86px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:12px; height:66px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:13px; height:80px; background:var(--lms-brick-dark); border-radius:1px;"></div>
+        </div>
+        <!-- face-out poster, cross-fading -->
+        <div style="position:relative; width:42%; aspect-ratio:2/3; margin-bottom:10px; z-index:2;">
+          <img src="uploads/paris-texas.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:2px; box-shadow:var(--shadow-lg); opacity:0; animation:facefade 18s ease-in-out infinite; animation-delay:0s;">
+          <img src="uploads/mullholland-drive.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:2px; box-shadow:var(--shadow-lg); opacity:0; animation:facefade 18s ease-in-out infinite; animation-delay:-3.6s;">
+          <img src="uploads/the-witch.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:2px; box-shadow:var(--shadow-lg); opacity:0; animation:facefade 18s ease-in-out infinite; animation-delay:-7.2s;">
+          <img src="uploads/alien.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:2px; box-shadow:var(--shadow-lg); opacity:0; animation:facefade 18s ease-in-out infinite; animation-delay:-10.8s;">
+          <img src="uploads/blow-out.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:2px; box-shadow:var(--shadow-lg); opacity:0; animation:facefade 18s ease-in-out infinite; animation-delay:-14.4s;">
+        </div>
+      </div>
+      <div style="background:var(--lms-mahogany); padding:16px 20px; display:flex; align-items:center; gap:12px;">
+        <span style="font-family:var(--font-mono); font-weight:500; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--lms-cyan); white-space:nowrap;">✦ Staff pick</span>
+        <span style="font-family:var(--font-mono); font-weight:300; font-size:12px; color:color-mix(in oklch, var(--lms-parchment) 64%, transparent);">faced out on the shelf</span>
+      </div>
+    </div>
+    <p style="font-family:var(--font-mono); font-weight:300; font-size:12px; line-height:1.6; color:#6b5147; margin:16px 2px 2px;">One title faced out among the spines, swapping through real covers — exactly how a shop merchandises a pick.</p>
+  </div>
+</div>
+
+<!-- ============ SHELF C — ENDLESS WALL (two rows scrolling) ============ -->
+<div style="position:absolute; left:1080px; top:40px; width:460px;">
+  <div data-drags-parent="1" style="font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#6b5147; margin-bottom:12px;">Shelf C · Endless wall</div>
+  <div style="background:#fff; border-radius:2px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:22px;">
+    <div style="border-radius:var(--radius-lg); overflow:hidden; border:2px solid var(--border-strong); box-shadow:var(--shadow-lg); background:var(--lms-mahogany);">
+      <div style="position:relative; aspect-ratio:5/4; background:var(--lms-parchment-2); overflow:hidden; display:flex; flex-direction:column; justify-content:center; gap:16px;">
+        <div style="overflow:hidden;">
+          <div style="display:flex; align-items:flex-end; gap:5px; width:max-content; border-bottom:4px solid var(--lms-ink-700); padding:0 0 6px; animation:shelfScroll 28s linear infinite;">
+            <div style="width:15px; height:86px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:12px; height:64px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:18px; height:92px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:11px; height:58px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:20px; height:80px; background:var(--lms-ink-700); border-radius:1px;"></div><div style="width:13px; height:88px; background:var(--lms-brick-dark); border-radius:1px;"></div><div style="width:16px; height:62px; background:var(--lms-cyan); border-radius:1px;"></div><div style="width:12px; height:78px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:18px; height:70px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:14px; height:90px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:11px; height:60px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:17px; height:82px; background:var(--lms-ink-700); border-radius:1px;"></div>
+            <div style="width:15px; height:86px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:12px; height:64px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:18px; height:92px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:11px; height:58px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:20px; height:80px; background:var(--lms-ink-700); border-radius:1px;"></div><div style="width:13px; height:88px; background:var(--lms-brick-dark); border-radius:1px;"></div><div style="width:16px; height:62px; background:var(--lms-cyan); border-radius:1px;"></div><div style="width:12px; height:78px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:18px; height:70px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:14px; height:90px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:11px; height:60px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:17px; height:82px; background:var(--lms-ink-700); border-radius:1px;"></div>
+          </div>
+        </div>
+        <div style="overflow:hidden;">
+          <div style="display:flex; align-items:flex-end; gap:5px; width:max-content; border-bottom:4px solid var(--lms-ink-700); padding:0 0 6px; animation:shelfScrollR 32s linear infinite;">
+            <div style="width:13px; height:72px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:19px; height:88px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:12px; height:60px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:16px; height:84px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:11px; height:66px; background:var(--lms-brick-dark); border-radius:1px;"></div><div style="width:20px; height:90px; background:var(--lms-ink-700); border-radius:1px;"></div><div style="width:13px; height:62px; background:var(--lms-cyan); border-radius:1px;"></div><div style="width:15px; height:78px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:12px; height:70px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:18px; height:86px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:11px; height:58px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:17px; height:80px; background:var(--lms-ink-700); border-radius:1px;"></div>
+            <div style="width:13px; height:72px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:19px; height:88px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:12px; height:60px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:16px; height:84px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:11px; height:66px; background:var(--lms-brick-dark); border-radius:1px;"></div><div style="width:20px; height:90px; background:var(--lms-ink-700); border-radius:1px;"></div><div style="width:13px; height:62px; background:var(--lms-cyan); border-radius:1px;"></div><div style="width:15px; height:78px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:12px; height:70px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:18px; height:86px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:11px; height:58px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:17px; height:80px; background:var(--lms-ink-700); border-radius:1px;"></div>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--lms-mahogany); padding:16px 20px; display:flex; align-items:center; gap:12px;">
+        <span style="font-family:var(--font-mono); font-weight:500; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--lms-cyan); white-space:nowrap;">▶ Wall to wall</span>
+        <span style="font-family:var(--font-mono); font-weight:300; font-size:12px; color:color-mix(in oklch, var(--lms-parchment) 64%, transparent);">rows that never end</span>
+      </div>
+    </div>
+    <p style="font-family:var(--font-mono); font-weight:300; font-size:12px; line-height:1.6; color:#6b5147; margin:16px 2px 2px;">Two rows drift in opposite directions — a wall of movies that feels deep and endlessly stocked.</p>
+  </div>
+</div>
+
+<!-- ============ SHELF D — SORTED BY COLOUR (tonal gradient + sweep) ============ -->
+<div style="position:absolute; left:1600px; top:40px; width:460px;">
+  <div data-drags-parent="1" style="font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#6b5147; margin-bottom:12px;">Shelf D · Sorted by colour</div>
+  <div style="background:#fff; border-radius:2px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:22px;">
+    <div style="border-radius:var(--radius-lg); overflow:hidden; border:2px solid var(--border-strong); box-shadow:var(--shadow-lg); background:var(--lms-mahogany);">
+      <div style="position:relative; aspect-ratio:5/4; background:var(--lms-parchment-2); overflow:hidden; display:flex; flex-direction:column; justify-content:center; gap:18px; padding:0 18px;">
+        <div style="position:absolute; top:0; bottom:0; width:80px; background:linear-gradient(90deg, transparent, rgba(255,249,239,0.6), transparent); animation:sweep 6s ease-in-out infinite; pointer-events:none; z-index:3;"></div>
+        <div style="display:flex; align-items:flex-end; gap:4px; height:108px; border-bottom:4px solid var(--lms-ink-700); padding-bottom:6px;">
+          <div style="width:13px; height:84px; background:#7d2117; border-radius:1px;"></div><div style="width:13px; height:92px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:13px; height:76px; background:#a8430f; border-radius:1px;"></div><div style="width:13px; height:96px; background:#b8860b; border-radius:1px;"></div><div style="width:13px; height:80px; background:#8a7011; border-radius:1px;"></div><div style="width:13px; height:88px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:13px; height:72px; background:#3f6b4a; border-radius:1px;"></div><div style="width:13px; height:94px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:13px; height:82px; background:#5a9ba0; border-radius:1px;"></div><div style="width:13px; height:90px; background:var(--lms-cyan); border-radius:1px;"></div><div style="width:13px; height:78px; background:#5566a0; border-radius:1px;"></div><div style="width:13px; height:86px; background:#3a3f72; border-radius:1px;"></div><div style="width:13px; height:74px; background:var(--lms-mahogany); border-radius:1px;"></div>
+        </div>
+        <div style="display:flex; align-items:flex-end; gap:4px; height:96px; border-bottom:4px solid var(--lms-ink-700); padding-bottom:6px;">
+          <div style="width:13px; height:72px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:13px; height:80px; background:#3a3f72; border-radius:1px;"></div><div style="width:13px; height:66px; background:#5566a0; border-radius:1px;"></div><div style="width:13px; height:84px; background:var(--lms-cyan); border-radius:1px;"></div><div style="width:13px; height:70px; background:#5a9ba0; border-radius:1px;"></div><div style="width:13px; height:78px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:13px; height:64px; background:#3f6b4a; border-radius:1px;"></div><div style="width:13px; height:82px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:13px; height:68px; background:#8a7011; border-radius:1px;"></div><div style="width:13px; height:86px; background:#b8860b; border-radius:1px;"></div><div style="width:13px; height:72px; background:#a8430f; border-radius:1px;"></div><div style="width:13px; height:88px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:13px; height:70px; background:#7d2117; border-radius:1px;"></div>
+        </div>
+      </div>
+      <div style="background:var(--lms-mahogany); padding:16px 20px; display:flex; align-items:center; gap:12px;">
+        <span style="font-family:var(--font-mono); font-weight:500; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--lms-cyan); white-space:nowrap;">✦ Organised chaos</span>
+        <span style="font-family:var(--font-mono); font-weight:300; font-size:12px; color:color-mix(in oklch, var(--lms-parchment) 64%, transparent);">sorted just so</span>
+      </div>
+    </div>
+    <p style="font-family:var(--font-mono); font-weight:300; font-size:12px; line-height:1.6; color:#6b5147; margin:16px 2px 2px;">Spines arranged into a tonal gradient with a warm light passing over — tidy, satisfying, and very photogenic.</p>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

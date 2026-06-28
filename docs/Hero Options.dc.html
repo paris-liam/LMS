@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/styles.css">
+  <style>
+    * { box-sizing: border-box; }
+    /* shared cross-fade for a 5-image cycle (15s loop, ~3s each) */
+    @keyframes fade5 { 0%{opacity:0} 2%{opacity:1} 18%{opacity:1} 22%{opacity:0} 100%{opacity:0} }
+    /* cross-fade for a 4-item cycle (12s loop) */
+    @keyframes fade4 { 0%{opacity:0} 3%{opacity:1} 22%{opacity:1} 26%{opacity:0} 100%{opacity:0} }
+    @keyframes crtFlicker { 0%,100%{opacity:1} 47%{opacity:0.97} 48%{opacity:0.92} 49%{opacity:1} }
+    @keyframes shelfSweep { 0%{transform:translateX(-60%)} 100%{transform:translateX(360%)} }
+    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    @keyframes floatY2 { 0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-16px) rotate(3deg)} }
+    @keyframes bulbA { 0%,100%{opacity:1} 50%{opacity:0.35} }
+    @keyframes bulbB { 0%,100%{opacity:0.35} 50%{opacity:1} }
+    @keyframes posterPop { 0%{opacity:0;transform:scale(1.04)} 4%{opacity:1;transform:scale(1)} 20%{opacity:1;transform:scale(1)} 24%{opacity:0;transform:scale(0.99)} 100%{opacity:0} }
+  </style>
+</helmet>
+
+<!-- ============ OPTION 1 — NOW PLAYING (CRT screen, cycles real covers) ============ -->
+<div style="position:absolute; left:40px; top:40px; width:460px;">
+  <div data-drags-parent="1" style="font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#6b5147; margin-bottom:12px;">Option 1 · Now playing (TV)</div>
+  <div style="background:#fff; border-radius:2px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:22px;">
+    <div style="border-radius:var(--radius-lg); overflow:hidden; border:2px solid var(--border-strong); box-shadow:var(--shadow-lg); background:var(--lms-mahogany);">
+      <div style="position:relative; aspect-ratio:5/4; background:#0c0704; overflow:hidden;">
+        <img src="uploads/drive-my-car.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; animation:fade5 15s linear infinite; animation-delay:0s;">
+        <img src="uploads/the-witch.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; animation:fade5 15s linear infinite; animation-delay:-3s;">
+        <img src="uploads/mullholland-drive.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; animation:fade5 15s linear infinite; animation-delay:-6s;">
+        <img src="uploads/alien.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; animation:fade5 15s linear infinite; animation-delay:-9s;">
+        <img src="uploads/the-long-goodbye.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; animation:fade5 15s linear infinite; animation-delay:-12s;">
+        <!-- scanlines + glass vignette -->
+        <div style="position:absolute; inset:0; background:repeating-linear-gradient(to bottom, rgba(0,0,0,0.16) 0px, rgba(0,0,0,0.16) 1px, transparent 2px, transparent 4px); mix-blend-mode:multiply; pointer-events:none;"></div>
+        <div style="position:absolute; inset:0; background:radial-gradient(circle at 50% 42%, transparent 52%, rgba(0,0,0,0.5) 100%); pointer-events:none; animation:crtFlicker 6s ease-in-out infinite;"></div>
+      </div>
+      <div style="background:var(--lms-mahogany); padding:16px 20px; display:flex; align-items:center; gap:12px;">
+        <span style="font-family:var(--font-mono); font-weight:500; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--lms-cyan); white-space:nowrap;">▶ Now screening</span>
+        <span style="font-family:var(--font-mono); font-weight:300; font-size:12px; color:color-mix(in oklch, var(--lms-parchment) 64%, transparent);">tonight's rotation, on the lounge TV</span>
+      </div>
+    </div>
+    <p style="font-family:var(--font-mono); font-weight:300; font-size:12px; line-height:1.6; color:#6b5147; margin:16px 2px 2px;">A vintage TV that channel-surfs through real covers — scanlines, soft flicker, calm cross-fades. Closest to "movies you can feel."</p>
+  </div>
+</div>
+
+<!-- ============ OPTION 2 — THE SHELF (refined spine wall, client's original) ============ -->
+<div style="position:absolute; left:560px; top:40px; width:460px;">
+  <div data-drags-parent="1" style="font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#6b5147; margin-bottom:12px;">Option 2 · The shelf</div>
+  <div style="background:#fff; border-radius:2px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:22px;">
+    <div style="border-radius:var(--radius-lg); overflow:hidden; border:2px solid var(--border-strong); box-shadow:var(--shadow-lg); background:var(--lms-mahogany);">
+      <div style="position:relative; aspect-ratio:5/4; background:var(--lms-parchment-2); overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; gap:0; padding-top:14px;">
+        <!-- light sweep -->
+        <div style="position:absolute; top:0; bottom:0; width:90px; background:linear-gradient(90deg, transparent, rgba(255,249,239,0.55), transparent); animation:shelfSweep 7s ease-in-out infinite; pointer-events:none; z-index:3;"></div>
+        <div style="display:flex; align-items:flex-end; gap:5px; padding:0 16px 8px; border-bottom:4px solid var(--lms-ink-700);">
+          <div style="width:15px; height:78px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:12px; height:62px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:18px; height:84px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:11px; height:56px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:20px; height:72px; background:var(--lms-ink-700); border-radius:1px;"></div><div style="width:13px; height:80px; background:var(--lms-brick-dark); border-radius:1px;"></div><div style="width:16px; height:60px; background:var(--lms-cyan); border-radius:1px;"></div><div style="width:12px; height:74px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:18px; height:66px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:14px; height:82px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:11px; height:58px; background:var(--lms-sage); border-radius:1px;"></div>
+        </div>
+        <div style="display:flex; align-items:flex-end; gap:5px; padding:14px 16px 8px; border-bottom:4px solid var(--lms-ink-700);">
+          <div style="width:13px; height:64px; background:var(--lms-sage); border-radius:1px;"></div><div style="width:19px; height:80px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:12px; height:54px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:16px; height:76px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:11px; height:60px; background:var(--lms-brick-dark); border-radius:1px;"></div><div style="width:20px; height:84px; background:var(--lms-ink-700); border-radius:1px;"></div><div style="width:13px; height:58px; background:var(--lms-cyan); border-radius:1px;"></div><div style="width:15px; height:72px; background:var(--lms-brick); border-radius:1px;"></div><div style="width:12px; height:66px; background:var(--lms-hunter); border-radius:1px;"></div><div style="width:18px; height:78px; background:var(--lms-mahogany); border-radius:1px;"></div><div style="width:11px; height:56px; background:var(--lms-sage); border-radius:1px;"></div>
+        </div>
+      </div>
+      <div style="background:var(--lms-mahogany); padding:16px 20px; display:flex; align-items:center; gap:12px;">
+        <span style="font-family:var(--font-mono); font-weight:500; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--lms-cyan); white-space:nowrap;">▶ On the shelves</span>
+        <span style="font-family:var(--font-mono); font-weight:300; font-size:12px; color:color-mix(in oklch, var(--lms-parchment) 64%, transparent);">4,000+ titles and counting</span>
+      </div>
+    </div>
+    <p style="font-family:var(--font-mono); font-weight:300; font-size:12px; line-height:1.6; color:#6b5147; margin:16px 2px 2px;">Your client's original idea, redone in brand colors with a warm light sweeping the spines. Reads instantly as "physical media."</p>
+  </div>
+</div>
+
+<!-- ============ OPTION 3 — MARQUEE (cinema sign, chasing bulbs) ============ -->
+<div style="position:absolute; left:1080px; top:40px; width:460px;">
+  <div data-drags-parent="1" style="font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#6b5147; margin-bottom:12px;">Option 3 · Marquee</div>
+  <div style="background:#fff; border-radius:2px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:22px;">
+    <div style="border-radius:var(--radius-lg); overflow:hidden; border:2px solid var(--border-strong); box-shadow:var(--shadow-lg); background:var(--lms-brick);">
+      <div style="position:relative; aspect-ratio:5/4; background:radial-gradient(circle at 50% 38%, #b34433, var(--lms-brick)); overflow:hidden; display:flex; align-items:center; justify-content:center;">
+        <!-- bulb border -->
+        <div style="position:absolute; top:12px; left:14px; right:14px; bottom:12px; border:2px dashed transparent;"></div>
+        <div style="position:absolute; inset:14px; display:flex; flex-direction:column; justify-content:space-between; pointer-events:none;">
+          <div style="display:flex; justify-content:space-between;">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbA 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbB 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbA 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbB 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbA 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbB 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbA 1.4s ease-in-out infinite;"></span>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbB 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbA 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbB 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbA 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbB 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbA 1.4s ease-in-out infinite;"></span><span style="width:7px;height:7px;border-radius:50%;background:var(--lms-parchment);animation:bulbB 1.4s ease-in-out infinite;"></span>
+          </div>
+        </div>
+        <div style="text-align:center; position:relative; z-index:2;">
+          <div style="font-family:var(--font-mono); font-weight:500; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:color-mix(in oklch, var(--lms-parchment) 80%, transparent); margin-bottom:14px;">Now showing</div>
+          <div style="position:relative; height:96px; width:300px;">
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:600; font-size:30px; line-height:1.05; color:var(--lms-parchment); opacity:0; animation:fade4 12s linear infinite; animation-delay:0s;">The French<br>Dispatch</div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:600; font-size:30px; line-height:1.05; color:var(--lms-parchment); opacity:0; animation:fade4 12s linear infinite; animation-delay:-3s;">Paris,<br>Texas</div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:600; font-size:30px; line-height:1.05; color:var(--lms-parchment); opacity:0; animation:fade4 12s linear infinite; animation-delay:-6s;">Mulholland<br>Drive</div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:600; font-size:30px; line-height:1.05; color:var(--lms-parchment); opacity:0; animation:fade4 12s linear infinite; animation-delay:-9s;">Blow Out</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--lms-mahogany); padding:16px 20px; display:flex; align-items:center; gap:12px;">
+        <span style="font-family:var(--font-mono); font-weight:500; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--lms-cyan); white-space:nowrap;">✦ This week</span>
+        <span style="font-family:var(--font-mono); font-weight:300; font-size:12px; color:color-mix(in oklch, var(--lms-parchment) 64%, transparent);">screenings + staff picks</span>
+      </div>
+    </div>
+    <p style="font-family:var(--font-mono); font-weight:300; font-size:12px; line-height:1.6; color:#6b5147; margin:16px 2px 2px;">A theatre marquee with chasing bulbs and a cycling title. Playful and cinematic — leans into the events/screenings side of the store.</p>
+  </div>
+</div>
+
+<!-- ============ OPTION 4 — WINDOW DISPLAY (framed poster carousel) ============ -->
+<div style="position:absolute; left:1600px; top:40px; width:460px;">
+  <div data-drags-parent="1" style="font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:#6b5147; margin-bottom:12px;">Option 4 · Window display</div>
+  <div style="background:#fff; border-radius:2px; box-shadow:0 1px 3px rgba(0,0,0,0.08); padding:22px;">
+    <div style="border-radius:var(--radius-lg); overflow:hidden; border:2px solid var(--border-strong); box-shadow:var(--shadow-lg); background:var(--lms-parchment-2);">
+      <div style="position:relative; aspect-ratio:5/4; background:radial-gradient(circle at 50% 30%, #fff, var(--lms-parchment-2)); overflow:hidden; display:flex; align-items:center; justify-content:center; padding:26px;">
+        <!-- monogram drift -->
+        <img src="assets/monograms/tape.svg" alt="" style="position:absolute; top:8%; left:7%; width:48px; opacity:0.08; animation:floatY 7s ease-in-out infinite;">
+        <img src="assets/monograms/circles.svg" alt="" style="position:absolute; bottom:9%; right:8%; width:42px; opacity:0.08; animation:floatY2 9s ease-in-out infinite;">
+        <div style="position:relative; width:62%; aspect-ratio:2/3;">
+          <img src="uploads/paris-texas.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:var(--radius-sm); box-shadow:var(--shadow-md); opacity:0; animation:posterPop 15s ease-in-out infinite; animation-delay:0s;">
+          <img src="uploads/drive-my-car.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:var(--radius-sm); box-shadow:var(--shadow-md); opacity:0; animation:posterPop 15s ease-in-out infinite; animation-delay:-3s;">
+          <img src="uploads/the-witch.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:var(--radius-sm); box-shadow:var(--shadow-md); opacity:0; animation:posterPop 15s ease-in-out infinite; animation-delay:-6s;">
+          <img src="uploads/blow-out.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:var(--radius-sm); box-shadow:var(--shadow-md); opacity:0; animation:posterPop 15s ease-in-out infinite; animation-delay:-9s;">
+          <img src="uploads/raising-arizona.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:var(--radius-sm); box-shadow:var(--shadow-md); opacity:0; animation:posterPop 15s ease-in-out infinite; animation-delay:-12s;">
+        </div>
+      </div>
+      <div style="background:var(--lms-mahogany); padding:16px 20px; display:flex; align-items:center; gap:12px;">
+        <span style="font-family:var(--font-mono); font-weight:500; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--lms-cyan); white-space:nowrap;">▶ In the window</span>
+        <span style="font-family:var(--font-mono); font-weight:300; font-size:12px; color:color-mix(in oklch, var(--lms-parchment) 64%, transparent);">this week's picks</span>
+      </div>
+    </div>
+    <p style="font-family:var(--font-mono); font-weight:300; font-size:12px; line-height:1.6; color:#6b5147; margin:16px 2px 2px;">A storefront window: one poster gently swaps to the next over drifting monograms. Elegant, gallery-like, and it showcases real artwork.</p>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

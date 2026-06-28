@@ -1,0 +1,48 @@
+/* Little Movie Store — Design System
+   Global entry point. Consumers link THIS file only.
+   Keep this as @import lines (and a tiny base reset) — no inline tokens. */
+
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+
+/* ---- Minimal base so specimens & kits inherit the brand voice ---- */
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-weight: var(--fw-mono-light);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  line-height: var(--lh-heading);
+  font-weight: var(--fw-head-med);
+  margin: 0;
+}
+
+/* The signature eyebrow label */
+.lms-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-mono-med);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+::selection {
+  background: var(--lms-cyan);
+  color: var(--lms-mahogany);
+}

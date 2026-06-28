@@ -1,0 +1,71 @@
+/* Little Movie Store — Webfonts
+   Epilogue (headings) + DM Mono (body, eyebrow, mono).
+   Both are available on Google Fonts; we self-reference Google's
+   CDN binaries via @font-face so consumers get the real faces. */
+
+/* Epilogue — variable-ish weights via static faces */
+@font-face {
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYrYsh.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYsosh.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYpIth.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Epilogue";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/epilogue/v17/O4ZMFGj5hxF0EhjimngomvnCCtqb30OXkAlQE7CYwYth.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Epilogue";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/epilogue/v17/O4ZRFGj5hxF0EhjimXALU98D89VEU8ARQUk59rsjBH0.woff2") format("woff2");
+}
+
+/* DM Mono */
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/dmmono/v14/aFTR7PB1QTsUX8KYthqQBK6PYK0.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/dmmono/v14/aFTU7PB1QTsUX8KYvrGyIYSnbKX9Rlk.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/dmmono/v14/aFTU7PB1QTsUX8KYvuGyIYSnbKX9Rlk.woff2") format("woff2");
+}
+@font-face {
+  font-family: "DM Mono";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/dmmono/v14/aFTW7PB1QTsUX8KYth-orYataIf4Vthrkw.woff2") format("woff2");
+}

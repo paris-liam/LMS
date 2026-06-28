@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Little Movie Store — Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment: #f0e8d5;
+    --parchment-dark: #e4d9c0;
+    --parchment-deeper: #d8ccb0;
+    --black: #111008;
+    --black-soft: #1e1a10;
+    --brick: #b03a2a;
+    --brick-light: #c8442f;
+    --brick-dark: #8a2d1e;
+    --muted: #6b6050;
+    --border: #ccc0a0;
+    --border-dark: #b0a080;
+    --card-bg: #ece0c8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--parchment);
+    color: var(--black);
+    font-family: 'DM Mono', monospace;
+    overflow-x: hidden;
+  }
+
+  /* ── FILM GRAIN ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    height: 58px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(240,232,213,0.94);
+    backdrop-filter: blur(14px);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: var(--black);
+    text-decoration: none;
+    margin-right: auto;
+    line-height: 1;
+  }
+
+  .nav-logo .sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 3px;
+    color: var(--brick);
+    display: block;
+    margin-top: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--black); }
+
+  .nav-cta {
+    margin-left: 24px;
+    background: var(--black);
+    color: var(--parchment) !important;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 1px;
+    letter-spacing: 2px;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--brick) !important; color: var(--parchment) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding-top: 58px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    padding: 80px 60px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--brick);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--brick);
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 9vw, 130px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    color: var(--black);
+    margin-bottom: 0;
+  }
+
+  .hero-title .italic {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: var(--brick);
+    font-size: 0.85em;
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 440px;
+    margin-top: 32px;
+    margin-bottom: 48px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--brick);
+    color: var(--parchment);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+    font-weight: 500;
+  }
+
+  .btn-primary:hover { background: var(--brick-light); }
+
+  .btn-ghost {
+    border: 1px solid var(--border-dark);
+    color: var(--black);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--brick); color: var(--brick); }
+
+  .hero-info {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 48px;
+  }
+
+  .info-label {
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .info-value {
+    font-size: 13px;
+    color: var(--black);
+    letter-spacing: 1px;
+  }
+
+  /* ── HERO RIGHT — SHELF ── */
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--parchment-dark);
+    border-left: 1px solid var(--border);
+  }
+
+  .hero-right-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .shelf {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 24px 12px;
+    border-bottom: 3px solid var(--border-dark);
+    gap: 6px;
+    position: relative;
+    background: var(--parchment-dark);
+  }
+
+  .shelf::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--border-dark), var(--brick), var(--border-dark));
+  }
+
+  .spine {
+    border-radius: 1px;
+    flex-shrink: 0;
+    position: relative;
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+
+  .spine:hover { transform: translateY(-6px); }
+
+  .now-screening {
+    background: var(--black);
+    padding: 20px 24px;
+    flex-shrink: 0;
+  }
+
+  .now-screening-label {
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brick);
+    margin-bottom: 10px;
+  }
+
+  .now-screening-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--parchment);
+    margin-bottom: 4px;
+  }
+
+  .now-screening-sub {
+    font-size: 9px;
+    color: #8a7a60;
+    letter-spacing: 1px;
+  }
+
+  /* ── TICKER ── */
+  .ticker {
+    background: var(--brick);
+    color: var(--parchment);
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    gap: 0;
+    animation: ticker 30s linear infinite;
+  }
+
+  .ticker-item {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    padding: 0 40px;
+  }
+
+  .ticker-sep { font-size: 10px; opacity: 0.5; line-height: 14px; padding-top: 2px; }
+
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── SECTION STYLES ── */
+  .section { padding: 80px 60px; position: relative; }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    letter-spacing: 3px;
+    line-height: 1;
+    color: var(--black);
+  }
+
+  .section-eyebrow {
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brick);
+    margin-bottom: 8px;
+  }
+
+  .section-link {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brick);
+    text-decoration: none;
+    border-bottom: 1px solid var(--brick);
+    padding-bottom: 2px;
+  }
+
+  /* ── PRODUCT GRID ── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .product-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .product-card:hover {
+    border-color: var(--brick);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(176,58,42,0.12);
+  }
+
+  .product-img {
+    aspect-ratio: 2/3;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-img-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .product-cover-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 0 8px;
+    color: var(--parchment);
+    line-height: 1.1;
+  }
+
+  .product-cover-year {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: rgba(240,232,213,0.5);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 8px; left: 8px;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    font-weight: 500;
+  }
+
+  .badge-new  { background: var(--brick);   color: var(--parchment); }
+  .badge-used { background: var(--parchment-dark); color: var(--black); border: 1px solid var(--border); }
+  .badge-rare { background: var(--black);   color: var(--parchment); }
+
+  .product-info {
+    padding: 12px;
+    border-top: 1px solid var(--border);
+    background: var(--parchment);
+  }
+
+  .product-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    color: var(--black);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .product-meta {
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .product-price {
+    font-size: 14px;
+    color: var(--brick);
+    font-weight: 500;
+  }
+
+  /* ── MYSTERY BAG ── */
+  .mystery-section { padding: 0 60px 80px; }
+
+  .mystery-banner {
+    background: var(--black);
+    color: var(--parchment);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 48px 56px;
+    position: relative;
+    overflow: hidden;
+    gap: 40px;
+  }
+
+  .mystery-banner::before {
+    content: '?';
+    position: absolute;
+    right: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 280px;
+    color: rgba(240,232,213,0.04);
+    line-height: 1;
+    pointer-events: none;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .mystery-eyebrow {
+    font-size: 8px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--brick);
+    margin-bottom: 12px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .mystery-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 60px;
+    letter-spacing: 3px;
+    line-height: 0.95;
+    margin-bottom: 16px;
+    color: var(--parchment);
+  }
+
+  .mystery-desc {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    line-height: 1.8;
+    color: #9a8a70;
+    max-width: 500px;
+  }
+
+  .mystery-right { text-align: right; flex-shrink: 0; }
+
+  .mystery-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    color: var(--parchment);
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .mystery-price-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #7a6a52;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .btn-brick {
+    background: var(--brick);
+    color: var(--parchment);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-brick:hover { background: var(--brick-light); }
+
+  .btn-parchment {
+    background: var(--parchment);
+    color: var(--black);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: background 0.2s;
+    font-weight: 500;
+  }
+
+  .btn-parchment:hover { background: var(--parchment-dark); }
+
+  /* ── SPLIT: EVENTS + MEMBERSHIP ── */
+  .split-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+    margin: 0 60px 80px;
+    border: 1px solid var(--border);
+  }
+
+  .split-left {
+    padding: 48px;
+    background: var(--parchment);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .split-right {
+    padding: 48px;
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .event-eyebrow {
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brick);
+    margin-bottom: 20px;
+  }
+
+  .event-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 24px;
+    color: var(--black);
+  }
+
+  .event-list { list-style: none; display: flex; flex-direction: column; gap: 0; flex: 1; }
+
+  .event-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: padding-left 0.2s;
+  }
+
+  .event-item:hover { padding-left: 8px; }
+  .event-item:last-child { border-bottom: none; }
+
+  .event-date-block { text-align: center; min-width: 42px; flex-shrink: 0; }
+
+  .event-month {
+    font-size: 7px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brick);
+  }
+
+  .event-day {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--black);
+  }
+
+  .event-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: var(--black);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .event-desc {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .event-tag {
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 7px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid var(--border-dark);
+    color: var(--muted);
+    align-self: center;
+  }
+
+  /* ── MEMBERSHIP ── */
+  .club-card {
+    background: var(--black);
+    padding: 28px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .club-card::after {
+    content: 'LMS';
+    position: absolute;
+    bottom: -10px; right: 16px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: rgba(240,232,213,0.06);
+    letter-spacing: 4px;
+  }
+
+  .club-card-label {
+    font-size: 7px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brick);
+    margin-bottom: 16px;
+  }
+
+  .club-card-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 4px;
+    color: var(--parchment);
+    margin-bottom: 6px;
+  }
+
+  .club-card-sub {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #7a6a52;
+    text-transform: uppercase;
+  }
+
+  .club-perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex: 1;
+  }
+
+  .club-perk { display: flex; gap: 12px; align-items: flex-start; }
+
+  .perk-dot {
+    width: 6px; height: 6px;
+    background: var(--brick);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .perk-text { font-size: 11px; color: var(--black); line-height: 1.5; }
+  .perk-text span { color: var(--muted); font-size: 10px; }
+
+  .club-price-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .club-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--brick);
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+
+  .club-price-label {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-transform: uppercase;
+    padding-bottom: 8px;
+  }
+
+  /* ── STAFF PICKS ── */
+  .staff-section { padding: 0 60px 80px; }
+
+  .staff-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .staff-intro {
+    background: var(--card-bg);
+    padding: 40px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .staff-intro-eyebrow {
+    font-size: 8px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brick);
+    margin-bottom: 16px;
+  }
+
+  .staff-intro-title {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 36px;
+    line-height: 1.2;
+    color: var(--black);
+    margin-bottom: 16px;
+  }
+
+  .staff-intro-copy {
+    font-size: 10px;
+    line-height: 1.8;
+    color: var(--muted);
+  }
+
+  .staff-picks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .staff-pick {
+    border-right: 1px solid var(--border);
+    padding: 24px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    flex-direction: column;
+    background: var(--parchment);
+  }
+
+  .staff-pick:last-child { border-right: none; }
+  .staff-pick:hover { background: var(--parchment-dark); }
+
+  .staff-pick-cover {
+    aspect-ratio: 2/3;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--parchment);
+    text-align: center;
+    padding: 8px;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .staff-pick-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    color: var(--black);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .staff-pick-note {
+    font-size: 9px;
+    color: var(--muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .staff-pick-person {
+    font-size: 8px;
+    letter-spacing: 1px;
+    color: var(--brick);
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  /* ── EMAIL SIGNUP ── */
+  .email-section { padding: 0 60px 80px; }
+
+  .email-banner {
+    background: var(--black);
+    padding: 48px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .email-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    letter-spacing: 3px;
+    color: var(--parchment);
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .email-sub {
+    font-size: 11px;
+    color: #6a5a42;
+    letter-spacing: 1px;
+  }
+
+  .email-form { display: flex; gap: 0; min-width: 420px; }
+
+  .email-input {
+    flex: 1;
+    background: rgba(240,232,213,0.07);
+    border: 1px solid rgba(240,232,213,0.15);
+    border-right: none;
+    color: var(--parchment);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 14px 20px;
+    outline: none;
+  }
+
+  .email-input::placeholder { color: #6a5a42; }
+
+  .email-btn {
+    background: var(--brick);
+    border: none;
+    color: var(--parchment);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+    flex-shrink: 0;
+  }
+
+  .email-btn:hover { background: var(--brick-light); }
+
+  /* ── SOCIAL STRIP ── */
+  .social-strip {
+    padding: 24px 60px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .social-label { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-right: 8px; }
+  .social-link { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--black); text-decoration: none; transition: color 0.2s; }
+  .social-link:hover { color: var(--brick); }
+  .social-sep { color: var(--border-dark); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    background: var(--parchment-dark);
+    padding: 40px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr auto;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 4px; color: var(--black); line-height: 1; margin-bottom: 8px; }
+  .footer-tagline { font-size: 9px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+  .footer-col-title { font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--brick); margin-bottom: 16px; }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-links a { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 1px; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--black); }
+
+  .hours-row { display: flex; justify-content: space-between; font-size: 10px; padding: 5px 0; border-bottom: 1px solid var(--border); gap: 20px; }
+  .hours-row:last-child { border-bottom: none; }
+  .hours-day { color: var(--muted); letter-spacing: 1px; }
+  .hours-time { color: var(--black); }
+  .hours-closed { color: var(--brick); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease 0.1s  both; }
+  .hero-title   { animation: fadeUp 0.6s ease 0.25s both; }
+  .hero-sub     { animation: fadeUp 0.6s ease 0.4s  both; }
+  .hero-actions { animation: fadeUp 0.6s ease 0.55s both; }
+  .hero-info    { animation: fadeUp 0.6s ease 0.7s  both; }
+
+  /* ── PRODUCT COVER BACKGROUNDS ── */
+  .p1 { background: linear-gradient(160deg, #3a2010, #5a3418); }
+  .p2 { background: linear-gradient(160deg, #0f1f30, #1a3048); }
+  .p3 { background: linear-gradient(160deg, #2a0f18, #421828); }
+  .p4 { background: linear-gradient(160deg, #1a2a0f, #2c4018); }
+  .p5 { background: linear-gradient(160deg, #2e1a08, #4a2c10); }
+
+  /* ── SHELF SPINES ── */
+  .s1  { background: #8B1A1A; width: 18px; height: 110px; }
+  .s2  { background: #1A3A5C; width: 14px; height: 95px; }
+  .s3  { background: #2C5F2E; width: 20px; height: 120px; }
+  .s4  { background: #4A3728; width: 12px; height: 88px; }
+  .s5  { background: #5C3A1A; width: 22px; height: 105px; }
+  .s6  { background: #1A1A5C; width: 16px; height: 115px; }
+  .s7  { background: #8B6914; width: 14px; height: 92px; }
+  .s8  { background: #3A1A3A; width: 18px; height: 108px; }
+  .s9  { background: #1A5C4A; width: 12px; height: 85px; }
+  .s10 { background: #5C1A1A; width: 20px; height: 118px; }
+  .s11 { background: #2E2E2E; width: 14px; height: 96px; }
+  .s12 { background: #3A5C1A; width: 16px; height: 103px; }
+  .s-tall  { height: 135px !important; }
+  .s-short { height: 75px  !important; }
+
+  /* ── STAFF PICK COVER BACKGROUNDS ── */
+  .c1 { background: linear-gradient(160deg, #3a2010, #5a3418); }
+  .c2 { background: linear-gradient(160deg, #0f2010, #1a3820); }
+  .c3 { background: linear-gradient(160deg, #2a0f10, #401820); }
+  .c4 { background: linear-gradient(160deg, #10101a, #1a1a30); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    Little Movie Store
+    <span class="sub">Movies &amp; More!</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Shop</a></li>
+    <li><a href="#">Rent</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#" class="nav-cta">Join the Club</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Now Open · Passyunk Ave, South Philly</div>
+    <h1 class="hero-title">
+      Movies<br>
+      You Can
+      <span class="italic">Feel.</span>
+    </h1>
+    <p class="hero-sub">
+      A curated physical media store built for people who actually love movies.
+      DVD, Blu-ray, 4K, VHS — new, used, rare, and everything in between.
+      Browse the shelves. Rent something. Stay a while.
+    </p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary">Shop Online</a>
+      <a href="#" class="btn-ghost">Join the Club →</a>
+    </div>
+    <div class="hero-info">
+      <div class="info-block">
+        <div class="info-label">Location</div>
+        <div class="info-value">Passyunk Ave · South Philly</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Hours</div>
+        <div class="info-value">Wed – Sat · 10am – 6pm</div>
+      </div>
+      <div class="info-block">
+        <div class="info-label">Membership</div>
+        <div class="info-value">$100 / Year</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <div class="shelf">
+        <div class="spine s1 s-tall"></div><div class="spine s2"></div><div class="spine s3"></div>
+        <div class="spine s4 s-short"></div><div class="spine s5"></div><div class="spine s6 s-tall"></div>
+        <div class="spine s7"></div><div class="spine s8"></div><div class="spine s9 s-short"></div>
+        <div class="spine s10"></div><div class="spine s11 s-tall"></div><div class="spine s12"></div>
+        <div class="spine s1 s-short"></div><div class="spine s3"></div><div class="spine s5 s-tall"></div>
+        <div class="spine s2 s-short"></div>
+      </div>
+      <div class="shelf">
+        <div class="spine s7"></div><div class="spine s10 s-tall"></div><div class="spine s4"></div>
+        <div class="spine s6"></div><div class="spine s9 s-short"></div><div class="spine s1"></div>
+        <div class="spine s12 s-tall"></div><div class="spine s3 s-short"></div><div class="spine s8"></div>
+        <div class="spine s2"></div><div class="spine s5 s-tall"></div><div class="spine s11"></div>
+        <div class="spine s7 s-short"></div><div class="spine s4"></div><div class="spine s6"></div>
+        <div class="spine s1 s-tall"></div>
+      </div>
+      <div class="shelf">
+        <div class="spine s3 s-short"></div><div class="spine s8 s-tall"></div><div class="spine s2"></div>
+        <div class="spine s11"></div><div class="spine s5 s-short"></div><div class="spine s9 s-tall"></div>
+        <div class="spine s4"></div><div class="spine s7"></div><div class="spine s12 s-tall"></div>
+        <div class="spine s1 s-short"></div><div class="spine s6"></div><div class="spine s10"></div>
+        <div class="spine s3 s-tall"></div><div class="spine s2 s-short"></div><div class="spine s5"></div>
+      </div>
+      <div class="now-screening">
+        <div class="now-screening-label">▶ Now Screening in the Lounge</div>
+        <div class="now-screening-title">THE FRENCH DISPATCH</div>
+        <div class="now-screening-sub">Wes Anderson · 2021 · Available to Rent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">NEW ARRIVALS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">WEEKLY DROPS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">MYSTERY BAGS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">RENTAL LIBRARY</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">BOUTIQUE LABELS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">A24 · ARROW · KINO LORBER</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">COLLECTOR EDITIONS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">VHS · DVD · BLU-RAY · 4K</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">NEW ARRIVALS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">WEEKLY DROPS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">MYSTERY BAGS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">RENTAL LIBRARY</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">BOUTIQUE LABELS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">A24 · ARROW · KINO LORBER</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">COLLECTOR EDITIONS</span><span class="ticker-sep">✦</span>
+    <span class="ticker-item">VHS · DVD · BLU-RAY · 4K</span><span class="ticker-sep">✦</span>
+  </div>
+</div>
+
+<!-- NEW ARRIVALS -->
+<section class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-eyebrow">Just dropped</div>
+      <div class="section-title">New Arrivals</div>
+    </div>
+    <a href="#" class="section-link">Browse all →</a>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-img p1">
+        <div class="product-badge badge-new">New</div>
+        <div class="product-img-inner">
+          <div class="product-cover-title">Drive My Car</div>
+          <div class="product-cover-year">2021</div>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Drive My Car</div>
+        <div class="product-meta">Blu-ray · Criterion</div>
+        <div class="product-price">$34</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img p2">
+        <div class="product-badge badge-used">Used</div>
+        <div class="product-img-inner">
+          <div class="product-cover-title">The Witch</div>
+          <div class="product-cover-year">2015</div>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">The Witch</div>
+        <div class="product-meta">Blu-ray · Used</div>
+        <div class="product-price">$9</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img p3">
+        <div class="product-badge badge-rare">Rare</div>
+        <div class="product-img-inner">
+          <div class="product-cover-title">Mulholland Drive</div>
+          <div class="product-cover-year">2001</div>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Mulholland Drive</div>
+        <div class="product-meta">DVD · OOP · Used</div>
+        <div class="product-price">$28</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img p4">
+        <div class="product-badge badge-new">4K</div>
+        <div class="product-img-inner">
+          <div class="product-cover-title">Alien</div>
+          <div class="product-cover-year">1979</div>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Alien</div>
+        <div class="product-meta">4K UHD · Arrow</div>
+        <div class="product-price">$42</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img p5">
+        <div class="product-badge badge-used">Used</div>
+        <div class="product-img-inner">
+          <div class="product-cover-title">Raising Arizona</div>
+          <div class="product-cover-year">1987</div>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Raising Arizona</div>
+        <div class="product-meta">VHS · Used</div>
+        <div class="product-price">$6</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MYSTERY BAG -->
+<div class="mystery-section">
+  <div class="mystery-banner">
+    <div>
+      <div class="mystery-eyebrow">Online · Ships Nationwide</div>
+      <div class="mystery-title">The Mystery<br>Bag.</div>
+      <p class="mystery-desc">We pick. You watch. A curated bag of movies hand-selected by the LMS crew — themed, random, or genre-driven. The best way to discover something you'd never have found on your own.</p>
+    </div>
+    <div class="mystery-right">
+      <div class="mystery-price-label">Starting at</div>
+      <div class="mystery-price">$35</div>
+      <a href="#" class="btn-brick">Get a Bag →</a>
+    </div>
+  </div>
+</div>
+
+<!-- EVENTS + MEMBERSHIP -->
+<div class="split-section">
+  <div class="split-left">
+    <div class="event-eyebrow">Coming Up</div>
+    <div class="event-title">Events &<br>Screenings</div>
+    <ul class="event-list">
+      <li class="event-item">
+        <div class="event-date-block">
+          <div class="event-month">Jun</div>
+          <div class="event-day">07</div>
+        </div>
+        <div>
+          <div class="event-name">Horror Night: Cronenberg Classics</div>
+          <div class="event-desc">In-store screening · Videodrome + The Fly</div>
+        </div>
+        <span class="event-tag">Members</span>
+      </li>
+      <li class="event-item">
+        <div class="event-date-block">
+          <div class="event-month">Jun</div>
+          <div class="event-day">14</div>
+        </div>
+        <div>
+          <div class="event-name">Staff Picks Night: Summer Edition</div>
+          <div class="event-desc">Open to all · Free entry</div>
+        </div>
+        <span class="event-tag">Public</span>
+      </li>
+      <li class="event-item">
+        <div class="event-date-block">
+          <div class="event-month">Jun</div>
+          <div class="event-day">21</div>
+        </div>
+        <div>
+          <div class="event-name">VHS Trading Night</div>
+          <div class="event-desc">Bring tapes · Trade tapes · Find tapes</div>
+        </div>
+        <span class="event-tag">Public</span>
+      </li>
+    </ul>
+    <a href="#" class="section-link" style="margin-top:24px;align-self:flex-start;">All events →</a>
+  </div>
+
+  <div class="split-right">
+    <div class="event-eyebrow">The Little Movie Club</div>
+    <div class="club-card">
+      <div class="club-card-label">Member Card</div>
+      <div class="club-card-name">Little Movie Store</div>
+      <div class="club-card-sub">The Little Movie Club</div>
+    </div>
+    <ul class="club-perks">
+      <li class="club-perk"><div class="perk-dot"></div><div class="perk-text">Full rental library access <span>— take anything home</span></div></li>
+      <li class="club-perk"><div class="perk-dot"></div><div class="perk-text">10% off all purchases <span>— every visit</span></div></li>
+      <li class="club-perk"><div class="perk-dot"></div><div class="perk-text">Free birthday movie <span>— on us</span></div></li>
+      <li class="club-perk"><div class="perk-dot"></div><div class="perk-text">Members-only events + screenings</div></li>
+      <li class="club-perk"><div class="perk-dot"></div><div class="perk-text">Free coffee in-store <span>— members only</span></div></li>
+    </ul>
+    <div class="club-price-row">
+      <div class="club-price">$100</div>
+      <div class="club-price-label">per year</div>
+    </div>
+    <a href="#" class="btn-primary" style="text-align:center;">Join the Club →</a>
+  </div>
+</div>
+
+<!-- STAFF PICKS -->
+<section class="staff-section" style="padding-top:80px;">
+  <div class="staff-grid">
+    <div class="staff-intro">
+      <div class="staff-intro-top">
+        <div class="staff-intro-eyebrow">From the Shelves</div>
+        <div class="staff-intro-title">Staff<br>Picks</div>
+        <p class="staff-intro-copy">Movies we've been watching, arguing about, and pressing into people's hands. Updated weekly.</p>
+      </div>
+      <a href="#" class="section-link">Full list →</a>
+    </div>
+    <div class="staff-picks-grid">
+      <div class="staff-pick">
+        <div class="staff-pick-cover c1">Paris,<br>Texas</div>
+        <div class="staff-pick-name">Paris, Texas</div>
+        <div class="staff-pick-note">"The loneliest American movie ever made. Watch it alone at night."</div>
+        <div class="staff-pick-person">— Picked by Maggie</div>
+      </div>
+      <div class="staff-pick">
+        <div class="staff-pick-cover c2">Paper<br>Moon</div>
+        <div class="staff-pick-name">Paper Moon</div>
+        <div class="staff-pick-note">"Perfect movie. Not a single wasted frame. Also: Tatum O'Neal is a genius."</div>
+        <div class="staff-pick-person">— Picked by Dev</div>
+      </div>
+      <div class="staff-pick">
+        <div class="staff-pick-cover c3">Blow<br>Out</div>
+        <div class="staff-pick-name">Blow Out</div>
+        <div class="staff-pick-note">"Brian De Palma at his most paranoid and brilliant. Watch it before anyone spoils it."</div>
+        <div class="staff-pick-person">— Picked by Rosa</div>
+      </div>
+      <div class="staff-pick">
+        <div class="staff-pick-cover c4">The<br>Long<br>Goodbye</div>
+        <div class="staff-pick-name">The Long Goodbye</div>
+        <div class="staff-pick-note">"Altman's shaggy detective masterpiece. Elliott Gould is everything."</div>
+        <div class="staff-pick-person">— Picked by Marcus</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL -->
+<div class="email-section">
+  <div class="email-banner">
+    <div>
+      <div class="email-title">Weekly Drops.<br>First Look.</div>
+      <div class="email-sub">New inventory, rare finds, events, and whatever we're obsessing over.</div>
+    </div>
+    <div class="email-form">
+      <input type="email" class="email-input" placeholder="your@email.com">
+      <button class="email-btn">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL -->
+<div class="social-strip">
+  <span class="social-label">Find us</span>
+  <a href="#" class="social-link">TikTok</a>
+  <span class="social-sep">·</span>
+  <a href="#" class="social-link">Instagram</a>
+  <span class="social-sep">·</span>
+  <a href="#" class="social-link">Threads</a>
+  <span style="margin-left:auto;font-size:9px;color:var(--muted);letter-spacing:1px;">@littlemoviestore</span>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">LMS</div>
+    <div class="footer-tagline">Movies &amp; More!<br>Passyunk Ave · South Philly</div>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigate</div>
+    <ul class="footer-links">
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Rent</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">Join the Club</a></li>
+      <li><a href="#">About / Visit Us</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Hours</div>
+    <div class="footer-hours">
+      <div class="hours-row"><span class="hours-day">Mon – Tue</span><span class="hours-closed">Closed</span></div>
+      <div class="hours-row"><span class="hours-day">Wed – Sat</span><span class="hours-time">10am – 6pm</span></div>
+      <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-closed">Closed</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="footer-col-title">Legal</div>
+    <ul class="footer-links">
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

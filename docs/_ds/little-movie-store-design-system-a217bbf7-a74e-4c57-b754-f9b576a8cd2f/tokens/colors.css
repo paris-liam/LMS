@@ -1,0 +1,62 @@
+/* Little Movie Store — Color tokens
+   Inspired by vintage spaces: exposed brick & wood panelling (brick,
+   mahogany), grounded second-hand greens (hunter, sage), balanced with
+   parchment + a soft cyan to keep things light, bright and approachable. */
+
+:root {
+  /* ---- Brand palette (raw) ---- */
+  --lms-brick:      #973123; /* PRIMARY — exposed brick red */
+  --lms-mahogany:   #3a2018; /* PRIMARY — deep wood-panel brown / ink */
+  --lms-sage:       #5f8d7a; /* SECONDARY — soft flannel green */
+  --lms-hunter:     #343a31; /* SECONDARY — grounded deep green */
+  --lms-parchment:  #fff9ef; /* SECONDARY — warm paper background */
+  --lms-cyan:       #8fcdcf; /* SECONDARY — soft cyan accent */
+
+  /* ---- Tints & shades (derived, harmonious) ---- */
+  --lms-brick-dark:    oklch(0.42 0.12 36);   /* pressed brick */
+  --lms-brick-tint:    oklch(0.93 0.03 40);   /* brick wash on parchment */
+  --lms-sage-dark:     oklch(0.52 0.05 165);
+  --lms-sage-tint:     oklch(0.93 0.025 168);
+  --lms-cyan-tint:     oklch(0.95 0.03 195);
+  --lms-parchment-2:   #fdf3e2;               /* slightly deeper paper */
+  --lms-parchment-edge:#f3e7d0;               /* paper edge / hairline */
+
+  /* Ink ramp (mahogany-based neutrals) */
+  --lms-ink-900: #2a1610;
+  --lms-ink-800: #3a2018;
+  --lms-ink-700: #4d2f25;
+  --lms-ink-500: #6b5147;
+  --lms-ink-400: #8a7568;
+  --lms-ink-300: #b3a294;
+  --lms-ink-200: #d8cbb9;
+  --lms-ink-100: #ece1cf;
+
+  /* ---- Semantic aliases ---- */
+  --color-bg:            var(--lms-parchment);
+  --color-bg-sunken:     var(--lms-parchment-2);
+  --surface-card:        #ffffff;
+  --surface-raised:      var(--lms-parchment);
+  --surface-inverse:     var(--lms-mahogany);
+
+  --text-strong:         var(--lms-mahogany);
+  --text-body:           var(--lms-ink-700);
+  --text-muted:          var(--lms-ink-500);
+  --text-on-dark:        var(--lms-parchment);
+  --text-on-brick:       var(--lms-parchment);
+
+  --color-primary:       var(--lms-brick);
+  --color-primary-press: var(--lms-brick-dark);
+  --color-accent:        var(--lms-sage);
+  --color-accent-cyan:   var(--lms-cyan);
+
+  --border-default:      var(--lms-parchment-edge);
+  --border-strong:       var(--lms-ink-800);
+  --border-hairline:     color-mix(in oklch, var(--lms-mahogany) 14%, transparent);
+
+  --focus-ring:          var(--lms-sage);
+
+  /* Status (kept in-palette / warm) */
+  --color-success:       var(--lms-sage);
+  --color-info:          var(--lms-cyan);
+  --color-danger:        var(--lms-brick);
+}
