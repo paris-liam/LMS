@@ -164,3 +164,21 @@
 }
 
 ::selection { background: var(--lms-cyan); color: var(--lms-mahogany); }
+
+/* ---- Header — "Join the club" CTA (last nav item styled as a button) ----
+   Relies on "Join the club" being the last item in the main-menu link list. */
+header-menu .menu-list__list-item:last-child > a,
+header-menu .menu-list__list-item:last-child > button {
+  background: var(--lms-brick);
+  color: var(--lms-parchment) !important;
+  padding: 8px 18px;
+  border-radius: var(--lms-radius-button);
+  font-weight: var(--lms-fw-mono-med);
+  letter-spacing: 0.03em;
+  transition: background var(--lms-dur-fast) var(--lms-ease-soft);
+}
+header-menu .menu-list__list-item:last-child > a:hover,
+header-menu .menu-list__list-item:last-child > button:hover {
+  background: var(--lms-brick-dark);
+  color: var(--lms-parchment) !important;
+}

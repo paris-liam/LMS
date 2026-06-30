@@ -9,41 +9,6 @@
  */
 {
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
-      "name": "t:names.hero",
-      "settings": {
-        "media_type_1": "image",
-        "image_1": "shopify://shop_images/PNG_image_2.png",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
-      }
-    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -237,10 +202,230 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "lms_hero": {
+      "type": "lms-homepage-hero",
+      "settings": {}
+    },
+    "lms_ticker": {
+      "type": "marquee",
+      "blocks": {
+        "item_1": {
+          "type": "text",
+          "settings": {
+            "text": "New arrivals",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "letter_spacing": "0.18em",
+            "case": "uppercase"
+          },
+          "blocks": {}
+        },
+        "sep_1": {
+          "type": "text",
+          "settings": {
+            "text": "\u2726",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "color": "var(--lms-cyan)"
+          },
+          "blocks": {}
+        },
+        "item_2": {
+          "type": "text",
+          "settings": {
+            "text": "Weekly drops",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "letter_spacing": "0.18em",
+            "case": "uppercase"
+          },
+          "blocks": {}
+        },
+        "sep_2": {
+          "type": "text",
+          "settings": {
+            "text": "\u2726",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "color": "var(--lms-cyan)"
+          },
+          "blocks": {}
+        },
+        "item_3": {
+          "type": "text",
+          "settings": {
+            "text": "Mystery bags",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "letter_spacing": "0.18em",
+            "case": "uppercase"
+          },
+          "blocks": {}
+        },
+        "sep_3": {
+          "type": "text",
+          "settings": {
+            "text": "\u2726",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "color": "var(--lms-cyan)"
+          },
+          "blocks": {}
+        },
+        "item_4": {
+          "type": "text",
+          "settings": {
+            "text": "Rental library",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "letter_spacing": "0.18em",
+            "case": "uppercase"
+          },
+          "blocks": {}
+        },
+        "sep_4": {
+          "type": "text",
+          "settings": {
+            "text": "\u2726",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "color": "var(--lms-cyan)"
+          },
+          "blocks": {}
+        },
+        "item_5": {
+          "type": "text",
+          "settings": {
+            "text": "Boutique labels",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "letter_spacing": "0.18em",
+            "case": "uppercase"
+          },
+          "blocks": {}
+        },
+        "sep_5": {
+          "type": "text",
+          "settings": {
+            "text": "\u2726",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "color": "var(--lms-cyan)"
+          },
+          "blocks": {}
+        },
+        "item_6": {
+          "type": "text",
+          "settings": {
+            "text": "A24 \u00b7 Arrow \u00b7 Kino Lorber",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "letter_spacing": "0.18em",
+            "case": "uppercase"
+          },
+          "blocks": {}
+        },
+        "sep_6": {
+          "type": "text",
+          "settings": {
+            "text": "\u2726",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "color": "var(--lms-cyan)"
+          },
+          "blocks": {}
+        },
+        "item_7": {
+          "type": "text",
+          "settings": {
+            "text": "Collector editions",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "letter_spacing": "0.18em",
+            "case": "uppercase"
+          },
+          "blocks": {}
+        },
+        "sep_7": {
+          "type": "text",
+          "settings": {
+            "text": "\u2726",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "color": "var(--lms-cyan)"
+          },
+          "blocks": {}
+        },
+        "item_8": {
+          "type": "text",
+          "settings": {
+            "text": "VHS \u00b7 DVD \u00b7 Blu-ray \u00b7 4K",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "letter_spacing": "0.18em",
+            "case": "uppercase"
+          },
+          "blocks": {}
+        },
+        "sep_8": {
+          "type": "text",
+          "settings": {
+            "text": "\u2726",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "color": "var(--lms-cyan)"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "item_1",
+        "sep_1",
+        "item_2",
+        "sep_2",
+        "item_3",
+        "sep_3",
+        "item_4",
+        "sep_4",
+        "item_5",
+        "sep_5",
+        "item_6",
+        "sep_6",
+        "item_7",
+        "sep_7",
+        "item_8",
+        "sep_8"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "gap_between_elements": 22,
+        "movement_direction": "left",
+        "section_width": "full-width",
+        "padding-block-start": 12,
+        "padding-block-end": 12
+      }
     }
   },
   "order": [
-    "hero_jVaWmY",
+    "lms_hero",
+    "lms_ticker",
     "product_list_fa6P9H"
   ]
 }
