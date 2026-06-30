@@ -178,15 +178,7 @@
           entry.subs.delete(sub);
         };
       }, []);
-      const defaults = React.useMemo(() => {
-        const d = {};
-        for (const k in entry.propsMeta || {}) {
-          const v = entry.propsMeta?.[k]?.default;
-          if (v !== void 0) d[k] = v;
-        }
-        return d;
-      }, [entry.propsMeta]);
-      return h(Root, { ...defaults, ...entry.propOverrides || {} });
+      return h(Root, entry.propOverrides || null);
     }
     const ReactDOM = getReactDOM();
     if (ReactDOM.createRoot)
