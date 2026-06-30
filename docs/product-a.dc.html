@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/styles.css">
+<script src="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/_ds_bundle.js"></script>
+<style>
+  body { background:#e7ded0; }
+  .lms-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(208px,1fr)); gap:28px 24px; }
+  .lms-frame-label { font-family:var(--font-mono); font-weight:500; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#5b4a3d; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+  .lms-frame-label b { color:var(--lms-brick); font-weight:500; }
+  .lms-card { background:var(--lms-parchment); border-radius:3px; box-shadow:0 12px 40px rgba(58,32,24,.18); overflow:hidden; border:1px solid var(--lms-parchment-edge); }
+  .lms-head { display:flex; align-items:center; justify-content:space-between; padding:16px 32px; border-bottom:1.5px solid var(--border-default); background:var(--lms-parchment); }
+  .lms-nav { display:flex; gap:24px; align-items:center; font-family:var(--font-mono); font-weight:500; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-body); }
+  .lms-meta { font-family:var(--font-mono); font-weight:300; font-size:13px; color:var(--text-muted); }
+  .lms-grouptitle { font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-strong); margin:0 0 10px; }
+  .lms-body { font-family:var(--font-mono); font-weight:300; font-size:14.5px; line-height:1.65; color:var(--text-body); }
+  .lms-spec { display:flex; justify-content:space-between; gap:16px; padding:9px 0; border-bottom:1px solid var(--border-default); font-family:var(--font-mono); font-size:13px; }
+  .lms-spec dt { color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; font-size:11px; }
+  .lms-spec dd { color:var(--text-strong); margin:0; font-weight:500; text-align:right; }
+</style>
+</helmet>
+
+<div style="max-width:1200px; margin:60px auto; padding:0 40px;">
+  <div class="lms-frame-label">Product · Direction A — <b>Shelf classic</b> · notify when available</div>
+  <div class="lms-card" data-screen-label="Product A">
+    <div class="lms-head">
+      <img src="assets/logos/logo-horizontal.svg" alt="Little Movie Store" style="height:24px;">
+      <div class="lms-nav"><span style="color:var(--lms-brick)">Shop</span><span>Rent</span><span>Join the club</span><span>Events</span><span>About</span></div>
+      <div style="display:flex;gap:16px;align-items:center;font-family:var(--font-mono);font-size:13px;color:var(--text-body)"><span style="font-size:17px">⌕</span><span>Bag&nbsp;(0)</span></div>
+    </div>
+
+    <div style="padding:26px 32px 0;">
+      <span class="lms-meta">← Back to the shelves &nbsp;·&nbsp; Shop / Drama / Criterion</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:0.82fr 1fr; gap:48px; padding:24px 32px 44px; align-items:start;">
+      <div style="aspect-ratio:3/4; border-radius:var(--radius-lg); background:var(--lms-brick); border:2px solid var(--border-strong); box-shadow:var(--shadow-lg); display:flex; align-items:center; justify-content:center; padding:32px; position:relative;">
+        <span style="font-family:var(--font-display);font-weight:600;font-size:34px;color:var(--lms-parchment);text-align:center;line-height:1.08;">Paris, Texas</span>
+        <span style="position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,249,239,0.6);">Cover art coming soon</span>
+      </div>
+
+      <div>
+        <div style="display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap;">
+          <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Badge" tone="cyan" variant="solid" hint-size="auto,20px">4K UHD</x-import>
+          <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Badge" tone="sage" hint-size="auto,20px">New</x-import>
+          <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Badge" tone="brick" variant="solid" hint-size="auto,20px">Criterion</x-import>
+        </div>
+        <h1 style="font-family:var(--font-display);font-weight:600;font-size:40px;line-height:1.04;color:var(--text-strong);margin:0 0 6px;">Paris, Texas</h1>
+        <p class="lms-meta" style="font-size:15px;margin-bottom:20px;">Directed by Wim Wenders · 1984 · 145 min</p>
+
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:22px;font-family:var(--font-mono);font-size:13px;color:var(--lms-brick);">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--lms-brick);display:inline-block;"></span>
+          Coming soon · we're still stocking the shelves
+        </div>
+
+        <div style="margin-bottom:8px;">
+          <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Button" variant="primary" size="lg" hint-size="auto,52px">Notify me when it's available</x-import>
+        </div>
+        <p class="lms-meta" style="margin:0 0 28px;">We'll send one email the day it lands on the shelf — nothing else.</p>
+
+        <div style="background:var(--lms-parchment-2);border:1.5px solid var(--border-default);border-radius:var(--radius-lg);padding:22px;">
+          <span class="lms-grouptitle" style="color:var(--lms-brick);">Shelf note · from Ace</span>
+          <p class="lms-body" style="margin:10px 0 0;font-style:italic;">"One of those movies that rewards a big screen and a slow night. If you liked the feeling of wandering, this one's for you. Pairs well with the pizza spot two doors down."</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 380px;gap:48px;padding:8px 32px 44px;align-items:start;">
+      <div>
+        <span class="lms-grouptitle">About the film</span>
+        <p class="lms-body" style="margin:10px 0 0;">A man wanders out of the desert with no memory of the years he's lost, and slowly walks back toward the family he left behind. Wim Wenders' aching American road movie — all neon, big skies, and Ry Cooder's slide guitar — is one of the great films about distance, between places and between people. This is the Criterion 4K restoration, supervised by Wenders himself.</p>
+      </div>
+      <div>
+        <span class="lms-grouptitle">The details</span>
+        <dl style="margin:10px 0 0;">
+          <div class="lms-spec"><dt>Format</dt><dd>4K UHD + Blu-ray</dd></div>
+          <div class="lms-spec"><dt>Label</dt><dd>Criterion Collection</dd></div>
+          <div class="lms-spec"><dt>Region</dt><dd>A / Free</dd></div>
+          <div class="lms-spec"><dt>Runtime</dt><dd>145 min</dd></div>
+          <div class="lms-spec"><dt>Year</dt><dd>1984</dd></div>
+          <div class="lms-spec"><dt>Discs</dt><dd>2</dd></div>
+          <div class="lms-spec" style="border-bottom:none;"><dt>Condition</dt><dd>New &amp; sealed</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div style="padding:6px 32px 44px;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;">
+        <div>
+          <span class="lms-grouptitle" style="color:var(--lms-brick);">From the same shelf</span>
+          <h2 style="font-family:var(--font-display);font-weight:500;font-size:24px;color:var(--text-strong);margin:6px 0 0;">Pairs well with</h2>
+        </div>
+      </div>
+      <div class="lms-grid" style="grid-template-columns:repeat(4,1fr);">
+        <sc-for list="{{ pairs }}" as="film" hint-placeholder-count="4">
+          <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.ProductCard" title="{{ film.title }}" director="{{ film.director }}" format="{{ film.format }}" condition="{{ film.condition }}" rare="{{ film.rare }}" accent="{{ film.accent }}" style="width:100%" hint-size="100%,340px"></x-import>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const C = {
+      brick: "var(--lms-brick)", hunter: "var(--lms-hunter)", sage: "var(--lms-sage)",
+      mah: "var(--lms-mahogany)", brickD: "var(--lms-brick-dark)",
+      horror: "#6e1414", romance: "#9c4f63",
+    };
+    const films = [
+      { title: "In the Mood for Love", director: "Wong Kar-wai", format: "Blu-ray", condition: "New", rare: false, accent: C.romance },
+      { title: "Stalker", director: "Andrei Tarkovsky", format: "Blu-ray", condition: "New", rare: false, accent: C.hunter },
+      { title: "Chungking Express", director: "Wong Kar-wai", format: "Blu-ray", condition: "New", rare: false, accent: C.romance },
+      { title: "Spirited Away", director: "Hayao Miyazaki", format: "DVD", condition: "Used", rare: false, accent: C.sage },
+    ];
+    return { pairs: films };
+  }
+}
+</script>
+</body>
+</html>

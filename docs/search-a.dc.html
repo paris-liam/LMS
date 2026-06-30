@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/styles.css">
+<script src="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/_ds_bundle.js"></script>
+<style>
+  body { background:#e7ded0; }
+  .lms-chip { font-family:var(--font-mono); font-weight:500; font-size:12px; letter-spacing:0.04em; text-transform:uppercase; padding:8px 15px; border-radius:var(--radius-pill); border:1.5px solid var(--border-strong); color:var(--text-body); background:transparent; cursor:pointer; white-space:nowrap; transition:all 140ms var(--ease-soft); }
+  .lms-chip:hover { background:var(--lms-parchment-2); }
+  .lms-chip-on { background:var(--color-primary); border-color:var(--color-primary); color:var(--lms-parchment); }
+  .lms-check { display:flex; align-items:center; gap:10px; font-family:var(--font-mono); font-weight:300; font-size:14px; color:var(--text-body); cursor:pointer; padding:5px 0; }
+  .lms-check .box { width:17px; height:17px; border-radius:4px; border:1.5px solid var(--lms-ink-300); flex:none; display:flex; align-items:center; justify-content:center; }
+  .lms-check .count { margin-left:auto; font-size:12px; color:var(--text-muted); }
+  .lms-check-on .box { background:var(--lms-sage); border-color:var(--lms-sage); color:var(--lms-parchment); font-size:11px; }
+  .lms-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(208px,1fr)); gap:28px 24px; }
+  .lms-frame-label { font-family:var(--font-mono); font-weight:500; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#5b4a3d; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+  .lms-frame-label b { color:var(--lms-brick); font-weight:500; }
+  .lms-card { background:var(--lms-parchment); border-radius:3px; box-shadow:0 12px 40px rgba(58,32,24,.18); overflow:hidden; border:1px solid var(--lms-parchment-edge); }
+  .lms-head { display:flex; align-items:center; justify-content:space-between; padding:16px 32px; border-bottom:1.5px solid var(--border-default); background:var(--lms-parchment); }
+  .lms-nav { display:flex; gap:24px; align-items:center; font-family:var(--font-mono); font-weight:500; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-body); }
+  .lms-h1 { font-family:var(--font-display); font-weight:600; font-size:38px; line-height:1.05; color:var(--text-strong); letter-spacing:-0.01em; }
+  .lms-meta { font-family:var(--font-mono); font-weight:300; font-size:13px; color:var(--text-muted); }
+  .lms-grouptitle { font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-strong); margin:0 0 10px; }
+  .lms-body { font-family:var(--font-mono); font-weight:300; font-size:14.5px; line-height:1.65; color:var(--text-body); }
+</style>
+</helmet>
+
+<div style="max-width:1200px; margin:60px auto; padding:0 40px;">
+  <div class="lms-frame-label">Search · Direction A — <b>The card catalog</b> · sidebar filtering</div>
+  <div class="lms-card" data-screen-label="Search A">
+    <div class="lms-head">
+      <img src="assets/logos/logo-horizontal.svg" alt="Little Movie Store" style="height:24px;">
+      <div class="lms-nav"><span style="color:var(--lms-brick)">Shop</span><span>Rent</span><span>Join the club</span><span>Events</span><span>About</span></div>
+      <div style="display:flex;gap:16px;align-items:center;font-family:var(--font-mono);font-size:13px;color:var(--text-body)"><span style="font-size:17px">⌕</span><span>Bag&nbsp;(0)</span></div>
+    </div>
+
+    <div style="padding:34px 32px 16px;">
+      <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Eyebrow" hint-size="auto,16px">The shelves</x-import>
+      <h1 class="lms-h1" style="margin:8px 0 6px;">Shop everything</h1>
+      <p class="lms-meta">Used drives volume, boutique drives margin, and every shelf has a note. Browse without pressure.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:236px 1fr; gap:34px; padding:18px 32px 40px; align-items:start;">
+      <aside style="display:flex; flex-direction:column; gap:26px;">
+        <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Input" prefix="⌕" placeholder="Search titles, directors…" hint-size="100%,48px"></x-import>
+
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;">
+            <span class="lms-grouptitle" style="margin:0;">Format</span>
+          </div>
+          <label class="lms-check lms-check-on"><span class="box">✓</span>4K UHD<span class="count">48</span></label>
+          <label class="lms-check"><span class="box"></span>Blu-ray<span class="count">132</span></label>
+          <label class="lms-check"><span class="box"></span>DVD<span class="count">210</span></label>
+          <label class="lms-check"><span class="box"></span>VHS<span class="count">64</span></label>
+        </div>
+
+        <div>
+          <span class="lms-grouptitle">Genre</span>
+          <label class="lms-check"><span class="box"></span>Horror<span class="count">73</span></label>
+          <label class="lms-check lms-check-on"><span class="box">✓</span>Drama<span class="count">96</span></label>
+          <label class="lms-check"><span class="box"></span>Sci-Fi<span class="count">41</span></label>
+          <label class="lms-check"><span class="box"></span>Animation<span class="count">38</span></label>
+          <label class="lms-check"><span class="box"></span>Comedy<span class="count">52</span></label>
+          <span style="font-family:var(--font-mono);font-size:12px;color:var(--lms-sage-dark);cursor:pointer;display:inline-block;margin-top:4px;">+ 7 more genres</span>
+        </div>
+
+        <div>
+          <span class="lms-grouptitle">Boutique label</span>
+          <label class="lms-check"><span class="box"></span>Criterion<span class="count">88</span></label>
+          <label class="lms-check"><span class="box"></span>Arrow Video<span class="count">54</span></label>
+          <label class="lms-check"><span class="box"></span>88 Films<span class="count">22</span></label>
+          <label class="lms-check"><span class="box"></span>Synapse<span class="count">14</span></label>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;border-top:1.5px solid var(--border-default);padding-top:18px;">
+          <span class="lms-body" style="font-weight:500;color:var(--text-strong);">New arrivals</span>
+          <span style="width:42px;height:24px;border-radius:999px;background:var(--lms-sage);position:relative;display:inline-block;">
+            <span style="position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:50%;background:var(--lms-parchment);"></span>
+          </span>
+        </div>
+      </aside>
+
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px;">
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+            <span class="lms-meta" style="margin-right:4px;">Filters:</span>
+            <span class="lms-chip lms-chip-on">4K UHD&nbsp;×</span>
+            <span class="lms-chip lms-chip-on">Drama&nbsp;×</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--lms-sage-dark);cursor:pointer;">Clear all</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span class="lms-meta">312 films</span>
+            <span style="font-family:var(--font-mono);font-size:13px;color:var(--text-strong);border:1.5px solid var(--border-strong);padding:7px 14px;border-radius:var(--radius-pill);">Sort: Just landed ⌄</span>
+          </div>
+        </div>
+
+        <div class="lms-grid">
+          <sc-for list="{{ gridA }}" as="film" hint-placeholder-count="8">
+            <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.ProductCard" title="{{ film.title }}" director="{{ film.director }}" format="{{ film.format }}" condition="{{ film.condition }}" rare="{{ film.rare }}" accent="{{ film.accent }}" style="width:100%" hint-size="100%,340px"></x-import>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;justify-content:center;margin-top:40px;">
+          <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Button" variant="outline" size="md" hint-size="auto,44px">Load more films</x-import>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const C = {
+      brick: "var(--lms-brick)", hunter: "var(--lms-hunter)", sage: "var(--lms-sage)",
+      mah: "var(--lms-mahogany)", brickD: "var(--lms-brick-dark)",
+      horror: "#6e1414", action: "#a8430f", romance: "#9c4f63", gold: "#b8860b",
+    };
+    const films = [
+      { title: "Paris, Texas", director: "Wim Wenders", format: "4K", condition: "New", rare: true, accent: C.brick },
+      { title: "The Goonies", director: "Richard Donner", format: "VHS", condition: "Used", rare: false, accent: C.hunter },
+      { title: "Spirited Away", director: "Hayao Miyazaki", format: "DVD", condition: "Used", rare: false, accent: C.sage },
+      { title: "In the Mood for Love", director: "Wong Kar-wai", format: "Blu-ray", condition: "New", rare: false, accent: C.romance },
+      { title: "The Thing", director: "John Carpenter", format: "4K", condition: "New", rare: true, accent: C.horror },
+      { title: "Clueless", director: "Amy Heckerling", format: "DVD", condition: "Used", rare: false, accent: C.gold },
+      { title: "Akira", director: "Katsuhiro Otomo", format: "Blu-ray", condition: "New", rare: false, accent: C.mah },
+      { title: "Labyrinth", director: "Jim Henson", format: "VHS", condition: "Used", rare: false, accent: C.brickD },
+    ];
+    return { gridA: films };
+  }
+}
+</script>
+</body>
+</html>

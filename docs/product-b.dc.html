@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/colors.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/typography.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/styles.css">
+<script src="_ds/little-movie-store-design-system-a217bbf7-a74e-4c57-b754-f9b576a8cd2f/_ds_bundle.js"></script>
+<style>
+  body { background:#e7ded0; }
+  .lms-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(208px,1fr)); gap:28px 24px; }
+  .lms-frame-label { font-family:var(--font-mono); font-weight:500; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#5b4a3d; margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+  .lms-frame-label b { color:var(--lms-brick); font-weight:500; }
+  .lms-card { background:var(--lms-parchment); border-radius:3px; box-shadow:0 12px 40px rgba(58,32,24,.18); overflow:hidden; border:1px solid var(--lms-parchment-edge); }
+  .lms-head { display:flex; align-items:center; justify-content:space-between; padding:16px 32px; border-bottom:1.5px solid var(--border-default); background:var(--lms-parchment); }
+  .lms-nav { display:flex; gap:24px; align-items:center; font-family:var(--font-mono); font-weight:500; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-body); }
+  .lms-meta { font-family:var(--font-mono); font-weight:300; font-size:13px; color:var(--text-muted); }
+  .lms-grouptitle { font-family:var(--font-mono); font-weight:500; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--text-strong); margin:0 0 10px; }
+  .lms-body { font-family:var(--font-mono); font-weight:300; font-size:14.5px; line-height:1.65; color:var(--text-body); }
+  .lms-spec { display:flex; justify-content:space-between; gap:16px; padding:9px 0; border-bottom:1px solid var(--border-default); font-family:var(--font-mono); font-size:13px; }
+  .lms-spec dt { color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em; font-size:11px; }
+  .lms-spec dd { color:var(--text-strong); margin:0; font-weight:500; text-align:right; }
+</style>
+</helmet>
+
+<div style="max-width:1200px; margin:60px auto; padding:0 40px;">
+  <div class="lms-frame-label">Product · Direction B — <b>Lobby card</b> · rare find, coming soon</div>
+  <div class="lms-card" data-screen-label="Product B">
+    <div class="lms-head">
+      <img src="assets/logos/logo-horizontal.svg" alt="Little Movie Store" style="height:24px;">
+      <div class="lms-nav"><span style="color:var(--lms-brick)">Shop</span><span>Rent</span><span>Join the club</span><span>Events</span><span>About</span></div>
+      <div style="display:flex;gap:16px;align-items:center;font-family:var(--font-mono);font-size:13px;color:var(--text-body)"><span style="font-size:17px">⌕</span><span>Bag&nbsp;(0)</span></div>
+    </div>
+
+    <div style="background:var(--lms-mahogany); padding:40px 40px 44px; position:relative; overflow:hidden;">
+      <img src="assets/monograms/tape.svg" alt="" style="position:absolute;width:200px;opacity:0.05;top:-30px;right:-20px;filter:invert(1);">
+      <div style="display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:center;position:relative;z-index:1;">
+        <div style="aspect-ratio:3/4;border-radius:var(--radius-md);background:#6e1414;border:2px solid rgba(255,249,239,0.2);box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center;padding:24px;">
+          <span style="font-family:var(--font-display);font-weight:600;font-size:30px;color:var(--lms-parchment);text-align:center;line-height:1.08;">The Thing</span>
+        </div>
+        <div>
+          <div style="display:flex;gap:7px;margin-bottom:16px;flex-wrap:wrap;">
+            <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Badge" tone="cyan" variant="solid" hint-size="auto,20px">4K UHD</x-import>
+            <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Badge" tone="brick" variant="solid" hint-size="auto,20px">Rare find</x-import>
+            <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Badge" tone="sage" hint-size="auto,20px">New</x-import>
+          </div>
+          <h1 style="font-family:var(--font-display);font-weight:600;font-size:46px;line-height:1.02;color:var(--lms-parchment);margin:0 0 8px;">The Thing</h1>
+          <p style="font-family:var(--font-mono);font-weight:300;font-size:15px;color:color-mix(in oklch, var(--lms-parchment) 76%, transparent);margin:0 0 22px;">Directed by John Carpenter · 1982 · 109 min · Arrow Video steelbook</p>
+
+          <div style="display:inline-flex;align-items:center;gap:9px;background:rgba(151,49,35,0.35);border:1.5px solid var(--lms-brick);border-radius:var(--radius-pill);padding:7px 16px;margin-bottom:24px;font-family:var(--font-mono);font-size:12.5px;color:var(--lms-parchment);">
+            <span style="width:8px;height:8px;border-radius:50%;background:#e88;display:inline-block;"></span>
+            Coming soon · not available just yet
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+            <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.Button" variant="primary" size="lg" hint-size="auto,52px">Notify me when it's available</x-import>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;padding:16px 40px;background:var(--lms-cyan-tint);border-bottom:1.5px solid var(--border-default);font-family:var(--font-mono);font-size:13.5px;color:var(--lms-hunter);">
+      <span style="font-size:16px;color:var(--lms-brick);">✦</span>
+      <span><b style="color:var(--text-strong)">We're still stocking the shelves.</b> Sign up above and we'll let you know the moment this one's ready. Meet me at the movie store.</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:48px;padding:38px 40px 30px;align-items:start;">
+      <div>
+        <span class="lms-grouptitle">About the film</span>
+        <p class="lms-body" style="margin:10px 0 28px;">An American research station in Antarctica thaws out something that perfectly imitates the living. Carpenter's paranoid masterpiece is still the high-water mark for practical effects and pure dread — a movie about not being able to trust the person right next to you. This Arrow Video 4K steelbook is a limited pressing; once it's gone from the shelf, it's gone.</p>
+
+        <div style="background:var(--lms-parchment-2);border:1.5px solid var(--border-default);border-left:3px solid var(--lms-brick);border-radius:var(--radius-md);padding:24px 26px;">
+          <span class="lms-grouptitle" style="color:var(--lms-brick);">Shelf note · from Dani</span>
+          <p class="lms-body" style="margin:12px 0 0;font-size:16px;font-style:italic;line-height:1.6;">"Do not watch this alone. Then immediately watch it again alone. The steelbook art is worth the shelf space by itself — this is the one copy we fought over at intake."</p>
+        </div>
+      </div>
+      <div>
+        <span class="lms-grouptitle">The details</span>
+        <dl style="margin:10px 0 0;">
+          <div class="lms-spec"><dt>Format</dt><dd>4K UHD steelbook</dd></div>
+          <div class="lms-spec"><dt>Label</dt><dd>Arrow Video</dd></div>
+          <div class="lms-spec"><dt>Region</dt><dd>A / B</dd></div>
+          <div class="lms-spec"><dt>Runtime</dt><dd>109 min</dd></div>
+          <div class="lms-spec"><dt>Year</dt><dd>1982</dd></div>
+          <div class="lms-spec"><dt>Discs</dt><dd>2</dd></div>
+          <div class="lms-spec" style="border-bottom:none;"><dt>Status</dt><dd>Coming soon</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div style="padding:14px 40px 44px;">
+      <span class="lms-grouptitle" style="color:var(--lms-brick);">If you love a good scare</span>
+      <h2 style="font-family:var(--font-display);font-weight:500;font-size:24px;color:var(--text-strong);margin:6px 0 22px;">Pairs well with</h2>
+      <div class="lms-grid" style="grid-template-columns:repeat(4,1fr);">
+        <sc-for list="{{ pairsB }}" as="film" hint-placeholder-count="4">
+          <x-import component-from-global-scope="LittleMovieStoreDesignSystem_a217bb.ProductCard" title="{{ film.title }}" director="{{ film.director }}" format="{{ film.format }}" condition="{{ film.condition }}" rare="{{ film.rare }}" accent="{{ film.accent }}" style="width:100%" hint-size="100%,340px"></x-import>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const C = {
+      hunter: "var(--lms-hunter)", mah: "var(--lms-mahogany)",
+      horror: "#6e1414", romance: "#9c4f63",
+    };
+    const films = [
+      { title: "Suspiria", director: "Dario Argento", format: "4K", condition: "New", rare: true, accent: C.horror },
+      { title: "Akira", director: "Katsuhiro Otomo", format: "Blu-ray", condition: "New", rare: false, accent: C.mah },
+      { title: "Stalker", director: "Andrei Tarkovsky", format: "Blu-ray", condition: "New", rare: false, accent: C.hunter },
+      { title: "The Thing", director: "John Carpenter", format: "4K", condition: "New", rare: true, accent: C.horror },
+    ];
+    return { pairsB: films };
+  }
+}
+</script>
+</body>
+</html>

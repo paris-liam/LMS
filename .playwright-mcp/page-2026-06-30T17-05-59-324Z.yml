@@ -1,0 +1,19 @@
+- generic [active] [ref=e1]:
+  - heading "Little Movie Store — Homepage Mockups" [level=1] [ref=e2]
+  - paragraph [ref=e3]: Design explorations for the LMS website. Click any file to open it.
+  - generic [ref=e4]:
+    - 'link "Mockup LMS Homepage Main homepage — CRT TV hero cycling real movie covers with scanlines & flicker. H1: \"Meet me at the movie store.\"" [ref=e5] [cursor=pointer]':
+      - /url: lms-homepage.dc.html
+      - generic [ref=e6]: Mockup
+      - generic [ref=e7]: LMS Homepage
+      - generic [ref=e8]: "Main homepage — CRT TV hero cycling real movie covers with scanlines & flicker. H1: \"Meet me at the movie store.\""
+    - 'link "Mockup LMS Homepage — Mockup Aligned Alternate version — animated spine shelf hero where spines pop up one at a time. H1: \"Movies you can Feel.\"" [ref=e9] [cursor=pointer]':
+      - /url: lms-homepage-mockup-aligned.dc.html
+      - generic [ref=e10]: Mockup
+      - generic [ref=e11]: LMS Homepage — Mockup Aligned
+      - generic [ref=e12]: "Alternate version — animated spine shelf hero where spines pop up one at a time. H1: \"Movies you can Feel.\""
+    - link "Canvas Hero Options & Shelf Variations Hero options (Options 1, 2, 4) and shelf variations (Shelves A–C) in one canvas. Shelves first, then hero options." [ref=e13] [cursor=pointer]:
+      - /url: hero-options.dc.html
+      - generic [ref=e14]: Canvas
+      - generic [ref=e15]: Hero Options & Shelf Variations
+      - generic [ref=e16]: Hero options (Options 1, 2, 4) and shelf variations (Shelves A–C) in one canvas. Shelves first, then hero options.
