@@ -57,6 +57,17 @@
   </svg>
 {% endcapture %}
 
+{% liquid
+  # STAND-IN: gates on customer.tags 'Has active subscription' until Supercycle installs (see CLAUDE.md).
+  assign is_member = true
+  if section and section.settings.enable_membership_gating
+    assign is_member = false
+    if customer and customer.tags contains 'Has active subscription'
+      assign is_member = true
+    endif
+  endif
+%}
+
 <header-actions
   {% if display_style == 'text' %}
     class="header-actions--text"
@@ -64,53 +75,62 @@
   {{- block.shopify_attributes -}}
 >
   {% if shop.customer_accounts_enabled %}
-    {% liquid
-      assign account_actions_style = ''
-      if display_style == 'text' and section
-        assign actions_font = section.settings.actions_font | default: 'body'
-        assign font_obj = settings.type_heading_font
-        case actions_font
-          when 'body'
-            assign font_obj = settings.type_body_font
-          when 'subheading'
-            assign font_obj = settings.type_subheading_font
-          when 'accent'
-            assign font_obj = settings.type_accent_font
-        endcase
-        assign font_family = font_obj.family | append: ', ' | append: font_obj.fallback_families
-        assign font_family_safe = font_family | replace: '"', "'"
-        assign account_actions_style = '--header-actions-font-family: ' | append: font_family_safe | append: '; --header-actions-font-weight: ' | append: font_obj.weight | append: ';'
-      endif
-    %}
-    <div
-      class="account-button header-actions__action{% if display_style == 'text' %} account-button--text{% endif %} color-{{ settings.popover_color_scheme }}"
-    >
-      <shopify-account
-        menu="{{ customer_account_menu }}"
-        {% if account_actions_style != blank %}
-          style="{{ account_actions_style }}"
-        {% endif %}
+    {% unless is_member %}
+      <a
+        href="{{ section.settings.join_club_url }}"
+        class="lms-btn lms-btn--primary lms-btn--sm header-actions__action{% if display_style == 'text' %} header-actions__text-style{% endif %}"
       >
-        {% if customer %}
-          <div class="account-button__fallback"></div>
-        {% else %}
-          <span
-            slot="signed-out-avatar"
-            class="account-button__text header-actions__text-style {% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}"
-          >
-            {{ 'content.account_title' | t }}
-          </span>
+        {{ section.settings.join_club_label }}
+      </a>
+    {% else %}
+      {% liquid
+        assign account_actions_style = ''
+        if display_style == 'text' and section
+          assign actions_font = section.settings.actions_font | default: 'body'
+          assign font_obj = settings.type_heading_font
+          case actions_font
+            when 'body'
+              assign font_obj = settings.type_body_font
+            when 'subheading'
+              assign font_obj = settings.type_subheading_font
+            when 'accent'
+              assign font_obj = settings.type_accent_font
+          endcase
+          assign font_family = font_obj.family | append: ', ' | append: font_obj.fallback_families
+          assign font_family_safe = font_family | replace: '"', "'"
+          assign account_actions_style = '--header-actions-font-family: ' | append: font_family_safe | append: '; --header-actions-font-weight: ' | append: font_obj.weight | append: ';'
+        endif
+      %}
+      <div
+        class="account-button header-actions__action{% if display_style == 'text' %} account-button--text{% endif %} color-{{ settings.popover_color_scheme }}"
+      >
+        <shopify-account
+          menu="{{ customer_account_menu }}"
+          {% if account_actions_style != blank %}
+            style="{{ account_actions_style }}"
+          {% endif %}
+        >
+          {% if customer %}
+            <div class="account-button__fallback"></div>
+          {% else %}
+            <span
+              slot="signed-out-avatar"
+              class="account-button__text header-actions__text-style {% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}"
+            >
+              {{ 'content.account_title' | t }}
+            </span>
 
-          <span
-            slot="signed-out-avatar"
-            class="{% if display_style != 'icon' %}desktop:hidden{% endif %}"
-            aria-hidden="true"
-          >
-            {{ account_icon }}
-          </span>
-        {% endif %}
-      </shopify-account>
-    </div>
+            <span
+              slot="signed-out-avatar"
+              class="{% if display_style != 'icon' %}desktop:hidden{% endif %}"
+              aria-hidden="true"
+            >
+              {{ account_icon }}
+            </span>
+          {% endif %}
+        </shopify-account>
+      </div>
+    {% endunless %}
   {% endif %}
 
   {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
@@ -152,6 +172,7 @@
     {% endcapture %}
 
     <cart-drawer-component
+      id="cart-drawer"
       class="cart-drawer{% if display_style == 'text' %} cart-drawer--text{% endif %}"
       {{ block.shopify_attributes }}
       {% if settings.auto_open_cart_drawer %}
@@ -162,7 +183,7 @@
         {{ empty_cart_drawer_content }}
       </template>
       <button
-        class="header-actions__action button-unstyled{% if display_style == 'text' %} header-actions__text-style{% endif %}"
+        class="header-actions__action button-unstyled{% if display_style == 'text' %} header-actions__text-style{% endif %}{% if section.settings.enable_membership_gating and is_member == false %} header-actions__action--muted{% endif %}"
         on:click="/open"
         aria-haspopup="dialog"
         aria-label="{{ 'accessibility.cart' | t }}"
@@ -243,7 +264,7 @@
   {% else %}
     <a
       href="{{ routes.cart_url }}"
-      class="header-actions__action action__cart{% if display_style == 'text' %} header-actions__text-style{% endif %}"
+      class="header-actions__action action__cart{% if display_style == 'text' %} header-actions__text-style{% endif %}{% if section.settings.enable_membership_gating and is_member == false %} header-actions__action--muted{% endif %}"
       aria-label="{{ 'accessibility.cart' | t }}"
       aria-describedby="cart-bubble-text"
     >
@@ -266,6 +287,11 @@
 ></script>
 
 {% stylesheet %}
+  .header-actions__action--muted {
+    color: var(--lms-ink-400);
+    opacity: 0.7;
+  }
+
   .header {
     --account-offset-top: calc(
       var(--header-group-height) + (var(--header-height) * var(--transparent-header-offset-boolean))

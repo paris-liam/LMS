@@ -16,6 +16,15 @@
   assign max_featured_items = 4
   assign image_border_radius = block_settings.image_border_radius
 
+  # STAND-IN: gates on customer.tags 'Has active subscription' until Supercycle installs (see CLAUDE.md).
+  assign is_member = true
+  if section and section.settings.enable_membership_gating
+    assign is_member = false
+    if customer and customer.tags contains 'Has active subscription'
+      assign is_member = true
+    endif
+  endif
+
   if block_settings.menu_style == 'featured_collections'
     assign ratio = block_settings.featured_collections_aspect_ratio
   elsif block_settings.menu_style == 'featured_products'
@@ -83,6 +92,60 @@
           {{- 'icon-close.svg' | inline_asset_content -}}
         </span>
       </button>
+      <div
+        class="menu-drawer__quick-links menu-drawer__animated-element"
+        style="--menu-drawer-animation-index: 0;"
+      >
+        {% if shop.customer_accounts_enabled %}
+          {% if is_member %}
+            <a
+              href="{{ routes.account_url }}"
+              class="menu-drawer__account"
+            >
+              {{ 'content.account_title' | t }}
+            </a>
+          {% else %}
+            <a
+              href="{{ section.settings.join_club_url }}"
+              class="menu-drawer__account"
+            >
+              {{ section.settings.join_club_label }}
+            </a>
+          {% endif %}
+        {% endif %}
+
+        {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
+          <button
+            type="button"
+            on:click="#cart-drawer/open"
+            class="menu-drawer__account button-unstyled"
+            aria-haspopup="dialog"
+            aria-describedby="cart-bubble-text"
+          >
+            {{ 'content.cart_title' | t }}
+            {% render 'cart-bubble' %}
+          </button>
+        {% else %}
+          <a
+            href="{{ routes.cart_url }}"
+            class="menu-drawer__account"
+            aria-describedby="cart-bubble-text"
+          >
+            {{ 'content.cart_title' | t }}
+          </a>
+        {% endif %}
+
+        {% if section.settings.show_search %}
+          <button
+            type="button"
+            on:click="#search-modal/showDialog"
+            class="menu-drawer__account button-unstyled"
+            aria-haspopup="dialog"
+          >
+            {{ 'content.search' | t }}
+          </button>
+        {% endif %}
+      </div>
       <nav
         class="menu-drawer__navigation"
         style="
@@ -1242,6 +1305,13 @@
     background-color: rgb(var(--color-foreground) 0.03);
   }
 
+  .menu-drawer__quick-links {
+    display: flex;
+    flex-direction: column;
+    padding-inline: var(--padding-xl);
+    border-bottom: 1px solid rgb(var(--color-foreground) / 0.1);
+  }
+
   .menu-drawer__account {
     display: inline-flex;
     align-items: center;
@@ -1250,6 +1320,9 @@
     height: 44px;
     font-size: 1.4rem;
     color: rgb(var(--color-foreground));
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   .menu-drawer__account svg {

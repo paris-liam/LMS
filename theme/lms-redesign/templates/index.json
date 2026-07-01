@@ -9,6 +9,454 @@
  */
 {
   "sections": {
+    "lms_hero": {
+      "type": "lms-homepage-hero",
+      "settings": {
+        "eyebrow": "Now open · Passyunk Ave, South Philly",
+        "heading": "<p>Meet me at the<br/>movie store.</p>",
+        "body": "<p>A physical-media movie store, curated by people who genuinely love movies. DVD, Blu-ray, 4K, and VHS — new, used, rare, and everything in between. Browse the shelves, rent something, stay a while.</p>",
+        "cta_primary_label": "Join the club →",
+        "cta_primary_url": "/pages/membership",
+        "cta_secondary_label": "Browse the shelves",
+        "cta_secondary_url": "/collections/all",
+        "stat_location": "Passyunk Ave · South Philly",
+        "stat_hours": "Wed – Sat · 10am – 6pm",
+        "stat_membership": "$100 / year",
+        "color_scheme": "",
+        "padding_top": 68,
+        "padding_bottom": 64
+      }
+    },
+    "lms_ticker": {
+      "type": "marquee",
+      "blocks": {
+        "item_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>New arrivals</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "0.18em",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "sep_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✦</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--lms-cyan)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "item_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Weekly drops</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "0.18em",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "sep_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✦</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--lms-cyan)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "item_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mystery bags</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "0.18em",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "sep_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✦</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--lms-cyan)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "item_4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Rental library</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "0.18em",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "sep_4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✦</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--lms-cyan)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "item_5": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Boutique labels</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "0.18em",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "sep_5": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✦</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--lms-cyan)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "item_6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A24 · Arrow · Kino Lorber</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "0.18em",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "sep_6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✦</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--lms-cyan)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "item_7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Collector editions</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "0.18em",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "sep_7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✦</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--lms-cyan)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "item_8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>VHS · DVD · Blu-ray · 4K</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "0.18em",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "sep_8": {
+          "type": "text",
+          "settings": {
+            "text": "<p>✦</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--lms-cyan)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "item_1",
+        "sep_1",
+        "item_2",
+        "sep_2",
+        "item_3",
+        "sep_3",
+        "item_4",
+        "sep_4",
+        "item_5",
+        "sep_5",
+        "item_6",
+        "sep_6",
+        "item_7",
+        "sep_7",
+        "item_8",
+        "sep_8"
+      ],
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-2",
+        "padding-block-start": 12,
+        "padding-block-end": 12,
+        "gap_between_elements": 22
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -201,228 +649,6 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48
-      }
-    },
-    "lms_hero": {
-      "type": "lms-homepage-hero",
-      "settings": {
-        "cta_primary_url": "/pages/membership",
-        "cta_secondary_url": "/collections/all"
-      }
-    },
-    "lms_ticker": {
-      "type": "marquee",
-      "blocks": {
-        "item_1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>New arrivals</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "letter_spacing": "0.18em",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        },
-        "sep_1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>\u2726</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "color": "var(--lms-cyan)"
-          },
-          "blocks": {}
-        },
-        "item_2": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Weekly drops</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "letter_spacing": "0.18em",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        },
-        "sep_2": {
-          "type": "text",
-          "settings": {
-            "text": "<p>\u2726</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "color": "var(--lms-cyan)"
-          },
-          "blocks": {}
-        },
-        "item_3": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Mystery bags</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "letter_spacing": "0.18em",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        },
-        "sep_3": {
-          "type": "text",
-          "settings": {
-            "text": "<p>\u2726</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "color": "var(--lms-cyan)"
-          },
-          "blocks": {}
-        },
-        "item_4": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Rental library</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "letter_spacing": "0.18em",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        },
-        "sep_4": {
-          "type": "text",
-          "settings": {
-            "text": "<p>\u2726</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "color": "var(--lms-cyan)"
-          },
-          "blocks": {}
-        },
-        "item_5": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Boutique labels</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "letter_spacing": "0.18em",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        },
-        "sep_5": {
-          "type": "text",
-          "settings": {
-            "text": "<p>\u2726</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "color": "var(--lms-cyan)"
-          },
-          "blocks": {}
-        },
-        "item_6": {
-          "type": "text",
-          "settings": {
-            "text": "<p>A24 \u00b7 Arrow \u00b7 Kino Lorber</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "letter_spacing": "0.18em",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        },
-        "sep_6": {
-          "type": "text",
-          "settings": {
-            "text": "<p>\u2726</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "color": "var(--lms-cyan)"
-          },
-          "blocks": {}
-        },
-        "item_7": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Collector editions</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "letter_spacing": "0.18em",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        },
-        "sep_7": {
-          "type": "text",
-          "settings": {
-            "text": "<p>\u2726</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "color": "var(--lms-cyan)"
-          },
-          "blocks": {}
-        },
-        "item_8": {
-          "type": "text",
-          "settings": {
-            "text": "<p>VHS \u00b7 DVD \u00b7 Blu-ray \u00b7 4K</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "letter_spacing": "0.18em",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        },
-        "sep_8": {
-          "type": "text",
-          "settings": {
-            "text": "<p>\u2726</p>",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "0.75rem",
-            "color": "var(--lms-cyan)"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "item_1",
-        "sep_1",
-        "item_2",
-        "sep_2",
-        "item_3",
-        "sep_3",
-        "item_4",
-        "sep_4",
-        "item_5",
-        "sep_5",
-        "item_6",
-        "sep_6",
-        "item_7",
-        "sep_7",
-        "item_8",
-        "sep_8"
-      ],
-      "settings": {
-        "color_scheme": "scheme-2",
-        "gap_between_elements": 22,
-        "movement_direction": "left",
-        "section_width": "full-width",
-        "padding-block-start": 12,
-        "padding-block-end": 12
       }
     }
   },

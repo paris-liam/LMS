@@ -22,9 +22,9 @@
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "flex-start",
             "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 16,
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -56,7 +56,20 @@
             "logo": {
               "type": "logo",
               "settings": {
-                "image_width": 140
+                "logo": "shopify://shop_images/Logo_Stacked_with_Tagline_Black.svg",
+                "inverse": false,
+                "font": "heading",
+                "unit": "percent",
+                "percent_width": 60,
+                "pixel_height": 48,
+                "custom_mobile_size": false,
+                "unit_mobile": "percent",
+                "percent_width_mobile": 21,
+                "pixel_height_mobile": 120,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
               },
               "blocks": {}
             }
@@ -75,7 +88,7 @@
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "flex-start",
-            "gap": 12,
+            "gap": 0,
             "width": "fill",
             "custom_width": 100,
             "width_mobile": "fill",
@@ -132,18 +145,18 @@
             "links": {
               "type": "text",
               "settings": {
-                "text": "<p><a href=\"/collections/new-arrivals\">New arrivals</a><br><a href=\"/collections/4k-blu-ray\">4K &amp; Blu-ray</a><br><a href=\"/collections/used-vhs\">Used &amp; VHS</a><br><a href=\"/collections/mystery-bags\">Mystery bags</a></p>",
+                "text": "<p><a href=\"/collections/new-arrivals\">New arrivals</a><br/><a href=\"/collections/4k-blu-ray\">4K & Blu-ray</a><br/><a href=\"/collections/used-vhs\">Used & VHS</a><br/><a href=\"/collections/mystery-bags\">Mystery bags</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "custom",
                 "font": "var(--font-body--family)",
-                "font_size": "0.8125rem",
-                "line_height": "normal",
+                "font_size": "0.75rem",
+                "line_height": "loose",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "color": "color-mix(in oklch, var(--lms-parchment) 78%, transparent)",
+                "color": "var(--color-primary)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -227,7 +240,7 @@
             "links": {
               "type": "text",
               "settings": {
-                "text": "<p><a href=\"/pages/visit\">Passyunk Ave, Philly</a><br><a href=\"/pages/visit\">Hours &amp; map</a><br><a href=\"/collections/rental-library\">Rental library</a><br><a href=\"/pages/events\">Events calendar</a></p>",
+                "text": "<p><a href=\"/pages/visit\">Passyunk Ave, Philly</a><br/><a href=\"/pages/visit\">Hours & map</a><br/><a href=\"/collections/rental-library\">Rental library</a><br/><a href=\"/pages/events\">Events calendar</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -416,7 +429,7 @@
         "section_width": "page-width",
         "gap": 24,
         "divider_thickness": 0,
-        "color_scheme": "",
+        "color_scheme": "scheme-2",
         "padding-block-start": 20,
         "padding-block-end": 48
       }

@@ -4,6 +4,14 @@
   assign block_settings = block.settings
   assign use_inverse_logo = false
 
+  assign header_logo = block_settings.logo
+  if header_logo == blank
+    assign header_logo = settings.logo
+  endif
+
+  assign header_logo_height = block_settings.logo_height
+  assign header_logo_height_mobile = block_settings.logo_height_mobile
+
   if section.settings.enable_transparent_header_home and template.name == 'index' and section.settings.home_color_scheme == 'inverse'
     assign use_inverse_logo = true
   elsif section.settings.enable_transparent_header_product and template.name == 'product' and section.settings.product_color_scheme == 'inverse'
@@ -43,12 +51,12 @@
   {{ block.shopify_attributes }}
 >
   {% liquid
-    assign logo_width = settings.logo_height | times: settings.logo.aspect_ratio | ceil
-    assign logo_width_mobile = settings.logo_height_mobile | times: settings.logo.aspect_ratio | ceil
-    assign inverse_logo_width = settings.logo_height | times: inverse_logo.aspect_ratio | ceil
-    assign inverse_logo_width_mobile = settings.logo_height_mobile | times: inverse_logo.aspect_ratio | ceil
-    assign logo_style = '--header-logo-image-width: ' | append: logo_width | append: 'px;' | append: '--header-logo-image-width-mobile: ' | append: logo_width_mobile | append: 'px; --header-logo-image-height: ' | append: settings.logo_height | append: 'px; --header-logo-image-height-mobile: ' | append: settings.logo_height_mobile | append: 'px;'
-    assign inverse_logo_style = '--header-logo-image-width: ' | append: inverse_logo_width | append: 'px;' | append: '--header-logo-image-width-mobile: ' | append: inverse_logo_width_mobile | append: 'px; --header-logo-image-height: ' | append: settings.logo_height | append: 'px; --header-logo-image-height-mobile: ' | append: settings.logo_height_mobile | append: 'px;'
+    assign logo_width = header_logo_height | times: header_logo.aspect_ratio | ceil
+    assign logo_width_mobile = header_logo_height_mobile | times: header_logo.aspect_ratio | ceil
+    assign inverse_logo_width = header_logo_height | times: inverse_logo.aspect_ratio | ceil
+    assign inverse_logo_width_mobile = header_logo_height_mobile | times: inverse_logo.aspect_ratio | ceil
+    assign logo_style = '--header-logo-image-width: ' | append: logo_width | append: 'px;' | append: '--header-logo-image-width-mobile: ' | append: logo_width_mobile | append: 'px; --header-logo-image-height: ' | append: header_logo_height | append: 'px; --header-logo-image-height-mobile: ' | append: header_logo_height_mobile | append: 'px;'
+    assign inverse_logo_style = '--header-logo-image-width: ' | append: inverse_logo_width | append: 'px;' | append: '--header-logo-image-width-mobile: ' | append: inverse_logo_width_mobile | append: 'px; --header-logo-image-height: ' | append: header_logo_height | append: 'px; --header-logo-image-height-mobile: ' | append: header_logo_height_mobile | append: 'px;'
   %}
 
   <span
@@ -56,9 +64,9 @@
     data-testid="header-logo"
   >
     {% render 'image',
-      image: settings.logo,
+      image: header_logo,
       class: 'header-logo__image',
-      height: settings.logo_height,
+      height: header_logo_height,
       alt_text_fallback: alt_text_fallback,
       text_fallback: shop.name,
       style: logo_style
@@ -73,7 +81,7 @@
       {% render 'image',
         image: inverse_logo,
         class: 'header-logo__image',
-        height: settings.logo_height,
+        height: header_logo_height,
         alt_text_fallback: alt_text_fallback,
         text_fallback: shop.name,
         style: inverse_logo_style
@@ -148,7 +156,37 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "t:content.edit_logo_in_theme_settings"
+      "content": "Edit the site-wide logo in [theme settings](/editor?context=theme&category=logo%20and%20favicon), or set a logo below to override it for this header only."
+    },
+    {
+      "type": "header",
+      "content": "Logo override"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo (optional override)",
+      "info": "Overrides the theme's global logo for this header only. Leave blank to use the logo set in Theme settings > Logo."
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "label": "Logo height",
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "logo_height_mobile",
+      "label": "Logo height (mobile)",
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 28
     },
     {
       "type": "header",
