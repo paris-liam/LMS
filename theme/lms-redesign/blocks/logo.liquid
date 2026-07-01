@@ -2,10 +2,14 @@
 
 {% liquid
   assign block_settings = block.settings
-  assign image = settings.logo
+  assign image = block_settings.logo
 
-  if block_settings.inverse and settings.logo_inverse
-    assign image = settings.logo_inverse
+  if image == blank
+    assign image = settings.logo
+
+    if block_settings.inverse and settings.logo_inverse
+      assign image = settings.logo_inverse
+    endif
   endif
 %}
 
@@ -106,11 +110,17 @@
   "tag": null,
   "settings": [
     {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo (optional override)",
+      "info": "Overrides the shop's default logo for this block only. Leave blank to use the logo set in Theme Settings."
+    },
+    {
       "type": "checkbox",
       "label": "t:settings.use_inverse_logo",
       "id": "inverse",
       "default": false,
-      "visible_if": "{{ settings.logo_inverse }}"
+      "visible_if": "{{ settings.logo_inverse and block.settings.logo == blank }}"
     },
     {
       "type": "select",

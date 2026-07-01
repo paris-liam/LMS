@@ -1,0 +1,273 @@
+
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}">
+  <div
+    class="social-bar spacing-style"
+    style="{% render 'spacing-style', settings: section.settings %}"
+  >
+    {% if section.settings.label != blank %}
+      <span class="social-bar__label">{{ section.settings.label }}</span>
+    {% endif %}
+
+    {% liquid
+      assign social_links = 'facebook_url,instagram_url,youtube_url,tiktok_url,twitter_url,threads_url,linkedin_url,bluesky_url,snapchat_url,pinterest_url,tumblr_url,vimeo_url,custom_url' | split: ','
+      assign rendered_count = 0
+    %}
+
+    {% for link_key in social_links %}
+      {% liquid
+        assign link_url = section.settings[link_key]
+        assign platform = blank
+
+        if link_url != blank
+          case link_key
+            when 'facebook_url'
+              assign platform = 'Facebook'
+            when 'instagram_url'
+              assign platform = 'Instagram'
+            when 'youtube_url'
+              assign platform = 'YouTube'
+            when 'tiktok_url'
+              assign platform = 'TikTok'
+            when 'twitter_url'
+              assign platform = 'Twitter'
+            when 'threads_url'
+              assign platform = 'Threads'
+            when 'linkedin_url'
+              assign platform = 'LinkedIn'
+            when 'bluesky_url'
+              assign platform = 'Bluesky'
+            when 'snapchat_url'
+              assign platform = 'Snapchat'
+            when 'pinterest_url'
+              assign platform = 'Pinterest'
+            when 'tumblr_url'
+              assign platform = 'Tumblr'
+            when 'vimeo_url'
+              assign platform = 'Vimeo'
+            when 'custom_url'
+              assign platform = section.settings.custom_url_label | default: 'Website'
+          endcase
+        endif
+      %}
+
+      {% if platform != blank %}
+        {% if rendered_count > 0 %}
+          <span class="social-bar__dot" aria-hidden="true">&middot;</span>
+        {% endif %}
+        <a
+          href="{{ link_url }}"
+          class="social-bar__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{- platform -}}
+        </a>
+        {% assign rendered_count = rendered_count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+
+    {% if section.settings.handle != blank %}
+      <span class="social-bar__handle">{{ section.settings.handle }}</span>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .social-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--gap-md, 16px);
+    font-family: var(--font-body--family);
+  }
+
+  .social-bar__label {
+    font-weight: var(--font-body--weight, 500);
+    font-size: 0.625rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-foreground-muted);
+  }
+
+  .social-bar__link {
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    color: var(--color-foreground);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .social-bar__dot {
+    color: var(--color-border);
+    opacity: 0.7;
+  }
+
+  .social-bar__handle {
+    margin-inline-start: auto;
+    font-weight: 300;
+    font-size: 0.8125rem;
+    color: var(--color-foreground-muted);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Social bar",
+  "class": "section-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Find us"
+    },
+    {
+      "type": "text",
+      "id": "handle",
+      "label": "Handle text",
+      "default": "@littlemoviestore"
+    },
+    {
+      "type": "header",
+      "content": "Social links"
+    },
+    {
+      "type": "paragraph",
+      "content": "Only platforms with a URL set below are shown, in this order."
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok"
+    },
+    {
+      "type": "url",
+      "id": "twitter_url",
+      "label": "Twitter / X"
+    },
+    {
+      "type": "url",
+      "id": "threads_url",
+      "label": "Threads"
+    },
+    {
+      "type": "url",
+      "id": "linkedin_url",
+      "label": "LinkedIn"
+    },
+    {
+      "type": "url",
+      "id": "bluesky_url",
+      "label": "Bluesky"
+    },
+    {
+      "type": "url",
+      "id": "snapchat_url",
+      "label": "Snapchat"
+    },
+    {
+      "type": "url",
+      "id": "pinterest_url",
+      "label": "Pinterest"
+    },
+    {
+      "type": "url",
+      "id": "tumblr_url",
+      "label": "Tumblr"
+    },
+    {
+      "type": "url",
+      "id": "vimeo_url",
+      "label": "Vimeo"
+    },
+    {
+      "type": "url",
+      "id": "custom_url",
+      "label": "Custom link"
+    },
+    {
+      "type": "text",
+      "id": "custom_url_label",
+      "label": "Custom link label",
+      "default": "Website",
+      "visible_if": "{{ section.settings.custom_url != blank }}"
+    },
+    {
+      "type": "header",
+      "content": "t:content.appearance"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    }
+  ],
+  "presets": [
+    {
+      "name": "Social bar",
+      "category": "t:categories.footer"
+    }
+  ]
+}
+{% endschema %}

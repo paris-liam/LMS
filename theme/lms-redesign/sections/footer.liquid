@@ -85,6 +85,11 @@
       justify-items: center;
     }
 
+    /* Give the first (brand/logo) column extra visual weight when there are 4 columns */
+    .footer-content[style*='--grid-columns: 4'] {
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+    }
+
     .footer-content--isolated-grid-item-desktop > :last-child {
       grid-column: 1 / -1;
     }
