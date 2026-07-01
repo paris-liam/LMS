@@ -205,7 +205,10 @@
     },
     "lms_hero": {
       "type": "lms-homepage-hero",
-      "settings": {}
+      "settings": {
+        "cta_primary_url": "/pages/membership",
+        "cta_secondary_url": "/collections/all"
+      }
     },
     "lms_ticker": {
       "type": "marquee",
@@ -213,7 +216,7 @@
         "item_1": {
           "type": "text",
           "settings": {
-            "text": "New arrivals",
+            "text": "<p>New arrivals</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -225,7 +228,7 @@
         "sep_1": {
           "type": "text",
           "settings": {
-            "text": "\u2726",
+            "text": "<p>\u2726</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -236,7 +239,7 @@
         "item_2": {
           "type": "text",
           "settings": {
-            "text": "Weekly drops",
+            "text": "<p>Weekly drops</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -248,7 +251,7 @@
         "sep_2": {
           "type": "text",
           "settings": {
-            "text": "\u2726",
+            "text": "<p>\u2726</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -259,7 +262,7 @@
         "item_3": {
           "type": "text",
           "settings": {
-            "text": "Mystery bags",
+            "text": "<p>Mystery bags</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -271,7 +274,7 @@
         "sep_3": {
           "type": "text",
           "settings": {
-            "text": "\u2726",
+            "text": "<p>\u2726</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -282,7 +285,7 @@
         "item_4": {
           "type": "text",
           "settings": {
-            "text": "Rental library",
+            "text": "<p>Rental library</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -294,7 +297,7 @@
         "sep_4": {
           "type": "text",
           "settings": {
-            "text": "\u2726",
+            "text": "<p>\u2726</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -305,7 +308,7 @@
         "item_5": {
           "type": "text",
           "settings": {
-            "text": "Boutique labels",
+            "text": "<p>Boutique labels</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -317,7 +320,7 @@
         "sep_5": {
           "type": "text",
           "settings": {
-            "text": "\u2726",
+            "text": "<p>\u2726</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -328,7 +331,7 @@
         "item_6": {
           "type": "text",
           "settings": {
-            "text": "A24 \u00b7 Arrow \u00b7 Kino Lorber",
+            "text": "<p>A24 \u00b7 Arrow \u00b7 Kino Lorber</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -340,7 +343,7 @@
         "sep_6": {
           "type": "text",
           "settings": {
-            "text": "\u2726",
+            "text": "<p>\u2726</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -351,7 +354,7 @@
         "item_7": {
           "type": "text",
           "settings": {
-            "text": "Collector editions",
+            "text": "<p>Collector editions</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -363,7 +366,7 @@
         "sep_7": {
           "type": "text",
           "settings": {
-            "text": "\u2726",
+            "text": "<p>\u2726</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -374,7 +377,7 @@
         "item_8": {
           "type": "text",
           "settings": {
-            "text": "VHS \u00b7 DVD \u00b7 Blu-ray \u00b7 4K",
+            "text": "<p>VHS \u00b7 DVD \u00b7 Blu-ray \u00b7 4K</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -386,7 +389,7 @@
         "sep_8": {
           "type": "text",
           "settings": {
-            "text": "\u2726",
+            "text": "<p>\u2726</p>",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
