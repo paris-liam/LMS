@@ -516,11 +516,127 @@
         "padding-block-start": 24,
         "padding-block-end": 72
       }
+    },
+    "lms_promo_pair": {
+      "type": "lms-promo-pair",
+      "blocks": {
+        "promo_rental": {
+          "type": "lms-promo-card",
+          "settings": {
+            "eyebrow": "The rental library",
+            "heading": "Not ready to commit? Rent it.",
+            "body": "<p>A few bucks gets any film home for the week — players included if you need one. Take a chance on something weird, bring it back, tell us what you thought. Free for members, and most of the time, renters become buyers.</p>",
+            "stat_label": "Rentals from",
+            "stat_value": "$4",
+            "stat_suffix": "/ week · free for members",
+            "button_label": "Browse library →",
+            "button_link": "/collections/all",
+            "color_scheme": "scheme-3",
+            "background_glyph": ""
+          }
+        },
+        "promo_mystery": {
+          "type": "lms-promo-card",
+          "settings": {
+            "eyebrow": "Online · Ships nationwide",
+            "heading": "The mystery bag.",
+            "body": "<p>We pick, you watch. A bag of films hand-selected by the crew — themed, random, or genre-driven. The best way to discover something you'd never have found on your own.</p>",
+            "stat_label": "Starting at",
+            "stat_value": "$35",
+            "stat_suffix": "",
+            "button_label": "Get a bag →",
+            "button_link": "",
+            "color_scheme": "scheme-2",
+            "background_glyph": "?"
+          }
+        }
+      },
+      "block_order": [
+        "promo_rental",
+        "promo_mystery"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 72
+      }
+    },
+    "lms_events_membership": {
+      "type": "lms-events-membership",
+      "blocks": {
+        "perk_rental": {
+          "type": "perk",
+          "settings": {
+            "title": "Full rental library access",
+            "detail": "borrow anything, anytime"
+          }
+        },
+        "perk_discount": {
+          "type": "perk",
+          "settings": {
+            "title": "10% off every purchase",
+            "detail": "every single visit"
+          }
+        },
+        "perk_birthday": {
+          "type": "perk",
+          "settings": {
+            "title": "A free birthday movie",
+            "detail": "on us, every year"
+          }
+        },
+        "perk_events": {
+          "type": "perk",
+          "settings": {
+            "title": "Members-only events",
+            "detail": "first invites, always"
+          }
+        }
+      },
+      "block_order": [
+        "perk_rental",
+        "perk_discount",
+        "perk_birthday",
+        "perk_events"
+      ],
+      "settings": {
+        "events_eyebrow": "Coming up",
+        "events_heading": "Events & screenings",
+        "events_to_show": 3,
+        "events_link_label": "All events →",
+        "membership_eyebrow": "The Little Movie Club · $100/yr",
+        "membership_heading": "Become a regular, not a customer.",
+        "card_est_text": "Est. 2026",
+        "card_name_text": "— your name here —",
+        "price_text": "$100",
+        "price_suffix": "/ year",
+        "button_label": "Join the club →",
+        "button_link": "/pages/membership",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 72,
+        "padding-block-end": 72
+      }
+    },
+    "lms_staff_picks": {
+      "type": "lms-staff-picks",
+      "settings": {
+        "eyebrow": "From the shelves",
+        "heading": "Staff picks",
+        "description": "<p>Movies we've been watching, arguing about, and pressing into people's hands. Every pick comes with a hand-written shelf note. Updated weekly.</p>",
+        "link_label": "Full list →",
+        "picks_to_show": 4,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 0,
+        "padding-block-end": 72
+      }
     }
   },
   "order": [
     "lms_hero",
     "lms_ticker",
-    "lms_new_releases"
+    "lms_new_releases",
+    "lms_events_membership",
+    "lms_promo_pair",
+    "lms_staff_picks"
   ]
 }
