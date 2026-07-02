@@ -87,6 +87,9 @@
   --lms-font-display: "Epilogue", system-ui, sans-serif;
   --lms-font-mono:    "DM Mono", ui-monospace, "SFMono-Regular", monospace;
   --lms-font-body:    var(--lms-font-mono);
+  /* Accent (italic serif, hero accent word). DM Serif Display not yet
+     self-hosted — serif fallback renders until the font ships in assets/. */
+  --lms-font-accent:  "DM Serif Display", Georgia, serif;
 
   --lms-fw-mono-light: 300;
   --lms-fw-mono-reg:   400;
@@ -95,7 +98,7 @@
   --lms-fw-head-med:   500;
   --lms-fw-head-semi:  600;
   --lms-fw-head-bold:  700;
-
+  --lms-fw-head-extra-bold: 800;
   --lms-fs-display: 3.5rem;
   --lms-fs-h1:      1.875rem;
   --lms-fs-h2:      1.5625rem;
@@ -161,6 +164,86 @@
   letter-spacing: var(--lms-tracking-eyebrow);
   text-transform: uppercase;
   color: var(--lms-color-primary);
+}
+.lms-eyebrow--parchment { color: var(--lms-text-on-dark); }
+
+/* ---- Buttons (squared, per design system) — shared by lms-* sections ---- */
+.lms-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-med);
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border-radius: var(--lms-radius-button);
+  transition: background var(--lms-dur-fast) var(--lms-ease-soft),
+              color var(--lms-dur-fast) var(--lms-ease-soft),
+              border-color var(--lms-dur-fast) var(--lms-ease-soft);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.lms-btn--lg { padding: 14px 26px; height: 52px; }
+.lms-btn--md { padding: 11px 22px; height: 44px; }
+.lms-btn--sm { padding: 8px 16px;  height: 36px; font-size: 12px; }
+.lms-btn--primary {
+  background: var(--lms-brick);
+  color: var(--lms-parchment);
+  border: var(--lms-border-width) solid var(--lms-brick);
+}
+.lms-btn--primary:hover {
+  background: var(--lms-brick-dark);
+  border-color: var(--lms-brick-dark);
+  color: var(--lms-parchment);
+}
+.lms-btn--outline {
+  background: transparent;
+  color: var(--lms-text-strong);
+  border: var(--lms-border-width) solid var(--lms-border-strong);
+}
+.lms-btn--outline:hover {
+  background: var(--lms-text-strong);
+  color: var(--lms-parchment);
+  border-color: var(--lms-text-strong);
+}
+.lms-btn--outline-inverse {
+  background: transparent;
+  color: var(--lms-text-on-dark);
+  border: var(--lms-border-width) solid var(--lms-text-on-dark);
+}
+.lms-btn--outline-inverse:hover {
+  background: var(--lms-text-on-dark);
+  color: var(--lms-text-strong);
+  border-color: var(--lms-text-on-dark);
+}
+
+/* ---- Badges (format / condition / rare / event audience) ---- */
+.lms-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-med);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--lms-radius-pill);
+  border: var(--lms-border-width) solid currentColor;
+  line-height: 1.4;
+}
+.lms-badge--brick { color: var(--lms-brick); }
+.lms-badge--sage { color: var(--lms-sage-dark); }
+.lms-badge--muted { color: var(--lms-text-muted); }
+
+/* ---- Page-width container for lms-* sections ---- */
+.lms-container {
+  max-width: var(--lms-container-max, 1200px);
+  margin-inline: auto;
+  padding-inline: var(--lms-space-6);
+}
+@media screen and (max-width: 549px) {
+  .lms-container { padding-inline: var(--lms-space-4); }
 }
 
 ::selection { background: var(--lms-cyan); color: var(--lms-mahogany); }

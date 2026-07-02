@@ -1,0 +1,467 @@
+{% comment %}
+  lms-hero — homepage hero. Copy left, slideshow right (media stacks first on mobile).
+  Layout, typography treatment, and slideshow controls are fixed by design.
+  Rendering caps: first 2 button blocks, first 4 info_item blocks; extras ignored.
+  Replaces lms-homepage-hero.liquid.
+{% endcomment %}
+
+{%- liquid
+  assign slide_blocks = section.blocks | where: 'type', 'slide'
+  assign button_blocks = section.blocks | where: 'type', 'button'
+  assign info_blocks = section.blocks | where: 'type', 'info_item'
+-%}
+
+<div class="lms-hero color-{{ section.settings.color_scheme }}"
+  style="--lms-pad-top: {{ section.settings.padding-block-start }}px; --lms-pad-bottom: {{ section.settings.padding-block-end }}px;"
+  {{ section.shopify_attributes }}>
+  <div class="lms-container">
+    <div class="lms-hero__grid">
+
+      <div class="lms-hero__copy">
+        {% render 'lms-eyebrow', text: section.settings.eyebrow %}
+
+        {%- if section.settings.heading != blank or section.settings.heading_accent != blank -%}
+          <h1 class="lms-hero__heading">
+            {{ section.settings.heading }}
+            {%- if section.settings.heading_accent != blank -%}
+              <span class="lms-hero__accent">{{ section.settings.heading_accent }}</span>
+            {%- endif -%}
+          </h1>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <div class="lms-hero__body rte">{{ section.settings.body }}</div>
+        {%- endif -%}
+
+        {%- if button_blocks.size > 0 -%}
+          <div class="lms-hero__actions">
+            {%- for block in button_blocks limit: 2 -%}
+              <a href="{{ block.settings.link | default: '#' }}"
+                 class="lms-btn lms-btn--lg lms-btn--{{ block.settings.style }}"
+                 {{ block.shopify_attributes }}>
+                {{- block.settings.label -}}
+              </a>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if info_blocks.size > 0 -%}
+          <div class="lms-hero__info">
+            {%- for block in info_blocks limit: 4 -%}
+              <div class="lms-hero__info-item" {{ block.shopify_attributes }}>
+                <div class="lms-hero__info-label">{{ block.settings.label }}</div>
+                <div class="lms-hero__info-value">{{ block.settings.value }}</div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="lms-hero__media">
+        <lms-slideshow class="lms-hero__slideshow"
+          data-autoplay="{{ section.settings.autoplay }}"
+          data-speed="{{ section.settings.autoplay_speed | default: 5 }}">
+          <div class="lms-hero__slides">
+            {%- for block in slide_blocks -%}
+              <div class="lms-hero__slide{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
+                {%- if block.settings.image -%}
+                  {{ block.settings.image
+                    | image_url: width: 1920
+                    | image_tag: widths: '800, 1200, 1920', sizes: '(max-width: 680px) 100vw, 48vw', loading: 'lazy', alt: block.settings.image.alt }}
+                {%- else -%}
+                  <div class="lms-hero__slide-placeholder">{{ 'hero-apparel-1' | placeholder_svg_tag }}</div>
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+
+          {%- if slide_blocks.size > 1 -%}
+            <button type="button" class="lms-hero__arrow lms-hero__arrow--prev" data-slide-prev aria-label="Previous slide">&lsaquo;</button>
+            <button type="button" class="lms-hero__arrow lms-hero__arrow--next" data-slide-next aria-label="Next slide">&rsaquo;</button>
+            <div class="lms-hero__dots" role="tablist">
+              {%- for block in slide_blocks -%}
+                <button type="button" class="lms-hero__dot{% if forloop.first %} is-active{% endif %}" data-slide-dot="{{ forloop.index0 }}" aria-label="Go to slide {{ forloop.index }}"></button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </lms-slideshow>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.lms-hero {
+  background: var(--color-background, var(--lms-parchment));
+  padding-block: var(--lms-pad-top, 72px) var(--lms-pad-bottom, 60px);
+}
+.lms-hero__grid {
+  display: grid;
+  grid-template-columns: 1.04fr 0.96fr;
+  gap: 52px;
+  align-items: center;
+}
+.lms-hero .lms-eyebrow { display: block; }
+.lms-hero__heading {
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-extra-bold);
+  font-size: clamp(46px, 5.6vw, 76px);
+  line-height: var(--lms-lh-tight);
+  letter-spacing: -0.01em;
+  color: var(--lms-text-strong);
+  margin: 20px 0 0;
+}
+.lms-hero__accent {
+  display: block;
+  font-family: var(--lms-font-accent);
+  font-style: italic;
+  font-weight: var(--lms-fw-head-reg);
+  letter-spacing: var(--lms-tracking-normal);
+  color: var(--lms-brick);
+  font-size: 0.92em;
+  margin-top: 2px;
+}
+.lms-hero__body {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-light);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--lms-text-body);
+  max-width: 460px;
+  margin: 24px 0 34px;
+}
+.lms-hero__body p { margin: 0 0 1em; }
+.lms-hero__body p:last-child { margin-bottom: 0; }
+.lms-hero__actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* --- Info strip --- */
+.lms-hero__info {
+  margin-top: 48px;
+  padding-top: 26px;
+  border-top: var(--lms-border-width) solid var(--lms-border-hairline);
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.lms-hero__info-label {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-med);
+  font-size: 10px;
+  letter-spacing: var(--lms-tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--lms-text-muted);
+  margin-bottom: 7px;
+}
+.lms-hero__info-value {
+  font-family: var(--lms-font-mono);
+  font-size: 14px;
+  color: var(--lms-text-strong);
+}
+
+/* --- Slideshow --- */
+.lms-hero__slideshow {
+  position: relative;
+  display: block;
+  border-radius: var(--lms-radius-md);
+  overflow: hidden;
+  border: var(--lms-border-width-strong) solid var(--lms-border-hairline);
+  box-shadow: var(--lms-shadow-lg);
+  background: var(--lms-parchment-2);
+  aspect-ratio: 4 / 3;
+}
+.lms-hero__slides { position: absolute; inset: 0; }
+.lms-hero__slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--lms-dur-slow) var(--lms-ease-soft);
+}
+.lms-hero__slide.is-active { opacity: 1; }
+.lms-hero__slide img,
+.lms-hero__slide-placeholder svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lms-hero__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: var(--lms-radius-pill);
+  background: color-mix(in oklch, var(--lms-parchment) 80%, transparent);
+  border: var(--lms-border-width) solid var(--lms-border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--lms-text-body);
+  box-shadow: var(--lms-shadow-xs);
+  cursor: pointer;
+  z-index: 2;
+}
+.lms-hero__arrow--prev { left: 16px; }
+.lms-hero__arrow--next { right: 16px; }
+.lms-hero__dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+.lms-hero__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: var(--lms-radius-pill);
+  border: 0;
+  padding: 0;
+  background: color-mix(in oklch, var(--lms-mahogany) 30%, transparent);
+  cursor: pointer;
+}
+.lms-hero__dot.is-active { background: var(--lms-brick); }
+
+/* --- Responsive --- */
+@media screen and (max-width: 989px) {
+  .lms-hero__grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  /* Media stacks above the copy on mobile */
+  .lms-hero__media { order: -1; }
+  .lms-hero__heading {
+    font-size: clamp(38px, 8vw, 56px);
+  }
+  .lms-hero__body {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 549px) {
+  .lms-hero__info { gap: 24px; }
+  .lms-hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .lms-hero__actions .lms-btn { width: 100%; }
+}
+{% endstylesheet %}
+
+<script>
+  (() => {
+    if (customElements.get('lms-slideshow')) return;
+
+    class LmsSlideshow extends HTMLElement {
+      connectedCallback() {
+        this.slides = Array.from(this.querySelectorAll('.lms-hero__slide'));
+        this.dots = Array.from(this.querySelectorAll('[data-slide-dot]'));
+        this.index = 0;
+        if (this.slides.length < 2) return;
+
+        this.querySelector('[data-slide-prev]')?.addEventListener('click', () => this.go(this.index - 1));
+        this.querySelector('[data-slide-next]')?.addEventListener('click', () => this.go(this.index + 1));
+        this.dots.forEach((dot) =>
+          dot.addEventListener('click', () => this.go(Number(dot.dataset.slideDot)))
+        );
+
+        if (this.dataset.autoplay === 'true' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          const speed = (Number(this.dataset.speed) || 5) * 1000;
+          this.timer = setInterval(() => this.go(this.index + 1), speed);
+          this.addEventListener('mouseenter', () => clearInterval(this.timer));
+          this.addEventListener('mouseleave', () => {
+            this.timer = setInterval(() => this.go(this.index + 1), speed);
+          });
+        }
+      }
+
+      disconnectedCallback() {
+        clearInterval(this.timer);
+      }
+
+      go(next) {
+        const count = this.slides.length;
+        this.index = ((next % count) + count) % count;
+        this.slides.forEach((s, i) => s.classList.toggle('is-active', i === this.index));
+        this.dots.forEach((d, i) => d.classList.toggle('is-active', i === this.index));
+      }
+    }
+
+    customElements.define('lms-slideshow', LmsSlideshow);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "LMS hero",
+  "tag": "section",
+  "class": "lms-hero-section",
+  "settings": [
+    { "type": "header", "content": "Heading" },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Now open · Passyunk Ave, South Philly"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Headline",
+      "default": "MOVIES YOU CAN"
+    },
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Accent word",
+      "default": "Feel.",
+      "info": "Shown in italic on its own line. Leave blank to skip."
+    },
+    { "type": "header", "content": "Text" },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Description",
+      "default": "<p>A physical-media movie store, curated by people who genuinely love movies. DVD, Blu-ray, 4K, and VHS — new, used, rare, and everything in between. Browse the shelves, rent something, stay a while.</p>"
+    },
+    { "type": "header", "content": "Slideshow" },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Change slides every",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "unit": "s",
+      "default": 5,
+      "visible_if": "{{ section.settings.autoplay }}"
+    },
+    { "type": "header", "content": "Section style" },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Recommended: 1920 × 1440 (4:3)"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Join the club"
+        },
+        { "type": "url", "id": "link", "label": "Link" },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "default": "primary",
+          "options": [
+            { "value": "primary", "label": "Solid" },
+            { "value": "outline", "label": "Outline" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "info_item",
+      "name": "Info item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Hours"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Wed – Sat · 10am – 6pm"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "LMS hero",
+      "blocks": [
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" },
+        {
+          "type": "button",
+          "settings": { "label": "Join the club →", "style": "primary" }
+        },
+        {
+          "type": "button",
+          "settings": { "label": "Browse the shelves", "style": "outline" }
+        },
+        {
+          "type": "info_item",
+          "settings": { "label": "Location", "value": "Passyunk Ave · South Philly" }
+        },
+        {
+          "type": "info_item",
+          "settings": { "label": "Hours", "value": "Wed – Sat · 10am – 6pm" }
+        },
+        {
+          "type": "info_item",
+          "settings": { "label": "Membership", "value": "$100 / year" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,18 @@
+{% comment %}
+  lms-eyebrow — small uppercase label used above headings.
+  The .lms-eyebrow class is defined globally in assets/lms-tokens.css.
+
+  Accepts:
+  - text: {String} required. Rendered as-is; snippet outputs nothing when blank.
+  - tone: {String} optional. 'default' (brick) | 'parchment' (for dark panels).
+
+  Usage:
+  {% render 'lms-eyebrow', text: section.settings.eyebrow %}
+  {% render 'lms-eyebrow', text: block.settings.eyebrow, tone: 'parchment' %}
+{% endcomment %}
+
+{%- if text != blank -%}
+  <span class="lms-eyebrow{% if tone == 'parchment' %} lms-eyebrow--parchment{% endif %}">
+    {{- text -}}
+  </span>
+{%- endif -%}

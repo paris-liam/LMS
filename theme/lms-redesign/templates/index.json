@@ -10,21 +10,68 @@
 {
   "sections": {
     "lms_hero": {
-      "type": "lms-homepage-hero",
+      "type": "lms-hero",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {}
+        },
+        "button_primary": {
+          "type": "button",
+          "settings": {
+            "label": "Join the club →",
+            "link": "/pages/membership",
+            "style": "primary"
+          }
+        },
+        "button_secondary": {
+          "type": "button",
+          "settings": {
+            "label": "Browse the shelves",
+            "link": "/collections/all",
+            "style": "outline"
+          }
+        },
+        "info_location": {
+          "type": "info_item",
+          "settings": {
+            "label": "Location",
+            "value": "Passyunk Ave · South Philly"
+          }
+        },
+        "info_hours": {
+          "type": "info_item",
+          "settings": {
+            "label": "Hours",
+            "value": "Wed – Sat · 10am – 6pm"
+          }
+        },
+        "info_membership": {
+          "type": "info_item",
+          "settings": {
+            "label": "Membership",
+            "value": "$100 / year"
+          }
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "button_primary",
+        "button_secondary",
+        "info_location",
+        "info_hours",
+        "info_membership"
+      ],
       "settings": {
         "eyebrow": "Now open · Passyunk Ave, South Philly",
-        "heading": "<p>Meet me at the<br/>movie store.</p>",
+        "heading": "Meet me at the",
+        "heading_accent": "movie store.",
         "body": "<p>A physical-media movie store, curated by people who genuinely love movies. DVD, Blu-ray, 4K, and VHS — new, used, rare, and everything in between. Browse the shelves, rent something, stay a while.</p>",
-        "cta_primary_label": "Join the club →",
-        "cta_primary_url": "/pages/membership",
-        "cta_secondary_label": "Browse the shelves",
-        "cta_secondary_url": "/collections/all",
-        "stat_location": "Passyunk Ave · South Philly",
-        "stat_hours": "Wed – Sat · 10am – 6pm",
-        "stat_membership": "$100 / year",
-        "color_scheme": "",
-        "padding_top": 68,
-        "padding_bottom": 64
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "color_scheme": "scheme-1",
+        "padding-block-start": 68,
+        "padding-block-end": 64
       }
     },
     "lms_ticker": {
@@ -457,204 +504,23 @@
         "gap_between_elements": 22
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
-      "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
-          "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "View all",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
-        },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
-          "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
-        }
-      },
-      "name": "Featured collection",
+    "lms_new_releases": {
+      "type": "lms-new-releases",
       "settings": {
+        "eyebrow": "Just dropped",
+        "heading": "New arrivals this week",
         "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
+        "products_to_show": 5,
+        "button_label": "Browse all →",
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 24,
+        "padding-block-end": 72
       }
     }
   },
   "order": [
     "lms_hero",
     "lms_ticker",
-    "product_list_fa6P9H"
+    "lms_new_releases"
   ]
 }

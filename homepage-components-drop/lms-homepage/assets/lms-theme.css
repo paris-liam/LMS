@@ -1,0 +1,147 @@
+/* ==========================================================================
+   LMS shared tokens + utilities
+   Loaded once via theme.liquid:
+   {{ 'lms-theme.css' | asset_url | stylesheet_tag }}
+
+   TODO: sync the --lms-* color values below with the design-system tokens
+   (colors.css in the LMS design system). Values here are placeholders
+   approximating the mockup. Components consume Horizon scheme variables
+   (--color-background / --color-foreground) first and fall back to these.
+   ========================================================================== */
+
+:root {
+  /* Palette — REPLACE with design-system values */
+  --lms-parchment: #faf3e6;
+  --lms-parchment-2: #f3e9d6;
+  --lms-mahogany: #3f241b;
+  --lms-brick: #b3502e;
+  --lms-sage: #77875f;
+  --lms-cyan: #7cc7bd;
+
+  --lms-text-strong: #2b1c12;
+  --lms-text-body: #4a382b;
+  --lms-text-muted: #83705f;
+  --lms-border-default: rgba(63, 36, 27, 0.22);
+  --lms-border-strong: rgba(63, 36, 27, 0.55);
+
+  /* Type — wire to Horizon font settings if not already exposed as vars */
+  --lms-font-display: var(--font-heading--family, 'Archivo', sans-serif);
+  --lms-font-body: var(--font-body--family, 'IBM Plex Mono', monospace);
+  --lms-font-accent: 'DM Serif Display', serif;
+
+  /* Shape + shadow */
+  --lms-radius-sm: 6px;
+  --lms-radius-md: 10px;
+  --lms-radius-lg: 16px;
+  --lms-radius-pill: 999px;
+  --lms-shadow-xs: 0 1px 2px rgba(43, 28, 18, 0.08);
+  --lms-shadow-sm: 0 2px 6px rgba(43, 28, 18, 0.1);
+  --lms-shadow-md: 0 6px 18px rgba(43, 28, 18, 0.14);
+  --lms-shadow-lg: 0 14px 40px rgba(43, 28, 18, 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   Eyebrow
+   -------------------------------------------------------------------------- */
+.lms-eyebrow {
+  font-family: var(--lms-font-body);
+  font-weight: 500;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--lms-brick);
+}
+.lms-eyebrow--parchment { color: var(--lms-parchment); }
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.lms-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--lms-font-body);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--lms-radius-pill);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.lms-btn:hover { transform: translateY(-1px); box-shadow: var(--lms-shadow-sm); }
+
+.lms-btn--primary {
+  background: var(--lms-brick);
+  color: var(--lms-parchment);
+  border-color: var(--lms-brick);
+}
+.lms-btn--outline {
+  background: transparent;
+  color: var(--lms-text-strong);
+  border-color: var(--lms-border-strong);
+}
+.lms-btn--outline-inverse {
+  background: transparent;
+  color: var(--lms-parchment);
+  border-color: var(--lms-parchment);
+}
+
+.lms-btn--sm { padding: 10px 18px; }
+.lms-btn--md { padding: 13px 22px; }
+.lms-btn--lg { padding: 16px 28px; font-size: 13px; }
+
+/* --------------------------------------------------------------------------
+   Badges (format / condition / rare / event audience)
+   -------------------------------------------------------------------------- */
+.lms-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--lms-font-body);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--lms-radius-pill);
+  border: 1.5px solid currentColor;
+  line-height: 1.4;
+}
+.lms-badge--brick { color: var(--lms-brick); }
+.lms-badge--sage { color: var(--lms-sage); }
+.lms-badge--muted { color: var(--lms-text-muted); }
+
+/* --------------------------------------------------------------------------
+   Shared section header row (eyebrow + heading left, action right)
+   -------------------------------------------------------------------------- */
+.lms-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 34px;
+}
+.lms-section-header h2 {
+  font-family: var(--lms-font-display);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.1;
+  color: var(--lms-text-strong);
+  margin: 10px 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   Page-width container (matches Horizon page width setting where possible)
+   -------------------------------------------------------------------------- */
+.lms-container {
+  max-width: var(--page-width, 1280px);
+  margin-inline: auto;
+  padding-inline: 32px;
+}
+@media (max-width: 680px) {
+  .lms-container { padding-inline: 20px; }
+}
