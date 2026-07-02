@@ -1,0 +1,3277 @@
+diff --git a/theme/horizon-baseline-3.5.1/blocks/_header-logo.liquid b/theme/lms-redesign/blocks/_header-logo.liquid
+index 1d4edfe..c90efe1 100644
+--- a/theme/horizon-baseline-3.5.1/blocks/_header-logo.liquid
++++ b/theme/lms-redesign/blocks/_header-logo.liquid
+@@ -2,6 +4,14 @@
+   assign block_settings = block.settings
+   assign use_inverse_logo = false
+ 
++  assign header_logo = block_settings.logo
++  if header_logo == blank
++    assign header_logo = settings.logo
++  endif
++
++  assign header_logo_height = block_settings.logo_height
++  assign header_logo_height_mobile = block_settings.logo_height_mobile
++
+   if section.settings.enable_transparent_header_home and template.name == 'index' and section.settings.home_color_scheme == 'inverse'
+     assign use_inverse_logo = true
+   elsif section.settings.enable_transparent_header_product and template.name == 'product' and section.settings.product_color_scheme == 'inverse'
+@@ -41,12 +51,12 @@
+   {{ block.shopify_attributes }}
+ >
+   {% liquid
+-    assign logo_width = settings.logo_height | times: settings.logo.aspect_ratio | ceil
+-    assign logo_width_mobile = settings.logo_height_mobile | times: settings.logo.aspect_ratio | ceil
+-    assign inverse_logo_width = settings.logo_height | times: inverse_logo.aspect_ratio | ceil
+-    assign inverse_logo_width_mobile = settings.logo_height_mobile | times: inverse_logo.aspect_ratio | ceil
+-    assign logo_style = '--header-logo-image-width: ' | append: logo_width | append: 'px;' | append: '--header-logo-image-width-mobile: ' | append: logo_width_mobile | append: 'px; --header-logo-image-height: ' | append: settings.logo_height | append: 'px; --header-logo-image-height-mobile: ' | append: settings.logo_height_mobile | append: 'px;'
+-    assign inverse_logo_style = '--header-logo-image-width: ' | append: inverse_logo_width | append: 'px;' | append: '--header-logo-image-width-mobile: ' | append: inverse_logo_width_mobile | append: 'px; --header-logo-image-height: ' | append: settings.logo_height | append: 'px; --header-logo-image-height-mobile: ' | append: settings.logo_height_mobile | append: 'px;'
++    assign logo_width = header_logo_height | times: header_logo.aspect_ratio | ceil
++    assign logo_width_mobile = header_logo_height_mobile | times: header_logo.aspect_ratio | ceil
++    assign inverse_logo_width = header_logo_height | times: inverse_logo.aspect_ratio | ceil
++    assign inverse_logo_width_mobile = header_logo_height_mobile | times: inverse_logo.aspect_ratio | ceil
++    assign logo_style = '--header-logo-image-width: ' | append: logo_width | append: 'px;' | append: '--header-logo-image-width-mobile: ' | append: logo_width_mobile | append: 'px; --header-logo-image-height: ' | append: header_logo_height | append: 'px; --header-logo-image-height-mobile: ' | append: header_logo_height_mobile | append: 'px;'
++    assign inverse_logo_style = '--header-logo-image-width: ' | append: inverse_logo_width | append: 'px;' | append: '--header-logo-image-width-mobile: ' | append: inverse_logo_width_mobile | append: 'px; --header-logo-image-height: ' | append: header_logo_height | append: 'px; --header-logo-image-height-mobile: ' | append: header_logo_height_mobile | append: 'px;'
+   %}
+ 
+   <span
+@@ -54,9 +64,9 @@
+     data-testid="header-logo"
+   >
+     {% render 'image',
+-      image: settings.logo,
++      image: header_logo,
+       class: 'header-logo__image',
+-      height: settings.logo_height,
++      height: header_logo_height,
+       alt_text_fallback: alt_text_fallback,
+       text_fallback: shop.name,
+       style: logo_style
+@@ -71,7 +81,7 @@
+       {% render 'image',
+         image: inverse_logo,
+         class: 'header-logo__image',
+-        height: settings.logo_height,
++        height: header_logo_height,
+         alt_text_fallback: alt_text_fallback,
+         text_fallback: shop.name,
+         style: inverse_logo_style
+@@ -146,7 +156,37 @@
+   "settings": [
+     {
+       "type": "paragraph",
+-      "content": "t:content.edit_logo_in_theme_settings"
++      "content": "Edit the site-wide logo in [theme settings](/editor?context=theme&category=logo%20and%20favicon), or set a logo below to override it for this header only."
++    },
++    {
++      "type": "header",
++      "content": "Logo override"
++    },
++    {
++      "type": "image_picker",
++      "id": "logo",
++      "label": "Logo (optional override)",
++      "info": "Overrides the theme's global logo for this header only. Leave blank to use the logo set in Theme settings > Logo."
++    },
++    {
++      "type": "range",
++      "id": "logo_height",
++      "label": "Logo height",
++      "min": 12,
++      "max": 100,
++      "step": 1,
++      "unit": "px",
++      "default": 36
++    },
++    {
++      "type": "range",
++      "id": "logo_height_mobile",
++      "label": "Logo height (mobile)",
++      "min": 12,
++      "max": 100,
++      "step": 1,
++      "unit": "px",
++      "default": 28
+     },
+     {
+       "type": "header",
+diff --git a/theme/horizon-baseline-3.5.1/blocks/_header-menu.liquid b/theme/lms-redesign/blocks/_header-menu.liquid
+index de8115c..d3bdbb6 100644
+--- a/theme/horizon-baseline-3.5.1/blocks/_header-menu.liquid
++++ b/theme/lms-redesign/blocks/_header-menu.liquid
+@@ -17,7 +18,12 @@
+       data-hydration-key="header-drawer-mobile"
+       {{ block.shopify_attributes }}
+     >
+-      {% render 'header-drawer', linklist: block_settings.menu, data_header_drawer_type: 'mobile-drawer', block: block, section: section %}
++      {% render 'header-drawer',
++        linklist: block_settings.menu,
++        data_header_drawer_type: 'mobile-drawer',
++        block: block,
++        section: section
++      %}
+     </div>
+ 
+   {% when 'navigation_bar' %}
+diff --git a/theme/horizon-baseline-3.5.1/blocks/logo.liquid b/theme/lms-redesign/blocks/logo.liquid
+index 512f00f..6909281 100644
+--- a/theme/horizon-baseline-3.5.1/blocks/logo.liquid
++++ b/theme/lms-redesign/blocks/logo.liquid
+@@ -1,9 +1,15 @@
++
++
+ {% liquid
+   assign block_settings = block.settings
+-  assign image = settings.logo
++  assign image = block_settings.logo
++
++  if image == blank
++    assign image = settings.logo
+ 
+-  if block_settings.inverse and settings.logo_inverse
+-    assign image = settings.logo_inverse
++    if block_settings.inverse and settings.logo_inverse
++      assign image = settings.logo_inverse
++    endif
+   endif
+ %}
+ 
+@@ -103,12 +109,18 @@
+   "name": "t:names.logo",
+   "tag": null,
+   "settings": [
++    {
++      "type": "image_picker",
++      "id": "logo",
++      "label": "Logo (optional override)",
++      "info": "Overrides the shop's default logo for this block only. Leave blank to use the logo set in Theme Settings."
++    },
+     {
+       "type": "checkbox",
+       "label": "t:settings.use_inverse_logo",
+       "id": "inverse",
+       "default": false,
+-      "visible_if": "{{ settings.logo_inverse }}"
++      "visible_if": "{{ settings.logo_inverse and block.settings.logo == blank }}"
+     },
+     {
+       "type": "select",
+diff --git a/theme/horizon-baseline-3.5.1/config/settings_data.json b/theme/lms-redesign/config/settings_data.json
+index 41beca1..9621c9b 100644
+--- a/theme/horizon-baseline-3.5.1/config/settings_data.json
++++ b/theme/lms-redesign/config/settings_data.json
+@@ -7,8 +7,9 @@
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+  */
+- {
++{
+   "current": {
++    "logo": "shopify://shop_images/Logo_Horiztonal_Black.svg",
+     "logo_height": 36,
+     "logo_height_mobile": 28,
+     "type_body_font": "inter_n4",
+@@ -51,12 +52,11 @@
+     "badge_sold_out_color_scheme": "scheme-3",
+     "badge_text_transform": "none",
+     "primary_button_border_width": 0,
+-    "button_border_radius_primary": 14,
++    "button_border_radius_primary": 0,
+     "secondary_button_border_width": 1,
+-    "button_border_radius_secondary": 14,
+-    "button_font_weight_secondary": "default",
++    "button_border_radius_secondary": 0,
+     "cart_type": "drawer",
+-    "cart_price_font": "subheading",
++    "cart_price_font": "secondary",
+     "show_cart_note": false,
+     "show_add_discount_code": true,
+     "drawer_drop_shadow": true,
+@@ -78,284 +78,312 @@
+     "variant_button_radius": 14,
+     "variant_button_width": "equal-width-buttons",
+     "content_for_index": [],
++    "blocks": {
++      "5699156801985690058": {
++        "type": "shopify://apps/supercycle/blocks/supercycle/7b3228ed-a72a-4935-9fee-0cebe8daa0aa",
++        "disabled": false,
++        "settings": {
++          "availability_filter_url": false,
++          "locale_override": "",
++          "buttonClass": "button",
++          "color_background": "#FFFFFF",
++          "color_border": "#cccccc",
++          "color_text": "#000000",
++          "color_input_background": "#FFFFFF",
++          "color_input_label": "#000000",
++          "container_radius": 8,
++          "input_radius": 8,
++          "input_opacitiy": 50,
++          "space": 20,
++          "theme_page_color": "#f3f3f3",
++          "theme_card_color": "#ffffff",
++          "theme_primary_color": "#1973b0",
++          "theme_font_color": "#272727",
++          "theme_border_color": "#dfdfdf",
++          "theme_subdued_color": "#707070",
++          "theme_button_radius": 8,
++          "theme_card_radius": 6
++        }
++      }
++    },
+     "color_schemes": {
+       "scheme-1": {
+         "settings": {
+-          "background": "#ffffff",
+-          "foreground_heading": "#000000",
+-          "foreground": "#000000cf",
+-          "primary": "#000000cf",
+-          "primary_hover": "#000000",
+-          "border": "#0000000f",
+-          "shadow": "#000000",
+-          "primary_button_background": "#000000",
+-          "primary_button_text": "#ffffff",
+-          "primary_button_border": "#000000",
+-          "primary_button_hover_background": "#333333",
+-          "primary_button_hover_text": "#ffffff",
+-          "primary_button_hover_border": "#000000",
++          "background": "#fff9ef",
++          "foreground_heading": "#3a2018",
++          "foreground": "#4d2f25",
++          "primary": "#973123",
++          "primary_hover": "#6f2417",
++          "border": "#3a201824",
++          "shadow": "#3a2018",
++          "primary_button_background": "#973123",
++          "primary_button_text": "#fff9ef",
++          "primary_button_border": "#973123",
++          "primary_button_hover_background": "#6f2417",
++          "primary_button_hover_text": "#fff9ef",
++          "primary_button_hover_border": "#6f2417",
+           "secondary_button_background": "rgba(0,0,0,0)",
+-          "secondary_button_text": "#000000",
+-          "secondary_button_border": "#000000",
+-          "secondary_button_hover_background": "#fafafa",
+-          "secondary_button_hover_text": "#333333",
+-          "secondary_button_hover_border": "#333333",
+-          "input_background": "#ffffffc7",
+-          "input_text_color": "#333333",
+-          "input_border_color": "#dfdfdf",
+-          "input_hover_background": "#00000003",
++          "secondary_button_text": "#3a2018",
++          "secondary_button_border": "#3a2018",
++          "secondary_button_hover_background": "#fdf3e2",
++          "secondary_button_hover_text": "#3a2018",
++          "secondary_button_hover_border": "#3a2018",
++          "input_background": "#ffffff",
++          "input_text_color": "#4d2f25",
++          "input_border_color": "#d8cbb9",
++          "input_hover_background": "#fdf3e2",
+           "variant_background_color": "#ffffff",
+-          "variant_text_color": "#000000",
+-          "variant_border_color": "#00000021",
+-          "variant_hover_background_color": "#f5f5f5",
+-          "variant_hover_text_color": "#000000",
+-          "variant_hover_border_color": "#e6e6e6",
+-          "selected_variant_background_color": "#000000",
+-          "selected_variant_text_color": "#ffffff",
+-          "selected_variant_border_color": "#000000",
+-          "selected_variant_hover_background_color": "#1a1a1a",
+-          "selected_variant_hover_text_color": "#ffffff",
+-          "selected_variant_hover_border_color": "#1a1a1a"
++          "variant_text_color": "#3a2018",
++          "variant_border_color": "#d8cbb9",
++          "variant_hover_background_color": "#fdf3e2",
++          "variant_hover_text_color": "#3a2018",
++          "variant_hover_border_color": "#c9b8a3",
++          "selected_variant_background_color": "#3a2018",
++          "selected_variant_text_color": "#fff9ef",
++          "selected_variant_border_color": "#3a2018",
++          "selected_variant_hover_background_color": "#2a1610",
++          "selected_variant_hover_text_color": "#fff9ef",
++          "selected_variant_hover_border_color": "#2a1610"
+         }
+       },
+       "scheme-2": {
+         "settings": {
+-          "background": "#f5f5f5",
+-          "foreground_heading": "#000000",
+-          "foreground": "#000000cf",
+-          "primary": "#000000cf",
+-          "primary_hover": "#ffffff",
+-          "border": "#dfdfdf",
++          "background": "#3a2018",
++          "foreground_heading": "#fff9ef",
++          "foreground": "#ece1cf",
++          "primary": "#8fcdcf",
++          "primary_hover": "#e6f3f3",
++          "border": "#fff9ef24",
+           "shadow": "#000000",
+-          "primary_button_background": "#000000",
+-          "primary_button_text": "#ffffff",
+-          "primary_button_border": "#000000",
+-          "primary_button_hover_background": "#333333",
+-          "primary_button_hover_text": "#ffffff",
+-          "primary_button_hover_border": "#333333",
++          "primary_button_background": "#973123",
++          "primary_button_text": "#fff9ef",
++          "primary_button_border": "#973123",
++          "primary_button_hover_background": "#6f2417",
++          "primary_button_hover_text": "#fff9ef",
++          "primary_button_hover_border": "#6f2417",
+           "secondary_button_background": "rgba(0,0,0,0)",
+-          "secondary_button_text": "#000000",
+-          "secondary_button_border": "#000000",
+-          "secondary_button_hover_background": "#ffffff5c",
+-          "secondary_button_hover_text": "#000000",
+-          "secondary_button_hover_border": "#333333ba",
+-          "input_background": "rgba(0,0,0,0)",
+-          "input_text_color": "#00000087",
+-          "input_border_color": "#00000021",
+-          "input_hover_background": "#ffffff5c",
+-          "variant_background_color": "#ffffff",
+-          "variant_text_color": "#000000",
+-          "variant_border_color": "#e6e6e6",
+-          "variant_hover_background_color": "#f5f5f5",
+-          "variant_hover_text_color": "#000000",
+-          "variant_hover_border_color": "#e6e6e6",
+-          "selected_variant_background_color": "#000000",
+-          "selected_variant_text_color": "#ffffff",
+-          "selected_variant_border_color": "#000000",
+-          "selected_variant_hover_background_color": "#1a1a1a",
+-          "selected_variant_hover_text_color": "#ffffff",
+-          "selected_variant_hover_border_color": "#1a1a1a"
++          "secondary_button_text": "#fff9ef",
++          "secondary_button_border": "#fff9ef",
++          "secondary_button_hover_background": "#4d2f25",
++          "secondary_button_hover_text": "#fff9ef",
++          "secondary_button_hover_border": "#fff9ef",
++          "input_background": "#4d2f25",
++          "input_text_color": "#fff9ef",
++          "input_border_color": "#6b5147",
++          "input_hover_background": "#2a1610",
++          "variant_background_color": "#4d2f25",
++          "variant_text_color": "#fff9ef",
++          "variant_border_color": "#6b5147",
++          "variant_hover_background_color": "#2a1610",
++          "variant_hover_text_color": "#fff9ef",
++          "variant_hover_border_color": "#8a7568",
++          "selected_variant_background_color": "#fff9ef",
++          "selected_variant_text_color": "#3a2018",
++          "selected_variant_border_color": "#fff9ef",
++          "selected_variant_hover_background_color": "#ece1cf",
++          "selected_variant_hover_text_color": "#3a2018",
++          "selected_variant_hover_border_color": "#ece1cf"
+         }
+       },
+       "scheme-3": {
+         "settings": {
+-          "background": "#eef1ea",
+-          "foreground_heading": "#000000",
+-          "foreground": "#000000cf",
+-          "primary": "#000000cf",
+-          "primary_hover": "#000000",
+-          "border": "#000000cf",
+-          "shadow": "#000000",
+-          "primary_button_background": "#000000",
+-          "primary_button_text": "#ffffff",
+-          "primary_button_border": "#000000",
+-          "primary_button_hover_background": "#333333",
+-          "primary_button_hover_text": "#ffffff",
+-          "primary_button_hover_border": "#333333",
++          "background": "#e4eee9",
++          "foreground_heading": "#3a2018",
++          "foreground": "#343a31",
++          "primary": "#973123",
++          "primary_hover": "#6f2417",
++          "border": "#5f8d7a40",
++          "shadow": "#3a2018",
++          "primary_button_background": "#973123",
++          "primary_button_text": "#fff9ef",
++          "primary_button_border": "#973123",
++          "primary_button_hover_background": "#6f2417",
++          "primary_button_hover_text": "#fff9ef",
++          "primary_button_hover_border": "#6f2417",
+           "secondary_button_background": "rgba(0,0,0,0)",
+-          "secondary_button_text": "#000000",
+-          "secondary_button_border": "#000000",
+-          "secondary_button_hover_background": "#ffffff5c",
+-          "secondary_button_hover_text": "#000000cf",
+-          "secondary_button_hover_border": "#000000cf",
+-          "input_background": "rgba(0,0,0,0)",
+-          "input_text_color": "#000000cf",
+-          "input_border_color": "#000000cf",
+-          "input_hover_background": "#ffffff5c",
++          "secondary_button_text": "#3a2018",
++          "secondary_button_border": "#3a2018",
++          "secondary_button_hover_background": "#d6e6df",
++          "secondary_button_hover_text": "#3a2018",
++          "secondary_button_hover_border": "#3a2018",
++          "input_background": "#ffffff",
++          "input_text_color": "#343a31",
++          "input_border_color": "#bcd3c9",
++          "input_hover_background": "#d6e6df",
+           "variant_background_color": "#ffffff",
+-          "variant_text_color": "#000000",
+-          "variant_border_color": "#e6e6e6",
+-          "variant_hover_background_color": "#f5f5f5",
+-          "variant_hover_text_color": "#000000",
+-          "variant_hover_border_color": "#e6e6e6",
+-          "selected_variant_background_color": "#000000",
+-          "selected_variant_text_color": "#ffffff",
+-          "selected_variant_border_color": "#000000",
+-          "selected_variant_hover_background_color": "#1a1a1a",
+-          "selected_variant_hover_text_color": "#ffffff",
+-          "selected_variant_hover_border_color": "#1a1a1a"
++          "variant_text_color": "#3a2018",
++          "variant_border_color": "#bcd3c9",
++          "variant_hover_background_color": "#d6e6df",
++          "variant_hover_text_color": "#3a2018",
++          "variant_hover_border_color": "#bcd3c9",
++          "selected_variant_background_color": "#3a2018",
++          "selected_variant_text_color": "#fff9ef",
++          "selected_variant_border_color": "#3a2018",
++          "selected_variant_hover_background_color": "#2a1610",
++          "selected_variant_hover_text_color": "#fff9ef",
++          "selected_variant_hover_border_color": "#2a1610"
+         }
+       },
+       "scheme-4": {
+         "settings": {
+-          "background": "#e1edf5",
+-          "foreground_heading": "#000000",
+-          "foreground": "#000000cf",
+-          "primary": "#000000cf",
+-          "primary_hover": "#000000",
+-          "border": "#1d368680",
+-          "shadow": "#000000",
+-          "primary_button_background": "#000000",
+-          "primary_button_text": "#ffffff",
+-          "primary_button_border": "#1d3686",
+-          "primary_button_hover_background": "#333333",
+-          "primary_button_hover_text": "#ffffff",
+-          "primary_button_hover_border": "#000000",
++          "background": "#e6f3f3",
++          "foreground_heading": "#3a2018",
++          "foreground": "#4d2f25",
++          "primary": "#973123",
++          "primary_hover": "#6f2417",
++          "border": "#8fcdcf54",
++          "shadow": "#3a2018",
++          "primary_button_background": "#973123",
++          "primary_button_text": "#fff9ef",
++          "primary_button_border": "#973123",
++          "primary_button_hover_background": "#6f2417",
++          "primary_button_hover_text": "#fff9ef",
++          "primary_button_hover_border": "#6f2417",
+           "secondary_button_background": "rgba(0,0,0,0)",
+-          "secondary_button_text": "#000000",
+-          "secondary_button_border": "#000000",
+-          "secondary_button_hover_background": "#ffffff5c",
+-          "secondary_button_hover_text": "#000000cf",
+-          "secondary_button_hover_border": "#000000cf",
+-          "input_background": "rgba(0,0,0,0)",
+-          "input_text_color": "#000000cf",
+-          "input_border_color": "#000000cf",
+-          "input_hover_background": "#ffffff5c",
++          "secondary_button_text": "#3a2018",
++          "secondary_button_border": "#3a2018",
++          "secondary_button_hover_background": "#d4ecec",
++          "secondary_button_hover_text": "#3a2018",
++          "secondary_button_hover_border": "#3a2018",
++          "input_background": "#ffffff",
++          "input_text_color": "#4d2f25",
++          "input_border_color": "#b9dede",
++          "input_hover_background": "#d4ecec",
+           "variant_background_color": "#ffffff",
+-          "variant_text_color": "#000000",
+-          "variant_border_color": "#e6e6e6",
+-          "variant_hover_background_color": "#f5f5f5",
+-          "variant_hover_text_color": "#000000",
+-          "variant_hover_border_color": "#e6e6e6",
+-          "selected_variant_background_color": "#000000",
+-          "selected_variant_text_color": "#ffffff",
+-          "selected_variant_border_color": "#000000",
+-          "selected_variant_hover_background_color": "#1a1a1a",
+-          "selected_variant_hover_text_color": "#ffffff",
+-          "selected_variant_hover_border_color": "#1a1a1a"
++          "variant_text_color": "#3a2018",
++          "variant_border_color": "#b9dede",
++          "variant_hover_background_color": "#d4ecec",
++          "variant_hover_text_color": "#3a2018",
++          "variant_hover_border_color": "#b9dede",
++          "selected_variant_background_color": "#3a2018",
++          "selected_variant_text_color": "#fff9ef",
++          "selected_variant_border_color": "#3a2018",
++          "selected_variant_hover_background_color": "#2a1610",
++          "selected_variant_hover_text_color": "#fff9ef",
++          "selected_variant_hover_border_color": "#2a1610"
+         }
+       },
+       "scheme-5": {
+         "settings": {
+-          "background": "#333333",
+-          "foreground_heading": "#ffffff",
+-          "foreground": "#ffffff",
+-          "primary": "#ffffff",
+-          "primary_hover": "#ffffffb0",
+-          "border": "#ffffffb0",
++          "background": "#343a31",
++          "foreground_heading": "#fff9ef",
++          "foreground": "#ece1cf",
++          "primary": "#8fcdcf",
++          "primary_hover": "#e6f3f3",
++          "border": "#fff9ef24",
+           "shadow": "#000000",
+-          "primary_button_background": "#ffffff",
+-          "primary_button_text": "#000000",
+-          "primary_button_border": "#ffffff",
+-          "primary_button_hover_background": "#000000",
+-          "primary_button_hover_text": "#ffffff",
+-          "primary_button_hover_border": "#000000",
++          "primary_button_background": "#973123",
++          "primary_button_text": "#fff9ef",
++          "primary_button_border": "#973123",
++          "primary_button_hover_background": "#6f2417",
++          "primary_button_hover_text": "#fff9ef",
++          "primary_button_hover_border": "#6f2417",
+           "secondary_button_background": "rgba(0,0,0,0)",
+-          "secondary_button_text": "#ffffff",
+-          "secondary_button_border": "#ffffffb0",
+-          "secondary_button_hover_background": "#ffffff0a",
+-          "secondary_button_hover_text": "#ffffffed",
+-          "secondary_button_hover_border": "#ffffffb0",
+-          "input_background": "#333333",
+-          "input_text_color": "#ffffffed",
+-          "input_border_color": "#ffffffb0",
+-          "input_hover_background": "#ffffff0a",
+-          "variant_background_color": "#ffffff",
+-          "variant_text_color": "#000000",
+-          "variant_border_color": "#e6e6e6",
+-          "variant_hover_background_color": "#f5f5f5",
+-          "variant_hover_text_color": "#000000",
+-          "variant_hover_border_color": "#e6e6e6",
+-          "selected_variant_background_color": "#000000",
+-          "selected_variant_text_color": "#ffffff",
+-          "selected_variant_border_color": "#000000",
+-          "selected_variant_hover_background_color": "#1a1a1a",
+-          "selected_variant_hover_text_color": "#ffffff",
+-          "selected_variant_hover_border_color": "#1a1a1a"
++          "secondary_button_text": "#fff9ef",
++          "secondary_button_border": "#fff9ef",
++          "secondary_button_hover_background": "#2c322a",
++          "secondary_button_hover_text": "#fff9ef",
++          "secondary_button_hover_border": "#fff9ef",
++          "input_background": "#2c322a",
++          "input_text_color": "#fff9ef",
++          "input_border_color": "#5a6356",
++          "input_hover_background": "#232823",
++          "variant_background_color": "#2c322a",
++          "variant_text_color": "#fff9ef",
++          "variant_border_color": "#5a6356",
++          "variant_hover_background_color": "#232823",
++          "variant_hover_text_color": "#fff9ef",
++          "variant_hover_border_color": "#5a6356",
++          "selected_variant_background_color": "#fff9ef",
++          "selected_variant_text_color": "#343a31",
++          "selected_variant_border_color": "#fff9ef",
++          "selected_variant_hover_background_color": "#ece1cf",
++          "selected_variant_hover_text_color": "#343a31",
++          "selected_variant_hover_border_color": "#ece1cf"
+         }
+       },
+       "scheme-6": {
+         "settings": {
+           "background": "rgba(0,0,0,0)",
+-          "foreground_heading": "#ffffff",
+-          "foreground": "#f2f2f2",
+-          "primary": "#eaeaea",
+-          "primary_hover": "#ffffffb0",
+-          "border": "#e6e6e6",
++          "foreground_heading": "#fff9ef",
++          "foreground": "#fff9ef",
++          "primary": "#fff9ef",
++          "primary_hover": "#ece1cf",
++          "border": "#fff9ef3b",
+           "shadow": "#000000",
+-          "primary_button_background": "#ffffff",
+-          "primary_button_text": "#000000",
+-          "primary_button_border": "#ffffff",
+-          "primary_button_hover_background": "#000000",
+-          "primary_button_hover_text": "#ffffff",
+-          "primary_button_hover_border": "#000000",
++          "primary_button_background": "#973123",
++          "primary_button_text": "#fff9ef",
++          "primary_button_border": "#973123",
++          "primary_button_hover_background": "#6f2417",
++          "primary_button_hover_text": "#fff9ef",
++          "primary_button_hover_border": "#6f2417",
+           "secondary_button_background": "rgba(0,0,0,0)",
+-          "secondary_button_text": "#ffffff",
+-          "secondary_button_border": "#ffffff",
+-          "secondary_button_hover_background": "#ffffff14",
+-          "secondary_button_hover_text": "#ffffff",
+-          "secondary_button_hover_border": "#ffffff",
+-          "input_background": "#ffffff",
+-          "input_text_color": "#00000087",
+-          "input_border_color": "#00000021",
+-          "input_hover_background": "#fafafa",
+-          "variant_background_color": "#ffffff",
+-          "variant_text_color": "#000000",
+-          "variant_border_color": "#e6e6e6",
+-          "variant_hover_background_color": "#f5f5f5",
+-          "variant_hover_text_color": "#000000",
+-          "variant_hover_border_color": "#e6e6e6",
+-          "selected_variant_background_color": "#000000",
+-          "selected_variant_text_color": "#ffffff",
+-          "selected_variant_border_color": "#000000",
+-          "selected_variant_hover_background_color": "#1a1a1a",
+-          "selected_variant_hover_text_color": "#ffffff",
+-          "selected_variant_hover_border_color": "#1a1a1a"
++          "secondary_button_text": "#fff9ef",
++          "secondary_button_border": "#fff9ef",
++          "secondary_button_hover_background": "#ffffff1f",
++          "secondary_button_hover_text": "#fff9ef",
++          "secondary_button_hover_border": "#fff9ef",
++          "input_background": "#00000040",
++          "input_text_color": "#fff9ef",
++          "input_border_color": "#fff9ef80",
++          "input_hover_background": "#00000059",
++          "variant_background_color": "#00000040",
++          "variant_text_color": "#fff9ef",
++          "variant_border_color": "#fff9ef80",
++          "variant_hover_background_color": "#00000059",
++          "variant_hover_text_color": "#fff9ef",
++          "variant_hover_border_color": "#fff9ef80",
++          "selected_variant_background_color": "#fff9ef",
++          "selected_variant_text_color": "#3a2018",
++          "selected_variant_border_color": "#fff9ef",
++          "selected_variant_hover_background_color": "#ece1cf",
++          "selected_variant_hover_text_color": "#3a2018",
++          "selected_variant_hover_border_color": "#ece1cf"
+         }
+       },
+       "scheme-58084d4c-a86e-4d0a-855e-a0966e5043f7": {
+         "settings": {
+           "background": "rgba(0,0,0,0)",
+-          "foreground_heading": "#000000",
+-          "foreground": "#000000",
+-          "primary": "#000000",
+-          "primary_hover": "#00000087",
+-          "border": "#e6e6e6",
+-          "shadow": "#000000",
+-          "primary_button_background": "#000000",
+-          "primary_button_text": "#ffffff",
+-          "primary_button_border": "#000000",
+-          "primary_button_hover_background": "#333333",
+-          "primary_button_hover_text": "#ffffff",
+-          "primary_button_hover_border": "#333333",
++          "foreground_heading": "#3a2018",
++          "foreground": "#3a2018",
++          "primary": "#973123",
++          "primary_hover": "#6f2417",
++          "border": "#3a20183b",
++          "shadow": "#3a2018",
++          "primary_button_background": "#973123",
++          "primary_button_text": "#fff9ef",
++          "primary_button_border": "#973123",
++          "primary_button_hover_background": "#6f2417",
++          "primary_button_hover_text": "#fff9ef",
++          "primary_button_hover_border": "#6f2417",
+           "secondary_button_background": "rgba(0,0,0,0)",
+-          "secondary_button_text": "#000000",
+-          "secondary_button_border": "#000000",
+-          "secondary_button_hover_background": "#fafafa",
+-          "secondary_button_hover_text": "#333333",
+-          "secondary_button_hover_border": "#333333",
+-          "input_background": "#ffffff",
+-          "input_text_color": "#00000087",
+-          "input_border_color": "#00000021",
+-          "input_hover_background": "#fafafa",
+-          "variant_background_color": "#ffffff",
+-          "variant_text_color": "#000000",
+-          "variant_border_color": "#e6e6e6",
+-          "variant_hover_background_color": "#f5f5f5",
+-          "variant_hover_text_color": "#000000",
+-          "variant_hover_border_color": "#e6e6e6",
+-          "selected_variant_background_color": "#000000",
+-          "selected_variant_text_color": "#ffffff",
+-          "selected_variant_border_color": "#000000",
+-          "selected_variant_hover_background_color": "#1a1a1a",
+-          "selected_variant_hover_text_color": "#ffffff",
+-          "selected_variant_hover_border_color": "#1a1a1a"
++          "secondary_button_text": "#3a2018",
++          "secondary_button_border": "#3a2018",
++          "secondary_button_hover_background": "#0000000f",
++          "secondary_button_hover_text": "#3a2018",
++          "secondary_button_hover_border": "#3a2018",
++          "input_background": "#ffffffcc",
++          "input_text_color": "#3a2018",
++          "input_border_color": "#3a201859",
++          "input_hover_background": "#ffffff",
++          "variant_background_color": "#ffffffcc",
++          "variant_text_color": "#3a2018",
++          "variant_border_color": "#3a201859",
++          "variant_hover_background_color": "#ffffff",
++          "variant_hover_text_color": "#3a2018",
++          "variant_hover_border_color": "#3a201859",
++          "selected_variant_background_color": "#3a2018",
++          "selected_variant_text_color": "#fff9ef",
++          "selected_variant_border_color": "#3a2018",
++          "selected_variant_hover_background_color": "#2a1610",
++          "selected_variant_hover_text_color": "#fff9ef",
++          "selected_variant_hover_border_color": "#2a1610"
+         }
+       }
+     }
+   },
+   "presets": {
+-    "Default": {
++    "Horizon": {
+       "color_schemes": {
+         "scheme-1": {
+           "settings": {
+diff --git a/theme/horizon-baseline-3.5.1/layout/password.liquid b/theme/lms-redesign/layout/password.liquid
+index 2232eff..a5406e2 100644
+--- a/theme/horizon-baseline-3.5.1/layout/password.liquid
++++ b/theme/lms-redesign/layout/password.liquid
+@@ -30,6 +30,7 @@
+     {%- render 'scripts' -%}
+     {%- render 'theme-styles-variables' -%}
+     {%- render 'color-schemes' -%}
++    {{ 'lms-tokens.css' | asset_url | stylesheet_tag }}
+ 
+     {% if request.design_mode %}
+       {%- render 'theme-editor' -%}
+@@ -48,10 +49,6 @@
+       {{ content_for_layout }}
+     </main>
+ 
+-    <footer>
+-      {% section 'password-footer' %}
+-    </footer>
+-
+     {%- form 'storefront_password' -%}
+       <dialog-component id="password-form">
+         <dialog
+diff --git a/theme/horizon-baseline-3.5.1/layout/theme.liquid b/theme/lms-redesign/layout/theme.liquid
+index 155f80c..4a41aea 100644
+--- a/theme/horizon-baseline-3.5.1/layout/theme.liquid
++++ b/theme/lms-redesign/layout/theme.liquid
+@@ -31,6 +31,7 @@
+     {%- render 'scripts' -%}
+     {%- render 'theme-styles-variables' -%}
+     {%- render 'color-schemes' -%}
++    {{ 'lms-tokens.css' | asset_url | stylesheet_tag }}
+ 
+     {% if request.design_mode %}
+       {%- render 'theme-editor' -%}
+diff --git a/theme/horizon-baseline-3.5.1/sections/footer-group.json b/theme/lms-redesign/sections/footer-group.json
+index 2f19797..a546c27 100644
+--- a/theme/horizon-baseline-3.5.1/sections/footer-group.json
++++ b/theme/lms-redesign/sections/footer-group.json
+@@ -7,27 +7,88 @@
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+  */
+- {
++{
+   "type": "footer",
+-  "name": "t:names.footer",
++  "name": "Footer",
+   "sections": {
+-    "footer": {
++    "footer_m9NzUG": {
+       "type": "footer",
+       "blocks": {
+-        "group_wErUQf": {
++        "brand_col": {
+           "type": "group",
+-          "name": "Join our email list",
+           "settings": {
++            "content_direction": "column",
++            "vertical_on_mobile": true,
++            "horizontal_alignment": "flex-start",
++            "vertical_alignment": "flex-start",
++            "align_baseline": false,
++            "horizontal_alignment_flex_direction_column": "center",
++            "vertical_alignment_flex_direction_column": "flex-start",
++            "gap": 0,
++            "width": "fill",
++            "custom_width": 100,
++            "width_mobile": "fill",
++            "custom_width_mobile": 100,
++            "height": "fit",
++            "custom_height": 100,
++            "inherit_color_scheme": true,
++            "color_scheme": "",
++            "background_media": "none",
++            "video_position": "cover",
++            "background_image_position": "cover",
++            "border": "none",
++            "border_width": 1,
++            "border_opacity": 100,
++            "border_radius": 0,
++            "toggle_overlay": false,
++            "overlay_color": "#00000026",
++            "overlay_style": "solid",
++            "gradient_direction": "to top",
+             "link": "",
+             "open_in_new_tab": false,
++            "placeholder": "",
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {
++            "logo": {
++              "type": "logo",
++              "settings": {
++                "logo": "shopify://shop_images/Logo_Stacked_with_Tagline_Black.svg",
++                "inverse": false,
++                "font": "heading",
++                "unit": "percent",
++                "percent_width": 60,
++                "pixel_height": 48,
++                "custom_mobile_size": false,
++                "unit_mobile": "percent",
++                "percent_width_mobile": 21,
++                "pixel_height_mobile": 120,
++                "padding-block-start": 0,
++                "padding-block-end": 0,
++                "padding-inline-start": 0,
++                "padding-inline-end": 0
++              },
++              "blocks": {}
++            }
++          },
++          "block_order": [
++            "logo"
++          ]
++        },
++        "shop_col": {
++          "type": "group",
++          "settings": {
+             "content_direction": "column",
+             "vertical_on_mobile": true,
+             "horizontal_alignment": "flex-start",
+-            "vertical_alignment": "center",
++            "vertical_alignment": "flex-start",
+             "align_baseline": false,
+             "horizontal_alignment_flex_direction_column": "flex-start",
+-            "vertical_alignment_flex_direction_column": "center",
+-            "gap": 12,
++            "vertical_alignment_flex_direction_column": "flex-start",
++            "gap": 0,
+             "width": "fill",
+             "custom_width": 100,
+             "width_mobile": "fill",
+@@ -43,59 +104,59 @@
+             "border_width": 1,
+             "border_opacity": 100,
+             "border_radius": 0,
+-            "placeholder": "",
+             "toggle_overlay": false,
+             "overlay_color": "#00000026",
+             "overlay_style": "solid",
+             "gradient_direction": "to top",
++            "link": "",
++            "open_in_new_tab": false,
++            "placeholder": "",
+             "padding-block-start": 0,
+             "padding-block-end": 0,
+             "padding-inline-start": 0,
+             "padding-inline-end": 0
+           },
+           "blocks": {
+-            "text_pF6rVi": {
++            "heading": {
+               "type": "text",
+-              "name": "Heading",
+               "settings": {
+-                "text": "<h2>Join our email list</h2>",
++                "text": "<p><strong>Shop</strong></p>",
+                 "width": "100%",
+                 "max_width": "normal",
+                 "alignment": "left",
+-                "type_preset": "h3",
++                "type_preset": "rte",
+                 "font": "var(--font-body--family)",
+-                "font_size": "",
++                "font_size": "0.6875rem",
+                 "line_height": "normal",
+-                "letter_spacing": "normal",
+-                "case": "none",
++                "letter_spacing": "0.22em",
++                "case": "uppercase",
+                 "wrap": "pretty",
+-                "color": "var(--color-foreground)",
++                "color": "var(--lms-cyan)",
+                 "background": false,
+                 "background_color": "#00000026",
+                 "corner_radius": 0,
+                 "padding-block-start": 0,
+-                "padding-block-end": 0,
++                "padding-block-end": 8,
+                 "padding-inline-start": 0,
+                 "padding-inline-end": 0
+               },
+               "blocks": {}
+             },
+-            "text_HafH7P": {
++            "links": {
+               "type": "text",
+-              "name": "Text",
+               "settings": {
+-                "text": "<p>Get exclusive deals and early access to new products.</p>",
++                "text": "<p><a href=\"/collections/new-arrivals\">New arrivals</a><br/><a href=\"/collections/4k-blu-ray\">4K & Blu-ray</a><br/><a href=\"/collections/used-vhs\">Used & VHS</a><br/><a href=\"/collections/mystery-bags\">Mystery bags</a></p>",
+                 "width": "100%",
+                 "max_width": "normal",
+                 "alignment": "left",
+-                "type_preset": "rte",
++                "type_preset": "custom",
+                 "font": "var(--font-body--family)",
+-                "font_size": "",
+-                "line_height": "normal",
++                "font_size": "0.75rem",
++                "line_height": "loose",
+                 "letter_spacing": "normal",
+                 "case": "none",
+                 "wrap": "pretty",
+-                "color": "var(--color-foreground)",
++                "color": "var(--color-primary)",
+                 "background": false,
+                 "background_color": "#00000026",
+                 "corner_radius": 0,
+@@ -105,118 +166,277 @@
+                 "padding-inline-end": 0
+               },
+               "blocks": {}
+-            },
+-            "email-signup_HafH7P": {
+-              "type": "email-signup",
+-              "name": "Email Signup",
+-              "settings": {
+-                "width": "fill"
+-              }
+             }
+           },
+           "block_order": [
+-            "text_pF6rVi",
+-            "text_HafH7P",
+-            "email-signup_HafH7P"
++            "heading",
++            "links"
+           ]
+         },
+-        "menu_footer": {
+-          "type": "menu",
++        "visit_col": {
++          "type": "group",
+           "settings": {
+-            "menu": "footer",
+-            "heading": "",
+-            "menu_spacing": 12,
+-            "show_as_accordion": false,
+-            "accordion_icon": "plus",
+-            "accordion_dividers": false,
++            "content_direction": "column",
++            "vertical_on_mobile": true,
++            "horizontal_alignment": "flex-start",
++            "vertical_alignment": "flex-start",
++            "align_baseline": false,
++            "horizontal_alignment_flex_direction_column": "flex-start",
++            "vertical_alignment_flex_direction_column": "flex-start",
++            "gap": 12,
++            "width": "fill",
++            "custom_width": 100,
++            "width_mobile": "fill",
++            "custom_width_mobile": 100,
++            "height": "fit",
++            "custom_height": 100,
+             "inherit_color_scheme": true,
+-            "heading_preset": "paragraph",
+-            "link_preset": "paragraph",
++            "color_scheme": "",
++            "background_media": "none",
++            "video_position": "cover",
++            "background_image_position": "cover",
++            "border": "none",
++            "border_width": 1,
++            "border_opacity": 100,
++            "border_radius": 0,
++            "toggle_overlay": false,
++            "overlay_color": "#00000026",
++            "overlay_style": "solid",
++            "gradient_direction": "to top",
++            "link": "",
++            "open_in_new_tab": false,
++            "placeholder": "",
+             "padding-block-start": 0,
+             "padding-block-end": 0,
+             "padding-inline-start": 0,
+             "padding-inline-end": 0
+-          }
++          },
++          "blocks": {
++            "heading": {
++              "type": "text",
++              "settings": {
++                "text": "<p><strong>Visit</strong></p>",
++                "width": "100%",
++                "max_width": "normal",
++                "alignment": "left",
++                "type_preset": "rte",
++                "font": "var(--font-body--family)",
++                "font_size": "0.6875rem",
++                "line_height": "normal",
++                "letter_spacing": "0.22em",
++                "case": "uppercase",
++                "wrap": "pretty",
++                "color": "var(--lms-cyan)",
++                "background": false,
++                "background_color": "#00000026",
++                "corner_radius": 0,
++                "padding-block-start": 0,
++                "padding-block-end": 8,
++                "padding-inline-start": 0,
++                "padding-inline-end": 0
++              },
++              "blocks": {}
++            },
++            "links": {
++              "type": "text",
++              "settings": {
++                "text": "<p><a href=\"/pages/visit\">Passyunk Ave, Philly</a><br/><a href=\"/pages/visit\">Hours & map</a><br/><a href=\"/collections/rental-library\">Rental library</a><br/><a href=\"/pages/events\">Events calendar</a></p>",
++                "width": "100%",
++                "max_width": "normal",
++                "alignment": "left",
++                "type_preset": "rte",
++                "font": "var(--font-body--family)",
++                "font_size": "0.8125rem",
++                "line_height": "normal",
++                "letter_spacing": "normal",
++                "case": "none",
++                "wrap": "pretty",
++                "color": "color-mix(in oklch, var(--lms-parchment) 78%, transparent)",
++                "background": false,
++                "background_color": "#00000026",
++                "corner_radius": 0,
++                "padding-block-start": 0,
++                "padding-block-end": 0,
++                "padding-inline-start": 0,
++                "padding-inline-end": 0
++              },
++              "blocks": {}
++            }
++          },
++          "block_order": [
++            "heading",
++            "links"
++          ]
+         },
+-        "menu_main": {
+-          "type": "menu",
++        "club_col": {
++          "type": "group",
+           "settings": {
+-            "menu": "main-menu",
+-            "heading": "",
+-            "menu_spacing": 12,
+-            "show_as_accordion": false,
+-            "accordion_icon": "plus",
+-            "accordion_dividers": false,
++            "content_direction": "column",
++            "vertical_on_mobile": true,
++            "horizontal_alignment": "flex-start",
++            "vertical_alignment": "flex-start",
++            "align_baseline": false,
++            "horizontal_alignment_flex_direction_column": "flex-start",
++            "vertical_alignment_flex_direction_column": "flex-start",
++            "gap": 12,
++            "width": "fill",
++            "custom_width": 100,
++            "width_mobile": "fill",
++            "custom_width_mobile": 100,
++            "height": "fit",
++            "custom_height": 100,
+             "inherit_color_scheme": true,
+-            "heading_preset": "paragraph",
+-            "link_preset": "paragraph",
++            "color_scheme": "",
++            "background_media": "none",
++            "video_position": "cover",
++            "background_image_position": "cover",
++            "border": "none",
++            "border_width": 1,
++            "border_opacity": 100,
++            "border_radius": 0,
++            "toggle_overlay": false,
++            "overlay_color": "#00000026",
++            "overlay_style": "solid",
++            "gradient_direction": "to top",
++            "link": "",
++            "open_in_new_tab": false,
++            "placeholder": "",
+             "padding-block-start": 0,
+             "padding-block-end": 0,
+             "padding-inline-start": 0,
+             "padding-inline-end": 0
+-          }
++          },
++          "blocks": {
++            "heading": {
++              "type": "text",
++              "settings": {
++                "text": "<p><strong>The Club</strong></p>",
++                "width": "100%",
++                "max_width": "normal",
++                "alignment": "left",
++                "type_preset": "rte",
++                "font": "var(--font-body--family)",
++                "font_size": "0.6875rem",
++                "line_height": "normal",
++                "letter_spacing": "0.22em",
++                "case": "uppercase",
++                "wrap": "pretty",
++                "color": "var(--lms-cyan)",
++                "background": false,
++                "background_color": "#00000026",
++                "corner_radius": 0,
++                "padding-block-start": 0,
++                "padding-block-end": 8,
++                "padding-inline-start": 0,
++                "padding-inline-end": 0
++              },
++              "blocks": {}
++            },
++            "links": {
++              "type": "text",
++              "settings": {
++                "text": "<p><a href=\"/pages/membership\">Join the club</a><br><a href=\"/pages/membership\">Member perks</a><br><a href=\"/pages/membership\">Birthday perk</a><br><a href=\"/pages/membership\">Gift a membership</a></p>",
++                "width": "100%",
++                "max_width": "normal",
++                "alignment": "left",
++                "type_preset": "rte",
++                "font": "var(--font-body--family)",
++                "font_size": "0.8125rem",
++                "line_height": "normal",
++                "letter_spacing": "normal",
++                "case": "none",
++                "wrap": "pretty",
++                "color": "color-mix(in oklch, var(--lms-parchment) 78%, transparent)",
++                "background": false,
++                "background_color": "#00000026",
++                "corner_radius": 0,
++                "padding-block-start": 0,
++                "padding-block-end": 0,
++                "padding-inline-start": 0,
++                "padding-inline-end": 0
++              },
++              "blocks": {}
++            }
++          },
++          "block_order": [
++            "heading",
++            "links"
++          ]
+         }
+       },
+       "block_order": [
+-        "group_wErUQf",
+-        "menu_footer",
+-        "menu_main"
++        "brand_col",
++        "shop_col",
++        "visit_col",
++        "club_col"
+       ],
+-      "name": "t:names.footer",
++      "name": "Footer",
+       "settings": {
+         "section_width": "page-width",
+         "gap": 40,
+-        "color_scheme": "scheme-5",
+-        "padding-block-start": 36,
++        "color_scheme": "scheme-2",
++        "padding-block-start": 60,
+         "padding-block-end": 36
+       }
+     },
+-    "utilities": {
++    "footer_utilities_jLGE8U": {
+       "type": "footer-utilities",
+-      "settings": {
+-        "section_width": "page-width",
+-        "gap": 24,
+-        "divider_thickness": 1,
+-        "color_scheme": "scheme-5",
+-        "padding-block-start": 12,
+-        "padding-block-end": 16
+-      },
+       "blocks": {
+-        "copyright": {
++        "footer_copyright_jweRK8": {
+           "type": "footer-copyright",
+           "settings": {
+             "show_powered_by": true,
+             "font_size": "0.75rem",
+             "case": "none"
+-          }
++          },
++          "blocks": {}
+         },
+-        "policy_list": {
++        "footer_policy_list_VCdnpa": {
+           "type": "footer-policy-list",
+           "settings": {
+             "font_size": "0.75rem",
+             "case": "none"
+-          }
++          },
++          "blocks": {}
+         },
+-        "social_icons": {
++        "social_links_Ew63Kq": {
+           "type": "social-links",
+           "settings": {
+-            "facebook_url": "https://www.facebook.com",
+-            "instagram_url": "https://www.instagram.com",
+-            "tiktok_url": "https://www.tiktok.com",
+-            "twitter_url": "https://www.twitter.com",
+-            "youtube_url": "https://www.youtube.com"
+-          }
++            "facebook_url": "https://www.facebook.com/",
++            "instagram_url": "https://www.instagram.com/",
++            "youtube_url": "https://www.youtube.com/",
++            "tiktok_url": "https://www.tiktok.com/",
++            "twitter_url": "https://x.com/",
++            "threads_url": "",
++            "linkedin_url": "",
++            "bluesky_url": "",
++            "snapchat_url": "",
++            "pinterest_url": "",
++            "tumblr_url": "",
++            "vimeo_url": "",
++            "custom_url": ""
++          },
++          "blocks": {}
+         }
+       },
+       "block_order": [
+-        "copyright",
+-        "policy_list",
+-        "social_icons"
+-      ]
++        "footer_copyright_jweRK8",
++        "footer_policy_list_VCdnpa",
++        "social_links_Ew63Kq"
++      ],
++      "name": "t:names.utilities",
++      "settings": {
++        "section_width": "page-width",
++        "gap": 24,
++        "divider_thickness": 0,
++        "color_scheme": "scheme-2",
++        "padding-block-start": 20,
++        "padding-block-end": 48
++      }
+     }
+   },
+   "order": [
+-    "footer",
+-    "utilities"
++    "footer_m9NzUG",
++    "footer_utilities_jLGE8U"
+   ]
+ }
+diff --git a/theme/horizon-baseline-3.5.1/sections/footer-utilities.liquid b/theme/lms-redesign/sections/footer-utilities.liquid
+index 15a6390..5423cad 100644
+--- a/theme/horizon-baseline-3.5.1/sections/footer-utilities.liquid
++++ b/theme/lms-redesign/sections/footer-utilities.liquid
+@@ -21,7 +23,7 @@
+     gap: var(--gap);
+     text-wrap: nowrap;
+     border-top: var(--border-width) solid var(--color-border);
+-    color: var(--color-foreground-muted);
++    color: var(--lms-cyan);
+ 
+     @media screen and (min-width: 750px) {
+       display: grid;
+@@ -34,7 +36,7 @@
+   }
+ 
+   .utilities a {
+-    color: var(--color-foreground-muted);
++    color: var(--lms-cyan);
+   }
+ 
+   .utilities > * {
+diff --git a/theme/horizon-baseline-3.5.1/sections/footer.liquid b/theme/lms-redesign/sections/footer.liquid
+index 663ebb3..9e34dc2 100644
+--- a/theme/horizon-baseline-3.5.1/sections/footer.liquid
++++ b/theme/lms-redesign/sections/footer.liquid
+@@ -83,6 +85,11 @@
+       justify-items: center;
+     }
+ 
++    /* Give the first (brand/logo) column extra visual weight when there are 4 columns */
++    .footer-content[style*='--grid-columns: 4'] {
++      grid-template-columns: 1.5fr repeat(3, 1fr);
++    }
++
+     .footer-content--isolated-grid-item-desktop > :last-child {
+       grid-column: 1 / -1;
+     }
+diff --git a/theme/horizon-baseline-3.5.1/sections/header-group.json b/theme/lms-redesign/sections/header-group.json
+index 8116502..25f68e1 100644
+--- a/theme/horizon-baseline-3.5.1/sections/header-group.json
++++ b/theme/lms-redesign/sections/header-group.json
+@@ -9,7 +9,7 @@
+  */
+ {
+   "type": "header",
+-  "name": "t:names.header",
++  "name": "Header",
+   "sections": {
+     "header_announcements_9jGBFp": {
+       "type": "header-announcements",
+@@ -17,7 +17,7 @@
+         "announcement_BxgCk9": {
+           "type": "_announcement",
+           "settings": {
+-            "text": "Welcome to our store",
++            "text": "",
+             "link": "",
+             "font": "var(--font-subheading--family)",
+             "font_size": "0.75rem",
+@@ -48,6 +48,8 @@
+           "type": "_header-logo",
+           "static": true,
+           "settings": {
++            "logo_height": 21,
++            "logo_height_mobile": 22,
+             "hide_logo_on_home_page": false,
+             "padding-block-start": 0,
+             "padding-block-end": 0
+@@ -64,7 +66,7 @@
+             "menu_font_style": "inverse",
+             "type_font_primary_link": "body",
+             "type_case_primary_link": "none",
+-            "menu_style": "featured_products",
++            "menu_style": "text",
+             "featured_products_aspect_ratio": "4 / 5",
+             "featured_collections_aspect_ratio": "16 / 9",
+             "image_border_radius": 0,
+@@ -79,27 +81,32 @@
+       },
+       "settings": {
+         "logo_position": "left",
+-        "menu_position": "left",
++        "menu_position": "right",
+         "menu_row": "top",
+-        "show_search": true,
++        "customer_account_menu": "customer-account-main-menu",
++        "show_search": false,
+         "search_position": "right",
+         "search_row": "top",
+-        "show_country": true,
++        "show_country": false,
+         "country_selector_style": false,
+-        "show_language": true,
++        "show_language": false,
+         "localization_font": "heading",
+         "localization_font_size": "0.875rem",
+         "localization_position": "right",
+         "localization_row": "top",
+         "section_width": "page-width",
+-        "section_height": "standard",
+-        "enable_sticky_header": "always",
++        "section_height": "compact",
++        "enable_sticky_header": "never",
+         "divider_width": 0,
+         "divider_size": "page-width",
+         "border_width": 0,
++        "actions_display_style": "icon",
++        "actions_font_size": "0.875rem",
++        "actions_font": "body",
++        "actions_text_case": "none",
+         "color_scheme_top": "scheme-1",
+-        "color_scheme_bottom": "",
+-        "color_scheme_transparent": "scheme-6",
++        "color_scheme_bottom": "scheme-1",
++        "color_scheme_transparent": "scheme-1",
+         "enable_transparent_header_home": false,
+         "home_color_scheme": "inverse",
+         "enable_transparent_header_product": false,
+@@ -107,10 +114,41 @@
+         "enable_transparent_header_collection": false,
+         "collection_color_scheme": "default"
+       }
++    },
++    "1780922431d9826574": {
++      "type": "_blocks",
++      "settings": {
++        "content_direction": "column",
++        "vertical_on_mobile": true,
++        "horizontal_alignment": "flex-start",
++        "vertical_alignment": "center",
++        "align_baseline": false,
++        "horizontal_alignment_flex_direction_column": "flex-start",
++        "vertical_alignment_flex_direction_column": "center",
++        "gap": 12,
++        "section_width": "page-width",
++        "section_height": "",
++        "section_height_custom": 50,
++        "color_scheme": "",
++        "background_media": "none",
++        "video_position": "cover",
++        "background_image_position": "cover",
++        "border": "none",
++        "border_width": 1,
++        "border_opacity": 100,
++        "border_radius": 0,
++        "toggle_overlay": false,
++        "overlay_color": "#00000026",
++        "overlay_style": "solid",
++        "gradient_direction": "to top",
++        "padding-block-start": 0,
++        "padding-block-end": 0
++      }
+     }
+   },
+   "order": [
+     "header_announcements_9jGBFp",
+-    "header_section"
++    "header_section",
++    "1780922431d9826574"
+   ]
+ }
+diff --git a/theme/horizon-baseline-3.5.1/snippets/header-actions.liquid b/theme/lms-redesign/snippets/header-actions.liquid
+index 743cdde..b5c53c0 100644
+--- a/theme/horizon-baseline-3.5.1/snippets/header-actions.liquid
++++ b/theme/lms-redesign/snippets/header-actions.liquid
+@@ -57,6 +57,17 @@
+   </svg>
+ {% endcapture %}
+ 
++{% liquid
++  # STAND-IN: gates on customer.tags 'Has active subscription' until Supercycle installs (see CLAUDE.md).
++  assign is_member = true
++  if section and section.settings.enable_membership_gating
++    assign is_member = false
++    if customer and customer.tags contains 'Has active subscription'
++      assign is_member = true
++    endif
++  endif
++%}
++
+ <header-actions
+   {% if display_style == 'text' %}
+     class="header-actions--text"
+@@ -64,53 +75,62 @@
+   {{- block.shopify_attributes -}}
+ >
+   {% if shop.customer_accounts_enabled %}
+-    {% liquid
+-      assign account_actions_style = ''
+-      if display_style == 'text' and section
+-        assign actions_font = section.settings.actions_font | default: 'body'
+-        assign font_obj = settings.type_heading_font
+-        case actions_font
+-          when 'body'
+-            assign font_obj = settings.type_body_font
+-          when 'subheading'
+-            assign font_obj = settings.type_subheading_font
+-          when 'accent'
+-            assign font_obj = settings.type_accent_font
+-        endcase
+-        assign font_family = font_obj.family | append: ', ' | append: font_obj.fallback_families
+-        assign font_family_safe = font_family | replace: '"', "'"
+-        assign account_actions_style = '--header-actions-font-family: ' | append: font_family_safe | append: '; --header-actions-font-weight: ' | append: font_obj.weight | append: ';'
+-      endif
+-    %}
+-    <div
+-      class="account-button header-actions__action{% if display_style == 'text' %} account-button--text{% endif %} color-{{ settings.popover_color_scheme }}"
+-    >
+-      <shopify-account
+-        menu="{{ customer_account_menu }}"
+-        {% if account_actions_style != blank %}
+-          style="{{ account_actions_style }}"
+-        {% endif %}
++    {% unless is_member %}
++      <a
++        href="{{ section.settings.join_club_url }}"
++        class="lms-btn lms-btn--primary lms-btn--sm header-actions__action{% if display_style == 'text' %} header-actions__text-style{% endif %}"
+       >
+-        {% if customer %}
+-          <div class="account-button__fallback"></div>
+-        {% else %}
+-          <span
+-            slot="signed-out-avatar"
+-            class="account-button__text header-actions__text-style {% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}"
+-          >
+-            {{ 'content.account_title' | t }}
+-          </span>
+-
+-          <span
+-            slot="signed-out-avatar"
+-            class="{% if display_style != 'icon' %}desktop:hidden{% endif %}"
+-            aria-hidden="true"
+-          >
+-            {{ account_icon }}
+-          </span>
+-        {% endif %}
+-      </shopify-account>
+-    </div>
++        {{ section.settings.join_club_label }}
++      </a>
++    {% else %}
++      {% liquid
++        assign account_actions_style = ''
++        if display_style == 'text' and section
++          assign actions_font = section.settings.actions_font | default: 'body'
++          assign font_obj = settings.type_heading_font
++          case actions_font
++            when 'body'
++              assign font_obj = settings.type_body_font
++            when 'subheading'
++              assign font_obj = settings.type_subheading_font
++            when 'accent'
++              assign font_obj = settings.type_accent_font
++          endcase
++          assign font_family = font_obj.family | append: ', ' | append: font_obj.fallback_families
++          assign font_family_safe = font_family | replace: '"', "'"
++          assign account_actions_style = '--header-actions-font-family: ' | append: font_family_safe | append: '; --header-actions-font-weight: ' | append: font_obj.weight | append: ';'
++        endif
++      %}
++      <div
++        class="account-button header-actions__action{% if display_style == 'text' %} account-button--text{% endif %} color-{{ settings.popover_color_scheme }}"
++      >
++        <shopify-account
++          menu="{{ customer_account_menu }}"
++          {% if account_actions_style != blank %}
++            style="{{ account_actions_style }}"
++          {% endif %}
++        >
++          {% if customer %}
++            <div class="account-button__fallback"></div>
++          {% else %}
++            <span
++              slot="signed-out-avatar"
++              class="account-button__text header-actions__text-style {% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}"
++            >
++              {{ 'content.account_title' | t }}
++            </span>
++
++            <span
++              slot="signed-out-avatar"
++              class="{% if display_style != 'icon' %}desktop:hidden{% endif %}"
++              aria-hidden="true"
++            >
++              {{ account_icon }}
++            </span>
++          {% endif %}
++        </shopify-account>
++      </div>
++    {% endunless %}
+   {% endif %}
+ 
+   {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
+@@ -152,6 +172,7 @@
+     {% endcapture %}
+ 
+     <cart-drawer-component
++      id="cart-drawer"
+       class="cart-drawer{% if display_style == 'text' %} cart-drawer--text{% endif %}"
+       {{ block.shopify_attributes }}
+       {% if settings.auto_open_cart_drawer %}
+@@ -162,7 +183,7 @@
+         {{ empty_cart_drawer_content }}
+       </template>
+       <button
+-        class="header-actions__action button-unstyled{% if display_style == 'text' %} header-actions__text-style{% endif %}"
++        class="header-actions__action button-unstyled{% if display_style == 'text' %} header-actions__text-style{% endif %}{% if section.settings.enable_membership_gating and is_member == false %} header-actions__action--muted{% endif %}"
+         on:click="/open"
+         aria-haspopup="dialog"
+         aria-label="{{ 'accessibility.cart' | t }}"
+@@ -243,7 +264,7 @@
+   {% else %}
+     <a
+       href="{{ routes.cart_url }}"
+-      class="header-actions__action action__cart{% if display_style == 'text' %} header-actions__text-style{% endif %}"
++      class="header-actions__action action__cart{% if display_style == 'text' %} header-actions__text-style{% endif %}{% if section.settings.enable_membership_gating and is_member == false %} header-actions__action--muted{% endif %}"
+       aria-label="{{ 'accessibility.cart' | t }}"
+       aria-describedby="cart-bubble-text"
+     >
+@@ -266,6 +287,11 @@
+ ></script>
+ 
+ {% stylesheet %}
++  .header-actions__action--muted {
++    color: var(--lms-ink-400);
++    opacity: 0.7;
++  }
++
+   .header {
+     --account-offset-top: calc(
+       var(--header-group-height) + (var(--header-height) * var(--transparent-header-offset-boolean))
+diff --git a/theme/horizon-baseline-3.5.1/snippets/header-drawer.liquid b/theme/lms-redesign/snippets/header-drawer.liquid
+index 9f3dce1..c8a18fd 100644
+--- a/theme/horizon-baseline-3.5.1/snippets/header-drawer.liquid
++++ b/theme/lms-redesign/snippets/header-drawer.liquid
+@@ -16,6 +16,15 @@
+   assign max_featured_items = 4
+   assign image_border_radius = block_settings.image_border_radius
+ 
++  # STAND-IN: gates on customer.tags 'Has active subscription' until Supercycle installs (see CLAUDE.md).
++  assign is_member = true
++  if section and section.settings.enable_membership_gating
++    assign is_member = false
++    if customer and customer.tags contains 'Has active subscription'
++      assign is_member = true
++    endif
++  endif
++
+   if block_settings.menu_style == 'featured_collections'
+     assign ratio = block_settings.featured_collections_aspect_ratio
+   elsif block_settings.menu_style == 'featured_products'
+@@ -83,6 +92,60 @@
+           {{- 'icon-close.svg' | inline_asset_content -}}
+         </span>
+       </button>
++      <div
++        class="menu-drawer__quick-links menu-drawer__animated-element"
++        style="--menu-drawer-animation-index: 0;"
++      >
++        {% if shop.customer_accounts_enabled %}
++          {% if is_member %}
++            <a
++              href="{{ routes.account_url }}"
++              class="menu-drawer__account"
++            >
++              {{ 'content.account_title' | t }}
++            </a>
++          {% else %}
++            <a
++              href="{{ section.settings.join_club_url }}"
++              class="menu-drawer__account"
++            >
++              {{ section.settings.join_club_label }}
++            </a>
++          {% endif %}
++        {% endif %}
++
++        {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
++          <button
++            type="button"
++            on:click="#cart-drawer/open"
++            class="menu-drawer__account button-unstyled"
++            aria-haspopup="dialog"
++            aria-describedby="cart-bubble-text"
++          >
++            {{ 'content.cart_title' | t }}
++            {% render 'cart-bubble' %}
++          </button>
++        {% else %}
++          <a
++            href="{{ routes.cart_url }}"
++            class="menu-drawer__account"
++            aria-describedby="cart-bubble-text"
++          >
++            {{ 'content.cart_title' | t }}
++          </a>
++        {% endif %}
++
++        {% if section.settings.show_search %}
++          <button
++            type="button"
++            on:click="#search-modal/showDialog"
++            class="menu-drawer__account button-unstyled"
++            aria-haspopup="dialog"
++          >
++            {{ 'content.search' | t }}
++          </button>
++        {% endif %}
++      </div>
+       <nav
+         class="menu-drawer__navigation"
+         style="
+@@ -1242,6 +1305,13 @@
+     background-color: rgb(var(--color-foreground) 0.03);
+   }
+ 
++  .menu-drawer__quick-links {
++    display: flex;
++    flex-direction: column;
++    padding-inline: var(--padding-xl);
++    border-bottom: 1px solid rgb(var(--color-foreground) / 0.1);
++  }
++
+   .menu-drawer__account {
+     display: inline-flex;
+     align-items: center;
+@@ -1250,6 +1320,9 @@
+     height: 44px;
+     font-size: 1.4rem;
+     color: rgb(var(--color-foreground));
++    background: none;
++    border: none;
++    cursor: pointer;
+   }
+ 
+   .menu-drawer__account svg {
+diff --git a/theme/horizon-baseline-3.5.1/templates/404.json b/theme/lms-redesign/templates/404.json
+index 298fbce..4f611b8 100644
+--- a/theme/horizon-baseline-3.5.1/templates/404.json
++++ b/theme/lms-redesign/templates/404.json
+@@ -6,8 +6,7 @@
+  * or related systems. Please exercise caution as any changes
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+- */
+- {
++ */{
+   "sections": {
+     "main": {
+       "type": "main-404",
+@@ -205,7 +204,7 @@
+                 "width": "100%",
+                 "max_width": "normal",
+                 "alignment": "left",
+-                "type_preset": "paragraph",
++                "type_preset": "rte",
+                 "font": "var(--font-body--family)",
+                 "font_size": "1rem",
+                 "line_height": "normal",
+@@ -254,7 +253,7 @@
+           ]
+         }
+       },
+-      "name": "t:names.featured_collection",
++      "name": "Featured collection",
+       "settings": {
+         "collection": "all",
+         "layout_type": "grid",
+@@ -280,4 +279,4 @@
+     "main",
+     "product_list_iA96Tq"
+   ]
+-}
++}
+\ No newline at end of file
+diff --git a/theme/horizon-baseline-3.5.1/templates/article.json b/theme/lms-redesign/templates/article.json
+index 587f3e2..0c67fca 100644
+--- a/theme/horizon-baseline-3.5.1/templates/article.json
++++ b/theme/lms-redesign/templates/article.json
+@@ -6,8 +6,7 @@
+  * or related systems. Please exercise caution as any changes
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+- */
+- {
++ */{
+   "sections": {
+     "section": {
+       "type": "main-blog-post",
+@@ -55,7 +54,7 @@
+           "blocks": {}
+         },
+         "blog-post-image": {
+-          "type": "_blog-post-featured-image",
++          "type": "image",
+           "name": "Featured image",
+           "static": true,
+           "settings": {
+@@ -95,4 +94,4 @@
+   "order": [
+     "section"
+   ]
+-}
++}
+\ No newline at end of file
+diff --git a/theme/horizon-baseline-3.5.1/templates/blog.json b/theme/lms-redesign/templates/blog.json
+index 39bef27..a8498e1 100644
+--- a/theme/horizon-baseline-3.5.1/templates/blog.json
++++ b/theme/lms-redesign/templates/blog.json
+@@ -6,8 +6,7 @@
+  * or related systems. Please exercise caution as any changes
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+- */
+- {
++ */{
+   "sections": {
+     "main": {
+       "type": "main-blog",
+@@ -113,4 +112,4 @@
+   "order": [
+     "main"
+   ]
+-}
++}
+\ No newline at end of file
+diff --git a/theme/horizon-baseline-3.5.1/templates/cart.json b/theme/lms-redesign/templates/cart.json
+index 95466a0..52ef3a9 100644
+--- a/theme/horizon-baseline-3.5.1/templates/cart.json
++++ b/theme/lms-redesign/templates/cart.json
+@@ -6,8 +6,7 @@
+  * or related systems. Please exercise caution as any changes
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+- */
+- {
++ */{
+   "sections": {
+     "cart-section": {
+       "type": "main-cart",
+@@ -105,7 +104,7 @@
+               "type": "_product-list-text",
+               "name": "t:names.collection_title",
+               "settings": {
+-                "text": "<h2>You may also like</h2>",
++                "text": "<h3>You may also like</h3>",
+                 "width": "fit-content",
+                 "max_width": "normal",
+                 "alignment": "left",
+@@ -188,7 +187,7 @@
+                 "width": "100%",
+                 "max_width": "normal",
+                 "alignment": "left",
+-                "type_preset": "paragraph",
++                "type_preset": "rte",
+                 "font": "var(--font-body--family)",
+                 "font_size": "",
+                 "line_height": "normal",
+@@ -237,7 +236,7 @@
+           ]
+         }
+       },
+-      "name": "t:names.featured_collection",
++      "name": "Featured collection",
+       "settings": {
+         "collection": "all",
+         "layout_type": "grid",
+@@ -263,4 +262,4 @@
+     "cart-section",
+     "product_list_NNFgcy"
+   ]
+-}
++}
+\ No newline at end of file
+diff --git a/theme/horizon-baseline-3.5.1/templates/collection.json b/theme/lms-redesign/templates/collection.json
+index 717e185..3266f76 100644
+--- a/theme/horizon-baseline-3.5.1/templates/collection.json
++++ b/theme/lms-redesign/templates/collection.json
+@@ -6,8 +6,7 @@
+  * or related systems. Please exercise caution as any changes
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+- */
+- {
++ */{
+   "sections": {
+     "section": {
+       "type": "section",
+@@ -163,7 +162,7 @@
+                 "width": "100%",
+                 "max_width": "normal",
+                 "alignment": "left",
+-                "type_preset": "paragraph",
++                "type_preset": "rte",
+                 "font": "var(--font-body--family)",
+                 "font_size": "1rem",
+                 "line_height": "normal",
+@@ -202,24 +201,12 @@
+                 "padding-inline-end": 0
+               },
+               "blocks": {}
+-            },
+-            "swatches": {
+-              "type": "swatches",
+-              "name": "t:names.swatches",
+-              "settings": {
+-                "product_swatches_alignment": "flex-start",
+-                "product_swatches_padding_top": 4,
+-                "product_swatches_padding_bottom": 0,
+-                "product_swatches_padding_left": 0,
+-                "product_swatches_padding_right": 0
+-              }
+             }
+           },
+           "block_order": [
+             "card-gallery",
+             "product_title_4nY4eT",
+-            "price_EzJzMm",
+-            "swatches"
++            "price_EzJzMm"
+           ]
+         }
+       },
+@@ -243,4 +230,4 @@
+     "section",
+     "main"
+   ]
+-}
++}
+\ No newline at end of file
+diff --git a/theme/horizon-baseline-3.5.1/templates/index.json b/theme/lms-redesign/templates/index.json
+index 6f1cacf..e9ab145 100644
+--- a/theme/horizon-baseline-3.5.1/templates/index.json
++++ b/theme/lms-redesign/templates/index.json
+@@ -7,27 +7,116 @@
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+  */
+- {
++{
+   "sections": {
+-    "hero_jVaWmY": {
+-      "type": "hero",
++    "lms_hero": {
++      "type": "lms-hero",
+       "blocks": {
+-        "text_YLPk4p": {
++        "slide_1": {
++          "type": "slide",
++          "settings": {}
++        },
++        "button_primary": {
++          "type": "button",
++          "settings": {
++            "label": "Join the club →",
++            "link": "/pages/membership",
++            "style": "primary"
++          }
++        },
++        "button_secondary": {
++          "type": "button",
++          "settings": {
++            "label": "Browse the shelves",
++            "link": "/collections/all",
++            "style": "outline"
++          }
++        },
++        "info_location": {
++          "type": "info_item",
++          "settings": {
++            "label": "Location",
++            "value": "Passyunk Ave · South Philly"
++          }
++        },
++        "info_hours": {
++          "type": "info_item",
++          "settings": {
++            "label": "Hours",
++            "value": "Wed – Sat · 10am – 6pm"
++          }
++        },
++        "info_membership": {
++          "type": "info_item",
++          "settings": {
++            "label": "Membership",
++            "value": "$100 / year"
++          }
++        }
++      },
++      "block_order": [
++        "slide_1",
++        "button_primary",
++        "button_secondary",
++        "info_location",
++        "info_hours",
++        "info_membership"
++      ],
++      "settings": {
++        "eyebrow": "Now open · Passyunk Ave, South Philly",
++        "heading": "Meet me at the",
++        "heading_accent": "movie store.",
++        "body": "<p>A physical-media movie store, curated by people who genuinely love movies. DVD, Blu-ray, 4K, and VHS — new, used, rare, and everything in between. Browse the shelves, rent something, stay a while.</p>",
++        "autoplay": true,
++        "autoplay_speed": 5,
++        "color_scheme": "scheme-1",
++        "padding-block-start": 68,
++        "padding-block-end": 64
++      }
++    },
++    "lms_ticker": {
++      "type": "marquee",
++      "blocks": {
++        "item_1": {
+           "type": "text",
+-          "name": "t:names.heading",
+           "settings": {
+-            "text": "<p>Browse our latest products</p>",
++            "text": "<p>New arrivals</p>",
+             "width": "fit-content",
+             "max_width": "normal",
+             "alignment": "left",
+-            "type_preset": "h2",
++            "type_preset": "rte",
+             "font": "var(--font-body--family)",
+-            "font_size": "1rem",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "0.18em",
++            "case": "uppercase",
++            "wrap": "pretty",
++            "color": "var(--color-foreground)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {}
++        },
++        "sep_1": {
++          "type": "text",
++          "settings": {
++            "text": "<p>✦</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
+             "line_height": "normal",
+             "letter_spacing": "normal",
+             "case": "none",
+             "wrap": "pretty",
+-            "color": "var(--color-foreground-heading)",
++            "color": "var(--lms-cyan)",
+             "background": false,
+             "background_color": "#00000026",
+             "corner_radius": 0,
+@@ -38,251 +127,516 @@
+           },
+           "blocks": {}
+         },
+-        "button_H9gpTf": {
+-          "type": "button",
+-          "name": "t:names.button",
++        "item_2": {
++          "type": "text",
++          "settings": {
++            "text": "<p>Weekly drops</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "0.18em",
++            "case": "uppercase",
++            "wrap": "pretty",
++            "color": "var(--color-foreground)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {}
++        },
++        "sep_2": {
++          "type": "text",
+           "settings": {
+-            "label": "Shop all",
+-            "link": "shopify://collections/all",
+-            "open_in_new_tab": false,
+-            "style_class": "button-secondary",
++            "text": "<p>✦</p>",
+             "width": "fit-content",
+-            "custom_width": 100,
+-            "width_mobile": "fit-content",
+-            "custom_width_mobile": 100
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "normal",
++            "case": "none",
++            "wrap": "pretty",
++            "color": "var(--lms-cyan)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
+           },
+           "blocks": {}
+-        }
+-      },
+-      "block_order": [
+-        "text_YLPk4p",
+-        "button_H9gpTf"
+-      ],
+-      "name": "t:names.hero",
+-      "settings": {
+-        "media_type_1": "image",
+-        "media_type_2": "image",
+-        "link": "",
+-        "open_in_new_tab": false,
+-        "content_direction": "column",
+-        "vertical_on_mobile": true,
+-        "horizontal_alignment": "space-between",
+-        "vertical_alignment": "flex-end",
+-        "align_baseline": true,
+-        "horizontal_alignment_flex_direction_column": "center",
+-        "vertical_alignment_flex_direction_column": "flex-end",
+-        "gap": 24,
+-        "section_width": "page-width",
+-        "section_height": "medium",
+-        "section_height_custom": 50,
+-        "color_scheme": "scheme-6",
+-        "toggle_overlay": true,
+-        "overlay_color": "#12121266",
+-        "overlay_style": "solid",
+-        "gradient_direction": "to bottom",
+-        "blurred_reflection": false,
+-        "reflection_opacity": 75,
+-        "padding-block-start": 100,
+-        "padding-block-end": 72
+-      }
+-    },
+-    "product_list_fa6P9H": {
+-      "type": "product-list",
+-      "blocks": {
+-        "static-header": {
+-          "type": "_product-list-content",
+-          "name": "t:names.header",
+-          "static": true,
++        },
++        "item_3": {
++          "type": "text",
++          "settings": {
++            "text": "<p>Mystery bags</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "0.18em",
++            "case": "uppercase",
++            "wrap": "pretty",
++            "color": "var(--color-foreground)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {}
++        },
++        "sep_3": {
++          "type": "text",
++          "settings": {
++            "text": "<p>✦</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "normal",
++            "case": "none",
++            "wrap": "pretty",
++            "color": "var(--lms-cyan)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {}
++        },
++        "item_4": {
++          "type": "text",
++          "settings": {
++            "text": "<p>Rental library</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "0.18em",
++            "case": "uppercase",
++            "wrap": "pretty",
++            "color": "var(--color-foreground)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {}
++        },
++        "sep_4": {
++          "type": "text",
++          "settings": {
++            "text": "<p>✦</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "normal",
++            "case": "none",
++            "wrap": "pretty",
++            "color": "var(--lms-cyan)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {}
++        },
++        "item_5": {
++          "type": "text",
++          "settings": {
++            "text": "<p>Boutique labels</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "0.18em",
++            "case": "uppercase",
++            "wrap": "pretty",
++            "color": "var(--color-foreground)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {}
++        },
++        "sep_5": {
++          "type": "text",
++          "settings": {
++            "text": "<p>✦</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "normal",
++            "case": "none",
++            "wrap": "pretty",
++            "color": "var(--lms-cyan)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {}
++        },
++        "item_6": {
++          "type": "text",
++          "settings": {
++            "text": "<p>A24 · Arrow · Kino Lorber</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "0.18em",
++            "case": "uppercase",
++            "wrap": "pretty",
++            "color": "var(--color-foreground)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {}
++        },
++        "sep_6": {
++          "type": "text",
++          "settings": {
++            "text": "<p>✦</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "normal",
++            "case": "none",
++            "wrap": "pretty",
++            "color": "var(--lms-cyan)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
++          },
++          "blocks": {}
++        },
++        "item_7": {
++          "type": "text",
+           "settings": {
+-            "content_direction": "row",
+-            "vertical_on_mobile": false,
+-            "horizontal_alignment": "space-between",
+-            "vertical_alignment": "flex-end",
+-            "align_baseline": true,
+-            "horizontal_alignment_flex_direction_column": "flex-start",
+-            "vertical_alignment_flex_direction_column": "center",
+-            "gap": 12,
+-            "width": "fill",
+-            "custom_width": 100,
+-            "width_mobile": "fill",
+-            "custom_width_mobile": 100,
+-            "height": "fit",
+-            "custom_height": 100,
+-            "inherit_color_scheme": true,
+-            "color_scheme": "",
+-            "background_media": "none",
+-            "video_position": "cover",
+-            "background_image_position": "cover",
+-            "border": "none",
+-            "border_width": 1,
+-            "border_opacity": 100,
+-            "border_radius": 0,
++            "text": "<p>Collector editions</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "0.18em",
++            "case": "uppercase",
++            "wrap": "pretty",
++            "color": "var(--color-foreground)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
+             "padding-block-start": 0,
+             "padding-block-end": 0,
+             "padding-inline-start": 0,
+             "padding-inline-end": 0
+           },
+-          "blocks": {
+-            "product_list_text_YFtzcL": {
+-              "type": "_product-list-text",
+-              "name": "t:names.collection_title",
+-              "settings": {
+-                "text": "<h3>{{ closest.collection.title }}</h3>",
+-                "width": "fit-content",
+-                "max_width": "normal",
+-                "alignment": "left",
+-                "type_preset": "h4",
+-                "font": "var(--font-body--family)",
+-                "font_size": "",
+-                "line_height": "normal",
+-                "letter_spacing": "normal",
+-                "case": "none",
+-                "wrap": "pretty",
+-                "color": "var(--color-foreground)",
+-                "background": false,
+-                "background_color": "#00000026",
+-                "corner_radius": 0,
+-                "padding-block-start": 0,
+-                "padding-block-end": 0,
+-                "padding-inline-start": 0,
+-                "padding-inline-end": 0
+-              },
+-              "blocks": {}
+-            },
+-            "product_list_button_MWeP9V": {
+-              "type": "_product-list-button",
+-              "name": "t:names.product_list_button",
+-              "settings": {
+-                "label": "View all",
+-                "open_in_new_tab": false,
+-                "style_class": "link",
+-                "width": "fit-content",
+-                "custom_width": 100,
+-                "width_mobile": "fit-content",
+-                "custom_width_mobile": 100
+-              },
+-              "blocks": {}
+-            }
++          "blocks": {}
++        },
++        "sep_7": {
++          "type": "text",
++          "settings": {
++            "text": "<p>✦</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "normal",
++            "case": "none",
++            "wrap": "pretty",
++            "color": "var(--lms-cyan)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
+           },
+-          "block_order": [
+-            "product_list_text_YFtzcL",
+-            "product_list_button_MWeP9V"
+-          ]
++          "blocks": {}
+         },
+-        "static-product-card": {
+-          "type": "_product-card",
+-          "name": "t:names.product_card",
+-          "static": true,
++        "item_8": {
++          "type": "text",
+           "settings": {
+-            "product_card_gap": 4,
+-            "inherit_color_scheme": true,
+-            "color_scheme": "",
+-            "border": "none",
+-            "border_width": 1,
+-            "border_opacity": 100,
+-            "border_radius": 0,
++            "text": "<p>VHS · DVD · Blu-ray · 4K</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "0.18em",
++            "case": "uppercase",
++            "wrap": "pretty",
++            "color": "var(--color-foreground)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
+             "padding-block-start": 0,
+             "padding-block-end": 0,
+             "padding-inline-start": 0,
+             "padding-inline-end": 0
+           },
+-          "blocks": {
+-            "product_card_gallery_677WP3": {
+-              "type": "_product-card-gallery",
+-              "name": "t:names.product_card_media",
+-              "settings": {
+-                "image_ratio": "adapt",
+-                "border": "none",
+-                "border_width": 1,
+-                "border_opacity": 100,
+-                "border_radius": 0,
+-                "padding-block-start": 0,
+-                "padding-block-end": 0,
+-                "padding-inline-start": 0,
+-                "padding-inline-end": 0
+-              },
+-              "blocks": {}
+-            },
+-            "product_title_YXxMTj": {
+-              "type": "product-title",
+-              "name": "t:names.product_title",
+-              "settings": {
+-                "width": "100%",
+-                "max_width": "normal",
+-                "alignment": "left",
+-                "type_preset": "paragraph",
+-                "font": "var(--font-body--family)",
+-                "font_size": "1rem",
+-                "line_height": "normal",
+-                "letter_spacing": "normal",
+-                "case": "none",
+-                "wrap": "pretty",
+-                "color": "var(--color-foreground)",
+-                "background": false,
+-                "background_color": "#00000026",
+-                "corner_radius": 0,
+-                "padding-block-start": 4,
+-                "padding-block-end": 0,
+-                "padding-inline-start": 0,
+-                "padding-inline-end": 0
+-              },
+-              "blocks": {}
+-            },
+-            "price_JQzVV4": {
+-              "type": "price",
+-              "name": "t:names.product_price",
+-              "settings": {
+-                "show_sale_price_first": true,
+-                "show_installments": false,
+-                "show_tax_info": false,
+-                "type_preset": "h6",
+-                "width": "100%",
+-                "alignment": "left",
+-                "font": "var(--font-body--family)",
+-                "font_size": "1rem",
+-                "line_height": "normal",
+-                "letter_spacing": "normal",
+-                "case": "none",
+-                "color": "var(--color-foreground)",
+-                "padding-block-start": 0,
+-                "padding-block-end": 0,
+-                "padding-inline-start": 0,
+-                "padding-inline-end": 0
+-              },
+-              "blocks": {}
+-            }
++          "blocks": {}
++        },
++        "sep_8": {
++          "type": "text",
++          "settings": {
++            "text": "<p>✦</p>",
++            "width": "fit-content",
++            "max_width": "normal",
++            "alignment": "left",
++            "type_preset": "rte",
++            "font": "var(--font-body--family)",
++            "font_size": "0.75rem",
++            "line_height": "normal",
++            "letter_spacing": "normal",
++            "case": "none",
++            "wrap": "pretty",
++            "color": "var(--lms-cyan)",
++            "background": false,
++            "background_color": "#00000026",
++            "corner_radius": 0,
++            "padding-block-start": 0,
++            "padding-block-end": 0,
++            "padding-inline-start": 0,
++            "padding-inline-end": 0
+           },
+-          "block_order": [
+-            "product_card_gallery_677WP3",
+-            "product_title_YXxMTj",
+-            "price_JQzVV4"
+-          ]
++          "blocks": {}
+         }
+       },
+-      "name": "t:names.featured_collection",
++      "block_order": [
++        "item_1",
++        "sep_1",
++        "item_2",
++        "sep_2",
++        "item_3",
++        "sep_3",
++        "item_4",
++        "sep_4",
++        "item_5",
++        "sep_5",
++        "item_6",
++        "sep_6",
++        "item_7",
++        "sep_7",
++        "item_8",
++        "sep_8"
++      ],
++      "settings": {
++        "movement_direction": "normal",
++        "color_scheme": "scheme-2",
++        "padding-block-start": 12,
++        "padding-block-end": 12,
++        "gap_between_elements": 22
++      }
++    },
++    "lms_new_releases": {
++      "type": "lms-new-releases",
+       "settings": {
++        "eyebrow": "Just dropped",
++        "heading": "New arrivals this week",
+         "collection": "all",
+-        "layout_type": "grid",
+-        "carousel_on_mobile": false,
+-        "max_products": 8,
+-        "columns": 4,
+-        "mobile_columns": "2",
+-        "mobile_card_size": "60cqw",
+-        "columns_gap": 8,
+-        "rows_gap": 24,
+-        "icons_style": "arrow",
+-        "icons_shape": "none",
+-        "section_width": "page-width",
+-        "horizontal_alignment": "flex-start",
+-        "gap": 28,
++        "products_to_show": 5,
++        "button_label": "Browse all →",
++        "color_scheme": "scheme-1",
++        "padding-block-start": 24,
++        "padding-block-end": 72
++      }
++    },
++    "lms_promo_pair": {
++      "type": "lms-promo-pair",
++      "blocks": {
++        "promo_rental": {
++          "type": "lms-promo-card",
++          "settings": {
++            "eyebrow": "The rental library",
++            "heading": "Not ready to commit? Rent it.",
++            "body": "<p>A few bucks gets any film home for the week — players included if you need one. Take a chance on something weird, bring it back, tell us what you thought. Free for members, and most of the time, renters become buyers.</p>",
++            "stat_label": "Rentals from",
++            "stat_value": "$4",
++            "stat_suffix": "/ week · free for members",
++            "button_label": "Browse library →",
++            "button_link": "/collections/all",
++            "color_scheme": "scheme-3",
++            "background_glyph": ""
++          }
++        },
++        "promo_mystery": {
++          "type": "lms-promo-card",
++          "settings": {
++            "eyebrow": "Online · Ships nationwide",
++            "heading": "The mystery bag.",
++            "body": "<p>We pick, you watch. A bag of films hand-selected by the crew — themed, random, or genre-driven. The best way to discover something you'd never have found on your own.</p>",
++            "stat_label": "Starting at",
++            "stat_value": "$35",
++            "stat_suffix": "",
++            "button_label": "Get a bag →",
++            "button_link": "",
++            "color_scheme": "scheme-2",
++            "background_glyph": "?"
++          }
++        }
++      },
++      "block_order": [
++        "promo_rental",
++        "promo_mystery"
++      ],
++      "settings": {
++        "color_scheme": "scheme-1",
++        "padding-block-start": 0,
++        "padding-block-end": 72
++      }
++    },
++    "lms_events_membership": {
++      "type": "lms-events-membership",
++      "blocks": {
++        "perk_rental": {
++          "type": "perk",
++          "settings": {
++            "title": "Full rental library access",
++            "detail": "borrow anything, anytime"
++          }
++        },
++        "perk_discount": {
++          "type": "perk",
++          "settings": {
++            "title": "10% off every purchase",
++            "detail": "every single visit"
++          }
++        },
++        "perk_birthday": {
++          "type": "perk",
++          "settings": {
++            "title": "A free birthday movie",
++            "detail": "on us, every year"
++          }
++        },
++        "perk_events": {
++          "type": "perk",
++          "settings": {
++            "title": "Members-only events",
++            "detail": "first invites, always"
++          }
++        }
++      },
++      "block_order": [
++        "perk_rental",
++        "perk_discount",
++        "perk_birthday",
++        "perk_events"
++      ],
++      "settings": {
++        "events_eyebrow": "Coming up",
++        "events_heading": "Events & screenings",
++        "events_to_show": 3,
++        "events_link_label": "All events →",
++        "membership_eyebrow": "The Little Movie Club · $100/yr",
++        "membership_heading": "Become a regular, not a customer.",
++        "card_est_text": "Est. 2026",
++        "card_name_text": "— your name here —",
++        "price_text": "$100",
++        "price_suffix": "/ year",
++        "button_label": "Join the club →",
++        "button_link": "/pages/membership",
++        "color_scheme": "scheme-1",
++        "padding-block-start": 72,
++        "padding-block-end": 72
++      }
++    },
++    "lms_staff_picks": {
++      "type": "lms-staff-picks",
++      "settings": {
++        "eyebrow": "From the shelves",
++        "heading": "Staff picks",
++        "description": "<p>Movies we've been watching, arguing about, and pressing into people's hands. Every pick comes with a hand-written shelf note. Updated weekly.</p>",
++        "link_label": "Full list →",
++        "picks_to_show": 4,
+         "color_scheme": "scheme-1",
+-        "padding-block-start": 48,
+-        "padding-block-end": 48
++        "padding-block-start": 0,
++        "padding-block-end": 72
+       }
+     }
+   },
+   "order": [
+-    "hero_jVaWmY",
+-    "product_list_fa6P9H"
++    "lms_hero",
++    "lms_ticker",
++    "lms_new_releases",
++    "lms_events_membership",
++    "lms_promo_pair",
++    "lms_staff_picks"
+   ]
+ }
+diff --git a/theme/horizon-baseline-3.5.1/templates/list-collections.json b/theme/lms-redesign/templates/list-collections.json
+index 76e4de5..ce471fa 100644
+--- a/theme/horizon-baseline-3.5.1/templates/list-collections.json
++++ b/theme/lms-redesign/templates/list-collections.json
+@@ -6,8 +6,7 @@
+  * or related systems. Please exercise caution as any changes
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+- */
+- {
++ */{
+   "sections": {
+     "collection_list_Wfgh3m": {
+       "type": "main-collection-list",
+@@ -16,7 +15,6 @@
+           "type": "group",
+           "name": "t:names.header",
+           "settings": {
+-            "link": "",
+             "open_in_new_tab": false,
+             "content_direction": "column",
+             "vertical_on_mobile": true,
+@@ -55,7 +53,7 @@
+               "type": "text",
+               "name": "t:names.text",
+               "settings": {
+-                "text": "<h1>Shop by collection</h1>",
++                "text": "<h1>Collections</h1>",
+                 "width": "100%",
+                 "max_width": "normal",
+                 "alignment": "left",
+@@ -150,7 +148,7 @@
+       "block_order": [
+         "group_4FtiAg"
+       ],
+-      "name": "t:names.collection_list",
++      "name": "Collection list",
+       "settings": {
+         "layout_type": "grid",
+         "carousel_on_mobile": false,
+@@ -173,4 +171,4 @@
+   "order": [
+     "collection_list_Wfgh3m"
+   ]
+-}
++}
+\ No newline at end of file
+diff --git a/theme/horizon-baseline-3.5.1/templates/page.contact.json b/theme/lms-redesign/templates/page.contact.json
+index 7e85ef1..1a56ec4 100644
+--- a/theme/horizon-baseline-3.5.1/templates/page.contact.json
++++ b/theme/lms-redesign/templates/page.contact.json
+@@ -1,4 +1,12 @@
+-{
++/*
++ * ------------------------------------------------------------
++ * IMPORTANT: The contents of this file are auto-generated.
++ *
++ * This file may be updated by the Shopify admin theme editor
++ * or related systems. Please exercise caution as any changes
++ * made to this file may be overwritten.
++ * ------------------------------------------------------------
++ */{
+   "sections": {
+     "main": {
+       "type": "main-page",
+@@ -56,7 +64,10 @@
+           "blocks": {}
+         }
+       },
+-      "block_order": ["title", "content"],
++      "block_order": [
++        "title",
++        "content"
++      ],
+       "settings": {
+         "content_direction": "column",
+         "gap": 32,
+@@ -100,7 +111,9 @@
+           "block_order": []
+         }
+       },
+-      "block_order": ["contact_form_UwiCkQ"],
++      "block_order": [
++        "contact_form_UwiCkQ"
++      ],
+       "name": "t:names.contact_form",
+       "settings": {
+         "content_direction": "column",
+@@ -131,5 +144,8 @@
+       }
+     }
+   },
+-  "order": ["main", "form"]
+-}
++  "order": [
++    "main",
++    "form"
++  ]
++}
+\ No newline at end of file
+diff --git a/theme/horizon-baseline-3.5.1/templates/page.json b/theme/lms-redesign/templates/page.json
+index 328e2c2..e22c51d 100644
+--- a/theme/horizon-baseline-3.5.1/templates/page.json
++++ b/theme/lms-redesign/templates/page.json
+@@ -1,3 +1,12 @@
++/*
++ * ------------------------------------------------------------
++ * IMPORTANT: The contents of this file are auto-generated.
++ *
++ * This file may be updated by the Shopify admin theme editor
++ * or related systems. Please exercise caution as any changes
++ * made to this file may be overwritten.
++ * ------------------------------------------------------------
++ */
+ {
+   "sections": {
+     "main": {
+@@ -35,7 +44,10 @@
+           "blocks": {}
+         }
+       },
+-      "block_order": ["heading", "page-content"],
++      "block_order": [
++        "heading",
++        "page-content"
++      ],
+       "settings": {
+         "content_direction": "column",
+         "gap": 32,
+@@ -43,7 +55,72 @@
+         "padding-block-start": 40,
+         "padding-block-end": 80
+       }
++    },
++    "1780928794877ebf06": {
++      "type": "_blocks",
++      "blocks": {
++        "supercycle_membership_plans_MdRHJR": {
++          "type": "shopify://apps/supercycle/blocks/membership-plans/7b3228ed-a72a-4935-9fee-0cebe8daa0aa",
++          "settings": {
++            "collection": "plans",
++            "groups": "billing",
++            "value_labels": "",
++            "credit_name": "items",
++            "redirect_to_last_product_page": true,
++            "redirect_type": "custom",
++            "redirect_url": "",
++            "create_account": false,
++            "button_label": "Select plan",
++            "membership_in_cart_message": "A membership is already in cart",
++            "button_class": "button button--secondary",
++            "primary_button_class": "button button--primary",
++            "color_background": "#FFFFFF",
++            "color_plan_background": "#F5F5F5",
++            "color_plan_text": "#000000",
++            "color_plan_border": "#000000",
++            "plan_border_radius": 8,
++            "space": 20,
++            "padding_top": 40,
++            "padding_bottom": 52,
++            "template": "<p class=\"h2 plan-card-title\">[plan_title]</p>\n<p class=\"h1 plan-card-price\">[plan_price]</p>\n<p class=\"plan-card-interval\">Billed [plan_billing_interval]</p>\n<p class=\"plan-card-credits h3\">\n  [plan_credit_allowance] {{block.settings.credit_name}}\n</p>\n<div class=\"plan-card-features rte\">[plan_description]</div>\n<div class=\"plan-card-button\">\n  [plan_button]\n</div>",
++            "custom_css": ""
++          }
++        }
++      },
++      "block_order": [
++        "supercycle_membership_plans_MdRHJR"
++      ],
++      "settings": {
++        "content_direction": "column",
++        "vertical_on_mobile": true,
++        "horizontal_alignment": "flex-start",
++        "vertical_alignment": "center",
++        "align_baseline": false,
++        "horizontal_alignment_flex_direction_column": "flex-start",
++        "vertical_alignment_flex_direction_column": "center",
++        "gap": 12,
++        "section_width": "page-width",
++        "section_height": "",
++        "section_height_custom": 50,
++        "color_scheme": "",
++        "background_media": "none",
++        "video_position": "cover",
++        "background_image_position": "cover",
++        "border": "none",
++        "border_width": 1,
++        "border_opacity": 100,
++        "border_radius": 0,
++        "toggle_overlay": false,
++        "overlay_color": "#00000026",
++        "overlay_style": "solid",
++        "gradient_direction": "to top",
++        "padding-block-start": 0,
++        "padding-block-end": 0
++      }
+     }
+   },
+-  "order": ["main"]
++  "order": [
++    "main",
++    "1780928794877ebf06"
++  ]
+ }
+diff --git a/theme/horizon-baseline-3.5.1/templates/password.json b/theme/lms-redesign/templates/password.json
+index 7c649b1..cf01113 100644
+--- a/theme/horizon-baseline-3.5.1/templates/password.json
++++ b/theme/lms-redesign/templates/password.json
+@@ -2,128 +2,8 @@
+   "layout": "password",
+   "sections": {
+     "main": {
+-      "type": "password",
+-      "blocks": {
+-        "logo": {
+-          "type": "logo",
+-          "name": "Logo",
+-          "settings": {
+-            "inverse": false,
+-            "font": "heading",
+-            "unit": "pixel",
+-            "percent_width": 100,
+-            "pixel_height": 24,
+-            "custom_mobile_size": false,
+-            "unit_mobile": "percent",
+-            "percent_width_mobile": 80,
+-            "pixel_height_mobile": 120,
+-            "padding-block-start": 0,
+-            "padding-block-end": 32,
+-            "padding-inline-start": 0,
+-            "padding-inline-end": 0
+-          },
+-          "blocks": {}
+-        },
+-        "text": {
+-          "type": "text",
+-          "name": "Text",
+-          "settings": {
+-            "text": "<h1>Opening soon</h1>",
+-            "width": "fit-content",
+-            "max_width": "normal",
+-            "alignment": "left",
+-            "type_preset": "h3",
+-            "font": "var(--font-primary--family)",
+-            "font_size": "",
+-            "line_height": "normal",
+-            "letter_spacing": "normal",
+-            "case": "none",
+-            "wrap": "pretty",
+-            "color": "",
+-            "background": false,
+-            "background_color": "#00000026",
+-            "corner_radius": 0,
+-            "padding-block-start": 0,
+-            "padding-block-end": 0,
+-            "padding-inline-start": 0,
+-            "padding-inline-end": 0
+-          },
+-          "blocks": {}
+-        },
+-        "text-2": {
+-          "type": "text",
+-          "name": "Text",
+-          "settings": {
+-            "text": "<p>Sign up for our newsletter to be the first to know when we launch.</p>",
+-            "width": "fit-content",
+-            "max_width": "normal",
+-            "alignment": "left",
+-            "type_preset": "rte",
+-            "font": "var(--font-primary--family)",
+-            "font_size": "",
+-            "line_height": "normal",
+-            "letter_spacing": "normal",
+-            "case": "none",
+-            "wrap": "pretty",
+-            "color": "",
+-            "background": false,
+-            "background_color": "#00000026",
+-            "corner_radius": 0,
+-            "padding-block-start": 0,
+-            "padding-block-end": 32,
+-            "padding-inline-start": 0,
+-            "padding-inline-end": 0
+-          },
+-          "blocks": {}
+-        },
+-        "email-signup": {
+-          "type": "email-signup",
+-          "name": "Email Signup",
+-          "settings": {
+-            "width": "custom",
+-            "custom_width": 50,
+-            "inherit_color_scheme": true,
+-            "color_scheme": "",
+-            "border_style": "all",
+-            "border_width": 1,
+-            "border_radius": 14,
+-            "input_type_preset": "paragraph",
+-            "style_class": "button",
+-            "display_type": "text",
+-            "label": "Sign up",
+-            "integrated_button": false,
+-            "button_type_preset": "paragraph",
+-            "padding-block-start": 0,
+-            "padding-block-end": 0,
+-            "padding-inline-start": 0,
+-            "padding-inline-end": 0
+-          },
+-          "blocks": {}
+-        }
+-      },
+-      "block_order": ["logo", "text", "text-2", "email-signup"],
+-      "name": "Password",
+-      "settings": {
+-        "content_direction": "column",
+-        "vertical_on_mobile": true,
+-        "horizontal_alignment": "center",
+-        "vertical_alignment": "center",
+-        "align_baseline": false,
+-        "horizontal_alignment_flex_direction_column": "center",
+-        "vertical_alignment_flex_direction_column": "center",
+-        "gap": 12,
+-        "section_width": "page-width",
+-        "color_scheme": "",
+-        "background_media": "none",
+-        "video_position": "cover",
+-        "background_image_position": "cover",
+-        "border": "none",
+-        "border_width": 1,
+-        "border_opacity": 100,
+-        "border_radius": 0,
+-        "padding-block-start": 100,
+-        "padding-block-end": 100
+-      }
++      "type": "coming-soon",
++      "settings": {}
+     }
+   },
+   "order": ["main"]
+diff --git a/theme/horizon-baseline-3.5.1/templates/product.json b/theme/lms-redesign/templates/product.json
+index acdc017..8e50dd9 100644
+--- a/theme/horizon-baseline-3.5.1/templates/product.json
++++ b/theme/lms-redesign/templates/product.json
+@@ -7,7 +7,7 @@
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+  */
+- {
++{
+   "sections": {
+     "main": {
+       "type": "product-information",
+@@ -20,11 +20,12 @@
+             "media_columns": "two",
+             "image_gap": 4,
+             "large_first_image": false,
+-            "icons_style": "arrow",
++            "icons_style": "none",
+             "slideshow_controls_style": "counter",
+             "slideshow_mobile_controls_style": "dots",
+             "thumbnail_position": "right",
+             "thumbnail_width": 44,
++            "thumbnail_radius": 0,
+             "aspect_ratio": "adapt",
+             "constrain_to_viewport": true,
+             "media_fit": "contain",
+@@ -71,8 +72,6 @@
+               "type": "group",
+               "name": "Header",
+               "settings": {
+-                "link": "",
+-                "open_in_new_tab": false,
+                 "content_direction": "column",
+                 "vertical_on_mobile": true,
+                 "horizontal_alignment": "flex-start",
+@@ -96,33 +95,35 @@
+                 "border_width": 1,
+                 "border_opacity": 100,
+                 "border_radius": 0,
+-                "placeholder": "",
+                 "toggle_overlay": false,
+                 "overlay_color": "#00000026",
+                 "overlay_style": "solid",
+                 "gradient_direction": "to top",
++                "link": "",
++                "open_in_new_tab": false,
++                "placeholder": "",
+                 "padding-block-start": 0,
+                 "padding-block-end": 0,
+                 "padding-inline-start": 0,
+                 "padding-inline-end": 0
+               },
+               "blocks": {
+-                "text_xpVMaM": {
++                "text_xrnftG": {
+                   "type": "text",
+-                  "name": "t:names.title",
++                  "name": "Product title",
+                   "settings": {
+                     "text": "<h1>{{ closest.product.title }}</h1>",
+-                    "width": "fit-content",
++                    "width": "100%",
+                     "max_width": "normal",
+                     "alignment": "left",
+                     "type_preset": "h3",
+-                    "font": "var(--font-body--family)",
+-                    "font_size": "1rem",
++                    "font": "var(--font-primary--family)",
++                    "font_size": "",
+                     "line_height": "normal",
+                     "letter_spacing": "normal",
+                     "case": "none",
+                     "wrap": "pretty",
+-                    "color": "var(--color-foreground)",
++                    "color": "",
+                     "background": false,
+                     "background_color": "#00000026",
+                     "corner_radius": 0,
+@@ -137,8 +138,8 @@
+                   "type": "price",
+                   "settings": {
+                     "show_sale_price_first": true,
+-                    "show_installments": true,
+-                    "show_tax_info": true,
++                    "show_installments": false,
++                    "show_tax_info": false,
+                     "type_preset": "paragraph",
+                     "width": "100%",
+                     "alignment": "left",
+@@ -157,7 +158,7 @@
+                 }
+               },
+               "block_order": [
+-                "text_xpVMaM",
++                "text_xrnftG",
+                 "price_tVjtKg"
+               ]
+             },
+@@ -263,6 +264,7 @@
+         "equal_columns": false,
+         "limit_details_width": false,
+         "gap": 48,
++        "enable_sticky_add_to_cart": true,
+         "color_scheme": "",
+         "padding-block-start": 0,
+         "padding-block-end": 0
+@@ -275,7 +277,7 @@
+           "type": "text",
+           "name": "t:names.header",
+           "settings": {
+-            "text": "<h2>You may also like </h2>",
++            "text": "<h3>You may also like </h3>",
+             "width": "fit-content",
+             "max_width": "normal",
+             "alignment": "left",
+@@ -338,7 +340,7 @@
+                 "width": "100%",
+                 "max_width": "normal",
+                 "alignment": "left",
+-                "type_preset": "paragraph",
++                "type_preset": "rte",
+                 "font": "var(--font-body--family)",
+                 "font_size": "1rem",
+                 "line_height": "normal",
+diff --git a/theme/horizon-baseline-3.5.1/templates/search.json b/theme/lms-redesign/templates/search.json
+index 19411e9..37796c0 100644
+--- a/theme/horizon-baseline-3.5.1/templates/search.json
++++ b/theme/lms-redesign/templates/search.json
+@@ -6,8 +6,7 @@
+  * or related systems. Please exercise caution as any changes
+  * made to this file may be overwritten.
+  * ------------------------------------------------------------
+- */
+- {
++ */{
+   "sections": {
+     "search": {
+       "type": "search-header",
+@@ -120,7 +119,7 @@
+                 "width": "fit-content",
+                 "max_width": "normal",
+                 "alignment": "left",
+-                "type_preset": "paragraph",
++                "type_preset": "rte",
+                 "font": "var(--font-body--family)",
+                 "font_size": "1rem",
+                 "line_height": "normal",
+@@ -189,4 +188,4 @@
+     "search",
+     "main"
+   ]
+-}
++}
+\ No newline at end of file
