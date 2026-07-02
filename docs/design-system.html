@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LMS Design System — Colours &amp; Type</title>
+<style>
+/* ---- Brand fonts (self-hosted, mirrored from theme assets) ---- */
+@font-face { font-family:"Epilogue"; font-style:normal; font-weight:100 900; font-display:swap;
+  src:url("assets/fonts/epilogue-variable.woff2") format("woff2"); }
+@font-face { font-family:"DM Mono"; font-style:normal; font-weight:300; font-display:swap;
+  src:url("assets/fonts/dm-mono-300.woff2") format("woff2"); }
+@font-face { font-family:"DM Mono"; font-style:normal; font-weight:400; font-display:swap;
+  src:url("assets/fonts/dm-mono-400.woff2") format("woff2"); }
+@font-face { font-family:"DM Mono"; font-style:normal; font-weight:500; font-display:swap;
+  src:url("assets/fonts/dm-mono-500.woff2") format("woff2"); }
+
+/* ---- Tokens (mirrors theme/lms-redesign/assets/lms-tokens.css) ---- */
+:root {
+  --lms-brick:#973123; --lms-mahogany:#3a2018; --lms-sage:#5f8d7a; --lms-hunter:#343a31;
+  --lms-parchment:#fff9ef; --lms-cyan:#8fcdcf;
+  --lms-brick-dark:#6f2417; --lms-brick-tint:#f3e2dc; --lms-sage-dark:#4a7264;
+  --lms-sage-tint:#e4eee9; --lms-cyan-tint:#e6f3f3; --lms-parchment-2:#fdf3e2; --lms-parchment-edge:#f3e7d0;
+  --lms-ink-900:#2a1610; --lms-ink-800:#3a2018; --lms-ink-700:#4d2f25; --lms-ink-500:#6b5147;
+  --lms-ink-400:#8a7568; --lms-ink-300:#b3a294; --lms-ink-200:#d8cbb9; --lms-ink-100:#ece1cf;
+  --lms-font-display:"Epilogue",system-ui,sans-serif;
+  --lms-font-mono:"DM Mono",ui-monospace,"SFMono-Regular",monospace;
+  --lms-tracking-eyebrow:0.22em;
+  --lms-shadow-xs:0 1px 2px rgba(58,32,24,.08); --lms-shadow-sm:0 2px 6px rgba(58,32,24,.10);
+  --lms-shadow-md:0 6px 18px rgba(58,32,24,.12); --lms-shadow-lg:0 16px 40px rgba(58,32,24,.16);
+}
+
+* { box-sizing:border-box; margin:0; }
+body {
+  background:var(--lms-parchment);
+  color:var(--lms-ink-700);
+  font-family:var(--lms-font-mono);
+  font-weight:300;
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+main { max-width:1200px; margin-inline:auto; padding:48px 32px 128px; }
+h1,h2,h3 { font-family:var(--lms-font-display); color:var(--lms-mahogany); line-height:1.18; }
+h1 { font-size:2.5rem; font-weight:600; }
+h2 { font-size:1.5625rem; font-weight:500; margin:0 0 6px; }
+h3 { font-size:1.0625rem; font-weight:600; margin-bottom:12px; }
+section { margin-top:96px; }
+.section-note { color:var(--lms-ink-500); font-size:13px; max-width:720px; margin-bottom:28px; }
+.section-note code, td code, .src { font-family:var(--lms-font-mono); font-size:12px; background:var(--lms-parchment-2); border:1px solid var(--lms-parchment-edge); padding:1px 5px; border-radius:4px; }
+.eyebrow {
+  font-family:var(--lms-font-mono); font-weight:500; font-size:12px;
+  letter-spacing:var(--lms-tracking-eyebrow); text-transform:uppercase; color:var(--lms-brick);
+  display:block; margin-bottom:8px;
+}
+
+/* ---- swatches ---- */
+.swatch-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:16px; }
+.swatch { border:1px solid var(--lms-parchment-edge); border-radius:8px; overflow:hidden; background:#fff; box-shadow:var(--lms-shadow-xs); }
+.swatch__chip { height:88px; }
+.swatch__meta { padding:10px 12px; font-size:11.5px; line-height:1.5; }
+.swatch__meta strong { display:block; font-weight:500; color:var(--lms-mahogany); font-size:12.5px; }
+.swatch__meta span { color:var(--lms-ink-500); }
+.ink-ramp { display:flex; border-radius:8px; overflow:hidden; border:1px solid var(--lms-parchment-edge); margin-top:16px; }
+.ink-ramp div { flex:1; height:72px; display:flex; align-items:flex-end; justify-content:center; padding-bottom:8px; font-size:10.5px; }
+
+/* ---- semantic table ---- */
+table { width:100%; border-collapse:collapse; font-size:13px; }
+th,td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--lms-parchment-edge); vertical-align:middle; }
+th { font-weight:500; color:var(--lms-mahogany); font-size:12px; letter-spacing:.06em; text-transform:uppercase; }
+.dot { display:inline-block; width:16px; height:16px; border-radius:4px; border:1px solid rgba(58,32,24,.18); vertical-align:-3px; margin-right:8px; }
+
+/* ---- scheme cards ---- */
+.scheme { border-radius:12px; overflow:hidden; border:1px solid var(--lms-parchment-edge); box-shadow:var(--lms-shadow-sm); margin-top:28px; }
+.scheme__head { padding:12px 20px; background:#fff; border-bottom:1px solid var(--lms-parchment-edge); display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:4px; }
+.scheme__head strong { font-family:var(--lms-font-display); font-weight:600; color:var(--lms-mahogany); font-size:15px; }
+.scheme__head span { font-size:11.5px; color:var(--lms-ink-500); }
+.scheme__body { padding:36px 40px 40px; }
+.scheme__body .demo-eyebrow { font-weight:500; font-size:12px; letter-spacing:.22em; text-transform:uppercase; display:block; margin-bottom:10px; }
+.scheme__body .demo-h { font-family:var(--lms-font-display); font-weight:600; font-size:28px; line-height:1.18; margin-bottom:10px; }
+.scheme__body .demo-p { max-width:560px; font-size:14px; margin-bottom:24px; }
+.scheme__body .demo-link { font-weight:400; }
+.demo-row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:20px; }
+.demo-btn { font-family:var(--lms-font-mono); font-weight:500; font-size:14px; letter-spacing:.03em; padding:11px 22px; border-radius:0; cursor:pointer; transition:all 140ms cubic-bezier(.22,.61,.36,1); }
+.demo-input { font-family:var(--lms-font-mono); font-weight:300; font-size:13px; padding:10px 14px; border-radius:4px; width:220px; transition:background 140ms; }
+.demo-variant { font-family:var(--lms-font-mono); font-size:12.5px; padding:8px 16px; border-radius:14px; cursor:pointer; transition:all 140ms; }
+.demo-chips { display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; }
+.chip { font-size:10.5px; padding:4px 10px 3px; border-radius:4px; border:1px solid rgba(127,127,127,.35); }
+
+/* ---- typography ---- */
+.type-row { display:grid; grid-template-columns:230px 1fr; gap:24px; align-items:baseline; padding:18px 0; border-bottom:1px solid var(--lms-parchment-edge); }
+.type-row .meta { font-size:11.5px; color:var(--lms-ink-500); line-height:1.6; }
+.type-row .meta strong { color:var(--lms-mahogany); font-weight:500; display:block; font-size:12.5px; }
+.weights { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:12px 32px; margin-top:12px; }
+.weights div { padding:10px 0; border-bottom:1px solid var(--lms-parchment-edge); }
+.weights small { display:block; color:var(--lms-ink-500); font-size:11px; font-family:var(--lms-font-mono); font-weight:300; margin-top:2px; }
+
+/* ---- misc rows ---- */
+.badge { display:inline-flex; align-items:center; font-family:var(--lms-font-mono); font-weight:500; font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding:3px 9px; border-radius:999px; border:1.5px solid currentColor; line-height:1.4; }
+.shadow-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:24px; }
+.shadow-grid div { background:#fff; border-radius:8px; height:90px; display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--lms-ink-500); }
+.radius-grid { display:flex; gap:20px; flex-wrap:wrap; }
+.radius-grid div { width:110px; height:72px; background:#fff; border:1.5px solid var(--lms-ink-800); display:flex; align-items:center; justify-content:center; font-size:11px; }
+.space-scale div { display:flex; align-items:center; gap:16px; margin-bottom:8px; font-size:11.5px; color:var(--lms-ink-500); }
+.space-scale i { display:block; height:14px; background:var(--lms-sage); }
+hr.rule { border:0; border-top:2px solid var(--lms-mahogany); margin:20px 0 0; }
+.warn { background:var(--lms-brick-tint); border:1px solid var(--lms-brick); border-radius:8px; padding:14px 18px; font-size:13px; margin-top:20px; max-width:760px; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <span class="eyebrow">Little Movie Store · Design reference</span>
+  <h1>Colour schemes &amp; text styles</h1>
+  <p class="section-note" style="margin-top:12px">
+    Everything on this page is pulled from the working theme:
+    <code>theme/lms-redesign/assets/lms-tokens.css</code> (design tokens, fonts, components) and
+    <code>theme/lms-redesign/config/settings_data.json</code> (the 7 Horizon colour schemes + heading sizes).
+    The scheme cards below use the exact hex values a shopper sees on the storefront.
+  </p>
+  <hr class="rule">
+</header>
+
+<!-- ============================== RAW PALETTE ============================== -->
+<section>
+  <span class="eyebrow">01 · Colour</span>
+  <h2>Raw brand palette</h2>
+  <p class="section-note">Six core brand colours, defined once in <code>lms-tokens.css</code> and referenced everywhere else as <code>var(--lms-*)</code>.</p>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch__chip" style="background:#973123"></div><div class="swatch__meta"><strong>Brick</strong><span>#973123 · --lms-brick<br>Primary — wordmark, CTAs</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#3a2018"></div><div class="swatch__meta"><strong>Mahogany</strong><span>#3a2018 · --lms-mahogany<br>Primary — dark bg / ink</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#5f8d7a"></div><div class="swatch__meta"><strong>Sage</strong><span>#5f8d7a · --lms-sage<br>Accent, focus ring, success</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#343a31"></div><div class="swatch__meta"><strong>Hunter</strong><span>#343a31 · --lms-hunter<br>Grounded deep green</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#fff9ef; border-bottom:1px solid var(--lms-parchment-edge)"></div><div class="swatch__meta"><strong>Parchment</strong><span>#fff9ef · --lms-parchment<br>Warm paper background</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#8fcdcf"></div><div class="swatch__meta"><strong>Cyan</strong><span>#8fcdcf · --lms-cyan<br>Secondary accent, info, ::selection</span></div></div>
+  </div>
+
+  <h3 style="margin-top:40px">Tints &amp; shades</h3>
+  <div class="swatch-grid">
+    <div class="swatch"><div class="swatch__chip" style="background:#6f2417"></div><div class="swatch__meta"><strong>Brick dark</strong><span>#6f2417 · pressed / hover state</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#f3e2dc"></div><div class="swatch__meta"><strong>Brick tint</strong><span>#f3e2dc · brick wash on parchment</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#4a7264"></div><div class="swatch__meta"><strong>Sage dark</strong><span>#4a7264</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#e4eee9"></div><div class="swatch__meta"><strong>Sage tint</strong><span>#e4eee9 · scheme-3 background</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#e6f3f3"></div><div class="swatch__meta"><strong>Cyan tint</strong><span>#e6f3f3 · scheme-4 background</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#fdf3e2"></div><div class="swatch__meta"><strong>Parchment 2</strong><span>#fdf3e2 · sunken paper</span></div></div>
+    <div class="swatch"><div class="swatch__chip" style="background:#f3e7d0"></div><div class="swatch__meta"><strong>Parchment edge</strong><span>#f3e7d0 · hairlines / borders</span></div></div>
+  </div>
+
+  <h3 style="margin-top:40px">Ink ramp — mahogany-based neutrals for text &amp; lines</h3>
+  <div class="ink-ramp">
+    <div style="background:#2a1610;color:#fff9ef">900</div>
+    <div style="background:#3a2018;color:#fff9ef">800</div>
+    <div style="background:#4d2f25;color:#fff9ef">700</div>
+    <div style="background:#6b5147;color:#fff9ef">500</div>
+    <div style="background:#8a7568;color:#fff9ef">400</div>
+    <div style="background:#b3a294;color:#3a2018">300</div>
+    <div style="background:#d8cbb9;color:#3a2018">200</div>
+    <div style="background:#ece1cf;color:#3a2018">100</div>
+  </div>
+</section>
+
+<!-- ============================== SEMANTIC ALIASES ============================== -->
+<section>
+  <span class="eyebrow">02 · Colour</span>
+  <h2>Semantic aliases</h2>
+  <p class="section-note">Sections should use these role-based names, not the raw palette. All are namespaced <code>--lms-*</code> so they never clobber Horizon's own variables.</p>
+  <table>
+    <tr><th>Token</th><th>Resolves to</th><th>Role</th></tr>
+    <tr><td><code>--lms-bg</code></td><td><i class="dot" style="background:#fff9ef"></i>parchment #fff9ef</td><td>Page background</td></tr>
+    <tr><td><code>--lms-bg-sunken</code></td><td><i class="dot" style="background:#fdf3e2"></i>parchment-2 #fdf3e2</td><td>Sunken / alternate band</td></tr>
+    <tr><td><code>--lms-surface-card</code></td><td><i class="dot" style="background:#ffffff"></i>#ffffff</td><td>Card surface</td></tr>
+    <tr><td><code>--lms-surface-inverse</code></td><td><i class="dot" style="background:#3a2018"></i>mahogany #3a2018</td><td>Dark surface</td></tr>
+    <tr><td><code>--lms-text-strong</code></td><td><i class="dot" style="background:#3a2018"></i>mahogany #3a2018</td><td>Headings</td></tr>
+    <tr><td><code>--lms-text-body</code></td><td><i class="dot" style="background:#4d2f25"></i>ink-700 #4d2f25</td><td>Body copy</td></tr>
+    <tr><td><code>--lms-text-muted</code></td><td><i class="dot" style="background:#6b5147"></i>ink-500 #6b5147</td><td>Secondary copy</td></tr>
+    <tr><td><code>--lms-text-on-dark</code></td><td><i class="dot" style="background:#fff9ef"></i>parchment #fff9ef</td><td>Text on mahogany / brick</td></tr>
+    <tr><td><code>--lms-color-primary</code></td><td><i class="dot" style="background:#973123"></i>brick #973123</td><td>Primary action / emphasis</td></tr>
+    <tr><td><code>--lms-color-primary-press</code></td><td><i class="dot" style="background:#6f2417"></i>brick-dark #6f2417</td><td>Pressed / hover</td></tr>
+    <tr><td><code>--lms-color-accent</code></td><td><i class="dot" style="background:#5f8d7a"></i>sage #5f8d7a</td><td>Accent</td></tr>
+    <tr><td><code>--lms-color-accent-cyan</code></td><td><i class="dot" style="background:#8fcdcf"></i>cyan #8fcdcf</td><td>Secondary accent</td></tr>
+    <tr><td><code>--lms-border-default</code></td><td><i class="dot" style="background:#f3e7d0"></i>parchment-edge #f3e7d0</td><td>Default border</td></tr>
+    <tr><td><code>--lms-border-strong</code></td><td><i class="dot" style="background:#3a2018"></i>ink-800 #3a2018</td><td>Strong border (outline buttons)</td></tr>
+    <tr><td><code>--lms-border-hairline</code></td><td><i class="dot" style="background:rgba(58,32,24,.14)"></i>rgba(58,32,24,.14)</td><td>Hairline dividers</td></tr>
+    <tr><td><code>--lms-focus-ring</code></td><td><i class="dot" style="background:#5f8d7a"></i>sage #5f8d7a</td><td>Focus outline</td></tr>
+    <tr><td><code>--lms-color-success / info / danger</code></td><td><i class="dot" style="background:#5f8d7a"></i><i class="dot" style="background:#8fcdcf"></i><i class="dot" style="background:#973123"></i>sage / cyan / brick</td><td>Status colours</td></tr>
+  </table>
+</section>
+
+<!-- ============================== SCHEMES ============================== -->
+<section>
+  <span class="eyebrow">03 · Colour</span>
+  <h2>The 7 Horizon colour schemes</h2>
+  <p class="section-note">
+    Defined in <code>config/settings_data.json</code> and selectable per-section in the theme editor.
+    Each card is rendered with that scheme's exact values: heading, body text, link/primary colour, both button styles,
+    an input, and variant pickers (idle + selected). Hover the buttons/inputs to see the configured hover states.
+    <strong>Note:</strong> the client can edit these in the theme editor, so always <code>shopify theme pull</code> before trusting local values.
+  </p>
+
+  <!-- scheme-1 -->
+  <div class="scheme">
+    <div class="scheme__head"><strong>scheme-1 — Parchment (default light)</strong><span>bg #fff9ef · heading #3a2018 · text #4d2f25 · primary #973123</span></div>
+    <div class="scheme__body" style="background:#fff9ef; color:#4d2f25">
+      <span class="demo-eyebrow" style="color:#973123">Now showing</span>
+      <div class="demo-h" style="color:#3a2018">Heading on parchment</div>
+      <p class="demo-p">Body copy uses the foreground colour. Links and emphasis use the <a href="#" class="demo-link" style="color:#973123" onclick="return false">primary brick</a>, hover shifts to pressed brick #6f2417. Border colour: <code style="background:#fdf3e2;border-color:#3a201824">#3a2018 at 14%</code>.</p>
+      <div class="demo-row">
+        <button class="demo-btn" style="background:#973123;color:#fff9ef;border:1.5px solid #973123"
+          onmouseover="this.style.background='#6f2417';this.style.borderColor='#6f2417'"
+          onmouseout="this.style.background='#973123';this.style.borderColor='#973123'">Primary button</button>
+        <button class="demo-btn" style="background:transparent;color:#3a2018;border:1.5px solid #3a2018"
+          onmouseover="this.style.background='#fdf3e2'" onmouseout="this.style.background='transparent'">Secondary button</button>
+        <input class="demo-input" placeholder="Email address" style="background:#ffffff;color:#4d2f25;border:1px solid #d8cbb9"
+          onmouseover="this.style.background='#fdf3e2'" onmouseout="this.style.background='#ffffff'">
+      </div>
+      <div class="demo-row" style="margin-bottom:0">
+        <button class="demo-variant" style="background:#ffffff;color:#3a2018;border:1px solid #d8cbb9">DVD</button>
+        <button class="demo-variant" style="background:#3a2018;color:#fff9ef;border:1px solid #3a2018">Blu-ray ✓</button>
+        <button class="demo-variant" style="background:#ffffff;color:#3a2018;border:1px solid #d8cbb9">4K UHD</button>
+      </div>
+      <div class="demo-chips">
+        <span class="chip" style="border-color:#3a201824;color:#6b5147">border #3a201824</span>
+        <span class="chip" style="background:#fdf3e2;color:#6b5147">hover fill #fdf3e2</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- scheme-2 -->
+  <div class="scheme">
+    <div class="scheme__head"><strong>scheme-2 — Mahogany (dark)</strong><span>bg #3a2018 · heading #fff9ef · text #ece1cf · primary (links) #8fcdcf</span></div>
+    <div class="scheme__body" style="background:#3a2018; color:#ece1cf">
+      <span class="demo-eyebrow" style="color:#8fcdcf">Members only</span>
+      <div class="demo-h" style="color:#fff9ef">Heading on mahogany</div>
+      <p class="demo-p">On dark schemes the "primary" role flips to <a href="#" class="demo-link" style="color:#8fcdcf" onclick="return false">cyan</a> for links and accents — but the primary button stays brick, so the CTA reads the same across every scheme.</p>
+      <div class="demo-row">
+        <button class="demo-btn" style="background:#973123;color:#fff9ef;border:1.5px solid #973123"
+          onmouseover="this.style.background='#6f2417';this.style.borderColor='#6f2417'"
+          onmouseout="this.style.background='#973123';this.style.borderColor='#973123'">Primary button</button>
+        <button class="demo-btn" style="background:transparent;color:#fff9ef;border:1.5px solid #fff9ef"
+          onmouseover="this.style.background='#4d2f25'" onmouseout="this.style.background='transparent'">Secondary button</button>
+        <input class="demo-input" placeholder="Email address" style="background:#4d2f25;color:#fff9ef;border:1px solid #6b5147"
+          onmouseover="this.style.background='#2a1610'" onmouseout="this.style.background='#4d2f25'">
+      </div>
+      <div class="demo-row" style="margin-bottom:0">
+        <button class="demo-variant" style="background:#4d2f25;color:#fff9ef;border:1px solid #6b5147">DVD</button>
+        <button class="demo-variant" style="background:#fff9ef;color:#3a2018;border:1px solid #fff9ef">Blu-ray ✓</button>
+        <button class="demo-variant" style="background:#4d2f25;color:#fff9ef;border:1px solid #6b5147">4K UHD</button>
+      </div>
+      <div class="demo-chips">
+        <span class="chip" style="border-color:#fff9ef24;color:#ece1cf">border #fff9ef24</span>
+        <span class="chip" style="background:#2a1610;color:#ece1cf">hover fill #2a1610</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- scheme-3 -->
+  <div class="scheme">
+    <div class="scheme__head"><strong>scheme-3 — Sage tint</strong><span>bg #e4eee9 · heading #3a2018 · text #343a31 (hunter) · primary #973123</span></div>
+    <div class="scheme__body" style="background:#e4eee9; color:#343a31">
+      <span class="demo-eyebrow" style="color:#973123">Staff picks</span>
+      <div class="demo-h" style="color:#3a2018">Heading on sage tint</div>
+      <p class="demo-p">The only scheme whose body text is <a href="#" class="demo-link" style="color:#973123" onclick="return false">hunter green</a> rather than an ink brown — it keeps copy harmonised with the green wash. Borders are sage at 25%.</p>
+      <div class="demo-row">
+        <button class="demo-btn" style="background:#973123;color:#fff9ef;border:1.5px solid #973123"
+          onmouseover="this.style.background='#6f2417';this.style.borderColor='#6f2417'"
+          onmouseout="this.style.background='#973123';this.style.borderColor='#973123'">Primary button</button>
+        <button class="demo-btn" style="background:transparent;color:#3a2018;border:1.5px solid #3a2018"
+          onmouseover="this.style.background='#d6e6df'" onmouseout="this.style.background='transparent'">Secondary button</button>
+        <input class="demo-input" placeholder="Email address" style="background:#ffffff;color:#343a31;border:1px solid #bcd3c9"
+          onmouseover="this.style.background='#d6e6df'" onmouseout="this.style.background='#ffffff'">
+      </div>
+      <div class="demo-row" style="margin-bottom:0">
+        <button class="demo-variant" style="background:#ffffff;color:#3a2018;border:1px solid #bcd3c9">DVD</button>
+        <button class="demo-variant" style="background:#3a2018;color:#fff9ef;border:1px solid #3a2018">Blu-ray ✓</button>
+        <button class="demo-variant" style="background:#ffffff;color:#3a2018;border:1px solid #bcd3c9">4K UHD</button>
+      </div>
+      <div class="demo-chips">
+        <span class="chip" style="border-color:#5f8d7a40;color:#4a7264">border #5f8d7a40</span>
+        <span class="chip" style="background:#d6e6df;color:#343a31">hover fill #d6e6df</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- scheme-4 -->
+  <div class="scheme">
+    <div class="scheme__head"><strong>scheme-4 — Cyan tint</strong><span>bg #e6f3f3 · heading #3a2018 · text #4d2f25 · primary #973123</span></div>
+    <div class="scheme__body" style="background:#e6f3f3; color:#4d2f25">
+      <span class="demo-eyebrow" style="color:#973123">New arrivals</span>
+      <div class="demo-h" style="color:#3a2018">Heading on cyan tint</div>
+      <p class="demo-p">Same ink text as parchment, on the cool cyan wash. Borders are <a href="#" class="demo-link" style="color:#973123" onclick="return false">cyan at 33%</a>; hover fills deepen the wash to #d4ecec.</p>
+      <div class="demo-row">
+        <button class="demo-btn" style="background:#973123;color:#fff9ef;border:1.5px solid #973123"
+          onmouseover="this.style.background='#6f2417';this.style.borderColor='#6f2417'"
+          onmouseout="this.style.background='#973123';this.style.borderColor='#973123'">Primary button</button>
+        <button class="demo-btn" style="background:transparent;color:#3a2018;border:1.5px solid #3a2018"
+          onmouseover="this.style.background='#d4ecec'" onmouseout="this.style.background='transparent'">Secondary button</button>
+        <input class="demo-input" placeholder="Email address" style="background:#ffffff;color:#4d2f25;border:1px solid #b9dede"
+          onmouseover="this.style.background='#d4ecec'" onmouseout="this.style.background='#ffffff'">
+      </div>
+      <div class="demo-row" style="margin-bottom:0">
+        <button class="demo-variant" style="background:#ffffff;color:#3a2018;border:1px solid #b9dede">DVD</button>
+        <button class="demo-variant" style="background:#3a2018;color:#fff9ef;border:1px solid #3a2018">Blu-ray ✓</button>
+        <button class="demo-variant" style="background:#ffffff;color:#3a2018;border:1px solid #b9dede">4K UHD</button>
+      </div>
+      <div class="demo-chips">
+        <span class="chip" style="border-color:#8fcdcf54;color:#4a7264">border #8fcdcf54</span>
+        <span class="chip" style="background:#d4ecec;color:#4d2f25">hover fill #d4ecec</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- scheme-5 -->
+  <div class="scheme">
+    <div class="scheme__head"><strong>scheme-5 — Hunter (dark green)</strong><span>bg #343a31 · heading #fff9ef · text #ece1cf · primary (links) #8fcdcf</span></div>
+    <div class="scheme__body" style="background:#343a31; color:#ece1cf">
+      <span class="demo-eyebrow" style="color:#8fcdcf">Screening room</span>
+      <div class="demo-h" style="color:#fff9ef">Heading on hunter</div>
+      <p class="demo-p">The alternate dark scheme — same text and <a href="#" class="demo-link" style="color:#8fcdcf" onclick="return false">cyan link</a> treatment as mahogany, but hover/input fills shift green (#2c322a) instead of brown.</p>
+      <div class="demo-row">
+        <button class="demo-btn" style="background:#973123;color:#fff9ef;border:1.5px solid #973123"
+          onmouseover="this.style.background='#6f2417';this.style.borderColor='#6f2417'"
+          onmouseout="this.style.background='#973123';this.style.borderColor='#973123'">Primary button</button>
+        <button class="demo-btn" style="background:transparent;color:#fff9ef;border:1.5px solid #fff9ef"
+          onmouseover="this.style.background='#2c322a'" onmouseout="this.style.background='transparent'">Secondary button</button>
+        <input class="demo-input" placeholder="Email address" style="background:#2c322a;color:#fff9ef;border:1px solid #5a6356"
+          onmouseover="this.style.background='#232823'" onmouseout="this.style.background='#2c322a'">
+      </div>
+      <div class="demo-row" style="margin-bottom:0">
+        <button class="demo-variant" style="background:#2c322a;color:#fff9ef;border:1px solid #5a6356">DVD</button>
+        <button class="demo-variant" style="background:#fff9ef;color:#343a31;border:1px solid #fff9ef">Blu-ray ✓</button>
+        <button class="demo-variant" style="background:#2c322a;color:#fff9ef;border:1px solid #5a6356">4K UHD</button>
+      </div>
+      <div class="demo-chips">
+        <span class="chip" style="border-color:#fff9ef24;color:#ece1cf">border #fff9ef24</span>
+        <span class="chip" style="background:#232823;color:#ece1cf">hover fill #232823</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- scheme-6 -->
+  <div class="scheme">
+    <div class="scheme__head"><strong>scheme-6 — Transparent / dark overlay</strong><span>bg transparent · all foreground #fff9ef · for use over dark imagery</span></div>
+    <div class="scheme__body" style="background:linear-gradient(135deg,#241713 0%,#3a2018 45%,#1d2320 100%); color:#fff9ef">
+      <span class="demo-eyebrow" style="color:#fff9ef">Hero overlay</span>
+      <div class="demo-h" style="color:#fff9ef">Heading over imagery</div>
+      <p class="demo-p">The section background is <em>transparent</em> — everything sits over a photo or video (simulated here with a gradient). All text and links are parchment; inputs use translucent black fills.</p>
+      <div class="demo-row">
+        <button class="demo-btn" style="background:#973123;color:#fff9ef;border:1.5px solid #973123"
+          onmouseover="this.style.background='#6f2417';this.style.borderColor='#6f2417'"
+          onmouseout="this.style.background='#973123';this.style.borderColor='#973123'">Primary button</button>
+        <button class="demo-btn" style="background:transparent;color:#fff9ef;border:1.5px solid #fff9ef"
+          onmouseover="this.style.background='#ffffff1f'" onmouseout="this.style.background='transparent'">Secondary button</button>
+        <input class="demo-input" placeholder="Email address" style="background:#00000040;color:#fff9ef;border:1px solid #fff9ef80"
+          onmouseover="this.style.background='#00000059'" onmouseout="this.style.background='#00000040'">
+      </div>
+      <div class="demo-row" style="margin-bottom:0">
+        <button class="demo-variant" style="background:#00000040;color:#fff9ef;border:1px solid #fff9ef80">DVD</button>
+        <button class="demo-variant" style="background:#fff9ef;color:#3a2018;border:1px solid #fff9ef">Blu-ray ✓</button>
+        <button class="demo-variant" style="background:#00000040;color:#fff9ef;border:1px solid #fff9ef80">4K UHD</button>
+      </div>
+      <div class="demo-chips">
+        <span class="chip" style="border-color:#fff9ef3b;color:#fff9ef">border #fff9ef3b</span>
+        <span class="chip" style="background:#00000059;color:#fff9ef">input hover #00000059</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- scheme-7 (custom id) -->
+  <div class="scheme">
+    <div class="scheme__head"><strong>scheme-58084d4c… — Transparent / light overlay</strong><span>bg transparent · all foreground #3a2018 · for use over light imagery</span></div>
+    <div class="scheme__body" style="background:linear-gradient(135deg,#fdf3e2 0%,#f3e7d0 55%,#e8dcc4 100%); color:#3a2018">
+      <span class="demo-eyebrow" style="color:#973123">Light overlay</span>
+      <div class="demo-h" style="color:#3a2018">Heading over light imagery</div>
+      <p class="demo-p">Light-imagery counterpart to scheme-6 (added as a custom scheme in the editor). Text is full mahogany; inputs use translucent white fills so they read on photography.</p>
+      <div class="demo-row">
+        <button class="demo-btn" style="background:#973123;color:#fff9ef;border:1.5px solid #973123"
+          onmouseover="this.style.background='#6f2417';this.style.borderColor='#6f2417'"
+          onmouseout="this.style.background='#973123';this.style.borderColor='#973123'">Primary button</button>
+        <button class="demo-btn" style="background:transparent;color:#3a2018;border:1.5px solid #3a2018"
+          onmouseover="this.style.background='#0000000f'" onmouseout="this.style.background='transparent'">Secondary button</button>
+        <input class="demo-input" placeholder="Email address" style="background:#ffffffcc;color:#3a2018;border:1px solid #3a201859"
+          onmouseover="this.style.background='#ffffff'" onmouseout="this.style.background='#ffffffcc'">
+      </div>
+      <div class="demo-row" style="margin-bottom:0">
+        <button class="demo-variant" style="background:#ffffffcc;color:#3a2018;border:1px solid #3a201859">DVD</button>
+        <button class="demo-variant" style="background:#3a2018;color:#fff9ef;border:1px solid #3a2018">Blu-ray ✓</button>
+        <button class="demo-variant" style="background:#ffffffcc;color:#3a2018;border:1px solid #3a201859">4K UHD</button>
+      </div>
+      <div class="demo-chips">
+        <span class="chip" style="border-color:#3a20183b;color:#4d2f25">border #3a20183b</span>
+        <span class="chip" style="background:#0000000f;color:#3a2018">hover fill #0000000f</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-note" style="margin-top:24px">
+    Constants across all seven schemes: the <strong>primary button is always brick #973123 on parchment</strong> (hover #6f2417),
+    and the <strong>secondary button is always a transparent outline</strong> in the scheme's heading colour.
+    What changes per scheme: background, text inks, link/primary colour (brick on light, cyan on dark, parchment on overlay), border alpha, and input/variant fills.
+    Badge assignments: sale badge → scheme-1, sold-out badge → scheme-3.
+  </p>
+</section>
+
+<!-- ============================== TYPOGRAPHY ============================== -->
+<section>
+  <span class="eyebrow">04 · Type</span>
+  <h2>Typefaces</h2>
+  <p class="section-note">
+    Both faces are self-hosted in <code>assets/</code> (OFL licence) because Shopify's font picker doesn't carry them.
+    The theme settings still say "Inter" — that's a red herring: <code>lms-tokens.css</code> overrides Horizon's
+    <code>--font-heading--family</code>, <code>--font-subheading--family</code>, <code>--font-body--family</code> and
+    <code>--font-accent--family</code> after <code>color-schemes.css</code> loads, so Epilogue/DM Mono always win.
+  </p>
+
+  <div class="type-row">
+    <div class="meta"><strong>Epilogue (variable, 100–900)</strong>Headings + accent<br><code>--lms-font-display</code><br>→ Horizon heading &amp; accent families</div>
+    <div style="font-family:var(--lms-font-display); font-size:34px; font-weight:600; color:var(--lms-mahogany)">Films worth owning, again.</div>
+  </div>
+  <div class="type-row">
+    <div class="meta"><strong>DM Mono (300/400/500)</strong>Body, eyebrow, UI, buttons<br><code>--lms-font-mono</code> / <code>--lms-font-body</code><br>→ Horizon body &amp; subheading families</div>
+    <div style="font-family:var(--lms-font-mono); font-size:16px; font-weight:300">Rent it for the weekend, buy it for the shelf. 0123456789 · £4.50</div>
+  </div>
+  <div class="type-row" style="border-bottom:0">
+    <div class="meta"><strong>DM Serif Display (italic accent)</strong><code>--lms-font-accent</code> — declared but <em>not yet self-hosted</em>; falls back to Georgia italic until the woff2 ships</div>
+    <div style="font-family:'DM Serif Display', Georgia, serif; font-style:italic; font-size:30px; color:var(--lms-brick)">the little movie store</div>
+  </div>
+
+  <h3 style="margin-top:44px">Epilogue weights in use</h3>
+  <div class="weights" style="font-family:var(--lms-font-display); font-size:22px; color:var(--lms-mahogany)">
+    <div style="font-weight:400">Regular 400<small>--lms-fw-head-reg</small></div>
+    <div style="font-weight:500">Medium 500<small>--lms-fw-head-med · default headings</small></div>
+    <div style="font-weight:600">Semibold 600<small>--lms-fw-head-semi</small></div>
+    <div style="font-weight:700">Bold 700<small>--lms-fw-head-bold</small></div>
+    <div style="font-weight:800">Extra bold 800<small>--lms-fw-head-extra-bold</small></div>
+  </div>
+  <h3 style="margin-top:36px">DM Mono weights in use</h3>
+  <div class="weights" style="font-family:var(--lms-font-mono); font-size:17px">
+    <div style="font-weight:300">Light 300<small>--lms-fw-mono-light · body default</small></div>
+    <div style="font-weight:400">Regular 400<small>--lms-fw-mono-reg</small></div>
+    <div style="font-weight:500">Medium 500<small>--lms-fw-mono-med · eyebrow, buttons, badges</small></div>
+  </div>
+</section>
+
+<!-- ============================== TYPE SCALE ============================== -->
+<section>
+  <span class="eyebrow">05 · Type</span>
+  <h2>Heading scale — Horizon theme settings</h2>
+  <p class="section-note">
+    Sizes set in <code>settings_data.json</code> and applied by Horizon to <code>h1–h6</code> theme-wide.
+    H1–H4 use the heading font (Epilogue); H5–H6 use the subheading font (DM Mono). Body paragraph is 14px, loose line height.
+  </p>
+
+  <div class="type-row"><div class="meta"><strong>H1 · 56px</strong>Epilogue · display-tight LH · normal tracking</div><div style="font-family:var(--lms-font-display);font-size:56px;font-weight:600;line-height:1.05;color:var(--lms-mahogany)">Little Movie Store</div></div>
+  <div class="type-row"><div class="meta"><strong>H2 · 48px</strong>Epilogue · display-tight LH</div><div style="font-family:var(--lms-font-display);font-size:48px;font-weight:600;line-height:1.05;color:var(--lms-mahogany)">This week's drop</div></div>
+  <div class="type-row"><div class="meta"><strong>H3 · 32px</strong>Epilogue · display-normal LH</div><div style="font-family:var(--lms-font-display);font-size:32px;font-weight:600;line-height:1.15;color:var(--lms-mahogany)">Rare finds &amp; staff picks</div></div>
+  <div class="type-row"><div class="meta"><strong>H4 · 24px</strong>Epilogue · display-tight LH</div><div style="font-family:var(--lms-font-display);font-size:24px;font-weight:600;line-height:1.1;color:var(--lms-mahogany)">Membership perks</div></div>
+  <div class="type-row"><div class="meta"><strong>H5 · 14px</strong>DM Mono (subheading) · display-loose LH</div><div style="font-family:var(--lms-font-mono);font-size:14px;font-weight:500;line-height:1.6;color:var(--lms-mahogany)">Collection subheading in DM Mono</div></div>
+  <div class="type-row"><div class="meta"><strong>H6 · 12px</strong>DM Mono (subheading) · display-loose LH</div><div style="font-family:var(--lms-font-mono);font-size:12px;font-weight:500;line-height:1.6;color:var(--lms-mahogany)">Small subheading in DM Mono</div></div>
+  <div class="type-row" style="border-bottom:0"><div class="meta"><strong>Paragraph · 14px</strong>DM Mono 300 · body-loose LH</div><div style="font-family:var(--lms-font-mono);font-size:14px;font-weight:300;line-height:1.7;max-width:560px">Every disc in the shop is inspected, resurfaced if needed, and graded before it goes on the shelf. Rentals come back, get checked again, and go around one more time.</div></div>
+
+  <h3 style="margin-top:44px">Token type scale (lms-* sections)</h3>
+  <p class="section-note">Custom <code>lms-*</code> sections use the token scale from <code>lms-tokens.css</code> rather than the Horizon heading settings — note it's deliberately smaller than the theme-wide scale above.</p>
+  <table>
+    <tr><th>Token</th><th>Size</th><th>Sample</th></tr>
+    <tr><td><code>--lms-fs-display</code></td><td>3.5rem / 56px</td><td style="font-family:var(--lms-font-display);font-size:34px;font-weight:600;color:var(--lms-mahogany)">Hero display (shown reduced)</td></tr>
+    <tr><td><code>--lms-fs-h1</code></td><td>1.875rem / 30px</td><td style="font-family:var(--lms-font-display);font-size:30px;font-weight:500;color:var(--lms-mahogany)">Section heading</td></tr>
+    <tr><td><code>--lms-fs-h2</code></td><td>1.5625rem / 25px</td><td style="font-family:var(--lms-font-display);font-size:25px;font-weight:500;color:var(--lms-mahogany)">Sub-section heading</td></tr>
+    <tr><td><code>--lms-fs-h3</code></td><td>1.25rem / 20px</td><td style="font-family:var(--lms-font-display);font-size:20px;font-weight:500;color:var(--lms-mahogany)">Card heading</td></tr>
+    <tr><td><code>--lms-fs-h4</code></td><td>1.0625rem / 17px</td><td style="font-family:var(--lms-font-display);font-size:17px;font-weight:600;color:var(--lms-mahogany)">Minor heading</td></tr>
+    <tr><td><code>--lms-fs-body</code></td><td>1rem / 16px</td><td style="font-size:16px">Body 1 — standard copy</td></tr>
+    <tr><td><code>--lms-fs-body-sm</code></td><td>0.8125rem / 13px</td><td style="font-size:13px">Body 2 — secondary copy</td></tr>
+    <tr><td><code>--lms-fs-eyebrow</code></td><td>0.75rem / 12px</td><td><span style="font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--lms-brick)">Eyebrow label</span></td></tr>
+    <tr><td><code>--lms-fs-caption</code></td><td>0.6875rem / 11px</td><td style="font-size:11px;color:var(--lms-ink-500)">Caption / fine print</td></tr>
+  </table>
+  <p class="section-note" style="margin-top:16px">
+    Line heights: tight 1.1 · heading 1.18 · snug 1.4 · body 1.6. &nbsp;
+    Tracking: eyebrow 0.22em (the signature wide-tracked uppercase label) · wide 0.06em · normal 0.
+  </p>
+</section>
+
+<!-- ============================== TEXT STYLES / COMPONENTS ============================== -->
+<section>
+  <span class="eyebrow">06 · Components</span>
+  <h2>Signature text &amp; UI styles</h2>
+
+  <h3>The eyebrow — <code>.lms-eyebrow</code></h3>
+  <p class="section-note">DM Mono 500, 12px, uppercase, 0.22em tracking, brick. <code>.lms-eyebrow--parchment</code> flips to parchment for dark schemes.</p>
+  <div class="demo-row">
+    <span style="font-family:var(--lms-font-mono);font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--lms-brick)">Now showing</span>
+    <span style="background:#3a2018;padding:8px 16px"><span style="font-family:var(--lms-font-mono);font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#fff9ef">Members only</span></span>
+  </div>
+
+  <h3 style="margin-top:36px">Buttons — <code>.lms-btn</code> (squared, brand decision)</h3>
+  <p class="section-note">Radius is 0 everywhere (<code>button_border_radius_primary/secondary = 0</code>). Three sizes: lg 52px · md 44px · sm 36px. Three variants:</p>
+  <div class="demo-row">
+    <button class="demo-btn" style="background:#973123;color:#fff9ef;border:1.5px solid #973123;height:52px;padding:14px 26px" onmouseover="this.style.background='#6f2417'" onmouseout="this.style.background='#973123'">primary · lg</button>
+    <button class="demo-btn" style="background:transparent;color:#3a2018;border:1.5px solid #3a2018;height:44px" onmouseover="this.style.background='#3a2018';this.style.color='#fff9ef'" onmouseout="this.style.background='transparent';this.style.color='#3a2018'">outline · md</button>
+    <span style="background:#3a2018;padding:14px 16px"><button class="demo-btn" style="background:transparent;color:#fff9ef;border:1.5px solid #fff9ef;height:36px;padding:8px 16px;font-size:12px" onmouseover="this.style.background='#fff9ef';this.style.color='#3a2018'" onmouseout="this.style.background='transparent';this.style.color='#fff9ef'">outline-inverse · sm</button></span>
+  </div>
+
+  <h3 style="margin-top:36px">Badges — <code>.lms-badge</code></h3>
+  <p class="section-note">DM Mono 500, 10px, uppercase, 0.08em tracking, pill outline in <code>currentColor</code>. Used for format / condition / rarity / event audience.</p>
+  <div class="demo-row">
+    <span class="badge" style="color:#973123">Rare find</span>
+    <span class="badge" style="color:#4a7264">4K UHD</span>
+    <span class="badge" style="color:#6b5147">Used · Very good</span>
+  </div>
+
+  <h3 style="margin-top:36px">Text selection</h3>
+  <p class="section-note" style="margin-bottom:8px">Site-wide <code>::selection</code> is cyan on mahogany — try selecting this sentence.</p>
+</section>
+
+<!-- ============================== SURFACE TOKENS ============================== -->
+<section>
+  <span class="eyebrow">07 · Surface</span>
+  <h2>Radii, shadows &amp; spacing</h2>
+
+  <h3>Corner radii</h3>
+  <p class="section-note">Buttons, tags and product cards are <strong>square</strong>; soft corners are reserved for surfaces. Theme settings: inputs 4 · card 4 · variant button 14 · popover 14 · variant swatch 32 · badge 100 (pill) · product media 0.</p>
+  <div class="radius-grid">
+    <div style="border-radius:0">button · 0</div>
+    <div style="border-radius:4px">xs · 4</div>
+    <div style="border-radius:8px">sm · 8</div>
+    <div style="border-radius:12px">md · 12</div>
+    <div style="border-radius:18px">lg · 18</div>
+    <div style="border-radius:28px">xl · 28</div>
+    <div style="border-radius:999px">pill · 999</div>
+  </div>
+
+  <h3 style="margin-top:40px">Shadows — warm mahogany-tinted, soft and low</h3>
+  <div class="shadow-grid">
+    <div style="box-shadow:var(--lms-shadow-xs)">shadow-xs</div>
+    <div style="box-shadow:var(--lms-shadow-sm)">shadow-sm</div>
+    <div style="box-shadow:var(--lms-shadow-md)">shadow-md</div>
+    <div style="box-shadow:var(--lms-shadow-lg)">shadow-lg</div>
+  </div>
+
+  <h3 style="margin-top:40px">Spacing — 4px base</h3>
+  <div class="space-scale">
+    <div><i style="width:4px"></i>space-1 · 4</div>
+    <div><i style="width:8px"></i>space-2 · 8</div>
+    <div><i style="width:12px"></i>space-3 · 12</div>
+    <div><i style="width:16px"></i>space-4 · 16</div>
+    <div><i style="width:24px"></i>space-5 · 24</div>
+    <div><i style="width:32px"></i>space-6 · 32</div>
+    <div><i style="width:48px"></i>space-7 · 48</div>
+    <div><i style="width:64px"></i>space-8 · 64</div>
+    <div><i style="width:96px"></i>space-9 · 96</div>
+    <div><i style="width:128px"></i>space-10 · 128</div>
+  </div>
+  <p class="section-note" style="margin-top:20px">
+    Borders: default 1.5px, strong 2px. Layout: container 1200px, text measure 660px.
+    Motion: fast 140ms · base 220ms · slow 420ms, soft/out cubic-bezier easings.
+  </p>
+</section>
+
+</main>
+</body>
+</html>
