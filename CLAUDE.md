@@ -4,7 +4,8 @@
 
 Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/resale/membership shop. The storefront is currently live behind a password page (coming-soon).
 
-- **Production store**: `p0wkgv-wy.myshopify.com`
+- **Dev store (default workspace)**: `lms-sandbox-lutsfahz.myshopify.com`
+- **Production store**: `p0wkgv-wy.myshopify.com` — touch only on explicit instruction
 - **Theme**: Horizon (Shopify OS 2.0)
 - **Circular commerce** (rental / membership / resale / serialized inventory) will be handled by the **Supercycle** app — currently **NOT installed** (blocked on client).
 
@@ -20,8 +21,16 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 
 | Store | Purpose |
 |-------|---------|
-| `p0wkgv-wy.myshopify.com` | Production — the real client store. Handle with care. |
-| `lms-sandbox-lutsfahz.myshopify.com` | Original sandbox dev store — superseded, ignore. |
+| `lms-sandbox-lutsfahz.myshopify.com` | **Dev store — the default target for ALL work** (pushes, pulls, theme dev, Admin API scripts, metafield/metaobject definitions, test data). |
+| `p0wkgv-wy.myshopify.com` | Production — the real client store. **OFF-LIMITS by default.** Only push, pull, or edit anything here when the user explicitly says the operation targets the official/production store, per-operation. |
+
+**Store rule**: never assume production. If an instruction doesn't name the production store, it means the dev store. When a production operation IS requested, restate the target store before running it.
+
+### Working theme on dev store
+
+| Theme | ID | Status |
+|-------|----|--------|
+| Working theme | `140897157182` | Current push/pull target on `lms-sandbox-lutsfahz.myshopify.com` |
 
 ### Theme IDs on production store
 
@@ -144,13 +153,17 @@ This is the current live page — it IS the Shopify password page. Key details:
 
 ## Deployment workflow
 
-### Pull before push — always
+### Default target: the dev store
+
+All routine pushes, pulls, previews, and API scripts go to `lms-sandbox-lutsfahz.myshopify.com`. Production commands (below) run only on explicit per-operation instruction.
+
+### Pull before push — always (production only, on explicit instruction)
 
 ```bash
 shopify theme pull --path theme/lms-redesign --store p0wkgv-wy.myshopify.com --theme 164180295930
 ```
 
-The client edits colour schemes and section settings in the Shopify theme editor. Those edits exist only on the store. A blind push uploads the full local copy and silently overwrites them. Always pull first, reconcile any incoming changes with git, then push.
+The client edits colour schemes and section settings in the Shopify theme editor **on production**. Those edits exist only on the store. A blind push uploads the full local copy and silently overwrites them. Always pull first, reconcile any incoming changes with git, then push.
 
 For code-only changes, prefer a narrow push with `--only` to avoid touching merchant-managed files:
 
@@ -165,10 +178,14 @@ shopify theme push --path theme/lms-redesign --store p0wkgv-wy.myshopify.com --t
 ### Common commands
 
 ```bash
-# Local preview
-shopify theme dev --path theme/lms-redesign --store p0wkgv-wy.myshopify.com
+# Local preview (dev store)
+shopify theme dev --path theme/lms-redesign --store lms-sandbox-lutsfahz.myshopify.com
 
-# Deploy (pull first!)
+# Push / pull dev store (working theme 140897157182)
+shopify theme push --path theme/lms-redesign --store lms-sandbox-lutsfahz.myshopify.com --theme 140897157182
+shopify theme pull --path theme/lms-redesign --store lms-sandbox-lutsfahz.myshopify.com --theme 140897157182
+
+# Deploy to PRODUCTION — only on explicit instruction (pull first!)
 shopify theme pull --path theme/lms-redesign --store p0wkgv-wy.myshopify.com --theme 164180295930
 shopify theme push --path theme/lms-redesign --store p0wkgv-wy.myshopify.com --theme 164180295930
 
