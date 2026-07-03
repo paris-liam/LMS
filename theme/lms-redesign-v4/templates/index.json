@@ -651,6 +651,46 @@
         "padding-block-start": 32,
         "padding-block-end": 32
       }
+    },
+    "lms_social_bar_fiYNVL": {
+      "type": "lms-social-bar",
+      "blocks": {
+        "social_link_e9jh8c": {
+          "type": "social_link",
+          "settings": {
+            "label": "TikTok",
+            "url": ""
+          }
+        },
+        "social_link_fgNXPH": {
+          "type": "social_link",
+          "settings": {
+            "label": "Instagram",
+            "url": "https://www.instagram.com/littlemoviestore"
+          }
+        },
+        "social_link_mXK6hP": {
+          "type": "social_link",
+          "settings": {
+            "label": "Threads",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "social_link_e9jh8c",
+        "social_link_fgNXPH",
+        "social_link_mXK6hP"
+      ],
+      "name": "LMS social bar",
+      "settings": {
+        "eyebrow": "Find us",
+        "handle_text": "@littlemoviestore",
+        "handle_link": "",
+        "background_color": "#fff9ef",
+        "padding-block-start": 28,
+        "padding-block-end": 28
+      }
     }
   },
   "order": [
@@ -660,6 +700,7 @@
     "lms_events_membership",
     "lms_promo_pair",
     "lms_staff_picks",
-    "lms_newsletter_3dYbxn"
+    "lms_newsletter_3dYbxn",
+    "lms_social_bar_fiYNVL"
   ]
 }
