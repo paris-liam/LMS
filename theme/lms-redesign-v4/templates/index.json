@@ -618,8 +618,8 @@
       ],
       "settings": {
         "background_color": "",
-        "padding-block-start": 0,
-        "padding-block-end": 72
+        "padding-block-start": 36,
+        "padding-block-end": 36
       }
     },
     "lms_staff_picks": {
@@ -635,6 +635,22 @@
         "padding-block-start": 0,
         "padding-block-end": 72
       }
+    },
+    "lms_newsletter_3dYbxn": {
+      "type": "lms-newsletter",
+      "name": "LMS newsletter",
+      "settings": {
+        "eyebrow": "Weekly drops · First look",
+        "heading": "Get the weekly drop in your inbox.",
+        "body": "<p>New inventory, rare finds, events, and whatever we're obsessing over. No spam — just good taste.</p>",
+        "placeholder": "you@email.com",
+        "button_label": "Sign up",
+        "contact_tags": "newsletter",
+        "success_message": "You're in — watch your inbox for the next drop.",
+        "background_color": "#343a31",
+        "padding-block-start": 32,
+        "padding-block-end": 32
+      }
     }
   },
   "order": [
@@ -643,6 +659,7 @@
     "lms_new_releases",
     "lms_events_membership",
     "lms_promo_pair",
-    "lms_staff_picks"
+    "lms_staff_picks",
+    "lms_newsletter_3dYbxn"
   ]
 }
