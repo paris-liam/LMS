@@ -29,7 +29,7 @@
     gap: var(--gap);
     text-wrap: nowrap;
     border-top: var(--border-width) solid var(--divider-color, var(--color-border));
-    color: var(--color-foreground-muted);
+    color: var(--color-utilities, var(--lms-cyan));
 
     @media screen and (min-width: 750px) {
       display: grid;
@@ -43,7 +43,7 @@
 
   .utilities a,
   .utilities button {
-    color: var(--color-utilities, var(--color-foreground-muted));
+    color: var(--color-utilities, var(--lms-cyan));
   }
 
   .utilities > * {
