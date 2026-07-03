@@ -1,0 +1,121 @@
+{% comment %}
+  lms-product-card — 2:3 poster card for physical media products.
+
+  Accepts:
+  - card_product: {Object} required. A product object.
+
+  Data contract (dynamic sources — nothing here is a theme setting):
+  - Poster:     card_product.featured_image
+  - Title:      card_product.title
+  - Director:   card_product.metafields.custom.director (hidden when blank)
+  - Price:      card_product.price
+  - Format:     card_product.metafields.custom.format   (e.g. Blu-ray / DVD / 4K / VHS)
+  - Condition:  card_product.metafields.custom.condition (e.g. New / Used)
+  - Rare flag:  card_product.metafields.custom.rare      (boolean)
+
+  Usage:
+  {% render 'lms-product-card', card_product: product %}
+{% endcomment %}
+
+{%- if card_product and card_product != empty -%}
+  <a href="{{ card_product.url }}" class="lms-product-card">
+    <div class="lms-product-card__media">
+      {%- if card_product.featured_image -%}
+        {{ card_product.featured_image
+          | image_url: width: 600
+          | image_tag: widths: '300, 450, 600', sizes: '(max-width: 549px) 66vw, 20vw', loading: 'lazy', alt: card_product.featured_image.alt | default: card_product.title }}
+      {%- else -%}
+        <div class="lms-product-card__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
+      {%- endif -%}
+      {%- if card_product.metafields.custom.rare.value -%}
+        <span class="lms-badge lms-badge--brick lms-product-card__rare">Rare</span>
+      {%- endif -%}
+    </div>
+
+    <div class="lms-product-card__title">{{ card_product.title }}</div>
+
+    {%- if card_product.metafields.custom.director != blank -%}
+      <div class="lms-product-card__director">{{ card_product.metafields.custom.director.value }}</div>
+    {%- endif -%}
+
+    <div class="lms-product-card__meta">
+      <span class="lms-product-card__price">{{ card_product.price | money }}</span>
+      <span class="lms-product-card__tags">
+        {%- if card_product.metafields.custom.format != blank -%}
+          <span class="lms-badge lms-badge--muted">{{ card_product.metafields.custom.format.value }}</span>
+        {%- endif -%}
+        {%- if card_product.metafields.custom.condition != blank -%}
+          <span class="lms-badge lms-badge--muted">{{ card_product.metafields.custom.condition.value }}</span>
+        {%- endif -%}
+      </span>
+    </div>
+  </a>
+{%- endif -%}
+
+{% stylesheet %}
+.lms-product-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+.lms-product-card__media {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--lms-radius-xs);
+  overflow: hidden;
+  border: var(--lms-border-width) solid var(--lms-border-default);
+  box-shadow: var(--lms-shadow-sm);
+  margin-bottom: 14px;
+  background: var(--lms-parchment-2);
+  transition: box-shadow var(--lms-dur-base) var(--lms-ease-soft);
+}
+.lms-product-card:hover .lms-product-card__media {
+  box-shadow: var(--lms-shadow-md);
+}
+.lms-product-card__media img,
+.lms-product-card__placeholder svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lms-product-card__rare {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--lms-parchment);
+}
+.lms-product-card__title {
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-med);
+  font-size: 15px;
+  color: var(--lms-text-strong);
+  margin-bottom: 4px;
+}
+.lms-product-card__director {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-light);
+  font-size: 12px;
+  color: var(--lms-text-muted);
+  margin-bottom: 8px;
+}
+.lms-product-card__meta {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.lms-product-card__price {
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-semi);
+  font-size: 16px;
+  color: var(--lms-text-strong);
+}
+.lms-product-card__tags {
+  display: inline-flex;
+  gap: 5px;
+}
+{% endstylesheet %}
