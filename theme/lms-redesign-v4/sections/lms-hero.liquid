@@ -46,16 +46,6 @@
           </div>
         {%- endif -%}
 
-        {%- if info_blocks.size > 0 -%}
-          <div class="lms-hero__info">
-            {%- for block in info_blocks limit: 4 -%}
-              <div class="lms-hero__info-item" {{ block.shopify_attributes }}>
-                <div class="lms-hero__info-label">{{ block.settings.label }}</div>
-                <div class="lms-hero__info-value">{{ block.settings.value }}</div>
-              </div>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
       </div>
 
       <div class="lms-hero__media">
@@ -88,6 +78,17 @@
         </lms-slideshow>
       </div>
 
+      {%- if info_blocks.size > 0 -%}
+        <div class="lms-hero__info">
+          {%- for block in info_blocks limit: 4 -%}
+            <div class="lms-hero__info-item" {{ block.shopify_attributes }}>
+              <div class="lms-hero__info-label">{{ block.settings.label }}</div>
+              <div class="lms-hero__info-value">{{ block.settings.value }}</div>
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
     </div>
   </div>
 </div>
@@ -100,8 +101,17 @@
 .lms-hero__grid {
   display: grid;
   grid-template-columns: 1.04fr 0.96fr;
-  gap: 52px;
-  align-items: center;
+  grid-template-rows: auto auto;
+  column-gap: 52px;
+  align-items: stretch;
+}
+.lms-hero__copy { grid-column: 1; grid-row: 1; }
+/* Media spans only the first row, so it matches the height of the copy
+   above the info strip. */
+.lms-hero__media {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
 }
 .lms-hero .lms-eyebrow { display: block; }
 .lms-hero__heading {
@@ -143,6 +153,8 @@
 
 /* --- Info strip --- */
 .lms-hero__info {
+  grid-column: 1;
+  grid-row: 2;
   margin-top: 48px;
   padding-top: 26px;
   border-top: var(--lms-border-width) solid var(--lms-border-hairline);
@@ -174,7 +186,11 @@
   border: var(--lms-border-width-strong) solid var(--lms-border-hairline);
   box-shadow: var(--lms-shadow-lg);
   background: var(--lms-parchment-2);
-  aspect-ratio: 4 / 3;
+  /* Fill the media cell (same height as the copy above the info strip).
+     Uploads are usually 2:3 portrait; object-fit: cover crops to the box. */
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
 }
 .lms-hero__slides { position: absolute; inset: 0; }
 .lms-hero__slide {
@@ -235,10 +251,23 @@
 @media screen and (max-width: 989px) {
   .lms-hero__grid {
     grid-template-columns: 1fr;
+    grid-template-rows: none;
     gap: 30px;
   }
-  /* Media stacks above the copy on mobile */
+  /* Media stacks above the copy on mobile; single column, natural rows */
+  .lms-hero__copy,
+  .lms-hero__media,
+  .lms-hero__info {
+    grid-column: 1;
+    grid-row: auto;
+  }
   .lms-hero__media { order: -1; }
+  .lms-hero__info { margin-top: 0; }
+  .lms-hero__slideshow {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
   .lms-hero__heading {
     font-size: clamp(38px, 8vw, 56px);
   }
