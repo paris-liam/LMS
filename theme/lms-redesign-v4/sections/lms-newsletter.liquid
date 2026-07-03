@@ -1,0 +1,221 @@
+{% comment %}
+  lms-newsletter — standalone full-width newsletter capture section.
+  Background is a custom color (default: hunter green); text/eyebrow/input
+  contrast is computed dynamically via contrast-override so this works on
+  any background a merchant picks in the theme editor.
+{% endcomment %}
+
+{% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
+<div class="lms-newsletter color-custom-{{ section.id }}"
+  style="--lms-pad-top: {{ section.settings.padding-block-start }}px; --lms-pad-bottom: {{ section.settings.padding-block-end }}px;"
+  {{ section.shopify_attributes }}>
+  <div class="lms-container">
+    <div class="lms-newsletter__inner">
+      {% render 'lms-eyebrow', text: section.settings.eyebrow, tone: 'parchment' %}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="lms-newsletter__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.body != blank -%}
+        <div class="lms-newsletter__body rte">{{ section.settings.body }}</div>
+      {%- endif -%}
+
+      {%- form 'customer', class: 'lms-newsletter__form' -%}
+        <input type="hidden" name="contact[tags]" value="{{ section.settings.contact_tags }}">
+        {%- if form.posted_successfully? -%}
+          <p class="lms-newsletter__success" role="status">{{ section.settings.success_message }}</p>
+        {%- else -%}
+          <label for="lms-newsletter-email-{{ section.id }}" class="lms-visually-hidden">Email address</label>
+          <input
+            id="lms-newsletter-email-{{ section.id }}"
+            class="lms-newsletter__input"
+            type="email"
+            name="contact[email]"
+            placeholder="{{ section.settings.placeholder }}"
+            autocomplete="email"
+            required
+          >
+          <button class="lms-btn lms-btn--primary lms-btn--md lms-newsletter__submit" type="submit">
+            {{- section.settings.button_label -}}
+          </button>
+          {%- if form.errors -%}
+            <p class="lms-newsletter__error" role="alert">
+              {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+            </p>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.lms-newsletter {
+  padding-block: var(--lms-pad-top, 72px) var(--lms-pad-bottom, 72px);
+}
+.lms-newsletter__inner {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+}
+.lms-newsletter .lms-eyebrow { display: block; }
+.lms-newsletter__heading {
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-med);
+  font-size: 44px;
+  line-height: 1.1;
+  margin: 14px 0 18px;
+  color: inherit;
+}
+.lms-newsletter__body {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-light);
+  font-size: 16px;
+  line-height: 1.65;
+  color: color-mix(in oklch, currentColor 82%, transparent);
+  margin: 0 0 32px;
+}
+.lms-newsletter__body p { margin: 0; }
+.lms-newsletter__form {
+  display: flex;
+  gap: 12px;
+  max-width: 560px;
+  margin-inline: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.lms-newsletter__input {
+  flex: 1;
+  min-width: 200px;
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-light);
+  font-size: 15px;
+  color: var(--color-foreground);
+  background: color-mix(in oklch, var(--color-background) 82%, var(--color-foreground) 18%);
+  border: var(--lms-border-width) solid color-mix(in oklch, currentColor 35%, transparent);
+  border-radius: var(--lms-radius-button);
+  padding: 13px 16px;
+}
+.lms-newsletter__input::placeholder {
+  color: color-mix(in oklch, currentColor 55%, transparent);
+}
+.lms-newsletter__input:focus {
+  outline: none;
+  border-color: var(--color-foreground);
+}
+.lms-newsletter__submit { flex-shrink: 0; }
+.lms-newsletter .lms-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.lms-newsletter__success {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-med);
+  font-size: 15px;
+  color: inherit;
+  margin: 0;
+}
+.lms-newsletter__error {
+  flex-basis: 100%;
+  font-family: var(--lms-font-mono);
+  font-size: 13px;
+  color: var(--lms-brick);
+  margin: 8px 0 0;
+}
+@media screen and (max-width: 549px) {
+  .lms-newsletter__heading { font-size: 32px; }
+  .lms-newsletter__form { flex-direction: column; }
+  .lms-newsletter__submit { width: 100%; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "LMS newsletter",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Weekly drops · First look"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get the weekly drop in your inbox."
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Text",
+      "default": "<p>New inventory, rare finds, events, and whatever we're obsessing over. No spam — just good taste.</p>"
+    },
+    { "type": "header", "content": "Form" },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Email placeholder",
+      "default": "you@email.com"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Sign up"
+    },
+    {
+      "type": "text",
+      "id": "contact_tags",
+      "label": "Customer tags applied on signup",
+      "info": "Comma-separated tags added to the customer record.",
+      "default": "newsletter"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "You're in — watch your inbox for the next drop."
+    },
+    { "type": "header", "content": "Style" },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:settings.background_color",
+      "default": "#343a31"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 88
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 88
+    }
+  ],
+  "presets": [
+    { "name": "LMS newsletter" }
+  ]
+}
+{% endschema %}

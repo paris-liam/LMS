@@ -183,7 +183,7 @@
     text-transform: uppercase;
     color: var(--lms-color-primary);
   }
-  .lms-eyebrow--parchment { color: var(--lms-text-on-dark); }
+  .lms-eyebrow--parchment { color: var(--color-foreground, var(--lms-text-on-dark)); }
 
   /* ---- Buttons (squared, per design system) — shared by lms-* sections ---- */
   .lms-btn {
@@ -227,13 +227,13 @@
   }
   .lms-btn--outline-inverse {
     background: transparent;
-    color: var(--lms-text-on-dark);
-    border: var(--lms-border-width) solid var(--lms-text-on-dark);
+    color: var(--color-foreground, var(--lms-text-on-dark));
+    border: var(--lms-border-width) solid var(--color-foreground, var(--lms-text-on-dark));
   }
   .lms-btn--outline-inverse:hover {
-    background: var(--lms-text-on-dark);
-    color: var(--lms-text-strong);
-    border-color: var(--lms-text-on-dark);
+    background: var(--color-foreground, var(--lms-text-on-dark));
+    color: var(--color-background, var(--lms-text-strong));
+    border-color: var(--color-foreground, var(--lms-text-on-dark));
   }
 
   /* ---- Badges (format / condition / rare / event audience) ---- */
