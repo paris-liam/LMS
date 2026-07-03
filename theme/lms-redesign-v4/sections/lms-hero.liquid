@@ -200,7 +200,13 @@
   transition: opacity var(--lms-dur-slow) var(--lms-ease-soft);
 }
 .lms-hero__slide.is-active { opacity: 1; }
-.lms-hero__slide img,
+.lms-hero__slide img {
+  width: 100%;
+  height: 100%;
+  /* Show the full image; the parchment slideshow background fills the gaps */
+  object-fit: contain;
+  display: block;
+}
 .lms-hero__slide-placeholder svg {
   width: 100%;
   height: 100%;
