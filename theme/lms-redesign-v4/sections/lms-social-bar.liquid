@@ -1,0 +1,179 @@
+{% comment %}
+  lms-social-bar — thin full-width utility strip: "FIND US" eyebrow + a row of
+  text platform links (repeatable blocks) + a right-aligned handle link.
+  Border/text contrast is computed dynamically via contrast-override so this
+  reads correctly on any background color a merchant picks.
+{% endcomment %}
+
+{% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
+<div class="lms-social-bar color-custom-{{ section.id }}"
+  style="--lms-pad-top: {{ section.settings.padding-block-start }}px; --lms-pad-bottom: {{ section.settings.padding-block-end }}px;"
+  {{ section.shopify_attributes }}>
+  <div class="lms-container">
+    <div class="lms-social-bar__row">
+      <div class="lms-social-bar__platforms">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="lms-social-bar__eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'social_link' and block.settings.label != blank -%}
+            {%- if forloop.index > 1 -%}
+              <span class="lms-social-bar__dot" aria-hidden="true">&middot;</span>
+            {%- endif -%}
+            <a
+              href="{{ block.settings.url | default: '#' }}"
+              class="lms-social-bar__link"
+              {% if block.settings.url != blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+              {{ block.shopify_attributes }}
+            >{{ block.settings.label }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.handle_text != blank -%}
+        {%- assign handle_href = section.settings.handle_link | default: 'https://www.instagram.com/littlemoviestore' -%}
+        <a
+          href="{{ handle_href }}"
+          class="lms-social-bar__handle"
+          target="_blank" rel="noopener noreferrer"
+        >{{ section.settings.handle_text }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+.lms-social-bar {
+  padding-block: var(--lms-pad-top, 28px) var(--lms-pad-bottom, 28px);
+  border-top: var(--lms-border-width-strong) solid var(--color-border, var(--lms-ink-900));
+  border-bottom: var(--lms-border-width-strong) solid var(--color-border, var(--lms-ink-900));
+}
+.lms-social-bar__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.lms-social-bar__platforms {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.lms-social-bar__eyebrow {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-med);
+  font-size: var(--lms-fs-eyebrow);
+  letter-spacing: var(--lms-tracking-eyebrow);
+  text-transform: uppercase;
+  color: color-mix(in oklch, currentColor 62%, transparent);
+  margin-right: 8px;
+}
+.lms-social-bar__link {
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-med);
+  font-size: 17px;
+  color: var(--color-foreground, inherit);
+  text-decoration: none;
+}
+.lms-social-bar__link:hover { color: var(--lms-brick); }
+.lms-social-bar__dot {
+  color: color-mix(in oklch, currentColor 35%, transparent);
+  font-size: 17px;
+}
+.lms-social-bar__handle {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-light);
+  font-size: 14px;
+  color: color-mix(in oklch, currentColor 65%, transparent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.lms-social-bar__handle:hover { color: var(--color-foreground, inherit); }
+@media screen and (max-width: 549px) {
+  .lms-social-bar__row { justify-content: center; text-align: center; }
+  .lms-social-bar__platforms { justify-content: center; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "LMS social bar",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Find us"
+    },
+    {
+      "type": "text",
+      "id": "handle_text",
+      "label": "Handle label",
+      "default": "@littlemoviestore"
+    },
+    {
+      "type": "url",
+      "id": "handle_link",
+      "label": "Handle link",
+      "info": "Defaults to the Instagram profile if left blank."
+    },
+    { "type": "header", "content": "Style" },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:settings.background_color",
+      "default": "#fff9ef"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "social_link",
+      "name": "Platform link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "TikTok"
+        },
+        { "type": "url", "id": "url", "label": "Link" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "LMS social bar",
+      "blocks": [
+        { "type": "social_link", "settings": { "label": "TikTok" } },
+        { "type": "social_link", "settings": { "label": "Instagram", "url": "https://www.instagram.com/littlemoviestore" } },
+        { "type": "social_link", "settings": { "label": "Threads" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
