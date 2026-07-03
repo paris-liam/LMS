@@ -336,7 +336,7 @@
             "links": {
               "type": "text",
               "settings": {
-                "text": "<p><a href=\"/pages/membership\">Join the club</a><br><a href=\"/pages/membership\">Member perks</a><br><a href=\"/pages/membership\">Birthday perk</a><br><a href=\"/pages/membership\">Gift a membership</a></p>",
+                "text": "<p><a href=\"/pages/membership\">Join the club</a><br><a href=\"/pages/membership\">Member perks</a><br><a href=\"/pages/membership\">Borrow buddy</a><br><a href=\"/pages/membership\">Refer a friend</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -384,12 +384,27 @@
       "type": "footer-utilities",
       "blocks": {
         "footer_copyright_jweRK8": {
-          "type": "footer-copyright",
+          "type": "text",
           "settings": {
-            "show_powered_by": true,
-            "text_color": "",
+            "text": "<p>&copy; 2026 Little Movie Store &middot; Made with love in South Philly</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
             "font_size": "0.75rem",
-            "case": "none"
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "#a9a299",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -403,22 +418,27 @@
           "blocks": {}
         },
         "social_links_Ew63Kq": {
-          "type": "social-links",
+          "type": "text",
           "settings": {
-            "icon_color": "",
-            "facebook_url": "https://www.facebook.com/",
-            "instagram_url": "https://www.instagram.com/",
-            "youtube_url": "https://www.youtube.com/",
-            "tiktok_url": "https://www.tiktok.com/",
-            "twitter_url": "https://x.com/",
-            "threads_url": "",
-            "linkedin_url": "",
-            "bluesky_url": "",
-            "snapchat_url": "",
-            "pinterest_url": "",
-            "tumblr_url": "",
-            "vimeo_url": "",
-            "custom_url": ""
+            "text": "<p><a href=\"https://www.tiktok.com/\" target=\"_blank\" rel=\"noopener noreferrer\">TikTok</a> &middot; <a href=\"https://www.instagram.com/littlemoviestore\" target=\"_blank\" rel=\"noopener noreferrer\">Instagram</a> &middot; <a href=\"https://www.threads.net/\" target=\"_blank\" rel=\"noopener noreferrer\">Threads</a></p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "0.75rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "text_color": "",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         }
@@ -433,7 +453,7 @@
         "section_width": "page-width",
         "gap": 24,
         "background_color": "#3a2018",
-        "divider_thickness": 0,
+        "divider_thickness": 1,
         "divider_color": "",
         "padding-block-start": 20,
         "padding-block-end": 48
