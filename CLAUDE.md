@@ -30,7 +30,7 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 
 | Theme | ID | Status |
 |-------|----|--------|
-| Working theme | `140897157182` | Current push/pull target on `lms-sandbox-lutsfahz.myshopify.com` |
+| Working theme (v4) | `140918915134` | Current push/pull target on `lms-sandbox-lutsfahz.myshopify.com` |
 
 ### Theme IDs on production store
 
@@ -47,13 +47,16 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 ## Repo layout
 
 ```
-theme/horizon-live-baseline/    ← pristine Horizon pull — READ-ONLY reference/rollback
-theme/lms-redesign/             ← working copy — edit and push here
+theme/horizon-baseline-3.5.1/   ← pristine Horizon 3.5.1 pull — READ-ONLY reference/rollback
+theme/lms-redesign/             ← superseded by lms-redesign-v4 — do not edit, kept for reference/rollback
+theme/lms-redesign-v4/          ← working copy (Horizon 4.1.1) — edit and push here
 lms-tokens.css                  ← source of truth for the design system (repo root)
 lms-supercycle-feature-plan.md  ← full Supercycle feature plan and buildability index
 ```
 
-Working branch: `feat/lms-redesign`
+All work now happens in `theme/lms-redesign-v4/`. `theme/lms-redesign/` (the pre-Horizon-4.1.1 copy) is retired — do not edit it or push from it; commits should never target it going forward.
+
+Working branch: `main`
 
 ---
 
@@ -160,7 +163,7 @@ All routine pushes, pulls, previews, and API scripts go to `lms-sandbox-lutsfahz
 ### Pull before push — always (production only, on explicit instruction)
 
 ```bash
-shopify theme pull --path theme/lms-redesign --store p0wkgv-wy.myshopify.com --theme 164180295930
+shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 164180295930
 ```
 
 The client edits colour schemes and section settings in the Shopify theme editor **on production**. Those edits exist only on the store. A blind push uploads the full local copy and silently overwrites them. Always pull first, reconcile any incoming changes with git, then push.
@@ -168,7 +171,7 @@ The client edits colour schemes and section settings in the Shopify theme editor
 For code-only changes, prefer a narrow push with `--only` to avoid touching merchant-managed files:
 
 ```bash
-shopify theme push --path theme/lms-redesign --store p0wkgv-wy.myshopify.com --theme 164180295930 --only sections/coming-soon.liquid
+shopify theme push --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 164180295930 --only sections/coming-soon.liquid
 ```
 
 ### `shopify theme dev` — run in your own terminal
@@ -179,18 +182,18 @@ shopify theme push --path theme/lms-redesign --store p0wkgv-wy.myshopify.com --t
 
 ```bash
 # Local preview (dev store)
-shopify theme dev --path theme/lms-redesign --store lms-sandbox-lutsfahz.myshopify.com
+shopify theme dev --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com
 
-# Push / pull dev store (working theme 140897157182)
-shopify theme push --path theme/lms-redesign --store lms-sandbox-lutsfahz.myshopify.com --theme 140897157182
-shopify theme pull --path theme/lms-redesign --store lms-sandbox-lutsfahz.myshopify.com --theme 140897157182
+# Push / pull dev store (working theme 140918915134)
+shopify theme push --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com --theme 140918915134
+shopify theme pull --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com --theme 140918915134
 
 # Deploy to PRODUCTION — only on explicit instruction (pull first!)
-shopify theme pull --path theme/lms-redesign --store p0wkgv-wy.myshopify.com --theme 164180295930
-shopify theme push --path theme/lms-redesign --store p0wkgv-wy.myshopify.com --theme 164180295930
+shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 164180295930
+shopify theme push --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 164180295930
 
 # Lint
-shopify theme check --path theme/lms-redesign
+shopify theme check --path theme/lms-redesign-v4
 ```
 
 ---
