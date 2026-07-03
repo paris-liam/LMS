@@ -6,8 +6,7 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
-{
+ */{
   "sections": {
     "section": {
       "type": "main-blog-post",
@@ -15,6 +14,7 @@
         "blog-post-title": {
           "type": "text",
           "name": "Title",
+          "static": true,
           "settings": {
             "text": "<h1>{{ article.title }}</h1>",
             "width": "100%",
@@ -27,6 +27,7 @@
             "letter_spacing": "normal",
             "case": "none",
             "wrap": "pretty",
+            "text_color": "",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -40,20 +41,22 @@
         "blog-post-details": {
           "type": "_blog-post-info-text",
           "name": "Details",
+          "static": true,
           "settings": {
             "show_date": true,
             "show_author": false,
             "type_preset": "",
             "alignment": "center",
             "show_alignment": true,
-            "padding-block-start": 0,
+            "padding-block-start": 24,
             "padding-block-end": 0
           },
           "blocks": {}
         },
         "blog-post-image": {
-          "type": "_blog-post-featured-image",
+          "type": "image",
           "name": "Featured image",
+          "static": true,
           "settings": {
             "image_ratio": "landscape",
             "width": "fill",
@@ -74,16 +77,11 @@
         },
         "blog-post-content": {
           "type": "_blog-post-content",
+          "static": true,
           "settings": {},
           "blocks": {}
         }
       },
-      "block_order": [
-        "blog-post-title",
-        "blog-post-details",
-        "blog-post-image",
-        "blog-post-content"
-      ],
       "settings": {
         "content_direction": "column",
         "gap": 32,

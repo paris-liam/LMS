@@ -6,8 +6,7 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */
-{
+ */{
   "sections": {
     "cart-section": {
       "type": "main-cart",
@@ -47,6 +46,7 @@
           "static": true,
           "settings": {
             "extend_summary": true,
+            "background_color": "#3a2018",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -100,7 +100,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h2>You may also like</h2>",
+                "text": "<h3>You may also like</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -111,6 +111,7 @@
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
+                "text_color": "var(--color-foreground)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -127,7 +128,7 @@
               "settings": {
                 "label": "View all",
                 "open_in_new_tab": false,
-                "style_class": "button-unstyled",
+                "style_class": "link",
                 "width": "fit-content",
                 "custom_width": 100,
                 "width_mobile": "fit-content",
@@ -180,13 +181,14 @@
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "paragraph",
+                "type_preset": "rte",
                 "font": "var(--font-body--family)",
                 "font_size": "",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
+                "text_color": "var(--color-foreground)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -212,6 +214,7 @@
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
+                "text_color": "var(--color-foreground)",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -227,7 +230,7 @@
           ]
         }
       },
-      "name": "t:names.featured_collection",
+      "name": "Featured collection",
       "settings": {
         "collection": "all",
         "layout_type": "grid",
