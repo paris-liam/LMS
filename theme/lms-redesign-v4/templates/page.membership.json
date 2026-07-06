@@ -1,0 +1,90 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "content_direction": "column",
+        "gap": 32,
+        "background_color": "",
+        "padding-block-start": 40,
+        "padding-block-end": 80
+      }
+    },
+    "1780928794877ebf06": {
+      "type": "_blocks",
+      "blocks": {
+        "supercycle_membership_plans_MdRHJR": {
+          "type": "shopify://apps/supercycle/blocks/membership-plans/7b3228ed-a72a-4935-9fee-0cebe8daa0aa",
+          "settings": {
+            "collection": "plans",
+            "groups": "billing",
+            "value_labels": "",
+            "credit_name": "items",
+            "redirect_to_last_product_page": true,
+            "redirect_type": "custom",
+            "redirect_url": "",
+            "create_account": false,
+            "button_label": "Select plan",
+            "membership_in_cart_message": "A membership is already in cart",
+            "button_class": "button button--secondary",
+            "primary_button_class": "button button--primary",
+            "color_background": "#ffffff",
+            "color_plan_background": "#f5f5f5",
+            "color_plan_text": "#000000",
+            "color_plan_border": "#000000",
+            "plan_border_radius": 8,
+            "space": 20,
+            "padding_top": 40,
+            "padding_bottom": 52,
+            "template": "<p class=\"h2 plan-card-title\">[plan_title]</p>\n<p class=\"h1 plan-card-price\">[plan_price]</p>\n<p class=\"plan-card-interval\">Billed [plan_billing_interval]</p>\n<p class=\"plan-card-credits h3\">\n  [plan_credit_allowance] {{block.settings.credit_name}}\n</p>\n<div class=\"plan-card-features rte\">[plan_description]</div>\n<div class=\"plan-card-button\">\n  [plan_button]\n</div>",
+            "custom_css": ""
+          }
+        }
+      },
+      "block_order": [
+        "supercycle_membership_plans_MdRHJR"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 12,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "background_media": "none",
+        "background_color": "",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_color": "",
+        "border_radius": 0,
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1780928794877ebf06"
+  ]
+}

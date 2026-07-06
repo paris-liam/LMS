@@ -9,19 +9,6 @@
   assign slide_blocks = section.blocks | where: 'type', 'slide'
   assign button_blocks = section.blocks | where: 'type', 'button'
   assign info_blocks = section.blocks | where: 'type', 'info_item'
-
-  # Gates on the 'Has active subscription' tag Supercycle applies to members.
-  assign is_member = false
-  if customer and customer.tags contains 'Has active subscription'
-    assign is_member = true
-  endif
-
-  assign visible_button_count = 0
-  for block in button_blocks
-    unless is_member and block.settings.hide_if_member
-      assign visible_button_count = visible_button_count | plus: 1
-    endunless
-  endfor
 -%}
 
 {% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
@@ -47,19 +34,14 @@
           <div class="lms-hero__body rte">{{ section.settings.body }}</div>
         {%- endif -%}
 
-        {%- if visible_button_count > 0 -%}
+        {%- if button_blocks.size > 0 -%}
           <div class="lms-hero__actions">
-            {%- assign shown_buttons = 0 -%}
-            {%- for block in button_blocks -%}
-              {%- if shown_buttons >= 2 -%}{%- break -%}{%- endif -%}
-              {%- unless is_member and block.settings.hide_if_member -%}
-                {%- assign shown_buttons = shown_buttons | plus: 1 -%}
-                <a href="{{ block.settings.link | default: '#' }}"
-                   class="lms-btn lms-btn--lg lms-btn--{{ block.settings.style }}"
-                   {{ block.shopify_attributes }}>
-                  {{- block.settings.label -}}
-                </a>
-              {%- endunless -%}
+            {%- for block in button_blocks limit: 2 -%}
+              <a href="{{ block.settings.link | default: '#' }}"
+                 class="lms-btn lms-btn--lg lms-btn--{{ block.settings.style }}"
+                 {{ block.shopify_attributes }}>
+                {{- block.settings.label -}}
+              </a>
             {%- endfor -%}
           </div>
         {%- endif -%}
@@ -464,13 +446,6 @@
             { "value": "primary", "label": "Solid" },
             { "value": "outline", "label": "Outline" }
           ]
-        },
-        {
-          "type": "checkbox",
-          "id": "hide_if_member",
-          "label": "Hide for members",
-          "info": "Hides this button for customers with an active membership.",
-          "default": false
         }
       ]
     },
@@ -503,7 +478,7 @@
         { "type": "slide" },
         {
           "type": "button",
-          "settings": { "label": "Join the club →", "style": "primary", "hide_if_member": true }
+          "settings": { "label": "Join the club →", "style": "primary" }
         },
         {
           "type": "button",

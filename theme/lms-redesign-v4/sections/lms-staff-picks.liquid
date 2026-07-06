@@ -1,20 +1,18 @@
 {% comment %}
   lms-staff-picks — side panel (left) + picks grid (right).
 
-  Product source is configurable: a collection, or products carrying a tag
-  (default "Staff Picks"). The shelf note is pulled from the product
-  metafield `custom.staff_note` (Admin → Custom data → Products) regardless
-  of source — fill it in on any product to show a quote here. The section
-  shows the first N products from the chosen source, in that source's order
-  (collection sort order, or default product sort for tag mode).
+  Picks are driven by a `staff_pick` metaobject (Admin → Content):
+    - product     Product reference (poster, title, and link come from it)
+    - quote       Multi-line text (the shelf note)
+    - staff_name  Single-line text
+  Staff updates picks weekly in Admin → Content; the homepage and any
+  full-list page render from the same records. Entries display in the
+  order returned by the metaobject list; the section shows the first N.
+  Storefront access must be enabled on the metaobject definition.
 {% endcomment %}
 
 {%- liquid
-  if section.settings.source_type == 'collection' and section.settings.collection != blank
-    assign picks = section.settings.collection.products
-  else
-    assign picks = collections.all.products | where: 'tags', section.settings.tag
-  endif
+  assign picks = shop.metaobjects.staff_pick.values
   assign picks_limit = section.settings.picks_to_show
 -%}
 
@@ -44,33 +42,35 @@
 
       <div class="lms-staff__grid">
         {%- assign shown = 0 -%}
-        {%- for pick_product in picks -%}
+        {%- for pick in picks -%}
           {%- if shown >= picks_limit -%}{% break %}{%- endif -%}
-          {%- assign shown = shown | plus: 1 -%}
-          <div class="lms-staff__pick">
-            <a href="{{ pick_product.url }}" class="lms-staff__poster">
-              {%- if pick_product.featured_image -%}
-                {{ pick_product.featured_image
-                  | image_url: width: 450
-                  | image_tag: widths: '300, 450', sizes: '(max-width: 549px) 45vw, 16vw', loading: 'lazy', alt: pick_product.featured_image.alt | default: pick_product.title }}
-              {%- else -%}
-                {{ 'product-1' | placeholder_svg_tag }}
+          {%- assign pick_product = pick.product.value -%}
+          {%- if pick_product -%}
+            {%- assign shown = shown | plus: 1 -%}
+            <div class="lms-staff__pick">
+              <a href="{{ pick_product.url }}" class="lms-staff__poster">
+                {%- if pick_product.featured_image -%}
+                  {{ pick_product.featured_image
+                    | image_url: width: 450
+                    | image_tag: widths: '300, 450', sizes: '(max-width: 549px) 45vw, 16vw', loading: 'lazy', alt: pick_product.featured_image.alt | default: pick_product.title }}
+                {%- else -%}
+                  {{ 'product-1' | placeholder_svg_tag }}
+                {%- endif -%}
+              </a>
+              <div class="lms-staff__title">{{ pick_product.title }}</div>
+              {%- if pick.quote.value != blank -%}
+                <div class="lms-staff__quote">“{{ pick.quote.value }}”</div>
               {%- endif -%}
-            </a>
-            <div class="lms-staff__title">{{ pick_product.title }}</div>
-            {%- if pick_product.metafields.custom.staff_note.value != blank -%}
-              <div class="lms-staff__quote">“{{ pick_product.metafields.custom.staff_note.value }}”</div>
-            {%- endif -%}
-          </div>
+              {%- if pick.staff_name.value != blank -%}
+                <div class="lms-staff__by">— Picked by {{ pick.staff_name.value }}</div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
         {%- endfor -%}
 
         {%- if shown == 0 -%}
           <div class="lms-staff__empty">
-            {%- if section.settings.source_type == 'collection' -%}
-              No picks yet. Choose a collection above, and add a Staff Pick Note to its products under Custom data.
-            {%- else -%}
-              No picks yet. Tag a product "{{ section.settings.tag }}" and add its Staff Pick Note under Custom data and it'll appear here automatically.
-            {%- endif -%}
+            No picks yet. Add staff picks under Admin → Content → Staff picks and they'll appear here automatically.
           </div>
         {%- endif -%}
       </div>
@@ -217,7 +217,7 @@
   "settings": [
     {
       "type": "paragraph",
-      "content": "The shelf note comes from each product's Staff Pick Note field under Custom data → Products, regardless of source."
+      "content": "Picks are managed under Admin → Content → Staff picks. Each pick links a product with a shelf note and a staff name."
     },
     { "type": "header", "content": "Side panel" },
     {
@@ -247,29 +247,6 @@
     },
     { "type": "url", "id": "link", "label": "Link" },
     { "type": "header", "content": "Picks" },
-    {
-      "type": "select",
-      "id": "source_type",
-      "label": "Product source",
-      "options": [
-        { "value": "tag", "label": "Products with a tag" },
-        { "value": "collection", "label": "Collection" }
-      ],
-      "default": "tag"
-    },
-    {
-      "type": "text",
-      "id": "tag",
-      "label": "Tag",
-      "default": "Staff Picks",
-      "info": "Used when source is \"Products with a tag\"."
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection",
-      "info": "Used when source is \"Collection\"."
-    },
     {
       "type": "range",
       "id": "picks_to_show",

@@ -58,7 +58,7 @@
 {% endcapture %}
 
 {% liquid
-  # Gates on the 'Has active subscription' tag Supercycle applies to members.
+  # STAND-IN: gates on customer.tags 'Has active subscription' until Supercycle installs (see CLAUDE.md).
   assign is_member = true
   if section and section.settings.enable_membership_gating
     assign is_member = false
