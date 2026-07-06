@@ -1262,6 +1262,30 @@
     },
     {
       "type": "header",
+      "content": "Membership"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_membership_gating",
+      "label": "Show \"Join the club\" button for non-members",
+      "info": "Replaces the account icon with a join button when the customer has no active membership.",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "join_club_url",
+      "label": "Join the club link",
+      "visible_if": "{{ section.settings.enable_membership_gating }}"
+    },
+    {
+      "type": "text",
+      "id": "join_club_label",
+      "label": "Button label",
+      "default": "Join the club",
+      "visible_if": "{{ section.settings.enable_membership_gating }}"
+    },
+    {
+      "type": "header",
       "content": "t:content.search"
     },
     {
