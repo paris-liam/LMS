@@ -175,12 +175,79 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
+    },
+    "membership_perks": {
+      "type": "lms-perks-grid",
+      "blocks": {
+        "perk_1": { "type": "perk", "settings": { "number": "01", "title": "The rental library", "body": "Run of the whole borrow-buddy library, all year. Be our borrow buddy." } },
+        "perk_2": { "type": "perk", "settings": { "number": "02", "title": "10% off everything", "body": "Every purchase, every visit, every format. No fine print." } },
+        "perk_3": { "type": "perk", "settings": { "number": "03", "title": "A free birthday movie", "body": "Pick anything off the shelf on your birthday — it's on us." } },
+        "perk_4": { "type": "perk", "settings": { "number": "04", "title": "Members events", "body": "First invites to screenings, closet tours, and movie nights." } },
+        "perk_5": { "type": "perk", "settings": { "number": "05", "title": "First dibs on drops", "body": "Shop the weekly drop and mystery bags before they hit the floor." } },
+        "perk_6": { "type": "perk", "settings": { "number": "06", "title": "Bring a friend", "body": "A guest pass so you never have to come browse alone." } }
+      },
+      "block_order": ["perk_1", "perk_2", "perk_3", "perk_4", "perk_5", "perk_6"],
+      "settings": {
+        "eyebrow": "What you get",
+        "heading": "A year of belonging, for $100.",
+        "subheading": "Six small reasons it pays to be a regular. Most members make the hundred back by spring.",
+        "background_color": "",
+        "padding-block-start": 84,
+        "padding-block-end": 84
+      }
+    },
+    "membership_closing_cta": {
+      "type": "hero",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Meet me at the movie store.</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h2"
+          }
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Built by movie lovers, for everyone. Come be a regular.</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "rte"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "label": "Become a member · $100/yr",
+            "link": "#shopify-section-1780928794877ebf06",
+            "style_class": "button"
+          }
+        }
+      },
+      "block_order": ["heading", "body", "button"],
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "section_width": "page-width",
+        "section_height": "small",
+        "background_color": "#3a2018",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
     }
   },
   "order": [
     "main",
     "membership_hero",
     "membership_marquee",
-    "1780928794877ebf06"
+    "membership_perks",
+    "1780928794877ebf06",
+    "membership_closing_cta"
   ]
 }
