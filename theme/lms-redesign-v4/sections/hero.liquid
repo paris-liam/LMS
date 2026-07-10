@@ -324,7 +324,7 @@
   {{ media_slot_1 }}
   {{ media_slot_2 }}
 
-  {% if media_count == 0 %}
+  {% if media_count == 0 and section.settings.hide_placeholder_when_empty != true %}
     {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__media' }}
   {%- endif -%}
 {% endcapture %}
@@ -356,7 +356,7 @@
         sizes: sizes
     }}
   {% endif %}
-  {% if media_count == 0 %}
+  {% if media_count == 0 and section.settings.hide_placeholder_when_empty != true %}
     {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__media' }}
   {% endif %}
 {% endcapture %}
@@ -440,7 +440,7 @@
               sizes: sizes
             }}
         {% endif %}
-        {% if media_count == 0 %}
+        {% if media_count == 0 and section.settings.hide_placeholder_when_empty != true %}
           {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__media' }}
         {% endif %}
       {% endif %}
@@ -1152,6 +1152,13 @@
       "id": "background_color",
       "label": "t:settings.background_color",
       "placeholder": "t:settings.default"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_placeholder_when_empty",
+      "label": "Hide placeholder image when no media is set",
+      "default": false,
+      "info": "When enabled, no placeholder artwork is shown if no image or video is configured — useful for a solid-color, text-only hero."
     },
     {
       "type": "checkbox",

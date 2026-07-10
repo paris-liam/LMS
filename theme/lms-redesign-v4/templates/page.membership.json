@@ -53,7 +53,7 @@
           "type": "button",
           "settings": {
             "label": "Become a member",
-            "link": "#shopify-section-1780928794877ebf06",
+            "link": "#plans",
             "style_class": "button"
           }
         },
@@ -61,7 +61,7 @@
           "type": "button",
           "settings": {
             "label": "See what's included ↓",
-            "link": "#shopify-section-membership_perks",
+            "link": "#perks",
             "style_class": "button-unstyled"
           }
         },
@@ -84,6 +84,7 @@
         "section_width": "page-width",
         "section_height": "auto",
         "background_color": "#973123",
+        "hide_placeholder_when_empty": true,
         "padding-block-start": 72,
         "padding-block-end": 60
       }
@@ -223,7 +224,7 @@
           "type": "button",
           "settings": {
             "label": "Become a member · $100/yr",
-            "link": "#shopify-section-1780928794877ebf06",
+            "link": "#plans",
             "style_class": "button"
           }
         }
@@ -237,6 +238,7 @@
         "section_width": "page-width",
         "section_height": "small",
         "background_color": "#3a2018",
+        "hide_placeholder_when_empty": true,
         "padding-block-start": 80,
         "padding-block-end": 80
       }

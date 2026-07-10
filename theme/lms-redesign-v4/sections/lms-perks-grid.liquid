@@ -4,7 +4,7 @@
 {% endcomment %}
 
 {% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
-<div class="lms-perks color-custom-{{ section.id }}"
+<div id="perks" class="lms-perks color-custom-{{ section.id }}"
   style="--lms-pad-top: {{ section.settings.padding-block-start }}px; --lms-pad-bottom: {{ section.settings.padding-block-end }}px;"
   {{ section.shopify_attributes }}>
   <div class="lms-container">
@@ -29,6 +29,7 @@
         {%- endfor -%}
       </div>
     {%- endif -%}
+    <div id="plans" aria-hidden="true"></div>
   </div>
 </div>
 
@@ -36,6 +37,10 @@
 .lms-perks {
   background: var(--lms-bg, var(--lms-parchment));
   padding-block: var(--lms-pad-top, 84px) var(--lms-pad-bottom, 84px);
+  scroll-margin-top: 100px;
+}
+#plans {
+  scroll-margin-top: 100px;
 }
 .lms-perks__header {
   text-align: center;
