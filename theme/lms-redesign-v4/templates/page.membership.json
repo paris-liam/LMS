@@ -62,7 +62,8 @@
           "settings": {
             "label": "See what's included ↓",
             "link": "#perks",
-            "style_class": "button-unstyled"
+            "style_class": "button-unstyled",
+            "link_text_color": "#fff9ef"
           }
         },
         "fine_print": {
