@@ -19,6 +19,100 @@
         "padding-block-end": 80
       }
     },
+    "membership_hero": {
+      "type": "hero",
+      "blocks": {
+        "eyebrow": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Little Movie Club · $100/year</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "type_preset": "h6"
+          }
+        },
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Become a member.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "type_preset": "h1"
+          }
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The club isn't really about the perks — it's about belonging to a place that's as much yours as it is ours. One flat year. Renters become buyers. That's the whole game, baby.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "type_preset": "rte"
+          }
+        },
+        "button_primary": {
+          "type": "button",
+          "settings": {
+            "label": "Become a member",
+            "link": "#shopify-section-1780928794877ebf06",
+            "style_class": "button"
+          }
+        },
+        "button_secondary": {
+          "type": "button",
+          "settings": {
+            "label": "See what's included ↓",
+            "link": "#shopify-section-membership_perks",
+            "style_class": "button-unstyled"
+          }
+        },
+        "fine_print": {
+          "type": "text",
+          "settings": {
+            "text": "<p>No app. No fine print. Cancel anytime — just bring yourself.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "type_preset": "rte"
+          }
+        }
+      },
+      "block_order": ["eyebrow", "heading", "body", "button_primary", "button_secondary", "fine_print"],
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "flex-start",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 20,
+        "section_width": "page-width",
+        "section_height": "auto",
+        "background_color": "#973123",
+        "padding-block-start": 72,
+        "padding-block-end": 60
+      }
+    },
+    "membership_marquee": {
+      "type": "marquee",
+      "blocks": {
+        "item_1": { "type": "text", "settings": { "text": "<p>Rental library</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "0.18em", "case": "uppercase", "wrap": "pretty", "text_color": "", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "sep_1": { "type": "text", "settings": { "text": "<p>✦</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "normal", "case": "none", "wrap": "pretty", "text_color": "#8fcdcf", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "item_2": { "type": "text", "settings": { "text": "<p>10% off everything</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "0.18em", "case": "uppercase", "wrap": "pretty", "text_color": "", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "sep_2": { "type": "text", "settings": { "text": "<p>✦</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "normal", "case": "none", "wrap": "pretty", "text_color": "#8fcdcf", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "item_3": { "type": "text", "settings": { "text": "<p>Free birthday movie</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "0.18em", "case": "uppercase", "wrap": "pretty", "text_color": "", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "sep_3": { "type": "text", "settings": { "text": "<p>✦</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "normal", "case": "none", "wrap": "pretty", "text_color": "#8fcdcf", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "item_4": { "type": "text", "settings": { "text": "<p>Members events</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "0.18em", "case": "uppercase", "wrap": "pretty", "text_color": "", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "sep_4": { "type": "text", "settings": { "text": "<p>✦</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "normal", "case": "none", "wrap": "pretty", "text_color": "#8fcdcf", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "item_5": { "type": "text", "settings": { "text": "<p>First dibs on drops</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "0.18em", "case": "uppercase", "wrap": "pretty", "text_color": "", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "sep_5": { "type": "text", "settings": { "text": "<p>✦</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "normal", "case": "none", "wrap": "pretty", "text_color": "#8fcdcf", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "item_6": { "type": "text", "settings": { "text": "<p>Bring a friend</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "0.18em", "case": "uppercase", "wrap": "pretty", "text_color": "", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} },
+        "sep_6": { "type": "text", "settings": { "text": "<p>✦</p>", "width": "fit-content", "max_width": "normal", "alignment": "left", "type_preset": "rte", "font": "var(--font-body--family)", "font_size": "0.75rem", "line_height": "normal", "letter_spacing": "normal", "case": "none", "wrap": "pretty", "text_color": "#8fcdcf", "background": false, "background_color": "#00000026", "corner_radius": 0, "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0 }, "blocks": {} }
+      },
+      "block_order": ["item_1", "sep_1", "item_2", "sep_2", "item_3", "sep_3", "item_4", "sep_4", "item_5", "sep_5", "item_6", "sep_6"],
+      "settings": {
+        "movement_direction": "normal",
+        "background_color": "#3a2018",
+        "padding-block-start": 12,
+        "padding-block-end": 12,
+        "gap_between_elements": 22
+      }
+    },
     "1780928794877ebf06": {
       "type": "_blocks",
       "blocks": {
@@ -85,6 +179,8 @@
   },
   "order": [
     "main",
+    "membership_hero",
+    "membership_marquee",
     "1780928794877ebf06"
   ]
 }
