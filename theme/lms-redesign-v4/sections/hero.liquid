@@ -462,6 +462,7 @@
     --hero-border-width: {{ section.settings.border_width }}px;
     --hero-border-opacity: {{ section.settings.border_opacity }}%;
     --blur-opacity: {{ section.settings.reflection_opacity | divided_by: 100.0 }};
+    {% if section.settings.text_color != blank %}--color: {{ section.settings.text_color }};{% endif %}
     {% if section.settings.section_height == 'custom' %}
       --hero-min-height: {{ section.settings.section_height_custom }}svh;
     {% elsif section.settings.section_height == "full-screen" %}
@@ -1159,6 +1160,12 @@
       "label": "Hide placeholder image when no media is set",
       "default": false,
       "info": "When enabled, no placeholder artwork is shown if no image or video is configured — useful for a solid-color, text-only hero."
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "info": "Overrides the default text color for this section. Leave blank to use the theme's default."
     },
     {
       "type": "checkbox",

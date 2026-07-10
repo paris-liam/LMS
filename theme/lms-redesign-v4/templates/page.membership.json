@@ -85,6 +85,7 @@
         "section_height": "auto",
         "background_color": "#973123",
         "hide_placeholder_when_empty": true,
+        "text_color": "#fff9ef",
         "padding-block-start": 72,
         "padding-block-end": 60
       }
@@ -239,6 +240,7 @@
         "section_height": "small",
         "background_color": "#3a2018",
         "hide_placeholder_when_empty": true,
+        "text_color": "#fff9ef",
         "padding-block-start": 80,
         "padding-block-end": 80
       }
