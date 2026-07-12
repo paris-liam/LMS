@@ -15,8 +15,8 @@
         "content_direction": "column",
         "gap": 32,
         "background_color": "",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "membership_hero": {
