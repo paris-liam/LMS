@@ -186,12 +186,12 @@
             "color_plan_background": "#fff9ef",
             "color_plan_text": "#3a2018",
             "color_plan_border": "#8fcdcf",
-            "plan_border_radius": 4,
+            "plan_border_radius": 8,
             "space": 20,
             "padding_top": 40,
             "padding_bottom": 52,
             "template": "<p class=\"h2 plan-card-title\">[plan_title]</p>\n<p class=\"h1 plan-card-price\">[plan_price]</p>\n<p class=\"plan-card-interval\">Billed [plan_billing_interval]</p>\n<p class=\"plan-card-credits h3\">\n  [plan_credit_allowance] {{block.settings.credit_name}}\n</p>\n<div class=\"plan-card-features rte\">[plan_description]</div>\n<div class=\"plan-card-button\">\n  [plan_button]\n</div>",
-            "custom_css": ".plan-card-title { font-family: var(--lms-font-display); } .plan-card-price, .plan-card-interval, .plan-card-credits, .plan-card-features, .plan-card-button { font-family: var(--lms-font-mono); }"
+            "custom_css": ".plan-card-title { font-family: var(--lms-font-display); } .plan-card-price, .plan-card-interval, .plan-card-credits, .plan-card-features, .plan-card-button { font-family: var(--lms-font-mono); } .plan-card-wrapper { box-shadow: 0 1px 2px rgba(58, 32, 24, 0.08); padding: 32px 30px; }"
           }
         }
       },
