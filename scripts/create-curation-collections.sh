@@ -23,20 +23,25 @@ QUERY='mutation Create($input: CollectionInput!) {
   collectionCreate(input: $input) { collection { id handle } userErrors { field message } }
 }'
 
-# title | tag
+# title | tag | handle
+# An explicit deterministic handle is set so a re-run collides on a unique
+# handle and returns a "handle has already been taken" userError (caught
+# below as "exists (ok)"). Without it, collectionCreate would silently mint
+# a suffixed duplicate (staff-picks-2) on re-run instead of being a no-op.
 COLLECTIONS=$(cat <<'JSON'
 [
-  { "title":"Staff Picks",   "tag":"staff-pick" },
-  { "title":"Rare Finds",    "tag":"rare" },
-  { "title":"Holiday Movies","tag":"holiday" }
+  { "title":"Staff Picks",   "tag":"staff-pick", "handle":"staff-picks" },
+  { "title":"Rare Finds",    "tag":"rare",       "handle":"rare-finds" },
+  { "title":"Holiday Movies","tag":"holiday",    "handle":"holiday-movies" }
 ]
 JSON
 )
 
 echo "$COLLECTIONS" | jq -c '.[]' | while read -r C; do
-  TITLE=$(echo "$C" | jq -r '.title'); TAG=$(echo "$C" | jq -r '.tag')
-  INPUT=$(jq -n --arg t "$TITLE" --arg tag "$TAG" '{
+  TITLE=$(echo "$C" | jq -r '.title'); TAG=$(echo "$C" | jq -r '.tag'); HANDLE=$(echo "$C" | jq -r '.handle')
+  INPUT=$(jq -n --arg t "$TITLE" --arg tag "$TAG" --arg h "$HANDLE" '{
     title:$t,
+    handle:$h,
     ruleSet:{ appliedDisjunctively:false, rules:[{ column:"TAG", relation:"EQUALS", condition:$tag }] }
   }')
   RESP=$(curl -sS "https://${STORE}/admin/api/${API_VERSION}/graphql.json" \

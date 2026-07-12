@@ -11,7 +11,7 @@ Put the **synopsis** in the normal product **Description** box. Add the cover ar
 | Director | Type the director's name. |
 | Year | Release year (number). |
 | Decade | Pick the era from the dropdown (must match the year). |
-| Country | Country of origin. |
+| Country | Country of origin. For a co-production, enter the primary country (one value for now). |
 | Runtime (min) | Runtime in minutes (number). |
 | Genres | Tick every genre that applies. |
 | Format | Pick one: Blu-ray / DVD / 4K UHD / VHS. |
