@@ -249,53 +249,6 @@
         "padding-block-start": 84,
         "padding-block-end": 84
       }
-    },
-    "membership_closing_cta": {
-      "type": "hero",
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Meet me at the movie store.</p>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "h2"
-          }
-        },
-        "body": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Built by movie lovers, for everyone. Come be a regular.</p>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "label": "Become a member · $100/yr",
-            "link": "#plans",
-            "style_class": "button"
-          }
-        }
-      },
-      "block_order": ["heading", "body", "button"],
-      "settings": {
-        "content_direction": "column",
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 20,
-        "section_width": "page-width",
-        "section_height": "small",
-        "background_color": "#3a2018",
-        "hide_placeholder_when_empty": true,
-        "text_color": "#fff9ef",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
     }
   },
   "order": [
@@ -303,7 +256,6 @@
     "membership_hero",
     "membership_marquee",
     "membership_perks",
-    "1780928794877ebf06",
-    "membership_closing_cta"
+    "1780928794877ebf06"
   ]
 }
