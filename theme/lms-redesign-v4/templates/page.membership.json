@@ -105,9 +105,10 @@
         "gap": 40,
         "section_width": "page-width",
         "section_height": "auto",
-        "background_color": "#973123",
+        "background_color": "#5f8d7a",
         "hide_placeholder_when_empty": true,
         "text_color": "#fff9ef",
+        "show_background_monograms": true,
         "padding-block-start": 72,
         "padding-block-end": 60
       }
