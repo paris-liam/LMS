@@ -15,8 +15,8 @@
         "content_direction": "column",
         "gap": 32,
         "background_color": "",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "membership_hero": {
@@ -105,9 +105,10 @@
         "gap": 40,
         "section_width": "page-width",
         "section_height": "auto",
-        "background_color": "#973123",
+        "background_color": "#5f8d7a",
         "hide_placeholder_when_empty": true,
         "text_color": "#fff9ef",
+        "show_background_monograms": true,
         "padding-block-start": 72,
         "padding-block-end": 60
       }
@@ -185,12 +186,12 @@
             "color_plan_background": "#fff9ef",
             "color_plan_text": "#3a2018",
             "color_plan_border": "#8fcdcf",
-            "plan_border_radius": 4,
+            "plan_border_radius": 8,
             "space": 20,
             "padding_top": 40,
             "padding_bottom": 52,
             "template": "<p class=\"h2 plan-card-title\">[plan_title]</p>\n<p class=\"h1 plan-card-price\">[plan_price]</p>\n<p class=\"plan-card-interval\">Billed [plan_billing_interval]</p>\n<p class=\"plan-card-credits h3\">\n  [plan_credit_allowance] {{block.settings.credit_name}}\n</p>\n<div class=\"plan-card-features rte\">[plan_description]</div>\n<div class=\"plan-card-button\">\n  [plan_button]\n</div>",
-            "custom_css": ".plan-card-title { font-family: var(--lms-font-display); } .plan-card-price, .plan-card-interval, .plan-card-credits, .plan-card-features, .plan-card-button { font-family: var(--lms-font-mono); }"
+            "custom_css": ".plan-card-title { font-family: var(--lms-font-display); } .plan-card-price, .plan-card-interval, .plan-card-credits, .plan-card-features, .plan-card-button { font-family: var(--lms-font-mono); } .plan-card-wrapper { box-shadow: 0 1px 2px rgba(58, 32, 24, 0.08); padding: 32px 30px; }"
           }
         }
       },
@@ -248,53 +249,6 @@
         "padding-block-start": 84,
         "padding-block-end": 84
       }
-    },
-    "membership_closing_cta": {
-      "type": "hero",
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Meet me at the movie store.</p>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "h2"
-          }
-        },
-        "body": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Built by movie lovers, for everyone. Come be a regular.</p>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "label": "Become a member · $100/yr",
-            "link": "#plans",
-            "style_class": "button"
-          }
-        }
-      },
-      "block_order": ["heading", "body", "button"],
-      "settings": {
-        "content_direction": "column",
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 20,
-        "section_width": "page-width",
-        "section_height": "small",
-        "background_color": "#3a2018",
-        "hide_placeholder_when_empty": true,
-        "text_color": "#fff9ef",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
     }
   },
   "order": [
@@ -302,7 +256,6 @@
     "membership_hero",
     "membership_marquee",
     "membership_perks",
-    "1780928794877ebf06",
-    "membership_closing_cta"
+    "1780928794877ebf06"
   ]
 }
