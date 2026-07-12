@@ -8,6 +8,7 @@
   assign media_2_mobile = 'none'
   assign has_only_video = false
   assign has_only_video_mobile = false
+  assign has_membership_card = section.blocks | where: 'type', 'lms-membership-card' | size
 
   # Desktop media checks
   # For each media slot, check if the media is not blank and the media type matches the slot
@@ -525,7 +526,7 @@
           render 'overlay', settings: section.settings
         endif
       %}
-      {{ media }}
+      {%- unless has_membership_card > 0 -%}{{ media }}{%- endunless -%}
     </div>
     <div
       class="
@@ -777,6 +778,9 @@
     },
     {
       "type": "group"
+    },
+    {
+      "type": "lms-membership-card"
     },
     {
       "type": "_marquee"
