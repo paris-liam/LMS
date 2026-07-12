@@ -8,6 +8,7 @@
   assign media_2_mobile = 'none'
   assign has_only_video = false
   assign has_only_video_mobile = false
+  assign has_membership_card = section.blocks | where: 'type', 'lms-membership-card' | size
 
   # Desktop media checks
   # For each media slot, check if the media is not blank and the media type matches the slot
@@ -324,7 +325,7 @@
   {{ media_slot_1 }}
   {{ media_slot_2 }}
 
-  {% if media_count == 0 %}
+  {% if media_count == 0 and section.settings.hide_placeholder_when_empty != true %}
     {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__media' }}
   {%- endif -%}
 {% endcapture %}
@@ -356,7 +357,7 @@
         sizes: sizes
     }}
   {% endif %}
-  {% if media_count == 0 %}
+  {% if media_count == 0 and section.settings.hide_placeholder_when_empty != true %}
     {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__media' }}
   {% endif %}
 {% endcapture %}
@@ -440,7 +441,7 @@
               sizes: sizes
             }}
         {% endif %}
-        {% if media_count == 0 %}
+        {% if media_count == 0 and section.settings.hide_placeholder_when_empty != true %}
           {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero__media' }}
         {% endif %}
       {% endif %}
@@ -462,6 +463,7 @@
     --hero-border-width: {{ section.settings.border_width }}px;
     --hero-border-opacity: {{ section.settings.border_opacity }}%;
     --blur-opacity: {{ section.settings.reflection_opacity | divided_by: 100.0 }};
+    {% if section.settings.text_color != blank %}--color: {{ section.settings.text_color }};{% endif %}
     {% if section.settings.section_height == 'custom' %}
       --hero-min-height: {{ section.settings.section_height_custom }}svh;
     {% elsif section.settings.section_height == "full-screen" %}
@@ -524,7 +526,7 @@
           render 'overlay', settings: section.settings
         endif
       %}
-      {{ media }}
+      {%- unless has_membership_card > 0 -%}{{ media }}{%- endunless -%}
     </div>
     <div
       class="
@@ -776,6 +778,9 @@
     },
     {
       "type": "group"
+    },
+    {
+      "type": "lms-membership-card"
     },
     {
       "type": "_marquee"
@@ -1152,6 +1157,19 @@
       "id": "background_color",
       "label": "t:settings.background_color",
       "placeholder": "t:settings.default"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_placeholder_when_empty",
+      "label": "Hide placeholder image when no media is set",
+      "default": false,
+      "info": "When enabled, no placeholder artwork is shown if no image or video is configured — useful for a solid-color, text-only hero."
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "info": "Overrides the default text color for this section. Leave blank to use the theme's default."
     },
     {
       "type": "checkbox",
