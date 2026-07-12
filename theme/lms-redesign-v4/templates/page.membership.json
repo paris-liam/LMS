@@ -74,14 +74,21 @@
             "max_width": "narrow",
             "type_preset": "rte"
           }
+        },
+        "membership_card": {
+          "type": "lms-membership-card",
+          "settings": {
+            "card_est_text": "Est. 2026",
+            "card_name_text": "— your name here —"
+          }
         }
       },
-      "block_order": ["eyebrow", "heading", "body", "button_primary", "button_secondary", "fine_print"],
+      "block_order": ["eyebrow", "heading", "body", "button_primary", "button_secondary", "fine_print", "membership_card"],
       "settings": {
-        "content_direction": "column",
+        "content_direction": "horizontal",
         "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 20,
+        "gap": 40,
         "section_width": "page-width",
         "section_height": "auto",
         "background_color": "#973123",
