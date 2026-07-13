@@ -10,8 +10,8 @@
   - Director:   card_product.metafields.custom.director (hidden when blank)
   - Price:      card_product.price
   - Format:     card_product.metafields.custom.format   (e.g. Blu-ray / DVD / 4K / VHS)
-  - Condition:  card_product.metafields.custom.media_condition (retail new-sealed only; used/rental copies use Supercycle item condition)
-  - Rare flag:  card_product.tags contains 'rare'
+  - Condition:  card_product.metafields.custom.condition (e.g. New / Used)
+  - Rare flag:  card_product.metafields.custom.rare      (boolean)
 
   Usage:
   {% render 'lms-product-card', card_product: product %}
@@ -27,7 +27,7 @@
       {%- else -%}
         <div class="lms-product-card__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
       {%- endif -%}
-      {%- if card_product.tags contains 'rare' -%}
+      {%- if card_product.metafields.custom.rare.value -%}
         <span class="lms-badge lms-badge--brick lms-product-card__rare">Rare</span>
       {%- endif -%}
     </div>
@@ -44,8 +44,8 @@
         {%- if card_product.metafields.custom.format != blank -%}
           <span class="lms-badge lms-badge--muted">{{ card_product.metafields.custom.format.value }}</span>
         {%- endif -%}
-        {%- if card_product.metafields.custom.media_condition != blank -%}
-          <span class="lms-badge lms-badge--muted">{{ card_product.metafields.custom.media_condition.value }}</span>
+        {%- if card_product.metafields.custom.condition != blank -%}
+          <span class="lms-badge lms-badge--muted">{{ card_product.metafields.custom.condition.value }}</span>
         {%- endif -%}
       </span>
     </div>
