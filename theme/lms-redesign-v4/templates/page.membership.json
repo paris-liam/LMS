@@ -15,78 +15,100 @@
         "content_direction": "column",
         "gap": 32,
         "background_color": "",
-        "padding-block-start": 40,
-        "padding-block-end": 80
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "membership_hero": {
       "type": "hero",
       "blocks": {
-        "eyebrow": {
-          "type": "text",
+        "copy_group": {
+          "type": "group",
+          "blocks": {
+            "eyebrow": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Little Movie Club · $100/year</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "type_preset": "h6"
+              }
+            },
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Become a member.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "type_preset": "h1"
+              }
+            },
+            "body": {
+              "type": "text",
+              "settings": {
+                "text": "<p>The club isn't really about the perks — it's about belonging to a place that's as much yours as it is ours. One flat year. Renters become buyers. That's the whole game, baby.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "type_preset": "rte"
+              }
+            },
+            "button_primary": {
+              "type": "button",
+              "settings": {
+                "label": "Become a member",
+                "link": "#plans",
+                "style_class": "button"
+              }
+            },
+            "button_secondary": {
+              "type": "button",
+              "settings": {
+                "label": "See what's included ↓",
+                "link": "#perks",
+                "style_class": "button-unstyled",
+                "link_text_color": "#fff9ef"
+              }
+            },
+            "fine_print": {
+              "type": "text",
+              "settings": {
+                "text": "<p>No app. No fine print. Cancel anytime — just bring yourself.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "type_preset": "rte"
+              }
+            }
+          },
+          "block_order": ["eyebrow", "heading", "body", "button_primary", "button_secondary", "fine_print"],
           "settings": {
-            "text": "<p>Little Movie Club · $100/year</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "type_preset": "h6"
+            "content_direction": "column",
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 20,
+            "width": "fill",
+            "height": "fit"
           }
         },
-        "heading": {
-          "type": "text",
+        "membership_card": {
+          "type": "lms-membership-card",
           "settings": {
-            "text": "<p>Become a member.</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "type_preset": "h1"
-          }
-        },
-        "body": {
-          "type": "text",
-          "settings": {
-            "text": "<p>The club isn't really about the perks — it's about belonging to a place that's as much yours as it is ours. One flat year. Renters become buyers. That's the whole game, baby.</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "type_preset": "rte"
-          }
-        },
-        "button_primary": {
-          "type": "button",
-          "settings": {
-            "label": "Become a member",
-            "link": "#plans",
-            "style_class": "button"
-          }
-        },
-        "button_secondary": {
-          "type": "button",
-          "settings": {
-            "label": "See what's included ↓",
-            "link": "#perks",
-            "style_class": "button-unstyled",
-            "link_text_color": "#fff9ef"
-          }
-        },
-        "fine_print": {
-          "type": "text",
-          "settings": {
-            "text": "<p>No app. No fine print. Cancel anytime — just bring yourself.</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "type_preset": "rte"
+            "card_est_text": "Est. 2026",
+            "card_name_text": "— your name here —"
           }
         }
       },
-      "block_order": ["eyebrow", "heading", "body", "button_primary", "button_secondary", "fine_print"],
+      "block_order": ["copy_group", "membership_card"],
       "settings": {
-        "content_direction": "column",
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 20,
+        "content_direction": "row",
+        "horizontal_alignment": "space-between",
+        "vertical_alignment": "center",
+        "gap": 40,
         "section_width": "page-width",
         "section_height": "auto",
-        "background_color": "#973123",
+        "background_color": "#5f8d7a",
         "hide_placeholder_when_empty": true,
         "text_color": "#fff9ef",
+        "show_background_monograms": true,
         "padding-block-start": 72,
         "padding-block-end": 60
       }
@@ -119,6 +141,32 @@
     "1780928794877ebf06": {
       "type": "_blocks",
       "blocks": {
+        "plans_anchor": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "<span id=\"plans\"></span>"
+          }
+        },
+        "plans_eyebrow": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Little Movie Club</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h6"
+          }
+        },
+        "plans_heading": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Pick your plan.</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h2"
+          }
+        },
         "supercycle_membership_plans_MdRHJR": {
           "type": "shopify://apps/supercycle/blocks/membership-plans/7b3228ed-a72a-4935-9fee-0cebe8daa0aa",
           "settings": {
@@ -134,20 +182,23 @@
             "membership_in_cart_message": "A membership is already in cart",
             "button_class": "button button--secondary",
             "primary_button_class": "button button--primary",
-            "color_background": "#ffffff",
-            "color_plan_background": "#f5f5f5",
-            "color_plan_text": "#000000",
-            "color_plan_border": "#000000",
+            "color_background": "#3a2018",
+            "color_plan_background": "#fff9ef",
+            "color_plan_text": "#3a2018",
+            "color_plan_border": "#8fcdcf",
             "plan_border_radius": 8,
             "space": 20,
             "padding_top": 40,
             "padding_bottom": 52,
             "template": "<p class=\"h2 plan-card-title\">[plan_title]</p>\n<p class=\"h1 plan-card-price\">[plan_price]</p>\n<p class=\"plan-card-interval\">Billed [plan_billing_interval]</p>\n<p class=\"plan-card-credits h3\">\n  [plan_credit_allowance] {{block.settings.credit_name}}\n</p>\n<div class=\"plan-card-features rte\">[plan_description]</div>\n<div class=\"plan-card-button\">\n  [plan_button]\n</div>",
-            "custom_css": ""
+            "custom_css": ".plan-card-title { font-family: var(--lms-font-display); } .plan-card-price, .plan-card-interval, .plan-card-credits, .plan-card-features, .plan-card-button { font-family: var(--lms-font-mono); } .plan-card-wrapper { box-shadow: 0 1px 2px rgba(58, 32, 24, 0.08); padding: 32px 30px; }"
           }
         }
       },
       "block_order": [
+        "plans_anchor",
+        "plans_eyebrow",
+        "plans_heading",
         "supercycle_membership_plans_MdRHJR"
       ],
       "settings": {
@@ -156,14 +207,14 @@
         "horizontal_alignment": "flex-start",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
+        "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
         "gap": 12,
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
         "background_media": "none",
-        "background_color": "",
+        "background_color": "#3a2018",
         "video_position": "cover",
         "background_image_position": "cover",
         "toggle_overlay": false,
@@ -175,8 +226,8 @@
         "border_opacity": 100,
         "border_color": "",
         "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 80,
+        "padding-block-end": 80
       }
     },
     "membership_perks": {
@@ -198,53 +249,6 @@
         "padding-block-start": 84,
         "padding-block-end": 84
       }
-    },
-    "membership_closing_cta": {
-      "type": "hero",
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Meet me at the movie store.</p>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "h2"
-          }
-        },
-        "body": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Built by movie lovers, for everyone. Come be a regular.</p>",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "label": "Become a member · $100/yr",
-            "link": "#plans",
-            "style_class": "button"
-          }
-        }
-      },
-      "block_order": ["heading", "body", "button"],
-      "settings": {
-        "content_direction": "column",
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 20,
-        "section_width": "page-width",
-        "section_height": "small",
-        "background_color": "#3a2018",
-        "hide_placeholder_when_empty": true,
-        "text_color": "#fff9ef",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
     }
   },
   "order": [
@@ -252,7 +256,6 @@
     "membership_hero",
     "membership_marquee",
     "membership_perks",
-    "1780928794877ebf06",
-    "membership_closing_cta"
+    "1780928794877ebf06"
   ]
 }

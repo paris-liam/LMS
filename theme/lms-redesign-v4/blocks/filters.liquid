@@ -144,6 +144,39 @@
     </div>
   {% endif %}
 
+  {% if block_settings.filter_style == 'vertical' and block_settings.show_search_input %}
+    <form
+      method="get"
+      action="{{ routes.search_url }}"
+      class="facets-search-form"
+    >
+      <input type="hidden" name="options[prefix]" value="last">
+      {%- for filter in filters -%}
+        {%- case filter.type -%}
+          {%- when 'price_range' -%}
+            {%- if filter.min_value.value != null -%}
+              <input type="hidden" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value }}">
+            {%- endif -%}
+            {%- if filter.max_value.value != null -%}
+              <input type="hidden" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value }}">
+            {%- endif -%}
+          {%- else -%}
+            {%- for value in filter.active_values -%}
+              <input type="hidden" name="{{ value.param_name }}" value="{{ value.value }}">
+            {%- endfor -%}
+        {%- endcase -%}
+      {%- endfor -%}
+      <input
+        type="search"
+        name="q"
+        value="{{ results.terms | escape }}"
+        placeholder="{{ block_settings.search_input_placeholder }}"
+        class="facets-search-form__input"
+        aria-label="{{ 'content.search_input_label' | t }}"
+      >
+    </form>
+  {% endif %}
+
   <div
     class="
       {% if should_show_pane == false %}
@@ -1299,6 +1332,98 @@
     height: var(--font-paragraph--size);
     position: absolute;
   }
+
+  /* LMS shop-all: vertical sidebar restyle */
+  .facets--vertical {
+    font-family: var(--lms-font-mono, monospace);
+  }
+
+  .facets--vertical .facets__label {
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--lms-mahogany);
+  }
+
+  .facets--vertical .checkbox .icon-checkmark {
+    border-radius: 4px;
+    border-color: var(--lms-ink-300);
+  }
+
+  .facets--vertical .checkbox__input:checked + .checkbox__label .icon-checkmark {
+    background-color: var(--lms-sage);
+    border-color: var(--lms-sage);
+  }
+
+  .facets--vertical .checkbox__label-text {
+    font-family: var(--lms-font-mono, monospace);
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--lms-ink-700) !important;
+  }
+
+  .facets-search-form {
+    margin-block-end: var(--gap-lg, 24px);
+  }
+
+  .facets-search-form__input {
+    width: 100%;
+    height: 48px;
+    padding-inline: 16px;
+    border: 1.5px solid var(--lms-ink-300);
+    border-radius: 999px;
+    background: var(--lms-parchment);
+    font-family: var(--lms-font-mono, monospace);
+    font-size: 14px;
+    color: var(--lms-ink-700);
+  }
+
+  .facets-search-form__input:focus-visible {
+    outline: 2px solid var(--lms-sage);
+    outline-offset: 2px;
+  }
+
+  /* New-arrivals tag filter rendered as a pill toggle switch instead of a checkbox.
+     Targets the checkbox by its `value` attribute since the tag filter's
+     param_name is shared across all tag values (see Task 1, Step 5's
+     scoping note if this selector ever needs to change). */
+  .facets--vertical .checkbox:has(input[value='new-arrival']) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .facets--vertical input[value='new-arrival'] {
+    appearance: none;
+    width: 42px;
+    height: 24px;
+    border-radius: 999px;
+    background: var(--lms-ink-300);
+    position: relative;
+    cursor: pointer;
+    transition: background-color 140ms ease;
+  }
+
+  .facets--vertical input[value='new-arrival']::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--lms-parchment);
+    transition: left 140ms ease;
+  }
+
+  .facets--vertical input[value='new-arrival']:checked {
+    background: var(--lms-sage);
+  }
+
+  .facets--vertical input[value='new-arrival']:checked::after {
+    left: 20px;
+  }
 {% endstylesheet %}
 
 {% schema %}
@@ -1329,6 +1454,20 @@
       ],
       "default": "horizontal",
       "visible_if": "{{ block.settings.enable_filtering == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search_input",
+      "label": "Show search input above filters",
+      "default": false,
+      "visible_if": "{{ block.settings.enable_filtering == true and block.settings.filter_style == 'vertical' }}"
+    },
+    {
+      "type": "text",
+      "id": "search_input_placeholder",
+      "label": "Search input placeholder",
+      "default": "Search titles, directors…",
+      "visible_if": "{{ block.settings.show_search_input == true }}"
     },
     {
       "type": "select",
