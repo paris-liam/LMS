@@ -16,8 +16,12 @@
 
 {%- liquid
   # ---- Collect upcoming events, sorted by date ascending -------------------
-  # Builds "YYYY-MM-DD::index" keys, string-sorts them (ISO dates sort
-  # correctly as strings), then looks entries back up by index.
+  # shop.metaobjects.event.values is iterable but not reliably index-able
+  # (event_values[idx] returns nil even for a valid idx), so instead of
+  # collecting sort keys and looking entries back up by index, render each
+  # event's markup into a capture right where `event` is still in scope,
+  # then sort the "YYYY-MM-DD::<html>" strings (ISO dates sort correctly
+  # as strings) and print the html back out.
   assign today = 'now' | date: '%Y-%m-%d'
   assign event_values = shop.metaobjects.event.values
   assign sortable = ''
@@ -25,11 +29,45 @@
   for event in event_values
     assign event_date = event.date.value | date: '%Y-%m-%d'
     if event_date >= today
-      assign sortable = sortable | append: event_date | append: '::' | append: forloop.index0 | append: '||'
+      capture event_html
+        echo '<li class="lms-events__item"><div class="lms-events__date"><div class="lms-events__month">'
+        echo event.date.value | date: '%b'
+        echo '</div><div class="lms-events__day">'
+        echo event.date.value | date: '%d'
+        echo '</div></div><div class="lms-events__body"><div class="lms-events__name">'
+        if event.link.value != blank
+          echo '<a href="'
+          echo event.link.value
+          echo '">'
+          echo event.name.value
+          echo '</a>'
+        else
+          echo event.name.value
+        endif
+        echo '</div>'
+        if event.description.value != blank
+          echo '<div class="lms-events__desc">'
+          echo event.description.value
+          echo '</div>'
+        endif
+        echo '</div>'
+        if event.audience.value != blank
+          assign is_members = event.audience.value | downcase
+          if is_members == 'members'
+            echo '<span class="lms-badge lms-badge--brick">'
+          else
+            echo '<span class="lms-badge lms-badge--sage">'
+          endif
+          echo event.audience.value
+          echo '</span>'
+        endif
+        echo '</li>'
+      endcapture
+      assign sortable = sortable | append: event_date | append: '@@EVENTFIELD@@' | append: event_html | append: '@@EVENTSPLIT@@'
     endif
   endfor
 
-  assign event_keys = sortable | split: '||' | sort
+  assign event_records = sortable | split: '@@EVENTSPLIT@@' | sort
   assign events_limit = section.settings.events_to_show
 -%}
 
@@ -49,39 +87,12 @@
 
         <ul class="lms-events">
           {%- assign shown = 0 -%}
-          {%- for key in event_keys -%}
+          {%- for record in event_records -%}
+            {%- if record == blank -%}{%- continue -%}{%- endif -%}
             {%- if shown >= events_limit -%}{% break %}{%- endif -%}
-            {%- assign parts = key | split: '::' -%}
-            {%- assign idx = parts[1] | plus: 0 -%}
-            {%- assign event = event_values[idx] -%}
-            {%- if event -%}
-              {%- assign shown = shown | plus: 1 -%}
-              <li class="lms-events__item">
-                <div class="lms-events__date">
-                  <div class="lms-events__month">{{ event.date.value | date: '%b' }}</div>
-                  <div class="lms-events__day">{{ event.date.value | date: '%d' }}</div>
-                </div>
-                <div class="lms-events__body">
-                  <div class="lms-events__name">
-                    {%- if event.link.value != blank -%}
-                      <a href="{{ event.link.value }}">{{ event.name.value }}</a>
-                    {%- else -%}
-                      {{ event.name.value }}
-                    {%- endif -%}
-                  </div>
-                  {%- if event.description.value != blank -%}
-                    <div class="lms-events__desc">{{ event.description.value }}</div>
-                  {%- endif -%}
-                </div>
-                {%- if event.audience.value != blank -%}
-                  {%- if event.audience.value == 'Members' -%}
-                    <span class="lms-badge lms-badge--brick">{{ event.audience.value }}</span>
-                  {%- else -%}
-                    <span class="lms-badge lms-badge--sage">{{ event.audience.value }}</span>
-                  {%- endif -%}
-                {%- endif -%}
-              </li>
-            {%- endif -%}
+            {%- assign shown = shown | plus: 1 -%}
+            {%- assign record_html = record | split: '@@EVENTFIELD@@' | last -%}
+            {{ record_html }}
           {%- endfor -%}
 
           {%- if shown == 0 -%}
