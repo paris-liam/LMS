@@ -11,7 +11,7 @@
   "current": {
     "logo_height": 36,
     "logo_height_mobile": 28,
-    "page_text_color": "{{ settings.color_palette.foreground }}",
+    "page_text_color": "{{ settings.color_palette.background }}",
     "type_body_font": "anonymous_pro_n4",
     "type_subheading_font": "anonymous_pro_n4",
     "type_heading_font": "work_sans_n5",
