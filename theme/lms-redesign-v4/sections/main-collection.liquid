@@ -37,7 +37,6 @@
     style="--padding-block-start: {{ section.settings.padding-block-start }}px; --padding-block-end: {{ section.settings.padding-block-end }}px;"
     section-id="{{ section.id }}"
     infinite-scroll="{{ section.settings.enable_infinite_scroll }}"
-    data-product-card-style="{{ section.settings.product_card_style }}"
   >
     {% render 'skip-to-content-link', href: '#ResultsList', text: 'accessibility.skip_to_results_list' %}
 
@@ -67,16 +66,12 @@
               data-product-id="{{ product.id }}"
               ref="cards[]"
             >
-              {% if section.settings.product_card_style == 'poster' %}
-                {% render 'lms-product-card', card_product: product %}
-              {% else %}
-                {% content_for 'block',
-                  type: '_product-card',
-                  id: 'product-card',
-                  closest.product: product,
-                  product_view_context: 'collection'
-                %}
-              {% endif %}
+              {% content_for 'block',
+                type: '_product-card',
+                id: 'product-card',
+                closest.product: product,
+                product_view_context: 'collection'
+              %}
             </li>
           {% endfor %}
         {% endcapture %}
@@ -115,22 +110,6 @@
         }
       ],
       "default": "grid"
-    },
-    {
-      "type": "select",
-      "id": "product_card_style",
-      "label": "Product card style",
-      "options": [
-        {
-          "value": "native",
-          "label": "Native (theme-editor configurable)"
-        },
-        {
-          "value": "poster",
-          "label": "Poster (lms-product-card, fixed layout)"
-        }
-      ],
-      "default": "native"
     },
     {
       "type": "select",
@@ -290,18 +269,3 @@
   "presets": []
 }
 {% endschema %}
-
-{% stylesheet %}
-  [data-product-card-style='poster'] .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
-    gap: 28px 24px;
-  }
-
-  .collection-empty-state {
-    padding-block: 48px;
-    text-align: center;
-    font-family: var(--lms-font-mono, monospace);
-    color: var(--lms-ink-500);
-  }
-{% endstylesheet %}
