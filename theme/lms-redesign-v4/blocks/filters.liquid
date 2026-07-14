@@ -262,7 +262,11 @@
                         else
                           assign should_render_clear = false
                         endif
-                        render 'list-filter', filter: filter, filter_style: block_settings.filter_style, active_value_count: active_value_count, should_render_clear: should_render_clear, show_swatch_label: block_settings.show_swatch_label, sectionId: section.id
+                        assign suppress_na = false
+                        if block_settings.filter_style == 'vertical'
+                          assign suppress_na = true
+                        endif
+                        render 'list-filter', filter: filter, filter_style: block_settings.filter_style, active_value_count: active_value_count, should_render_clear: should_render_clear, show_swatch_label: block_settings.show_swatch_label, sectionId: section.id, suppress_new_arrival: suppress_na
                       %}
                   {% endcase %}
                 {%- endfor -%}
@@ -556,10 +560,45 @@
 
                         assign active_value_count = filter.active_values | size
                         assign total_active_values = total_active_values | plus: active_value_count
-                        render 'list-filter', filter: filter, filter_style: 'vertical', active_value_count: active_value_count, should_render_clear: false, in_drawer: true, sectionId: section.id
+                        assign suppress_na = false
+                        if block_settings.filter_style == 'vertical'
+                          assign suppress_na = true
+                        endif
+                        render 'list-filter', filter: filter, filter_style: 'vertical', active_value_count: active_value_count, should_render_clear: false, in_drawer: true, sectionId: section.id, suppress_new_arrival: suppress_na
                       %}
                   {% endcase %}
                 {%- endfor -%}
+                {%- if block_settings.filter_style == 'vertical' -%}
+                  {%- liquid
+                    assign na_value_drawer = null
+                    for filter in filters
+                      if filter.param_name == 'filter.p.tag'
+                        for value in filter.values
+                          if value.value == 'new-arrival'
+                            assign na_value_drawer = value
+                            break
+                          endif
+                        endfor
+                      endif
+                    endfor
+                  -%}
+                  {%- if na_value_drawer -%}
+                    <div class="facets__item facets-new-arrivals">
+                      <span class="facets-new-arrivals__label">{{ 'content.new_arrivals' | t: default: 'New arrivals' }}</span>
+                      <facet-inputs-component on:change="/updateFilters" class="facets-new-arrivals__control">
+                        <input
+                          type="checkbox"
+                          name="{{ na_value_drawer.param_name }}"
+                          value="{{ na_value_drawer.value }}"
+                          aria-label="{{ 'content.new_arrivals' | t: default: 'New arrivals' }}"
+                          id="Filter-new-arrivals-drawer"
+                          {% if na_value_drawer.active %}checked{% endif %}
+                          ref="facetInputs[]"
+                        >
+                      </facet-inputs-component>
+                    </div>
+                  {%- endif -%}
+                {%- endif -%}
               </div>
             {% endif %}
 

@@ -8,6 +8,7 @@
   @param {boolean} [should_render_clear] - Whether to render the clear button
   @param {boolean} [show_swatch_label] - Whether to show the swatch label
   @param {boolean} [in_drawer] - Whether the filter is in a drawer
+  @param {boolean} [suppress_new_arrival] - Whether to suppress the new-arrival tag value (replaced by a dedicated toggle)
 {%- enddoc -%}
 
 {% liquid
@@ -233,7 +234,7 @@
                   endfor
                 endif
               %}
-              {%- if is_tag_filter and value.value == 'new-arrival' -%}{%- continue -%}{%- endif -%}
+              {%- if suppress_new_arrival and is_tag_filter and value.value == 'new-arrival' -%}{%- continue -%}{%- endif -%}
               <li
                 data-skip-node-update="true"
                 class="
