@@ -34,12 +34,12 @@
 
         <div class="lms-split__shop-grid">
           {%- if shop_collection != blank -%}
-            {%- for product in shop_collection.products limit: 4 -%}
+            {%- for product in shop_collection.products limit: 6 -%}
               {% render 'lms-product-card', card_product: product %}
             {%- endfor -%}
           {%- else -%}
             {%- comment -%} Onboarding state: no collection selected yet {%- endcomment -%}
-            {%- for i in (1..4) -%}
+            {%- for i in (1..6) -%}
               <div class="lms-product-card">
                 <div class="lms-product-card__media">
                   <div class="lms-product-card__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
@@ -155,12 +155,18 @@
 .lms-split__desc p { margin: 0 0 1em; }
 .lms-split__desc p:last-child { margin-bottom: 0; }
 
-/* Shop grid */
+/* Shop row — horizontal scroll of small poster cards */
 .lms-split__shop-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  flex: 1;
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+}
+.lms-split__shop-grid > * {
+  flex: 0 0 120px;
+  scroll-snap-align: start;
 }
 
 .lms-split__textlink {
@@ -279,7 +285,6 @@
 @media screen and (max-width: 549px) {
   .lms-split__shop,
   .lms-split__membership { padding: 30px 26px; }
-  .lms-split__shop-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 }
 {% endstylesheet %}
 
@@ -312,7 +317,7 @@
       "type": "collection",
       "id": "shop_collection",
       "label": "Collection",
-      "info": "Shows up to 4 products from this collection. To rotate stock, update the collection — this section follows automatically."
+      "info": "Shows up to 6 products from this collection, in a horizontally scrollable row. To rotate stock, update the collection — this section follows automatically."
     },
     {
       "type": "text",

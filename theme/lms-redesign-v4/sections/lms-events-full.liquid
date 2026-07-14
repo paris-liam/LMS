@@ -1,5 +1,6 @@
 {% comment %}
-  lms-events-full — full-width "next N upcoming events" card row.
+  lms-events-full — full-width "next N upcoming events" list, same row
+  style as the dedicated Events page (sections/lms-events-calendar.liquid).
   Replaces lms-promo-pair on the homepage (that section's file is retired,
   kept but unreferenced — see templates/index.json).
   Event data + sort logic lives in snippets/lms-events-list.liquid.
@@ -25,7 +26,7 @@
       {%- endif -%}
     </div>
 
-    {% render 'lms-events-list', limit: section.settings.events_to_show, style: 'cards' %}
+    {% render 'lms-events-list', limit: section.settings.events_to_show, style: 'rows' %}
 
   </div>
 </div>
