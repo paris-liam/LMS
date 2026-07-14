@@ -44,9 +44,9 @@ Sidebar controls map to the finalized model (metafields `custom.*`; label/curati
 - **Collection:** create/confirm the catalog collection (all products), assign the `collection.shop-all` template, set its **sort order to newest-first** (drives the "Just landed" default).
 - **Tags on demo data:** the mock back-fill already applies `label-*`/`rare`/`staff-pick`; add a `new-arrival` tag to a few products so the toggle has something to filter.
 
-## Intro copy
+## Intro copy (theme-editor editable)
 
-Eyebrow "The shelves" · H1 "Shop everything" · one-line subtitle. The subtitle is a **placeholder** (the mockup's line reads as internal strategy notes) — to be replaced with the client's customer-facing copy. Placeholder: "Every format, every shelf, every note we've left. Browse without pressure."
+Eyebrow "The shelves" · H1 "Shop everything" · one-line subtitle. The intro is composed of native Horizon **text blocks** in the template's heading section, so all three strings are **editable in the theme editor** (Customize → the shop-all collection → heading blocks) with no code change to update copy. The subtitle block ships with default copy — "Every format, every shelf, every note we've left. Browse without pressure." — that the client can overwrite inline; it is a default, not a hardcoded value. (The H1 may either be a literal text block or bound to `collection.title`; default to a literal "Shop everything" text block so it's editable independently of the collection's name.)
 
 ## Error / edge handling
 
@@ -68,4 +68,4 @@ No JS test framework exists; "tests" = `shopify theme check` (static lint) + man
 
 ## Out of scope
 
-Supercycle rental **Availability / Methods** filter (separate Supercycle track), card accent colors, "Load more" button (using infinite scroll), custom prefix-split label facet, final intro copy.
+Supercycle rental **Availability / Methods** filter (separate Supercycle track), card accent colors, "Load more" button (using infinite scroll), custom prefix-split label facet.
