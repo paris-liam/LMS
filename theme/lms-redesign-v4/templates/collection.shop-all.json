@@ -15,7 +15,7 @@
           "type": "text",
           "name": "Eyebrow",
           "settings": {
-            "text": "The shelves",
+            "text": "<p>The shelves</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -67,7 +67,7 @@
           "type": "text",
           "name": "Description",
           "settings": {
-            "text": "Every format, every shelf, every note we've left. Browse without pressure.",
+            "text": "<p>Every format, every shelf, every note we've left. Browse without pressure.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
