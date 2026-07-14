@@ -30,7 +30,7 @@
           "type": "button",
           "settings": {
             "label": "BROWSE THE SHELVES",
-            "link": "/collections/all",
+            "link": "shopify://collections/all-movies",
             "style": "outline"
           }
         },
