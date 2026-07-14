@@ -1,0 +1,226 @@
+{% comment %}
+  lms-events-list — shared upcoming-events renderer.
+
+  Events are driven by an `event` metaobject (Admin → Content):
+    - name        Single-line text
+    - date        Date
+    - description Single-line text
+    - audience    Single-line text with preset choices: Members | Public
+    - link        URL (optional)
+  Only events on or after today are shown, soonest first. Metaobject value
+  lists aren't reliably index-able, so each event's markup is captured,
+  prefixed with its ISO date, joined into one string, and the strings are
+  sorted (ISO dates sort correctly as strings) — this is the same technique
+  originally used in lms-events-membership.liquid, centralized here so it
+  isn't re-implemented by every new consumer.
+
+  Accepts:
+  - limit: {Number} optional. 0 or blank shows every upcoming event.
+  - style: {String} required. 'cards' (full-width card row) or 'rows'
+    (vertical list with description — used by the full calendar page).
+
+  Usage:
+  {% render 'lms-events-list', limit: 4, style: 'cards' %}
+  {% render 'lms-events-list', limit: 0, style: 'rows' %}
+{% endcomment %}
+
+{%- liquid
+  assign today = 'now' | date: '%Y-%m-%d'
+  assign event_values = shop.metaobjects.event.values
+  assign sortable = ''
+  assign list_limit = limit | default: 0
+
+  for event in event_values
+    assign event_date = event.date.value | date: '%Y-%m-%d'
+    if event_date >= today
+      capture event_html
+        if style == 'cards'
+          echo '<div class="lms-event-card"><div class="lms-events__date"><div class="lms-events__month">'
+          echo event.date.value | date: '%b'
+          echo '</div><div class="lms-events__day">'
+          echo event.date.value | date: '%d'
+          echo '</div></div><div class="lms-event-card__body"><div class="lms-events__name">'
+          if event.link.value != blank
+            echo '<a href="'
+            echo event.link.value
+            echo '">'
+            echo event.name.value
+            echo '</a>'
+          else
+            echo event.name.value
+          endif
+          echo '</div>'
+          if event.audience.value != blank
+            assign is_members = event.audience.value | downcase
+            if is_members == 'members'
+              echo '<span class="lms-badge lms-badge--brick">'
+            else
+              echo '<span class="lms-badge lms-badge--sage">'
+            endif
+            echo event.audience.value
+            echo '</span>'
+          endif
+          echo '</div></div>'
+        else
+          echo '<li class="lms-events__item"><div class="lms-events__date"><div class="lms-events__month">'
+          echo event.date.value | date: '%b'
+          echo '</div><div class="lms-events__day">'
+          echo event.date.value | date: '%d'
+          echo '</div></div><div class="lms-events__body"><div class="lms-events__name">'
+          if event.link.value != blank
+            echo '<a href="'
+            echo event.link.value
+            echo '">'
+            echo event.name.value
+            echo '</a>'
+          else
+            echo event.name.value
+          endif
+          echo '</div>'
+          if event.description.value != blank
+            echo '<div class="lms-events__desc">'
+            echo event.description.value
+            echo '</div>'
+          endif
+          echo '</div>'
+          if event.audience.value != blank
+            assign is_members = event.audience.value | downcase
+            if is_members == 'members'
+              echo '<span class="lms-badge lms-badge--brick">'
+            else
+              echo '<span class="lms-badge lms-badge--sage">'
+            endif
+            echo event.audience.value
+            echo '</span>'
+          endif
+          echo '</li>'
+        endif
+      endcapture
+      assign sortable = sortable | append: event_date | append: '@@EVENTFIELD@@' | append: event_html | append: '@@EVENTSPLIT@@'
+    endif
+  endfor
+
+  assign event_records = sortable | split: '@@EVENTSPLIT@@' | sort
+  assign shown = 0
+-%}
+
+{%- if style == 'cards' -%}
+  <div class="lms-events-cards">
+{%- else -%}
+  <ul class="lms-events">
+{%- endif -%}
+
+{%- for record in event_records -%}
+  {%- if record == blank -%}{%- continue -%}{%- endif -%}
+  {%- if list_limit > 0 and shown >= list_limit -%}{% break %}{%- endif -%}
+  {%- assign shown = shown | plus: 1 -%}
+  {%- assign record_html = record | split: '@@EVENTFIELD@@' | last -%}
+  {{ record_html }}
+{%- endfor -%}
+
+{%- if shown == 0 -%}
+  {%- if style == 'cards' -%}
+    <div class="lms-events__empty">No upcoming events yet. Add events under Admin → Content → Events and they'll appear here automatically.</div>
+  {%- else -%}
+    <li class="lms-events__empty">No upcoming events yet. Add events under Admin → Content → Events and they'll appear here automatically.</li>
+  {%- endif -%}
+{%- endif -%}
+
+{%- if style == 'cards' -%}
+  </div>
+{%- else -%}
+  </ul>
+{%- endif -%}
+
+{% stylesheet %}
+.lms-events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--lms-border-width) solid var(--lms-border-default);
+}
+.lms-events__item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: var(--lms-border-width) solid var(--lms-border-default);
+}
+.lms-events__date { text-align: center; min-width: 46px; flex-shrink: 0; }
+.lms-events__month {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-med);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lms-brick);
+}
+.lms-events__day {
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-semi);
+  font-size: 28px;
+  line-height: 1;
+  color: var(--lms-text-strong);
+}
+.lms-events__body { flex: 1; min-width: 0; }
+.lms-events__name {
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-med);
+  font-size: 16px;
+  color: var(--lms-text-strong);
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+.lms-events__name a { color: inherit; text-decoration: none; }
+.lms-events__name a:hover { text-decoration: underline; }
+.lms-events__desc {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-light);
+  font-size: 12px;
+  color: var(--lms-text-muted);
+}
+.lms-events__empty {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-light);
+  font-size: 13px;
+  color: var(--lms-text-muted);
+  padding: 18px 0;
+}
+
+/* --- Card style (full-width homepage row) --- */
+.lms-events-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.lms-event-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 20px;
+  border: var(--lms-border-width) solid var(--lms-border-default);
+  border-radius: var(--lms-radius-md);
+  background: var(--lms-bg, var(--lms-parchment));
+}
+.lms-event-card .lms-events__date { text-align: left; }
+.lms-event-card__body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+@media screen and (max-width: 989px) {
+  .lms-events-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 549px) {
+  .lms-events-cards {
+    display: flex;
+    overflow-x: auto;
+    gap: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .lms-events-cards > .lms-event-card { flex: 0 0 78%; scroll-snap-align: start; }
+  .lms-events-cards > .lms-events__empty { flex: 0 0 100%; }
+}
+{% endstylesheet %}
