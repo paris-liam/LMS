@@ -212,6 +212,26 @@
                     assign hidden_class = 'mobile:hidden'
                   endif
                 endif
+
+                # LMS shop-all: prettify Product-tags facet labels (label-criterion -> Criterion).
+                assign is_tag_filter = false
+                if filter.param_name == 'filter.p.tag'
+                  assign is_tag_filter = true
+                endif
+                assign display_label = value.label
+                if is_tag_filter
+                  assign lms_raw = value.label | remove_first: 'label-' | replace: '-', ' '
+                  assign lms_words = lms_raw | split: ' '
+                  assign display_label = ''
+                  for lms_w in lms_words
+                    assign lms_cap = lms_w | capitalize
+                    if forloop.first
+                      assign display_label = lms_cap
+                    else
+                      assign display_label = display_label | append: ' ' | append: lms_cap
+                    endif
+                  endfor
+                endif
               %}
               <li
                 data-skip-node-update="true"
@@ -369,7 +389,7 @@
                     {% render 'checkbox',
                       name: value.param_name,
                       value: value.value,
-                      label: value.label,
+                      label: display_label,
                       checked: value.active,
                       id: input_id,
                       disabled: is_disabled,
