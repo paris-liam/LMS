@@ -1,19 +1,20 @@
 {% comment %}
-  lms-staff-picks — side panel (left) + picks grid (right).
+  lms-staff-picks — side panel (left) + scrollable picks row (right).
 
   Picks are driven by a `staff_pick` metaobject (Admin → Content):
     - product     Product reference (poster, title, and link come from it)
     - quote       Multi-line text (the shelf note)
     - staff_name  Single-line text
+    - staff_link  URL (optional link for the "Picked by" author name)
   Staff updates picks weekly in Admin → Content; the homepage and any
   full-list page render from the same records. Entries display in the
-  order returned by the metaobject list; the section shows the first N.
+  order returned by the metaobject list; all picks are shown in a
+  horizontally scrollable row (no cap).
   Storefront access must be enabled on the metaobject definition.
 {% endcomment %}
 
 {%- liquid
   assign picks = shop.metaobjects.staff_pick.values
-  assign picks_limit = section.settings.picks_to_show
 -%}
 
 {% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
@@ -43,7 +44,6 @@
       <div class="lms-staff__grid">
         {%- assign shown = 0 -%}
         {%- for pick in picks -%}
-          {%- if shown >= picks_limit -%}{% break %}{%- endif -%}
           {%- assign pick_product = pick.product.value -%}
           {%- if pick_product -%}
             {%- assign shown = shown | plus: 1 -%}
@@ -62,7 +62,11 @@
                 <div class="lms-staff__quote">“{{ pick.quote.value }}”</div>
               {%- endif -%}
               {%- if pick.staff_name.value != blank -%}
-                <div class="lms-staff__by">— Picked by {{ pick.staff_name.value }}</div>
+                {%- if pick.staff_link.value != blank -%}
+                  <a href="{{ pick.staff_link.value }}" class="lms-staff__by">— Picked by {{ pick.staff_name.value }}</a>
+                {%- else -%}
+                  <div class="lms-staff__by">— Picked by {{ pick.staff_name.value }}</div>
+                {%- endif -%}
               {%- endif -%}
             </div>
           {%- endif -%}
@@ -131,10 +135,14 @@
 .lms-staff__textlink:hover { color: var(--lms-brick-dark); }
 
 .lms-staff__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 .lms-staff__pick {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
   padding: 24px 20px;
   border-right: var(--lms-border-width) solid var(--lms-border-default);
   display: flex;
@@ -183,9 +191,10 @@
   text-transform: uppercase;
   color: var(--lms-brick);
   margin-top: 12px;
+  text-decoration: none;
 }
+a.lms-staff__by:hover { color: var(--lms-brick-dark); text-decoration: underline; }
 .lms-staff__empty {
-  grid-column: 1 / -1;
   padding: 32px;
   font-family: var(--lms-font-mono);
   font-weight: var(--lms-fw-mono-light);
@@ -201,23 +210,19 @@
   }
 }
 @media screen and (max-width: 549px) {
-  .lms-staff__grid { grid-template-columns: 1fr 1fr; }
-  .lms-staff__pick {
-    border-right: none;
-    border-bottom: var(--lms-border-width) solid var(--lms-border-default);
-  }
+  .lms-staff__pick { flex-basis: 62%; }
 }
 {% endstylesheet %}
 
 {% schema %}
 {
-  "name": "LMS staff picks",
+  "name": "LMS community picks",
   "tag": "section",
   "class": "lms-staff-picks-section",
   "settings": [
     {
       "type": "paragraph",
-      "content": "Picks are managed under Admin → Content → Staff picks. Each pick links a product with a shelf note and a staff name."
+      "content": "Picks are managed under Admin → Content → Staff picks. Each pick links a product with a shelf note, an author name, and an optional author link. All picks are shown in a scrollable row."
     },
     { "type": "header", "content": "Side panel" },
     {
@@ -230,7 +235,7 @@
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Staff picks"
+      "default": "Community picks"
     },
     {
       "type": "richtext",
@@ -246,16 +251,6 @@
       "info": "Leave blank to hide."
     },
     { "type": "url", "id": "link", "label": "Link" },
-    { "type": "header", "content": "Picks" },
-    {
-      "type": "range",
-      "id": "picks_to_show",
-      "label": "Picks to show",
-      "min": 2,
-      "max": 4,
-      "step": 1,
-      "default": 4
-    },
     { "type": "header", "content": "Section style" },
     {
       "type": "color",
@@ -285,7 +280,7 @@
     }
   ],
   "presets": [
-    { "name": "LMS staff picks" }
+    { "name": "LMS community picks" }
   ]
 }
 {% endschema %}

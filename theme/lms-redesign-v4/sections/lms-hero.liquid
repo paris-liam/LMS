@@ -1,7 +1,7 @@
 {% comment %}
   lms-hero — homepage hero. Copy left, slideshow right (media stacks first on mobile).
   Layout, typography treatment, and slideshow controls are fixed by design.
-  Rendering caps: first 2 button blocks, first 4 info_item blocks; extras ignored.
+  Rendering caps: first 3 button blocks, first 4 info_item blocks; extras ignored.
   Replaces lms-homepage-hero.liquid.
 {% endcomment %}
 
@@ -36,7 +36,7 @@
 
         {%- if button_blocks.size > 0 -%}
           <div class="lms-hero__actions">
-            {%- for block in button_blocks limit: 2 -%}
+            {%- for block in button_blocks limit: 3 -%}
               <a href="{{ block.settings.link | default: '#' }}"
                  class="lms-btn lms-btn--lg lms-btn--{{ block.settings.style }}"
                  {{ block.shopify_attributes }}>
@@ -183,8 +183,6 @@
   display: block;
   border-radius: var(--lms-radius-md);
   overflow: hidden;
-  border: var(--lms-border-width-strong) solid var(--lms-border-hairline);
-  box-shadow: var(--lms-shadow-lg);
   background: var(--lms-parchment-2);
   /* Fill the media cell (same height as the copy above the info strip).
      Uploads are usually 2:3 portrait; object-fit: cover crops to the box. */
@@ -483,6 +481,10 @@
         {
           "type": "button",
           "settings": { "label": "Browse the shelves", "style": "outline" }
+        },
+        {
+          "type": "button",
+          "settings": { "label": "Shop the online store", "style": "outline" }
         },
         {
           "type": "info_item",
