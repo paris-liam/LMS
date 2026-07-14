@@ -1,31 +1,11 @@
 # Movie tag vocabulary (canonical)
 
-Genre, label/distributor, and curation are modelled as **product tags** (not metafields),
+Label/distributor and curation are modelled as **product tags** (not metafields),
 so there is no dropdown to enforce spelling. This file is the source of truth — tag
 exactly as written here. Adding a value = add it here first, then use it.
 
-## Genre — `genre-…` (a movie may carry several)
-
-| Tag | Genre |
-|---|---|
-| `genre-action` | Action |
-| `genre-adventure` | Adventure |
-| `genre-animation` | Animation |
-| `genre-comedy` | Comedy |
-| `genre-crime` | Crime |
-| `genre-cult` | Cult |
-| `genre-documentary` | Documentary |
-| `genre-drama` | Drama |
-| `genre-fantasy` | Fantasy |
-| `genre-horror` | Horror |
-| `genre-musical` | Musical |
-| `genre-mystery` | Mystery |
-| `genre-noir` | Noir |
-| `genre-romance` | Romance |
-| `genre-sci-fi` | Sci-Fi |
-| `genre-thriller` | Thriller |
-| `genre-war` | War |
-| `genre-western` | Western |
+> **Genre is NOT here** — it's the `custom.genres` metafield (a dropdown). Add new
+> genres via **Settings → Custom data → Products → Genres → Edit choices**.
 
 ## Label / Distributor — `label-…` (one per movie)
 
@@ -49,8 +29,8 @@ exactly as written here. Adding a value = add it here first, then use it.
 
 ## Convention
 
-- Lowercase, hyphenated, ASCII. `Sci-Fi` → `genre-sci-fi`; `Kino Lorber` → `label-kino-lorber`.
-- Genre/label are still filterable on the storefront, but note: Search & Discovery's
-  native **Product tags** filter lists *all* tags in one combined facet — it does not
-  split `genre-*` and `label-*` into separate named filters. Separate named Genre/Label
-  facets would require custom theme prefix-grouping or reverting those two to metafields.
+- Lowercase, hyphenated, ASCII. `Kino Lorber` → `label-kino-lorber`.
+- Label tags surface on the storefront via Search & Discovery's native **Product tags**
+  filter, which lists *all* tags in one combined facet (label plus curation tags together).
+  A separate named "Label" facet would require custom theme prefix-grouping or moving
+  label to a metafield. Genre, by contrast, is a metafield and gets its own clean facet.

@@ -6,7 +6,7 @@
 
 **Architecture:** Merchant-owned Shopify metafield **definitions** in the `custom` namespace are created via the Admin GraphQL API (`metafieldDefinitionCreate`) using the repo's existing curl-based script pattern. Descriptive "film" facts and copy/commerce fields live as pinned, storefront-readable metafields; per-copy condition/availability stays owned by Supercycle. The theme's product card is repointed off the two retired keys.
 
-> **AMENDED 2026-07-14 — flatten to tags:** Genre and Label/Distributor are **no longer metafields**. Together with curation they are modelled as **product tags**: prefixed `genre-*` / `label-*` plus bare `rare`/`staff-pick`/`holiday`. This drops the `custom.genres` and `custom.label` definitions (Task 1), the corresponding `metafieldsSet` calls (Task 2 now sets those as tags), and changes the facet story (Task 5): only **Format** and **Decade** remain metafield facets; genre/label fold into Shopify's single combined **Product tags** filter (native Search & Discovery cannot split tags into separate named facets by prefix). Canonical vocabulary: `docs/client-guides/movie-tags.md`.
+> **AMENDED 2026-07-14 — flatten label to tags (genre stays a metafield):** Label/Distributor is **no longer a metafield** — it is modelled as `label-*` product tags, alongside bare curation tags `rare`/`staff-pick`/`holiday`. **Genre remains the `custom.genres` metafield** (dropdown + native facet). Net: this drops only the `custom.label` definition (Task 1 → 9 defs), removes the label `metafieldsSet` call (Task 2 adds `label-*` as a tag instead), and changes the facet story (Task 5): **Format, Decade, and Genre** are metafield facets; **Label** folds into Shopify's single combined **Product tags** filter (native Search & Discovery cannot split tags into separate named facets by prefix). Canonical label/curation vocabulary: `docs/client-guides/movie-tags.md`.
 
 **Tech Stack:** Shopify Admin GraphQL API (version `2026-01`), bash + `curl` + `jq`, Shopify Liquid (Horizon theme), Shopify CLI (`shopify theme check` / `theme push`), Shopify Search & Discovery app.
 
@@ -19,7 +19,7 @@
 - **API version:** `2026-01` (match `scripts/create-staff-pick-metaobject.sh`).
 - **Definition ownership:** These are **merchant-owned** `custom.*` definitions created via Admin API. Do NOT use app TOML / `$app` namespace — that guidance is for app developers, not this theme/merchant context.
 - **Condition split:** No condition metafield for serialized rental/resale stock (Supercycle owns per-item condition). `custom.media_condition` is for **non-Supercycle new-sealed retail movies only**.
-- **Facets (Search & Discovery):** Format and Decade are metafield facets. Genre and Label/Distributor are now tag axes (`genre-*` / `label-*`) that surface via the single native Product-tags filter (see 2026-07-14 amendment). Availability is a separate Supercycle track, out of scope here.
+- **Facets (Search & Discovery):** Format, Decade, and Genre are metafield facets. Label/Distributor is a tag axis (`label-*`) that surfaces via the single native Product-tags filter (see 2026-07-14 amendment). Availability is a separate Supercycle track, out of scope here.
 - **Naming distinction:** `custom.staff_pick_note` (per-product blurb, this plan) is **separate** from the pre-existing `staff_pick` **metaobject** (homepage curated rail — `product`/`quote`/`staff_name`). Do not merge or rename them.
 - **Prerequisite env (for every script):** either `SHOPIFY_ADMIN_TOKEN=shpat_…`, or `SHOPIFY_CLIENT_ID` + `SHOPIFY_CLIENT_SECRET` (exchanged for a 24h token). App must have `write_metafield_definitions`, `write_products`, `write_publications`/`write_collection_listings` scopes as needed.
 
@@ -27,7 +27,7 @@
 
 ### Task 1: Create the movie metafield definitions
 
-Creates the `custom.*` product metafield definitions (eight, post-amendment: genre & label are tags) in one idempotent script (re-runnable; "already taken" is treated as OK). Definitions are pinned and storefront-readable so they show in one panel on the product page and are readable by the theme and Search & Discovery.
+Creates the `custom.*` product metafield definitions (nine, post-amendment: label is a tag; genre stays) in one idempotent script (re-runnable; "already taken" is treated as OK). Definitions are pinned and storefront-readable so they show in one panel on the product page and are readable by the theme and Search & Discovery.
 
 **Files:**
 - Create: `scripts/create-movie-metafield-definitions.sh`
@@ -39,9 +39,10 @@ Creates the `custom.*` product metafield definitions (eight, post-amendment: gen
   - `custom.decade` `single_line_text_field` (choices)
   - `custom.country` `single_line_text_field`
   - `custom.runtime` `number_integer`
+  - `custom.genres` `list.single_line_text_field` (choices)
   - `custom.format` `single_line_text_field` (choices)
   - `custom.media_condition` `single_line_text_field` (choices)
-  - *(genre & label are tags now, not metafields — see 2026-07-14 amendment)*
+  - *(label is a tag now, not a metafield — see 2026-07-14 amendment)*
   - `custom.staff_pick_note` `multi_line_text_field`
 
 - [ ] **Step 1: Write the script**
@@ -163,12 +164,13 @@ curl -sS "https://lms-sandbox-lutsfahz.myshopify.com/admin/api/2026-01/graphql.j
   -d '{"query":"{ metafieldDefinitions(first:50, ownerType: PRODUCT, namespace:\"custom\") { nodes { key type { name } } } }"}' \
   | jq -r '.data.metafieldDefinitions.nodes[] | "\(.key)\t\(.type.name)"' | sort
 ```
-Expected output includes exactly these rows (genre & label are tags now, so absent):
+Expected output includes exactly these rows (label is a tag now, so absent; genre present):
 ```
 country	single_line_text_field
 decade	single_line_text_field
 director	single_line_text_field
 format	single_line_text_field
+genres	list.single_line_text_field
 media_condition	single_line_text_field
 runtime	number_integer
 staff_pick_note	multi_line_text_field
@@ -495,7 +497,8 @@ Adds the four approved metafield filters. This is Shopify admin app configuratio
 In Shopify admin → **Apps → Search & Discovery → Filters → Add filter**:
 - `custom.format` → label "Format" (Source = Metafield)
 - `custom.decade` → label "Decade" (Source = Metafield)
-- **Product tags** filter → enable it. Genre (`genre-*`) and Label (`label-*`) tags surface here in **one combined facet** — native Search & Discovery cannot split them into separate named "Genre"/"Label" filters. If distinct named facets are required, either revert genre/label to metafields or add custom prefix-grouping in the theme's `filters.liquid` (out of scope for this amendment).
+- `custom.genres` → label "Genre" (Source = Metafield)
+- **Product tags** filter → enable it. Label (`label-*`) and curation tags surface here in **one combined facet** — native Search & Discovery cannot give Label its own named filter. If a distinct named "Label" facet is required, either move label to a metafield or add custom prefix-grouping in the theme's `filters.liquid` (out of scope for this amendment).
 
 Leave the default variant/availability filters as-is for now (Supercycle availability is a separate track). Save.
 
