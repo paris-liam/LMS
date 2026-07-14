@@ -109,72 +109,40 @@
       class="facets facets--horizontal facets-controls-wrapper spacing-style"
       style="{% render 'spacing-style', settings: block_settings %}{% if block_settings.text_label_case == 'uppercase' %} --facet-label-transform: uppercase;{% endif %}"
     >
-      {% if block_settings.enable_filtering %}
-        <h4 class="facets--filters-title">{{ 'content.filters' | t }}</h4>
-      {% endif %}
-
-      <div
-        class="products-count-wrapper"
-        data-testid="products-count"
-      >
-        <span role="status">
-          {% if products_count > 25000 %}
-            {{- 'content.item_count_cutoff' | t: count: 25000 -}}
-          {% else %}
-            {{- 'content.item_count' | t: count: products_count -}}
-          {% endif %}
-        </span>
+      <div class="facets-controls-wrapper__left">
+        {% if block_settings.enable_filtering and total_active_values > 0 %}
+          <span class="facets-controls__filters-label">{{ 'content.filters' | t }}:</span>
+          {% render 'filter-remove-buttons',
+            filters: filters,
+            results_url: results_url,
+            show_filter_label: block_settings.show_filter_label,
+            should_show_clear_all: true
+          %}
+        {% endif %}
       </div>
 
-      {% if block_settings.enable_sorting %}
-        {% render 'sorting',
-          results: results,
-          sort_by: sort_by,
-          filter_style: block_settings.filter_style,
-          suffix: 'desktop',
-          sort_position: 'desktop',
-          should_use_select_on_mobile: false,
-          section_id: section.id
-        %}
-      {% endif %}
+      <div class="facets-controls-wrapper__right">
+        <div class="products-count-wrapper" data-testid="products-count">
+          <span role="status">{% if products_count == 1 %}1 film{% else %}{{ products_count }} films{% endif %}</span>
+        </div>
 
-      {% if block_settings.enable_grid_density %}
-        {% render 'grid-density-controls', viewport: 'desktop' %}
-      {% endif %}
+        {% if block_settings.enable_sorting %}
+          {% render 'sorting',
+            results: results,
+            sort_by: sort_by,
+            filter_style: block_settings.filter_style,
+            suffix: 'desktop',
+            sort_position: 'desktop',
+            should_use_select_on_mobile: false,
+            section_id: section.id
+          %}
+        {% endif %}
+
+        {% if block_settings.enable_grid_density %}
+          {% render 'grid-density-controls', viewport: 'desktop' %}
+        {% endif %}
+      </div>
     </div>
-  {% endif %}
-
-  {% if block_settings.filter_style == 'vertical' and block_settings.show_search_input %}
-    <form
-      method="get"
-      action="{{ routes.search_url }}"
-      class="facets-search-form"
-    >
-      <input type="hidden" name="options[prefix]" value="last">
-      {%- for filter in filters -%}
-        {%- case filter.type -%}
-          {%- when 'price_range' -%}
-            {%- if filter.min_value.value != null -%}
-              <input type="hidden" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value }}">
-            {%- endif -%}
-            {%- if filter.max_value.value != null -%}
-              <input type="hidden" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value }}">
-            {%- endif -%}
-          {%- else -%}
-            {%- for value in filter.active_values -%}
-              <input type="hidden" name="{{ value.param_name }}" value="{{ value.value }}">
-            {%- endfor -%}
-        {%- endcase -%}
-      {%- endfor -%}
-      <input
-        type="search"
-        name="q"
-        value="{{ results.terms | escape }}"
-        placeholder="{{ block_settings.search_input_placeholder }}"
-        class="facets-search-form__input"
-        aria-label="{{ 'content.search_input_label' | t }}"
-      >
-    </form>
   {% endif %}
 
   <div
@@ -205,6 +173,38 @@
       style="{% render 'spacing-style', settings: block_settings %}{% if block_settings.text_label_case == 'uppercase' %} --facet-label-transform: uppercase;{% endif %}"
       aria-label="{{ 'accessibility.filters' | t }}"
     >
+      {% if block_settings.filter_style == 'vertical' and block_settings.show_search_input %}
+        <form
+          method="get"
+          action="{{ routes.search_url }}"
+          class="facets-search-form"
+        >
+          <input type="hidden" name="options[prefix]" value="last">
+          {%- for filter in filters -%}
+            {%- case filter.type -%}
+              {%- when 'price_range' -%}
+                {%- if filter.min_value.value != null -%}
+                  <input type="hidden" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value }}">
+                {%- endif -%}
+                {%- if filter.max_value.value != null -%}
+                  <input type="hidden" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value }}">
+                {%- endif -%}
+              {%- else -%}
+                {%- for value in filter.active_values -%}
+                  <input type="hidden" name="{{ value.param_name }}" value="{{ value.value }}">
+                {%- endfor -%}
+            {%- endcase -%}
+          {%- endfor -%}
+          <input
+            type="search"
+            name="q"
+            value="{{ results.terms | escape }}"
+            placeholder="{{ block_settings.search_input_placeholder }}"
+            class="facets-search-form__input"
+            aria-label="{{ 'content.search_input_label' | t }}"
+          >
+        </form>
+      {% endif %}
       <facets-form-component
         class="facets__form-wrapper"
         section-id="{{ section.id }}"
@@ -221,12 +221,14 @@
           ref="facetsForm"
         >
           {% if should_show_pane %}
-            {% render 'filter-remove-buttons',
-              filters: filters,
-              results_url: results_url,
-              show_filter_label: block_settings.show_filter_label,
-              should_show_clear_all: true
-            %}
+            {% unless block_settings.filter_style == 'vertical' %}
+              {% render 'filter-remove-buttons',
+                filters: filters,
+                results_url: results_url,
+                show_filter_label: block_settings.show_filter_label,
+                should_show_clear_all: true
+              %}
+            {% endunless %}
 
             {% if block_settings.enable_filtering %}
               {% assign total_active_values = 0 %}
@@ -1460,6 +1462,93 @@
   .facets-search-form__input:focus-visible {
     outline: 2px solid var(--lms-sage);
     outline-offset: 2px;
+  }
+
+  /* Shop-all top toolbar: chips left, count + sort right.
+     Two-class selector to outrank the base .facets.facets-controls-wrapper rule. */
+  .facets.facets-controls-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .facets-controls-wrapper__left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .facets-controls-wrapper__left .facets-remove {
+    margin: 0;
+  }
+
+  .facets-controls-wrapper__right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+
+  .facets-controls__filters-label {
+    font-family: var(--lms-font-mono, monospace);
+    font-size: 13px;
+    color: var(--lms-text-muted, var(--color-foreground-subdued));
+  }
+
+  /* Brick active-filter chips (mockup .lms-chip-on) */
+  .facets-controls-wrapper__left .facets-remove__pill {
+    font-family: var(--lms-font-mono, monospace);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--lms-brick);
+    border: 1.5px solid var(--lms-brick);
+    color: var(--lms-parchment);
+  }
+
+  .facets-controls-wrapper__left .facets__clear-all-link {
+    font-family: var(--lms-font-mono, monospace);
+    font-size: 12px;
+    color: var(--lms-sage-dark, var(--lms-sage));
+    cursor: pointer;
+  }
+
+  /* Sort as a pill in the shop-all top bar */
+  .facets.facets-controls-wrapper .sorting-filter__container {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid var(--lms-ink-300);
+    border-radius: 999px;
+    padding: 7px 14px;
+    font-family: var(--lms-font-mono, monospace);
+  }
+
+  .facets.facets-controls-wrapper .sorting-filter__container .facets__label {
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--lms-text-strong, var(--color-foreground));
+  }
+
+  .facets.facets-controls-wrapper .sorting-filter__container .facets__label::after {
+    content: ':';
+  }
+
+  .facets.facets-controls-wrapper .sorting-filter__select {
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0 18px 0 0;
+    font-family: var(--lms-font-mono, monospace);
+    font-size: 13px;
+    color: var(--lms-text-strong, var(--color-foreground));
+    cursor: pointer;
   }
 
   .facets-new-arrivals {
