@@ -268,6 +268,41 @@
                 {%- endfor -%}
               {% endcapture %}
 
+              {%- if block_settings.filter_style == 'vertical' -%}
+                {%- liquid
+                  assign na_value = null
+                  for filter in filters
+                    if filter.param_name == 'filter.p.tag'
+                      for value in filter.values
+                        if value.value == 'new-arrival'
+                          assign na_value = value
+                          break
+                        endif
+                      endfor
+                    endif
+                  endfor
+                -%}
+                {%- if na_value -%}
+                  {%- capture new_arrivals_toggle -%}
+                    <div class="facets__item facets-new-arrivals">
+                      <span class="facets-new-arrivals__label">{{ 'content.new_arrivals' | t: default: 'New arrivals' }}</span>
+                      <facet-inputs-component on:change="/updateFilters" class="facets-new-arrivals__control">
+                        <input
+                          type="checkbox"
+                          name="{{ na_value.param_name }}"
+                          value="{{ na_value.value }}"
+                          aria-label="{{ 'content.new_arrivals' | t: default: 'New arrivals' }}"
+                          id="Filter-new-arrivals-desktop"
+                          {% if na_value.active %}checked{% endif %}
+                          ref="facetInputs[]"
+                        >
+                      </facet-inputs-component>
+                    </div>
+                  {%- endcapture -%}
+                  {%- assign rendered_filters = rendered_filters | append: new_arrivals_toggle -%}
+                {%- endif -%}
+              {%- endif -%}
+
               <div class="facets__filters-wrapper">
                 {% if block_settings.filter_style == 'horizontal' %}
                   {% liquid
@@ -1382,6 +1417,22 @@
   .facets-search-form__input:focus-visible {
     outline: 2px solid var(--lms-sage);
     outline-offset: 2px;
+  }
+
+  .facets--vertical .facets-new-arrivals {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1.5px solid var(--lms-border-default, rgb(var(--color-foreground-rgb) / 0.15));
+    padding-top: 18px;
+    margin-top: 8px;
+  }
+
+  .facets--vertical .facets-new-arrivals__label {
+    font-family: var(--lms-font-mono, monospace);
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--lms-text-strong, var(--color-foreground));
   }
 
   /* New-arrivals tag filter rendered as a pill toggle switch instead of a checkbox.

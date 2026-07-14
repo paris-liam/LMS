@@ -233,6 +233,7 @@
                   endfor
                 endif
               %}
+              {%- if is_tag_filter and value.value == 'new-arrival' -%}{%- continue -%}{%- endif -%}
               <li
                 data-skip-node-update="true"
                 class="
