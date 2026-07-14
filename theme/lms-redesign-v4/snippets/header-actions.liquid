@@ -57,17 +57,6 @@
   </svg>
 {% endcapture %}
 
-{% liquid
-  # STAND-IN: gates on customer.tags 'Has active subscription' until Supercycle installs (see CLAUDE.md).
-  assign is_member = true
-  if section and section.settings.enable_membership_gating
-    assign is_member = false
-    if customer and customer.tags contains 'Has active subscription'
-      assign is_member = true
-    endif
-  endif
-%}
-
 <header-actions
   {% if display_style == 'text' %}
     class="header-actions--text"
@@ -75,14 +64,6 @@
   {{- block.shopify_attributes -}}
 >
   {% if shop.customer_accounts_enabled %}
-    {% unless is_member %}
-      <a
-        href="{{ section.settings.join_club_url }}"
-        class="lms-btn lms-btn--primary lms-btn--sm header-actions__action{% if display_style == 'text' %} header-actions__text-style{% endif %}"
-      >
-        {{ section.settings.join_club_label }}
-      </a>
-    {% else %}
     {% liquid
       assign account_actions_style = ''
       if display_style == 'text' and section
@@ -130,12 +111,11 @@
         {% endif %}
       </shopify-account>
     </div>
-    {% endunless %}
   {% endif %}
 
   {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
     <button
-      class="header-actions__action button-unstyled{% if display_style == 'text' %} header-actions__text-style{% endif %}{% if section.settings.enable_membership_gating and is_member == false %} header-actions__action--muted{% endif %}"
+      class="header-actions__action button-unstyled{% if display_style == 'text' %} header-actions__text-style{% endif %}"
       on:click="#cart-drawer/toggle"
       aria-haspopup="dialog"
       aria-expanded="false"
@@ -149,13 +129,20 @@
   {% else %}
     <a
       href="{{ routes.cart_url }}"
-      class="header-actions__action action__cart{% if display_style == 'text' %} header-actions__text-style{% endif %}{% if section.settings.enable_membership_gating and is_member == false %} header-actions__action--muted{% endif %}"
+      class="header-actions__action action__cart{% if display_style == 'text' %} header-actions__text-style{% endif %}"
       aria-label="{{ 'accessibility.cart' | t }}"
       aria-describedby="cart-bubble-text"
     >
       {{ cart_icon }}
     </a>
   {% endif %}
+
+  <a
+    href="{{ section.settings.join_club_url | default: '/pages/membership' }}"
+    class="lms-btn lms-btn--primary lms-btn--sm header-actions__action header-actions__join-club{% if display_style == 'text' %} header-actions__text-style{% endif %}"
+  >
+    {{ section.settings.join_club_label | default: 'Join the Club' }}
+  </a>
 
   <span
     ref="liveRegion"
@@ -172,11 +159,6 @@
 ></script>
 
 {% stylesheet %}
-  .header-actions__action--muted {
-    color: var(--lms-ink-400);
-    opacity: 0.7;
-  }
-
   .header {
     --account-offset-top: calc(
       var(--header-group-height) + (var(--header-height) * var(--transparent-header-offset-boolean))
@@ -245,10 +227,33 @@
 
   header-actions {
     display: flex;
+    align-items: center;
 
     @media screen and (max-width: 749px) {
       justify-self: flex-end;
     }
+  }
+
+  .header-actions__join-club {
+    margin-inline-start: var(--gap-md);
+    white-space: nowrap;
+  }
+
+  /* Keep the pill's own light text; the header forces --color-foreground on actions. */
+  header-actions .header-actions__join-club,
+  header-actions .header-actions__join-club:hover {
+    color: #fff;
+  }
+
+  /* On mobile the pill would crowd the compact bar; the drawer carries the link instead. */
+  @media screen and (max-width: 749px) {
+    .header-actions__join-club {
+      display: none;
+    }
+  }
+
+  #header-component[data-menu-style='drawer'] .header-actions__join-club {
+    display: none;
   }
 
   @media screen and (min-width: 750px) {

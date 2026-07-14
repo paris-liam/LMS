@@ -16,15 +16,6 @@
   assign max_featured_items = 4
   assign image_border_radius = block_settings.image_border_radius
 
-  # STAND-IN: gates on customer.tags 'Has active subscription' until Supercycle installs (see CLAUDE.md).
-  assign is_member = true
-  if section and section.settings.enable_membership_gating
-    assign is_member = false
-    if customer and customer.tags contains 'Has active subscription'
-      assign is_member = true
-    endif
-  endif
-
   if block_settings.menu_style == 'featured_collections'
     assign ratio = block_settings.featured_collections_aspect_ratio
   elsif block_settings.menu_style == 'featured_products'
@@ -102,22 +93,20 @@
         class="menu-drawer__quick-links menu-drawer__animated-element"
         style="--menu-drawer-animation-index: 0;"
       >
+        <a
+          href="{{ section.settings.join_club_url | default: '/pages/membership' }}"
+          class="menu-drawer__account"
+        >
+          {{ section.settings.join_club_label | default: 'Join the Club' }}
+        </a>
+
         {% if shop.customer_accounts_enabled %}
-          {% if is_member %}
-            <a
-              href="{{ routes.account_url }}"
-              class="menu-drawer__account"
-            >
-              {{ 'content.account_title' | t }}
-            </a>
-          {% else %}
-            <a
-              href="{{ section.settings.join_club_url }}"
-              class="menu-drawer__account"
-            >
-              {{ section.settings.join_club_label }}
-            </a>
-          {% endif %}
+          <a
+            href="{{ routes.account_url }}"
+            class="menu-drawer__account"
+          >
+            {{ 'content.account_title' | t }}
+          </a>
         {% endif %}
 
         {% if settings.cart_type == 'drawer' and template.name != 'cart' %}

@@ -47,6 +47,9 @@ QUERY='mutation CreateDef($definition: MetafieldDefinitionInput!) {
 
 # All definitions. Choice lists are embedded as an escaped JSON string in the
 # "choices" validation. Every field is pinned and storefront-readable.
+# NOTE: Label/Distributor is intentionally NOT a metafield — it is modelled as
+# prefixed product tags (label-*). Genre IS a metafield (custom.genres, dropdown +
+# native storefront facet). See the client guide.
 DEFINITIONS=$(cat <<'JSON'
 [
   { "name":"Director","namespace":"custom","key":"director","ownerType":"PRODUCT","type":"single_line_text_field","pin":true,"access":{"storefront":"PUBLIC_READ"},"description":"Film director (display only)" },
@@ -56,7 +59,6 @@ DEFINITIONS=$(cat <<'JSON'
   { "name":"Runtime (min)","namespace":"custom","key":"runtime","ownerType":"PRODUCT","type":"number_integer","pin":true,"access":{"storefront":"PUBLIC_READ"},"description":"Runtime in minutes; display as e.g. 142 min" },
   { "name":"Genres","namespace":"custom","key":"genres","ownerType":"PRODUCT","type":"list.single_line_text_field","pin":true,"access":{"storefront":"PUBLIC_READ"},"description":"One or more genres; storefront facet","validations":[{"name":"choices","value":"[\"Action\",\"Adventure\",\"Animation\",\"Comedy\",\"Crime\",\"Cult\",\"Documentary\",\"Drama\",\"Fantasy\",\"Horror\",\"Musical\",\"Mystery\",\"Noir\",\"Romance\",\"Sci-Fi\",\"Thriller\",\"War\",\"Western\"]"}] },
   { "name":"Format","namespace":"custom","key":"format","ownerType":"PRODUCT","type":"single_line_text_field","pin":true,"access":{"storefront":"PUBLIC_READ"},"description":"Disc format; storefront facet","validations":[{"name":"choices","value":"[\"Blu-ray\",\"DVD\",\"4K UHD\",\"VHS\"]"}] },
-  { "name":"Label / Distributor","namespace":"custom","key":"label","ownerType":"PRODUCT","type":"single_line_text_field","pin":true,"access":{"storefront":"PUBLIC_READ"},"description":"Boutique label / distributor; storefront facet","validations":[{"name":"choices","value":"[\"Criterion\",\"A24\",\"Arrow\",\"Kino Lorber\",\"Second Sight\",\"Vinegar Syndrome\",\"Other\"]"}] },
   { "name":"Media condition","namespace":"custom","key":"media_condition","ownerType":"PRODUCT","type":"single_line_text_field","pin":true,"access":{"storefront":"PUBLIC_READ"},"description":"RETAIL new-sealed stock only. Serialized rental/resale copies use Supercycle's per-item condition.","validations":[{"name":"choices","value":"[\"Sealed / New\",\"Like New\",\"Good\",\"Fair\"]"}] },
   { "name":"Staff pick note","namespace":"custom","key":"staff_pick_note","ownerType":"PRODUCT","type":"multi_line_text_field","pin":true,"access":{"storefront":"PUBLIC_READ"},"description":"Staff blurb shown on card/PDP. Pair with the 'staff-pick' tag. NOT the same as the staff_pick metaobject." }
 ]

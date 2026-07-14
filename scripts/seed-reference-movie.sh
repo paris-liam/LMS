@@ -32,7 +32,6 @@ METAFIELDS=$(jq -n --arg id "$PRODUCT_GID" '[
   {ownerId:$id, namespace:"custom", key:"runtime",         type:"number_integer",              value:"117"},
   {ownerId:$id, namespace:"custom", key:"genres",          type:"list.single_line_text_field", value:"[\"Sci-Fi\",\"Noir\"]"},
   {ownerId:$id, namespace:"custom", key:"format",          type:"single_line_text_field",      value:"Blu-ray"},
-  {ownerId:$id, namespace:"custom", key:"label",           type:"single_line_text_field",      value:"Criterion"},
   {ownerId:$id, namespace:"custom", key:"media_condition", type:"single_line_text_field",      value:"Sealed / New"},
   {ownerId:$id, namespace:"custom", key:"staff_pick_note", type:"multi_line_text_field",       value:"A neon-drenched touchstone — our pick for the shelf."}
 ]')
@@ -42,11 +41,11 @@ RESP=$(curl -sS "https://${STORE}/admin/api/${API_VERSION}/graphql.json" \
 echo "$RESP" | jq '.data.metafieldsSet.userErrors'
 [[ "$(echo "$RESP" | jq -r '.data.metafieldsSet.userErrors | length')" == "0" ]] || { echo "metafieldsSet failed"; exit 1; }
 
-# Curation tags
+# Tags — genre-* / label-* (flattened facet axes) plus bare curation tags.
 TAG_QUERY='mutation Tag($id:ID!,$tags:[String!]!){ tagsAdd(id:$id, tags:$tags){ userErrors{ message } } }'
 curl -sS "https://${STORE}/admin/api/${API_VERSION}/graphql.json" \
   -H "Content-Type: application/json" -H "X-Shopify-Access-Token: ${SHOPIFY_ADMIN_TOKEN}" \
-  -d "$(jq -n --arg q "$TAG_QUERY" --arg id "$PRODUCT_GID" '{query:$q, variables:{id:$id, tags:["rare","staff-pick"]}}')" \
+  -d "$(jq -n --arg q "$TAG_QUERY" --arg id "$PRODUCT_GID" '{query:$q, variables:{id:$id, tags:["genre-sci-fi","genre-noir","label-criterion","rare","staff-pick"]}}')" \
   | jq '.data.tagsAdd.userErrors'
 
 echo "✓ Seeded ${PRODUCT_GID}"
