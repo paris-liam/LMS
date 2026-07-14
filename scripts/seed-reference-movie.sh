@@ -41,11 +41,12 @@ RESP=$(curl -sS "https://${STORE}/admin/api/${API_VERSION}/graphql.json" \
 echo "$RESP" | jq '.data.metafieldsSet.userErrors'
 [[ "$(echo "$RESP" | jq -r '.data.metafieldsSet.userErrors | length')" == "0" ]] || { echo "metafieldsSet failed"; exit 1; }
 
-# Tags — genre-* / label-* (flattened facet axes) plus bare curation tags.
+# Tags — label-* (flattened label/distributor axis) plus bare curation tags.
+# Genre is NOT a tag (it lives in custom.genres above).
 TAG_QUERY='mutation Tag($id:ID!,$tags:[String!]!){ tagsAdd(id:$id, tags:$tags){ userErrors{ message } } }'
 curl -sS "https://${STORE}/admin/api/${API_VERSION}/graphql.json" \
   -H "Content-Type: application/json" -H "X-Shopify-Access-Token: ${SHOPIFY_ADMIN_TOKEN}" \
-  -d "$(jq -n --arg q "$TAG_QUERY" --arg id "$PRODUCT_GID" '{query:$q, variables:{id:$id, tags:["genre-sci-fi","genre-noir","label-criterion","rare","staff-pick"]}}')" \
+  -d "$(jq -n --arg q "$TAG_QUERY" --arg id "$PRODUCT_GID" '{query:$q, variables:{id:$id, tags:["label-criterion","rare","staff-pick"]}}')" \
   | jq '.data.tagsAdd.userErrors'
 
 echo "✓ Seeded ${PRODUCT_GID}"
