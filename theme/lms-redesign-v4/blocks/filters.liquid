@@ -294,17 +294,16 @@
                   {%- capture new_arrivals_toggle -%}
                     <div class="facets__item facets-new-arrivals">
                       <span class="facets-new-arrivals__label">New arrivals</span>
-                      <facet-inputs-component on:change="/updateFilters" class="facets-new-arrivals__control">
-                        <input
-                          type="checkbox"
-                          name="{{ na_value.param_name }}"
-                          value="{{ na_value.value }}"
-                          aria-label="New arrivals"
-                          id="Filter-new-arrivals-desktop"
-                          {% if na_value.active %}checked{% endif %}
-                          ref="facetInputs[]"
-                        >
-                      </facet-inputs-component>
+                      <facet-remove-component
+                        class="facets-new-arrivals__switch{% if na_value.active %} is-on{% endif %}"
+                        data-url="{% if na_value.active %}{{ na_value.url_to_remove }}{% else %}{{ na_value.url_to_add }}{% endif %}"
+                        role="switch"
+                        aria-checked="{% if na_value.active %}true{% else %}false{% endif %}"
+                        aria-label="New arrivals"
+                        tabindex="0"
+                        on:click="/removeFilter?form="
+                        on:keydown="/removeFilter?form="
+                      ></facet-remove-component>
                     </div>
                   {%- endcapture -%}
                   {%- assign rendered_filters = rendered_filters | append: new_arrivals_toggle -%}
@@ -591,17 +590,16 @@
                   {%- if na_value_drawer -%}
                     <div class="facets__item facets-new-arrivals">
                       <span class="facets-new-arrivals__label">New arrivals</span>
-                      <facet-inputs-component on:change="/updateFilters" class="facets-new-arrivals__control">
-                        <input
-                          type="checkbox"
-                          name="{{ na_value_drawer.param_name }}"
-                          value="{{ na_value_drawer.value }}"
-                          aria-label="New arrivals"
-                          id="Filter-new-arrivals-drawer"
-                          {% if na_value_drawer.active %}checked{% endif %}
-                          ref="facetInputs[]"
-                        >
-                      </facet-inputs-component>
+                      <facet-remove-component
+                        class="facets-new-arrivals__switch{% if na_value_drawer.active %} is-on{% endif %}"
+                        data-url="{% if na_value_drawer.active %}{{ na_value_drawer.url_to_remove }}{% else %}{{ na_value_drawer.url_to_add }}{% endif %}"
+                        role="switch"
+                        aria-checked="{% if na_value_drawer.active %}true{% else %}false{% endif %}"
+                        aria-label="New arrivals"
+                        tabindex="0"
+                        on:click="/removeFilter?form="
+                        on:keydown="/removeFilter?form="
+                      ></facet-remove-component>
                     </div>
                   {%- endif -%}
                 {%- endif -%}
@@ -1474,6 +1472,34 @@
     flex-wrap: wrap;
   }
 
+  /* The toolbar sits above the product grid (content column), not the sidebar. */
+  .collection-wrapper:has(.facets--vertical) .facets.facets-controls-wrapper {
+    @media screen and (min-width: 750px) {
+      grid-column: var(--facets-vertical-col-width) / var(--full-width-column-number);
+      grid-row: 1;
+    }
+  }
+
+  .collection-wrapper:has(.facets--vertical) .facets-block-wrapper--vertical:not(.hidden) {
+    @media screen and (min-width: 750px) {
+      grid-row: 1 / span 2;
+    }
+  }
+
+  .collection-wrapper:has(.facets--vertical) .facets-block-wrapper--vertical:not(.hidden) ~ .main-collection-grid {
+    @media screen and (min-width: 750px) {
+      grid-row: 2;
+    }
+  }
+
+  /* filter-remove-buttons hides itself inside .facets--horizontal; our toolbar
+     carries that class, so re-show the chip row here (only rendered when active). */
+  .facets.facets-controls-wrapper .facets-remove,
+  .facets.facets-controls-wrapper .facets-remove--mobile-and-vertical {
+    display: flex;
+    margin: 0;
+  }
+
   .facets-controls-wrapper__left {
     display: flex;
     align-items: center;
@@ -1570,18 +1596,12 @@
     color: var(--lms-mahogany);
   }
 
-  /* New-arrivals tag filter rendered as a pill toggle switch instead of a checkbox.
-     Targets the checkbox by its `value` attribute since the tag filter's
-     param_name is shared across all tag values (see Task 1, Step 5's
-     scoping note if this selector ever needs to change). */
-  .facets--vertical .checkbox:has(input[value='new-arrival']) {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .facets-new-arrivals input[value='new-arrival'] {
-    appearance: none;
+  /* New-arrivals rendered as a URL-toggle switch (facet-remove-component),
+     so it filters via the theme's proven URL-based mechanism (no standalone
+     facet-inputs-component wiring). .is-on reflects the active tag. */
+  .facets-new-arrivals__switch {
+    display: inline-block;
+    flex: none;
     width: 42px;
     height: 24px;
     border-radius: 999px;
@@ -1591,7 +1611,7 @@
     transition: background-color 140ms ease;
   }
 
-  .facets-new-arrivals input[value='new-arrival']::after {
+  .facets-new-arrivals__switch::after {
     content: '';
     position: absolute;
     top: 2px;
@@ -1603,11 +1623,11 @@
     transition: left 140ms ease;
   }
 
-  .facets-new-arrivals input[value='new-arrival']:checked {
+  .facets-new-arrivals__switch.is-on {
     background: var(--lms-sage);
   }
 
-  .facets-new-arrivals input[value='new-arrival']:checked::after {
+  .facets-new-arrivals__switch.is-on::after {
     left: 20px;
   }
 {% endstylesheet %}
