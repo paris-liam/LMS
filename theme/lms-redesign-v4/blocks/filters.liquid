@@ -247,7 +247,9 @@
                           assign should_render_clear = false
                         endif
 
-                        render 'price-filter', filter: filter, filter_style: block_settings.filter_style, should_render_clear: should_render_clear, id_prefix: 'horizontal'
+                        unless block_settings.filter_style == 'vertical'
+                          render 'price-filter', filter: filter, filter_style: block_settings.filter_style, should_render_clear: should_render_clear, id_prefix: 'horizontal'
+                        endunless
                       -%}
                     {% else %}
                       {% liquid
@@ -550,7 +552,9 @@
                           assign is_active = true
                         endif
 
-                        render 'price-filter', filter: filter, filter_style: 'vertical', should_render_clear: false, id_prefix: 'dialog'
+                        unless block_settings.filter_style == 'vertical'
+                          render 'price-filter', filter: filter, filter_style: 'vertical', should_render_clear: false, id_prefix: 'dialog'
+                        endunless
                       -%}
                     {% else %}
                       {% liquid
@@ -1462,16 +1466,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1.5px solid var(--lms-border-default, rgb(var(--color-foreground-rgb) / 0.15));
-    padding-top: 18px;
-    margin-top: 8px;
+    border-top: var(--style-border-width, 1px) solid rgb(var(--color-foreground-rgb) / var(--opacity-10-25, 0.15));
+    padding-block: 18px;
+    margin-top: 4px;
   }
 
+  /* Match the facet header label treatment so New arrivals reads as another filter row. */
   .facets-new-arrivals__label {
     font-family: var(--lms-font-mono, monospace);
     font-weight: 500;
-    font-size: 14px;
-    color: var(--lms-text-strong, var(--color-foreground));
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--lms-mahogany);
   }
 
   /* New-arrivals tag filter rendered as a pill toggle switch instead of a checkbox.

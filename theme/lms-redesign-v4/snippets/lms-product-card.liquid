@@ -8,7 +8,6 @@
   - Poster:     card_product.featured_image
   - Title:      card_product.title
   - Director:   card_product.metafields.custom.director (hidden when blank)
-  - Price:      card_product.price
   - Format:     card_product.metafields.custom.format   (e.g. Blu-ray / DVD / 4K / VHS)
   - Condition:  card_product.metafields.custom.media_condition (retail new-sealed only; used/rental copies use Supercycle item condition)
   - Rare flag:  card_product.tags contains 'rare'
@@ -39,7 +38,6 @@
     {%- endif -%}
 
     <div class="lms-product-card__meta">
-      <span class="lms-product-card__price">{{ card_product.price | money }}</span>
       <span class="lms-product-card__tags">
         {%- if card_product.metafields.custom.format != blank -%}
           <span class="lms-badge lms-badge--muted">{{ card_product.metafields.custom.format.value }}</span>
