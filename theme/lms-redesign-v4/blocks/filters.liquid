@@ -1458,7 +1458,7 @@
     outline-offset: 2px;
   }
 
-  .facets--vertical .facets-new-arrivals {
+  .facets-new-arrivals {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1467,7 +1467,7 @@
     margin-top: 8px;
   }
 
-  .facets--vertical .facets-new-arrivals__label {
+  .facets-new-arrivals__label {
     font-family: var(--lms-font-mono, monospace);
     font-weight: 500;
     font-size: 14px;
@@ -1484,7 +1484,7 @@
     justify-content: space-between;
   }
 
-  .facets--vertical input[value='new-arrival'] {
+  .facets-new-arrivals input[value='new-arrival'] {
     appearance: none;
     width: 42px;
     height: 24px;
@@ -1495,7 +1495,7 @@
     transition: background-color 140ms ease;
   }
 
-  .facets--vertical input[value='new-arrival']::after {
+  .facets-new-arrivals input[value='new-arrival']::after {
     content: '';
     position: absolute;
     top: 2px;
@@ -1507,11 +1507,11 @@
     transition: left 140ms ease;
   }
 
-  .facets--vertical input[value='new-arrival']:checked {
+  .facets-new-arrivals input[value='new-arrival']:checked {
     background: var(--lms-sage);
   }
 
-  .facets--vertical input[value='new-arrival']:checked::after {
+  .facets-new-arrivals input[value='new-arrival']:checked::after {
     left: 20px;
   }
 {% endstylesheet %}
