@@ -270,7 +270,9 @@
                         if block_settings.filter_style == 'vertical'
                           assign suppress_na = true
                         endif
-                        render 'list-filter', filter: filter, filter_style: block_settings.filter_style, active_value_count: active_value_count, should_render_clear: should_render_clear, show_swatch_label: block_settings.show_swatch_label, sectionId: section.id, suppress_new_arrival: suppress_na
+                        unless filter.param_name == 'filter.p.tag' and block_settings.filter_style == 'vertical'
+                          render 'list-filter', filter: filter, filter_style: block_settings.filter_style, active_value_count: active_value_count, should_render_clear: should_render_clear, show_swatch_label: block_settings.show_swatch_label, sectionId: section.id, suppress_new_arrival: suppress_na
+                        endunless
                       %}
                   {% endcase %}
                 {%- endfor -%}
@@ -307,6 +309,40 @@
                     </div>
                   {%- endcapture -%}
                   {%- assign rendered_filters = rendered_filters | append: new_arrivals_toggle -%}
+                {%- endif -%}
+              {%- endif -%}
+
+              {%- if block_settings.filter_style == 'vertical' -%}
+                {%- liquid
+                  assign cp_value = null
+                  for filter in filters
+                    if filter.param_name == 'filter.p.tag'
+                      for value in filter.values
+                        if value.value == 'community-pick'
+                          assign cp_value = value
+                          break
+                        endif
+                      endfor
+                    endif
+                  endfor
+                -%}
+                {%- if cp_value -%}
+                  {%- capture community_picks_toggle -%}
+                    <div class="facets__item facets-new-arrivals">
+                      <span class="facets-new-arrivals__label">Community picks</span>
+                      <facet-remove-component
+                        class="facets-new-arrivals__switch{% if cp_value.active %} is-on{% endif %}"
+                        data-url="{% if cp_value.active %}{{ cp_value.url_to_remove }}{% else %}{{ cp_value.url_to_add }}{% endif %}"
+                        role="switch"
+                        aria-checked="{% if cp_value.active %}true{% else %}false{% endif %}"
+                        aria-label="Community picks"
+                        tabindex="0"
+                        on:click="/removeFilter?form="
+                        on:keydown="/removeFilter?form="
+                      ></facet-remove-component>
+                    </div>
+                  {%- endcapture -%}
+                  {%- assign rendered_filters = rendered_filters | append: community_picks_toggle -%}
                 {%- endif -%}
               {%- endif -%}
 
@@ -569,7 +605,9 @@
                         if block_settings.filter_style == 'vertical'
                           assign suppress_na = true
                         endif
-                        render 'list-filter', filter: filter, filter_style: 'vertical', active_value_count: active_value_count, should_render_clear: false, in_drawer: true, sectionId: section.id, suppress_new_arrival: suppress_na
+                        unless filter.param_name == 'filter.p.tag' and block_settings.filter_style == 'vertical'
+                          render 'list-filter', filter: filter, filter_style: 'vertical', active_value_count: active_value_count, should_render_clear: false, in_drawer: true, sectionId: section.id, suppress_new_arrival: suppress_na
+                        endunless
                       %}
                   {% endcase %}
                 {%- endfor -%}
@@ -596,6 +634,36 @@
                         role="switch"
                         aria-checked="{% if na_value_drawer.active %}true{% else %}false{% endif %}"
                         aria-label="New arrivals"
+                        tabindex="0"
+                        on:click="/removeFilter?form="
+                        on:keydown="/removeFilter?form="
+                      ></facet-remove-component>
+                    </div>
+                  {%- endif -%}
+                {%- endif -%}
+                {%- if block_settings.filter_style == 'vertical' -%}
+                  {%- liquid
+                    assign cp_value_drawer = null
+                    for filter in filters
+                      if filter.param_name == 'filter.p.tag'
+                        for value in filter.values
+                          if value.value == 'community-pick'
+                            assign cp_value_drawer = value
+                            break
+                          endif
+                        endfor
+                      endif
+                    endfor
+                  -%}
+                  {%- if cp_value_drawer -%}
+                    <div class="facets__item facets-new-arrivals">
+                      <span class="facets-new-arrivals__label">Community picks</span>
+                      <facet-remove-component
+                        class="facets-new-arrivals__switch{% if cp_value_drawer.active %} is-on{% endif %}"
+                        data-url="{% if cp_value_drawer.active %}{{ cp_value_drawer.url_to_remove }}{% else %}{{ cp_value_drawer.url_to_add }}{% endif %}"
+                        role="switch"
+                        aria-checked="{% if cp_value_drawer.active %}true{% else %}false{% endif %}"
+                        aria-label="Community picks"
                         tabindex="0"
                         on:click="/removeFilter?form="
                         on:keydown="/removeFilter?form="
