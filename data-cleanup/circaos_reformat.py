@@ -15,6 +15,9 @@ from reformat_movies import FIXED_VENDOR, FIXED_CATEGORY, GENRE_COLUMN, FORMAT_C
 
 TAG_TO_ADD = "CircaOS Import"
 
+# Includes "Special Interest" (maps to (None, None)) intentionally: a product
+# tagged only "Special Interest" is still in scope, just ships with a blank
+# genre, matching reformat_movies.py's handling of the same value.
 SIMPLE_GENRE_TAGS = {k: v for k, v in GENRE_VALUE_MAP.items() if "," not in k}
 
 BARCODE_FORMAT_PREFIXES = [
