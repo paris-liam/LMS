@@ -1,14 +1,23 @@
 {% comment %}
-  lms-new-releases — collection-driven product grid ("New arrivals this week").
-  Staff rotates stock by managing the selected collection in admin; the
-  homepage follows automatically. The "Browse all" button links to the
-  selected collection — the URL is derived, not a setting.
+  lms-new-releases — "New Arrivals" rail: the 10 most recent Rental movies.
+  Data source is the fixed `new-arrivals` smart collection (Category = Media
+  > Videos AND tag = Rental AND tag = new-arrival), kept in sync by a
+  Shopify Flow (see docs/superpowers/plans/2026-07-15-rental-scoped-catalogue-and-filters.md).
+  The "+N more" button links to the shop-all/search page with the New
+  Arrivals toggle pre-set (filter.p.tag=new-arrival).
   Desktop: 5-up grid. Tablet: 3-up. Mobile: horizontal scroll-snap row.
 {% endcomment %}
 
 {%- liquid
-  assign collection = section.settings.collection
-  assign limit = section.settings.products_to_show
+  assign collection = collections['new-arrivals']
+  assign limit = 10
+  assign new_arrivals_count = 0
+  assign remaining = 0
+  if collection != blank
+    assign new_arrivals_count = collection.products_count
+    assign remaining = new_arrivals_count | minus: limit
+  endif
+  assign all_movies_url = collections['all-movies'].url
 -%}
 
 {% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
@@ -24,28 +33,22 @@
           <h2 class="lms-new-releases__heading">{{ section.settings.heading }}</h2>
         {%- endif -%}
       </div>
-      {%- if section.settings.button_label != blank and collection != blank -%}
-        <a href="{{ collection.url }}" class="lms-btn lms-btn--outline lms-btn--sm">
-          {{- section.settings.button_label -}}
+      {%- if remaining > 0 and all_movies_url != blank -%}
+        <a href="{{ all_movies_url }}?filter.p.tag=new-arrival" class="lms-btn lms-btn--outline lms-btn--sm">
+          + {{ remaining }} more
         </a>
       {%- endif -%}
     </div>
 
     <div class="lms-new-releases__grid">
-      {%- if collection != blank -%}
+      {%- if new_arrivals_count > 0 -%}
         {%- for product in collection.products limit: limit -%}
           {% render 'lms-product-card', card_product: product %}
         {%- endfor -%}
       {%- else -%}
-        {%- comment -%} Onboarding state: no collection selected yet {%- endcomment -%}
-        {%- for i in (1..limit) -%}
-          <div class="lms-product-card">
-            <div class="lms-product-card__media">
-              <div class="lms-product-card__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
-            </div>
-            <div class="lms-product-card__title">Example title</div>
-          </div>
-        {%- endfor -%}
+        <div class="lms-new-releases__empty">
+          New arrivals will appear here as soon as they're added.
+        </div>
       {%- endif -%}
     </div>
 
@@ -66,6 +69,13 @@
   margin-bottom: 34px;
 }
 .lms-new-releases .lms-eyebrow { display: block; }
+.lms-new-releases__empty {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-light);
+  font-size: 13px;
+  color: var(--lms-text-muted);
+  padding: 32px 0;
+}
 .lms-new-releases__heading {
   font-family: var(--lms-font-display);
   font-weight: var(--lms-fw-head-med);
@@ -100,7 +110,7 @@
 
 {% schema %}
 {
-  "name": "LMS new releases",
+  "name": "LMS new arrivals",
   "tag": "section",
   "class": "lms-new-releases-section",
   "settings": [
@@ -116,30 +126,6 @@
       "id": "heading",
       "label": "Heading",
       "default": "New arrivals this week"
-    },
-    { "type": "header", "content": "Products" },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection",
-      "info": "Products are shown from this collection in its own sort order. To rotate stock, update the collection — this section follows automatically."
-    },
-    {
-      "type": "range",
-      "id": "products_to_show",
-      "label": "Products to show",
-      "min": 3,
-      "max": 10,
-      "step": 1,
-      "default": 5
-    },
-    { "type": "header", "content": "Button" },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Button label",
-      "default": "Browse all →",
-      "info": "Links to the selected collection. Leave blank to hide."
     },
     { "type": "header", "content": "Section style" },
     {
@@ -170,7 +156,7 @@
     }
   ],
   "presets": [
-    { "name": "LMS new releases" }
+    { "name": "LMS new arrivals" }
   ]
 }
 {% endschema %}
