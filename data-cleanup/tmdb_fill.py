@@ -111,22 +111,35 @@ def needs_description(group: list[dict]) -> bool:
     return len(text) < SHORT_DESCRIPTION_LENGTH
 
 
-def build_output(rows: list[dict], fetch_fn, sleep_fn=time.sleep) -> tuple[list[dict], list[dict]]:
+def build_output(
+    rows: list[dict],
+    fetch_fn,
+    sleep_fn=time.sleep,
+    progress_fn=lambda index, total, handle, message: None,
+) -> tuple[list[dict], list[dict]]:
     """Fill missing Image Src / Body (HTML) fields via TMDB, per product handle.
 
     Returns (output_rows, review_rows). output_rows preserves every input
     row's original order; only a primary row's Image Src/Body (HTML) are
     ever modified, and only for the field(s) it actually needed.
+
+    progress_fn(index, total, handle, message) is called once per product
+    handle (1-indexed, total = number of distinct handles), after that
+    handle has been fully processed, with a short human-readable outcome.
     """
     output_rows: list[dict] = []
     review_rows: list[dict] = []
 
-    for handle, group in group_rows_by_handle(rows):
+    groups = group_rows_by_handle(rows)
+    total = len(groups)
+
+    for index, (handle, group) in enumerate(groups, start=1):
         need_img = needs_image(group)
         need_desc = needs_description(group)
 
         if not need_img and not need_desc:
             output_rows.extend(group)
+            progress_fn(index, total, handle, "already complete, skipped")
             continue
 
         primary = dict(group[0])
@@ -143,6 +156,7 @@ def build_output(rows: list[dict], fetch_fn, sleep_fn=time.sleep) -> tuple[list[
                 "Reason": f"TMDB request failed: {exc}",
             })
             output_rows.extend(group)
+            progress_fn(index, total, handle, f"review: TMDB request failed: {exc}")
             continue
 
         sleep_fn(REQUEST_DELAY_SECONDS)
@@ -150,6 +164,7 @@ def build_output(rows: list[dict], fetch_fn, sleep_fn=time.sleep) -> tuple[list[
         if not results:
             review_rows.append({"Handle": handle, "Title": title, "Reason": "no TMDB match"})
             output_rows.extend(group)
+            progress_fn(index, total, handle, "review: no TMDB match")
             continue
 
         best, confident = find_best_match(clean_title, results)
@@ -162,32 +177,47 @@ def build_output(rows: list[dict], fetch_fn, sleep_fn=time.sleep) -> tuple[list[
                 "Reason": f"ambiguous match (best candidate: '{best_title}' ({best_year}))",
             })
             output_rows.extend(group)
+            progress_fn(index, total, handle, f"review: ambiguous match (best candidate: '{best_title}' ({best_year}))")
             continue
+
+        filled = []
+        flagged = []
 
         if need_img:
             poster_path = best.get("poster_path")
             if poster_path:
                 primary["Image Src"] = f"{POSTER_BASE_URL}{poster_path}"
+                filled.append("image")
             else:
                 review_rows.append({
                     "Handle": handle,
                     "Title": title,
                     "Reason": "matched but no TMDB poster",
                 })
+                flagged.append("no poster")
 
         if need_desc:
             overview = (best.get("overview") or "").strip()
             if overview:
                 primary["Body (HTML)"] = f"<p>{overview}</p>"
+                filled.append("description")
             else:
                 review_rows.append({
                     "Handle": handle,
                     "Title": title,
                     "Reason": "matched but no TMDB overview",
                 })
+                flagged.append("no overview")
 
         output_rows.append(primary)
         output_rows.extend(group[1:])
+
+        message_parts = []
+        if filled:
+            message_parts.append(f"filled {', '.join(filled)}")
+        if flagged:
+            message_parts.append(f"review: {', '.join(flagged)}")
+        progress_fn(index, total, handle, "; ".join(message_parts) if message_parts else "matched")
 
     return output_rows, review_rows
 
@@ -219,13 +249,19 @@ def write_csv(path, fieldnames: list[str], rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
-def run(input_path, outdir, api_key: str, fetch_fn=None, sleep_fn=time.sleep) -> dict:
+def print_progress(index: int, total: int, handle: str, message: str) -> None:
+    print(f"[{index}/{total}] {handle}: {message}", flush=True)
+
+
+def run(input_path, outdir, api_key: str, fetch_fn=None, sleep_fn=time.sleep, progress_fn=None) -> dict:
     fieldnames, rows = load_export(input_path)
 
     if fetch_fn is None:
         fetch_fn = make_tmdb_fetcher(api_key)
+    if progress_fn is None:
+        progress_fn = lambda index, total, handle, message: None
 
-    output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=sleep_fn)
+    output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=sleep_fn, progress_fn=progress_fn)
 
     outdir = Path(outdir)
     write_csv(outdir / "tmdb-filled.csv", fieldnames, output_rows)
@@ -255,7 +291,8 @@ def main():
     outdir = Path(args.outdir) if args.outdir else input_path.parent
     outdir.mkdir(parents=True, exist_ok=True)
 
-    counts = run(input_path, outdir, api_key)
+    print(f"Reading {input_path}...")
+    counts = run(input_path, outdir, api_key, progress_fn=print_progress)
     print(f"Filled: {counts['filled']} rows -> {outdir / 'tmdb-filled.csv'}")
     print(f"Needs review: {counts['review']} rows -> {outdir / 'tmdb-needs-review.csv'}")
 

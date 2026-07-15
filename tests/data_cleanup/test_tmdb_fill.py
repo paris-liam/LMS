@@ -335,6 +335,43 @@ class TestBuildOutput(unittest.TestCase):
         self.assertEqual(output_rows[1]["Body (HTML)"], "")
 
 
+class TestBuildOutputProgress(unittest.TestCase):
+    def test_calls_progress_fn_once_per_handle_with_index_and_total(self):
+        rows = [
+            make_row(**{
+                "Handle": "already-good",
+                "Image Src": "https://img/1.jpg",
+                "Body (HTML)": "<p>" + ("A" * 50) + "</p>",
+            }),
+            make_row(**{"Handle": "needs-both", "Title": "Bambi"}),
+        ]
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("Bambi", overview="A deer grows up.", poster_path="/bambi.jpg")]}
+
+        calls = []
+
+        def progress_fn(index, total, handle, message):
+            calls.append((index, total, handle, message))
+
+        build_output(rows, fetch_fn, sleep_fn=NO_SLEEP, progress_fn=progress_fn)
+
+        self.assertEqual(calls, [
+            (1, 2, "already-good", "already complete, skipped"),
+            (2, 2, "needs-both", "filled image, description"),
+        ])
+
+    def test_default_progress_fn_is_a_silent_no_op(self):
+        rows = [make_row(**{"Handle": "already-good", "Image Src": "https://img/1.jpg", "Body (HTML)": "<p>" + ("A" * 50) + "</p>"})]
+
+        def fetch_fn(query, year):
+            raise AssertionError("should not be called")
+
+        # No progress_fn passed — must not raise.
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows, rows)
+
+
 import json
 import tempfile
 from unittest.mock import patch
@@ -438,6 +475,28 @@ class TestRun(unittest.TestCase):
             self.assertEqual(review_fieldnames, ["Handle", "Title", "Reason"])
             self.assertEqual(len(review_rows), 1)
             self.assertEqual(review_rows[0]["Handle"], "no-match-movie")
+
+    def test_forwards_progress_fn_to_build_output(self):
+        def fetch_fn(query, year):
+            return {"results": []}
+
+        calls = []
+
+        def progress_fn(index, total, handle, message):
+            calls.append(handle)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            run(FIXTURE_PATH, Path(tmp), api_key="unused", fetch_fn=fetch_fn, sleep_fn=NO_SLEEP, progress_fn=progress_fn)
+
+        self.assertEqual(calls, ["good-movie", "needs-both-movie", "no-match-movie"])
+
+    def test_omitting_progress_fn_produces_no_output(self):
+        def fetch_fn(query, year):
+            return {"results": []}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            # Must not raise even though no progress_fn was passed.
+            run(FIXTURE_PATH, Path(tmp), api_key="unused", fetch_fn=fetch_fn, sleep_fn=NO_SLEEP)
 
 
 if __name__ == "__main__":
