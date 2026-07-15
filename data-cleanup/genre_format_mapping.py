@@ -64,6 +64,8 @@ GENRE_VALUE_MAP = {
     "Action, 4K": ("action", "4-k"),
     "Horror, 4K": ("horror", "4-k"),
     "Kids": ("kids-family", None),
+    # Seen in corrupt exports where the metaobject handle leaked into the raw value.
+    "kids-family": ("kids-family", None),
 }
 
 

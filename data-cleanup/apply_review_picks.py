@@ -11,18 +11,14 @@ import argparse
 import json
 from pathlib import Path
 
-from run_full_reformat import add_tags
+from catalog_common import add_tags, group_rows_by_handle, load_export, write_csv
 from tmdb_fill import (
+    NEEDS_DATA_TAG,
     POSTER_BASE_URL,
-    group_rows_by_handle,
     has_circaos_tag,
-    load_export,
     needs_description,
     needs_image,
-    write_csv,
 )
-
-NEEDS_DATA_TAG = "needs data"
 
 
 def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:

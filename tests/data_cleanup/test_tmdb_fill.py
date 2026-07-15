@@ -411,6 +411,81 @@ class TestBuildOutputCircaosRefresh(unittest.TestCase):
         self.assertEqual(review_rows, [])
 
 
+class TestBuildOutputIdempotency(unittest.TestCase):
+    def test_needs_data_tagged_product_is_skipped_without_api_call(self):
+        rows = [make_row(**{"Handle": "declined", "Title": "Bambi", "Tags": "needs data"})]
+
+        def fetch_fn(query, year):
+            raise AssertionError("should not be called")
+
+        calls = []
+        output_rows, review_rows = build_output(
+            rows, fetch_fn, sleep_fn=NO_SLEEP,
+            progress_fn=lambda i, t, h, m: calls.append(m),
+        )
+        self.assertEqual(output_rows, rows)
+        self.assertEqual(review_rows, [])
+        self.assertEqual(calls, ["skipped (needs data)"])
+
+    def test_circaos_product_already_tmdb_filled_is_not_re_refreshed(self):
+        good_body = "<p>" + ("A" * 50) + "</p>"
+        rows = [make_row(**{
+            "Handle": "circaos-done",
+            "Title": "Bambi",
+            "Tags": "CircaOS Import, TMDB Filled",
+            "Image Src": "https://img/existing.jpg",
+            "Body (HTML)": good_body,
+        })]
+
+        def fetch_fn(query, year):
+            raise AssertionError("should not be called")
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows, rows)
+        self.assertEqual(review_rows, [])
+
+    def test_fill_appends_tmdb_filled_tag_to_primary_row(self):
+        rows = [make_row(**{"Handle": "needs-both", "Title": "Bambi", "Tags": "Drama"})]
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("Bambi", overview="A deer grows up.", poster_path="/bambi.jpg")]}
+
+        output_rows, _ = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows[0]["Tags"], "Drama, TMDB Filled")
+
+    def test_review_outcome_does_not_add_tmdb_filled_tag(self):
+        rows = [make_row(**{"Handle": "no-match", "Title": "Totally Fictional Movie XYZ", "Tags": "Drama"})]
+
+        def fetch_fn(query, year):
+            return {"results": []}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows[0]["Tags"], "Drama")
+        self.assertEqual(len(review_rows), 1)
+
+    def test_second_run_over_filled_output_makes_no_further_changes(self):
+        rows = [make_row(**{
+            "Handle": "circaos-movie",
+            "Title": "Bambi",
+            "Tags": "CircaOS Import",
+        })]
+
+        overview = "A young deer grows up in the forest after losing his mother to hunters."
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("Bambi", overview=overview, poster_path="/bambi.jpg")]}
+
+        first_pass, _ = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertIn("TMDB Filled", first_pass[0]["Tags"])
+
+        def fetch_fn_second(query, year):
+            raise AssertionError("second run should not hit the API")
+
+        second_pass, review_rows = build_output(first_pass, fetch_fn_second, sleep_fn=NO_SLEEP)
+        self.assertEqual(second_pass, first_pass)
+        self.assertEqual(review_rows, [])
+
+
 class TestBuildOutputProgress(unittest.TestCase):
     def test_calls_progress_fn_once_per_handle_with_index_and_total(self):
         rows = [

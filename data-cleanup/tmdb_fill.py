@@ -4,7 +4,6 @@ See docs/superpowers/specs/2026-07-14-tmdb-image-description-fill-design.md.
 """
 
 import argparse
-import csv
 import difflib
 import html
 import json
@@ -16,7 +15,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-from reformat_movies import group_rows_by_handle
+from catalog_common import add_tags, group_rows_by_handle, has_tag, load_export, write_csv
 
 TMDB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
 POSTER_BASE_URL = "https://image.tmdb.org/t/p/w500"
@@ -25,6 +24,8 @@ MATCH_THRESHOLD = 0.9
 SHORT_DESCRIPTION_LENGTH = 40
 REQUEST_DELAY_SECONDS = 0.25
 CIRCAOS_IMPORT_TAG = "CircaOS Import"
+TMDB_FILLED_TAG = "TMDB Filled"
+NEEDS_DATA_TAG = "needs data"
 
 YEAR_PATTERN = re.compile(r"\(\s*(\d{4})\s*\)\s*$")
 
@@ -115,9 +116,9 @@ def needs_description(group: list[dict]) -> bool:
 
 def has_circaos_tag(group: list[dict]) -> bool:
     """CircaOS-imported products carry descriptions known to be wrong, so
-    they always get a TMDB description refresh even when one is present."""
-    tags = [t.strip() for t in group[0].get("Tags", "").split(",")]
-    return CIRCAOS_IMPORT_TAG in tags
+    they get a TMDB description refresh even when one is present — but only
+    until a fill lands (see TMDB_FILLED_TAG in build_output)."""
+    return has_tag(group[0].get("Tags", ""), CIRCAOS_IMPORT_TAG)
 
 
 def build_output(
@@ -143,8 +144,15 @@ def build_output(
     total = len(groups)
 
     for index, (handle, group) in enumerate(groups, start=1):
+        primary_tags = group[0].get("Tags", "")
+        if has_tag(primary_tags, NEEDS_DATA_TAG):
+            output_rows.extend(group)
+            progress_fn(index, total, handle, "skipped (needs data)")
+            continue
+
+        force_refresh = has_circaos_tag(group) and not has_tag(primary_tags, TMDB_FILLED_TAG)
         need_img = needs_image(group)
-        need_desc = needs_description(group) or has_circaos_tag(group)
+        need_desc = needs_description(group) or force_refresh
 
         if not need_img and not need_desc:
             output_rows.extend(group)
@@ -218,6 +226,9 @@ def build_output(
                 })
                 flagged.append("no overview")
 
+        if filled:
+            primary["Tags"] = add_tags(primary.get("Tags"), [TMDB_FILLED_TAG])
+
         output_rows.append(primary)
         output_rows.extend(group[1:])
 
@@ -243,19 +254,6 @@ def make_tmdb_fetcher(api_key: str):
             return json.loads(response.read().decode("utf-8"))
 
     return fetch
-
-
-def load_export(path) -> tuple[list[str], list[dict]]:
-    with open(path, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        return list(reader.fieldnames), list(reader)
-
-
-def write_csv(path, fieldnames: list[str], rows: list[dict]) -> None:
-    with open(path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
 
 
 def build_changes_html(changed_pairs: list[tuple[dict, dict]]) -> str:
@@ -386,8 +384,8 @@ def main():
 
     print(f"Reading {input_path}...")
     counts = run(input_path, outdir, api_key, progress_fn=print_progress)
-    print(f"Output: {counts['filled']} rows -> {outdir / 'tmdb-filled.csv'}")
-    print(f"Changed: {counts['changed']} rows -> {outdir / 'tmdb-changed.csv'} (originals in tmdb-changed-before.csv)")
+    print(f"Output: {counts['filled']} total rows written -> {outdir / 'tmdb-filled.csv'}")
+    print(f"Actually changed: {counts['changed']} rows -> {outdir / 'tmdb-changed.csv'} (originals in tmdb-changed-before.csv)")
     print(f"Needs review: {counts['review']} rows -> {outdir / 'tmdb-needs-review.csv'}")
     print(f"Visual diff: open {outdir / 'tmdb-changes.html'}")
 

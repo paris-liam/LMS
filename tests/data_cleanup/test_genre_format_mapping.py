@@ -74,8 +74,13 @@ class TestGenreValueMap(unittest.TestCase):
     def test_value_error_is_not_in_the_map(self):
         self.assertNotIn("#VALUE!", GENRE_VALUE_MAP)
 
-    def test_covers_all_28_known_genre_values(self):
-        self.assertEqual(len(GENRE_VALUE_MAP), 28)
+    def test_covers_all_known_genre_values(self):
+        # 28 values from the original export audit + the leaked-handle
+        # "kids-family" corruption seen in later exports.
+        self.assertEqual(len(GENRE_VALUE_MAP), 29)
+
+    def test_leaked_handle_value_maps_to_itself(self):
+        self.assertEqual(GENRE_VALUE_MAP["kids-family"], ("kids-family", None))
 
 
 class TestResolveFormatAndGenre(unittest.TestCase):

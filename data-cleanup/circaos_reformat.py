@@ -1,17 +1,15 @@
-"""Reformat the serialized-rental ("CircaOS") movie batch in
-current-movies-export.csv into the same clean Shopify fields as the resale
-batch (reformat_movies.py).
+"""Reformat the serialized-rental ("CircaOS") movie batch of a store
+export into the same clean Shopify fields as the resale batch
+(reformat_movies.py).
 
 Scope: products with Option1 Name == "Condition" only, excluding the stray
 Supercycle Plan product. See
 docs/superpowers/specs/2026-07-14-circaos-product-reformat-design.md.
 """
 
-import csv
-from pathlib import Path
-
+from catalog_common import add_tags, group_rows_by_handle, load_export, split_tags, write_csv
 from genre_format_mapping import VENDOR_TO_FORMAT, GENRE_VALUE_MAP
-from reformat_movies import FIXED_VENDOR, FIXED_CATEGORY, GENRE_COLUMN, FORMAT_COLUMN, group_rows_by_handle
+from reformat_movies import FIXED_VENDOR, FIXED_CATEGORY, GENRE_COLUMN, FORMAT_COLUMN
 
 TAG_TO_ADD = "CircaOS Import"
 
@@ -29,13 +27,11 @@ BARCODE_FORMAT_PREFIXES = [
 
 
 def has_genre_tag(tags_str: str) -> bool:
-    tags = [t.strip() for t in tags_str.split(",")]
-    return any(t in SIMPLE_GENRE_TAGS for t in tags)
+    return any(t in SIMPLE_GENRE_TAGS for t in split_tags(tags_str))
 
 
 def extract_genre_from_tags(tags_str: str) -> str | None:
-    tags = [t.strip() for t in tags_str.split(",")]
-    for t in tags:
+    for t in split_tags(tags_str):
         if t in SIMPLE_GENRE_TAGS:
             genre_handle, _ = SIMPLE_GENRE_TAGS[t]
             if genre_handle is not None:
@@ -55,17 +51,14 @@ def resolve_circaos_format(vendor: str, tags_str: str, barcode: str) -> str | No
     from_barcode = format_from_barcode(barcode)
     if from_barcode is not None:
         return from_barcode
-    tags = [t.strip() for t in tags_str.split(",")]
+    tags = split_tags(tags_str)
     if "4K" in tags or "4k" in tags:
         return "4-k"
     return VENDOR_TO_FORMAT.get(vendor)
 
 
 def build_tags(tags_str: str) -> str:
-    existing = [t.strip() for t in tags_str.split(",") if t.strip()]
-    if TAG_TO_ADD not in existing:
-        existing.append(TAG_TO_ADD)
-    return ", ".join(existing)
+    return add_tags(tags_str, [TAG_TO_ADD])
 
 
 def classify_circaos_row(row: dict) -> tuple[str, str | None]:
@@ -191,32 +184,9 @@ def build_output(
 
 
 def main(input_path, output_path, review_path) -> tuple[int, int]:
-    with open(input_path, newline="", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        fieldnames = list(reader.fieldnames)
-        rows = list(reader)
-
+    fieldnames, rows = load_export(input_path)
     new_fieldnames, output_rows, review_rows = build_output(rows, fieldnames)
-
-    with open(output_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=new_fieldnames)
-        writer.writeheader()
-        writer.writerows(output_rows)
-
-    with open(review_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["Handle", "Title", "Reason"])
-        writer.writeheader()
-        writer.writerows(review_rows)
-
+    write_csv(output_path, new_fieldnames, output_rows)
+    write_csv(review_path, ["Handle", "Title", "Reason"], review_rows)
     return len(output_rows), len(review_rows)
 
-
-if __name__ == "__main__":
-    base = Path(__file__).parent
-    n_out, n_review = main(
-        base / "current-movies-export.csv",
-        base / "circaos-reformatted.csv",
-        base / "circaos-needs-review.csv",
-    )
-    print(f"Wrote {n_out} rows to circaos-reformatted.csv")
-    print(f"Wrote {n_review} rows to circaos-needs-review.csv")

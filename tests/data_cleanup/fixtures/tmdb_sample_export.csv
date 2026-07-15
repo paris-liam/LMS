@@ -1,4 +1,4 @@
-Handle,Title,Body (HTML),Image Src,Image Position
-good-movie,Good Movie,"<p>A perfectly fine, already-complete fifty-plus character description.</p>",https://img/good.jpg,1
-needs-both-movie,Needs Both,,,
-no-match-movie,Totally Fictional Movie XYZ,,,
+Handle,Title,Body (HTML),Image Src,Image Position,Tags
+good-movie,Good Movie,"<p>A perfectly fine, already-complete fifty-plus character description.</p>",https://img/good.jpg,1,
+needs-both-movie,Needs Both,,,,
+no-match-movie,Totally Fictional Movie XYZ,,,,
