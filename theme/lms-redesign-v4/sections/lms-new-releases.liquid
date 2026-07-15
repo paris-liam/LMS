@@ -33,7 +33,7 @@
           <h2 class="lms-new-releases__heading">{{ section.settings.heading }}</h2>
         {%- endif -%}
       </div>
-      {%- if remaining > 0 -%}
+      {%- if remaining > 0 and all_movies_url != blank -%}
         <a href="{{ all_movies_url }}?filter.p.tag=new-arrival" class="lms-btn lms-btn--outline lms-btn--sm">
           + {{ remaining }} more
         </a>
