@@ -11,7 +11,12 @@
 {%- liquid
   assign collection = collections['new-arrivals']
   assign limit = 10
-  assign remaining = collection.products_count | minus: limit
+  assign new_arrivals_count = 0
+  assign remaining = 0
+  if collection != blank
+    assign new_arrivals_count = collection.products_count
+    assign remaining = new_arrivals_count | minus: limit
+  endif
   assign all_movies_url = collections['all-movies'].url
 -%}
 
@@ -36,7 +41,7 @@
     </div>
 
     <div class="lms-new-releases__grid">
-      {%- if collection.products_count > 0 -%}
+      {%- if new_arrivals_count > 0 -%}
         {%- for product in collection.products limit: limit -%}
           {% render 'lms-product-card', card_product: product %}
         {%- endfor -%}
