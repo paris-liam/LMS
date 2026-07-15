@@ -6,6 +6,9 @@ Scope: products with Option1 Name == "Genre" only. Serialized rental items
 out of scope for this pass and are left untouched.
 """
 
+import csv
+from pathlib import Path
+
 from genre_format_mapping import GENRE_VALUE_MAP, resolve_format, resolve_genre
 
 FIXED_VENDOR = "Little Movie Store"
@@ -67,3 +70,76 @@ def transform_group(rows: list[dict]) -> tuple[str, list[dict] | None, str | Non
 
     transformed = [new_first] + [dict(r) for r in rows[1:]]
     return "in_scope", transformed, None
+
+
+def group_rows_by_handle(rows: list[dict]) -> list[tuple[str, list[dict]]]:
+    """Group CSV rows by Handle, preserving first-seen order."""
+    groups: dict[str, list[dict]] = {}
+    order: list[str] = []
+    for row in rows:
+        handle = row["Handle"]
+        if handle not in groups:
+            groups[handle] = []
+            order.append(handle)
+        groups[handle].append(row)
+    return [(handle, groups[handle]) for handle in order]
+
+
+def build_output(
+    rows: list[dict], fieldnames: list[str]
+) -> tuple[list[str], list[dict], list[dict]]:
+    """Run the full reformat over every row, split into output vs. review rows.
+
+    Returns (new_fieldnames, output_rows, review_rows). new_fieldnames is
+    fieldnames with FORMAT_COLUMN inserted if it wasn't already present.
+    """
+    new_fieldnames = list(fieldnames)
+    if FORMAT_COLUMN not in new_fieldnames:
+        genre_index = new_fieldnames.index(GENRE_COLUMN)
+        new_fieldnames.insert(genre_index + 1, FORMAT_COLUMN)
+
+    output_rows: list[dict] = []
+    review_rows: list[dict] = []
+    for handle, group in group_rows_by_handle(rows):
+        status, transformed, reason = transform_group(group)
+        if status == "in_scope":
+            output_rows.extend(transformed)
+        elif status == "review":
+            review_rows.append(
+                {"Handle": handle, "Title": group[0]["Title"], "Reason": reason}
+            )
+        # status == "skip": out of scope for this pass, omitted entirely
+
+    return new_fieldnames, output_rows, review_rows
+
+
+def main(input_path, output_path, review_path) -> tuple[int, int]:
+    with open(input_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        fieldnames = list(reader.fieldnames)
+        rows = list(reader)
+
+    new_fieldnames, output_rows, review_rows = build_output(rows, fieldnames)
+
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=new_fieldnames)
+        writer.writeheader()
+        writer.writerows(output_rows)
+
+    with open(review_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["Handle", "Title", "Reason"])
+        writer.writeheader()
+        writer.writerows(review_rows)
+
+    return len(output_rows), len(review_rows)
+
+
+if __name__ == "__main__":
+    base = Path(__file__).parent
+    n_out, n_review = main(
+        base / "current-movies-export.csv",
+        base / "movies-reformatted.csv",
+        base / "needs-review.csv",
+    )
+    print(f"Wrote {n_out} rows to movies-reformatted.csv")
+    print(f"Wrote {n_review} rows to needs-review.csv")

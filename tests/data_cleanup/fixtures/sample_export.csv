@@ -1,0 +1,12 @@
+Handle,Title,Vendor,Product Category,Type,Tags,Option1 Name,Option1 Value,Variant Barcode,Image Src,Image Position,Genre (product.metafields.shopify.genre)
+simple-comedy-vhs,Simple Comedy,VHS,Uncategorized,,"Comedy, Floor Sale",Genre,Comedy,111,https://img/1.jpg,1,
+junk-vendor-drama,Junk Vendor Drama,Walt Disney,Uncategorized,,"Drama, Floor Sale",Genre,Drama,222,https://img/2.jpg,1,
+compound-4k-action,Compound 4K Action,Blu-Ray,Uncategorized,,"Action, Floor Sale",Genre,"4K, Action",333,https://img/3.jpg,1,
+multi-image-product,Multi Image Product,DVD,Uncategorized,,"Comedy, Floor Sale",Genre,Comedy,444,https://img/4a.jpg,1,
+multi-image-product,,,,,,,,,https://img/4b.jpg,2,
+multi-image-product,,,,,,,,,https://img/4c.jpg,3,
+badvalue-row,Bad Value Row,VHS,Uncategorized,,"Comedy, Floor Sale",Genre,#VALUE!,555,https://img/5.jpg,1,
+title-only-row,Title Only Row,VHS,Uncategorized,,"Action, Floor Sale",Title,Default Title,666,https://img/6.jpg,1,
+rental-condition-row,Rental Condition Row,DVD,Uncategorized,,Rental,Condition,Standard,777,https://img/7.jpg,1,
+supercycle-plan,Supercycle Membership,,,Supercycle Plan,,,,,,,
+foreign-typo-check,Foreign Movie,DVD,Uncategorized,,"Foreign, Floor Sale",Genre,Foreign,999,https://img/9.jpg,1,
