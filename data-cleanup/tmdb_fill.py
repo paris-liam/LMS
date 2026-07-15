@@ -109,3 +109,84 @@ def needs_image(group: list[dict]) -> bool:
 def needs_description(group: list[dict]) -> bool:
     text = strip_html(group[0].get("Body (HTML)", ""))
     return len(text) < SHORT_DESCRIPTION_LENGTH
+
+
+def build_output(rows: list[dict], fetch_fn, sleep_fn=time.sleep) -> tuple[list[dict], list[dict]]:
+    """Fill missing Image Src / Body (HTML) fields via TMDB, per product handle.
+
+    Returns (output_rows, review_rows). output_rows preserves every input
+    row's original order; only a primary row's Image Src/Body (HTML) are
+    ever modified, and only for the field(s) it actually needed.
+    """
+    output_rows: list[dict] = []
+    review_rows: list[dict] = []
+
+    for handle, group in group_rows_by_handle(rows):
+        need_img = needs_image(group)
+        need_desc = needs_description(group)
+
+        if not need_img and not need_desc:
+            output_rows.extend(group)
+            continue
+
+        primary = dict(group[0])
+        title = primary.get("Title", "").strip() or handle
+        clean_title, year = clean_title_and_year(title)
+
+        try:
+            results = search_tmdb(fetch_fn, clean_title, year)
+        except Exception as exc:
+            sleep_fn(REQUEST_DELAY_SECONDS)
+            review_rows.append({
+                "Handle": handle,
+                "Title": title,
+                "Reason": f"TMDB request failed: {exc}",
+            })
+            output_rows.extend(group)
+            continue
+
+        sleep_fn(REQUEST_DELAY_SECONDS)
+
+        if not results:
+            review_rows.append({"Handle": handle, "Title": title, "Reason": "no TMDB match"})
+            output_rows.extend(group)
+            continue
+
+        best, confident = find_best_match(clean_title, results)
+        if not confident:
+            best_title = best.get("title", "?")
+            best_year = (best.get("release_date") or "")[:4] or "?"
+            review_rows.append({
+                "Handle": handle,
+                "Title": title,
+                "Reason": f"ambiguous match (best candidate: '{best_title}' ({best_year}))",
+            })
+            output_rows.extend(group)
+            continue
+
+        if need_img:
+            poster_path = best.get("poster_path")
+            if poster_path:
+                primary["Image Src"] = f"{POSTER_BASE_URL}{poster_path}"
+            else:
+                review_rows.append({
+                    "Handle": handle,
+                    "Title": title,
+                    "Reason": "matched but no TMDB poster",
+                })
+
+        if need_desc:
+            overview = (best.get("overview") or "").strip()
+            if overview:
+                primary["Body (HTML)"] = f"<p>{overview}</p>"
+            else:
+                review_rows.append({
+                    "Handle": handle,
+                    "Title": title,
+                    "Reason": "matched but no TMDB overview",
+                })
+
+        output_rows.append(primary)
+        output_rows.extend(group[1:])
+
+    return output_rows, review_rows

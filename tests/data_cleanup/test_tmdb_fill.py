@@ -4,6 +4,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "data-cleanup"))
 
+from tmdb_fill import POSTER_BASE_URL as POSTER_BASE_URL_FOR_TEST
+
 from tmdb_fill import (
     clean_title_and_year,
     normalize_title,
@@ -178,6 +180,159 @@ class TestNeedsDescription(unittest.TestCase):
     def test_false_when_body_is_long_enough(self):
         long_body = "<p>" + ("A" * 50) + "</p>"
         self.assertFalse(needs_description([make_row(**{"Body (HTML)": long_body})]))
+
+
+from tmdb_fill import build_output
+
+
+NO_SLEEP = lambda seconds: None
+
+
+class TestBuildOutput(unittest.TestCase):
+    def test_untouched_when_both_fields_already_present(self):
+        rows = [make_row(**{
+            "Handle": "good-movie",
+            "Image Src": "https://img/1.jpg",
+            "Body (HTML)": "<p>" + ("A" * 50) + "</p>",
+        })]
+
+        def fetch_fn(query, year):
+            raise AssertionError("should not be called")
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows, rows)
+        self.assertEqual(review_rows, [])
+
+    def test_fills_image_only_leaves_existing_description_untouched(self):
+        original_body = "<p>" + ("A" * 50) + "</p>"
+        rows = [make_row(**{
+            "Handle": "needs-image",
+            "Title": "Warriors (1994)",
+            "Image Src": "",
+            "Body (HTML)": original_body,
+        })]
+
+        def fetch_fn(query, year):
+            self.assertEqual(query, "Warriors")
+            self.assertEqual(year, 1994)
+            return {"results": [make_result("Warriors", 1994, overview="Ignored overview.")]}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows[0]["Image Src"], f"{POSTER_BASE_URL_FOR_TEST}/poster.jpg")
+        self.assertEqual(output_rows[0]["Body (HTML)"], original_body)
+        self.assertEqual(review_rows, [])
+
+    def test_fills_description_only_leaves_existing_image_untouched(self):
+        rows = [make_row(**{
+            "Handle": "needs-description",
+            "Title": "Bambi",
+            "Image Src": "https://img/existing.jpg",
+            "Body (HTML)": "",
+        })]
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("Bambi", overview="A deer grows up.")]}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows[0]["Image Src"], "https://img/existing.jpg")
+        self.assertEqual(output_rows[0]["Body (HTML)"], "<p>A deer grows up.</p>")
+        self.assertEqual(review_rows, [])
+
+    def test_fills_both_fields_on_confident_match(self):
+        rows = [make_row(**{"Handle": "needs-both", "Title": "Bambi"})]
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("Bambi", overview="A deer grows up.", poster_path="/bambi.jpg")]}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows[0]["Image Src"], f"{POSTER_BASE_URL_FOR_TEST}/bambi.jpg")
+        self.assertEqual(output_rows[0]["Body (HTML)"], "<p>A deer grows up.</p>")
+        self.assertEqual(review_rows, [])
+
+    def test_no_results_routes_to_review_and_leaves_row_unchanged(self):
+        rows = [make_row(**{"Handle": "no-match", "Title": "Totally Fictional Movie XYZ"})]
+
+        def fetch_fn(query, year):
+            return {"results": []}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows, rows)
+        self.assertEqual(len(review_rows), 1)
+        self.assertEqual(review_rows[0]["Handle"], "no-match")
+        self.assertEqual(review_rows[0]["Reason"], "no TMDB match")
+
+    def test_ambiguous_match_routes_to_review_and_leaves_row_unchanged(self):
+        rows = [make_row(**{"Handle": "ambiguous", "Title": "Warriors"})]
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("The Parent Trap", 1998)]}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows, rows)
+        self.assertEqual(len(review_rows), 1)
+        self.assertIn("ambiguous match", review_rows[0]["Reason"])
+        self.assertIn("The Parent Trap", review_rows[0]["Reason"])
+
+    def test_confident_match_missing_poster_fills_description_and_flags_review(self):
+        rows = [make_row(**{"Handle": "no-poster", "Title": "Bambi"})]
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("Bambi", overview="A deer grows up.", poster_path=None)]}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows[0]["Image Src"], "")
+        self.assertEqual(output_rows[0]["Body (HTML)"], "<p>A deer grows up.</p>")
+        self.assertEqual(len(review_rows), 1)
+        self.assertEqual(review_rows[0]["Reason"], "matched but no TMDB poster")
+
+    def test_confident_match_missing_overview_fills_image_and_flags_review(self):
+        rows = [make_row(**{"Handle": "no-overview", "Title": "Bambi"})]
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("Bambi", overview="", poster_path="/bambi.jpg")]}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows[0]["Image Src"], f"{POSTER_BASE_URL_FOR_TEST}/bambi.jpg")
+        self.assertEqual(output_rows[0]["Body (HTML)"], "")
+        self.assertEqual(len(review_rows), 1)
+        self.assertEqual(review_rows[0]["Reason"], "matched but no TMDB overview")
+
+    def test_failed_fetch_routes_to_review_without_aborting_batch(self):
+        rows = [
+            make_row(**{"Handle": "broken", "Title": "Bambi"}),
+            make_row(**{"Handle": "fine", "Title": "Bambi"}),
+        ]
+        calls = []
+
+        def fetch_fn(query, year):
+            calls.append(query)
+            if len(calls) == 1:
+                raise RuntimeError("connection reset")
+            return {"results": [make_result("Bambi", overview="A deer grows up.", poster_path="/bambi.jpg")]}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(len(review_rows), 1)
+        self.assertEqual(review_rows[0]["Handle"], "broken")
+        self.assertIn("TMDB request failed", review_rows[0]["Reason"])
+        self.assertIn("connection reset", review_rows[0]["Reason"])
+        # the second row still got filled despite the first one erroring
+        self.assertEqual(output_rows[1]["Image Src"], f"{POSTER_BASE_URL_FOR_TEST}/bambi.jpg")
+
+    def test_multi_row_handle_only_fills_primary_row(self):
+        rows = [
+            make_row(**{"Handle": "multi", "Title": "Bambi", "Image Position": "1"}),
+            make_row(**{"Handle": "multi", "Title": "", "Image Src": "", "Image Position": "2"}),
+        ]
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("Bambi", overview="A deer grows up.", poster_path="/bambi.jpg")]}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows[0]["Image Src"], f"{POSTER_BASE_URL_FOR_TEST}/bambi.jpg")
+        self.assertEqual(output_rows[0]["Body (HTML)"], "<p>A deer grows up.</p>")
+        # bonus row is untouched
+        self.assertEqual(output_rows[1]["Image Src"], "")
+        self.assertEqual(output_rows[1]["Body (HTML)"], "")
 
 
 if __name__ == "__main__":
