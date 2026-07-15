@@ -1,4 +1,6 @@
+import csv
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -11,8 +13,11 @@ from run_full_reformat import (
     merge_review_rows,
     build_passthrough_rows,
     build_combined_upload,
+    run,
 )
 from reformat_movies import FORMAT_COLUMN
+
+FIXTURE_PATH = Path(__file__).resolve().parent / "fixtures" / "full_export_sample.csv"
 
 
 class TestAddTags(unittest.TestCase):
@@ -90,6 +95,45 @@ class TestBuildCombinedUpload(unittest.TestCase):
         self.assertEqual(by_handle["circaos-in-scope"]["Tags"], "Thriller, CircaOS Import")
         self.assertEqual(by_handle["resale-review"]["Tags"], "Action, Needs Review")
         self.assertEqual(by_handle["circaos-review"]["Tags"], "Rental, CircaOS Import, Needs Review")
+
+
+class TestRun(unittest.TestCase):
+    def test_writes_four_files_with_expected_contents(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            counts = run(FIXTURE_PATH, tmp)
+            outdir = Path(tmp)
+
+            self.assertEqual(counts["resale_output"], 1)
+            self.assertEqual(counts["circaos_output"], 1)
+            self.assertEqual(counts["review"], 2)
+            self.assertEqual(counts["combined"], 1 + 1 + 1 + 2)  # +2 for the multi-row review handle
+
+            with open(outdir / "reformatted-resale.csv", newline="", encoding="utf-8") as f:
+                resale_rows = list(csv.DictReader(f))
+            self.assertEqual(resale_rows[0]["Handle"], "simple-comedy-resale")
+
+            with open(outdir / "reformatted-circaos.csv", newline="", encoding="utf-8") as f:
+                circaos_rows = list(csv.DictReader(f))
+            self.assertEqual(circaos_rows[0]["Handle"], "simple-thriller-circaos")
+
+            with open(outdir / "needs-review.csv", newline="", encoding="utf-8") as f:
+                review_rows = list(csv.DictReader(f))
+            batches = {r["Handle"]: r["Batch"] for r in review_rows}
+            self.assertEqual(batches["resale-review-row"], "resale")
+            self.assertEqual(batches["circaos-review-multi"], "circaos")
+
+            with open(outdir / "combined-upload.csv", newline="", encoding="utf-8") as f:
+                combined_rows = list(csv.DictReader(f))
+            combined_handles = [r["Handle"] for r in combined_rows]
+            self.assertIn("simple-comedy-resale", combined_handles)
+            self.assertIn("simple-thriller-circaos", combined_handles)
+            self.assertEqual(combined_handles.count("circaos-review-multi"), 2)
+            self.assertNotIn("supercycle-membership", combined_handles)
+
+            multi_rows = [r for r in combined_rows if r["Handle"] == "circaos-review-multi"]
+            self.assertIn(NEEDS_REVIEW_TAG, multi_rows[0]["Tags"])
+            self.assertIn(CIRCAOS_IMPORT_TAG, multi_rows[0]["Tags"])
+            self.assertEqual(multi_rows[1]["Tags"], "")
 
 
 if __name__ == "__main__":

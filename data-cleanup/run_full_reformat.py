@@ -6,7 +6,13 @@ and passed through unchanged.
 See docs/superpowers/specs/2026-07-14-full-reformat-pipeline-design.md.
 """
 
-from reformat_movies import FORMAT_COLUMN
+import argparse
+import csv
+from pathlib import Path
+
+import reformat_movies
+import circaos_reformat
+from reformat_movies import FORMAT_COLUMN, group_rows_by_handle
 
 NEEDS_REVIEW_TAG = "Needs Review"
 CIRCAOS_IMPORT_TAG = "CircaOS Import"
@@ -64,3 +70,75 @@ def build_combined_upload(
             build_passthrough_rows(r["Handle"], groups, [CIRCAOS_IMPORT_TAG, NEEDS_REVIEW_TAG])
         )
     return combined
+
+
+def load_export(path):
+    with open(path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        return list(reader.fieldnames), list(reader)
+
+
+def write_csv(path, fieldnames, rows):
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def run(input_path, outdir):
+    fieldnames, rows = load_export(input_path)
+
+    resale_fieldnames, resale_output_rows, resale_review_rows = reformat_movies.build_output(
+        rows, fieldnames
+    )
+    circaos_fieldnames, circaos_output_rows, circaos_review_rows = circaos_reformat.build_output(
+        rows, fieldnames
+    )
+    assert resale_fieldnames == circaos_fieldnames
+    shared_fieldnames = resale_fieldnames
+
+    groups = dict(group_rows_by_handle(rows))
+
+    review_rows = merge_review_rows(resale_review_rows, circaos_review_rows)
+    combined_rows = build_combined_upload(
+        resale_output_rows, circaos_output_rows, resale_review_rows, circaos_review_rows, groups
+    )
+
+    outdir = Path(outdir)
+    write_csv(outdir / "reformatted-resale.csv", shared_fieldnames, resale_output_rows)
+    write_csv(outdir / "reformatted-circaos.csv", shared_fieldnames, circaos_output_rows)
+    write_csv(outdir / "needs-review.csv", ["Handle", "Title", "Batch", "Reason"], review_rows)
+    write_csv(outdir / "combined-upload.csv", shared_fieldnames, combined_rows)
+
+    return {
+        "resale_output": len(resale_output_rows),
+        "circaos_output": len(circaos_output_rows),
+        "review": len(review_rows),
+        "combined": len(combined_rows),
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Run the full movie-catalogue reformat pipeline."
+    )
+    parser.add_argument("input_csv", help="Path to the full product export CSV")
+    parser.add_argument(
+        "--outdir",
+        default=None,
+        help="Directory to write output files (default: input file's directory)",
+    )
+    args = parser.parse_args()
+
+    input_path = Path(args.input_csv)
+    outdir = Path(args.outdir) if args.outdir else input_path.parent
+
+    counts = run(input_path, outdir)
+    print(f"Reformatted resale: {counts['resale_output']} rows -> {outdir / 'reformatted-resale.csv'}")
+    print(f"Reformatted circaos: {counts['circaos_output']} rows -> {outdir / 'reformatted-circaos.csv'}")
+    print(f"Needs review: {counts['review']} rows -> {outdir / 'needs-review.csv'}")
+    print(f"Combined upload: {counts['combined']} rows -> {outdir / 'combined-upload.csv'}")
+
+
+if __name__ == "__main__":
+    main()

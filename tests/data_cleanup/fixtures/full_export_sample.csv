@@ -1,0 +1,7 @@
+Handle,Title,Vendor,Product Category,Type,Tags,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Variant SKU,Variant Barcode,Image Src,Image Position,Genre (product.metafields.shopify.genre)
+simple-comedy-resale,Simple Comedy,VHS,Uncategorized,,"Comedy, Floor Sale",Genre,Comedy,,,,,https://img/1.jpg,1,
+resale-review-row,Resale Review,VHS,Uncategorized,,"Action, Floor Sale",Title,Default Title,,,,,https://img/2.jpg,1,
+simple-thriller-circaos,Simple Thriller,VHS,Uncategorized,,"Rental, Thriller",Condition,Standard,Serial Number,001A,191-VHSSIM-001A,191-VHSSIM-001A,https://img/3.jpg,1,
+circaos-review-multi,Circaos Review Multi,VHS,Uncategorized,,Rental,Condition,Standard,Serial Number,001A,191-VHSCRM-001A,191-VHSCRM-001A,https://img/4a.jpg,1,
+circaos-review-multi,,,,,,,,,,,,https://img/4b.jpg,2,
+supercycle-membership,Supercycle Membership,,,Supercycle Plan,,,,,,,,,,
