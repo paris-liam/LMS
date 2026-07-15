@@ -7,7 +7,7 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 - **Dev store (default workspace)**: `lms-sandbox-lutsfahz.myshopify.com`
 - **Production store**: `p0wkgv-wy.myshopify.com` — touch only on explicit instruction
 - **Theme**: Horizon (Shopify OS 2.0)
-- **Circular commerce** (rental / membership / resale / serialized inventory) will be handled by the **Supercycle** app — currently **NOT installed** (blocked on client).
+- **Circular commerce** (rental / membership / resale / serialized inventory) is handled by the **Supercycle** app — **installed and live** on the dev store. The `Has active subscription` customer tag is applied automatically by the app. See `supercycle-explained.md` for how it works and `supercycle-progress.md` for the build log.
 
 ---
 
@@ -47,14 +47,12 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 ## Repo layout
 
 ```
-theme/horizon-baseline-3.5.1/   ← pristine Horizon 3.5.1 pull — READ-ONLY reference/rollback
-theme/lms-redesign/             ← superseded by lms-redesign-v4 — do not edit, kept for reference/rollback
 theme/lms-redesign-v4/          ← working copy (Horizon 4.1.1) — edit and push here
 lms-tokens.css                  ← source of truth for the design system (repo root)
 lms-supercycle-feature-plan.md  ← full Supercycle feature plan and buildability index
 ```
 
-All work now happens in `theme/lms-redesign-v4/`. `theme/lms-redesign/` (the pre-Horizon-4.1.1 copy) is retired — do not edit it or push from it; commits should never target it going forward.
+All work happens in `theme/lms-redesign-v4/`. The pre-4.1.1 `theme/lms-redesign/` copy and the `theme/horizon-baseline-3.5.1/` pristine reference were deleted after the Horizon 3.5.1→4.1.1 migration was completed and merged.
 
 Working branch: `main`
 
@@ -62,19 +60,19 @@ Working branch: `main`
 
 ## Supercycle integration contract
 
-These three rules exist so Supercycle can mount cleanly at install. Treat them as non-negotiable.
+Supercycle is installed, but the **Methods app block on the PDP is not yet mounted**. These three rules exist so it can mount cleanly when that happens. Treat them as non-negotiable.
 
 ### 1. Reserve the Methods-block slot on the PDP — do NOT build a competing rent/buy button
 
-- Keep a single, standard product form with a detectable variant input (`[name="id"]`) and **one** add-to-cart button — Supercycle's Methods block reuses this button at install.
+- Keep a single, standard product form with a detectable variant input (`[name="id"]`) and **one** add-to-cart button — Supercycle's Methods block reuses this button once mounted.
 - Leave an app-block slot in the product section so the merchant can place the Methods block.
 - Do **not** add dynamic checkout / "Buy now" / express-checkout buttons on rentable products — they bypass the takeover.
 
 ### 2. Member-gating reads the `Has active subscription` customer tag
 
-- Now: `{% if customer.tags contains 'Has active subscription' %}…{% endif %}`
-- Apply that tag manually to a test customer to develop and test member discounts, event gating, and the birthday perk.
-- Post-install, the canonical signal will also be `customer.metafields.supercycle.membership`.
+- `{% if customer.tags contains 'Has active subscription' %}…{% endif %}`
+- Supercycle applies this tag live to real members. For a test customer, apply it manually to develop/test member discounts, event gating, and the birthday perk.
+- The Methods block (once mounted) does its own finer-grained check against `customer.metafields.supercycle.membership.value.quotas.credits.allowance` — the tag check here is coarse ("are they a member at all"), not a substitute for that. See `supercycle-explained.md`.
 
 ### 3. Use `custom.*` stand-in metafields for Supercycle data — NEVER create the `supercycle` namespace
 
@@ -90,21 +88,30 @@ These three rules exist so Supercycle can mount cleanly at install. Treat them a
 
 - Theme foundation: design tokens (`assets/lms-tokens.css`), self-hosted brand fonts, all 7 colour schemes, button radius
 - `sections/coming-soon.liquid` — the live password page (see below)
+- Header + hero: "Join the club" CTA gated on `Has active subscription`, hero button visibility logic
+- Homepage sections: `lms-hero`, `lms-new-releases`, `lms-perks-grid`, `lms-promo-pair`, `lms-newsletter`, `lms-social-bar`, `lms-staff-picks` (renamed "Community Picks", sourced from content metaobjects, not product metadata)
+- Events: `lms-events-calendar`, `lms-events-full`, `lms-events-membership` sections, plus a dedicated events page/template, backed by the `event` metaobject (see `claudedocs/events-and-staff-picks-setup.md`)
+- Membership page (`templates/page.membership.json`, `lms-shop-membership` section)
+- Movie catalogue data pipeline (`data-cleanup/`): resale + CircaOS CSV reformatting into a combined Shopify import, with a review-flagging pass for ambiguous rows
 
-### Buildable now (no Supercycle needed)
+### In progress
+
+- TMDB image/description auto-fill script for the movie catalogue (`data-cleanup/`)
+- Homepage sections beyond Units 1–2 (see `claudedocs/plans/homepage-units-1-2.md` for what's explicitly deferred)
+
+### Buildable now (no further Supercycle work needed)
 
 - Catalogue + PDP (with the reserved Methods slot)
 - Shopify data structure: collection taxonomy, product metafield definitions, and the **non-serialized retail catalogue** (merch / snacks / art / apparel — never touches Supercycle)
 - Curation + merchandising: curation tags, collections, badges, weekly-drops collection, retail bundles, recommendation rails
 - Facets via Shopify Search & Discovery, wired to `custom.*` stand-ins
-- Member-gated logic against the stand-in tag
-- Capture UIs: notify-me form, birthday capture, membership page layout, mystery-pack product, gift-card product
+- Capture UIs: notify-me form, birthday capture, mystery-pack product, gift-card product
 
 See the plan's buildability index for per-feature detail.
 
-### Blocked until Supercycle is installed
+### Still blocked / not yet wired up
 
-Methods / Membership / availability-filter app blocks · plan + calendar config · resale + rental config and create-item · shipping buffers · return-trigger automation · player rentals · rental-at-POS + serial scanning · mystery-pack inventory reconciliation.
+Methods app block on the PDP (per the integration contract below, not yet mounted) · availability-filter app blocks · plan + calendar config beyond the $100/yr membership plan · resale + rental config and create-item · shipping buffers · return-trigger automation · player rentals · rental-at-POS + serial scanning · mystery-pack inventory reconciliation.
 
 ---
 
