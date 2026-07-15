@@ -12,7 +12,10 @@ from circaos_reformat import (
     resolve_circaos_format,
     build_tags,
     classify_circaos_row,
+    build_product_handles,
+    transform_circaos_group,
 )
+from reformat_movies import GENRE_COLUMN, FORMAT_COLUMN, FIXED_VENDOR, FIXED_CATEGORY
 
 
 def make_row(**overrides):
@@ -127,6 +130,100 @@ class TestClassifyCircaosRow(unittest.TestCase):
         status, reason = classify_circaos_row(make_row(Tags="Rental, Floor Sale"))
         self.assertEqual(status, "review")
         self.assertIn("no genre-like tag", reason)
+
+
+class TestBuildProductHandles(unittest.TestCase):
+    def test_single_real_row_keeps_original_handle(self):
+        rows = [make_row()]
+        handles = build_product_handles("some-movie", rows, "VHS", "Rental")
+        self.assertEqual(handles, ["some-movie"])
+
+    def test_same_format_copies_get_copy_suffix(self):
+        rows = [
+            make_row(**{"Variant Barcode": "191-DVDSPL-001A"}),
+            make_row(**{"Variant Barcode": "191-DVDSPL-002A"}),
+        ]
+        handles = build_product_handles("split-same-format", rows, "DVD", "Drama, Rental")
+        self.assertEqual(handles, ["split-same-format", "split-same-format-copy-2"])
+
+    def test_different_format_copies_get_format_suffix(self):
+        rows = [
+            make_row(**{"Variant Barcode": "191-BLRDIF-50-001A"}),
+            make_row(**{"Variant Barcode": "191-DVDDIF-001A"}),
+        ]
+        handles = build_product_handles("split-diff-format", rows, "BLU-RAY", "Action, Rental")
+        self.assertEqual(handles, ["split-diff-format-bluray", "split-diff-format-dvd"])
+
+
+class TestTransformCircaosGroup(unittest.TestCase):
+    def test_simple_product_gets_full_transform(self):
+        status, products, reason = transform_circaos_group([make_row()])
+        self.assertEqual(status, "in_scope")
+        self.assertEqual(len(products), 1)
+        row = products[0][0]
+        self.assertEqual(row["Vendor"], FIXED_VENDOR)
+        self.assertEqual(row["Product Category"], FIXED_CATEGORY)
+        self.assertEqual(row["Option1 Name"], "Title")
+        self.assertEqual(row["Option1 Value"], "Default Title")
+        self.assertEqual(row["Option2 Name"], "")
+        self.assertEqual(row["Option2 Value"], "")
+        self.assertEqual(row["Variant SKU"], "")
+        self.assertEqual(row["Variant Barcode"], "191-VHSSOM-001A")
+        self.assertEqual(row[GENRE_COLUMN], "thriller")
+        self.assertEqual(row[FORMAT_COLUMN], "vhs")
+        self.assertEqual(row["Tags"], "Rental, Thriller, CircaOS Import")
+
+    def test_split_same_format_produces_two_products(self):
+        rows = [
+            make_row(Handle="split-same", Vendor="DVD", Tags="Drama, Rental",
+                     **{"Variant Barcode": "191-DVDSPL-001A"}),
+            make_row(Handle="split-same", Vendor="", Tags="",
+                     **{"Variant Barcode": "191-DVDSPL-002A"}),
+        ]
+        status, products, reason = transform_circaos_group(rows)
+        self.assertEqual(status, "in_scope")
+        self.assertEqual(len(products), 2)
+        self.assertEqual(products[0][0]["Handle"], "split-same")
+        self.assertEqual(products[1][0]["Handle"], "split-same-copy-2")
+        self.assertEqual(products[0][0][FORMAT_COLUMN], "dvd")
+        self.assertEqual(products[1][0][FORMAT_COLUMN], "dvd")
+
+    def test_split_different_format_produces_two_products(self):
+        rows = [
+            make_row(Handle="split-diff", Vendor="BLU-RAY", Tags="Action, Rental",
+                     **{"Variant Barcode": "191-BLRDIF-50-001A"}),
+            make_row(Handle="split-diff", Vendor="", Tags="",
+                     **{"Variant Barcode": "191-DVDDIF-001A"}),
+        ]
+        status, products, reason = transform_circaos_group(rows)
+        self.assertEqual(status, "in_scope")
+        self.assertEqual(products[0][0]["Handle"], "split-diff-bluray")
+        self.assertEqual(products[1][0]["Handle"], "split-diff-dvd")
+        self.assertEqual(products[0][0][FORMAT_COLUMN], "blu-ray")
+        self.assertEqual(products[1][0][FORMAT_COLUMN], "dvd")
+
+    def test_extra_image_rows_pass_through_on_first_product_only(self):
+        primary = make_row(Handle="multi-image-title", Tags="Horror, Rental")
+        image_2 = {"Handle": "multi-image-title", "Option1 Value": "", "Image Src": "https://img/b.jpg", "Image Position": "2"}
+        image_3 = {"Handle": "multi-image-title", "Option1 Value": "", "Image Src": "https://img/c.jpg", "Image Position": "3"}
+        status, products, reason = transform_circaos_group([primary, image_2, image_3])
+        self.assertEqual(status, "in_scope")
+        self.assertEqual(len(products), 1)
+        self.assertEqual(len(products[0]), 3)
+        self.assertEqual(products[0][1], image_2)
+        self.assertEqual(products[0][2], image_3)
+
+    def test_review_group_returns_no_products(self):
+        status, products, reason = transform_circaos_group([make_row(Tags="Rental, Floor Sale")])
+        self.assertEqual(status, "review")
+        self.assertIsNone(products)
+
+    def test_skip_group_returns_no_products(self):
+        status, products, reason = transform_circaos_group(
+            [make_row(**{"Option1 Name": "Genre", "Option1 Value": "Comedy"})]
+        )
+        self.assertEqual(status, "skip")
+        self.assertIsNone(products)
 
 
 if __name__ == "__main__":

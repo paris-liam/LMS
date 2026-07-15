@@ -8,6 +8,7 @@ docs/superpowers/specs/2026-07-14-circaos-product-reformat-design.md.
 """
 
 from genre_format_mapping import VENDOR_TO_FORMAT, GENRE_VALUE_MAP
+from reformat_movies import FIXED_VENDOR, FIXED_CATEGORY, GENRE_COLUMN, FORMAT_COLUMN
 
 TAG_TO_ADD = "CircaOS Import"
 
@@ -77,3 +78,78 @@ def classify_circaos_row(row: dict) -> tuple[str, str | None]:
     if not has_genre_tag(row["Tags"]):
         return "review", "no genre-like tag found in Tags"
     return "in_scope", None
+
+
+FORMAT_HANDLE_SUFFIX = {
+    "vhs": "vhs",
+    "dvd": "dvd",
+    "blu-ray": "bluray",
+    "4-k": "4k",
+}
+
+
+def build_product_handles(
+    base_handle: str, real_rows: list[dict], vendor: str, tags_str: str
+) -> list[str]:
+    if len(real_rows) == 1:
+        return [base_handle]
+    formats = [
+        resolve_circaos_format(vendor, tags_str, r["Variant Barcode"].strip())
+        for r in real_rows
+    ]
+    if len(set(formats)) > 1:
+        return [
+            f"{base_handle}-{FORMAT_HANDLE_SUFFIX.get(fmt, 'copy')}" for fmt in formats
+        ]
+    return [base_handle] + [
+        f"{base_handle}-copy-{i + 1}" for i in range(1, len(real_rows))
+    ]
+
+
+def transform_circaos_group(
+    rows: list[dict],
+) -> tuple[str, list[list[dict]] | None, str | None]:
+    """Classify and, if in scope, transform all CSV rows for one product handle.
+
+    `rows` is every CSV row sharing a Handle, in original order. Returns
+    (status, products, reason). `products` is a list where each element is
+    the list of output CSV rows for one product — usually one product per
+    group, but multi-copy titles produce one product per real variant row.
+    """
+    first = rows[0]
+    status, reason = classify_circaos_row(first)
+    if status != "in_scope":
+        return status, None, reason
+
+    vendor = first["Vendor"].strip()
+    tags_str = first["Tags"]
+    genre = extract_genre_from_tags(tags_str)
+    new_tags = build_tags(tags_str)
+
+    real_rows = [r for r in rows if r["Option1 Value"].strip()]
+    extra_image_rows = [r for r in rows if not r["Option1 Value"].strip()]
+    base_handle = first["Handle"]
+    new_handles = build_product_handles(base_handle, real_rows, vendor, tags_str)
+
+    products = []
+    for i, (real_row, new_handle) in enumerate(zip(real_rows, new_handles)):
+        fmt = resolve_circaos_format(vendor, tags_str, real_row["Variant Barcode"].strip())
+        new_row = dict(real_row)
+        new_row["Handle"] = new_handle
+        new_row["Vendor"] = FIXED_VENDOR
+        new_row["Product Category"] = FIXED_CATEGORY
+        new_row["Option1 Name"] = "Title"
+        new_row["Option1 Value"] = "Default Title"
+        new_row["Option2 Name"] = ""
+        new_row["Option2 Value"] = ""
+        new_row["Variant SKU"] = ""
+        new_row[GENRE_COLUMN] = genre or ""
+        new_row[FORMAT_COLUMN] = fmt or ""
+        new_row["Tags"] = new_tags
+
+        product_rows = [new_row]
+        if i == 0:
+            product_rows += [dict(r) for r in extra_image_rows]
+        products.append(product_rows)
+
+    return "in_scope", products, None
