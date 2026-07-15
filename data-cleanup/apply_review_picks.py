@@ -1,0 +1,111 @@
+"""Apply picks exported from the TMDB review picker page to a product CSV.
+
+Takes the tmdb-picks.json downloaded from tmdb-review-picker.html and a base
+product CSV (normally a run's tmdb-filled.csv), and writes picks-applied.csv
+with the chosen TMDB data filled in and declined products tagged "needs data".
+
+See docs/superpowers/specs/2026-07-15-tmdb-review-picker-design.md.
+"""
+
+import argparse
+import json
+from pathlib import Path
+
+from run_full_reformat import add_tags
+from tmdb_fill import (
+    POSTER_BASE_URL,
+    group_rows_by_handle,
+    has_circaos_tag,
+    load_export,
+    needs_description,
+    needs_image,
+    write_csv,
+)
+
+NEEDS_DATA_TAG = "needs data"
+
+
+def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
+    """Apply review picks to CSV rows, returning (output_rows, counts).
+
+    A "tmdb" pick fills only fields the product actually needs (same rules
+    as the auto-fill: image only when missing, description only when
+    short/empty or CircaOS-tagged) and only when the pick carries data.
+    A "needs_data" pick appends the needs-data tag to the primary row.
+    """
+    picks_by_handle = {pick["handle"]: pick for pick in picks}
+    groups = group_rows_by_handle(rows)
+    known_handles = {handle for handle, _ in groups}
+
+    counts = {
+        "applied": 0,
+        "tagged": 0,
+        "unknown": sum(1 for handle in picks_by_handle if handle not in known_handles),
+    }
+
+    output_rows: list[dict] = []
+    for handle, group in groups:
+        pick = picks_by_handle.get(handle)
+        if pick is None:
+            output_rows.extend(group)
+            continue
+
+        primary = dict(group[0])
+
+        if pick["choice"] == "needs_data":
+            primary["Tags"] = add_tags(primary.get("Tags", ""), [NEEDS_DATA_TAG])
+            counts["tagged"] += 1
+        else:
+            poster_path = (pick.get("poster_path") or "").strip()
+            overview = (pick.get("overview") or "").strip()
+            if needs_image(group) and poster_path:
+                primary["Image Src"] = f"{POSTER_BASE_URL}{poster_path}"
+            if (needs_description(group) or has_circaos_tag(group)) and overview:
+                primary["Body (HTML)"] = f"<p>{overview}</p>"
+            counts["applied"] += 1
+
+        output_rows.append(primary)
+        output_rows.extend(group[1:])
+
+    return output_rows, counts
+
+
+def run(picks_path, base_path, outdir) -> dict:
+    with open(picks_path, encoding="utf-8") as f:
+        picks = json.load(f)
+
+    fieldnames, rows = load_export(base_path)
+    output_rows, counts = apply_picks(rows, picks)
+
+    outdir = Path(outdir)
+    write_csv(outdir / "picks-applied.csv", fieldnames, output_rows)
+    return counts
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Apply tmdb-picks.json from the review picker page to a product CSV."
+    )
+    parser.add_argument("picks_json", help="Path to tmdb-picks.json exported from the picker page")
+    parser.add_argument("base_csv", help="Base product CSV to apply picks to (normally tmdb-filled.csv)")
+    parser.add_argument(
+        "--outdir",
+        default=None,
+        help="Directory to write picks-applied.csv (default: base CSV's directory)",
+    )
+    args = parser.parse_args()
+
+    base_path = Path(args.base_csv)
+    outdir = Path(args.outdir) if args.outdir else base_path.parent
+    outdir.mkdir(parents=True, exist_ok=True)
+
+    counts = run(Path(args.picks_json), base_path, outdir)
+    print(f"Applied TMDB picks: {counts['applied']}")
+    print(f"Tagged '{NEEDS_DATA_TAG}': {counts['tagged']}")
+    if counts["unknown"]:
+        print(f"Warning: {counts['unknown']} pick handle(s) not found in {base_path.name}")
+    print(f"Output -> {outdir / 'picks-applied.csv'}")
+
+
+if __name__ == "__main__":
+    main()
