@@ -23,6 +23,7 @@ POSTER_BASE_URL = "https://image.tmdb.org/t/p/w500"
 MATCH_THRESHOLD = 0.9
 SHORT_DESCRIPTION_LENGTH = 40
 REQUEST_DELAY_SECONDS = 0.25
+CIRCAOS_IMPORT_TAG = "CircaOS Import"
 
 YEAR_PATTERN = re.compile(r"\(\s*(\d{4})\s*\)\s*$")
 
@@ -111,6 +112,13 @@ def needs_description(group: list[dict]) -> bool:
     return len(text) < SHORT_DESCRIPTION_LENGTH
 
 
+def has_circaos_tag(group: list[dict]) -> bool:
+    """CircaOS-imported products carry descriptions known to be wrong, so
+    they always get a TMDB description refresh even when one is present."""
+    tags = [t.strip() for t in group[0].get("Tags", "").split(",")]
+    return CIRCAOS_IMPORT_TAG in tags
+
+
 def build_output(
     rows: list[dict],
     fetch_fn,
@@ -135,7 +143,7 @@ def build_output(
 
     for index, (handle, group) in enumerate(groups, start=1):
         need_img = needs_image(group)
-        need_desc = needs_description(group)
+        need_desc = needs_description(group) or has_circaos_tag(group)
 
         if not need_img and not need_desc:
             output_rows.extend(group)

@@ -182,6 +182,27 @@ class TestNeedsDescription(unittest.TestCase):
         self.assertFalse(needs_description([make_row(**{"Body (HTML)": long_body})]))
 
 
+from tmdb_fill import has_circaos_tag
+
+
+class TestHasCircaosTag(unittest.TestCase):
+    def test_true_when_tag_present(self):
+        group = [make_row(**{"Tags": "Drama, CircaOS Import, Rental"})]
+        self.assertTrue(has_circaos_tag(group))
+
+    def test_false_when_tag_absent(self):
+        group = [make_row(**{"Tags": "Drama, Rental"})]
+        self.assertFalse(has_circaos_tag(group))
+
+    def test_false_when_tags_missing_entirely(self):
+        group = [make_row()]
+        self.assertFalse(has_circaos_tag(group))
+
+    def test_requires_exact_tag_not_substring(self):
+        group = [make_row(**{"Tags": "CircaOS Import Batch 2"})]
+        self.assertFalse(has_circaos_tag(group))
+
+
 from tmdb_fill import build_output
 
 
@@ -333,6 +354,61 @@ class TestBuildOutput(unittest.TestCase):
         # bonus row is untouched
         self.assertEqual(output_rows[1]["Image Src"], "")
         self.assertEqual(output_rows[1]["Body (HTML)"], "")
+
+
+class TestBuildOutputCircaosRefresh(unittest.TestCase):
+    def test_circaos_product_gets_description_refreshed_even_when_already_filled(self):
+        good_body = "<p>" + ("A" * 50) + "</p>"
+        rows = [make_row(**{
+            "Handle": "circaos-movie",
+            "Title": "Bambi",
+            "Tags": "Drama, CircaOS Import",
+            "Image Src": "https://img/existing.jpg",
+            "Body (HTML)": good_body,
+        })]
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("Bambi", overview="The real TMDB overview.", poster_path="/bambi.jpg")]}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows[0]["Body (HTML)"], "<p>The real TMDB overview.</p>")
+        # existing image untouched — TMDB poster not applied
+        self.assertEqual(output_rows[0]["Image Src"], "https://img/existing.jpg")
+        self.assertEqual(review_rows, [])
+
+    def test_non_circaos_product_with_good_fields_still_skips_the_api(self):
+        good_body = "<p>" + ("A" * 50) + "</p>"
+        rows = [make_row(**{
+            "Handle": "plain-movie",
+            "Tags": "Drama, Rental",
+            "Image Src": "https://img/existing.jpg",
+            "Body (HTML)": good_body,
+        })]
+
+        def fetch_fn(query, year):
+            raise AssertionError("should not be called")
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows, rows)
+        self.assertEqual(review_rows, [])
+
+    def test_circaos_product_missing_image_gets_both_filled(self):
+        good_body = "<p>" + ("A" * 50) + "</p>"
+        rows = [make_row(**{
+            "Handle": "circaos-no-image",
+            "Title": "Bambi",
+            "Tags": "CircaOS Import",
+            "Image Src": "",
+            "Body (HTML)": good_body,
+        })]
+
+        def fetch_fn(query, year):
+            return {"results": [make_result("Bambi", overview="The real TMDB overview.", poster_path="/bambi.jpg")]}
+
+        output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=NO_SLEEP)
+        self.assertEqual(output_rows[0]["Image Src"], f"{POSTER_BASE_URL_FOR_TEST}/bambi.jpg")
+        self.assertEqual(output_rows[0]["Body (HTML)"], "<p>The real TMDB overview.</p>")
+        self.assertEqual(review_rows, [])
 
 
 class TestBuildOutputProgress(unittest.TestCase):
