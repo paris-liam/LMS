@@ -64,3 +64,35 @@ def clean_title_and_year(title: str) -> tuple[str, int | None]:
 
     title = re.sub(r"\s+", " ", title).strip()
     return title, year
+
+
+def normalize_title(title: str) -> str:
+    """Lowercase and strip everything but letters/digits, for fuzzy comparison."""
+    title = title.lower()
+    title = re.sub(r"[^a-z0-9]+", " ", title)
+    return re.sub(r"\s+", " ", title).strip()
+
+
+def title_similarity(a: str, b: str) -> float:
+    return difflib.SequenceMatcher(None, normalize_title(a), normalize_title(b)).ratio()
+
+
+def search_tmdb(fetch_fn, title: str, year: int | None) -> list[dict]:
+    """Search TMDB for a title, falling back to a year-less search if a
+    year-filtered search returns nothing (old VHS/DVD release-year metadata
+    is often off by a year from TMDB's theatrical date)."""
+    data = fetch_fn(title, year)
+    results = data.get("results", [])
+    if not results and year is not None:
+        data = fetch_fn(title, None)
+        results = data.get("results", [])
+    return results
+
+
+def find_best_match(clean_title: str, results: list[dict]) -> tuple[dict | None, bool]:
+    """Return (top_result_or_None, is_confident) for a TMDB search's results list."""
+    if not results:
+        return None, False
+    best = results[0]
+    score = title_similarity(clean_title, best.get("title", ""))
+    return best, score >= MATCH_THRESHOLD
