@@ -83,6 +83,29 @@ class TestApplyPicks(unittest.TestCase):
         self.assertEqual(output_rows[0]["Image Src"], f"{POSTER_BASE_URL}/p.jpg")
         self.assertEqual(output_rows[1]["Image Src"], "")
 
+    def test_manual_pick_applies_both_fields_unconditionally(self):
+        # Manual entries are deliberate operator overrides: they replace even
+        # fields the need rules would otherwise protect.
+        good_body = "<p>" + ("A" * 50) + "</p>"
+        rows = [make_row(**{"Image Src": "https://img/existing.jpg", "Body (HTML)": good_body})]
+        picks = [{
+            "handle": "some-movie",
+            "choice": "manual",
+            "image_src": "https://example.com/cover.jpg",
+            "overview": "Hand-written plot summary.",
+        }]
+        output_rows, counts = apply_picks(rows, picks)
+        self.assertEqual(output_rows[0]["Image Src"], "https://example.com/cover.jpg")
+        self.assertEqual(output_rows[0]["Body (HTML)"], "<p>Hand-written plot summary.</p>")
+        self.assertEqual(counts["applied"], 1)
+
+    def test_manual_pick_with_one_empty_field_leaves_that_field_alone(self):
+        rows = [make_row(**{"Image Src": "https://img/existing.jpg"})]
+        picks = [{"handle": "some-movie", "choice": "manual", "image_src": "", "overview": "Plot."}]
+        output_rows, _ = apply_picks(rows, picks)
+        self.assertEqual(output_rows[0]["Image Src"], "https://img/existing.jpg")
+        self.assertEqual(output_rows[0]["Body (HTML)"], "<p>Plot.</p>")
+
     def test_unknown_handle_is_counted_not_fatal(self):
         rows = [make_row()]
         picks = [{"handle": "not-in-csv", "choice": "needs_data"}]

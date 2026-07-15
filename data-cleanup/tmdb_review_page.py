@@ -110,6 +110,9 @@ def build_picker_html(products: list[dict]) -> str:
   label.option .info {{ font-size: .85rem; line-height: 1.4; }}
   label.option .info strong {{ font-size: .9rem; }}
   label.option.special {{ background: #fdf6f5; }}
+  .manual-fields {{ display: flex; flex-direction: column; gap: .4rem; margin: .25rem 0 0 2rem; }}
+  .manual-fields input, .manual-fields textarea {{ font: inherit; font-size: .85rem; border: 1px solid #ccc; border-radius: 4px; padding: .4rem .5rem; width: 100%; box-sizing: border-box; }}
+  .manual-fields textarea {{ min-height: 4.5em; resize: vertical; }}
 </style>
 </head>
 <body>
@@ -122,15 +125,18 @@ def build_picker_html(products: list[dict]) -> str:
 <script>
 const PRODUCTS = {products_json};
 const STORAGE_KEY = "tmdb-review-picks";
+const MANUAL_KEY = "tmdb-review-manual";
 
-function loadPicks() {{
-  try {{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {{}}; }}
+function loadStored(key) {{
+  try {{ return JSON.parse(localStorage.getItem(key)) || {{}}; }}
   catch (e) {{ return {{}}; }}
 }}
-let picks = loadPicks();
+let picks = loadStored(STORAGE_KEY);
+let manualData = loadStored(MANUAL_KEY);
 
 function savePicks() {{
   localStorage.setItem(STORAGE_KEY, JSON.stringify(picks));
+  localStorage.setItem(MANUAL_KEY, JSON.stringify(manualData));
 }}
 
 function esc(text) {{
@@ -167,6 +173,14 @@ function render() {{
         · <a href="${{googleUrl}}" target="_blank">Google</a></div>
       <div class="candidates">
         ${{options}}
+        ${{optionHtml(product.handle, "manual", current === "manual", "special",
+          `<span class="info" style="flex:1"><strong>Manual entry</strong> — fill in what you found
+            <span class="manual-fields">
+              <input type="url" class="manual-image" placeholder="Image URL (leave blank to keep current)"
+                     value="${{esc((manualData[product.handle] || {{}}).image_src || "")}}">
+              <textarea class="manual-overview" placeholder="Description (leave blank to keep current)">${{esc((manualData[product.handle] || {{}}).overview || "")}}</textarea>
+            </span>
+          </span>`)}}
         ${{optionHtml(product.handle, "needs_data", current === "needs_data", "special",
           '<span class="info"><strong>Not filling this one</strong> — tag as "needs data"</span>')}}
         ${{optionHtml(product.handle, "undecided", current === undefined, "",
@@ -196,6 +210,26 @@ document.getElementById("cards").addEventListener("change", event => {{
   updateCounter();
 }});
 
+document.getElementById("cards").addEventListener("input", event => {{
+  const input = event.target;
+  if (!input.classList.contains("manual-image") && !input.classList.contains("manual-overview")) return;
+  const card = input.closest(".card");
+  const handle = card.dataset.handle;
+  const fields = manualData[handle] || {{}};
+  if (input.classList.contains("manual-image")) fields.image_src = input.value;
+  else fields.overview = input.value;
+  manualData[handle] = fields;
+  // Typing in a manual field selects that card's Manual option.
+  if (picks[handle] !== "manual") {{
+    picks[handle] = "manual";
+    const radio = card.querySelector('input[type="radio"][value="manual"]');
+    if (radio) radio.checked = true;
+    card.classList.add("decided");
+    updateCounter();
+  }}
+  savePicks();
+}});
+
 document.getElementById("export").addEventListener("click", () => {{
   const out = [];
   for (const product of PRODUCTS) {{
@@ -203,6 +237,12 @@ document.getElementById("export").addEventListener("click", () => {{
     if (pick === undefined) continue;
     if (pick === "needs_data") {{
       out.push({{handle: product.handle, choice: "needs_data"}});
+    }} else if (pick === "manual") {{
+      const fields = manualData[product.handle] || {{}};
+      const image_src = (fields.image_src || "").trim();
+      const overview = (fields.overview || "").trim();
+      if (!image_src && !overview) continue; // nothing typed — skip
+      out.push({{handle: product.handle, choice: "manual", image_src, overview}});
     }} else {{
       const candidate = product.candidates[Number(pick)];
       if (!candidate) continue;

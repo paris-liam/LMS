@@ -31,7 +31,10 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
     A "tmdb" pick fills only fields the product actually needs (same rules
     as the auto-fill: image only when missing, description only when
     short/empty or CircaOS-tagged) and only when the pick carries data.
-    A "needs_data" pick appends the needs-data tag to the primary row.
+    A "manual" pick is a deliberate operator override: whichever of its
+    image_src/overview fields are non-empty replace the current values
+    unconditionally. A "needs_data" pick appends the needs-data tag to the
+    primary row.
     """
     picks_by_handle = {pick["handle"]: pick for pick in picks}
     groups = group_rows_by_handle(rows)
@@ -55,6 +58,14 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
         if pick["choice"] == "needs_data":
             primary["Tags"] = add_tags(primary.get("Tags", ""), [NEEDS_DATA_TAG])
             counts["tagged"] += 1
+        elif pick["choice"] == "manual":
+            image_src = (pick.get("image_src") or "").strip()
+            overview = (pick.get("overview") or "").strip()
+            if image_src:
+                primary["Image Src"] = image_src
+            if overview:
+                primary["Body (HTML)"] = f"<p>{overview}</p>"
+            counts["applied"] += 1
         else:
             poster_path = (pick.get("poster_path") or "").strip()
             overview = (pick.get("overview") or "").strip()

@@ -125,6 +125,12 @@ class TestBuildPickerHtml(unittest.TestCase):
         self.assertIn("needs data", html_text)
         self.assertIn("tmdb-picks.json", html_text)
 
+    def test_contains_manual_entry_option(self):
+        html_text = build_picker_html([self.make_product()])
+        self.assertIn('value="manual"', html_text)
+        self.assertIn("manual-image", html_text)
+        self.assertIn("manual-overview", html_text)
+
     def test_script_tag_cannot_be_broken_by_overview_text(self):
         product = self.make_product(candidates=[{
             "id": 1,
