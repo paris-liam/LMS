@@ -10,6 +10,9 @@ from tmdb_fill import (
     title_similarity,
     search_tmdb,
     find_best_match,
+    strip_html,
+    needs_image,
+    needs_description,
 )
 
 
@@ -127,6 +130,54 @@ class TestFindBestMatch(unittest.TestCase):
         best, confident = find_best_match("Warriors", [])
         self.assertIsNone(best)
         self.assertFalse(confident)
+
+
+def make_row(**overrides):
+    row = {
+        "Handle": "some-movie",
+        "Title": "Some Movie",
+        "Body (HTML)": "",
+        "Image Src": "",
+    }
+    row.update(overrides)
+    return row
+
+
+class TestStripHtml(unittest.TestCase):
+    def test_removes_tags(self):
+        self.assertEqual(strip_html("<p>Hello <b>world</b></p>"), "Hello world")
+
+    def test_handles_empty_string(self):
+        self.assertEqual(strip_html(""), "")
+
+    def test_handles_none(self):
+        self.assertEqual(strip_html(None), "")
+
+
+class TestNeedsImage(unittest.TestCase):
+    def test_true_when_no_row_has_image(self):
+        group = [make_row(), make_row()]
+        self.assertTrue(needs_image(group))
+
+    def test_false_when_primary_row_has_image(self):
+        group = [make_row(**{"Image Src": "https://img/1.jpg"})]
+        self.assertFalse(needs_image(group))
+
+    def test_false_when_a_bonus_image_row_has_image(self):
+        group = [make_row(), make_row(**{"Image Src": "https://img/2.jpg", "Title": ""})]
+        self.assertFalse(needs_image(group))
+
+
+class TestNeedsDescription(unittest.TestCase):
+    def test_true_when_body_is_empty(self):
+        self.assertTrue(needs_description([make_row(**{"Body (HTML)": ""})]))
+
+    def test_true_when_body_is_short(self):
+        self.assertTrue(needs_description([make_row(**{"Body (HTML)": "<p>Too short</p>"})]))
+
+    def test_false_when_body_is_long_enough(self):
+        long_body = "<p>" + ("A" * 50) + "</p>"
+        self.assertFalse(needs_description([make_row(**{"Body (HTML)": long_body})]))
 
 
 if __name__ == "__main__":

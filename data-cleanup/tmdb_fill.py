@@ -96,3 +96,16 @@ def find_best_match(clean_title: str, results: list[dict]) -> tuple[dict | None,
     best = results[0]
     score = title_similarity(clean_title, best.get("title", ""))
     return best, score >= MATCH_THRESHOLD
+
+
+def strip_html(text: str | None) -> str:
+    return re.sub(r"<[^>]+>", "", text or "").strip()
+
+
+def needs_image(group: list[dict]) -> bool:
+    return not any(r.get("Image Src", "").strip() for r in group)
+
+
+def needs_description(group: list[dict]) -> bool:
+    text = strip_html(group[0].get("Body (HTML)", ""))
+    return len(text) < SHORT_DESCRIPTION_LENGTH
