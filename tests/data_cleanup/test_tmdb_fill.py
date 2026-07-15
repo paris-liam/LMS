@@ -335,5 +335,110 @@ class TestBuildOutput(unittest.TestCase):
         self.assertEqual(output_rows[1]["Body (HTML)"], "")
 
 
+import json
+import tempfile
+from unittest.mock import patch
+
+from tmdb_fill import load_export, write_csv, run, make_tmdb_fetcher
+
+FIXTURE_PATH = Path(__file__).resolve().parent / "fixtures" / "tmdb_sample_export.csv"
+
+
+class TestLoadExportAndWriteCsv(unittest.TestCase):
+    def test_round_trips_fixture(self):
+        fieldnames, rows = load_export(FIXTURE_PATH)
+        self.assertIn("Handle", fieldnames)
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(rows[0]["Handle"], "good-movie")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            out_path = Path(tmp) / "out.csv"
+            write_csv(out_path, fieldnames, rows)
+            reloaded_fieldnames, reloaded_rows = load_export(out_path)
+            self.assertEqual(reloaded_fieldnames, fieldnames)
+            self.assertEqual(reloaded_rows, rows)
+
+
+class TestMakeTmdbFetcher(unittest.TestCase):
+    def test_builds_expected_url_and_parses_json_response(self):
+        captured = {}
+
+        class FakeResponse:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self):
+                return json.dumps({"results": [{"title": "Bambi"}]}).encode("utf-8")
+
+        def fake_urlopen(url, timeout=None):
+            captured["url"] = url
+            captured["timeout"] = timeout
+            return FakeResponse()
+
+        with patch("tmdb_fill.urllib.request.urlopen", fake_urlopen):
+            fetch = make_tmdb_fetcher("test-api-key")
+            data = fetch("Bambi", 1942)
+
+        self.assertEqual(data, {"results": [{"title": "Bambi"}]})
+        self.assertIn("api_key=test-api-key", captured["url"])
+        self.assertIn("query=Bambi", captured["url"])
+        self.assertIn("primary_release_year=1942", captured["url"])
+
+    def test_omits_year_param_when_year_is_none(self):
+        class FakeResponse:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self):
+                return json.dumps({"results": []}).encode("utf-8")
+
+        captured = {}
+
+        def fake_urlopen(url, timeout=None):
+            captured["url"] = url
+            return FakeResponse()
+
+        with patch("tmdb_fill.urllib.request.urlopen", fake_urlopen):
+            fetch = make_tmdb_fetcher("test-api-key")
+            fetch("Bambi", None)
+
+        self.assertNotIn("primary_release_year", captured["url"])
+
+
+class TestRun(unittest.TestCase):
+    def test_writes_filled_and_review_files(self):
+        def fetch_fn(query, year):
+            if query == "Needs Both":
+                return {"results": [make_result("Needs Both", overview="Filled overview.", poster_path="/needs-both.jpg")]}
+            return {"results": []}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            outdir = Path(tmp)
+            counts = run(FIXTURE_PATH, outdir, api_key="unused", fetch_fn=fetch_fn, sleep_fn=NO_SLEEP)
+
+            self.assertEqual(counts, {"filled": 3, "review": 1})
+
+            filled_fieldnames, filled_rows = load_export(outdir / "tmdb-filled.csv")
+            by_handle = {r["Handle"]: r for r in filled_rows}
+            self.assertEqual(by_handle["good-movie"]["Image Src"], "https://img/good.jpg")
+            self.assertEqual(
+                by_handle["needs-both-movie"]["Image Src"],
+                f"{POSTER_BASE_URL_FOR_TEST}/needs-both.jpg",
+            )
+            self.assertEqual(by_handle["needs-both-movie"]["Body (HTML)"], "<p>Filled overview.</p>")
+            self.assertEqual(by_handle["no-match-movie"]["Image Src"], "")
+
+            review_fieldnames, review_rows = load_export(outdir / "tmdb-needs-review.csv")
+            self.assertEqual(review_fieldnames, ["Handle", "Title", "Reason"])
+            self.assertEqual(len(review_rows), 1)
+            self.assertEqual(review_rows[0]["Handle"], "no-match-movie")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -190,3 +190,75 @@ def build_output(rows: list[dict], fetch_fn, sleep_fn=time.sleep) -> tuple[list[
         output_rows.extend(group[1:])
 
     return output_rows, review_rows
+
+
+def make_tmdb_fetcher(api_key: str):
+    """Build a real, network-hitting fetch_fn(query, year) -> dict for TMDB search."""
+
+    def fetch(query: str, year: int | None) -> dict:
+        params = {"api_key": api_key, "query": query}
+        if year is not None:
+            params["primary_release_year"] = year
+        url = f"{TMDB_SEARCH_URL}?{urllib.parse.urlencode(params)}"
+        with urllib.request.urlopen(url, timeout=10) as response:
+            return json.loads(response.read().decode("utf-8"))
+
+    return fetch
+
+
+def load_export(path) -> tuple[list[str], list[dict]]:
+    with open(path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        return list(reader.fieldnames), list(reader)
+
+
+def write_csv(path, fieldnames: list[str], rows: list[dict]) -> None:
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def run(input_path, outdir, api_key: str, fetch_fn=None, sleep_fn=time.sleep) -> dict:
+    fieldnames, rows = load_export(input_path)
+
+    if fetch_fn is None:
+        fetch_fn = make_tmdb_fetcher(api_key)
+
+    output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=sleep_fn)
+
+    outdir = Path(outdir)
+    write_csv(outdir / "tmdb-filled.csv", fieldnames, output_rows)
+    write_csv(outdir / "tmdb-needs-review.csv", ["Handle", "Title", "Reason"], review_rows)
+
+    return {"filled": len(output_rows), "review": len(review_rows)}
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Fill missing product images/descriptions from TMDB."
+    )
+    parser.add_argument("input_csv", help="Path to a Shopify product export CSV")
+    parser.add_argument(
+        "--outdir",
+        default=None,
+        help="Directory to write output files (default: input file's directory)",
+    )
+    args = parser.parse_args()
+
+    api_key = os.environ.get("TMDB_API_KEY")
+    if not api_key:
+        print("Error: TMDB_API_KEY environment variable is not set.", file=sys.stderr)
+        sys.exit(1)
+
+    input_path = Path(args.input_csv)
+    outdir = Path(args.outdir) if args.outdir else input_path.parent
+    outdir.mkdir(parents=True, exist_ok=True)
+
+    counts = run(input_path, outdir, api_key)
+    print(f"Filled: {counts['filled']} rows -> {outdir / 'tmdb-filled.csv'}")
+    print(f"Needs review: {counts['review']} rows -> {outdir / 'tmdb-needs-review.csv'}")
+
+
+if __name__ == "__main__":
+    main()
