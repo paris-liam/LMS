@@ -6,6 +6,7 @@ See docs/superpowers/specs/2026-07-14-tmdb-image-description-fill-design.md.
 import argparse
 import csv
 import difflib
+import html
 import json
 import os
 import re
@@ -257,6 +258,81 @@ def write_csv(path, fieldnames: list[str], rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
+def build_changes_html(changed_pairs: list[tuple[dict, dict]]) -> str:
+    """Render a self-contained before/after HTML report for changed rows.
+
+    changed_pairs is a list of (before_row, after_row) dicts. Only Image Src
+    and Body (HTML) ever change, so the report shows those side by side.
+    """
+    cards = []
+    for before, after in changed_pairs:
+        handle = html.escape(after.get("Handle", ""))
+        title = html.escape(after.get("Title", "") or after.get("Handle", ""))
+
+        def img_cell(row):
+            src = (row.get("Image Src") or "").strip()
+            if not src:
+                return '<div class="no-image">no image</div>'
+            return f'<img src="{html.escape(src, quote=True)}" alt="" loading="lazy">'
+
+        def desc_cell(row):
+            text = strip_html(row.get("Body (HTML)", ""))
+            if not text:
+                return '<p class="empty">(empty)</p>'
+            return f"<p>{html.escape(text)}</p>"
+
+        image_changed = (before.get("Image Src") or "") != (after.get("Image Src") or "")
+        desc_changed = (before.get("Body (HTML)") or "") != (after.get("Body (HTML)") or "")
+        badges = "".join(
+            f'<span class="badge">{label}</span>'
+            for label, changed in (("image", image_changed), ("description", desc_changed))
+            if changed
+        )
+
+        cards.append(f"""
+<section class="card">
+  <h2>{title} <code>{handle}</code> {badges}</h2>
+  <div class="compare">
+    <div class="side">
+      <h3>Before</h3>
+      {img_cell(before)}
+      {desc_cell(before)}
+    </div>
+    <div class="side">
+      <h3>After</h3>
+      {img_cell(after)}
+      {desc_cell(after)}
+    </div>
+  </div>
+</section>""")
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TMDB fill — {len(changed_pairs)} changed product{"s" if len(changed_pairs) != 1 else ""}</title>
+<style>
+  body {{ font-family: -apple-system, system-ui, sans-serif; margin: 2rem auto; max-width: 960px; padding: 0 1rem; background: #fafafa; color: #222; }}
+  .card {{ background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 1.5rem; }}
+  .card h2 {{ font-size: 1.1rem; margin: 0 0 .75rem; }}
+  .card h2 code {{ font-size: .8rem; color: #888; font-weight: normal; }}
+  .badge {{ font-size: .7rem; background: #973123; color: #fff; border-radius: 4px; padding: 2px 6px; margin-left: 4px; vertical-align: middle; }}
+  .compare {{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }}
+  .side h3 {{ font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: #888; margin: 0 0 .5rem; }}
+  .side img {{ max-width: 150px; height: auto; border: 1px solid #ddd; border-radius: 4px; display: block; margin-bottom: .5rem; }}
+  .no-image {{ width: 150px; height: 100px; display: flex; align-items: center; justify-content: center; background: #eee; color: #999; font-size: .8rem; border-radius: 4px; margin-bottom: .5rem; }}
+  .side p {{ font-size: .9rem; line-height: 1.45; margin: 0; }}
+  .side p.empty {{ color: #999; font-style: italic; }}
+</style>
+</head>
+<body>
+<h1>TMDB fill — {len(changed_pairs)} changed product{"s" if len(changed_pairs) != 1 else ""}</h1>
+{"".join(cards)}
+</body>
+</html>
+"""
+
+
 def print_progress(index: int, total: int, handle: str, message: str) -> None:
     print(f"[{index}/{total}] {handle}: {message}", flush=True)
 
@@ -271,11 +347,20 @@ def run(input_path, outdir, api_key: str, fetch_fn=None, sleep_fn=time.sleep, pr
 
     output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=sleep_fn, progress_fn=progress_fn)
 
+    # build_output preserves row order and count, so pairing input to output
+    # positionally identifies exactly the rows it modified.
+    changed_pairs = [
+        (before, after) for before, after in zip(rows, output_rows) if before != after
+    ]
+
     outdir = Path(outdir)
     write_csv(outdir / "tmdb-filled.csv", fieldnames, output_rows)
     write_csv(outdir / "tmdb-needs-review.csv", ["Handle", "Title", "Reason"], review_rows)
+    write_csv(outdir / "tmdb-changed.csv", fieldnames, [after for _, after in changed_pairs])
+    write_csv(outdir / "tmdb-changed-before.csv", fieldnames, [before for before, _ in changed_pairs])
+    (outdir / "tmdb-changes.html").write_text(build_changes_html(changed_pairs), encoding="utf-8")
 
-    return {"filled": len(output_rows), "review": len(review_rows)}
+    return {"filled": len(output_rows), "review": len(review_rows), "changed": len(changed_pairs)}
 
 
 def main():
@@ -301,8 +386,10 @@ def main():
 
     print(f"Reading {input_path}...")
     counts = run(input_path, outdir, api_key, progress_fn=print_progress)
-    print(f"Filled: {counts['filled']} rows -> {outdir / 'tmdb-filled.csv'}")
+    print(f"Output: {counts['filled']} rows -> {outdir / 'tmdb-filled.csv'}")
+    print(f"Changed: {counts['changed']} rows -> {outdir / 'tmdb-changed.csv'} (originals in tmdb-changed-before.csv)")
     print(f"Needs review: {counts['review']} rows -> {outdir / 'tmdb-needs-review.csv'}")
+    print(f"Visual diff: open {outdir / 'tmdb-changes.html'}")
 
 
 if __name__ == "__main__":

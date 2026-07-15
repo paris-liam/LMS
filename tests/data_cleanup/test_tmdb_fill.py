@@ -535,7 +535,7 @@ class TestRun(unittest.TestCase):
             outdir = Path(tmp)
             counts = run(FIXTURE_PATH, outdir, api_key="unused", fetch_fn=fetch_fn, sleep_fn=NO_SLEEP)
 
-            self.assertEqual(counts, {"filled": 3, "review": 1})
+            self.assertEqual(counts, {"filled": 3, "review": 1, "changed": 1})
 
             filled_fieldnames, filled_rows = load_export(outdir / "tmdb-filled.csv")
             by_handle = {r["Handle"]: r for r in filled_rows}
@@ -551,6 +551,50 @@ class TestRun(unittest.TestCase):
             self.assertEqual(review_fieldnames, ["Handle", "Title", "Reason"])
             self.assertEqual(len(review_rows), 1)
             self.assertEqual(review_rows[0]["Handle"], "no-match-movie")
+
+    def test_writes_changed_rows_and_before_snapshots(self):
+        def fetch_fn(query, year):
+            if query == "Needs Both":
+                return {"results": [make_result("Needs Both", overview="Filled overview.", poster_path="/needs-both.jpg")]}
+            return {"results": []}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            outdir = Path(tmp)
+            counts = run(FIXTURE_PATH, outdir, api_key="unused", fetch_fn=fetch_fn, sleep_fn=NO_SLEEP)
+
+            self.assertEqual(counts["changed"], 1)
+
+            changed_fieldnames, changed_rows = load_export(outdir / "tmdb-changed.csv")
+            self.assertEqual(len(changed_rows), 1)
+            self.assertEqual(changed_rows[0]["Handle"], "needs-both-movie")
+            self.assertEqual(changed_rows[0]["Body (HTML)"], "<p>Filled overview.</p>")
+            self.assertEqual(
+                changed_rows[0]["Image Src"],
+                f"{POSTER_BASE_URL_FOR_TEST}/needs-both.jpg",
+            )
+
+            before_fieldnames, before_rows = load_export(outdir / "tmdb-changed-before.csv")
+            self.assertEqual(len(before_rows), 1)
+            self.assertEqual(before_rows[0]["Handle"], "needs-both-movie")
+            self.assertEqual(before_rows[0]["Body (HTML)"], "")
+            self.assertEqual(before_rows[0]["Image Src"], "")
+
+    def test_writes_html_changes_report(self):
+        def fetch_fn(query, year):
+            if query == "Needs Both":
+                return {"results": [make_result("Needs Both", overview="Bonnie & Clyde ride again.", poster_path="/needs-both.jpg")]}
+            return {"results": []}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            outdir = Path(tmp)
+            run(FIXTURE_PATH, outdir, api_key="unused", fetch_fn=fetch_fn, sleep_fn=NO_SLEEP)
+
+            html_text = (outdir / "tmdb-changes.html").read_text(encoding="utf-8")
+            self.assertIn("needs-both-movie", html_text)
+            # description text is HTML-escaped, not injected raw
+            self.assertIn("Bonnie &amp; Clyde ride again.", html_text)
+            # after-image renders as an img tag pointing at the TMDB poster
+            self.assertIn(f'src="{POSTER_BASE_URL_FOR_TEST}/needs-both.jpg"', html_text)
 
     def test_forwards_progress_fn_to_build_output(self):
         def fetch_fn(query, year):
