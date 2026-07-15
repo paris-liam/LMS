@@ -13,6 +13,7 @@ Thumbs.db
 
 # Claude Code local state (worktrees, local settings)
 .claude/
+.worktrees/
 
 # Design handoff archive (large; extracted contents tracked separately if needed)
 Little Movie Store Design System-handoff.zip
