@@ -7,8 +7,11 @@ Supercycle Plan product. See
 docs/superpowers/specs/2026-07-14-circaos-product-reformat-design.md.
 """
 
+import csv
+from pathlib import Path
+
 from genre_format_mapping import VENDOR_TO_FORMAT, GENRE_VALUE_MAP
-from reformat_movies import FIXED_VENDOR, FIXED_CATEGORY, GENRE_COLUMN, FORMAT_COLUMN
+from reformat_movies import FIXED_VENDOR, FIXED_CATEGORY, GENRE_COLUMN, FORMAT_COLUMN, group_rows_by_handle
 
 TAG_TO_ADD = "CircaOS Import"
 
@@ -153,3 +156,64 @@ def transform_circaos_group(
         products.append(product_rows)
 
     return "in_scope", products, None
+
+
+def build_output(
+    rows: list[dict], fieldnames: list[str]
+) -> tuple[list[str], list[dict], list[dict]]:
+    """Run the full reformat over every row, split into output vs. review rows.
+
+    Returns (new_fieldnames, output_rows, review_rows). new_fieldnames is
+    fieldnames with FORMAT_COLUMN inserted if it wasn't already present.
+    """
+    new_fieldnames = list(fieldnames)
+    if FORMAT_COLUMN not in new_fieldnames:
+        genre_index = new_fieldnames.index(GENRE_COLUMN)
+        new_fieldnames.insert(genre_index + 1, FORMAT_COLUMN)
+
+    output_rows: list[dict] = []
+    review_rows: list[dict] = []
+    for handle, group in group_rows_by_handle(rows):
+        status, products, reason = transform_circaos_group(group)
+        if status == "in_scope":
+            for product_rows in products:
+                output_rows.extend(product_rows)
+        elif status == "review":
+            review_rows.append(
+                {"Handle": handle, "Title": group[0]["Title"], "Reason": reason}
+            )
+        # status == "skip": out of scope for this pass, omitted entirely
+
+    return new_fieldnames, output_rows, review_rows
+
+
+def main(input_path, output_path, review_path) -> tuple[int, int]:
+    with open(input_path, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        fieldnames = list(reader.fieldnames)
+        rows = list(reader)
+
+    new_fieldnames, output_rows, review_rows = build_output(rows, fieldnames)
+
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=new_fieldnames)
+        writer.writeheader()
+        writer.writerows(output_rows)
+
+    with open(review_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["Handle", "Title", "Reason"])
+        writer.writeheader()
+        writer.writerows(review_rows)
+
+    return len(output_rows), len(review_rows)
+
+
+if __name__ == "__main__":
+    base = Path(__file__).parent
+    n_out, n_review = main(
+        base / "current-movies-export.csv",
+        base / "circaos-reformatted.csv",
+        base / "circaos-needs-review.csv",
+    )
+    print(f"Wrote {n_out} rows to circaos-reformatted.csv")
+    print(f"Wrote {n_review} rows to circaos-needs-review.csv")

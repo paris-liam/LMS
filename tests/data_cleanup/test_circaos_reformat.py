@@ -1,4 +1,6 @@
+import csv
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -14,8 +16,18 @@ from circaos_reformat import (
     classify_circaos_row,
     build_product_handles,
     transform_circaos_group,
+    build_output,
+    main,
 )
 from reformat_movies import GENRE_COLUMN, FORMAT_COLUMN, FIXED_VENDOR, FIXED_CATEGORY
+
+FIXTURE_PATH = Path(__file__).resolve().parent / "fixtures" / "circaos_sample_export.csv"
+
+
+def load_fixture():
+    with open(FIXTURE_PATH, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        return list(reader.fieldnames), list(reader)
 
 
 def make_row(**overrides):
@@ -224,6 +236,62 @@ class TestTransformCircaosGroup(unittest.TestCase):
         )
         self.assertEqual(status, "skip")
         self.assertIsNone(products)
+
+
+class TestBuildOutput(unittest.TestCase):
+    def setUp(self):
+        self.fieldnames, self.rows = load_fixture()
+        self.new_fieldnames, self.output_rows, self.review_rows = build_output(
+            self.rows, self.fieldnames
+        )
+
+    def test_adds_media_format_column(self):
+        self.assertIn(FORMAT_COLUMN, self.new_fieldnames)
+
+    def test_simple_and_split_products_in_output(self):
+        output_handles = {row["Handle"] for row in self.output_rows}
+        self.assertIn("simple-thriller-vhs", output_handles)
+        self.assertIn("split-same-format", output_handles)
+        self.assertIn("split-same-format-copy-2", output_handles)
+        self.assertIn("split-diff-format-bluray", output_handles)
+        self.assertIn("split-diff-format-dvd", output_handles)
+
+    def test_multi_image_product_keeps_all_three_rows(self):
+        rows = [r for r in self.output_rows if r["Handle"] == "multi-image-title"]
+        self.assertEqual(len(rows), 3)
+
+    def test_no_genre_row_excluded_and_flagged(self):
+        output_handles = {row["Handle"] for row in self.output_rows}
+        review_handles = {row["Handle"] for row in self.review_rows}
+        self.assertNotIn("no-genre-row", output_handles)
+        self.assertIn("no-genre-row", review_handles)
+
+    def test_supercycle_and_resale_rows_excluded_entirely(self):
+        output_handles = {row["Handle"] for row in self.output_rows}
+        review_handles = {row["Handle"] for row in self.review_rows}
+        for h in ("supercycle-membership", "already-resale-row"):
+            self.assertNotIn(h, output_handles)
+            self.assertNotIn(h, review_handles)
+
+
+class TestMain(unittest.TestCase):
+    def test_writes_output_and_review_files(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output_path = Path(tmp) / "circaos-reformatted.csv"
+            review_path = Path(tmp) / "circaos-needs-review.csv"
+            n_out, n_review = main(FIXTURE_PATH, output_path, review_path)
+
+            self.assertTrue(output_path.exists())
+            self.assertTrue(review_path.exists())
+            self.assertEqual(n_review, 1)
+
+            with open(output_path, newline="", encoding="utf-8") as f:
+                out_rows = list(csv.DictReader(f))
+            self.assertEqual(len(out_rows), n_out)
+
+            with open(review_path, newline="", encoding="utf-8") as f:
+                review_rows = list(csv.DictReader(f))
+            self.assertEqual(review_rows[0]["Handle"], "no-genre-row")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,12 @@
+Handle,Title,Vendor,Product Category,Type,Tags,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Variant SKU,Variant Barcode,Image Src,Image Position,Genre (product.metafields.shopify.genre)
+simple-thriller-vhs,Simple Thriller,VHS,Uncategorized,,"Rental, Thriller",Condition,Standard,Serial Number,001A,191-VHSSIM-001A,191-VHSSIM-001A,https://img/1.jpg,1,
+no-genre-row,No Genre Row,VHS,Uncategorized,,Rental,Condition,Standard,Serial Number,001A,191-VHSNGR-001A,191-VHSNGR-001A,https://img/2.jpg,1,
+supercycle-membership,Supercycle Membership,,,Supercycle Plan,,,,,,,,,,
+already-resale-row,Already Resale,VHS,Uncategorized,,"Comedy, Floor Sale",Genre,Comedy,,,,,https://img/4.jpg,1,
+split-same-format,Split Same,DVD,Uncategorized,,"Drama, Rental",Condition,Standard,Serial Number,001A,191-DVDSPL-001A,191-DVDSPL-001A,https://img/5a.jpg,1,
+split-same-format,,,,,,Condition,Standard,Serial Number,002A,191-DVDSPL-002A,191-DVDSPL-002A,https://img/5b.jpg,1,
+split-diff-format,Split Diff,BLU-RAY,Uncategorized,,"Action, Rental",Condition,50%,Serial Number,001A,191-BLRDIF-50-001A,191-BLRDIF-50-001A,https://img/6a.jpg,1,
+split-diff-format,,,,,,Condition,Standard,Serial Number,001A,191-DVDDIF-001A,191-DVDDIF-001A,https://img/6b.jpg,1,
+multi-image-title,Multi Image,VHS,Uncategorized,,"Horror, Rental",Condition,Standard,Serial Number,001A,191-VHSMUL-001A,191-VHSMUL-001A,https://img/7a.jpg,1,
+multi-image-title,,,,,,,,,,,,https://img/7b.jpg,2,
+multi-image-title,,,,,,,,,,,,https://img/7c.jpg,3,
