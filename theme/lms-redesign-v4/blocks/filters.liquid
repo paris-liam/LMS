@@ -1654,6 +1654,16 @@
     margin-top: 4px;
   }
 
+  /* .facets-new-arrivals already draws its own border-top divider above.
+     The shared .facets__item::before divider (in-flow, width:100%) is meant
+     for block-layout accordion items; inside this flex row it becomes a
+     third flex item that eats the row's width and squeezes the label +
+     switch together. Suppress it here so only the flex layout's own two
+     children (label, switch) participate. */
+  .facets-new-arrivals::before {
+    content: none !important;
+  }
+
   /* Match the facet header label treatment so New arrivals reads as another filter row. */
   .facets-new-arrivals__label {
     font-family: var(--lms-font-mono, monospace);

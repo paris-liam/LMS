@@ -15,6 +15,7 @@
 
 {%- liquid
   assign picks = shop.metaobjects.staff_pick.values
+  assign all_movies_url = collections['all-movies'].url
 -%}
 
 {% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
@@ -34,8 +35,8 @@
             <div class="lms-staff__desc rte">{{ section.settings.description }}</div>
           {%- endif -%}
         </div>
-        {%- if section.settings.link_label != blank -%}
-          <a href="{{ section.settings.link | default: '#' }}" class="lms-staff__textlink">
+        {%- if section.settings.link_label != blank and all_movies_url != blank -%}
+          <a href="{{ all_movies_url }}?filter.p.tag=community-pick" class="lms-staff__textlink">
             {{- section.settings.link_label -}}
           </a>
         {%- endif -%}
@@ -248,9 +249,8 @@ a.lms-staff__by:hover { color: var(--lms-brick-dark); text-decoration: underline
       "id": "link_label",
       "label": "Link label",
       "default": "Full list →",
-      "info": "Leave blank to hide."
+      "info": "Leave blank to hide. Links to the inventory page with the Community Picks filter turned on."
     },
-    { "type": "url", "id": "link", "label": "Link" },
     { "type": "header", "content": "Section style" },
     {
       "type": "color",
