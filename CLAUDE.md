@@ -17,6 +17,17 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 
 ---
 
+## Major next steps (project roadmap — keep in mind, not yet specced)
+
+High-level tracks the work keeps returning to. **These are not specs** — no formal plan exists for #2 or #4 yet; they're recorded so they aren't forgotten. All prior work has been on the **dev store**; several of these are about eventually getting **production** to parity.
+
+1. **Finish the Supercycle setup + availability/waitlist build** (dev store). In progress — see `docs/superpowers/plans/2026-07-15-availability-filter-and-backinstock-waitlist-admin-runbook.md` (Section A = Supercycle setup, then filter + waitlist). **Near-term.**
+2. **Push the reformatted catalogue to PRODUCTION** (not urgent). **Source of truth = the dev store's current live products** (they carry the in-store TMDB fills, dedup, and tag edits — the pipeline CSV is *not* the authority). Not a blind push: diff production against the dev-store set, reformat any products that exist **only on production** (new since the dev export), and reconcile so production ends up with the full, correctly-formatted catalogue. Data-cleanup pipeline (`data-cleanup/`) is the tooling. Note production is a moving target — the client keeps uploading to it (see #3).
+3. **Updated client product-upload sheet** (near-term). The client uploads products by importing a Google Sheet that's **already in Shopify product-CSV column format, straight into production**. Deliverable: a **corrected CSV template** with our reformatted fields + rental scoping (Rental tag, `shopify.media-format`/`shopify.genre`, one-product-per-movie+format) so his ongoing uploads land already-formatted. **Duplicate handling is deliberately NOT prevented at upload time** — per decision, he bulk-uploads freely (few duplicates expected), and we periodically **export the full catalogue and run a dedupe + reformat pass** (the 2026-07-15 duplicate-cleanup + copy-consolidation plans) to combine copies and normalize. **No products are included in Supercycle on production until the whole catalogue is cataloged**, so copies-as-items happens after that reconciliation, not at upload.
+4. **Stand up all remaining admin work on PRODUCTION** (not urgent): content, collections, Search & Discovery, Supercycle, etc. — the production equivalent of everything configured on the dev store. Depends on #2.
+
+---
+
 ## Stores & themes
 
 | Store | Purpose |
