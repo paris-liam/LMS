@@ -134,7 +134,7 @@
             "show_filter_label": false,
             "enable_sorting": true,
             "enable_grid_density": false,
-            "show_search_input": true,
+            "show_search_input": false,
             "search_input_placeholder": "Search titles, directors…",
             "padding-block-start": 8,
             "padding-block-end": 8,
