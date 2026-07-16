@@ -7,7 +7,7 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 - **Dev store (default workspace)**: `lms-sandbox-lutsfahz.myshopify.com`
 - **Production store**: `p0wkgv-wy.myshopify.com` — touch only on explicit instruction
 - **Theme**: Horizon (Shopify OS 2.0)
-- **Circular commerce** (rental / membership / resale / serialized inventory) is handled by the **Supercycle** app — **installed and live** on the dev store. The `Has active subscription` customer tag is applied automatically by the app. See `supercycle-explained.md` for how it works and `supercycle-progress.md` for the build log.
+- **Circular commerce** is handled by the **Supercycle** app — **installed and live** on the dev store. **Confirmed rental-only scope (2026-07-15): Membership method only** (item-based credits, allowance = 1 movie at a time, unlimited/same-day swaps) — no Calendar, no Subscription, and **no Resale method at all**. A title is either live in Supercycle (rentable) or pulled out of Supercycle and sold as a plain Shopify product/POS sale; never both for the same item. The `Has active subscription` customer tag is applied automatically by the app. See `supercycle-explained.md` for how it works and `supercycle-progress.md` for the build log.
 
 ---
 
@@ -66,7 +66,7 @@ Supercycle is installed, but the **Methods app block on the PDP is not yet mount
 
 - Keep a single, standard product form with a detectable variant input (`[name="id"]`) and **one** add-to-cart button — Supercycle's Methods block reuses this button once mounted.
 - Leave an app-block slot in the product section so the merchant can place the Methods block.
-- Do **not** add dynamic checkout / "Buy now" / express-checkout buttons on rentable products — they bypass the takeover.
+- Do **not** add dynamic checkout / "Buy now" / express-checkout buttons on rentable products — they bypass the takeover. This is a **hard requirement everywhere in this build**, not a per-product judgment call: Supercycle is rental-only (Membership method), nobody purchases a movie through it, so no dynamic-checkout/express-checkout path should ever be reachable from a movie PDP.
 
 ### 2. Member-gating reads the `Has active subscription` customer tag
 
@@ -111,7 +111,9 @@ See the plan's buildability index for per-feature detail.
 
 ### Still blocked / not yet wired up
 
-Methods app block on the PDP (per the integration contract below, not yet mounted) · availability-filter app blocks · plan + calendar config beyond the $100/yr membership plan · resale + rental config and create-item · shipping buffers · return-trigger automation · player rentals · rental-at-POS + serial scanning · mystery-pack inventory reconciliation.
+Methods app block on the PDP (per the integration contract below, not yet mounted) · availability-filter app blocks · the $100/yr membership plan itself (item-based credits, allowance = 1, unlimited swaps) and enabling membership per product · create-item · shipping buffers · return-trigger automation · player rentals · rental-at-POS + serial scanning · mystery-pack inventory reconciliation.
+
+Out of scope entirely (not just blocked): Supercycle's Calendar, Subscription, and Resale methods. Supercycle is rental-only via Membership — no Supercycle-mediated purchase path exists or is planned.
 
 ---
 

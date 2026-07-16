@@ -6,7 +6,7 @@ Features 1–8 were scoped from direct requests; Features 9–16 and the refinem
 
 **Scope key:** 🟢 Launch (June 5 grand opening) · 🟡 Phase 2 (post-launch) · ⚪ Future ("DVD Extras" / later)
 
-_Last updated: 30 Jun 2026_
+_Last updated: 15 Jul 2026 — Supercycle scope confirmed rental-only (Membership method only, no Resale/Calendar/Subscription); see [[supercycle-rental-only-scope]]_
 
 ---
 
@@ -35,9 +35,9 @@ Legend: 🔨 build now (no Supercycle dependency) · 🧩 build now with a stand
 | 2 | Back-in-stock notify | 🟡 | 🧩 | the Return-trigger automation |
 | 3 | Catalogue / PDP | 🟢 | 🔨 | only the Methods-block slot (reserve it) |
 | 4 | Curation tags | 🟢 | 🔨 | none |
-| 5 | Purchase actions (membership/rental) | 🟢 | 🔒 | plan/calendar config + Membership/Methods blocks (page *layout* + gift-card product buildable) |
+| 5 | Purchase actions (membership only) | 🟢 | 🔒 | plan config + Membership/Methods blocks (page *layout* + gift-card product buildable) |
 | 6 | Member discounts & event gating | 🟢 | 🧩 | nothing structural — uses the stand-in tag |
-| 7 | Buy / ship / intake | 🟢 | 🔒 | resale+rental config, create-item, shipping buffers (retail catalogue + intake form buildable) |
+| 7 | Ship / intake | 🟢 | 🔒 | create-item, shipping buffers (retail catalogue + intake form buildable) |
 | 8 | Mystery packs / birthday movie | 🟢 | 🧩 | mystery-pack inventory reconciliation (8a product + 8b birthday buildable) |
 | 9 | In-store / POS | 🟢 | 🧩 | rental-at-POS + serial scanning (retail POS buildable) |
 | 10 | Movie player rentals | 🟡 | 🔒 | calendar method + deposits |
@@ -174,21 +174,23 @@ Surfaces (any combination):
 
 ---
 
-## Feature 5 — Purchase actions: buy membership, gift membership, single rental · 🟢 Launch · 🔒 Mostly blocked
+## Feature 5 — Purchase actions: buy membership, gift membership · 🟢 Launch · 🔒 Mostly blocked
 
-**What I'm asking for:** Set up the three buying actions — buy a membership, gift a membership, and do a single non-membership rental.
+**What I'm asking for:** Set up the two buying actions — buy a membership, and gift a membership. **Confirmed scope (2026-07-15): Supercycle is rental-only for LMS.** Membership is the *only* rental method in use — no Calendar, no Subscription, no Resale. A title is either live in Supercycle (rentable via membership) or removed from Supercycle and sold outright as a plain Shopify product; it is never both at once. See [[supercycle-rental-only-scope]].
 
 ### 5a. Buy a membership — native, fully supported
 
 | Step | Where | Detail |
 |---|---|---|
-| Create the plan | Supercycle admin → Settings → Methods → Membership → Add plan | Set billing interval + price (LMS = single yearly purchase option), credit allowance (items held at once), swap allowance (order/return cadence). Saving creates a linked Shopify **plan product** (placeholder — never sell directly). |
-| Enable on products | Supercycle → Products | Turn on membership method per title; set each title's credit cost. |
+| Create the plan | Supercycle admin → Settings → Methods → Membership → Add plan | Single yearly purchase option (LMS = $100/yr). **Credit system: item-based**, credit/item allowance = **1** (one movie out at a time). **Swap allowance: unlimited, no cooldown** — a member can return and re-borrow the same day, as often as they want. Saving creates a linked Shopify **plan product** (placeholder — never sell directly). |
+| Enable on products | Supercycle → Products | Turn on membership method per rentable title. Item-based credit system means there's no per-title credit cost to set. |
 | Build membership page | Shopify admin + theme editor | Create a "Membership plans" collection, add plan product(s); create a page; add the **Membership plans app block** pointed at that collection. |
 
 **Buy action:** add-to-cart inside the Membership plans block → checkout → Supercycle activates membership and assigns credits. This block is the **only** valid enrollment path.
 
 **Caveat:** Shopify can't hide a plan product from the "all" collection while keeping it in the membership collection. Filter plan products out of collection pages in Horizon, or set them to unlisted.
+
+**Still open:** the 7-day max-hold-per-title idea from earlier discussions has no native Supercycle setting (Membership only has credit allowance + swap allowance, not a per-rental duration cap) — deliberately deferred, not solved. See [[supercycle-membership-buildout]].
 
 ### 5b. Gift a membership — NOT native, needs a workaround
 
@@ -199,13 +201,6 @@ Surfaces (any combination):
 | A. Shopify gift card (recommended) | Sell a gift card for the membership amount; the **recipient** applies it when they self-enroll through the membership block on their own account | Activation stays correct. For the yearly tier, covers year one; renewal needs the recipient's own card on file. |
 | B. Concierge / manual | Sell a plain "gift membership" product (normal Shopify product, not a plan product); coordinate enrollment with the recipient manually | Operationally heavy, doesn't scale. |
 | C. Ask Supercycle | They do custom work over Slack — ask if there's a supported gifting pattern or a way to assign a membership to a specified account | See running questions. Also confirm with client whether gifting is needed at launch. |
-
-### 5c. Single non-membership rental — native (Calendar method)
-
-| Step | Where | Detail |
-|---|---|---|
-| Enable calendar method | Supercycle → Products → select title → Calendar | Add rental periods + pricing (≤4 periods recommended for UX), optional fixed fees / multi-market pricing. Turn on + save. |
-| Storefront | Methods app block on the PDP | Renders the calendar option with a date picker; non-members select dates and use the taken-over add-to-cart. No membership required — calendar and membership coexist on the same PDP. |
 
 ---
 
@@ -225,9 +220,9 @@ Surfaces (any combination):
 |---|---|
 | Build a customer segment | Shopify segment from the `Has active subscription` tag |
 | Create an automatic discount | Shopify **automatic discount** targeting that segment — applies at checkout, no code to enter |
-| Scope | Works cleanly on **retail / resale** (normal Shopify line items) |
+| Scope | Works cleanly on plain **retail** purchases (normal Shopify line items, never touch Supercycle) |
 
-**Caveat (rentals) — now load-bearing.** The deck specifies the member perk as **10% off ALL purchases**. That makes whether a Shopify automatic discount applies to Supercycle's **calendar-rental and resale line items** a launch question, not a minor one — rental pricing comes from Supercycle method options + selling plans, so it may not stack. Retail/resale lines are normal Shopify and should be fine; rental is the uncertain one. Confirm with Supercycle (running question #4) before promising "10% off everything."
+**Caveat (membership fee) — now load-bearing.** The deck specifies the member perk as **10% off ALL purchases**. Since resale is no longer in scope, the only Supercycle-priced line item left is the **membership plan itself** (the recurring Shopify selling-plan charge) — whether a Shopify automatic discount applies there is the open question now, not calendar-rental/resale (both are out of scope). Retail lines are normal Shopify and should be fine. Confirm with Supercycle (running question #4) before promising "10% off everything."
 
 ### 6b. Member-exclusive events
 
@@ -244,38 +239,31 @@ Not a Supercycle feature — Shopify storefront gating off the membership tag / 
 
 ---
 
-## Feature 7 — Buying products, shipping, and intake of used DVDs · 🟢 Launch · 🔒 Mostly blocked
+## Feature 7 — Shipping and intake of used DVDs · 🟢 Launch · 🔒 Mostly blocked
 
-**What I'm asking for:** Set up buying products (vs. renting), shipping them, and selling/donating used DVDs into inventory.
+**What I'm asking for:** Ship rental orders, and take in used/donated DVDs to become rental inventory. **No Supercycle Resale method — confirmed rental-only (2026-07-15).** See [[supercycle-rental-only-scope]].
 
-### 7a. Buy products outright — Resale method
+### 7a. Selling discs outright — never through Supercycle
 
-Selling a disc from the catalogue = Supercycle's **Resale** method (not plain retail).
+A title is either **in Supercycle** (rentable via membership, no purchase path) **or taken out of Supercycle and sold as a plain Shopify product/POS sale** with no Supercycle involvement at all. The two states never overlap for the same item — nothing is simultaneously "rent via Supercycle" and "buy via Supercycle" on the same PDP, and the Resale method itself is not used anywhere in this build.
 
-| Aspect | Detail |
-|---|---|
-| What it is | Sells individual **serialized items** (used/refurbished or end-of-rental-life). Permanently transfers ownership — unlike rental, the item does not return. |
-| Pricing | Condition-based pricing (different prices per condition) → plugs into A/B/C grading. |
-| Setup | Import product → enable Resale method → configure condition pricing. Items must exist in `Active` status. |
-| Storefront | Resale shows as a method in the Methods block alongside rent; customer chooses buy vs. rent on the same PDP. |
+Practically: if a copy is being retired from the rental pool to be sold off (e.g. end-of-life, damaged-but-sellable, decommissioned duplicate), pull its item out of Supercycle first (retire/remove it from the rental product), then list/sell it as an ordinary Shopify product or ring it up on POS like any other retail good. It never needs Resale-method configuration, condition-based pricing options, or a Methods-block "buy" choice.
 
-**Inventory consequence:** a sold item moves to `Sold` and leaves the rental pool. At ~2 copies/title, selling a copy reduces borrow availability — ties into allowance rules.
-
-**Note — two parallel catalogues.** The deck's product mix is broader than the serialized disc library. Serialized used media (VHS/DVD/Blu-ray) flows through Supercycle (resale + rental). But **new sealed media, apparel, gifts, art, snacks, media players, movie books, and vintage clothing are plain Shopify products that never touch Supercycle.** Keep the two clearly separated: Supercycle methods only attach to serialized stock.
+**Note — two parallel catalogues, revised.** The deck's product mix is broader than the serialized disc library. Serialized rental media (VHS/DVD/Blu-ray) flows through Supercycle for rental only. **New sealed media, apparel, gifts, art, snacks, media players, movie books, vintage clothing, and any disc pulled out of the rental pool to be sold outright are all plain Shopify products that never touch Supercycle.**
 
 ### 7b. Shipping
 
-Standard Shopify — shipping profiles, rates, fulfillment cover both resale and rental dispatch (Supercycle rides on Shopify checkout). Rentals add logistics buffers (prep/delivery/return/restock) + return logistics, but shipping mechanics are Shopify's. In-store pickup already enabled → shipping is the complement (customer picks pickup or ship at checkout).
+Standard Shopify — shipping profiles, rates, fulfillment cover rental dispatch (Supercycle rides on Shopify checkout for the membership fee; the rented item itself ships via standard fulfillment). Rentals add logistics buffers (prep/delivery/return/restock) + return logistics, but shipping mechanics are Shopify's. In-store pickup already enabled → shipping is the complement (customer picks pickup or ship at checkout).
 
 **Gotchas to pre-empt:**
-- **Split shipping:** carts mixing items with different fulfillment timing / shipping profiles / locations get split → multiple shipping charges. Fix: turn off Split shipping in Shopify (one label, one charge). Likely here (rental + resale + pickup in one cart).
+- **Split shipping:** carts mixing items with different fulfillment timing / shipping profiles / locations get split → multiple shipping charges. Fix: turn off Split shipping in Shopify (one label, one charge). Likely here (membership fee + rented item + plain retail + pickup in one cart).
 - **"Ships {date}" label:** Shopify reads the fulfillment date from Supercycle's selling plan and shows a "Pre order ships date" that can display a wrong/alarming future date on rentals. Fix: edit that theme content label to neutral text (e.g. "Ships soon") or clear it.
 
 ### 7c. Selling / donating used DVDs into inventory (intake)
 
 Splits in two — only the second half is Supercycle.
 
-**Inventory creation (IS Supercycle):** once received and graded, create a serialized **item** against the matching product — set serial (`LMS-NNNNNNN`), condition, location, status `Active`, and enabled methods (rent/resale). Via Inventory area, Scanner app, or Admin API create-item endpoint (bulk). If the title isn't in the catalogue, create the Shopify product → import → add item. Consignment is supported (attribute revenue to a consignor) if sellers get a share.
+**Inventory creation (IS Supercycle):** once received and graded, create a serialized **item** against the matching product — set serial (`LMS-NNNNNNN`), condition, location, status `Active`, and enable the **membership** method only (never resale). Via Inventory area, Scanner app, or Admin API create-item endpoint (bulk). If the title isn't in the catalogue, create the Shopify product → import → add item. Consignment is supported (attribute revenue to a consignor) if sellers get a share.
 
 **Customer-facing intake (NOT a Supercycle feature):** trade-in is referenced as a *source* of resale inventory and is in the marketing, but there's no documented turnkey "sell us your DVD" storefront flow with valuation/payout. Build as a process:
 
@@ -283,7 +271,7 @@ Splits in two — only the second half is Supercycle.
 |---|---|
 | Intake form | Shopify page + form (Shopify Forms, a form app, or custom). Boutique scale: in-store / email may suffice. |
 | Appraisal | Manual grading + offer. |
-| Payout | **Donation:** the deck rewards donors with **free rentals** (not just thanks) — issue rental credit or a free-rental code, which ties into the membership credit system rather than a gift card. **Buying/trade-in:** no Supercycle payout mechanism; use **Shopify gift card / store credit** (keeps value in-store) or cash/manual. |
+| Payout | **Donation:** the deck rewards donors with **free rentals** (not just thanks) — issue rental credit or a free-rental code, which ties into the membership credit system rather than a gift card. **Buying/trade-in:** no Supercycle payout mechanism, and no Supercycle purchase path either way; use **Shopify gift card / store credit** (keeps value in-store) or cash/manual. |
 | Add to inventory | Grade → create the serialized item (Supercycle step above). |
 
 ---
@@ -411,7 +399,7 @@ A useful reframe from the deck review: the real build is **Supercycle + Shopify 
 
 | Layer | Runs on |
 |---|---|
-| Rental (calendar), membership, resale, serialized inventory, deposits | **Supercycle** |
+| Rental — **Membership method only** (no Calendar, Subscription, or Resale), serialized rental inventory | **Supercycle** |
 | Retail products, collections, discounts, gift cards, segments, shipping, **POS**, scheduled publishing | **Shopify core** |
 | Methods/Membership/filter blocks, Liquid member-gating, badges, recommendation rails, custom facets | **Horizon theme** |
 | Filtering (Search & Discovery), space booking, event ticketing, loyalty, retail bundles, email (birthday / back-in-stock / drops) | **Supporting apps** (Search & Discovery, a booking app, an events app, a loyalty app, a bundle app, Klaviyo) |
@@ -423,7 +411,7 @@ A useful reframe from the deck review: the real build is **Supercycle + Shopify 
 1. Do returns write back to Shopify's **native inventory levels**, or only Supercycle's committed/uncommitted state? (Blocks Feature 2, Option B.)
 2. Is the **availability filter app block** (Feature 1, Option B) stable enough for launch, given its beta status?
 3. Is there any supported pattern for **gifting a membership** — e.g. assigning a membership to a specified customer account, or a redemption flow? (Blocks Feature 5b; also a client decision on whether gifting is needed at launch.)
-4. Do **Shopify automatic discounts apply to calendar-rental and resale line items**, or only retail? **Launch-critical** — the deck promises members "10% off ALL purchases." (Affects Feature 6a.)
+4. Does a **Shopify automatic discount apply to the membership plan's recurring selling-plan charge**, or only plain retail line items? **Launch-critical** — the deck promises members "10% off ALL purchases," and membership is now the only Supercycle-priced line item in scope. (Affects Feature 6a.)
 5. Is there a **trade-in intake module** or recommended pattern (customer-facing valuation/payout), or is intake entirely a custom build feeding the create-item flow? (Affects Feature 7c.)
 6. How deep is **Supercycle's Shopify POS support** — does it cover in-person rental checkout, returns, and counter-side serial scanning (Scanner app)? Does the member discount apply correctly in POS? (Blocks Feature 9.)
 
