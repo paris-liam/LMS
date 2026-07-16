@@ -1,16 +1,18 @@
 {% comment %}
-  lms-new-releases — "New Arrivals" rail: the 10 most recent Rental movies.
+  lms-new-releases — "New Arrivals" rail: the 5 most recent Rental movies.
   Data source is the fixed `new-arrivals` smart collection (Category = Media
   > Videos AND tag = Rental AND tag = new-arrival), kept in sync by a
   Shopify Flow (see docs/superpowers/plans/2026-07-15-rental-scoped-catalogue-and-filters.md).
-  The "+N more" button links to the shop-all/search page with the New
-  Arrivals toggle pre-set (filter.p.tag=new-arrival).
+  Top-right "View all" links to the shop-all/search page unfiltered. The
+  "+N more" button below the grid links to the same page with the New
+  Arrivals toggle pre-set (filter.p.tag=new-arrival), hidden when there are
+  no more to show.
   Desktop: 5-up grid. Tablet: 3-up. Mobile: horizontal scroll-snap row.
 {% endcomment %}
 
 {%- liquid
   assign collection = collections['new-arrivals']
-  assign limit = 10
+  assign limit = 5
   assign new_arrivals_count = 0
   assign remaining = 0
   if collection != blank
@@ -33,9 +35,9 @@
           <h2 class="lms-new-releases__heading">{{ section.settings.heading }}</h2>
         {%- endif -%}
       </div>
-      {%- if remaining > 0 and all_movies_url != blank -%}
-        <a href="{{ all_movies_url }}?filter.p.tag=new-arrival" class="lms-btn lms-btn--outline lms-btn--sm">
-          + {{ remaining }} more
+      {%- if all_movies_url != blank -%}
+        <a href="{{ all_movies_url }}" class="lms-btn lms-btn--outline lms-btn--sm">
+          View all
         </a>
       {%- endif -%}
     </div>
@@ -51,6 +53,14 @@
         </div>
       {%- endif -%}
     </div>
+
+    {%- if remaining > 0 and all_movies_url != blank -%}
+      <div class="lms-new-releases__footer">
+        <a href="{{ all_movies_url }}?filter.p.tag=new-arrival" class="lms-btn lms-btn--outline lms-btn--sm">
+          + {{ remaining }} more
+        </a>
+      </div>
+    {%- endif -%}
 
   </div>
 </div>
@@ -75,6 +85,11 @@
   font-size: 13px;
   color: var(--lms-text-muted);
   padding: 32px 0;
+}
+.lms-new-releases__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
 }
 .lms-new-releases__heading {
   font-family: var(--lms-font-display);
