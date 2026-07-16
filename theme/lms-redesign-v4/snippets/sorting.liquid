@@ -21,7 +21,13 @@
 >
   {% liquid
     assign default_sort_by = results.default_sort_by
-    for option in results.sort_options
+    assign sort_options = results.sort_options
+    if filter_style == 'vertical'
+      assign alpha_asc = results.sort_options | where: 'value', 'title-ascending'
+      assign alpha_desc = results.sort_options | where: 'value', 'title-descending'
+      assign sort_options = alpha_asc | concat: alpha_desc
+    endif
+    for option in sort_options
       if option.value == sort_by
         assign status = option.name
       endif
@@ -44,7 +50,7 @@
           disabled
         {% endif %}
       >
-        {% for option in results.sort_options %}
+        {% for option in sort_options %}
           <option
             value="{{ option.value }}"
             {% if option.value == sort_by %}
@@ -107,7 +113,7 @@
         ref="listbox"
       >
         <div class="sorting-filter__options-inner">
-          {% for option in results.sort_options %}
+          {% for option in sort_options %}
             <label
               for="sort-option-{{ option.value }}-{{ section_id }}"
             >
