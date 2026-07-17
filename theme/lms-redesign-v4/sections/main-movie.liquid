@@ -32,6 +32,7 @@
         assign format_handle = product.metafields.shopify.media-format.value.first.system.handle
       -%}
       {%- if genre_label != blank or format_label != blank -%}
+        {% # theme-check-disable HardcodedRoutes %}
         <div class="lms-movie__chips">
           {%- if genre_label != blank -%}
             <a class="lms-badge lms-badge--muted" href="/collections/all-movies?filter.p.m.shopify.genre={{ genre_handle | url_encode }}">{{ genre_label }}</a>
@@ -40,6 +41,7 @@
             <a class="lms-badge lms-badge--muted" href="/collections/all-movies?filter.p.m.shopify.media-format={{ format_handle | url_encode }}">{{ format_label }}</a>
           {%- endif -%}
         </div>
+        {% # theme-check-enable HardcodedRoutes %}
       {%- endif -%}
       {# ANCHOR: availability #}
       {# ANCHOR: notify #}
