@@ -1,0 +1,79 @@
+{% comment %}
+  main-movie — dedicated read-only PDP for rental/movie products.
+  Spec: docs/superpowers/specs/2026-07-17-movie-product-template-design.md
+  Shows poster, title, curated genre/format chips, in-store availability,
+  out-of-stock notify-me, and description. NO price / variant / add-to-cart /
+  dynamic checkout / Supercycle Methods slot — all transactions are in-store.
+{% endcomment %}
+
+<section class="lms-movie page-width">
+  <div class="lms-movie__grid">
+    <div class="lms-movie__media">
+      {%- if product.featured_image -%}
+        {{ product.featured_image
+          | image_url: width: 900
+          | image_tag:
+            widths: '450, 675, 900',
+            sizes: '(max-width: 749px) 100vw, 45vw',
+            loading: 'eager',
+            alt: product.featured_image.alt | default: product.title }}
+      {%- else -%}
+        <div class="lms-movie__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="lms-movie__details">
+      <h1 class="lms-movie__title">{{ product.title }}</h1>
+
+      {# ANCHOR: chips #}
+      {# ANCHOR: availability #}
+      {# ANCHOR: notify #}
+
+      {%- if product.description != blank -%}
+        <div class="lms-movie__description rte">{{ product.description }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+.lms-movie { padding-block: 32px; }
+.lms-movie__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 45%) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+.lms-movie__media img,
+.lms-movie__placeholder svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: var(--lms-border-width) solid var(--lms-border-default);
+  border-radius: var(--lms-radius-xs);
+}
+.lms-movie__details { display: flex; flex-direction: column; gap: 20px; }
+.lms-movie__title { font-family: var(--lms-font-display); color: var(--lms-text-strong); margin: 0; }
+.lms-movie__chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.lms-movie__chips a { text-decoration: none; }
+.lms-movie__availability { font-family: var(--lms-font-mono); font-size: 14px; }
+.lms-movie__stock--in { color: var(--lms-sage); }
+.lms-movie__stock--out { color: var(--lms-text-muted); }
+.lms-movie__instore { font-family: var(--lms-font-mono); font-size: 13px; color: var(--lms-text-muted); margin: 0; }
+.lms-movie__description { color: var(--lms-text-default); }
+.lms-movie__notify-label { display: block; font-family: var(--lms-font-mono); font-size: 13px; margin-bottom: 6px; }
+.lms-movie__notify-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.lms-movie__notify-success { color: var(--lms-sage); font-family: var(--lms-font-mono); }
+@media (max-width: 749px) {
+  .lms-movie__grid { grid-template-columns: 1fr; gap: 24px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Movie details",
+  "tag": "section",
+  "settings": [],
+  "presets": [{ "name": "Movie details" }]
+}
+{% endschema %}
