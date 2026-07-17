@@ -49,9 +49,9 @@
 
       <div class="lms-movie__availability">
         {%- if movie_in_stock -%}
-          <span class="lms-movie__stock lms-movie__stock--in">● Available in-store</span>
+          <span class="lms-movie__stock lms-movie__stock--in"><span aria-hidden="true">● </span>Available in-store</span>
         {%- else -%}
-          <span class="lms-movie__stock lms-movie__stock--out">● Currently out</span>
+          <span class="lms-movie__stock lms-movie__stock--out"><span aria-hidden="true">● </span>Currently out</span>
         {%- endif -%}
       </div>
       <p class="lms-movie__instore">Rent or buy this title in-store.</p>
@@ -63,9 +63,12 @@
             {%- else -%}
               <input type="hidden" name="contact[Movie]" value="{{ product.title | escape }} ({{ product.handle }})">
               <input type="hidden" name="contact[body]" value="Back-in-stock request for {{ product.title | escape }} ({{ product.handle }})">
-              <label class="lms-movie__notify-label" for="lms-notify-email">Notify me when it's back</label>
+              {%- if form.errors -%}
+                <p class="lms-movie__notify-error">{{ form.errors | default_errors }}</p>
+              {%- endif -%}
+              <label class="lms-movie__notify-label" for="lms-notify-email-{{ section.id }}">Notify me when it's back</label>
               <div class="lms-movie__notify-row">
-                <input id="lms-notify-email" type="email" name="contact[email]" placeholder="you@email.com" required>
+                <input id="lms-notify-email-{{ section.id }}" type="email" name="contact[email]" placeholder="you@email.com" required>
                 <button type="submit" class="button">Notify me</button>
               </div>
             {%- endif -%}
