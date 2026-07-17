@@ -25,7 +25,22 @@
     <div class="lms-movie__details">
       <h1 class="lms-movie__title">{{ product.title }}</h1>
 
-      {# ANCHOR: chips #}
+      {%- liquid
+        assign genre_label = product.metafields.shopify.genre.value.first.label.value
+        assign genre_handle = product.metafields.shopify.genre.value.first.system.handle
+        assign format_label = product.metafields.shopify.media-format.value.first.label.value
+        assign format_handle = product.metafields.shopify.media-format.value.first.system.handle
+      -%}
+      {%- if genre_label != blank or format_label != blank -%}
+        <div class="lms-movie__chips">
+          {%- if genre_label != blank -%}
+            <a class="lms-badge lms-badge--muted" href="/collections/all-movies?filter.p.m.shopify.genre={{ genre_handle | url_encode }}">{{ genre_label }}</a>
+          {%- endif -%}
+          {%- if format_label != blank -%}
+            <a class="lms-badge lms-badge--muted" href="/collections/all-movies?filter.p.m.shopify.media-format={{ format_handle | url_encode }}">{{ format_label }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
       {# ANCHOR: availability #}
       {# ANCHOR: notify #}
 
