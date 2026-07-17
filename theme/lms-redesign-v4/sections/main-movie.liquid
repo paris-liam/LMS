@@ -43,7 +43,18 @@
         </div>
         {% # theme-check-enable HardcodedRoutes %}
       {%- endif -%}
-      {# ANCHOR: availability #}
+      {# STAND-IN: inventory qty now; swap to scf.avf / supercycle.* on install #}
+      {%- assign movie_in_stock = false -%}
+      {%- if product.available -%}{%- assign movie_in_stock = true -%}{%- endif -%}
+
+      <div class="lms-movie__availability">
+        {%- if movie_in_stock -%}
+          <span class="lms-movie__stock lms-movie__stock--in">● Available in-store</span>
+        {%- else -%}
+          <span class="lms-movie__stock lms-movie__stock--out">● Currently out</span>
+        {%- endif -%}
+      </div>
+      <p class="lms-movie__instore">Rent or buy this title in-store.</p>
       {# ANCHOR: notify #}
 
       {%- if product.description != blank -%}
