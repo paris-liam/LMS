@@ -55,7 +55,23 @@
         {%- endif -%}
       </div>
       <p class="lms-movie__instore">Rent or buy this title in-store.</p>
-      {# ANCHOR: notify #}
+      {%- unless movie_in_stock -%}
+        <div class="lms-movie__notify">
+          {%- form 'contact', class: 'lms-movie__notify-form' -%}
+            {%- if form.posted_successfully? -%}
+              <p class="lms-movie__notify-success">Thanks — we'll let you know when it's back in.</p>
+            {%- else -%}
+              <input type="hidden" name="contact[Movie]" value="{{ product.title | escape }} ({{ product.handle }})">
+              <input type="hidden" name="contact[body]" value="Back-in-stock request for {{ product.title | escape }} ({{ product.handle }})">
+              <label class="lms-movie__notify-label" for="lms-notify-email">Notify me when it's back</label>
+              <div class="lms-movie__notify-row">
+                <input id="lms-notify-email" type="email" name="contact[email]" placeholder="you@email.com" required>
+                <button type="submit" class="button">Notify me</button>
+              </div>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      {%- endunless -%}
 
       {%- if product.description != blank -%}
         <div class="lms-movie__description rte">{{ product.description }}</div>
