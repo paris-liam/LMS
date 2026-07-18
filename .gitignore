@@ -1,6 +1,8 @@
 # Shopify CLI
 .shopify/
 *.shopifyignore
+# CLI auth/environments — holds Theme Access token + storefront password. NEVER commit.
+shopify.theme.toml
 
 # Python
 __pycache__/

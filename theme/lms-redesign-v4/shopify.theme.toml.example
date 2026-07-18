@@ -1,0 +1,39 @@
+# Shopify CLI environments — TEMPLATE (safe to commit; contains no secrets).
+#
+# Setup:
+#   1. Copy this file to `shopify.theme.toml` (that filename is git-ignored).
+#        cp shopify.theme.toml.example shopify.theme.toml
+#   2. Fill in the two secrets below.
+#   3. Run theme commands with the environment, from this directory
+#      (theme/lms-redesign-v4), with NO interactive auth prompts:
+#        shopify theme dev  -e dev
+#        shopify theme push -e dev --only sections/foo.liquid
+#        shopify theme pull -e dev
+#
+# How to get `password` (a Theme Access token — this is what avoids the
+# Partner OAuth browser login):
+#   1. On the DEV store's admin, install the free "Theme Access" app:
+#      https://apps.shopify.com/theme-access
+#   2. In the app: Create/Add access → it generates a password beginning
+#      with `shptka_`. (One per person; revocable in the app.)
+#   3. Paste it as `password`. It scopes the CLI to theme dev/push/pull only.
+#
+# `store-password` is the storefront coming-soon gate password (the page at
+# /password), NOT the Theme Access token. Needed so `theme dev`'s preview
+# doesn't stop to prompt for it.
+
+[environments.dev]
+store = "lms-sandbox-lutsfahz.myshopify.com"
+theme = "140918915134"
+password = "shptka_REPLACE_WITH_THEME_ACCESS_TOKEN"
+store-password = "REPLACE_WITH_STOREFRONT_PASSWORD"
+
+# PRODUCTION (p0wkgv-wy) is OFF-LIMITS by default — see CLAUDE.md. Do not add a
+# production environment unless you deliberately intend prod operations, and
+# never make it the default. If you do, it needs its OWN Theme Access token
+# generated on the production store:
+#
+# [environments.production]
+# store = "p0wkgv-wy.myshopify.com"
+# theme = "164180295930"
+# password = "shptka_REPLACE_WITH_PROD_THEME_ACCESS_TOKEN"
