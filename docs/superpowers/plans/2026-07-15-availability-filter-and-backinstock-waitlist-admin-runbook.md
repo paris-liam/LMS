@@ -138,6 +138,8 @@ Do not continue until **all** are true:
 
 ## Section C — Back-in-stock waitlist (metafield + two Flows)
 
+> **⏸️ DEFERRED (decision 2026-07-16).** The waitlist is paused. It's blocked on **two** independent problems, neither a quick fix: (1) the metafield write — the notify-me button can't detect "out of stock" until `supercycle.uncommitted_inventory` actually flips off on rental (the open Supercycle support item), and (2) the capture mechanism — the design's contact-form → Flow trigger **does not exist** (C2 finding); a rebuild via **Shopify Forms → metaobject → Flow** (or app-proxy / 3rd-party app) is required and unverified for per-product context. Since the availability *filter* is the higher-value, nearly-done half and shares blocker (1), effort refocuses there and on finishing Supercycle setup (Section A). **Done and retained:** C1 (`custom.waitlist_emails` metafield exists — harmless to leave). **To resume:** pick a capture mechanism (see C2 finding + the deferred-decision options), confirm blocker (1) is resolved, then build C3–C6 and the companion code plan.
+
 **Only after Section A.** The theme-side notify-me button is in the companion code plan; this section builds the data model and the two Flow workflows it depends on. Do **C1 first** — the code plan writes to this metafield.
 
 ### C1 — Create the waitlist metafield
@@ -163,7 +165,7 @@ The capture path relies on a `{% form 'contact' %}` submission firing Flow's **"
 4. **If the trigger exists and exposes submission fields:** proceed to C3.
 5. **If it does not exist or can't read custom fields:** stop and report back — the capture mechanism needs rethinking (e.g. a different form type or a small app/proxy), and the code plan's Task 2 changes accordingly.
 
-Record what you find here: `_______________________________________`
+Record what you find here: **FINDING (2026-07-16): the assumed "Contact form submitted" Flow trigger does NOT exist.** Shopify Flow has no storefront contact-form trigger, and Supercycle offers no waitlist/back-in-stock capture (its notifications are rental-lifecycle only). The supported native, no-backend path is: **Shopify Forms** (first-party app) saves each submission as a **metaobject entry** → Shopify Flow's **"Metaobject entry created"** trigger fires. So capture must go through Shopify Forms (or an app-proxy/Admin-API write, or a 3rd-party back-in-stock app), NOT a raw `{% form 'contact' %}`. Open risk with the Forms path: confirming per-product context (the product ID) can be attached to the submission metaobject — the per-product `custom.waitlist_emails` model needs it. **Capture mechanism decision pending (see below); C3 blocked until chosen + verified.**
 
 ### C3 — Flow: capture (contact form → append to waitlist)
 
