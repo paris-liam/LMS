@@ -1,0 +1,332 @@
+# Client Product-Upload Template Implementation Plan
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Deliver a Google-Sheet upload template (a scaffold CSV + a setup/fill guide) that lets the client's ongoing product uploads land import-perfect — canonical rental/resale movie products with no reformat pass needed.
+
+**Architecture:** A single Google Sheet with **import columns** (some typed directly, some formula/fixed) plus a few **helper input columns** (validated dropdowns for Format / Genre / Type) that formulas transform into the exact Shopify import fields. We ship (1) `client-upload-template.csv` — the full sheet layout with 2 worked example rows, and (2) `client-upload-template-guide.md` — how to wire the dropdowns, the hidden mapping tab, the formulas, and the export→import workflow. No code, no `data-cleanup/` pipeline change; the template mirrors the pipeline's output shape.
+
+**Tech Stack:** Google Sheets (data validation + `TEXTJOIN`/`VLOOKUP` formulas), Shopify product-CSV import, Shopify metaobject-reference metafields. No test framework — validation is by CSV parse-check + a dev-store test import.
+
+**Spec:** `docs/superpowers/specs/2026-07-16-client-product-upload-template-design.md`
+
+## Global Constraints
+
+- **Dev store only.** All store operations target `lms-sandbox-lutsfahz.myshopify.com`. NEVER the production store `p0wkgv-wy.myshopify.com` unless explicitly instructed per-operation (CLAUDE.md).
+- **Import-perfect:** only canonical values ship. Genre + media-format are **metaobject handles** taken from `data-cleanup/genre_format_mapping.py`.
+- **Fixed column values (verbatim):** `Vendor` = `Little Movie Store`; `Product Category` = `Media > Videos`; `Option1 Name` = `Title`; `Option1 Value` = `Default Title`; `Variant Inventory Tracker` = `shopify`; `Variant Inventory Policy` = `deny`; `Variant Fulfillment Service` = `manual`; `Status` = `Active`.
+- **Two mutually-exclusive scoping tags:** `Rental` or `Floor Sale` (never both).
+- **Genre:** metafield is primary; each chosen genre ALSO emits a tag in **label** form (`Comedy`, not `comedy`). Multi-genre = a **list** metafield (delimiter confirmed in Task 1) + one label tag per genre.
+- **Handle:** client-typed passthrough — keep his convention; do NOT auto-generate. (The guide recommends clean, comma-free handles but the sheet does not enforce it.)
+- **No barcode column.** Rental price = `0`; Floor Sale = a real price. `Copies` defaults to `1`.
+- **Formats (for now):** VHS / DVD / Blu-Ray / 4K. **Genres (for now):** the canonical 12. The guide MUST show the client how to extend both, plus the Extra-tags list.
+- **Deliverables live under** `data-cleanup/client-template/`.
+
+## Canonical value maps (source: `data-cleanup/genre_format_mapping.py`)
+
+**Format label → `shopify.media-format` handle:** VHS→`vhs`, DVD→`dvd`, Blu-Ray→`blu-ray`, 4K→`4-k`.
+
+**Genre label → `shopify.genre` handle:** Comedy→`comedy`, Action→`action`, Drama→`drama`, Kids & Family→`kids-family`, Sci-Fi→`sci-fi`, Thriller→`thriller`, Horror→`horror`, Romantic Comedy→`romantic-comedy`, Musical→`musical`, Fantasy→`fantasy`, Documentary→`documentary`, Foreign→`foreign`.
+
+## Sheet column layout (locked — used by Tasks 2 & 3)
+
+Columns **A–Q are the import columns** (contiguous, so export = "select A:Q"). Columns **R–W are helper inputs**, excluded from export.
+
+| Col | Header | Kind | Value / source |
+|---|---|---|---|
+| A | `Handle` | typed | client's handle (his convention) |
+| B | `Title` | typed | movie title |
+| C | `Body (HTML)` | typed | description |
+| D | `Vendor` | fixed | `Little Movie Store` |
+| E | `Product Category` | fixed | `Media > Videos` |
+| F | `Tags` | formula | Type + genre labels + extra tags |
+| G | `Status` | fixed | `Active` |
+| H | `Option1 Name` | fixed | `Title` |
+| I | `Option1 Value` | fixed | `Default Title` |
+| J | `Variant Inventory Tracker` | fixed | `shopify` |
+| K | `Variant Inventory Qty` | typed | copies (default 1) |
+| L | `Variant Inventory Policy` | fixed | `deny` |
+| M | `Variant Fulfillment Service` | fixed | `manual` |
+| N | `Variant Price` | typed | real price / 0 for rental |
+| O | `Image Src` | typed | public image URL |
+| P | `Genre (product.metafields.shopify.genre)` | formula | genre handles joined (Task-1 delimiter) |
+| Q | `Media format (product.metafields.shopify.media-format)` | formula | format handle |
+| R | `Format` | helper dropdown | VHS/DVD/Blu-Ray/4K |
+| S | `Genre 1` | helper dropdown | 12 genres (required) |
+| T | `Genre 2` | helper dropdown | 12 genres (optional) |
+| U | `Genre 3` | helper dropdown | 12 genres (optional) |
+| V | `Type` | helper dropdown | Rental / Floor Sale |
+| W | `Extra tags` | typed | comma-separated curation tags |
+
+---
+
+### Task 1: Verify the multi-value `shopify.genre` metafield CSV format
+
+**Why a task:** the spec's one open unknown. A `list.metaobject_reference` product metafield has a specific delimiter in Shopify's product-CSV export (commonly `;`, but unconfirmed). Every genre cell in Task 2 and the genre-join formula in Task 3 depend on the real value. Get it from a real export, not a guess.
+
+**Files:**
+- Modify: `docs/superpowers/plans/2026-07-19-client-product-upload-template.md` (record the finding in this task)
+
+**Interfaces:**
+- Produces: `GENRE_DELIM` (the exact separator string) and whether list values are metaobject **handles** or **GIDs**, consumed by Tasks 2 and 3.
+
+- [ ] **Step 1: Check the documented format**
+
+Invoke the `shopify-plugin:shopify-custom-data` skill (or `shopify-plugin:shopify-dev`) and confirm how a `list.metaobject_reference` metafield (`shopify.genre`) is represented in a **product CSV import/export** — specifically the value delimiter and whether each entry is a metaobject handle or a `gid://…` reference. Note the documented answer.
+
+- [ ] **Step 2: Confirm empirically on the dev store**
+
+On `lms-sandbox-lutsfahz.myshopify.com` (dev only): find or set an existing rental movie to have **two** genres in its `shopify.genre` metafield (Admin → a product → Metafields → Genre → add a second value). Then **Admin → Products → Export → Current page → CSV**. Open the exported CSV and read the `Genre (product.metafields.shopify.genre)` cell for that product.
+
+- [ ] **Step 3: Record the finding**
+
+Edit this task and fill in verbatim:
+```
+FINDING (Task 1): GENRE_DELIM = "___"   (e.g. ";")
+Entry form = handles | gids : ___
+Example cell observed: ___
+```
+If entries are **GIDs**, not handles, STOP and flag it — the genre formula in Task 3 must emit GIDs and the value map needs the GID per genre. (Handles are expected; the pipeline writes handles for the single-value case.)
+
+- [ ] **Step 4: Commit the finding**
+
+```bash
+git add docs/superpowers/plans/2026-07-19-client-product-upload-template.md
+git commit -m "docs: record multi-value shopify.genre CSV delimiter finding"
+```
+
+---
+
+### Task 2: Create the template scaffold CSV
+
+**Depends on:** Task 1 (`GENRE_DELIM`).
+
+**Files:**
+- Create: `data-cleanup/client-template/client-upload-template.csv`
+
+**Interfaces:**
+- Consumes: `GENRE_DELIM` from Task 1 (used in row 2's column P).
+- Produces: the scaffold CSV the guide (Task 3) references and Task 4 imports. Columns exactly A–W from the locked layout.
+
+- [ ] **Step 1: Write the CSV file**
+
+Create `data-cleanup/client-template/client-upload-template.csv` with the header row (all 23 columns A–W in order) and the two example rows below. Replace `;` in the two column-P values with the confirmed `GENRE_DELIM` if it differs.
+
+Row 1 — Rushmore (Rental, single genre). Row 2 — Little Shop of Horrors (Floor Sale, multi-genre, real price):
+
+```csv
+Handle,Title,Body (HTML),Vendor,Product Category,Tags,Status,Option1 Name,Option1 Value,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Image Src,Genre (product.metafields.shopify.genre),Media format (product.metafields.shopify.media-format),Format,Genre 1,Genre 2,Genre 3,Type,Extra tags
+rushmore-vhs,Rushmore,"When a beautiful teacher arrives at Rushmore Academy, precocious student Max Fischer falls for her and into rivalry with a gruff industrialist for her affection.",Little Movie Store,Media > Videos,"Rental, Comedy",Active,Title,Default Title,shopify,1,deny,manual,0,https://example.com/posters/rushmore-vhs.jpg,comedy,vhs,VHS,Comedy,,,Rental,
+little-shop-of-horrors-blu-ray,Little Shop of Horrors,"A meek flower-shop worker discovers a mysterious, blood-hungry plant that promises fame and fortune at a monstrous price.",Little Movie Store,Media > Videos,"Floor Sale, Musical, Comedy, Horror",Active,Title,Default Title,shopify,1,deny,manual,19.99,https://example.com/posters/little-shop-of-horrors-blu-ray.jpg,musical;comedy;horror,blu-ray,Blu-Ray,Musical,Comedy,Horror,Floor Sale,
+```
+
+- [ ] **Step 2: Validate it parses and columns are consistent**
+
+Run:
+```bash
+python3 -c "import csv; rows=list(csv.reader(open('data-cleanup/client-template/client-upload-template.csv'))); w=len(rows[0]); assert w==23, w; assert all(len(r)==w for r in rows), [len(r) for r in rows]; print('OK', len(rows)-1, 'example rows,', w, 'columns')"
+```
+Expected: `OK 2 example rows, 23 columns`
+
+- [ ] **Step 3: Spot-check the transformation is internally correct**
+
+Run:
+```bash
+python3 -c "
+import csv
+rows=list(csv.DictReader(open('data-cleanup/client-template/client-upload-template.csv')))
+r=rows[1]
+assert r['Vendor']=='Little Movie Store'
+assert r['Product Category']=='Media > Videos'
+assert r['Option1 Name']=='Title' and r['Option1 Value']=='Default Title'
+assert r['Tags']=='Floor Sale, Musical, Comedy, Horror'
+assert r['Media format (product.metafields.shopify.media-format)']=='blu-ray'
+assert set(r['Genre (product.metafields.shopify.genre)'].replace(',',';').split(';'))=={'musical','comedy','horror'}
+print('transformation OK')
+"
+```
+Expected: `transformation OK`
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add data-cleanup/client-template/client-upload-template.csv
+git commit -m "feat: client upload template scaffold CSV with worked examples"
+```
+
+---
+
+### Task 3: Write the setup + fill guide
+
+**Depends on:** Task 1 (`GENRE_DELIM`), Task 2 (the scaffold exists and is referenced).
+
+**Files:**
+- Create: `data-cleanup/client-template/client-upload-template-guide.md`
+
+**Interfaces:**
+- Consumes: the locked column layout, the value maps, `GENRE_DELIM`.
+- Produces: the client-facing instructions. Nothing downstream depends on it.
+
+- [ ] **Step 1: Write the guide**
+
+Create `data-cleanup/client-template/client-upload-template-guide.md` with exactly these sections and content (substitute the confirmed `GENRE_DELIM` for `;` in the Genre formula):
+
+````markdown
+# Little Movie Store — product upload sheet: setup & fill guide
+
+This sheet makes your product uploads land already-formatted in Shopify. You fill a few friendly columns; the sheet builds the exact import fields for you. You only ever ADD products with this sheet — edits and removals are done in the Shopify admin.
+
+## One-time setup
+
+1. **Import the scaffold.** In Google Sheets: File → Import → Upload `client-upload-template.csv` → "Replace spreadsheet". You'll get the header row and two example rows (Rushmore, Little Shop of Horrors).
+2. **Add the hidden mapping tab.** Add a sheet named `mappings`. Paste this:
+
+   | A (Genre) | B (handle) |   | D (Format) | E (handle) |
+   |---|---|---|---|---|
+   | Comedy | comedy | | VHS | vhs |
+   | Action | action | | DVD | dvd |
+   | Drama | drama | | Blu-Ray | blu-ray |
+   | Kids & Family | kids-family | | 4K | 4-k |
+   | Sci-Fi | sci-fi | | | |
+   | Thriller | thriller | | | |
+   | Horror | horror | | | |
+   | Romantic Comedy | romantic-comedy | | | |
+   | Musical | musical | | | |
+   | Fantasy | fantasy | | | |
+   | Documentary | documentary | | | |
+   | Foreign | foreign | | | |
+
+   (Genre labels in `mappings!A2:A13`, handles in `B2:B13`; Format labels in `D2:D5`, handles in `E2:E5`.)
+3. **Add dropdowns (Data → Data validation) on the helper columns:**
+   - `Format` (col R): list from range `mappings!D2:D5`
+   - `Genre 1/2/3` (cols S, T, U): list from range `mappings!A2:A13`
+   - `Type` (col V): list of items `Rental`, `Floor Sale`
+4. **Paste the formulas into row 2** of these columns, then select row 2 and drag the fill handle down as far as you need (formulas copy per row):
+
+   | Column | Formula (in row 2) |
+   |---|---|
+   | D `Vendor` | `="Little Movie Store"` |
+   | E `Product Category` | `="Media > Videos"` |
+   | F `Tags` | `=TEXTJOIN(", ", TRUE, V2, S2, T2, U2, W2)` |
+   | G `Status` | `="Active"` |
+   | H `Option1 Name` | `="Title"` |
+   | I `Option1 Value` | `="Default Title"` |
+   | J `Variant Inventory Tracker` | `="shopify"` |
+   | L `Variant Inventory Policy` | `="deny"` |
+   | M `Variant Fulfillment Service` | `="manual"` |
+   | P `Genre (…shopify.genre)` | `=TEXTJOIN(";", TRUE, IFERROR(VLOOKUP(S2,mappings!$A:$B,2,FALSE),""), IFERROR(VLOOKUP(T2,mappings!$A:$B,2,FALSE),""), IFERROR(VLOOKUP(U2,mappings!$A:$B,2,FALSE),""))` |
+   | Q `Media format (…shopify.media-format)` | `=IFERROR(VLOOKUP(R2,mappings!$D:$E,2,FALSE),"")` |
+
+   (Columns A, B, C, K, N, O and the helper columns R–W are typed by hand — no formula.)
+
+## Filling in a movie (per row)
+
+Type into: **Handle**, **Title**, **Body (HTML)** (description), **Variant Inventory Qty** (copies, usually 1), **Variant Price**, **Image Src** (public image URL). Pick from the dropdowns: **Format**, **Genre 1** (and Genre 2/3 if it fits more than one genre), **Type**. Optionally type **Extra tags** (comma-separated, e.g. `Holiday, Criterion Collection`).
+
+Rules:
+- **Type = Rental** → leave **Variant Price** at `0` (rentals are priced by membership, not a shelf price).
+- **Type = Floor Sale** → enter the real sale **Variant Price**.
+- **Handle** — keep it short, lowercase, hyphenated, **no commas** (e.g. `rushmore-vhs`). One handle per movie+format.
+- Same movie in two formats = **two separate rows** (e.g. `rushmore-vhs` and `rushmore-dvd`).
+
+The grey formula columns fill themselves — don't type in them.
+
+## Exporting for import
+
+1. Select columns **A through Q** only (Handle … Media format). Do NOT include the helper columns R–W (Format, Genre 1/2/3, Type, Extra tags).
+2. Copy them into a new blank sheet → File → Download → **Comma-separated values (.csv)**.
+3. In Shopify: **Products → Import → Add file** → upload that CSV → review → **Import products**.
+
+## Adding new genres, formats, or tags
+
+- **New genre:** add a row to `mappings` (label in col A, its metaobject handle in col B), then extend the `Genre 1/2/3` dropdown ranges to include the new row. Ask your developer for the exact handle of a new genre metaobject.
+- **New format:** add a row to `mappings` cols D/E and extend the `Format` dropdown range.
+- **New curation tag:** just type it into **Extra tags** (comma-separated). No setup needed.
+
+## Notes
+- Duplicates are OK — don't worry if you upload a movie twice; they're merged in a periodic cleanup pass.
+- Rental copy counts and barcodes are handled later in Supercycle, not in this sheet.
+````
+
+- [ ] **Step 2: Validate the guide is internally consistent with the scaffold**
+
+Run:
+```bash
+python3 -c "
+import csv
+hdr=next(csv.reader(open('data-cleanup/client-template/client-upload-template.csv')))
+guide=open('data-cleanup/client-template/client-upload-template-guide.md').read()
+for h in ['Genre (product.metafields.shopify.genre)','Media format (product.metafields.shopify.media-format)','Tags','Variant Price','Image Src']:
+    assert h in hdr, ('missing header', h)
+for token in ['mappings','TEXTJOIN','A through Q','Little Movie Store','Media > Videos','Default Title']:
+    assert token in guide, ('guide missing', token)
+print('guide/scaffold consistent')
+"
+```
+Expected: `guide/scaffold consistent`
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add data-cleanup/client-template/client-upload-template-guide.md
+git commit -m "docs: client upload template setup + fill guide"
+```
+
+---
+
+### Task 4: Dev-store acceptance import
+
+**Depends on:** Tasks 2 & 3.
+
+**Why a task:** proves the scaffold actually imports into Shopify and lands every field canonically — the real acceptance test. Dev store only.
+
+**Files:** none (validation + optional cleanup).
+
+- [ ] **Step 1: Build the import-only CSV**
+
+The scaffold has helper columns R–W that must not be imported. Produce an import-only copy (columns A–Q):
+```bash
+python3 -c "
+import csv
+rows=list(csv.reader(open('data-cleanup/client-template/client-upload-template.csv')))
+out=[r[:17] for r in rows]  # A-Q
+csv.writer(open('/private/tmp/claude-501/-Users-liamparis-web-projects-personal-LMS-sandbox/84a40ad9-5d1e-48d1-92b1-8d80dda2c293/scratchpad/client-template-import-test.csv','w')).writerows(out)
+print('wrote import-only CSV, cols:', len(out[0]))
+"
+```
+Expected: `wrote import-only CSV, cols: 17`
+
+- [ ] **Step 2: Import into the DEV store**
+
+On `lms-sandbox-lutsfahz.myshopify.com` (dev only — confirm the store before importing): **Products → Import → Add file** → upload the scratchpad `client-template-import-test.csv` → review → **Import products**.
+
+- [ ] **Step 3: Verify both products landed canonically**
+
+Open each imported product (Rushmore, Little Shop of Horrors) in Admin and confirm:
+- Vendor = `Little Movie Store`; Product category = `Media > Videos`.
+- Single variant titled `Default Title` (no `Genre`/`Condition` option).
+- **Metafields:** `shopify.genre` = `comedy` (Rushmore) / the three genres `musical, comedy, horror` as a **list** (Little Shop); `shopify.media-format` = `vhs` / `blu-ray`.
+- Tags: `Rental, Comedy` / `Floor Sale, Musical, Comedy, Horror`.
+- Price: `0` (Rushmore) / `19.99` (Little Shop). Image loaded from the URL. Description present. Handle matches.
+
+Record PASS/FAIL per field. If the multi-genre metafield did **not** land as a 3-value list, the delimiter from Task 1 is wrong — fix the Task 2 column-P value and the Task 3 Genre formula, re-run Tasks 2–4.
+
+- [ ] **Step 4: Clean up the test products**
+
+Delete the two test products from the dev store (Admin → Products → select both → Delete) so they don't pollute the catalogue. (They import with real handles; remove them.)
+
+- [ ] **Step 5: Commit any fixes**
+
+If Step 3 required changes to the scaffold or guide, commit them:
+```bash
+git add data-cleanup/client-template/
+git commit -m "fix: correct client upload template after dev-store acceptance import"
+```
+If no fixes were needed, skip this step.
+
+---
+
+## Self-review notes
+
+- **Spec coverage:** two-zone sheet (Tasks 2/3), value maps (constraints + Tasks 2/3), multi-genre list (Task 1 + Tasks 2/3/4), handle passthrough (layout col A, guide), two scoping tags (Tags formula), Floor Sale price / Rental 0 (guide rules + example rows), no barcode (absent from layout), copies default 1 (col K), extensibility (guide "Adding new…"), deliverables under `data-cleanup/client-template/` (all tasks), dev-only + acceptance import (Task 4). Verify-at-build delimiter → Task 1.
+- **No pipeline change** required — confirmed; template only mirrors output shape.
