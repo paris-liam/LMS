@@ -19,14 +19,18 @@
 - **Genre:** metafield is primary; each chosen genre ALSO emits a tag in **label** form (`Comedy`, not `comedy`). Multi-genre = a **list** metafield (delimiter confirmed in Task 1) + one label tag per genre.
 - **Handle:** client-typed passthrough — keep his convention; do NOT auto-generate. (The guide recommends clean, comma-free handles but the sheet does not enforce it.)
 - **No barcode column.** Rental price = `0`; Floor Sale = a real price. `Copies` defaults to `1`.
-- **Formats (for now):** VHS / DVD / Blu-Ray / 4K. **Genres (for now):** the canonical 12. The guide MUST show the client how to extend both, plus the Extra-tags list.
+- **Formats (for now):** VHS / DVD / Blu-Ray / 4K. **Genres (for now):** the canonical 12 + `holiday` = **13** (see value map). The guide MUST show the client how to extend both, plus the Extra-tags list.
 - **Deliverables live under** `data-cleanup/client-template/`.
 
 ## Canonical value maps (source: `data-cleanup/genre_format_mapping.py`)
 
 **Format label → `shopify.media-format` handle:** VHS→`vhs`, DVD→`dvd`, Blu-Ray→`blu-ray`, 4K→`4-k`.
 
-**Genre label → `shopify.genre` handle:** Comedy→`comedy`, Action→`action`, Drama→`drama`, Kids & Family→`kids-family`, Sci-Fi→`sci-fi`, Thriller→`thriller`, Horror→`horror`, Romantic Comedy→`romantic-comedy`, Musical→`musical`, Fantasy→`fantasy`, Documentary→`documentary`, Foreign→`foreign`.
+**Genre label → `shopify.genre` handle (13, confirmed against store metaobjects 2026-07-19):** Comedy→`comedy`, Action→`action`, Drama→`drama`, Kids & Family→`kids-family`, Sci-Fi→`sci-fi`, Thriller→`thriller`, Horror→`horror`, Romantic Comedy→`romantic-comedy`, Musical→`musical`, Fantasy→`fantasy`, Documentary→`documentary`, Foreign→`foreign`, Holiday→`holiday`.
+
+(`holiday` is a real genre metaobject used by 3 products — it is a GENRE here, not an Extra tag. Use `kids-family`, not the stray `family` metaobject, 1 product, flagged for separate cleanup. `thriller-suspense`/`crime-mystery` metaobjects exist but are unused — omitted.)
+
+**Genre metafield list format (Task 1 finding):** semicolon-space-delimited bare handles, e.g. `musical; comedy; horror` (NOT a JSON array).
 
 ## Sheet column layout (locked — used by Tasks 2 & 3)
 
@@ -52,9 +56,9 @@ Columns **A–Q are the import columns** (contiguous, so export = "select A:Q").
 | P | `Genre (product.metafields.shopify.genre)` | formula | genre handles joined (Task-1 delimiter) |
 | Q | `Media format (product.metafields.shopify.media-format)` | formula | format handle |
 | R | `Format` | helper dropdown | VHS/DVD/Blu-Ray/4K |
-| S | `Genre 1` | helper dropdown | 12 genres (required) |
-| T | `Genre 2` | helper dropdown | 12 genres (optional) |
-| U | `Genre 3` | helper dropdown | 12 genres (optional) |
+| S | `Genre 1` | helper dropdown | 13 genres (required) |
+| T | `Genre 2` | helper dropdown | 13 genres (optional) |
+| U | `Genre 3` | helper dropdown | 13 genres (optional) |
 | V | `Type` | helper dropdown | Rental / Floor Sale |
 | W | `Extra tags` | typed | comma-separated curation tags |
 
@@ -80,13 +84,19 @@ On `lms-sandbox-lutsfahz.myshopify.com` (dev only): find or set an existing rent
 
 - [ ] **Step 3: Record the finding**
 
-Edit this task and fill in verbatim:
+Documented result (Step 1, 2026-07-19): a web-doc claimed CSV list metafields must be a JSON array — **this was contradicted by the real dev-store export** (below). The store's actual export/import format is authoritative.
+
+**FINDING (Task 1), confirmed by dev-store export 2026-07-19:**
 ```
-FINDING (Task 1): GENRE_DELIM = "___"   (e.g. ";")
-Entry form = handles | gids : ___
-Example cell observed: ___
+GENRE_DELIM = "; "   (semicolon + space)
+Entry form = handles (NOT gids, NOT JSON array)
+Is shopify.genre a LIST metafield (accepts multiple)? yes
+Multi-value cell observed: action; family; holiday; sci-fi; documentary; horror; fantasy; drama; foreign; musical; romantic-comedy; thriller; kids-family; comedy; thriller-suspense; crime-mystery
+Single-value cell observed: crime-mystery
 ```
-If entries are **GIDs**, not handles, STOP and flag it — the genre formula in Task 3 must emit GIDs and the value map needs the GID per genre. (Handles are expected; the pipeline writes handles for the single-value case.)
+Consequences: Task 3's genre formula is `TEXTJOIN("; ", TRUE, <vlookup handles>)` (bare handles, semicolon-space separated); Task 2's example column-P values are `comedy` (single) and `musical; comedy; horror` (multi). Export↔import round-trips, so Task 4 confirms import acceptance.
+
+**Also revealed:** the store has **16 genre metaobjects**, not the pipeline's 12 — extras `holiday`, `family`, `thriller-suspense`, `crime-mystery`, plus an apparent `family`/`kids-family` duplicate. The canonical dropdown list is a human decision (see the taxonomy question resolved before Task 3); all 12 pipeline handles remain valid.
 
 - [ ] **Step 4: Commit the finding**
 
@@ -117,7 +127,7 @@ Row 1 — Rushmore (Rental, single genre). Row 2 — Little Shop of Horrors (Flo
 ```csv
 Handle,Title,Body (HTML),Vendor,Product Category,Tags,Status,Option1 Name,Option1 Value,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Image Src,Genre (product.metafields.shopify.genre),Media format (product.metafields.shopify.media-format),Format,Genre 1,Genre 2,Genre 3,Type,Extra tags
 rushmore-vhs,Rushmore,"When a beautiful teacher arrives at Rushmore Academy, precocious student Max Fischer falls for her and into rivalry with a gruff industrialist for her affection.",Little Movie Store,Media > Videos,"Rental, Comedy",Active,Title,Default Title,shopify,1,deny,manual,0,https://example.com/posters/rushmore-vhs.jpg,comedy,vhs,VHS,Comedy,,,Rental,
-little-shop-of-horrors-blu-ray,Little Shop of Horrors,"A meek flower-shop worker discovers a mysterious, blood-hungry plant that promises fame and fortune at a monstrous price.",Little Movie Store,Media > Videos,"Floor Sale, Musical, Comedy, Horror",Active,Title,Default Title,shopify,1,deny,manual,19.99,https://example.com/posters/little-shop-of-horrors-blu-ray.jpg,musical;comedy;horror,blu-ray,Blu-Ray,Musical,Comedy,Horror,Floor Sale,
+little-shop-of-horrors-blu-ray,Little Shop of Horrors,"A meek flower-shop worker discovers a mysterious, blood-hungry plant that promises fame and fortune at a monstrous price.",Little Movie Store,Media > Videos,"Floor Sale, Musical, Comedy, Horror",Active,Title,Default Title,shopify,1,deny,manual,19.99,https://example.com/posters/little-shop-of-horrors-blu-ray.jpg,musical; comedy; horror,blu-ray,Blu-Ray,Musical,Comedy,Horror,Floor Sale,
 ```
 
 - [ ] **Step 2: Validate it parses and columns are consistent**
@@ -141,7 +151,7 @@ assert r['Product Category']=='Media > Videos'
 assert r['Option1 Name']=='Title' and r['Option1 Value']=='Default Title'
 assert r['Tags']=='Floor Sale, Musical, Comedy, Horror'
 assert r['Media format (product.metafields.shopify.media-format)']=='blu-ray'
-assert set(r['Genre (product.metafields.shopify.genre)'].replace(',',';').split(';'))=={'musical','comedy','horror'}
+assert set(p.strip() for p in r['Genre (product.metafields.shopify.genre)'].split(';'))=={'musical','comedy','horror'}, r['Genre (product.metafields.shopify.genre)']
 print('transformation OK')
 "
 ```
@@ -195,11 +205,12 @@ This sheet makes your product uploads land already-formatted in Shopify. You fil
    | Fantasy | fantasy | | | |
    | Documentary | documentary | | | |
    | Foreign | foreign | | | |
+   | Holiday | holiday | | | |
 
-   (Genre labels in `mappings!A2:A13`, handles in `B2:B13`; Format labels in `D2:D5`, handles in `E2:E5`.)
+   (Genre labels in `mappings!A2:A14`, handles in `B2:B14`; Format labels in `D2:D5`, handles in `E2:E5`.)
 3. **Add dropdowns (Data → Data validation) on the helper columns:**
    - `Format` (col R): list from range `mappings!D2:D5`
-   - `Genre 1/2/3` (cols S, T, U): list from range `mappings!A2:A13`
+   - `Genre 1/2/3` (cols S, T, U): list from range `mappings!A2:A14`
    - `Type` (col V): list of items `Rental`, `Floor Sale`
 4. **Paste the formulas into row 2** of these columns, then select row 2 and drag the fill handle down as far as you need (formulas copy per row):
 
@@ -214,14 +225,14 @@ This sheet makes your product uploads land already-formatted in Shopify. You fil
    | J `Variant Inventory Tracker` | `="shopify"` |
    | L `Variant Inventory Policy` | `="deny"` |
    | M `Variant Fulfillment Service` | `="manual"` |
-   | P `Genre (…shopify.genre)` | `=TEXTJOIN(";", TRUE, IFERROR(VLOOKUP(S2,mappings!$A:$B,2,FALSE),""), IFERROR(VLOOKUP(T2,mappings!$A:$B,2,FALSE),""), IFERROR(VLOOKUP(U2,mappings!$A:$B,2,FALSE),""))` |
+   | P `Genre (…shopify.genre)` | `=TEXTJOIN("; ", TRUE, IFERROR(VLOOKUP(S2,mappings!$A:$B,2,FALSE),""), IFERROR(VLOOKUP(T2,mappings!$A:$B,2,FALSE),""), IFERROR(VLOOKUP(U2,mappings!$A:$B,2,FALSE),""))` |
    | Q `Media format (…shopify.media-format)` | `=IFERROR(VLOOKUP(R2,mappings!$D:$E,2,FALSE),"")` |
 
    (Columns A, B, C, K, N, O and the helper columns R–W are typed by hand — no formula.)
 
 ## Filling in a movie (per row)
 
-Type into: **Handle**, **Title**, **Body (HTML)** (description), **Variant Inventory Qty** (copies, usually 1), **Variant Price**, **Image Src** (public image URL). Pick from the dropdowns: **Format**, **Genre 1** (and Genre 2/3 if it fits more than one genre), **Type**. Optionally type **Extra tags** (comma-separated, e.g. `Holiday, Criterion Collection`).
+Type into: **Handle**, **Title**, **Body (HTML)** (description), **Variant Inventory Qty** (copies, usually 1), **Variant Price**, **Image Src** (public image URL). Pick from the dropdowns: **Format**, **Genre 1** (and Genre 2/3 if it fits more than one genre), **Type**. Optionally type **Extra tags** (comma-separated, e.g. `Criterion Collection, A24`). (Holiday is a **genre** — pick it in a Genre dropdown, not here.)
 
 Rules:
 - **Type = Rental** → leave **Variant Price** at `0` (rentals are priced by membership, not a shelf price).
