@@ -128,12 +128,14 @@
   border-right: var(--lms-border-width) solid var(--lms-border-default);
   display: flex;
   flex-direction: column;
+  min-width: 0; /* keep the 50/50 split; stop scroll content widening the track */
 }
 .lms-split__membership {
   padding: 44px;
   background: var(--lms-bg-sunken);
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 .lms-split .lms-eyebrow { display: block; }
 .lms-split__heading {
@@ -155,9 +157,13 @@
 .lms-split__desc p { margin: 0 0 1em; }
 .lms-split__desc p:last-child { margin-bottom: 0; }
 
-/* Shop row — horizontal scroll of small poster cards */
+/* Shop grid — 2x2 of poster cards; overflow past 4 scrolls horizontally */
 .lms-split__shop-grid {
-  display: flex;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: 130px; /* small posters so 2 rows don't stretch the membership side */
+  justify-content: start;
   gap: 14px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -165,7 +171,7 @@
   padding-bottom: 4px;
 }
 .lms-split__shop-grid > * {
-  flex: 0 0 120px;
+  min-width: 0;
   scroll-snap-align: start;
 }
 
@@ -191,6 +197,10 @@
   box-shadow: var(--lms-shadow-md);
   overflow: hidden;
   margin-bottom: 24px;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .lms-member-card__top {
   display: flex;
@@ -237,7 +247,6 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  flex: 1;
 }
 .lms-perks__item { display: flex; gap: 11px; align-items: flex-start; }
 .lms-perks__mark {
