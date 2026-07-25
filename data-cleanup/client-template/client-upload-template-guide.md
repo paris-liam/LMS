@@ -34,10 +34,10 @@ This sheet makes your product uploads land already-formatted in Shopify. You fil
    |---|---|
    | D `Vendor` | `="Little Movie Store"` |
    | E `Product Category` | `="Media > Videos"` |
-   | F `Tags` | `=TEXTJOIN(", ", TRUE, V2, S2, T2, U2, W2)` |
+   | F `Tags` | `=TEXTJOIN(", ", TRUE, V2, R2, S2, T2, U2, W2)` |
    | G `Status` | `="Active"` |
-   | H `Option1 Name` | `="Title"` |
-   | I `Option1 Value` | `="Default Title"` |
+   | H `Option1 Name` | `="Genre"` |
+   | I `Option1 Value` | `=S2` |
    | J `Variant Inventory Tracker` | `="shopify"` |
    | L `Variant Inventory Policy` | `="deny"` |
    | M `Variant Fulfillment Service` | `="manual"` |
@@ -48,15 +48,20 @@ This sheet makes your product uploads land already-formatted in Shopify. You fil
 
 ## Filling in a movie (per row)
 
-Type into: **Handle**, **Title**, **Body (HTML)** (description), **Variant Inventory Qty** (copies, usually 1), **Variant Price**, **Image Src** (public image URL). Pick from the dropdowns: **Format**, **Genre 1** (and Genre 2/3 if it fits more than one genre), **Type**. Optionally type **Extra tags** (comma-separated, e.g. `Criterion Collection, A24`). (Holiday is a **genre** — pick it in a Genre dropdown, not here.)
+Type into: **Handle**, **Title**, **Body (HTML)** (description), **Variant Inventory Qty** (always `1` — one row per copy), **Variant Price**, **Image Src** (public image URL). Pick from the dropdowns: **Format**, **Genre 1** (and Genre 2/3 if it fits more than one genre), **Type**. Optionally type **Extra tags** (comma-separated, e.g. `Criterion Collection, A24`). (Holiday is a **genre** — pick it in a Genre dropdown, not here.)
 
 Rules:
 - **Type = Rental** → leave **Variant Price** at `0` (rentals are priced by membership, not a shelf price).
 - **Type = Floor Sale** → enter the real sale **Variant Price**.
-- **Handle** — keep it short, lowercase, hyphenated, **no commas** (e.g. `rushmore-vhs`). One handle per movie+format.
-- Same movie in two formats = **two separate rows** (e.g. `rushmore-vhs` and `rushmore-dvd`).
+- **One row per physical copy.** Each row becomes one Shopify product for one physical disc/tape. **Variant Inventory Qty stays `1`.** Three copies of the same movie = three rows.
+- **Handle** — short, lowercase, hyphenated, **no commas**. Every row needs a **unique** handle, so bake the format and type into it: `movie-format-type` (e.g. `rushmore-vhs-rental`, `rushmore-dvd-floor-sale`). If you have two identical copies (same movie, format, type), add a number: `rushmore-vhs-rental-2`. Two rows sharing one handle would collapse into a single product — always make them different.
+- **Genre 1 is the shelf genre.** Whatever you pick in **Genre 1** is what prints on the barcode label (see below), so put the movie's main genre there; Genre 2/3 are extra genres for the website only.
 
 The grey formula columns fill themselves — don't type in them.
+
+## How this connects to your barcode labels
+
+Your Retail Barcode Labels templates (**LMS: RENTAL** and **LMS: FOR SALE**) print the **genre** from the product's **Variant Option 1**. This sheet sets Option 1 to your **Genre 1** pick automatically — so the genre lands on the label with no extra step. You do **not** enter a barcode here: the barcode app assigns one to each product when you print. Because every row is its own product (one per copy), every physical copy gets its own barcode.
 
 ## Exporting for import
 
@@ -71,5 +76,6 @@ The grey formula columns fill themselves — don't type in them.
 - **New curation tag:** just type it into **Extra tags** (comma-separated). No setup needed.
 
 ## Notes
-- Duplicates are OK — don't worry if you upload a movie twice; they're merged in a periodic cleanup pass.
-- Rental copy counts and barcodes are handled later in Supercycle, not in this sheet.
+- **One row = one physical copy = one product.** Keep Variant Inventory Qty at `1`.
+- **Barcodes** print from the Retail Barcode Labels app after import — you don't enter them here. The genre on the label comes from Genre 1 (Variant Option 1).
+- Accidental exact duplicates are OK — they're combined in a periodic cleanup pass; don't try to prevent them at upload.
