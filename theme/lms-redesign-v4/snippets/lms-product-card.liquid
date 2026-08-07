@@ -8,10 +8,9 @@
   - Poster:     card_product.featured_image
   - Title:      card_product.title
   - Director:   card_product.metafields.custom.director (hidden when blank)
-  - Format:     card_product.metafields.custom.format, falling back to the catalogue
-                pipeline's card_product.metafields.shopify.media-format
-                (list.metaobject_reference; first entry's `label`) — the reformat
-                pipeline fills the Shopify standard field, not custom.format yet.
+  - Format:     card_product.vendor — media format (VHS / DVD / Blu-Ray / 4K) is
+                stored in the Vendor field, not a metafield. See
+                claudedocs/2026-08-07-product-data-model-audit.md for why.
   - Condition:  card_product.metafields.custom.media_condition (retail new-sealed only; used/rental copies use Supercycle item condition)
   - Rare flag:  card_product.tags contains 'rare'
 
@@ -20,9 +19,15 @@
 {% endcomment %}
 
 {%- liquid
-  assign format_label = card_product.metafields.custom.format.value
-  if format_label == blank
-    assign format_label = card_product.metafields.shopify.media-format.value.first.label.value
+  # Vendor doubles as media format on movie products, but this card also renders
+  # retail products whose vendor is a real vendor name. Only badge recognised
+  # formats; compare case-insensitively so the un-normalised `BLU-RAY` / `Dvd`
+  # rows still badge (they display as-typed until the vendor cleanup pass runs).
+  assign known_formats = 'VHS,DVD,BLU-RAY,4K' | split: ','
+  assign vendor_upcase = card_product.vendor | upcase
+  assign format_label = ''
+  if known_formats contains vendor_upcase
+    assign format_label = card_product.vendor
   endif
 -%}
 

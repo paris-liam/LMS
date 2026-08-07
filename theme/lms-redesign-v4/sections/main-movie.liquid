@@ -28,8 +28,16 @@
       {%- liquid
         assign genre_label = product.metafields.shopify.genre.value.first.label.value
         assign genre_handle = product.metafields.shopify.genre.value.first.system.handle
-        assign format_label = product.metafields.shopify.media-format.value.first.label.value
-        assign format_handle = product.metafields.shopify.media-format.value.first.system.handle
+        # Media format lives in product.vendor, not a metafield — see
+        # claudedocs/2026-08-07-product-data-model-audit.md. The matching facet is
+        # the built-in "Product vendor" filter in Search & Discovery. Only chip
+        # recognised formats so a stray vendor name never renders as a format.
+        assign known_formats = 'VHS,DVD,BLU-RAY,4K' | split: ','
+        assign vendor_upcase = product.vendor | upcase
+        assign format_label = ''
+        if known_formats contains vendor_upcase
+          assign format_label = product.vendor
+        endif
       -%}
       {%- if genre_label != blank or format_label != blank -%}
         {% # theme-check-disable HardcodedRoutes %}
@@ -38,7 +46,7 @@
             <a class="lms-badge lms-badge--muted" href="/collections/all-movies?filter.p.m.shopify.genre={{ genre_handle | url_encode }}">{{ genre_label }}</a>
           {%- endif -%}
           {%- if format_label != blank -%}
-            <a class="lms-badge lms-badge--muted" href="/collections/all-movies?filter.p.m.shopify.media-format={{ format_handle | url_encode }}">{{ format_label }}</a>
+            <a class="lms-badge lms-badge--muted" href="/collections/all-movies?filter.p.vendor={{ format_label | url_encode }}">{{ format_label }}</a>
           {%- endif -%}
         </div>
         {% # theme-check-enable HardcodedRoutes %}

@@ -16,6 +16,7 @@
 - **Import-perfect:** only canonical values ship. Genre + media-format are **metaobject handles** taken from `data-cleanup/genre_format_mapping.py`.
 - **Fixed column values (verbatim):** `Vendor` = `Little Movie Store`; `Product Category` = `Media > Videos`; `Variant Inventory Tracker` = `shopify`; `Variant Inventory Policy` = `deny`; `Variant Fulfillment Service` = `manual`; `Status` = `Active`.
 - **BARCODE-DRIVEN REVISION (2026-07-24 — supersedes the original Option 1 / one-product-per-format design below):** The client prints shelf barcodes with Shopify's **Retail Barcode Labels** app; both templates (LMS: RENTAL, LMS: FOR SALE) print the **genre from Variant Option 1**. So (1) `Option1 Name` = `Genre` and `Option1 Value` = the **primary genre label** (= the Genre 1 dropdown, `=S2`), NOT `Title`/`Default Title`; (2) the sheet is **one row per physical copy** (Variant Inventory Qty always `1`), not one row per movie+format — copies stay separate at upload and are consolidated in a later dedup pass; (3) **format is a tag + `shopify.media-format` metafield, never Option 1**. Barcode column omitted — the app auto-assigns per product. Confirmed against production export (`products_export_1.csv`, 3,550 products): one-product-per-copy is the live reality; `shopify.genre` metafield is empty on 3,549/3,550, so genre backfill is roadmap-#2 reformat scope, not this template. See memory `barcode-driven-upload-model`.
+- **VENDOR-FORMAT REVISION (2026-08-07 — supersedes the `Vendor` = `Little Movie Store` constraint and the `shopify.media-format` column everywhere below):** Media format lives in **`Vendor`**, not in a metafield. Rationale in `claudedocs/2026-08-07-product-data-model-audit.md`: Vendor already carries format on 3,274/3,550 production products (245 more need only a case fix, 31 have no format at all), whereas `shopify.media-format` is empty on all 3,550 and isn't even enabled on production. Vendor is also visible in the admin product list, so it can't silently drift the way an unseen metafield does. Consequences: (1) column D `Vendor` = the Format dropdown (`=Q2`), not a fixed string; (2) the `Media format (product.metafields.shopify.media-format)` column is **removed** — import range is now **A:P**, helpers **Q–V**; (3) the `mappings` tab keeps only the genre label→handle table; formats need no handle lookup; (4) theme reads `product.vendor`, gated by a `VHS,DVD,BLU-RAY,4K` whitelist so a real vendor name on a retail product never renders as a format badge — see `sections/main-movie.liquid` and `snippets/lms-product-card.liquid`; (5) the matching facet is the built-in **Product vendor** filter in Search & Discovery (`filter.p.vendor`), which must be enabled there. Genre is unaffected and stays on `shopify.genre` + tags.
 - **Two mutually-exclusive scoping tags:** `Rental` or `Floor Sale` (never both).
 - **Genre:** metafield is primary; each chosen genre ALSO emits a tag in **label** form (`Comedy`, not `comedy`). Multi-genre = a **list** metafield (delimiter confirmed in Task 1) + one label tag per genre.
 - **Handle:** client-typed passthrough — keep his convention; do NOT auto-generate. (The guide recommends clean, comma-free handles but the sheet does not enforce it.)
@@ -35,19 +36,19 @@
 
 ## Sheet column layout (locked — used by Tasks 2 & 3)
 
-Columns **A–Q are the import columns** (contiguous, so export = "select A:Q"). Columns **R–W are helper inputs**, excluded from export.
+*(Updated by the 2026-08-07 vendor-format revision.)* Columns **A–P are the import columns** (contiguous, so export = "select A:P"). Columns **Q–V are helper inputs**, excluded from export.
 
 | Col | Header | Kind | Value / source |
 |---|---|---|---|
 | A | `Handle` | typed | client's handle (his convention) |
 | B | `Title` | typed | movie title |
 | C | `Body (HTML)` | typed | description |
-| D | `Vendor` | fixed | `Little Movie Store` |
+| D | `Vendor` | formula | media format `=Q2` *(vendor-format revision — was fixed `Little Movie Store`)* |
 | E | `Product Category` | fixed | `Media > Videos` |
-| F | `Tags` | formula | Type + format + genre labels + extra tags (`=TEXTJOIN(", ", TRUE, V2, R2, S2, T2, U2, W2)`) |
+| F | `Tags` | formula | Type + format + genre labels + extra tags (`=TEXTJOIN(", ", TRUE, U2, Q2, R2, S2, T2, V2)`) |
 | G | `Status` | fixed | `Active` |
 | H | `Option1 Name` | fixed | `Genre` *(barcode revision — was `Title`)* |
-| I | `Option1 Value` | formula | primary genre label `=S2` *(barcode revision — was `Default Title`)* |
+| I | `Option1 Value` | formula | primary genre label `=R2` *(barcode revision — was `Default Title`)* |
 | J | `Variant Inventory Tracker` | fixed | `shopify` |
 | K | `Variant Inventory Qty` | typed | `1` (one row per physical copy) |
 | L | `Variant Inventory Policy` | fixed | `deny` |
@@ -55,13 +56,12 @@ Columns **A–Q are the import columns** (contiguous, so export = "select A:Q").
 | N | `Variant Price` | typed | real price / 0 for rental |
 | O | `Image Src` | typed | public image URL |
 | P | `Genre (product.metafields.shopify.genre)` | formula | genre handles joined (Task-1 delimiter) |
-| Q | `Media format (product.metafields.shopify.media-format)` | formula | format handle |
-| R | `Format` | helper dropdown | VHS/DVD/Blu-Ray/4K |
-| S | `Genre 1` | helper dropdown | 13 genres (required) |
-| T | `Genre 2` | helper dropdown | 13 genres (optional) |
-| U | `Genre 3` | helper dropdown | 13 genres (optional) |
-| V | `Type` | helper dropdown | Rental / Floor Sale |
-| W | `Extra tags` | typed | comma-separated curation tags |
+| Q | `Format` | helper dropdown | VHS/DVD/Blu-Ray/4K *(also feeds D `Vendor`)* |
+| R | `Genre 1` | helper dropdown | 13 genres (required) |
+| S | `Genre 2` | helper dropdown | 13 genres (optional) |
+| T | `Genre 3` | helper dropdown | 13 genres (optional) |
+| U | `Type` | helper dropdown | Rental / Floor Sale |
+| V | `Extra tags` | typed | comma-separated curation tags |
 
 ---
 
