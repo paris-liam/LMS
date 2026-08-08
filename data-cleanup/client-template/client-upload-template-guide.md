@@ -10,9 +10,9 @@ You fill a few friendly columns; the sheet builds the exact Shopify import field
 There are two ways to finish a batch:
 
 - **Path A — upload it yourself.** Fill everything including description and poster URL, export, import to Shopify.
-- **Path B — let the script fill it.** Leave `Body (HTML)`, `Image Src` and `Image Alt Text` blank, fill in **Year**, and hand the export to your developer. A TMDB script fills the description and poster, you both review anything it wasn't sure about, then it gets imported.
+- **Path B — let the script fill it.** Leave `Body (HTML)` and `Image Src` blank, fill in **Year**, and hand the export to your developer. A TMDB script fills the description, the poster and its alt text, you both review anything it wasn't sure about, then it gets imported.
 
-Either way the sheet is filled the same. Path B just leaves three columns blank.
+Either way the sheet is filled the same. Path B just leaves the description and poster blank.
 
 ---
 
@@ -145,7 +145,7 @@ Rules:
 - **Year is the movie's release year**, not the year of the tape or disc. It's what tells the poster script *which* movie you mean — there are two *The Thing*s (1982, 2011) and two *Little Shop of Horrors* (1960, 1986). Getting it wrong gets you the wrong poster.
 - **Genre 1 is the shelf genre** — it prints on the barcode label (see below). Genre 2/3 are extra genres for the website only.
 - **Holiday is a genre**, not an extra tag — pick it in a Genre dropdown.
-- The grey formula columns fill themselves. Don't type in them.
+- Every column not listed above fills itself from a formula. Don't type in them — the one exception is a handle you're deliberately fixing up (see above).
 
 ---
 
@@ -213,5 +213,5 @@ You don't enter a barcode here — the app assigns one per product when you prin
 ## Notes
 
 - **One row = one physical copy = one product.** Inventory qty stays `1`.
-- Accidental exact duplicates are fine — they get combined in a periodic cleanup pass. Don't try to prevent them here.
+- **Duplicate rows are fine; duplicate handles are not.** Listing the same movie twice is expected — those are two real copies, and the handle formula gives them `-2` so both land as separate products. What you don't want is the *same handle* reaching Shopify twice, which is the later-batch problem described above.
 - Spelling matters on Format and Genre: `BLU-RAY` and `Blu-Ray` become two separate filter options. Always pick from the dropdown, never type.
