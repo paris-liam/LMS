@@ -49,6 +49,7 @@ Either way the sheet is filled the same. Path B just leaves three columns blank.
 
    | Column | Formula |
    |---|---|
+   | A `Handle` | see **"The Handle builds itself"** below — the formula differs per sheet |
    | D `Vendor` | `=R2` |
    | E `Product Category` | `="Media > Videos"` |
    | G `Status` | `="Active"` |
@@ -75,13 +76,65 @@ Either way the sheet is filled the same. Path B just leaves three columns blank.
    | F `Tags` | `=TEXTJOIN(", ", TRUE, "Floor Sale", R2, S2, T2, U2, W2)` |
    | N `Variant Price` | *(typed by hand — the real sale price)* |
 
-   Columns A, B, C, O and helpers R–W are typed by hand.
+   Columns B, C, O and helpers R–W are typed by hand.
+
+---
+
+## The Handle builds itself
+
+You don't type handles. The formula makes one from the title, the format, and which sheet you're on.
+
+**Rental sheet — paste into A2:**
+
+```
+=IF($B2="","",LET(
+  t,    REGEXREPLACE(LOWER(TRIM($B2)), "['’]", ""),
+  slug, REGEXREPLACE(REGEXREPLACE(t, "[^a-z0-9]+", "-"), "^-+|-+$", ""),
+  fmt,  REGEXREPLACE(LOWER($R2), "[^a-z0-9]+", "-"),
+  n,    COUNTIFS($B$2:$B2, $B2, $R$2:$R2, $R2),
+  slug & "-" & fmt & "-rental" & IF(n>1, "-" & n, "")
+))
+```
+
+**Floor-sale sheet — same thing, with `"-floor-sale"` in place of `"-rental"`:**
+
+```
+=IF($B2="","",LET(
+  t,    REGEXREPLACE(LOWER(TRIM($B2)), "['’]", ""),
+  slug, REGEXREPLACE(REGEXREPLACE(t, "[^a-z0-9]+", "-"), "^-+|-+$", ""),
+  fmt,  REGEXREPLACE(LOWER($R2), "[^a-z0-9]+", "-"),
+  n,    COUNTIFS($B$2:$B2, $B2, $R$2:$R2, $R2),
+  slug & "-" & fmt & "-floor-sale" & IF(n>1, "-" & n, "")
+))
+```
+
+What you get:
+
+| Title | Format | Handle |
+|---|---|---|
+| Rushmore | VHS | `rushmore-vhs-rental` |
+| Rushmore *(2nd copy)* | VHS | `rushmore-vhs-rental-2` |
+| Rushmore | DVD | `rushmore-dvd-rental` |
+| Paris, Texas | DVD | `paris-texas-dvd-rental` |
+| The Monkey's Uncle | VHS | `the-monkeys-uncle-vhs-floor-sale` |
+| The Thing | 4K | `the-thing-4k-floor-sale` |
+
+**Handles must be unique — this is the one thing that can really go wrong.** Two rows sharing a handle don't become two products; they become *one* product with two variants. That would merge two physical copies into a single item with a single barcode.
+
+Two limits to know about:
+
+1. **Accented and unusual characters get dropped.** `Amélie` becomes `am-lie`, `8½` becomes `8`. Still valid and still unique — just ugly in the web address. For those rare titles, **type over the formula in that one cell** with something better (`amelie-dvd-rental`). Overwriting a single cell is fine; the rest of the column keeps working.
+2. **The counter only sees the sheet it's in.** It knows this is your third Rushmore VHS *in this sheet*. It can't know you uploaded two more last month. If you upload another copy of a movie you already have, from a fresh sheet, the handle repeats and Shopify **updates the existing product instead of adding a copy**. Two ways to avoid it:
+   - **Keep one running sheet per type** and just add new rows to the bottom, exporting only the new rows. Then the counter sees everything you've ever uploaded.
+   - Or use **Path B** — the script checks handles against the live catalogue before importing and fixes collisions properly.
+
+   Watch the Shopify import summary: if it says products were **updated** when you expected all **new**, a handle collided.
 
 ---
 
 ## Filling in a movie (one row per row)
 
-**Always type:** `Handle`, `Title`, `Year`, and pick `Format` + `Genre 1` from the dropdowns.
+**Always type:** `Title`, `Year`, and pick `Format` + `Genre 1` from the dropdowns. *(The handle writes itself.)*
 **Optional:** `Genre 2` / `Genre 3`, `Extra tags` (comma-separated, e.g. `Criterion Collection, A24`).
 **Floor-sale sheet:** also type `Variant Price`.
 **Path A only:** also type `Body (HTML)` and `Image Src`.
@@ -89,7 +142,6 @@ Either way the sheet is filled the same. Path B just leaves three columns blank.
 Rules:
 
 - **One row per physical copy.** Each row becomes one Shopify product for one physical disc or tape. Three copies of the same movie = three rows. `Variant Inventory Qty` stays `1`.
-- **Handle must be unique per row** — short, lowercase, hyphenated, **no commas**. Bake the format and type into it: `rushmore-vhs-rental`, `rushmore-dvd-floor-sale`. Two identical copies? Add a number: `rushmore-vhs-rental-2`. Two rows sharing a handle collapse into one product.
 - **Year is the movie's release year**, not the year of the tape or disc. It's what tells the poster script *which* movie you mean — there are two *The Thing*s (1982, 2011) and two *Little Shop of Horrors* (1960, 1986). Getting it wrong gets you the wrong poster.
 - **Genre 1 is the shelf genre** — it prints on the barcode label (see below). Genre 2/3 are extra genres for the website only.
 - **Holiday is a genre**, not an extra tag — pick it in a Genre dropdown.
