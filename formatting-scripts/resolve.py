@@ -1,0 +1,114 @@
+"""Resolve one product's format, type, genres and price from raw fields.
+
+Every resolver returns (value, reason): a value with reason None, or None
+with a human-readable reason that lands in issues.csv. Nothing is guessed —
+a genre is never inferred from a title and a type is never inferred from a
+price, because both would silently mislabel physical shelf stock.
+"""
+
+from taxonomy import canonical_format, canonical_genre, canonical_type
+
+ZERO_PRICES = {"", "0", "0.0", "0.00"}
+
+
+def split_list(value: str) -> list[str]:
+    """Split a comma-separated cell into trimmed, non-empty parts."""
+    return [part.strip() for part in (value or "").split(",") if part.strip()]
+
+
+def _dedupe(values: list[str]) -> list[str]:
+    return list(dict.fromkeys(values))
+
+
+def resolve_type(tags: list[str]) -> tuple[str | None, str | None]:
+    """Find the Rental / Floor Sale tag."""
+    found = _dedupe([t for t in (canonical_type(tag) for tag in tags) if t])
+    if len(found) == 1:
+        return found[0], None
+    if not found:
+        return None, "no Rental or Floor Sale tag — cannot tell which this is"
+    return None, f"tagged as both {' and '.join(found)}"
+
+
+def resolve_genres(
+    option1_value: str, tags: list[str], helper_genres: list[str]
+) -> tuple[list[str], str | None]:
+    """Resolve the genre list, primary first.
+
+    Helper columns win when the sheet supplied them; otherwise Option1
+    Value (the barcode-label slot) is authoritative, and tags are the
+    fallback for CircaOS-era rows whose Option1 holds a condition.
+    """
+    from_helpers = _dedupe([g for g in (canonical_genre(v) for v in helper_genres) if g])
+    if from_helpers:
+        return from_helpers, None
+
+    from_option1 = _dedupe([g for g in (canonical_genre(v) for v in split_list(option1_value)) if g])
+    if from_option1:
+        return from_option1, None
+
+    from_tags = _dedupe([g for g in (canonical_genre(tag) for tag in tags) if g])
+    if from_tags:
+        return from_tags, None
+
+    return [], (
+        f"no usable genre (Option1 Value {option1_value!r}, "
+        f"tags {', '.join(tags) or '(none)'})"
+    )
+
+
+def resolve_format(
+    vendor: str, option1_value: str, tags: list[str], helper_format: str
+) -> tuple[str | None, str | None]:
+    """Resolve the media format for product.vendor.
+
+    Precedence: helper column, then a format named inside a compound
+    Option1 Value ("4K, Action" is a 4K disc whatever Vendor says), then
+    Vendor itself, then a format tag.
+    """
+    from_helper = canonical_format(helper_format)
+    if from_helper:
+        return from_helper, None
+
+    for part in split_list(option1_value):
+        from_option1 = canonical_format(part)
+        if from_option1:
+            return from_option1, None
+
+    from_vendor = canonical_format(vendor)
+    if from_vendor:
+        return from_vendor, None
+
+    for tag in tags:
+        from_tag = canonical_format(tag)
+        if from_tag:
+            return from_tag, None
+
+    return None, f"no media format (Vendor {vendor!r} is not VHS/DVD/Blu-Ray/4K)"
+
+
+def resolve_price(product_type: str, raw_price: str) -> tuple[str | None, str | None]:
+    """Rentals are always 0; floor-sale items must carry a real price."""
+    value = (raw_price or "").strip()
+
+    if product_type == "Rental":
+        if value in ZERO_PRICES:
+            return "0", None
+        return None, f"Rental with a nonzero price ({value})"
+
+    if value in ZERO_PRICES:
+        return None, "Floor Sale with no price"
+    try:
+        float(value)
+    except ValueError:
+        return None, f"unreadable price ({value})"
+    return value, None
+
+
+def extra_tags(tags: list[str]) -> list[str]:
+    """Tags that are not a type, a format or a genre — curation labels."""
+    kept = [
+        tag for tag in tags
+        if not (canonical_type(tag) or canonical_format(tag) or canonical_genre(tag))
+    ]
+    return _dedupe(kept)
