@@ -61,6 +61,7 @@ High-level tracks the work keeps returning to. **These are not specs** — no fo
 theme/lms-redesign-v4/          ← working copy (Horizon 4.1.1) — edit and push here
 lms-tokens.css                  ← source of truth for the design system (repo root)
 lms-supercycle-feature-plan.md  ← full Supercycle feature plan and buildability index
+formatting-scripts/             ← catalogue CSV normalizer + TMDB fill (see its README)
 ```
 
 All work happens in `theme/lms-redesign-v4/`. The pre-4.1.1 `theme/lms-redesign/` copy and the `theme/horizon-baseline-3.5.1/` pristine reference were deleted after the Horizon 3.5.1→4.1.1 migration was completed and merged.
