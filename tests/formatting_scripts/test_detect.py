@@ -12,7 +12,7 @@ RAW_TEMPLATE = TEMPLATE_COLUMNS + ["Format", "Genre 1", "Genre 2", "Genre 3", "Y
 RAW_EXPORT = ["Handle", "Title", "Body (HTML)", "Vendor", "Product Category", "Type",
               "Tags", "Published", "Option1 Name", "Option1 Value", "Variant SKU",
               "Variant Inventory Tracker", "Variant Price", "Variant Barcode",
-              "Image Src", "Image Position", "Image Alt Text"]
+              "Image Src", "Image Position", "Image Alt Text", "Status"]
 
 
 class TestDetectShape(unittest.TestCase):
@@ -27,6 +27,13 @@ class TestDetectShape(unittest.TestCase):
 
     def test_our_own_export_output(self):
         self.assertEqual(detect_shape(EXPORT_COLUMNS), "export")
+
+    def test_a_real_export_carrying_both_markers_is_an_export(self):
+        """Real Shopify exports have Status AND Variant Barcode; the barcode
+        check must win, or every catalogue export reads as a template."""
+        self.assertIn("Status", RAW_EXPORT)
+        self.assertIn("Variant Barcode", RAW_EXPORT)
+        self.assertEqual(detect_shape(RAW_EXPORT), "export")
 
     def test_unknown_header_is_a_hard_error_naming_what_was_missing(self):
         with self.assertRaises(UnknownShapeError) as caught:
@@ -52,9 +59,13 @@ class TestStripReason(unittest.TestCase):
         self.assertEqual(new_fieldnames, TEMPLATE_COLUMNS)
         self.assertEqual(new_rows, rows)
 
-    def test_a_prior_issues_file_round_trips_to_its_origin_shape(self):
+    def test_a_prior_issues_file_round_trips_to_its_origin_shape_export(self):
         fieldnames, _ = strip_reason(["Reason"] + RAW_EXPORT, [])
         self.assertEqual(detect_shape(fieldnames), "export")
+
+    def test_a_prior_issues_file_round_trips_to_its_origin_shape_template(self):
+        fieldnames, _ = strip_reason(["Reason"] + TEMPLATE_COLUMNS, [])
+        self.assertEqual(detect_shape(fieldnames), "template")
 
 
 if __name__ == "__main__":
