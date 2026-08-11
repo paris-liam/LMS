@@ -80,9 +80,8 @@ def _resolve_product(primary: dict, shape: str) -> tuple[dict | None, str | None
 
     extras = extra_tags(tags)
     if shape == "template":
-        extras = extras + [
-            tag for tag in split_list(primary.get("Extra tags", "")) if tag not in extras
-        ]
+        extra_col = extra_tags(split_list(primary.get("Extra tags", "")))
+        extras = extras + [tag for tag in extra_col if tag not in extras]
 
     return {
         "type": product_type,

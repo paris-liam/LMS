@@ -158,6 +158,26 @@ class TestRun(unittest.TestCase):
         self.assertEqual(second["issues"], 0)
         self.assertEqual(first_text, second_text)
 
+    def test_a_taxonomy_word_in_extra_tags_round_trips_byte_identically(self):
+        """An operator who put a genre word in Extra tags (client-guide-
+        anticipated mistake) must not get a re-run that keeps changing the
+        file: the Extra tags helper column has to reject taxonomy words the
+        same way the Tags column does."""
+        path = self.dir / "batch.csv"
+        row = template_input_row("Rushmore")
+        row["Extra tags"] = "Holiday"
+        write_csv(path, TEMPLATE_HEADER, [row])
+
+        first = run_module.run(path, fetch_fn=fake_fetch, sleep_fn=lambda s: None)
+        first_upload = Path(first["outdir"]) / "upload.csv"
+        first_text = first_upload.read_text(encoding="utf-8")
+
+        second = run_module.run(first_upload, fetch_fn=fake_fetch, sleep_fn=lambda s: None)
+        second_text = (Path(second["outdir"]) / "upload.csv").read_text(encoding="utf-8")
+
+        self.assertEqual(second["issues"], 0)
+        self.assertEqual(first_text, second_text)
+
     def test_an_unrecognised_header_fails_loudly(self):
         path = self.dir / "junk.csv"
         write_csv(path, ["Name", "Price"], [{"Name": "x", "Price": "1"}])
