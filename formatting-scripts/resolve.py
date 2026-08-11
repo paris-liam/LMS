@@ -8,9 +8,6 @@ price, because both would silently mislabel physical shelf stock.
 
 from taxonomy import canonical_format, canonical_genre, canonical_type
 
-ZERO_PRICES = {"", "0", "0.0", "0.00"}
-
-
 def split_list(value: str) -> list[str]:
     """Split a comma-separated cell into trimmed, non-empty parts."""
     return [part.strip() for part in (value or "").split(",") if part.strip()]
@@ -92,16 +89,35 @@ def resolve_price(product_type: str, raw_price: str) -> tuple[str | None, str | 
     value = (raw_price or "").strip()
 
     if product_type == "Rental":
-        if value in ZERO_PRICES:
+        # Blank is treated as zero for rentals
+        if not value:
             return "0", None
+        # Try to parse numerically
+        try:
+            numeric_value = float(value)
+        except ValueError:
+            return None, f"unreadable price ({value})"
+        # Numeric zero is valid for rentals
+        if numeric_value == 0:
+            return "0", None
+        # Non-zero rental price is an error
         return None, f"Rental with a nonzero price ({value})"
 
-    if value in ZERO_PRICES:
+    # Floor Sale type
+    # Blank is treated as no price
+    if not value:
         return None, "Floor Sale with no price"
+    # Try to parse numerically
     try:
-        float(value)
+        numeric_value = float(value)
     except ValueError:
         return None, f"unreadable price ({value})"
+    # Numeric zero or negative is not valid for floor sale
+    if numeric_value == 0:
+        return None, "Floor Sale with no price"
+    if numeric_value < 0:
+        return None, f"Floor Sale with a negative price ({value})"
+    # Positive price is valid
     return value, None
 
 

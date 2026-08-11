@@ -117,6 +117,32 @@ class TestResolvePrice(unittest.TestCase):
         self.assertIsNone(value)
         self.assertIn("unreadable price", reason)
 
+    def test_numerically_zero_rental_variants_pass(self):
+        """Rental prices that are numerically zero in any format normalize to '0'."""
+        for raw in ("0.000", "00", ".0"):
+            value, reason = resolve_price("Rental", raw)
+            self.assertEqual(value, "0", f"Failed for {raw!r}")
+            self.assertIsNone(reason)
+
+    def test_numerically_zero_floor_sale_variants_flagged(self):
+        """Floor Sale prices that are numerically zero in any format are flagged."""
+        for raw in ("0.000", "00", ".0"):
+            value, reason = resolve_price("Floor Sale", raw)
+            self.assertIsNone(value, f"Failed for {raw!r}")
+            self.assertIn("Floor Sale with no price", reason)
+
+    def test_negative_floor_sale_price_is_flagged(self):
+        """Negative prices are invalid for Floor Sale."""
+        value, reason = resolve_price("Floor Sale", "-5.00")
+        self.assertIsNone(value)
+        self.assertIn("Floor Sale with a negative price", reason)
+
+    def test_unparseable_rental_price_is_flagged_correctly(self):
+        """Unparseable rental price is reported as unreadable, not as nonzero."""
+        value, reason = resolve_price("Rental", "#REF!")
+        self.assertIsNone(value)
+        self.assertIn("unreadable price", reason)
+
 
 class TestExtraTags(unittest.TestCase):
     def test_keeps_only_tags_that_are_not_type_format_or_genre(self):
