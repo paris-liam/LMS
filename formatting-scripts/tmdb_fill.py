@@ -1,31 +1,24 @@
 """Fill missing product images/descriptions from TMDB (The Movie Database).
 
-See docs/superpowers/specs/2026-07-14-tmdb-image-description-fill-design.md.
+See docs/superpowers/specs/2026-08-11-catalogue-format-script-design.md.
 """
 
-import argparse
 import difflib
-import html
 import json
-import os
 import re
-import sys
 import time
 import urllib.parse
 import urllib.request
-from pathlib import Path
 
-from catalog_common import add_tags, group_rows_by_handle, has_tag, load_export, write_csv
+from catalog_common import group_rows_by_handle, load_export, write_csv
 
 TMDB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
-POSTER_BASE_URL = "https://image.tmdb.org/t/p/w500"
+POSTER_BASE_URL = "https://image.tmdb.org/t/p/w1280"
 
 MATCH_THRESHOLD = 0.9
+MATCH_MARGIN = 0.05
 SHORT_DESCRIPTION_LENGTH = 40
 REQUEST_DELAY_SECONDS = 0.25
-CIRCAOS_IMPORT_TAG = "CircaOS Import"
-TMDB_FILLED_TAG = "TMDB Filled"
-NEEDS_DATA_TAG = "needs data"
 
 YEAR_PATTERN = re.compile(r"\(\s*(\d{4})\s*\)\s*$")
 
@@ -92,13 +85,36 @@ def search_tmdb(fetch_fn, title: str, year: int | None) -> list[dict]:
     return results
 
 
-def find_best_match(clean_title: str, results: list[dict]) -> tuple[dict | None, bool]:
-    """Return (top_result_or_None, is_confident) for a TMDB search's results list."""
+def classify_match(clean_title: str, year: int | None, results: list[dict]) -> tuple[dict | None, str]:
+    """Return (candidate_or_None, "confident" | "ambiguous" | "none").
+
+    Confident needs all three: a strong title score, no runner-up close
+    behind it, and — when the input told us a year — a candidate released
+    in that year. A lone weak match is ambiguous, not an answer: across
+    thousands of rows that difference is hundreds of wrong posters.
+    """
     if not results:
-        return None, False
-    best = results[0]
-    score = title_similarity(clean_title, best.get("title", ""))
-    return best, score >= MATCH_THRESHOLD
+        return None, "none"
+
+    scored = sorted(
+        ((title_similarity(clean_title, r.get("title", "")), r) for r in results),
+        key=lambda pair: pair[0],
+        reverse=True,
+    )
+    best_score, best = scored[0]
+
+    if year is not None:
+        year_matches = [r for score, r in scored
+                        if score >= MATCH_THRESHOLD and (r.get("release_date") or "")[:4] == str(year)]
+        if len(year_matches) == 1:
+            return year_matches[0], "confident"
+        return best, "ambiguous"
+
+    if best_score < MATCH_THRESHOLD:
+        return best, "ambiguous"
+    if len(scored) > 1 and best_score - scored[1][0] < MATCH_MARGIN:
+        return best, "ambiguous"
+    return best, "confident"
 
 
 def strip_html(text: str | None) -> str:
@@ -110,15 +126,7 @@ def needs_image(group: list[dict]) -> bool:
 
 
 def needs_description(group: list[dict]) -> bool:
-    text = strip_html(group[0].get("Body (HTML)", ""))
-    return len(text) < SHORT_DESCRIPTION_LENGTH
-
-
-def has_circaos_tag(group: list[dict]) -> bool:
-    """CircaOS-imported products carry descriptions known to be wrong, so
-    they get a TMDB description refresh even when one is present — but only
-    until a fill lands (see TMDB_FILLED_TAG in build_output)."""
-    return has_tag(group[0].get("Tags", ""), CIRCAOS_IMPORT_TAG)
+    return not strip_html(group[0].get("Body (HTML)", ""))
 
 
 def build_output(
@@ -127,15 +135,12 @@ def build_output(
     sleep_fn=time.sleep,
     progress_fn=lambda index, total, handle, message: None,
 ) -> tuple[list[dict], list[dict]]:
-    """Fill missing Image Src / Body (HTML) fields via TMDB, per product handle.
+    """Fill empty Image Src / Body (HTML) / Image Alt Text via TMDB.
 
-    Returns (output_rows, review_rows). output_rows preserves every input
-    row's original order; only a primary row's Image Src/Body (HTML) are
-    ever modified, and only for the field(s) it actually needed.
-
-    progress_fn(index, total, handle, message) is called once per product
-    handle (1-indexed, total = number of distinct handles), after that
-    handle has been fully processed, with a short human-readable outcome.
+    Returns (output_rows, review_rows). Row order and count are preserved.
+    Review rows are {"Handle", "Title", "Kind", "Reason"} where Kind is
+    "ambiguous" (send to the picker) or "unmatched" (send to the CSV).
+    Nothing is ever written to Tags.
     """
     output_rows: list[dict] = []
     review_rows: list[dict] = []
@@ -143,16 +148,12 @@ def build_output(
     groups = group_rows_by_handle(rows)
     total = len(groups)
 
-    for index, (handle, group) in enumerate(groups, start=1):
-        primary_tags = group[0].get("Tags", "")
-        if has_tag(primary_tags, NEEDS_DATA_TAG):
-            output_rows.extend(group)
-            progress_fn(index, total, handle, "skipped (needs data)")
-            continue
+    def review(handle, title, kind, reason):
+        review_rows.append({"Handle": handle, "Title": title, "Kind": kind, "Reason": reason})
 
-        force_refresh = has_circaos_tag(group) and not has_tag(primary_tags, TMDB_FILLED_TAG)
+    for index, (handle, group) in enumerate(groups, start=1):
         need_img = needs_image(group)
-        need_desc = needs_description(group) or force_refresh
+        need_desc = needs_description(group)
 
         if not need_img and not need_desc:
             output_rows.extend(group)
@@ -167,51 +168,43 @@ def build_output(
             results = search_tmdb(fetch_fn, clean_title, year)
         except Exception as exc:
             sleep_fn(REQUEST_DELAY_SECONDS)
-            review_rows.append({
-                "Handle": handle,
-                "Title": title,
-                "Reason": f"TMDB request failed: {exc}",
-            })
+            review(handle, title, "unmatched", f"TMDB request failed: {exc}")
             output_rows.extend(group)
-            progress_fn(index, total, handle, f"review: TMDB request failed: {exc}")
+            progress_fn(index, total, handle, f"unmatched: request failed: {exc}")
             continue
 
         sleep_fn(REQUEST_DELAY_SECONDS)
 
-        if not results:
-            review_rows.append({"Handle": handle, "Title": title, "Reason": "no TMDB match"})
+        best, kind = classify_match(clean_title, year, results)
+
+        if kind == "none":
+            review(handle, title, "unmatched", "no TMDB match")
             output_rows.extend(group)
-            progress_fn(index, total, handle, "review: no TMDB match")
+            progress_fn(index, total, handle, "unmatched: no TMDB match")
             continue
 
-        best, confident = find_best_match(clean_title, results)
-        if not confident:
+        if kind == "ambiguous":
             best_title = best.get("title", "?")
             best_year = (best.get("release_date") or "")[:4] or "?"
-            review_rows.append({
-                "Handle": handle,
-                "Title": title,
-                "Reason": f"ambiguous match (best candidate: '{best_title}' ({best_year}))",
-            })
+            review(handle, title, "ambiguous",
+                   f"ambiguous match (best candidate: '{best_title}' ({best_year}))")
             output_rows.extend(group)
-            progress_fn(index, total, handle, f"review: ambiguous match (best candidate: '{best_title}' ({best_year}))")
+            progress_fn(index, total, handle, f"ambiguous: '{best_title}' ({best_year})")
             continue
 
+        match_year = (best.get("release_date") or "")[:4]
         filled = []
-        flagged = []
 
         if need_img:
             poster_path = best.get("poster_path")
             if poster_path:
                 primary["Image Src"] = f"{POSTER_BASE_URL}{poster_path}"
+                if not (primary.get("Image Alt Text") or "").strip():
+                    suffix = f" ({match_year})" if match_year else ""
+                    primary["Image Alt Text"] = f"{title}{suffix} poster"
                 filled.append("image")
             else:
-                review_rows.append({
-                    "Handle": handle,
-                    "Title": title,
-                    "Reason": "matched but no TMDB poster",
-                })
-                flagged.append("no poster")
+                review(handle, title, "unmatched", "matched but TMDB has no poster")
 
         if need_desc:
             overview = (best.get("overview") or "").strip()
@@ -219,25 +212,11 @@ def build_output(
                 primary["Body (HTML)"] = f"<p>{overview}</p>"
                 filled.append("description")
             else:
-                review_rows.append({
-                    "Handle": handle,
-                    "Title": title,
-                    "Reason": "matched but no TMDB overview",
-                })
-                flagged.append("no overview")
-
-        if filled:
-            primary["Tags"] = add_tags(primary.get("Tags"), [TMDB_FILLED_TAG])
+                review(handle, title, "unmatched", "matched but TMDB has no overview")
 
         output_rows.append(primary)
         output_rows.extend(group[1:])
-
-        message_parts = []
-        if filled:
-            message_parts.append(f"filled {', '.join(filled)}")
-        if flagged:
-            message_parts.append(f"review: {', '.join(flagged)}")
-        progress_fn(index, total, handle, "; ".join(message_parts) if message_parts else "matched")
+        progress_fn(index, total, handle, f"filled {', '.join(filled)}" if filled else "matched")
 
     return output_rows, review_rows
 
@@ -256,139 +235,5 @@ def make_tmdb_fetcher(api_key: str):
     return fetch
 
 
-def build_changes_html(changed_pairs: list[tuple[dict, dict]]) -> str:
-    """Render a self-contained before/after HTML report for changed rows.
-
-    changed_pairs is a list of (before_row, after_row) dicts. Only Image Src
-    and Body (HTML) ever change, so the report shows those side by side.
-    """
-    cards = []
-    for before, after in changed_pairs:
-        handle = html.escape(after.get("Handle", ""))
-        title = html.escape(after.get("Title", "") or after.get("Handle", ""))
-
-        def img_cell(row):
-            src = (row.get("Image Src") or "").strip()
-            if not src:
-                return '<div class="no-image">no image</div>'
-            return f'<img src="{html.escape(src, quote=True)}" alt="" loading="lazy">'
-
-        def desc_cell(row):
-            text = strip_html(row.get("Body (HTML)", ""))
-            if not text:
-                return '<p class="empty">(empty)</p>'
-            return f"<p>{html.escape(text)}</p>"
-
-        image_changed = (before.get("Image Src") or "") != (after.get("Image Src") or "")
-        desc_changed = (before.get("Body (HTML)") or "") != (after.get("Body (HTML)") or "")
-        badges = "".join(
-            f'<span class="badge">{label}</span>'
-            for label, changed in (("image", image_changed), ("description", desc_changed))
-            if changed
-        )
-
-        cards.append(f"""
-<section class="card">
-  <h2>{title} <code>{handle}</code> {badges}</h2>
-  <div class="compare">
-    <div class="side">
-      <h3>Before</h3>
-      {img_cell(before)}
-      {desc_cell(before)}
-    </div>
-    <div class="side">
-      <h3>After</h3>
-      {img_cell(after)}
-      {desc_cell(after)}
-    </div>
-  </div>
-</section>""")
-
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>TMDB fill — {len(changed_pairs)} changed product{"s" if len(changed_pairs) != 1 else ""}</title>
-<style>
-  body {{ font-family: -apple-system, system-ui, sans-serif; margin: 2rem auto; max-width: 960px; padding: 0 1rem; background: #fafafa; color: #222; }}
-  .card {{ background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 1.5rem; }}
-  .card h2 {{ font-size: 1.1rem; margin: 0 0 .75rem; }}
-  .card h2 code {{ font-size: .8rem; color: #888; font-weight: normal; }}
-  .badge {{ font-size: .7rem; background: #973123; color: #fff; border-radius: 4px; padding: 2px 6px; margin-left: 4px; vertical-align: middle; }}
-  .compare {{ display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }}
-  .side h3 {{ font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: #888; margin: 0 0 .5rem; }}
-  .side img {{ max-width: 150px; height: auto; border: 1px solid #ddd; border-radius: 4px; display: block; margin-bottom: .5rem; }}
-  .no-image {{ width: 150px; height: 100px; display: flex; align-items: center; justify-content: center; background: #eee; color: #999; font-size: .8rem; border-radius: 4px; margin-bottom: .5rem; }}
-  .side p {{ font-size: .9rem; line-height: 1.45; margin: 0; }}
-  .side p.empty {{ color: #999; font-style: italic; }}
-</style>
-</head>
-<body>
-<h1>TMDB fill — {len(changed_pairs)} changed product{"s" if len(changed_pairs) != 1 else ""}</h1>
-{"".join(cards)}
-</body>
-</html>
-"""
-
-
 def print_progress(index: int, total: int, handle: str, message: str) -> None:
     print(f"[{index}/{total}] {handle}: {message}", flush=True)
-
-
-def run(input_path, outdir, api_key: str, fetch_fn=None, sleep_fn=time.sleep, progress_fn=None) -> dict:
-    fieldnames, rows = load_export(input_path)
-
-    if fetch_fn is None:
-        fetch_fn = make_tmdb_fetcher(api_key)
-    if progress_fn is None:
-        progress_fn = lambda index, total, handle, message: None
-
-    output_rows, review_rows = build_output(rows, fetch_fn, sleep_fn=sleep_fn, progress_fn=progress_fn)
-
-    # build_output preserves row order and count, so pairing input to output
-    # positionally identifies exactly the rows it modified.
-    changed_pairs = [
-        (before, after) for before, after in zip(rows, output_rows) if before != after
-    ]
-
-    outdir = Path(outdir)
-    write_csv(outdir / "tmdb-filled.csv", fieldnames, output_rows)
-    write_csv(outdir / "tmdb-needs-review.csv", ["Handle", "Title", "Reason"], review_rows)
-    write_csv(outdir / "tmdb-changed.csv", fieldnames, [after for _, after in changed_pairs])
-    write_csv(outdir / "tmdb-changed-before.csv", fieldnames, [before for before, _ in changed_pairs])
-    (outdir / "tmdb-changes.html").write_text(build_changes_html(changed_pairs), encoding="utf-8")
-
-    return {"filled": len(output_rows), "review": len(review_rows), "changed": len(changed_pairs)}
-
-
-def main():
-    parser = argparse.ArgumentParser(
-        description="Fill missing product images/descriptions from TMDB."
-    )
-    parser.add_argument("input_csv", help="Path to a Shopify product export CSV")
-    parser.add_argument(
-        "--outdir",
-        default=None,
-        help="Directory to write output files (default: input file's directory)",
-    )
-    args = parser.parse_args()
-
-    api_key = os.environ.get("TMDB_API_KEY")
-    if not api_key:
-        print("Error: TMDB_API_KEY environment variable is not set.", file=sys.stderr)
-        sys.exit(1)
-
-    input_path = Path(args.input_csv)
-    outdir = Path(args.outdir) if args.outdir else input_path.parent
-    outdir.mkdir(parents=True, exist_ok=True)
-
-    print(f"Reading {input_path}...")
-    counts = run(input_path, outdir, api_key, progress_fn=print_progress)
-    print(f"Output: {counts['filled']} total rows written -> {outdir / 'tmdb-filled.csv'}")
-    print(f"Actually changed: {counts['changed']} rows -> {outdir / 'tmdb-changed.csv'} (originals in tmdb-changed-before.csv)")
-    print(f"Needs review: {counts['review']} rows -> {outdir / 'tmdb-needs-review.csv'}")
-    print(f"Visual diff: open {outdir / 'tmdb-changes.html'}")
-
-
-if __name__ == "__main__":
-    main()
