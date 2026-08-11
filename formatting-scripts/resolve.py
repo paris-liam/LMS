@@ -32,21 +32,26 @@ def resolve_genres(
 ) -> tuple[list[str], str | None]:
     """Resolve the genre list, primary first.
 
-    Helper columns win when the sheet supplied them; otherwise Option1
-    Value (the barcode-label slot) is authoritative, and tags are the
-    fallback for CircaOS-era rows whose Option1 holds a condition.
+    Helper columns win outright when the sheet supplied them — no union,
+    they're the freshest signal available.
+
+    Otherwise the result is a union of Option1 Value and Tags, in that
+    order: Option1 Value (the barcode-label slot) supplies genres[0] and
+    anything else it names, then any additional genre found in Tags that
+    isn't already present is appended. Option1 Value only ever holds one
+    value on output, so a second pass that consulted Option1 Value alone
+    would silently drop every genre after the first — the union is what
+    keeps a product's own output a valid, lossless input to a re-run.
     """
     from_helpers = _dedupe([g for g in (canonical_genre(v) for v in helper_genres) if g])
     if from_helpers:
         return from_helpers, None
 
-    from_option1 = _dedupe([g for g in (canonical_genre(v) for v in split_list(option1_value)) if g])
-    if from_option1:
-        return from_option1, None
-
-    from_tags = _dedupe([g for g in (canonical_genre(tag) for tag in tags) if g])
-    if from_tags:
-        return from_tags, None
+    from_option1 = [g for g in (canonical_genre(v) for v in split_list(option1_value)) if g]
+    from_tags = [g for g in (canonical_genre(tag) for tag in tags) if g]
+    merged = _dedupe(from_option1 + from_tags)
+    if merged:
+        return merged, None
 
     return [], (
         f"no usable genre (Option1 Value {option1_value!r}, "

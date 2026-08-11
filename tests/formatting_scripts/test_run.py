@@ -164,6 +164,43 @@ class TestRun(unittest.TestCase):
         with self.assertRaises(run_module.UnknownShapeError):
             run_module.run(path, fetch_fn=fake_fetch, sleep_fn=lambda s: None)
 
+    def test_rerunning_a_multi_genre_export_over_its_own_upload_changes_nothing(self):
+        # Fix round 1: Option1 Value only ever carries genres[0] on output.
+        # A second pass that consulted Option1 Value before Tags used to see
+        # just that one genre and silently drop the rest. Regression test
+        # for the resolve_genres union fix (formatting-scripts/resolve.py).
+        header = ["Handle", "Title", "Body (HTML)", "Vendor", "Product Category", "Type",
+                  "Tags", "Published", "Option1 Name", "Option1 Value",
+                  "Variant Inventory Tracker", "Variant Inventory Qty",
+                  "Variant Inventory Policy", "Variant Fulfillment Service",
+                  "Variant Price", "Variant Barcode", "Image Src", "Image Position",
+                  "Image Alt Text"]
+        row = {name: "" for name in header}
+        row.update({"Handle": "double-feature", "Title": "Double Feature", "Vendor": "DVD",
+                    "Body (HTML)": "<p>A double feature.</p>",
+                    "Tags": "Floor Sale, Action, Comedy", "Option1 Name": "Condition",
+                    "Option1 Value": "Action, Comedy", "Variant Price": "9.99",
+                    "Variant Barcode": "88302844",
+                    "Image Src": "https://cdn.shopify.com/double-feature.jpg"})
+        # Image Src / Body (HTML) are pre-filled so the TMDB stage is a
+        # no-op (group already complete) — this test isolates the genre
+        # union fix from unrelated TMDB-fill behaviour.
+        path = self.dir / "multi-genre.csv"
+        write_csv(path, header, [row])
+
+        first = run_module.run(path, fetch_fn=fake_fetch, sleep_fn=lambda s: None)
+        first_upload = Path(first["outdir"]) / "upload.csv"
+        first_rows = read_csv(first_upload)
+        self.assertEqual(first["issues"], 0)
+        self.assertEqual(first_rows[0]["Tags"], "Floor Sale, DVD, Action, Comedy")
+        first_text = first_upload.read_text(encoding="utf-8")
+
+        second = run_module.run(first_upload, fetch_fn=fake_fetch, sleep_fn=lambda s: None)
+        second_text = (Path(second["outdir"]) / "upload.csv").read_text(encoding="utf-8")
+
+        self.assertEqual(second["issues"], 0)
+        self.assertEqual(first_text, second_text)
+
     def test_export_input_keeps_handles_and_barcodes(self):
         header = ["Handle", "Title", "Body (HTML)", "Vendor", "Product Category", "Type",
                   "Tags", "Published", "Option1 Name", "Option1 Value",

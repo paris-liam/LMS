@@ -40,8 +40,11 @@ class TestResolveType(unittest.TestCase):
 
 
 class TestResolveGenres(unittest.TestCase):
-    def test_prefers_option1_value(self):
-        self.assertEqual(resolve_genres("Comedy", ["Rental", "Drama"], []), (["Comedy"], None))
+    def test_option1_supplies_the_primary_genre_and_tags_are_unioned_in(self):
+        # Option1 Value names genres[0]; a genre named only in Tags is kept,
+        # not discarded, so a second pass can't silently drop it (fix round 1).
+        self.assertEqual(resolve_genres("Comedy", ["Rental", "Drama"], []),
+                          (["Comedy", "Drama"], None))
 
     def test_compound_option1_keeps_only_the_genre_part(self):
         self.assertEqual(resolve_genres("4K, Action", [], []), (["Action"], None))
@@ -69,6 +72,48 @@ class TestResolveGenres(unittest.TestCase):
             genres, reason = resolve_genres(option1, tags, [])
             self.assertEqual(genres, [])
             self.assertIn("no usable genre", reason)
+
+    # Fix round 1 (data-loss bug): resolve_genres used to consult Option1
+    # Value, then fall back to Tags only if Option1 was unusable — so a
+    # multi-genre product whose Option1 already held one genre would lose
+    # every other genre named only in Tags on a second pass. It now unions
+    # Option1 Value (primary genre first) with any additional genre found
+    # in Tags. Table from the ruling, verbatim.
+    def test_union_table_multi_genre_option1_and_tags(self):
+        self.assertEqual(
+            resolve_genres("Action, Comedy", ["Floor Sale", "Action", "Comedy"], []),
+            (["Action", "Comedy"], None),
+        )
+
+    def test_union_table_single_genre_option1_plus_extra_tag_genre(self):
+        self.assertEqual(
+            resolve_genres("Action", ["Floor Sale", "Action", "Comedy"], []),
+            (["Action", "Comedy"], None),
+        )
+
+    def test_union_table_option1_primary_kept_first_even_when_tag_disagrees(self):
+        # A tag that disagrees with Option1 is kept, not silently discarded.
+        self.assertEqual(
+            resolve_genres("Comedy", ["Rental", "Horror"], []),
+            (["Comedy", "Horror"], None),
+        )
+
+    def test_union_table_unusable_option1_falls_back_to_tags_only(self):
+        self.assertEqual(
+            resolve_genres("Standard", ["Rental", "Horror"], []),
+            (["Horror"], None),
+        )
+
+    def test_union_table_unusable_option1_and_tags_is_flagged(self):
+        genres, reason = resolve_genres("Special Interest", ["Rental"], [])
+        self.assertEqual(genres, [])
+        self.assertIn("no usable genre", reason)
+
+    def test_union_table_helper_genres_still_win_outright(self):
+        self.assertEqual(
+            resolve_genres("Comedy", ["Rental"], ["Sci-Fi", "Thriller", ""]),
+            (["Sci-Fi", "Thriller"], None),
+        )
 
 
 class TestResolveFormat(unittest.TestCase):
