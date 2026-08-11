@@ -10,14 +10,13 @@ import time
 import urllib.parse
 import urllib.request
 
-from catalog_common import group_rows_by_handle, load_export, write_csv
+from catalog_common import group_rows_by_handle
 
 TMDB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
 POSTER_BASE_URL = "https://image.tmdb.org/t/p/w1280"
 
 MATCH_THRESHOLD = 0.9
 MATCH_MARGIN = 0.05
-SHORT_DESCRIPTION_LENGTH = 40
 REQUEST_DELAY_SECONDS = 0.25
 
 YEAR_PATTERN = re.compile(r"\(\s*(\d{4})\s*\)\s*$")

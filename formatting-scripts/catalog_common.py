@@ -1,5 +1,5 @@
-"""Shared helpers for the catalogue formatting scripts: CSV I/O, tag
-manipulation, and handle grouping.
+"""Shared helpers for the catalogue formatting scripts: CSV I/O and
+handle grouping.
 
 See docs/superpowers/specs/2026-08-11-catalogue-format-script-design.md.
 """
@@ -28,26 +28,6 @@ def write_csv(path, fieldnames: list[str], rows: list[dict]) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
-
-
-def split_tags(tags_str: str | None) -> list[str]:
-    return [t.strip() for t in (tags_str or "").split(",") if t.strip()]
-
-
-def has_tag(tags_str: str | None, tag: str) -> bool:
-    return tag in split_tags(tags_str)
-
-
-def add_tags(tags_str: str | None, tags_to_add: list[str]) -> str:
-    existing = split_tags(tags_str)
-    for tag in tags_to_add:
-        if tag not in existing:
-            existing.append(tag)
-    return ", ".join(existing)
-
-
-def remove_tag(tags_str: str | None, tag: str) -> str:
-    return ", ".join(t for t in split_tags(tags_str) if t != tag)
 
 
 def group_rows_by_handle(rows: list[dict]) -> list[tuple[str, list[dict]]]:
