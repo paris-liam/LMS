@@ -14,6 +14,16 @@ def load_export(path) -> tuple[list[str], list[dict]]:
 
 
 def write_csv(path, fieldnames: list[str], rows: list[dict]) -> None:
+    for row in rows:
+        if None in row:
+            handle = row.get("Handle", "(unknown handle)")
+            raise ValueError(
+                f"Row for Handle {handle!r} has more fields than the CSV header — "
+                f"extra value(s) {row[None]!r} were read into an unnamed column. "
+                "This usually means a stray comma or an unescaped quote somewhere "
+                "in that row of the source file. Fix the row in the source CSV and "
+                "re-run."
+            )
     with open(path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()

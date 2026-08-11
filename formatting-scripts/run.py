@@ -153,7 +153,7 @@ def _write_report(outdir: Path, input_path: Path, result: dict, log_fn, cache_st
     lines = [
         f"input:      {input_path}",
         f"shape:      {result['shape']}",
-        f"upload.csv: {result['clean']} products normalized",
+        f"upload.csv: {result['clean']} rows written (products + extra-image rows)",
         f"issues.csv: {result['issues']} rows need a fix",
         f"ambiguous:  {result['ambiguous']} products in review-picker.html",
         f"unmatched:  {result['unmatched']} products in tmdb-unmatched.csv",
