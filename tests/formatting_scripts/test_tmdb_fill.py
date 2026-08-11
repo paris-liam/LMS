@@ -77,6 +77,17 @@ class TestBuildOutput(unittest.TestCase):
         self.assertEqual(out[0]["Body (HTML)"], "<p>An overview long enough to count.</p>")
         self.assertEqual(out[0]["Image Alt Text"], "Rushmore (1998) poster")
 
+    def test_alt_text_uses_the_cleaned_title_not_the_raw_one(self):
+        """A raw title of "Alien (1979)" must not produce alt text of
+        "Alien (1979) (1979) poster" — clean_title_and_year already
+        stripped the year, so alt text must build from that, not Title."""
+        out, review = build_output(
+            [row(Title="Alien (1979)")], fetcher([result("Alien", "1979")]),
+            sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review, [])
+        self.assertEqual(out[0]["Image Alt Text"], "Alien (1979) poster")
+
     def test_never_overwrites_an_existing_description_or_image(self):
         existing = row(**{"Body (HTML)": "<p>The client wrote this one himself.</p>",
                           "Image Src": "https://example.com/mine.jpg"})

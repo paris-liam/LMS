@@ -201,7 +201,7 @@ def build_output(
                 primary["Image Src"] = f"{POSTER_BASE_URL}{poster_path}"
                 if not (primary.get("Image Alt Text") or "").strip():
                     suffix = f" ({match_year})" if match_year else ""
-                    primary["Image Alt Text"] = f"{title}{suffix} poster"
+                    primary["Image Alt Text"] = f"{clean_title}{suffix} poster"
                 filled.append("image")
             else:
                 review(handle, title, "unmatched", "matched but TMDB has no poster")
