@@ -120,9 +120,7 @@ def _build_row(primary: dict, resolved: dict, handle: str, shape: str) -> dict:
         out["Status"] = "Active"
     else:
         out["Variant Barcode"] = (primary.get("Variant Barcode") or "").strip()
-        out["Image Position"] = (primary.get("Image Position") or "").strip() or (
-            "1" if image_src else ""
-        )
+        out["Image Position"] = (primary.get("Image Position") or "").strip()
 
     return out
 

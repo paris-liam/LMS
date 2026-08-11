@@ -201,6 +201,42 @@ class TestRun(unittest.TestCase):
         self.assertEqual(second["issues"], 0)
         self.assertEqual(first_text, second_text)
 
+    def test_rerunning_an_export_row_tmdb_filled_with_no_image_changes_nothing(self):
+        # Fix round 2: normalize._build_row used to default a blank Image
+        # Position to "1" whenever Image Src was non-empty. An export row
+        # with no image gets its Image Src filled by the TMDB stage, so
+        # the *first* run leaves Image Position blank (normalize ran before
+        # the fill) while a *second* run's normalize pass sees the now
+        # non-empty Image Src and defaults Image Position to "1" — a
+        # different upload.csv from the same input. Image Position must
+        # only ever pass through the source value.
+        header = ["Handle", "Title", "Body (HTML)", "Vendor", "Product Category", "Type",
+                  "Tags", "Published", "Option1 Name", "Option1 Value",
+                  "Variant Inventory Tracker", "Variant Inventory Qty",
+                  "Variant Inventory Policy", "Variant Fulfillment Service",
+                  "Variant Price", "Variant Barcode", "Image Src", "Image Position",
+                  "Image Alt Text"]
+        row = {name: "" for name in header}
+        row.update({"Handle": "legend-of-zorro", "Title": "Legend of Zorro", "Vendor": "DVD",
+                    "Tags": "Floor Sale, Action", "Option1 Name": "Condition",
+                    "Option1 Value": "Standard", "Variant Price": "9.99",
+                    "Variant Barcode": "88302842"})
+        path = self.dir / "no-image.csv"
+        write_csv(path, header, [row])
+
+        first = run_module.run(path, fetch_fn=fake_fetch, sleep_fn=lambda s: None)
+        first_upload = Path(first["outdir"]) / "upload.csv"
+        first_rows = read_csv(first_upload)
+        self.assertEqual(first["issues"], 0)
+        self.assertNotEqual(first_rows[0]["Image Src"], "")  # TMDB filled it
+        first_text = first_upload.read_text(encoding="utf-8")
+
+        second = run_module.run(first_upload, fetch_fn=fake_fetch, sleep_fn=lambda s: None)
+        second_text = (Path(second["outdir"]) / "upload.csv").read_text(encoding="utf-8")
+
+        self.assertEqual(second["issues"], 0)
+        self.assertEqual(first_text, second_text)
+
     def test_export_input_keeps_handles_and_barcodes(self):
         header = ["Handle", "Title", "Body (HTML)", "Vendor", "Product Category", "Type",
                   "Tags", "Published", "Option1 Name", "Option1 Value",
