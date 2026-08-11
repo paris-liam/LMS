@@ -1,29 +1,19 @@
 """Generate a manual-review picker page for TMDB fill review entries.
 
-Re-queries TMDB for every product in a tmdb-needs-review.csv with no
-confidence threshold, and writes a self-contained HTML page showing each
-product's top candidates. Picks are exported from the page as
-tmdb-picks.json and applied with apply_review_picks.py.
+Re-queries TMDB for every review row produced by tmdb_fill.build_output
+(ambiguous or unmatched products), and writes a self-contained HTML page
+showing each product's top candidates. Picks are exported from the page as
+a JSON file and applied with apply_picks.py.
 
-See docs/superpowers/specs/2026-07-15-tmdb-review-picker-design.md.
+See docs/superpowers/specs/2026-08-11-catalogue-format-script-design.md.
 """
 
-import argparse
 import html
 import json
-import os
-import sys
 import time
 from pathlib import Path
 
-from tmdb_fill import (
-    REQUEST_DELAY_SECONDS,
-    clean_title_and_year,
-    load_export,
-    make_tmdb_fetcher,
-    print_progress,
-    search_tmdb,
-)
+from tmdb_fill import REQUEST_DELAY_SECONDS, clean_title_and_year, search_tmdb
 
 MAX_CANDIDATES = 5
 THUMB_BASE_URL = "https://image.tmdb.org/t/p/w185"
@@ -89,7 +79,7 @@ def build_picker_html(products: list[dict]) -> str:
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>TMDB review picker — {len(products)} products</title>
+<title>Movie review picker — {len(products)} products</title>
 <style>
   body {{ font-family: -apple-system, system-ui, sans-serif; margin: 2rem auto; max-width: 1080px; padding: 0 1rem; background: #fafafa; color: #222; }}
   header {{ position: sticky; top: 0; background: #fafafa; padding: .75rem 0; border-bottom: 1px solid #ddd; z-index: 10; display: flex; align-items: center; gap: 1rem; }}
@@ -117,7 +107,7 @@ def build_picker_html(products: list[dict]) -> str:
 </head>
 <body>
 <header>
-  <h1>TMDB review picker</h1>
+  <h1>Movie review picker</h1>
   <span id="counter"></span>
   <button id="export">Export picks (tmdb-picks.json)</button>
 </header>
@@ -181,8 +171,8 @@ function render() {{
               <textarea class="manual-overview" placeholder="Description (leave blank to keep current)">${{esc((manualData[product.handle] || {{}}).overview || "")}}</textarea>
             </span>
           </span>`)}}
-        ${{optionHtml(product.handle, "needs_data", current === "needs_data", "special",
-          '<span class="info"><strong>Not filling this one</strong> — tag as "needs data"</span>')}}
+        ${{optionHtml(product.handle, "skip", current === "skip", "special",
+          '<span class="info"><strong>Skip this one</strong> — leave it for a later pass</span>')}}
         ${{optionHtml(product.handle, "undecided", current === undefined, "",
           '<span class="info">Decide later</span>')}}
       </div>
@@ -235,8 +225,8 @@ document.getElementById("export").addEventListener("click", () => {{
   for (const product of PRODUCTS) {{
     const pick = picks[product.handle];
     if (pick === undefined) continue;
-    if (pick === "needs_data") {{
-      out.push({{handle: product.handle, choice: "needs_data"}});
+    if (pick === "skip") {{
+      out.push({{handle: product.handle, choice: "skip"}});
     }} else if (pick === "manual") {{
       const fields = manualData[product.handle] || {{}};
       const image_src = (fields.image_src || "").trim();
@@ -269,48 +259,13 @@ render();
 """
 
 
-def run(review_path, outdir, api_key: str, fetch_fn=None, sleep_fn=time.sleep, progress_fn=None) -> dict:
-    _, review_rows = load_export(review_path)
-
-    if fetch_fn is None:
-        fetch_fn = make_tmdb_fetcher(api_key)
+def write_picker(review_rows, outdir, fetch_fn, sleep_fn=time.sleep, progress_fn=None) -> dict:
+    """Build review-picker.html for the given review rows."""
     if progress_fn is None:
         progress_fn = lambda index, total, handle, message: None
 
     products = collect_products(review_rows, fetch_fn, sleep_fn=sleep_fn, progress_fn=progress_fn)
-
-    outdir = Path(outdir)
-    (outdir / "tmdb-review-picker.html").write_text(build_picker_html(products), encoding="utf-8")
-
+    Path(outdir).joinpath("review-picker.html").write_text(
+        build_picker_html(products), encoding="utf-8"
+    )
     return {"products": len(products)}
-
-
-def main():
-    parser = argparse.ArgumentParser(
-        description="Generate a manual-review picker page from a tmdb-needs-review.csv."
-    )
-    parser.add_argument("review_csv", help="Path to the tmdb-needs-review.csv from a tmdb_fill run")
-    parser.add_argument(
-        "--outdir",
-        default=None,
-        help="Directory to write tmdb-review-picker.html (default: review file's directory)",
-    )
-    args = parser.parse_args()
-
-    api_key = os.environ.get("TMDB_API_KEY")
-    if not api_key:
-        print("Error: TMDB_API_KEY environment variable is not set.", file=sys.stderr)
-        sys.exit(1)
-
-    review_path = Path(args.review_csv)
-    outdir = Path(args.outdir) if args.outdir else review_path.parent
-    outdir.mkdir(parents=True, exist_ok=True)
-
-    print(f"Reading {review_path}...")
-    counts = run(review_path, outdir, api_key, progress_fn=print_progress)
-    print(f"Picker page for {counts['products']} products -> open {outdir / 'tmdb-review-picker.html'}")
-    print("Pick per product, then Export picks and apply with apply_review_picks.py.")
-
-
-if __name__ == "__main__":
-    main()
