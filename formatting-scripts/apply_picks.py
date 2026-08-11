@@ -43,6 +43,7 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
             continue
 
         primary = dict(group[0])
+        title = (primary.get("Title") or "").strip()
 
         if pick["choice"] == "skip":
             counts["skipped"] += 1
@@ -51,6 +52,8 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
             overview = (pick.get("overview") or "").strip()
             if image_src:
                 primary["Image Src"] = image_src
+                if not (primary.get("Image Alt Text") or "").strip():
+                    primary["Image Alt Text"] = f"{title} poster"
             if overview:
                 primary["Body (HTML)"] = f"<p>{overview}</p>"
             counts["applied"] += 1
@@ -59,6 +62,8 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
             overview = (pick.get("overview") or "").strip()
             if needs_image(group) and poster_path:
                 primary["Image Src"] = f"{POSTER_BASE_URL}{poster_path}"
+                if not (primary.get("Image Alt Text") or "").strip():
+                    primary["Image Alt Text"] = f"{title} poster"
             if needs_description(group) and overview:
                 primary["Body (HTML)"] = f"<p>{overview}</p>"
             counts["applied"] += 1

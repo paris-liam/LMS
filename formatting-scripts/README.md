@@ -21,9 +21,22 @@ any file this script produced earlier. Output lands in `out-<inputname>/`
 | `upload.csv` | Import it: Shopify admin → Products → Import |
 | `issues.csv` | Fix the rows, then `run.py out-<name>/issues.csv` |
 | `review-picker.html` | Open it, pick the right poster, Export picks (only written when at least one row was ambiguous) |
-| `tmdb-picks.json` | `apply_picks.py <picks> <upload.csv>` → `picks-applied.csv` |
+| `tmdb-picks.json` | `python3 formatting-scripts/apply_picks.py <picks> <upload.csv>` → `picks-applied.csv` |
 | `tmdb-unmatched.csv` | Paste a description/poster, or fix the title, then re-run it |
 | `run-report.txt` | Counts for the run |
+| `.tmdb-cache.json` | TMDB query cache for this output directory. Not an input file — don't feed it to `run.py`. |
+
+The TMDB cache is only saved to disk once at the end of the fill stage
+(and again after the picker stage, if one runs). If a long run is
+interrupted partway through — killed, crashed, network drops — every TMDB
+fetch that run made is lost, not just the rows still pending; re-running
+re-fetches from scratch.
+
+Two copies of the same movie in the same format and type, uploaded in one
+template batch, land in `issues.csv` as a `duplicate handle` — both rows
+would otherwise generate identical handles and collide on import. Fix it
+by hand-editing one copy's `Handle` cell to something distinct before
+re-running.
 
 Flags:
 
@@ -47,6 +60,17 @@ Flags:
 4. Open the picker, choose posters, export, apply, import `picks-applied.csv`.
 5. Fix `issues.csv` and `tmdb-unmatched.csv`, run the script on each, import
    what comes out. Repeat until both files come back empty.
+
+   **Opening `issues.csv` in Excel (export runs only):** these files carry a
+   `Variant Barcode` column, and some of our barcodes start with a `0`
+   (`06662394`, for example). If you just double-click the file to open it,
+   Excel reads that column as a number and drops the leading zero — the file
+   will save with `6662394` instead, silently shortening a barcode whose
+   printed shelf label still reads `06662394`. You won't see an error; the
+   mismatch only shows up later, if at all. To fix it, don't double-click:
+   in Excel use **Data → From Text/CSV**, and when the import dialog shows
+   the column list, set `Variant Barcode`'s data type to **Text** before
+   loading.
 
 ## Before the first full-catalogue import
 

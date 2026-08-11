@@ -42,6 +42,25 @@ class TestApplyPicks(unittest.TestCase):
         self.assertEqual(out[0]["Image Src"], "https://example.com/new.jpg")
         self.assertEqual(out[0]["Body (HTML)"], "<p>Mine.</p>")
 
+    def test_a_tmdb_pick_sets_alt_text_from_the_title(self):
+        picks = [{"handle": "the-thing-4k-floor-sale", "choice": "tmdb",
+                  "poster_path": "/t.jpg", "overview": "A crew is hunted by a shapeshifter."}]
+        out, _ = apply_picks([row()], picks)
+        self.assertEqual(out[0]["Image Alt Text"], "The Thing poster")
+
+    def test_a_manual_pick_sets_alt_text_from_the_title(self):
+        picks = [{"handle": "the-thing-4k-floor-sale", "choice": "manual",
+                  "image_src": "https://example.com/new.jpg", "overview": "Mine."}]
+        out, _ = apply_picks([row()], picks)
+        self.assertEqual(out[0]["Image Alt Text"], "The Thing poster")
+
+    def test_a_pick_never_overwrites_existing_alt_text(self):
+        existing = row(**{"Image Alt Text": "A hand-written alt text"})
+        picks = [{"handle": "the-thing-4k-floor-sale", "choice": "tmdb",
+                  "poster_path": "/t.jpg", "overview": "Overwrite me."}]
+        out, _ = apply_picks([existing], picks)
+        self.assertEqual(out[0]["Image Alt Text"], "A hand-written alt text")
+
     def test_a_skip_pick_changes_nothing_and_writes_no_tag(self):
         picks = [{"handle": "the-thing-4k-floor-sale", "choice": "skip"}]
         out, counts = apply_picks([row()], picks)
