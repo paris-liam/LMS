@@ -1,7 +1,7 @@
 """Apply picks exported from the TMDB review picker page to a product CSV.
 
-Takes the tmdb-picks.json downloaded from tmdb-review-picker.html and a base
-product CSV (normally a run's tmdb-filled.csv), and writes picks-applied.csv
+Takes the tmdb-picks.json downloaded from review-picker.html and a base
+product CSV (normally a run's upload.csv), and writes picks-applied.csv
 with the chosen TMDB data filled in and skipped products left untouched.
 
 See docs/superpowers/specs/2026-08-11-catalogue-format-script-design.md.
@@ -20,7 +20,7 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
 
     A "tmdb" pick fills only fields the product actually needs (same rules
     as the auto-fill: image only when missing, description only when
-    short/empty or CircaOS-tagged) and only when the pick carries data.
+    empty) and only when the pick carries data.
     A "manual" pick is a deliberate operator override: whichever of its
     image_src/overview fields are non-empty replace the current values
     unconditionally. A "skip" pick leaves the row untouched.
@@ -91,7 +91,7 @@ def main():
         description="Apply tmdb-picks.json from the review picker page to a product CSV."
     )
     parser.add_argument("picks_json", help="Path to tmdb-picks.json exported from the picker page")
-    parser.add_argument("base_csv", help="Base product CSV to apply picks to (normally tmdb-filled.csv)")
+    parser.add_argument("base_csv", help="Base product CSV to apply picks to (normally upload.csv)")
     parser.add_argument(
         "--outdir",
         default=None,

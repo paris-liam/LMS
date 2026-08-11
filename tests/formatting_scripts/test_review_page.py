@@ -53,7 +53,7 @@ class TestCollectProducts(unittest.TestCase):
 class TestBuildPickerHtml(unittest.TestCase):
     def test_offers_skip_rather_than_a_needs_data_tag(self):
         html = build_picker_html([{"handle": "x", "title": "X", "reason": "r", "candidates": []}])
-        self.assertIn('"skip"', html)
+        self.assertIn('choice: "skip"', html)
         self.assertNotIn("needs_data", html)
         self.assertNotIn("needs data", html)
 

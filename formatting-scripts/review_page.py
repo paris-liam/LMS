@@ -1,9 +1,10 @@
 """Generate a manual-review picker page for TMDB fill review entries.
 
-Re-queries TMDB for every review row produced by tmdb_fill.build_output
-(ambiguous or unmatched products), and writes a self-contained HTML page
-showing each product's top candidates. Picks are exported from the page as
-a JSON file and applied with apply_picks.py.
+Re-queries TMDB for every ambiguous review row produced by
+tmdb_fill.build_output (unmatched rows go to tmdb-unmatched.csv instead —
+run.py only passes ambiguous rows here), and writes a self-contained HTML
+page showing each product's top candidates. Picks are exported from the
+page as a JSON file and applied with apply_picks.py.
 
 See docs/superpowers/specs/2026-08-11-catalogue-format-script-design.md.
 """

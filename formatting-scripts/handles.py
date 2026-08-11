@@ -27,7 +27,16 @@ def derive_handle(title: str, media_format: str, product_type: str) -> str:
 
 
 class HandleAllocator:
-    """Hands out unique handles within a single run, suffixing repeats -2, -3."""
+    """Hands out unique handles within a single run, suffixing repeats -2, -3.
+
+    All reserve() calls for a batch must happen before any allocate() call.
+    reserve() only adds to the used-handles set; it never checks whether a
+    handle was already issued by allocate(), so a reserve() called after an
+    allocate() that happened to produce the same handle silently no-ops —
+    the earlier allocation keeps the handle and the collision goes
+    undetected. normalize.py satisfies this today by reserving every
+    hand-typed Handle up front, before the loop that calls allocate().
+    """
 
     def __init__(self):
         self._used: set[str] = set()

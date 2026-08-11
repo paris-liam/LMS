@@ -47,15 +47,22 @@ def _unmatched_rows(review_rows, filled_rows, columns):
     for row in filled_rows:
         by_handle.setdefault(row.get("Handle", ""), row)
 
-    out = []
-    seen = set()
+    reasons_by_handle = {}
+    order = []
     for entry in review_rows:
         handle = entry["Handle"]
-        if entry["Kind"] != "unmatched" or handle in seen or handle not in by_handle:
+        if entry["Kind"] != "unmatched" or handle not in by_handle:
             continue
-        seen.add(handle)
+        if handle not in reasons_by_handle:
+            reasons_by_handle[handle] = []
+            order.append(handle)
+        reasons_by_handle[handle].append(entry["Reason"])
+
+    out = []
+    for handle in order:
         source = by_handle[handle]
-        out.append({REASON_COLUMN: entry["Reason"], **{c: source.get(c, "") for c in columns}})
+        reason = "; ".join(reasons_by_handle[handle])
+        out.append({REASON_COLUMN: reason, **{c: source.get(c, "") for c in columns}})
     return out
 
 
