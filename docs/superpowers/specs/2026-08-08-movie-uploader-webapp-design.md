@@ -183,13 +183,22 @@ Search is debounced at 250ms, keeping request volume far below TMDB's rate limit
 - `taxonomy.test.js` — TMDB genre mapping; unmapped genres yield no suggestion.
 - `tmdb.test.js` — canned responses via injected fetch: missing `poster_path`, missing `overview`, zero results.
 
-## Gate before implementation
+## Gate before implementation — CLEARED 2026-08-11
 
-**Confirm Shopify's importer fetches `image.tmdb.org` URLs.** `data-cleanup/tmdb_fill.py` writes those URLs, but there is no evidence that output was ever actually imported — the audit found the 1,045 products with images are carrying `cdn.shopify.com` URLs from the CircaOS import, not TMDB ones.
+**Shopify's importer fetches `image.tmdb.org` URLs correctly.** Confirmed on the dev store by a real CSV import: an `https://image.tmdb.org/t/p/w1280/…jpg` value in `Image Src` was downloaded and re-hosted to `cdn.shopify.com` at 1280×1920, media `status: READY`, `mediaErrors: []`, with the CSV's alt text preserved.
 
-Test: one product, one TMDB poster URL, import to the dev store. If it fails, posters need a different path (download and re-host, or Shopify Files upload) and that changes the design materially.
+The poster path in this design works as specified. No re-hosting step is needed. Nothing blocks implementation.
 
-This is the first task in the implementation plan and it blocks the rest.
+The same import also confirmed two other assumptions the design depends on:
+
+- **The genre metafield binds.** A bare handle (`kids-family`) in the `product.metafields.shopify.genre` column resolved to a real metaobject reference (`["gid://shopify/Metaobject/299533336638"]`). Bare handles are correct; no GIDs or JSON arrays needed.
+- **`Media > Videos` is a valid taxonomy category** (`gid://shopify/TaxonomyCategory/me-7`) and imports cleanly, so the `all-movies` smart-collection rule will match.
+
+## Dependency: template assignment
+
+**The product CSV has no template-suffix column**, so imported movies land on the default product template — which renders price, variant-picker, quantity, add-to-cart and buy-buttons. On a rental priced at 0 that is a $0.00 Buy Now button, contradicting the in-store-only design and the Supercycle contract.
+
+`scripts/set-movie-template.sh` closes this, and must be re-run after every import regardless of which path (A, B or C) produced the CSV. Path C cannot fix this in the file it generates; the spec notes it so the operator runbook includes it.
 
 ## Reused prior art
 
