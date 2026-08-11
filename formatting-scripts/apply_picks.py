@@ -2,23 +2,17 @@
 
 Takes the tmdb-picks.json downloaded from tmdb-review-picker.html and a base
 product CSV (normally a run's tmdb-filled.csv), and writes picks-applied.csv
-with the chosen TMDB data filled in and declined products tagged "needs data".
+with the chosen TMDB data filled in and skipped products left untouched.
 
-See docs/superpowers/specs/2026-07-15-tmdb-review-picker-design.md.
+See docs/superpowers/specs/2026-08-11-catalogue-format-script-design.md.
 """
 
 import argparse
 import json
 from pathlib import Path
 
-from catalog_common import add_tags, group_rows_by_handle, load_export, write_csv
-from tmdb_fill import (
-    NEEDS_DATA_TAG,
-    POSTER_BASE_URL,
-    has_circaos_tag,
-    needs_description,
-    needs_image,
-)
+from catalog_common import group_rows_by_handle, load_export, write_csv
+from tmdb_fill import POSTER_BASE_URL, needs_description, needs_image
 
 
 def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
@@ -29,8 +23,7 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
     short/empty or CircaOS-tagged) and only when the pick carries data.
     A "manual" pick is a deliberate operator override: whichever of its
     image_src/overview fields are non-empty replace the current values
-    unconditionally. A "needs_data" pick appends the needs-data tag to the
-    primary row.
+    unconditionally. A "skip" pick leaves the row untouched.
     """
     picks_by_handle = {pick["handle"]: pick for pick in picks}
     groups = group_rows_by_handle(rows)
@@ -38,7 +31,7 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
 
     counts = {
         "applied": 0,
-        "tagged": 0,
+        "skipped": 0,
         "unknown": sum(1 for handle in picks_by_handle if handle not in known_handles),
     }
 
@@ -51,9 +44,8 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
 
         primary = dict(group[0])
 
-        if pick["choice"] == "needs_data":
-            primary["Tags"] = add_tags(primary.get("Tags", ""), [NEEDS_DATA_TAG])
-            counts["tagged"] += 1
+        if pick["choice"] == "skip":
+            counts["skipped"] += 1
         elif pick["choice"] == "manual":
             image_src = (pick.get("image_src") or "").strip()
             overview = (pick.get("overview") or "").strip()
@@ -67,7 +59,7 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
             overview = (pick.get("overview") or "").strip()
             if needs_image(group) and poster_path:
                 primary["Image Src"] = f"{POSTER_BASE_URL}{poster_path}"
-            if (needs_description(group) or has_circaos_tag(group)) and overview:
+            if needs_description(group) and overview:
                 primary["Body (HTML)"] = f"<p>{overview}</p>"
             counts["applied"] += 1
 
@@ -108,7 +100,7 @@ def main():
 
     counts = run(Path(args.picks_json), base_path, outdir)
     print(f"Applied TMDB picks: {counts['applied']}")
-    print(f"Tagged '{NEEDS_DATA_TAG}': {counts['tagged']}")
+    print(f"Skipped: {counts['skipped']}")
     if counts["unknown"]:
         print(f"Warning: {counts['unknown']} pick handle(s) not found in {base_path.name}")
     print(f"Output -> {outdir / 'picks-applied.csv'}")
