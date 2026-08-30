@@ -1,0 +1,8 @@
+input:      catalogue-batches/issue-products/floor-sale-with-no-price.csv
+skip:       (none)
+force_price_zero: True
+tags added: Issue, Price needed
+upload.csv: 7 rows written
+issues.csv: 0 rows still broken
+ambiguous:  1 products in review-picker.html
+unmatched:  0 products in tmdb-unmatched.csv

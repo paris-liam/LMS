@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Movie review picker — 12 products</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; margin: 2rem auto; max-width: 1080px; padding: 0 1rem; background: #fafafa; color: #222; }
+  header { position: sticky; top: 0; background: #fafafa; padding: .75rem 0; border-bottom: 1px solid #ddd; z-index: 10; display: flex; align-items: center; gap: 1rem; }
+  header h1 { font-size: 1.1rem; margin: 0; flex: 1; }
+  #counter { color: #666; font-size: .9rem; }
+  #export { background: #973123; color: #fff; border: 0; border-radius: 6px; padding: .5rem 1rem; font-size: .9rem; cursor: pointer; }
+  #hide-decided-label { font-size: .9rem; color: #444; display: flex; align-items: center; gap: .35rem; cursor: pointer; }
+  .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+  .card.decided { border-color: #5f8d7a; background: #f4faf7; }
+  body.hide-decided .card.decided { display: none; }
+  .card h2 { font-size: 1.05rem; margin: 0 0 .15rem; display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+  .tags { display: inline-flex; gap: .3rem; }
+  .tag { font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; color: #5f8d7a; background: #eef5f1; border-radius: 3px; padding: .1rem .4rem; }
+  .card .meta { font-size: .8rem; color: #888; margin-bottom: .75rem; }
+  .card .meta a { color: #973123; }
+  .candidates { display: flex; flex-direction: column; gap: .5rem; }
+  label.option { display: flex; gap: .75rem; align-items: flex-start; border: 1px solid #eee; border-radius: 6px; padding: .5rem .75rem; cursor: pointer; }
+  label.option:hover { background: #f5f5f5; }
+  label.option input { margin-top: .3rem; }
+  label.option img { width: 60px; height: auto; border-radius: 3px; flex-shrink: 0; }
+  label.option .no-poster { width: 60px; height: 90px; background: #eee; color: #999; font-size: .65rem; display: flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; }
+  label.option .info { font-size: .85rem; line-height: 1.4; }
+  label.option .info strong { font-size: .9rem; }
+  label.option.special { background: #fdf6f5; }
+  .manual-fields { display: flex; flex-direction: column; gap: .4rem; margin: .25rem 0 0 2rem; }
+  .manual-fields input, .manual-fields textarea { font: inherit; font-size: .85rem; border: 1px solid #ccc; border-radius: 4px; padding: .4rem .5rem; width: 100%; box-sizing: border-box; }
+  .manual-fields textarea { min-height: 4.5em; resize: vertical; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Movie review picker</h1>
+  <span id="counter"></span>
+  <label id="hide-decided-label"><input type="checkbox" id="hide-decided"> Hide decided</label>
+  <button id="export">Export picks (tmdb-picks.json)</button>
+</header>
+<main id="cards"></main>
+<script>
+const PRODUCTS = [{"handle": "our-town-vhs", "title": "Our Town", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Our Town' (2026))", "candidates": [{"id": 1734276, "title": "Our Town", "year": "2026", "overview": "Grover's Corners is a quiet little town, full of ordinary folk, living everyday lives. They work, they laugh, they sing, they fall in love and raise their children and grow old. But within those moments of ordinary, everyday life, there are truths that reach out to us all. And a passionate demand to cherish every moment, right now, while we still can. (A joint Welsh National Theatre and Rose Theatre production, filmed at the Rose Theatre in Kingston, London on 19 March 2026.)", "poster_path": "/rObKfpZMpkTs6YvGgBBEgz0Mb4d.jpg"}, {"id": 138554, "title": "Our Town", "year": "1977", "overview": "3-act play by American playwright Thornton Wilder.", "poster_path": "/bQVdpoxNiQAfCofwDuby9AVsd3U.jpg"}, {"id": 82781, "title": "Our Town", "year": "2003", "overview": "Our Town is a three-act play by American playwright Thornton Wilder. It is a character story about an average town's citizens in the early twentieth century as depicted through their everyday lives. Using metatheatrical devices, Wilder sets the play in a 1930s theater. He uses the actions of the Stage Manager to create the town of Grover's Corners for the audience. Scenes from its history between the years of 1901 and 1913 play out. Originally broadcast on the Showtime Network, then as part of the PBS series \"Masterpiece Theatre\" (season 33, episode 1).", "poster_path": "/shl1N27V5iA3ndXV99Vy3gwxEQv.jpg"}, {"id": 23283, "title": "Our Town", "year": "1940", "overview": "Change comes slowly to a small New Hampshire town in the early 20th century. We see birth, life and death in this small community.", "poster_path": "/tXYWSUIUfiG06XzgSSkd4sQFOru.jpg"}, {"id": 55767, "title": "Our Town", "year": "2007", "overview": "A writer kills his landlady and stages the body to look like the work of an active serial killer. Anxious that the police might figure out the truth, he decides to insert himself into the investigation using his detective friend.", "poster_path": "/xK9TrtbVQbPlCSEtiGa40XdWBCw.jpg"}]}, {"handle": "somewhere-in-time-vhs", "title": "Somewhere in Time", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Somewhere in Time' (1980))", "candidates": [{"id": 16633, "title": "Somewhere in Time", "year": "1980", "overview": "Young writer Richard Collier is met on the opening night of his first play by an old lady who begs him to \"Come back to me\". Mystified, he tries to find out about her, and learns that she is a famous stage actress from the early twentieth century. Becoming more and more obsessed with her, by self-hypnosis he manages to travel back in time\u2014where he meets her.", "poster_path": "/hmdegiSwVYUNvEfihaE3HRM3Sos.jpg"}, {"id": 845386, "title": "Somewhere in Time", "year": "1995", "overview": "In reincarnated lives from the Three Kingdoms period to the Republican era, a woman becomes torn between two sworn brothers.", "poster_path": "/6CT64NWeX751SsMJPZZf0sEOIRZ.jpg"}, {"id": 1498847, "title": "Somewhere in Time", "year": "1995", "overview": "America, 1971. Richard Collier and his friends are celebrating their successful graduation from college. Although the details are not certain yet, Fred announcs to everyone that the scripts Richard has written have already gotten him noticed by TV producers and he is being offered a job. As Richard's friends congratulate him, an old woman suddenly appears in the crowd.", "poster_path": "/7yFS4TJx8xBHnkjug769yWiKAL9.jpg"}, {"id": 1465461, "title": "Somewhere in Time, River and Stone", "year": "2025", "overview": "\u201cStone and River... They used to be together for the past lives. This life, they haven\u2019t recognized each other yet.\u201d  Today, Stone goes spelunking in Shoushan with River, surrounded by the beautiful karst and lovely animals. When they sit in nature, they encounter the most beautiful moment. However, River is afraid that Stone might leave her one day...", "poster_path": "/s3gICf6b67r7gTSSybuNryFLLzo.jpg"}, {"id": 1422506, "title": "Back To \"Somewhere In Time\"", "year": "2000", "overview": "The cast and crew of Somewhere in Time (1980) looks back at the making of the movie in this documentary produced for the special features on the DVD Collector's Edition.", "poster_path": "/qvxCNWjFuNVor2K6H1v0eW255vZ.jpg"}]}, {"handle": "the-bodyguard-vhs", "title": "The Bodyguard", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'The Bodyguard' (1992))", "candidates": [{"id": 619, "title": "The Bodyguard", "year": "1992", "overview": "A former Secret Service agent grudgingly takes an assignment to protect a pop idol who's threatened by a crazed fan. At first, the safety-obsessed bodyguard and the self-indulgent diva totally clash. But before long, all that tension sparks fireworks of another sort, and the love-averse tough guy is torn between duty and romance.", "poster_path": "/ihWF0uY1xnKqw9YK7ZHNLUZOhcO.jpg"}, {"id": 1370939, "title": "The Bodyguard", "year": "2025", "overview": "Retired special forces officer Zhong Xiaonan is assigned to protect Lin Zihao, the son of a renowned Chinese-American scientist, as he returns to China. With their groundbreaking research targeted by a powerful international syndicate, Lin Zihao becomes the focus of a dangerous kidnapping plot. Teaming up with Chinese-American cop Peter, Zhong Xiaonan faces a series of fierce confrontations with the criminal group, working to prevent their scheme and ensure Lin Zihao\u2019s safe return home.", "poster_path": "/xbMFxU9EeAmOFAByonIGFYD9szx.jpg"}, {"id": 315669, "title": "The Bodyguard", "year": "2016", "overview": "A retired bodyguard who has settled into a corner of the world where China, Russia and North Korea meet as he suffers from early dementia finds a new friend in a young girl. When her life is threatened by her father's connection with a local crime lord, the bodyguard must call upon his long forgotten skills to save her.", "poster_path": "/kF4myFLIDxqsuce5swGLWP6XKze.jpg"}, {"id": 39888, "title": "The Bodyguard", "year": "1944", "overview": "Spike the bulldog, grateful to Jerry for getting him out of the dogcatcher's van, offers to help the little mouse any time he whistles. Tom, Jerry's feline tormentor, seeks to overcome this new disadvantage.", "poster_path": "/2Q1CqIY3jtvZcvuPwbfb9In9Knx.jpg"}, {"id": 390043, "title": "The Hitman's Bodyguard", "year": "2017", "overview": "The world\u2019s top bodyguard gets a new client, a hitman who must testify at the International Court of Justice. They must put their differences aside and work together to make it to the trial on time.", "poster_path": "/5CGjlz2vyBhW5xHW4eNOZIdgzYq.jpg"}]}, {"handle": "hoop-dreams-vhs", "title": "Hoop Dreams", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Hoop Dreams' (1994))", "candidates": [{"id": 14275, "title": "Hoop Dreams", "year": "1994", "overview": "Every school day, African-American teenagers William Gates and Arthur Agee travel 90 minutes each way from inner-city Chicago to St. Joseph High School in Westchester, Illinois, a predominately white suburban school well-known for the excellence of its basketball program. Gates and Agee dream of NBA stardom, and with the support of their close-knit families, they battle the social and physical obstacles that stand in their way. This acclaimed documentary was shot over the course of five years.", "poster_path": "/gLzHl2XBtVwycl8DxdOXRHPm8G3.jpg"}, {"id": 967220, "title": "Hoop Dreams", "year": "2022", "overview": "Savannah Walker's fear of speaking publicly in poetry class leads her to steal her mother's magical golden hoops, believing that they'll help her overcome her fear.", "poster_path": "/ch3RckQ1U1NBugw5GMpx8zVdSWM.jpg"}, {"id": 1269561, "title": "Hoop Dreams 3D", "year": "2024", "overview": "A mockumentary sequel to Hoop Dreams 2 (2020). After developing a taste for acting while on camera, Liam Klinkenberg reunites with the director of Hoop Dreams 2, his friend Eytan, and they set out to make another documentary following his new pursuit.", "poster_path": "/xbPKx4g4Yk2btC5AQR8WeKfeHP4.jpg"}, {"id": 446775, "title": "Little Hoop Dreams", "year": "", "overview": "This is the story of a dream: The big dream of Roger and Chevy, two life long friends who want to form a basketball team and compete in the First Annual Venice Beach Basketball Tournament, in California. The little detail is that Roger and Chevy, as well as their friends Nick and George, are dwarfs!!!", "poster_path": ""}, {"id": 1143797, "title": "Hoop Dreams 4Ever", "year": "2023", "overview": "Hoop Dreams 4Ever is the final film in an amateur film trilogy that borrows its name from the critically acclaimed Hoop Dreams. It follows a group of 6 boys navigating their final year of high school, while playing basketball along the way.", "poster_path": "/lzZpjVHf4JwQGVUg1OLyii8iA36.jpg"}]}, {"handle": "september-vhs", "title": "September", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'September' (1978))", "candidates": [{"id": 1276207, "title": "September Babies", "year": "2024", "overview": "In a world controlled by a shadow organization, how far must you tap into your own darkness to balance the scales?", "poster_path": "/1MGTX64SlNIccKQV738rnllHkfM.jpg"}, {"id": 1211472, "title": "September 5", "year": "2024", "overview": "During the 1972 Munich Olympics, an American sports broadcasting crew finds itself thrust into covering the hostage crisis involving Israeli athletes.", "poster_path": "/3kcQOLwYKGPwyjiynFsvP8vHvRn.jpg"}, {"id": 22386, "title": "Come September", "year": "1961", "overview": "Robert Talbot, an American millionaire, arrives early for his annual vacation at his luxurious Italian villa. His long-time girlfriend Lisa has given up waiting for him and has decided to marry another man. Meanwhile, his sneaky business associate Maurice secretly misappropriates the villa as a hotel while Talbot is away. The current guests of the \"hotel\" are a group of young American girls.", "poster_path": "/zCG13x6TxmsXJCsW0BAhBOTxxOI.jpg"}, {"id": 620862, "title": "September", "year": "1978", "overview": "After he fails to be accepted in college, Vali is questioned by police for participating in various thefts. He needs an alibi and he thinks the best one would be his father in Bucharest. To get there, he steals a motorcycle. In Bucharest he meets store clerk Ani\u0219oara, and he invites her to a seaside escapade. Their one day of love and future optimism is ended abruptly by a tragic motorcycle accident.", "poster_path": "/lAxRQ316dpfT54RaQtjr3x4Ow0.jpg"}, {"id": 32584, "title": "September", "year": "2007", "overview": "The friendship of two 15-year-old boys \u2013 one black, one white \u2013 begins to fall apart under the stress of a changing world.", "poster_path": "/rV9swv3lR2J2J4jf0UED4yqeYtH.jpg"}]}, {"handle": "easyriders-vhs", "title": "Easyriders", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Easyriders No. 4' (1990))", "candidates": [{"id": 379588, "title": "Easyriders No. 4", "year": "1990", "overview": "Harley Ridin', modern day, legends. from the great north to the Deep South from the east coast to the west coast.  Freedom lovin' Americans daring to be themselves.", "poster_path": "/xGglnHsAF4zclxKSXe348tYcvG.jpg"}, {"id": 421192, "title": "Easyriders Video Magazine No. 1", "year": "1988", "overview": "Rip-roarin' action and side-splittin' laughs set to great tunes on the highest quality video and sound possible. Don't miss this chance to relive the greatest decade in Harley-Davidson history with the low life staff of EASYRIDERS magazine.", "poster_path": ""}]}, {"handle": "the-finest-hours-vhs", "title": "The Finest Hours", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'The Finest Hours' (2016))", "candidates": [{"id": 300673, "title": "The Finest Hours", "year": "2016", "overview": "The Coast Guard makes a daring rescue attempt off the coast of Cape Cod after a pair of oil tankers are destroyed during a blizzard in 1952.", "poster_path": "/6UG91TJ4DKI6FGdqXZfDBeRZHX8.jpg"}, {"id": 149291, "title": "The Finest Hours", "year": "1964", "overview": "A biography of Winston Churchill, shown through re-creations and actual film footage and told by Orson Welles.", "poster_path": "/250YNnD82wcR7MDcML4Nt4Bz4pQ.jpg"}]}, {"handle": "twice-in-a-lifetime-vhs", "title": "Twice in a Lifetime", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Twice in a Lifetime' (1985))", "candidates": [{"id": 123049, "title": "Twice in a Lifetime", "year": "1985", "overview": "A middle-aged steelworker is content with his job and his family, but feels that something is missing in his life. On his 50th birthday, he stops in at a local bar for a drink to celebrate. He finds himself attracted to the young, very sexy barmaid--and, to his surprise, he finds that she is also very attracted to him.", "poster_path": "/bpPkDnPuLuFumbaJ99UdPXwMC0g.jpg"}, {"id": 1012006, "title": "Twice in a Lifetime", "year": "1974", "overview": "A tugboat operator and a waterfront cafe owner clash with a dock foreman who is trying to change the way things on the piers have been done.", "poster_path": "/m5pb9iThIvrEkGCVv0VHa6k7xVp.jpg"}, {"id": 580591, "title": "Twice in a Lifetime", "year": "1999", "overview": "Shot on Sony Betacam DVW-700P, it was the first Italian \"micro budget\" movie filmed in digital video.", "poster_path": "/5jysPJYRZPdGuiMR0jAY7t54b42.jpg"}]}, {"handle": "retribution-vhs", "title": "Retribution", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Retribution' (2023))", "candidates": [{"id": 762430, "title": "Retribution", "year": "2023", "overview": "When a mysterious caller plants a bomb under his car seat, a bank executive begins a high-speed chase across the city to complete a specific series of tasks \u2014 all with his kids trapped in the back seat.", "poster_path": "/oUmmY7QWWn7OhKlcPOnirHJpP1F.jpg"}, {"id": 351145, "title": "Retribution", "year": "2015", "overview": "While Carlos, a banking executive, takes his two kids to school in his car, he gets a phone call telling him that there is a bomb under the seats and he must to gather a large amount of money; otherwise, his car will blow up.", "poster_path": "/s8L5mN9USLpuSM9Pl7c5UC9unYj.jpg"}, {"id": 46164, "title": "Retribution", "year": "2007", "overview": "A detective investigates a series of murders. A possible serial killer might be on a rampage, since the crimes are in the same vicinity, by the same method. However, as evidence points towards the detective, a ghost in red follows him, and he begins questioning his identity. His realization of what seems to be reality results in something far larger and more sinister.", "poster_path": "/sAFaKQv2tgGffy4y4cpxPzPmcYH.jpg"}, {"id": 645942, "title": "Retribution", "year": "2010", "overview": "After the execution of a man, his brother tries to find those responsible for the death of his brother.", "poster_path": "/5YNNdaOEkttJ5o2mVDpRYoFguBC.jpg"}, {"id": 82315, "title": "Retribution", "year": "1987", "overview": "After a depressed artist miraculously survives a suicide attempt, a series of horrific murders leads him to realize he may have been possessed by the vengeful spirit of a murdered gangster.", "poster_path": "/5syhJI9wAWjES01c6Dr3tn81eQV.jpg"}]}, {"handle": "mask-vhs", "title": "Mask", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Mask' (1985))", "candidates": [{"id": 854, "title": "The Mask", "year": "1994", "overview": "Timid bank clerk Stanley Ipkiss discovers a magical mask infused with the spirit of the Norse god Loki. Donning it transforms him into an unrestrained, green-faced, cartoon-like wild man. While the mask grants him the confidence to woo a local singer, it also makes him the target of a ruthless mobster.", "poster_path": "/jPC2eYub74zwf2tPGVtzSlBW6Oy.jpg"}, {"id": 9342, "title": "The Mask of Zorro", "year": "1998", "overview": "It has been twenty years since Don Diego de la Vega fought Spanish oppression in Alta California as the legendary romantic hero, Zorro. Having escaped from prison he transforms troubled bandit Alejandro into his successor, in order to foil the plans of the tyrannical Don Rafael Montero who robbed him of his freedom, his wife and his precious daughter.", "poster_path": "/bdMufwGDDzqu4kTSQwrKc5WR4bu.jpg"}, {"id": 11177, "title": "Mask", "year": "1985", "overview": "A significantly deformed but highly intelligent teenage boy and his biker gang mother attempt to live as normal a life as possible under the circumstances.", "poster_path": "/dBYzEETDHNyt12VCD5owVW6bpEC.jpg"}, {"id": 428045, "title": "Iron Mask", "year": "2019", "overview": "Commissioned to map the Far East territories of the Russian Empire, cartographer Jonathan Green sets off on a long journey of unbelievable adventures\u2014making breath-taking discoveries and meeting mysterious creatures, Chinese princesses, deadly masters of oriental martial arts, and even the King of Dragons.", "poster_path": "/nM6Mf4UIp8Uw6Jgw40WlY9OnQOS.jpg"}, {"id": 10214, "title": "Son of the Mask", "year": "2005", "overview": "Tim Avery, an aspiring cartoonist, finds himself in a predicament when his dog stumbles upon the mask of Loki. Then after conceiving an infant son \"born of the mask\", he discovers just how looney child raising can be.", "poster_path": "/Adgnfhm9B8YAQmC0osuP4zO9SRc.jpg"}]}, {"handle": "two-bits-vhs", "title": "Two Bits", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Two Bits' (1995))", "candidates": [{"id": 40628, "title": "Two Bits", "year": "1995", "overview": "It's a hot summer day in 1933 in South Philly, where 12-year old Gennaro lives with his widowed mom and his ailing grandpa, who sits outside holding tight to his last quarter, which he's promised to Gennaro and which Gennaro would like to have to buy a ticket to the plush new movie theater. But grandpa's not ready to pass on the quarter or pass on to his final reward: he has some unfinished business with a woman from his past, and he enlists Gennaro to act as his emissary.", "poster_path": "/ianK4zwR5Vv4JSDm3sNDh3kH86I.jpg"}, {"id": 944729, "title": "Two Bits", "year": "", "overview": "A pizza boy must become a pizza man...", "poster_path": "/kEzLbk0q6dTbdistgw67d4yS7pB.jpg"}, {"id": 1558897, "title": "Two Bits", "year": "1916", "overview": "U.S. Marshal James Hardeman investigates counterfeiters in Red Gulch and meets flower-selling orphan Two Bits.", "poster_path": "/2L24szR9c3ZiLqtdUMwfnbOs7jk.jpg"}, {"id": 76771, "title": "Two Bits & Pepper", "year": "1995", "overview": "Comedy about idiotic (the two can't even add 1+1) kidnappers, both played for unknown reasons by Joe Piscopo, who capture two young girls and hold them for ransom. However, in \"Home Alone\" fashion, the two girls make fools of the two men. The film becomes even sillier as two horses who talk to one another decide to rescue the girls from the kidnappers", "poster_path": "/l7HaEcfrE9BQd9VrBxcUwenGONN.jpg"}]}, {"handle": "lifeguard-vhs", "title": "Lifeguard", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Lifeguard' (1976))", "candidates": [{"id": 5002, "title": "Lifeguard", "year": "1976", "overview": "Rick is a Los Angeles County lifeguard who is in his thirties. At his 15-year high school reunion, he sees his old girlfriend who is now a divorced mother. After falling in love with her, Rick considers changing his career and lifestyle.", "poster_path": "/u8vhmXoJhUfc7iVXO3VEskXDKgK.jpg"}, {"id": 157375, "title": "The Lifeguard", "year": "2013", "overview": "Leigh, feeling unfulfilled, quits her reporter job in New York and returns to the place she last felt happy: her childhood home in Connecticut. She takes a job as a lifeguard, regresses into adolescent behavior, and begins a dangerous relationship with a troubled teenager, leading to consequences for everyone involved.", "poster_path": "/ecArdkI6uDNBZ59482pv7lDqVzY.jpg"}, {"id": 1545750, "title": "Lifeguard", "year": "2025", "overview": "Caught between paranoia and boredom, an injured ballerina must choose to sacrifice herself or her only friend.", "poster_path": "/q1CFdQhFrVN6okJ2xpOsy3fQRMw.jpg"}, {"id": 118167, "title": "The Lifeguard", "year": "2011", "overview": "Mauricio, a lifeguard on a Chilean beach, considers himself to be a model of efficiency and professionalism. His colleagues, however, think otherwise, and speculate on why he never goes into the water. Maite Alberdi's visually gorgeous feature documentary debut has the intensity of a short story; beginning as a quirky character study of lifeguards and beachgoers, it becomes something altogether darker and more shocking when events take a dramatic turn.", "poster_path": "/mCGSSpQw072SNuorHy4HvaKrk5F.jpg"}, {"id": 774066, "title": "The Lifeguard", "year": "2019", "overview": "", "poster_path": ""}]}];
+const BATCH_ID = "out-rental-with-nonzero-price";
+const STORAGE_KEY = "tmdb-review-picks::" + BATCH_ID;
+const MANUAL_KEY = "tmdb-review-manual::" + BATCH_ID;
+const HIDE_DECIDED_KEY = "tmdb-review-hide-decided::" + BATCH_ID;
+// Pre-namespacing pages all wrote to this one shared key. Migrate any
+// entries for this batch's own handles into the namespaced key below,
+// so picks made before this page was regenerated aren't lost.
+const LEGACY_STORAGE_KEY = "tmdb-review-picks";
+const LEGACY_MANUAL_KEY = "tmdb-review-manual";
+
+function loadStored(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || {}; }
+  catch (e) { return {}; }
+}
+let picks = loadStored(STORAGE_KEY);
+let manualData = loadStored(MANUAL_KEY);
+
+// One-time migration: pull this batch's own handles out of the old shared
+// key, so picks made before namespacing existed aren't lost or, worse,
+// don't leak other batches' decided counts into this page's counter.
+(function migrateLegacyPicks() {
+  const handles = new Set(PRODUCTS.map(p => p.handle));
+  const legacyPicks = loadStored(LEGACY_STORAGE_KEY);
+  const legacyManual = loadStored(LEGACY_MANUAL_KEY);
+  let changed = false;
+  for (const handle of Object.keys(legacyPicks)) {
+    if (handles.has(handle) && !(handle in picks)) {
+      picks[handle] = legacyPicks[handle];
+      changed = true;
+    }
+  }
+  for (const handle of Object.keys(legacyManual)) {
+    if (handles.has(handle) && !(handle in manualData)) {
+      manualData[handle] = legacyManual[handle];
+      changed = true;
+    }
+  }
+  if (changed) savePicks();
+})();
+
+function savePicks() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(picks));
+  localStorage.setItem(MANUAL_KEY, JSON.stringify(manualData));
+}
+
+function esc(text) {
+  const div = document.createElement("div");
+  div.textContent = text || "";
+  return div.innerHTML;
+}
+
+function optionHtml(handle, value, checked, extraClass, inner) {
+  return `<label class="option ${extraClass}">
+    <input type="radio" name="pick-${esc(handle)}" value="${value}" ${checked ? "checked" : ""}>
+    ${inner}
+  </label>`;
+}
+
+function render() {
+  const cards = document.getElementById("cards");
+  cards.innerHTML = PRODUCTS.map(product => {
+    const current = picks[product.handle];
+    const searchUrl = "https://www.themoviedb.org/search?query=" + encodeURIComponent(product.title);
+    const googleUrl = "https://www.google.com/search?q=" + encodeURIComponent(product.title + " movie");
+    const options = product.candidates.map((candidate, i) => {
+      const poster = candidate.poster_path
+        ? `<img src="https://image.tmdb.org/t/p/w185${esc(candidate.poster_path)}" alt="" loading="lazy">`
+        : '<div class="no-poster">no poster</div>';
+      const overview = candidate.overview ? esc(candidate.overview) : "<em>(no overview)</em>";
+      return optionHtml(product.handle, String(i), current === String(i), "",
+        `${poster}<span class="info"><strong>${esc(candidate.title)}</strong> (${esc(candidate.year) || "?"})<br>${overview}</span>`);
+    }).join("");
+    const tags = [product.vendor, product.genre].filter(Boolean);
+    const tagsHtml = tags.length
+      ? `<span class="tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</span>`
+      : "";
+    return `<section class="card ${current !== undefined ? "decided" : ""}" data-handle="${esc(product.handle)}">
+      <h2>${esc(product.title)} ${tagsHtml}</h2>
+      <div class="meta"><code>${esc(product.handle)}</code> — ${esc(product.reason)}
+        · <a href="${searchUrl}" target="_blank">TMDB search</a>
+        · <a href="${googleUrl}" target="_blank">Google</a></div>
+      <div class="candidates">
+        ${options}
+        ${optionHtml(product.handle, "manual", current === "manual", "special",
+          `<span class="info" style="flex:1"><strong>Manual entry</strong> — fill in what you found
+            <span class="manual-fields">
+              <input type="url" class="manual-image" placeholder="Image URL (leave blank to keep current)"
+                     value="${esc((manualData[product.handle] || {}).image_src || "")}">
+              <textarea class="manual-overview" placeholder="Description (leave blank to keep current)">${esc((manualData[product.handle] || {}).overview || "")}</textarea>
+            </span>
+          </span>`)}
+        ${optionHtml(product.handle, "skip", current === "skip", "special",
+          '<span class="info"><strong>Skip this one</strong> — leave it for a later pass</span>')}
+        ${optionHtml(product.handle, "undecided", current === undefined, "",
+          '<span class="info">Decide later</span>')}
+      </div>
+    </section>`;
+  }).join("");
+  updateCounter();
+}
+
+function updateCounter() {
+  const decided = Object.keys(picks).length;
+  document.getElementById("counter").textContent = `${decided} / ${PRODUCTS.length} decided`;
+}
+
+const hideDecidedBox = document.getElementById("hide-decided");
+hideDecidedBox.checked = localStorage.getItem(HIDE_DECIDED_KEY) === "1";
+document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+hideDecidedBox.addEventListener("change", () => {
+  document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+  localStorage.setItem(HIDE_DECIDED_KEY, hideDecidedBox.checked ? "1" : "0");
+});
+
+document.getElementById("cards").addEventListener("change", event => {
+  const input = event.target;
+  if (input.type !== "radio") return;
+  const handle = input.closest(".card").dataset.handle;
+  if (input.value === "undecided") {
+    delete picks[handle];
+  } else {
+    picks[handle] = input.value;
+  }
+  savePicks();
+  input.closest(".card").classList.toggle("decided", picks[handle] !== undefined);
+  updateCounter();
+});
+
+document.getElementById("cards").addEventListener("input", event => {
+  const input = event.target;
+  if (!input.classList.contains("manual-image") && !input.classList.contains("manual-overview")) return;
+  const card = input.closest(".card");
+  const handle = card.dataset.handle;
+  const fields = manualData[handle] || {};
+  if (input.classList.contains("manual-image")) fields.image_src = input.value;
+  else fields.overview = input.value;
+  manualData[handle] = fields;
+  // Typing in a manual field selects that card's Manual option.
+  if (picks[handle] !== "manual") {
+    picks[handle] = "manual";
+    const radio = card.querySelector('input[type="radio"][value="manual"]');
+    if (radio) radio.checked = true;
+    card.classList.add("decided");
+    updateCounter();
+  }
+  savePicks();
+});
+
+document.getElementById("export").addEventListener("click", () => {
+  const out = [];
+  for (const product of PRODUCTS) {
+    const pick = picks[product.handle];
+    if (pick === undefined) continue;
+    if (pick === "skip") {
+      out.push({handle: product.handle, choice: "skip"});
+    } else if (pick === "manual") {
+      const fields = manualData[product.handle] || {};
+      const image_src = (fields.image_src || "").trim();
+      const overview = (fields.overview || "").trim();
+      if (!image_src && !overview) continue; // nothing typed — skip
+      out.push({handle: product.handle, choice: "manual", image_src, overview});
+    } else {
+      const candidate = product.candidates[Number(pick)];
+      if (!candidate) continue;
+      out.push({
+        handle: product.handle,
+        choice: "tmdb",
+        poster_path: candidate.poster_path,
+        overview: candidate.overview,
+      });
+    }
+  }
+  const blob = new Blob([JSON.stringify(out, null, 2)], {type: "application/json"});
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "tmdb-picks.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
+
+render();
+</script>
+</body>
+</html>

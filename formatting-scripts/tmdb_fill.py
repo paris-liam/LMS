@@ -20,6 +20,39 @@ MATCH_THRESHOLD = 0.9
 MATCH_MARGIN = 0.05
 REQUEST_DELAY_SECONDS = 0.25
 
+# Our Genre metafield holds Shopify taxonomy slugs (one or more, joined with
+# "; "). TMDB has no genre filter on /search/movie, but each result carries
+# genre_ids from TMDB's own fixed movie-genre list — mapped here so a
+# candidate whose genre overlaps ours can get a small score boost. Lossy for
+# slugs with no clean TMDB counterpart ("foreign", "holiday" — left
+# unmapped rather than guessed).
+GENRE_TMDB_IDS: dict[str, set[int]] = {
+    "action": {28},
+    "adventure": {12},
+    "animation": {16},
+    "comedy": {35},
+    "crime": {80},
+    "documentary": {99},
+    "drama": {18},
+    "family": {10751},
+    "kids-family": {10751},
+    "fantasy": {14},
+    "history": {36},
+    "horror": {27},
+    "music": {10402},
+    "musical": {10402},
+    "mystery": {9648},
+    "romance": {10749},
+    "romantic-comedy": {10749, 35},
+    "sci-fi": {878},
+    "science-fiction": {878},
+    "thriller": {53},
+    "tv-movie": {10770},
+    "war": {10752},
+    "western": {37},
+}
+GENRE_SCORE_BOOST = 0.05
+
 YEAR_PATTERN = re.compile(r"\(\s*(\d{4})\s*\)\s*$")
 
 # Packaging/edition noise that isn't part of the movie's real title.
@@ -73,6 +106,19 @@ def title_similarity(a: str, b: str) -> float:
     return difflib.SequenceMatcher(None, normalize_title(a), normalize_title(b)).ratio()
 
 
+def genre_matches(genre: str, result: dict) -> bool:
+    """True if our (possibly "a; b") genre overlaps the TMDB result's genre_ids."""
+    if not genre:
+        return False
+    result_ids = set(result.get("genre_ids") or [])
+    if not result_ids:
+        return False
+    for slug in genre.split(";"):
+        if GENRE_TMDB_IDS.get(slug.strip().lower(), set()) & result_ids:
+            return True
+    return False
+
+
 def search_tmdb(fetch_fn, title: str, year: int | None) -> list[dict]:
     """Search TMDB for a title, falling back to a year-less search if a
     year-filtered search returns nothing (old VHS/DVD release-year metadata
@@ -85,19 +131,34 @@ def search_tmdb(fetch_fn, title: str, year: int | None) -> list[dict]:
     return results
 
 
-def classify_match(clean_title: str, year: int | None, results: list[dict]) -> tuple[dict | None, str]:
+def classify_match(
+    clean_title: str, year: int | None, results: list[dict], genre: str = "",
+) -> tuple[dict | None, str]:
     """Return (candidate_or_None, "confident" | "ambiguous" | "none").
 
     Confident needs all three: a strong title score, no runner-up close
     behind it, and — when the input told us a year — a candidate released
     in that year. A lone weak match is ambiguous, not an answer: across
     thousands of rows that difference is hundreds of wrong posters.
+
+    When our Genre metafield is known, a candidate whose TMDB genres overlap
+    it gets a small score boost (GENRE_SCORE_BOOST) before ranking — nudging
+    a genre-matching candidate ahead of a same-titled one in the wrong genre,
+    or tipping a close call over MATCH_THRESHOLD/MATCH_MARGIN. It cannot
+    manufacture a match on its own: title similarity still has to be in the
+    right neighborhood first.
     """
     if not results:
         return None, "none"
 
+    def score(r: dict) -> float:
+        base = title_similarity(clean_title, r.get("title", ""))
+        if genre_matches(genre, r):
+            base = min(base + GENRE_SCORE_BOOST, 1.0)
+        return base
+
     scored = sorted(
-        ((title_similarity(clean_title, r.get("title", "")), r) for r in results),
+        ((score(r), r) for r in results),
         key=lambda pair: pair[0],
         reverse=True,
     )
@@ -183,7 +244,7 @@ def build_output(
 
         sleep_fn(REQUEST_DELAY_SECONDS)
 
-        best, kind = classify_match(clean_title, year, results)
+        best, kind = classify_match(clean_title, year, results, genre)
 
         if kind == "none":
             review(handle, title, vendor, genre, "unmatched", "no TMDB match")

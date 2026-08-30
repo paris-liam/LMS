@@ -22,7 +22,7 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 High-level tracks the work keeps returning to. **These are not specs** — no formal plan exists for #2 or #4 yet; they're recorded so they aren't forgotten. All prior work has been on the **dev store**; several of these are about eventually getting **production** to parity.
 
 1. **Finish the Supercycle setup + availability/waitlist build** (dev store). In progress — see `docs/superpowers/plans/2026-07-15-availability-filter-and-backinstock-waitlist-admin-runbook.md` (Section A = Supercycle setup, then filter + waitlist). **Near-term.**
-2. **Push the reformatted catalogue to PRODUCTION** (not urgent). **Source of truth = the dev store's current live products** (they carry the in-store TMDB fills, dedup, and tag edits — the pipeline CSV is *not* the authority). Not a blind push: diff production against the dev-store set, reformat any products that exist **only on production** (new since the dev export), and reconcile so production ends up with the full, correctly-formatted catalogue. Data-cleanup pipeline (`data-cleanup/`) is the tooling. Note production is a moving target — the client keeps uploading to it (see #3).
+2. **Push the reformatted catalogue to PRODUCTION** (not urgent). **Source of truth = the dev store's current live products** (they carry the in-store TMDB fills, dedup, and tag edits — the pipeline CSV is *not* the authority). Not a blind push: diff production against the dev-store set, reformat any products that exist **only on production** (new since the dev export), and reconcile so production ends up with the full, correctly-formatted catalogue. The `formatting-scripts/` pipeline is the tooling. Note production is a moving target — the client keeps uploading to it (see #3).
 3. **Updated client product-upload sheet** (near-term). The client uploads products by importing a Google Sheet that's **already in Shopify product-CSV column format, straight into production**. Deliverable: a **corrected CSV template** with our reformatted fields + rental scoping (Rental tag, `shopify.media-format`/`shopify.genre`, one-product-per-movie+format) so his ongoing uploads land already-formatted. **Duplicate handling is deliberately NOT prevented at upload time** — per decision, he bulk-uploads freely (few duplicates expected), and we periodically **export the full catalogue and run a dedupe + reformat pass** (the 2026-07-15 duplicate-cleanup + copy-consolidation plans) to combine copies and normalize. **No products are included in Supercycle on production until the whole catalogue is cataloged**, so copies-as-items happens after that reconciliation, not at upload.
 4. **Stand up all remaining admin work on PRODUCTION** (not urgent): content, collections, Search & Discovery, Supercycle, etc. — the production equivalent of everything configured on the dev store. Depends on #2.
 
@@ -104,11 +104,10 @@ Supercycle is installed, but the **Methods app block on the PDP is not yet mount
 - Homepage sections: `lms-hero`, `lms-new-releases`, `lms-perks-grid`, `lms-promo-pair`, `lms-newsletter`, `lms-social-bar`, `lms-staff-picks` (renamed "Community Picks", sourced from content metaobjects, not product metadata)
 - Events: `lms-events-calendar`, `lms-events-full`, `lms-events-membership` sections, plus a dedicated events page/template, backed by the `event` metaobject (see `claudedocs/events-and-staff-picks-setup.md`)
 - Membership page (`templates/page.membership.json`, `lms-shop-membership` section)
-- Movie catalogue data pipeline (`data-cleanup/`): resale + CircaOS CSV reformatting into a combined Shopify import, with a review-flagging pass for ambiguous rows
+- Movie catalogue data pipeline (`formatting-scripts/`): resale + CircaOS CSV reformatting into a combined Shopify import, with a review-flagging pass for ambiguous rows
 
 ### In progress
 
-- TMDB image/description auto-fill script for the movie catalogue (`data-cleanup/`)
 - Homepage sections beyond Units 1–2 (see `claudedocs/plans/homepage-units-1-2.md` for what's explicitly deferred)
 
 ### Buildable now (no further Supercycle work needed)

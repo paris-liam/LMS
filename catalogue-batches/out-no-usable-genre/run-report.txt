@@ -1,0 +1,8 @@
+input:      catalogue-batches/issue-products/no-usable-genre.csv
+skip:       genre
+force_price_zero: False
+tags added: Issue, Genre needed
+upload.csv: 36 rows written
+issues.csv: 1 rows still broken
+ambiguous:  10 products in review-picker.html
+unmatched:  5 products in tmdb-unmatched.csv

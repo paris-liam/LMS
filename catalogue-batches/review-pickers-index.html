@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Review pickers — batches 3-13</title>
+<title>Review pickers</title>
 <style>
   body { font-family: -apple-system, Helvetica, Arial, sans-serif; max-width: 820px; margin: 2rem auto; padding: 0 1rem; color: #222; }
   h1 { font-size: 1.4rem; }
@@ -24,7 +24,8 @@
 </style>
 </head>
 <body>
-  <h1>Review pickers — product_export batches 3&ndash;13</h1>
+  <h1>Review pickers</h1>
+  <h2 style="font-size:1.15rem; margin-top:1.5rem;">product_export batches 3&ndash;13</h2>
   <p class="note">
     Each row opens that batch's own <code>review-picker.html</code> in a new tab
     (a picker page can't embed another origin's page inline, so this is a launcher,
@@ -63,6 +64,26 @@
     </tbody>
   </table>
 
+  <h2 style="font-size:1.15rem; margin-top:2rem;">Issue-category batches</h2>
+  <p class="note">
+    Best-effort formatted from <code>issues-combined.csv</code> — each was missing exactly
+    one thing (format, genre, type, or a valid rental price) and got tagged for the client
+    to fix the rest. Same picker/apply-picks flow as above.
+  </p>
+  <table>
+    <thead>
+      <tr><th>Batch</th><th>Ambiguous products</th><th class="progress-cell">Progress</th><th>Picker</th></tr>
+    </thead>
+    <tbody id="rows-issues">
+      <tr data-batch="out-no-media-format" data-total="4"><td>no-media-format</td><td>4</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-no-media-format/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-no-usable-genre" data-total="10"><td>no-usable-genre</td><td>10</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-no-usable-genre/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-rental-with-nonzero-price" data-total="12"><td>rental-with-nonzero-price</td><td>12</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-rental-with-nonzero-price/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-no-rental-or-floor-sale-tag" data-total="2"><td>no-rental-or-floor-sale-tag</td><td>2</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-no-rental-or-floor-sale-tag/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product-has-2-variants-deduped" data-total="1"><td>product-has-2-variants-deduped</td><td>1</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product-has-2-variants-deduped/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-floor-sale-with-no-price" data-total="1"><td>floor-sale-with-no-price</td><td>1</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-floor-sale-with-no-price/review-picker.html" target="_blank">Open</a></td></tr>
+    </tbody>
+  </table>
+
 <script>
 if (location.protocol === "file:") {
   document.getElementById("origin-warning").style.display = "block";
@@ -78,7 +99,7 @@ function decidedCount(batchId) {
   }
 }
 
-document.querySelectorAll("#rows tr").forEach(row => {
+document.querySelectorAll("#rows tr, #rows-issues tr").forEach(row => {
   const batchId = row.dataset.batch;
   const total = Number(row.dataset.total);
   const decided = decidedCount(batchId);

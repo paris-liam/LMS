@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Movie review picker — 10 products</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; margin: 2rem auto; max-width: 1080px; padding: 0 1rem; background: #fafafa; color: #222; }
+  header { position: sticky; top: 0; background: #fafafa; padding: .75rem 0; border-bottom: 1px solid #ddd; z-index: 10; display: flex; align-items: center; gap: 1rem; }
+  header h1 { font-size: 1.1rem; margin: 0; flex: 1; }
+  #counter { color: #666; font-size: .9rem; }
+  #export { background: #973123; color: #fff; border: 0; border-radius: 6px; padding: .5rem 1rem; font-size: .9rem; cursor: pointer; }
+  #hide-decided-label { font-size: .9rem; color: #444; display: flex; align-items: center; gap: .35rem; cursor: pointer; }
+  .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+  .card.decided { border-color: #5f8d7a; background: #f4faf7; }
+  body.hide-decided .card.decided { display: none; }
+  .card h2 { font-size: 1.05rem; margin: 0 0 .15rem; display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+  .tags { display: inline-flex; gap: .3rem; }
+  .tag { font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; color: #5f8d7a; background: #eef5f1; border-radius: 3px; padding: .1rem .4rem; }
+  .card .meta { font-size: .8rem; color: #888; margin-bottom: .75rem; }
+  .card .meta a { color: #973123; }
+  .candidates { display: flex; flex-direction: column; gap: .5rem; }
+  label.option { display: flex; gap: .75rem; align-items: flex-start; border: 1px solid #eee; border-radius: 6px; padding: .5rem .75rem; cursor: pointer; }
+  label.option:hover { background: #f5f5f5; }
+  label.option input { margin-top: .3rem; }
+  label.option img { width: 60px; height: auto; border-radius: 3px; flex-shrink: 0; }
+  label.option .no-poster { width: 60px; height: 90px; background: #eee; color: #999; font-size: .65rem; display: flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; }
+  label.option .info { font-size: .85rem; line-height: 1.4; }
+  label.option .info strong { font-size: .9rem; }
+  label.option.special { background: #fdf6f5; }
+  .manual-fields { display: flex; flex-direction: column; gap: .4rem; margin: .25rem 0 0 2rem; }
+  .manual-fields input, .manual-fields textarea { font: inherit; font-size: .85rem; border: 1px solid #ccc; border-radius: 4px; padding: .4rem .5rem; width: 100%; box-sizing: border-box; }
+  .manual-fields textarea { min-height: 4.5em; resize: vertical; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Movie review picker</h1>
+  <span id="counter"></span>
+  <label id="hide-decided-label"><input type="checkbox" id="hide-decided"> Hide decided</label>
+  <button id="export">Export picks (tmdb-picks.json)</button>
+</header>
+<main id="cards"></main>
+<script>
+const PRODUCTS = [{"handle": "good-charlotte-dvd-rental-music", "title": "Good Charlotte", "vendor": "DVD", "genre": "", "reason": "ambiguous match (best candidate: 'Good Charlotte Video Collection' (2003))", "candidates": [{"id": 747340, "title": "Good Charlotte Video Collection", "year": "2003", "overview": "Good Charlotte - The Video Collection :  Little Things,  The Motivation Proclamation,  Festival Song,  Lifestyle of The Rich & Famous,  The Anthem,  Girls & Boys,  The Young & The Hopeless  Special Bonus Features:  Discography,  GC Evolution (Photo Gallery),  Trial TV,  The Click", "poster_path": "/fV7yVKp9qG67GDROrMXPde7mwNx.jpg"}, {"id": 83532, "title": "Good Charlotte - Live at Brixton Academy", "year": "2004", "overview": "Good Charlotte hops across the pond, playing all their biggest hits in support of their breakthrough album The Young And The Hopeless.", "poster_path": "/aVDpS2h7bfhdpNVD2X5mJjYfAES.jpg"}, {"id": 965752, "title": "Good Charlotte - Fast Future Generation", "year": "2006", "overview": "", "poster_path": "/ApjBhOtmQieieaaLFV9bbBM2XyT.jpg"}, {"id": 765298, "title": "Good Charlotte - Live Rock am ring", "year": "2007", "overview": "Good Charlotte - Live Rock  am ring 2007", "poster_path": "/mw6kgOViWCXkDtmN57L36M0TTxZ.jpg"}, {"id": 497931, "title": "Slut in a Good Way", "year": "2018", "overview": "Three 17-year-old girlfriends get a job at the Toy Depot for the holiday season and become smitten with the guys who work alongside them.", "poster_path": "/vchKNivcrFGN1FDRb1jqwn8VdWd.jpg"}]}, {"handle": "havana-vhs-floor-sale", "title": "Havana", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'Havana' (1990))", "candidates": [{"id": 22189, "title": "Havana", "year": "1990", "overview": "During the revolution, a high-stakes gambler arrives in Cuba seeking to win big in poker games. Along the way, he meets and falls in love with the wife of a Communist revolutionary.", "poster_path": "/7R7p63t7aQ7I6OHPgJDwD68PRLj.jpg"}, {"id": 86784, "title": "Club Havana", "year": "1945", "overview": "A number of different characters unfolding love, hate, and death problems during an evening in a fashionable Latin nightclub.", "poster_path": "/30awu3wZfbKti1NCsjyWReaytrM.jpg"}, {"id": 388991, "title": "Transit Havana", "year": "2016", "overview": "In Havana, transsexuals Odette, Juani and Mal\u00fa wait for genital surgery - performed by European top surgeons and organized by the president's daughter, Mariela Castro. Castro is leading a sexual revolution combined with classic state socialism. New possibilities face old problems: will Cuban trans people find happiness despite intolerance, poverty and prostitution?", "poster_path": "/6ztRyNjUevpaAnFWQDiGzJXHzNx.jpg"}, {"id": 956728, "title": "Havana", "year": "2023", "overview": "Jung-min, a rookie lawyer, becomes Yoona\u2019s public attorney, as she is accused of murdering her husband. Against a nasty prosecutor, a mysterious judge, and all the suspicions surrounding the defendant, Jung-min seeks to unravel the truth behind the conspiracies of the case.", "poster_path": "/uR1Oqo5vVX5DGO8oJWI9ugCDXAH.jpg"}, {"id": 581384, "title": "Club Havana", "year": "1975", "overview": "After 12 years away, Mrs Jordan\u2019s son arrives in Birmingham from Jamaica. Writer Barry Reckord returns to the theme of an interracial relationship which causes conflict within a Jamaican family.  Reconstructed from the surviving unedited studio footage by Simon Coward (Research Manager, Kaleidoscope). An episode of the  BBC drama series Second City Firsts.", "poster_path": "/aOBcGDhOgOtMXMYVfXyCxA2tqy1.jpg"}]}, {"handle": "chicago-vhs-floor-sale-chicago", "title": "Chicago", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'Chicago' (2002))", "candidates": [{"id": 1574, "title": "Chicago", "year": "2002", "overview": "Murderesses Velma Kelly and Roxie Hart find themselves on death row together and fight for the fame that will keep them from the gallows in 1920s Chicago.", "poster_path": "/3ED8cWCXY9zkx77Sd0N5qMbsdDP.jpg"}, {"id": 370168, "title": "Chicago Boys", "year": "2015", "overview": "The economists behind the implementation of the most extreme capitalist system in the world observe with surprise the discontent of its countrymen. For the first time, they tell the story of how they became Milton Friedman's students in Chicago in the 1950s and what were they willing to do to pursue their extreme economic ideas, aided by Pinochet's dictatorship in the 70s. Unseen images and testimonies that allow us to understand the historic process that transformed the Chilean people and Chile in the country that it is today, an image of success and discontent.", "poster_path": "/1MUTsl25gWI9pTk8DHKQbNqd5y8.jpg"}, {"id": 128298, "title": "Chicago", "year": "1927", "overview": "Based on a true story, two-timing boozing wife Roxie Hart kills her lover in cold blood after he leaves her, and finagles her way out being indicted.", "poster_path": "/wHhy6wzhEo6zRA0NKWWD7K1jXUu.jpg"}, {"id": 1358097, "title": "Chicago", "year": "1968", "overview": "UCLA Student Film, Preserved by the UCLA Film and Television Archive. A striking documentary shot cinema verite style of the 1968 Democratic National Convention in Chicago, with contrasting film and audio inside the convention center and the protests outside.", "poster_path": ""}, {"id": 862587, "title": "Chicago Digest", "year": "1951", "overview": "This comedy short subject satirizes the Hollywood genre which the French had given the name to of Film Noir.", "poster_path": "/uXhO2Cp60cwgne9jDeBPccZrevy.jpg"}]}, {"handle": "tie-died-vhs", "title": "Tie-Died", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'Tie-Died: Rock 'n Roll's Most Deadicated Fans' (1995))", "candidates": [{"id": 102445, "title": "Tie-Died: Rock 'n Roll's Most Deadicated Fans", "year": "1995", "overview": "Filmed during the Grateful Dead's 1994 summer tour, this film chronicles the lives of the \"Deadheads\"-- free-spirited fans who follow the band around the country.", "poster_path": ""}]}, {"handle": "stevie-vhs", "title": "Stevie", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'Stevie' (2008))", "candidates": [{"id": 115241, "title": "Stevie", "year": "2008", "overview": "A couple unable to conceive adopt a girl with a troubled past, who has an imaginary friend called Stevie. After a series of disturbing incidents, they realize that Stevie is all too real.", "poster_path": "/rNfGihSpa2UIO4jVN6qqTS2H0w7.jpg"}, {"id": 42210, "title": "Stevie", "year": "1978", "overview": "For a poet with a gift for crafting words into barbs, Stevie Smith lives a relatively conventional life. Sheltered in a London suburb, she spends her days engaged in tedious housework, crafting verse and conversing with her aunt. But while her body may be committed to drudgery, Stevie's mind is constantly trying to break free, which causes her to rail against religion and middle-class values, and prevents her from finding happiness with a man interested in her.", "poster_path": "/rJwkmMAYDiUCNNsPU7ebTGldJaG.jpg"}, {"id": 51927, "title": "Stevie", "year": "2003", "overview": "In 1995 Director Steve James (Hoop Dreams) returned to rural Southern Illinois to reconnect with Stevie Fielding, a troubled young boy he had been an 'Advocate Big Brother' to ten years earlier.", "poster_path": "/67TAylTWoysC2ffqVO18do0rwEE.jpg"}, {"id": 430197, "title": "Stevie D", "year": "2016", "overview": "STEVIE D is a humorous crime drama about a Los Angeles construction magnate whose only son has accidentally killed a connected man. A sinister plan is hatched that sends the son into hiding while an unsuccessful actor is hired to fill his shoes and unknowingly take the hit.", "poster_path": "/d5MBlRA3AcbmjmQu6yoPaCcCzjZ.jpg"}, {"id": 626738, "title": "Stevie", "year": "2014", "overview": "'Stevie' is a coming-of-age story about a small-town tomboy who experiences romance for the first time when a young man, Justin, and his sister, Angie, move into town. She is pursued by Justin, and, with pressure from her younger, girly-girl sister, agrees to go out with him, but is surprised by the feelings she has for Angie after they all spend a night out together.", "poster_path": "/fKMd91vZYMaL1UHtfbPCbQil68x.jpg"}]}, {"handle": "teachers", "title": "Teachers", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'Teachers' (1984))", "candidates": [{"id": 31601, "title": "Teachers", "year": "1984", "overview": "A teacher reconnects with an old student who is now an attorney representing a family who is suing the school for graduating their son who still cannot read or write.  Amid the daily chaos of teaching in an inner city school, Alex Jurel tries to decide if he will lie at his deposition to protect the school or tell the truth and risk throwing away his career.", "poster_path": "/foWZXdAeNtMubNrjYqSni6iDuVp.jpg"}, {"id": 998022, "title": "The Teachers' Lounge", "year": "2023", "overview": "When one of her students is suspected of theft, teacher Carla Nowak decides to get to the bottom of the matter. Caught between her ideals and the school system, the consequences of her actions threaten to break her.", "poster_path": "/kWXA6PfQ0PpZpoCXoeBFRciRrUw.jpg"}, {"id": 1513184, "title": "Teachers", "year": "2008", "overview": "Tim Donnely is a fresh-faced teacher ready to start the first day of his new career at Holden K-12. Little does he know that teaching requires more than a \"by-the-book\" attitude and a structured curriculum, which is quickly made apparent to him by the rest of the faculty and his new teacher-friend, Justin Hughes.", "poster_path": ""}, {"id": 538338, "title": "Love Between Teachers and Students", "year": "2018", "overview": "Two successful, beautiful women compete for status by involving a handsome student. Will they succeed in their games and seduction?", "poster_path": "/3OL6bN9jUV6lKYjAyIEO802h1E4.jpg"}, {"id": 781788, "title": "Teachers", "year": "2021", "overview": "Agnes, an undercover police woman become a sport teacher in school and team up with Meg, a school teacher to catch a drug dealer in the school.", "poster_path": "/vbfj2kFhM1XiN84g77TAI7pl4AJ.jpg"}]}, {"handle": "zack-reba", "title": "Zack & Reba", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'Zack and Reba' (1998))", "candidates": [{"id": 101539, "title": "Zack and Reba", "year": "1998", "overview": "Two young adults who are coping with the deaths of their partners try to move forward with their lives and start a relationship with each other.", "poster_path": "/cHwhT3XpPn7HHRDANVhKlKdjGLo.jpg"}]}, {"handle": "street-smart", "title": "Street Smart", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'STREET SMART' (2026))", "candidates": [{"id": 1609580, "title": "STREET SMART", "year": "2026", "overview": "A Japanese drama film that explores family issues in contemporary society.", "poster_path": "/7V029fFThWiUjr335ic6rVUUian.jpg"}, {"id": 60631, "title": "Street Smart", "year": "1987", "overview": "A New York journalist lies when his fake story about a pimp describes a real pimp up for murder.", "poster_path": "/7aPwpPjrEozWWBr4fZEwmFeTEh5.jpg"}, {"id": 1434326, "title": "Street Smart", "year": "2026", "overview": "A look into the lives of a lively group of unhoused young adults in the iconic beach town, who come together with humor and a bit of Robin Hood-style larceny, forging unbreakable bonds and redefining what it means to be a family.", "poster_path": "/8Zc9TceMjwkfVv2IkH4BrP5dXmK.jpg"}, {"id": 642488, "title": "Mickey's Safety Club: Street Safe, Street Smart", "year": "1989", "overview": "Mickey and his friends take a close look at important street safety situations and tips.", "poster_path": "/4pfoP47sMClmkXwYYaUfb8gl08T.jpg"}, {"id": 1506473, "title": "STREET SMART: Lessons from a TV Icon", "year": "2025", "overview": "STREET SMART: LESSONS FROM A TV ICON is a feature documentary about Sonia Manzano \u2014 known to millions as \u201cMaria\u201d from SESAME STREET. The film follows Sonia\u2019s remarkable journey, from a young girl in the South Bronx finding refuge in television, to becoming the first Latina on American TV in a regular role, through 44 years on screen on SESAME STREET, and now as a creator of ALMA'S WAY. Featuring interviews with luminaries, original animation, and scripted scenes that blend humor and heart, this inspirational documentary invites viewers to learn once again from this beloved icon.", "poster_path": "/6xoHpv7xQjuzIgZFAM0gb57HreB.jpg"}]}, {"handle": "conan-the-barbarian", "title": "Conan The Barbarian", "vendor": "Blu-Ray", "genre": "", "reason": "ambiguous match (best candidate: 'Conan the Barbarian' (1982))", "candidates": [{"id": 9387, "title": "Conan the Barbarian", "year": "1982", "overview": "A horde of rampaging warriors massacre the parents of young Conan and enslave the young child for years on The Wheel of Pain. As the sole survivor of the childhood massacre, Conan is released from slavery and taught the ancient arts of fighting. Transforming himself into a killing machine, Conan travels into the wilderness to seek vengeance on Thulsa Doom, the man responsible for killing his family. In the wilderness, Conan takes up with the thieves Valeria and Subotai. The group comes upon King Osric, who wants the trio of warriors to help rescue his daughter who has joined Doom in the hills.", "poster_path": "/qw2A587Ee61IwcSOLNFRhuOACZZ.jpg"}, {"id": 37430, "title": "Conan the Barbarian", "year": "2011", "overview": "A quest that begins as a personal vendetta for the fierce Cimmerian warrior soon turns into an epic battle against hulking rivals, horrific monsters, and impossible odds, as Conan realizes he is the only hope of saving the great nations of Hyboria from an encroaching reign of supernatural evil.", "poster_path": "/sSMjZmOtqzlRTYSUFPmIXTV4rhh.jpg"}, {"id": 620492, "title": "A Riddle of Steel: The Definitive History of Conan the Barbarian", "year": "2019", "overview": "The story of Conan the Cimmerian, from Robert E. Howard's pulp fiction anti-hero to pop culture icon.", "poster_path": "/jfezbV8LQIhRF0bNvvIPTuRbG6D.jpg"}, {"id": 1580557, "title": "Conan the Barbarian's Cave", "year": "2025", "overview": "The caves of Almer\u00eda where Conan the Barbarian was filmed bear the profound imprint that cinema leaves on the places where it is shot. What happens when the myth of fiction fades? Can we reuse that imprint to imagine something different through it?", "poster_path": "/r26gf5be4fcqDG5DmPjcVFyyead.jpg"}, {"id": 724846, "title": "She Is Conann", "year": "2023", "overview": "Traveling through the abyss, underworld dog Rainer recounts the six lives of Conann, perpetually put to death by her own future, across eras, myths and ages. From her childhood, a slave of Sanja and her barbarian horde, to her accession to the summits of cruelty at the doors of our world.", "poster_path": "/hbfBdnTZPedsnin0n86dpuYLD7t.jpg"}]}, {"handle": "cocktail", "title": "Cocktail", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'Cocktail' (1988))", "candidates": [{"id": 1392469, "title": "Cocktail 2", "year": "2026", "overview": "A vacation in Sicily forces longtime partners Diya and Kunal to question their love and commitment after they reunite with Diya's old friend Ally.", "poster_path": "/oIQmtByV1LtEQSwM4EpdLTyoSlM.jpg"}, {"id": 7520, "title": "Cocktail", "year": "1988", "overview": "After being discharged from the Army, Brian Flanagan moves back to Queens and takes a job in a bar run by Doug Coughlin, who teaches Brian the fine art of bar-tending. Brian quickly becomes a patron favorite with his flashy drink-mixing style, and Brian adopts his mentor's cynical philosophy on life and goes for the money.", "poster_path": "/jFRhEPhtsln9tDwzMdZN3OlhUob.jpg"}, {"id": 118051, "title": "Cocktail", "year": "2012", "overview": "A shy simple traditional girl leaves her family in India for her new husband in London, where she meets a shameless flirt and a complicated party girl.", "poster_path": "/v7jnxqLjarV8LXUXKPU6WKE78CK.jpg"}, {"id": 61268, "title": "Cocktail", "year": "2006", "overview": "The melancholy Candy runs the Half Mortal, a trendy bar in Hong Kong. She hires Paul; Stella, a part-time employee who's a college student in psychology, trains him. He has a gift for mixing the perfect drink to fit each customer's emotional needs. His own emotions, however, are complex: his father, an alcoholic, has died recently; he's abandoned his studies; and, although he's likes Stella, he's a tyro with women and inarticulate with her. Is alcohol the key to happiness, as Paul wonders; does it simply change peoples' personality, as Stella thinks; or, is it just there, as Candy's business sense tells her? Can Paul and Stella blend into something smooth?", "poster_path": "/kmXLEUu4oCHtm9KOOEt8H6riW9p.jpg"}, {"id": 381075, "title": "Teenage Cocktail", "year": "2016", "overview": "Feeling confined by their small town and overbearing parents, Annie and Jules hatch a scheme of running away. The only issue is, they need the money to get there. Jules suggests the couple try webcam modeling. Although she\u2019s nervous at first, Annie can\u2019t argue when the money starts rolling in. But as the girls soon find out, consequences can blindside you. Sometimes violently.", "poster_path": "/24Hbcq4KnvvWPPz8WYZuAIG5S6K.jpg"}]}];
+const BATCH_ID = "out-no-usable-genre";
+const STORAGE_KEY = "tmdb-review-picks::" + BATCH_ID;
+const MANUAL_KEY = "tmdb-review-manual::" + BATCH_ID;
+const HIDE_DECIDED_KEY = "tmdb-review-hide-decided::" + BATCH_ID;
+// Pre-namespacing pages all wrote to this one shared key. Migrate any
+// entries for this batch's own handles into the namespaced key below,
+// so picks made before this page was regenerated aren't lost.
+const LEGACY_STORAGE_KEY = "tmdb-review-picks";
+const LEGACY_MANUAL_KEY = "tmdb-review-manual";
+
+function loadStored(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || {}; }
+  catch (e) { return {}; }
+}
+let picks = loadStored(STORAGE_KEY);
+let manualData = loadStored(MANUAL_KEY);
+
+// One-time migration: pull this batch's own handles out of the old shared
+// key, so picks made before namespacing existed aren't lost or, worse,
+// don't leak other batches' decided counts into this page's counter.
+(function migrateLegacyPicks() {
+  const handles = new Set(PRODUCTS.map(p => p.handle));
+  const legacyPicks = loadStored(LEGACY_STORAGE_KEY);
+  const legacyManual = loadStored(LEGACY_MANUAL_KEY);
+  let changed = false;
+  for (const handle of Object.keys(legacyPicks)) {
+    if (handles.has(handle) && !(handle in picks)) {
+      picks[handle] = legacyPicks[handle];
+      changed = true;
+    }
+  }
+  for (const handle of Object.keys(legacyManual)) {
+    if (handles.has(handle) && !(handle in manualData)) {
+      manualData[handle] = legacyManual[handle];
+      changed = true;
+    }
+  }
+  if (changed) savePicks();
+})();
+
+function savePicks() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(picks));
+  localStorage.setItem(MANUAL_KEY, JSON.stringify(manualData));
+}
+
+function esc(text) {
+  const div = document.createElement("div");
+  div.textContent = text || "";
+  return div.innerHTML;
+}
+
+function optionHtml(handle, value, checked, extraClass, inner) {
+  return `<label class="option ${extraClass}">
+    <input type="radio" name="pick-${esc(handle)}" value="${value}" ${checked ? "checked" : ""}>
+    ${inner}
+  </label>`;
+}
+
+function render() {
+  const cards = document.getElementById("cards");
+  cards.innerHTML = PRODUCTS.map(product => {
+    const current = picks[product.handle];
+    const searchUrl = "https://www.themoviedb.org/search?query=" + encodeURIComponent(product.title);
+    const googleUrl = "https://www.google.com/search?q=" + encodeURIComponent(product.title + " movie");
+    const options = product.candidates.map((candidate, i) => {
+      const poster = candidate.poster_path
+        ? `<img src="https://image.tmdb.org/t/p/w185${esc(candidate.poster_path)}" alt="" loading="lazy">`
+        : '<div class="no-poster">no poster</div>';
+      const overview = candidate.overview ? esc(candidate.overview) : "<em>(no overview)</em>";
+      return optionHtml(product.handle, String(i), current === String(i), "",
+        `${poster}<span class="info"><strong>${esc(candidate.title)}</strong> (${esc(candidate.year) || "?"})<br>${overview}</span>`);
+    }).join("");
+    const tags = [product.vendor, product.genre].filter(Boolean);
+    const tagsHtml = tags.length
+      ? `<span class="tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</span>`
+      : "";
+    return `<section class="card ${current !== undefined ? "decided" : ""}" data-handle="${esc(product.handle)}">
+      <h2>${esc(product.title)} ${tagsHtml}</h2>
+      <div class="meta"><code>${esc(product.handle)}</code> — ${esc(product.reason)}
+        · <a href="${searchUrl}" target="_blank">TMDB search</a>
+        · <a href="${googleUrl}" target="_blank">Google</a></div>
+      <div class="candidates">
+        ${options}
+        ${optionHtml(product.handle, "manual", current === "manual", "special",
+          `<span class="info" style="flex:1"><strong>Manual entry</strong> — fill in what you found
+            <span class="manual-fields">
+              <input type="url" class="manual-image" placeholder="Image URL (leave blank to keep current)"
+                     value="${esc((manualData[product.handle] || {}).image_src || "")}">
+              <textarea class="manual-overview" placeholder="Description (leave blank to keep current)">${esc((manualData[product.handle] || {}).overview || "")}</textarea>
+            </span>
+          </span>`)}
+        ${optionHtml(product.handle, "skip", current === "skip", "special",
+          '<span class="info"><strong>Skip this one</strong> — leave it for a later pass</span>')}
+        ${optionHtml(product.handle, "undecided", current === undefined, "",
+          '<span class="info">Decide later</span>')}
+      </div>
+    </section>`;
+  }).join("");
+  updateCounter();
+}
+
+function updateCounter() {
+  const decided = Object.keys(picks).length;
+  document.getElementById("counter").textContent = `${decided} / ${PRODUCTS.length} decided`;
+}
+
+const hideDecidedBox = document.getElementById("hide-decided");
+hideDecidedBox.checked = localStorage.getItem(HIDE_DECIDED_KEY) === "1";
+document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+hideDecidedBox.addEventListener("change", () => {
+  document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+  localStorage.setItem(HIDE_DECIDED_KEY, hideDecidedBox.checked ? "1" : "0");
+});
+
+document.getElementById("cards").addEventListener("change", event => {
+  const input = event.target;
+  if (input.type !== "radio") return;
+  const handle = input.closest(".card").dataset.handle;
+  if (input.value === "undecided") {
+    delete picks[handle];
+  } else {
+    picks[handle] = input.value;
+  }
+  savePicks();
+  input.closest(".card").classList.toggle("decided", picks[handle] !== undefined);
+  updateCounter();
+});
+
+document.getElementById("cards").addEventListener("input", event => {
+  const input = event.target;
+  if (!input.classList.contains("manual-image") && !input.classList.contains("manual-overview")) return;
+  const card = input.closest(".card");
+  const handle = card.dataset.handle;
+  const fields = manualData[handle] || {};
+  if (input.classList.contains("manual-image")) fields.image_src = input.value;
+  else fields.overview = input.value;
+  manualData[handle] = fields;
+  // Typing in a manual field selects that card's Manual option.
+  if (picks[handle] !== "manual") {
+    picks[handle] = "manual";
+    const radio = card.querySelector('input[type="radio"][value="manual"]');
+    if (radio) radio.checked = true;
+    card.classList.add("decided");
+    updateCounter();
+  }
+  savePicks();
+});
+
+document.getElementById("export").addEventListener("click", () => {
+  const out = [];
+  for (const product of PRODUCTS) {
+    const pick = picks[product.handle];
+    if (pick === undefined) continue;
+    if (pick === "skip") {
+      out.push({handle: product.handle, choice: "skip"});
+    } else if (pick === "manual") {
+      const fields = manualData[product.handle] || {};
+      const image_src = (fields.image_src || "").trim();
+      const overview = (fields.overview || "").trim();
+      if (!image_src && !overview) continue; // nothing typed — skip
+      out.push({handle: product.handle, choice: "manual", image_src, overview});
+    } else {
+      const candidate = product.candidates[Number(pick)];
+      if (!candidate) continue;
+      out.push({
+        handle: product.handle,
+        choice: "tmdb",
+        poster_path: candidate.poster_path,
+        overview: candidate.overview,
+      });
+    }
+  }
+  const blob = new Blob([JSON.stringify(out, null, 2)], {type: "application/json"});
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "tmdb-picks.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
+
+render();
+</script>
+</body>
+</html>

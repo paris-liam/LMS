@@ -1,0 +1,8 @@
+input:      catalogue-batches/issue-products/no-media-format.csv
+skip:       format
+force_price_zero: False
+tags added: Issue, Needs-Format
+upload.csv: 25 rows written
+issues.csv: 0 rows still broken
+ambiguous:  4 products in review-picker.html
+unmatched:  3 products in tmdb-unmatched.csv

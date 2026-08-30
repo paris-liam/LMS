@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Movie review picker — 1 products</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; margin: 2rem auto; max-width: 1080px; padding: 0 1rem; background: #fafafa; color: #222; }
+  header { position: sticky; top: 0; background: #fafafa; padding: .75rem 0; border-bottom: 1px solid #ddd; z-index: 10; display: flex; align-items: center; gap: 1rem; }
+  header h1 { font-size: 1.1rem; margin: 0; flex: 1; }
+  #counter { color: #666; font-size: .9rem; }
+  #export { background: #973123; color: #fff; border: 0; border-radius: 6px; padding: .5rem 1rem; font-size: .9rem; cursor: pointer; }
+  #hide-decided-label { font-size: .9rem; color: #444; display: flex; align-items: center; gap: .35rem; cursor: pointer; }
+  .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+  .card.decided { border-color: #5f8d7a; background: #f4faf7; }
+  body.hide-decided .card.decided { display: none; }
+  .card h2 { font-size: 1.05rem; margin: 0 0 .15rem; display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+  .tags { display: inline-flex; gap: .3rem; }
+  .tag { font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; color: #5f8d7a; background: #eef5f1; border-radius: 3px; padding: .1rem .4rem; }
+  .card .meta { font-size: .8rem; color: #888; margin-bottom: .75rem; }
+  .card .meta a { color: #973123; }
+  .candidates { display: flex; flex-direction: column; gap: .5rem; }
+  label.option { display: flex; gap: .75rem; align-items: flex-start; border: 1px solid #eee; border-radius: 6px; padding: .5rem .75rem; cursor: pointer; }
+  label.option:hover { background: #f5f5f5; }
+  label.option input { margin-top: .3rem; }
+  label.option img { width: 60px; height: auto; border-radius: 3px; flex-shrink: 0; }
+  label.option .no-poster { width: 60px; height: 90px; background: #eee; color: #999; font-size: .65rem; display: flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; }
+  label.option .info { font-size: .85rem; line-height: 1.4; }
+  label.option .info strong { font-size: .9rem; }
+  label.option.special { background: #fdf6f5; }
+  .manual-fields { display: flex; flex-direction: column; gap: .4rem; margin: .25rem 0 0 2rem; }
+  .manual-fields input, .manual-fields textarea { font: inherit; font-size: .85rem; border: 1px solid #ccc; border-radius: 4px; padding: .4rem .5rem; width: 100%; box-sizing: border-box; }
+  .manual-fields textarea { min-height: 4.5em; resize: vertical; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Movie review picker</h1>
+  <span id="counter"></span>
+  <label id="hide-decided-label"><input type="checkbox" id="hide-decided"> Hide decided</label>
+  <button id="export">Export picks (tmdb-picks.json)</button>
+</header>
+<main id="cards"></main>
+<script>
+const PRODUCTS = [{"handle": "the-call-dvd-floor-sale-thriller", "title": "The Call", "vendor": "DVD", "genre": "thriller", "reason": "ambiguous match (best candidate: 'The Call' (2013))", "candidates": [{"id": 158011, "title": "The Call", "year": "2013", "overview": "Jordan Turner is an experienced 911 operator but when she makes an error in judgment and a call ends badly, Jordan is rattled and unsure if she can continue. But when teenager Casey Welson is abducted in the back of a man's car and calls 911, Jordan is the one called upon to use all of her experience, insights and quick thinking to help Casey escape, and not just to save her, but to make sure the man is brought to justice.", "poster_path": "/mG334OlDVJpD8gMfTCM2Mpp0gQH.jpg"}, {"id": 481848, "title": "The Call of the Wild", "year": "2020", "overview": "Buck is a big-hearted dog whose blissful domestic life is turned upside down when he is suddenly uprooted from his California home and transplanted to the exotic wilds of the Yukon during the Gold Rush of the 1890s. As the newest rookie on a mail delivery dog sled team\u2014and later its leader\u2014Buck experiences the adventure of a lifetime, ultimately finding his true place in the world and becoming his own master.", "poster_path": "/33VdppGbeNxICrFUtW2WpGHvfYc.jpg"}, {"id": 575604, "title": "The Call", "year": "2020", "overview": "Connected by phone in the same home but 20 years apart, a caller puts a woman\u2019s past \u2014 and life \u2014 on the line to change her own fate.", "poster_path": "/oz8hvZHg7tIdGwh0ErPRhobJKPR.jpg"}, {"id": 472418, "title": "The Call", "year": "2004", "overview": "A popular and common urban legend. Jill is babysitting for Ms. McKenzie, who leaves Jill alone in the house late at night while the children sleep peacefully upstairs. While Jill does her homework, she receives a mysterious phone call. The caller doesn't say anything except: \"Have you checked the children?\" Jill is confused and believes it is Ms. McKenzie playing a particle joke. After several similar calls, Jill realizes the caller is not who she thinks it is. She becomes frightened and calls the police. Sargent Clifford comes to Jill's aid in solving the mystery of the phone calls. Together they find the origin of the phone calls and discover they are coming from inside the house!", "poster_path": ""}, {"id": 1226274, "title": "The Call", "year": "2023", "overview": "During a difficult visit to her single immigrant mother, Athena discovers that what she thought was age-related mental decline is in fact an inherited magical gift.", "poster_path": "/kh8SZVRc6O9Aim3PSKC4yFGobBb.jpg"}]}];
+const BATCH_ID = "out-floor-sale-with-no-price";
+const STORAGE_KEY = "tmdb-review-picks::" + BATCH_ID;
+const MANUAL_KEY = "tmdb-review-manual::" + BATCH_ID;
+const HIDE_DECIDED_KEY = "tmdb-review-hide-decided::" + BATCH_ID;
+// Pre-namespacing pages all wrote to this one shared key. Migrate any
+// entries for this batch's own handles into the namespaced key below,
+// so picks made before this page was regenerated aren't lost.
+const LEGACY_STORAGE_KEY = "tmdb-review-picks";
+const LEGACY_MANUAL_KEY = "tmdb-review-manual";
+
+function loadStored(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || {}; }
+  catch (e) { return {}; }
+}
+let picks = loadStored(STORAGE_KEY);
+let manualData = loadStored(MANUAL_KEY);
+
+// One-time migration: pull this batch's own handles out of the old shared
+// key, so picks made before namespacing existed aren't lost or, worse,
+// don't leak other batches' decided counts into this page's counter.
+(function migrateLegacyPicks() {
+  const handles = new Set(PRODUCTS.map(p => p.handle));
+  const legacyPicks = loadStored(LEGACY_STORAGE_KEY);
+  const legacyManual = loadStored(LEGACY_MANUAL_KEY);
+  let changed = false;
+  for (const handle of Object.keys(legacyPicks)) {
+    if (handles.has(handle) && !(handle in picks)) {
+      picks[handle] = legacyPicks[handle];
+      changed = true;
+    }
+  }
+  for (const handle of Object.keys(legacyManual)) {
+    if (handles.has(handle) && !(handle in manualData)) {
+      manualData[handle] = legacyManual[handle];
+      changed = true;
+    }
+  }
+  if (changed) savePicks();
+})();
+
+function savePicks() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(picks));
+  localStorage.setItem(MANUAL_KEY, JSON.stringify(manualData));
+}
+
+function esc(text) {
+  const div = document.createElement("div");
+  div.textContent = text || "";
+  return div.innerHTML;
+}
+
+function optionHtml(handle, value, checked, extraClass, inner) {
+  return `<label class="option ${extraClass}">
+    <input type="radio" name="pick-${esc(handle)}" value="${value}" ${checked ? "checked" : ""}>
+    ${inner}
+  </label>`;
+}
+
+function render() {
+  const cards = document.getElementById("cards");
+  cards.innerHTML = PRODUCTS.map(product => {
+    const current = picks[product.handle];
+    const searchUrl = "https://www.themoviedb.org/search?query=" + encodeURIComponent(product.title);
+    const googleUrl = "https://www.google.com/search?q=" + encodeURIComponent(product.title + " movie");
+    const options = product.candidates.map((candidate, i) => {
+      const poster = candidate.poster_path
+        ? `<img src="https://image.tmdb.org/t/p/w185${esc(candidate.poster_path)}" alt="" loading="lazy">`
+        : '<div class="no-poster">no poster</div>';
+      const overview = candidate.overview ? esc(candidate.overview) : "<em>(no overview)</em>";
+      return optionHtml(product.handle, String(i), current === String(i), "",
+        `${poster}<span class="info"><strong>${esc(candidate.title)}</strong> (${esc(candidate.year) || "?"})<br>${overview}</span>`);
+    }).join("");
+    const tags = [product.vendor, product.genre].filter(Boolean);
+    const tagsHtml = tags.length
+      ? `<span class="tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</span>`
+      : "";
+    return `<section class="card ${current !== undefined ? "decided" : ""}" data-handle="${esc(product.handle)}">
+      <h2>${esc(product.title)} ${tagsHtml}</h2>
+      <div class="meta"><code>${esc(product.handle)}</code> — ${esc(product.reason)}
+        · <a href="${searchUrl}" target="_blank">TMDB search</a>
+        · <a href="${googleUrl}" target="_blank">Google</a></div>
+      <div class="candidates">
+        ${options}
+        ${optionHtml(product.handle, "manual", current === "manual", "special",
+          `<span class="info" style="flex:1"><strong>Manual entry</strong> — fill in what you found
+            <span class="manual-fields">
+              <input type="url" class="manual-image" placeholder="Image URL (leave blank to keep current)"
+                     value="${esc((manualData[product.handle] || {}).image_src || "")}">
+              <textarea class="manual-overview" placeholder="Description (leave blank to keep current)">${esc((manualData[product.handle] || {}).overview || "")}</textarea>
+            </span>
+          </span>`)}
+        ${optionHtml(product.handle, "skip", current === "skip", "special",
+          '<span class="info"><strong>Skip this one</strong> — leave it for a later pass</span>')}
+        ${optionHtml(product.handle, "undecided", current === undefined, "",
+          '<span class="info">Decide later</span>')}
+      </div>
+    </section>`;
+  }).join("");
+  updateCounter();
+}
+
+function updateCounter() {
+  const decided = Object.keys(picks).length;
+  document.getElementById("counter").textContent = `${decided} / ${PRODUCTS.length} decided`;
+}
+
+const hideDecidedBox = document.getElementById("hide-decided");
+hideDecidedBox.checked = localStorage.getItem(HIDE_DECIDED_KEY) === "1";
+document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+hideDecidedBox.addEventListener("change", () => {
+  document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+  localStorage.setItem(HIDE_DECIDED_KEY, hideDecidedBox.checked ? "1" : "0");
+});
+
+document.getElementById("cards").addEventListener("change", event => {
+  const input = event.target;
+  if (input.type !== "radio") return;
+  const handle = input.closest(".card").dataset.handle;
+  if (input.value === "undecided") {
+    delete picks[handle];
+  } else {
+    picks[handle] = input.value;
+  }
+  savePicks();
+  input.closest(".card").classList.toggle("decided", picks[handle] !== undefined);
+  updateCounter();
+});
+
+document.getElementById("cards").addEventListener("input", event => {
+  const input = event.target;
+  if (!input.classList.contains("manual-image") && !input.classList.contains("manual-overview")) return;
+  const card = input.closest(".card");
+  const handle = card.dataset.handle;
+  const fields = manualData[handle] || {};
+  if (input.classList.contains("manual-image")) fields.image_src = input.value;
+  else fields.overview = input.value;
+  manualData[handle] = fields;
+  // Typing in a manual field selects that card's Manual option.
+  if (picks[handle] !== "manual") {
+    picks[handle] = "manual";
+    const radio = card.querySelector('input[type="radio"][value="manual"]');
+    if (radio) radio.checked = true;
+    card.classList.add("decided");
+    updateCounter();
+  }
+  savePicks();
+});
+
+document.getElementById("export").addEventListener("click", () => {
+  const out = [];
+  for (const product of PRODUCTS) {
+    const pick = picks[product.handle];
+    if (pick === undefined) continue;
+    if (pick === "skip") {
+      out.push({handle: product.handle, choice: "skip"});
+    } else if (pick === "manual") {
+      const fields = manualData[product.handle] || {};
+      const image_src = (fields.image_src || "").trim();
+      const overview = (fields.overview || "").trim();
+      if (!image_src && !overview) continue; // nothing typed — skip
+      out.push({handle: product.handle, choice: "manual", image_src, overview});
+    } else {
+      const candidate = product.candidates[Number(pick)];
+      if (!candidate) continue;
+      out.push({
+        handle: product.handle,
+        choice: "tmdb",
+        poster_path: candidate.poster_path,
+        overview: candidate.overview,
+      });
+    }
+  }
+  const blob = new Blob([JSON.stringify(out, null, 2)], {type: "application/json"});
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "tmdb-picks.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
+
+render();
+</script>
+</body>
+</html>
