@@ -6,6 +6,7 @@ a genre is never inferred from a title and a type is never inferred from a
 price, because both would silently mislabel physical shelf stock.
 """
 
+from columns import FORMATTED_TAG
 from taxonomy import canonical_format, canonical_genre, canonical_type
 
 def split_list(value: str) -> list[str]:
@@ -127,9 +128,11 @@ def resolve_price(product_type: str, raw_price: str) -> tuple[str | None, str | 
 
 
 def extra_tags(tags: list[str]) -> list[str]:
-    """Tags that are not a type, a format or a genre — curation labels."""
+    """Tags that are not a type, a format, a genre or the Formatted marker —
+    curation labels."""
     kept = [
         tag for tag in tags
-        if not (canonical_type(tag) or canonical_format(tag) or canonical_genre(tag))
+        if tag != FORMATTED_TAG
+        and not (canonical_type(tag) or canonical_format(tag) or canonical_genre(tag))
     ]
     return _dedupe(kept)

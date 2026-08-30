@@ -1,0 +1,501 @@
+Handle,Title,Body (HTML),Vendor,Product Category,Type,Tags,Published,Option1 Name,Option1 Value,Option1 Linked To,Option2 Name,Option2 Value,Option2 Linked To,Option3 Name,Option3 Value,Option3 Linked To,Variant SKU,Variant Grams,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Compare At Price,Variant Requires Shipping,Variant Taxable,Unit Price Total Measure,Unit Price Total Measure Unit,Unit Price Base Measure,Unit Price Base Measure Unit,Variant Barcode,Image Src,Image Position,Image Alt Text,Gift Card,SEO Title,SEO Description,Rental Availability (product.metafields.scf.avf),Genre (product.metafields.shopify.genre),Language version (product.metafields.shopify.language-version),Media content type (product.metafields.shopify.media-content-type),MPAA rating (product.metafields.shopify.mpaa-rating),Target audience (product.metafields.shopify.target-audience),Variant Image,Variant Weight Unit,Variant Tax Code,Cost per item,Status
+flight-plan-dvd-rental-thriller,Flightplan,,DVD,Uncategorized,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41421306,,,,false,,,,,,,,,,lb,,,active
+snowmageddon-dvd-rental-thriller,Snowmageddon,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,40765946,,,,false,,,,,,,,,,lb,,,active
+battledogs-dvd-rental-horror,Battledogs,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,04642810,,,,false,,,,,,,,,,lb,,,active
+dark-ride-dvd-rental-horror,Dark Ride,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,03987450,,,,false,,,,,,,,,,lb,,,active
+paranoid-dvd-rental-horror,Paranoid,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,03954682,,,,false,,,,,,,,,,lb,,,active
+last-vegas-dvd-rental-comedy,Last Vegas,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,03299322,,,,false,,,,,,,,,,lb,,,active
+role-models-dvd-rental-comedy,Role Models,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,03266554,,,,false,,,,,,,,,,lb,,,active
+bruce-almighty-dvd-rental-comedy,Bruce Almighty,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,02578426,,,,false,,,,,,,,,,lb,,,active
+the-toy-dvd-rental-comedy,The Toy,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,01824762,,,,false,,,,,,,,,,lb,,,active
+corporate-animals-dvd-rental-comedy,Corporate Animals,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,01791994,,,,false,,,,,,,,,,lb,,,active
+half-brothers-dvd-rental-comedy,Half Brothers,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,01759226,,,,false,,,,,,,,,,lb,,,active
+send-it-dvd-rental-comedy,Send It!,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,01103866,,,,false,,,,,,,,,,lb,,,active
+instant-family-dvd-rental-comedy,Instant Family,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,00448506,,,,false,,,,,,,,,,lb,,,active
+the-fugitive-kind-dvd-rental-drama,The Fugitive Kind,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,00382970,,,,false,,,,,,,,,,lb,,,active
+ginger-in-the-morning-dvd-rental-drama,Ginger in the Morning,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,99694842,,,,false,,,,,,,,,,lb,,,active
+the-graduate-dvd-rental-drama,The Graduate,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,99629306,,,,false,,,,,,,,,,lb,,,active
+professor-and-the-madman-dvd-rental-drama,Professor and the Madman,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,98973946,,,,false,,,,,,,,,,lb,,,active
+brothers-by-blood-dvd-rental-drama,Brothers by Blood,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,98777338,,,,false,,,,,,,,,,lb,,,active
+against-the-ropes-contrecoups-dvd-rental-drama,Against the Ropes: Contrecoups,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,98711802,,,,false,,,,,,,,,,lb,,,active
+thunderhead-son-of-flicka-dvd-rental-kids-family,Thunderhead: Son of Flicka,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,98023674,,,,false,,,,,,,,,,lb,,,active
+the-call-of-the-wild-dvd-rental-kids-family,The Call of the Wild,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97990906,,,,false,,,,,,,,,,lb,,,active
+hero-dog-the-journey-home-dvd-rental-kids-family,Hero Dog: The Journey Home,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97335546,,,,false,,,,,,,,,,lb,,,active
+the-nut-job-nut-job-2-dvd-rental-kids-family,The Nut Job & Nut Job 2,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97302778,,,,false,,,,,,,,,,lb,,,active
+invasion-of-the-tinysauruses-dvd-rental-kids-family,Invasion of the Tinysauruses,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96647418,,,,false,,,,,,,,,,lb,,,active
+the-sorcerers-apprentice-dvd-rental-kids-family,The Sorcerer's Apprentice,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,95992058,,,,false,,,,,,,,,,lb,,,active
+guess-who-dvd-rental-romantic-comedy,Guess Who,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,95926522,,,,false,,,,,,,,,,lb,,,active
+christmas-with-the-kranks-dvd-rental-holiday,Christmas with the Kranks,,DVD,,,"Holiday, Rental",true,Genre,Holiday,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,95893754,,,,false,,,,,,,,,,lb,,,active
+this-is-christmas-dvd-rental-holiday,This is Christmas,,DVD,,,"Holiday, Rental",true,Genre,Holiday,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,95238394,,,,false,,,,,,,,,,lb,,,active
+santa-claus-conquers-the-martians-dvd-rental-holiday,Santa Claus Conquers the Martians,,DVD,,,"Holiday, Rental",true,Genre,Holiday,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,95172858,,,,false,,,,,,,,,,lb,,,active
+mother-krampus-dvd-rental-holiday,Mother Krampus,,DVD,,,"Holiday, Rental",true,Genre,Holiday,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94517498,,,,false,,,,,,,,,,lb,,,active
+wish-for-christmas-dvd-rental-holiday,Wish for Christmas,,DVD,,,"Holiday, Rental",true,Genre,Holiday,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94451962,,,,false,,,,,,,,,,lb,,,active
+elf-dvd-rental-holiday,Elf,,DVD,,,"Holiday, Rental",true,Genre,Holiday,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93796602,,,,false,,,,,,,,,,lb,,,active
+u-571-dvd-rental-action,U-571,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,46791418,,,,false,,,,,,,,,,lb,,,active
+hacksaw-ridge-dvd-rental-action,Hacksaw Ridge,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,46136058,,,,false,,,,,,,,,,lb,,,active
+the-sons-of-katie-elder-dvd-rental-action,The Sons of Katie Elder,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,46103290,,,,false,,,,,,,,,,lb,,,active
+gone-are-the-days-dvd-rental-action,Gone are the Days,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,45415162,,,,false,,,,,,,,,,lb,,,active
+tears-of-the-sun-dvd-rental-action,Tears of the Sun,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,44727034,,,,false,,,,,,,,,,lb,,,active
+x-men-revealed-dvd-rental-action,X-Men Revealed,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,44694266,,,,false,,,,,,,,,,lb,,,active
+sniper-2-dvd-rental-action,Sniper 2,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,44038906,,,,false,,,,,,,,,,lb,,,active
+archenemy-dvd-rental-action,Archenemy,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,44006138,,,,false,,,,,,,,,,lb,,,active
+project-a-dvd-rental-action,Project A,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,43940602,,,,false,,,,,,,,,,lb,,,active
+kung-fu-dunk-dvd-rental-action,Kung Fu Dunk,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,43219706,,,,false,,,,,,,,,,lb,,,active
+the-man-who-killed-hitler-and-then-the-bigfoot-dvd-rental-action,The Man Who Killed Hitler and Then the Bigfoot,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,43186938,,,,false,,,,,,,,,,lb,,,active
+skyfire-dvd-rental-action,Skyfire,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,42531578,,,,false,,,,,,,,,,lb,,,active
+the-gambler-dvd-rental-action,The Gambler,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,42498810,,,,false,,,,,,,,,,lb,,,active
+break-even-dvd-rental-action,Break Even,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41745146,,,,false,,,,,,,,,,lb,,,active
+400-bullets-dvd-rental-action,400 Bullets,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41712378,,,,false,,,,,,,,,,lb,,,active
+100-earthquake-dvd-rental-action,10.0 Earthquake,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41024250,,,,false,,,,,,,,,,lb,,,active
+home-of-the-brave-dvd-rental-action,Home of the Brave,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,40336122,,,,false,,,,,,,,,,lb,,,active
+remember-the-titans-dvd-rental-kids-family,Remember the Titans,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,07257082,,,,false,,,,,,,,,,lb,,,active
+underdog-dvd-rental-kids-family,Underdog,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,07224314,,,,false,,,,,,,,,,lb,,,active
+10-000-bc-dvd-rental-action,"10,000 BC",,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,07191546,,,,false,,,,,,,,,,lb,,,active
+the-road-warrior-dvd-rental-sci-fi,The Road Warrior,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,07126010,,,,false,,,,,,,,,,lb,,,active
+the-book-thief-dvd-rental-drama,The Book Thief,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,07093242,,,,false,,,,,,,,,,lb,,,active
+apache-junction-dvd-rental-action,Apache Junction,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,07060474,,,,false,,,,,,,,,,lb,,,active
+catch-the-bullet-dvd-rental-action,Catch the Bullet,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,07027706,,,,false,,,,,,,,,,lb,,,active
+public-enemies-dvd-rental-thriller,Public Enemies,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06994938,,,,false,,,,,,,,,,lb,,,active
+the-invincible-iron-man-dvd-rental-action,The Invincible Iron Man,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06962170,,,,false,,,,,,,,,,lb,,,active
+the-shadow-collection-8-movies-dvd-rental-horror,The Shadow Collection: 8 Movies,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06929402,,,,false,,,,,,,,,,lb,,,active
+sully-dvd-rental-drama,Sully,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06896634,,,,false,,,,,,,,,,lb,,,active
+the-chronicles-of-riddick-dvd-rental-sci-fi,The Chronicles of Riddick,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06863866,,,,false,,,,,,,,,,lb,,,active
+water-for-elehants-dvd-rental-drama,Water for Elehants,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06831098,,,,false,,,,,,,,,,lb,,,active
+the-dark-dvd-rental-horror,The Dark,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06798330,,,,false,,,,,,,,,,lb,,,active
+crimson-force-dvd-rental-sci-fi,Crimson Force,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06765562,,,,false,,,,,,,,,,lb,,,active
+the-wedding-date-dvd-rental-romantic-comedy,The Wedding Date,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06732794,,,,false,,,,,,,,,,lb,,,active
+fury-dvd-rental-action,Fury,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06700026,,,,false,,,,,,,,,,lb,,,active
+pop-me-dvd-rental-documentary,Pop & Me,,DVD,,,"Documentary, Rental",true,Genre,Documentary,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,06667258,,,,false,,,,,,,,,,lb,,,active
+the-texas-chainsaw-massacre-dvd-rental-horror,The Texas Chainsaw Massacre,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05716986,,,,false,,,,,,,,,,lb,,,active
+kiss-of-the-dragon-dvd-rental-action,Kiss of the Dragon,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05684218,,,,false,,,,,,,,,,lb,,,active
+first-knight-dvd-rental-fantasy,First Knight,,DVD,,,"Fantasy, Rental",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05651450,,,,false,,,,,,,,,,lb,,,active
+think-like-a-man-dvd-rental-romantic-comedy,Think Like a Man,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05618682,,,,false,,,,,,,,,,lb,,,active
+the-oija-experiment-dvd-rental-horror,The Oija Experiment,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05585914,,,,false,,,,,,,,,,lb,,,active
+paranormal-activity-the-marked-ones-dvd-rental-horror,Paranormal Activity: The Marked Ones,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05553146,,,,false,,,,,,,,,,lb,,,active
+ambushed-dvd-rental-action,Ambushed,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05520378,,,,false,,,,,,,,,,lb,,,active
+catch-and-release-dvd-rental-romantic-comedy,Catch and Release,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05487610,,,,false,,,,,,,,,,lb,,,active
+the-choice-dvd-rental-romantic-comedy,The Choice,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05454842,,,,false,,,,,,,,,,lb,,,active
+the-wedding-planner-dvd-rental-romantic-comedy,The Wedding Planner,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05389306,,,,false,,,,,,,,,,lb,,,active
+caged-dvd-rental-horror,Caged,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05356538,,,,false,,,,,,,,,,lb,,,active
+men-in-black-dvd-rental-sci-fi,Men in Black,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,05323770,,,,false,,,,,,,,,,lb,,,active
+ray-dvd-rental-musical,Ray,,DVD,,,"Musical, Rental",true,Genre,Musical,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97658106,,,,false,,,,,,,,,,lb,,,active
+grease-dvd-rental-musical,Grease,,DVD,,,"Musical, Rental",true,Genre,Musical,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97592570,,,,false,,,,,,,,,,lb,,,active
+ancient-evil-dvd-rental-horror,Ancient Evil,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97559802,,,,false,,,,,,,,,,lb,,,active
+beyond-white-space-dvd-rental-sci-fi,Beyond White Space,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97527034,,,,false,,,,,,,,,,lb,,,active
+hitchhikers-guide-to-the-galaxy-dvd-rental-sci-fi,Hitchhikers Guide to the Galaxy,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97494266,,,,false,,,,,,,,,,lb,,,active
+minority-report-dvd-rental-action,Minority Report,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97461498,,,,false,,,,,,,,,,lb,,,active
+speed-dvd-rental-action,Speed,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97428730,,,,false,,,,,,,,,,lb,,,active
+armageddon-dvd-rental-action,Armageddon,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97363194,,,,false,,,,,,,,,,lb,,,active
+the-bourne-supremacy-dvd-rental-action,The Bourne Supremacy,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97330426,,,,false,,,,,,,,,,lb,,,active
+the-bourne-ultimatum-dvd-rental-action,The Bourne Ultimatum,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97297658,,,,false,,,,,,,,,,lb,,,active
+the-holiday-dvd-rental-romantic-comedy,The Holiday,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97264890,,,,false,,,,,,,,,,lb,,,active
+life-of-brian-dvd-rental-comedy,Life of Brian,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97232122,,,,false,,,,,,,,,,lb,,,active
+how-to-train-your-dragon-2-dvd-rental-kids-family,How to Train Your Dragon 2,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97199354,,,,false,,,,,,,,,,lb,,,active
+ice-age-dvd-rental-kids-family,Ice Age,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97166586,,,,false,,,,,,,,,,lb,,,active
+enchanted-dvd-rental-kids-family,Enchanted,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97133818,,,,false,,,,,,,,,,lb,,,active
+the-box-trolls-dvd-rental-kids-family,The Box Trolls,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,97068282,,,,false,,,,,,,,,,lb,,,active
+two-brothers-dvd-rental-kids-family,Two Brothers,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96707834,,,,false,,,,,,,,,,lb,,,active
+how-to-train-your-dragon-the-hidden-world-dvd-rental-kids-family,How to Train Your Dragon: The Hidden World,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96675066,,,,false,,,,,,,,,,lb,,,active
+tom-jerry-shiver-me-whiskers-dvd-rental-kids-family,Tom & Jerry: Shiver Me Whiskers,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96642298,,,,false,,,,,,,,,,lb,,,active
+the-smurfs-dvd-rental-kids-family,The Smurfs,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96609530,,,,false,,,,,,,,,,lb,,,active
+alvin-and-the-chipmunks-the-squeakquel-dvd-rental-kids-family,Alvin and the Chipmunks the Squeakquel,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96576762,,,,false,,,,,,,,,,lb,,,active
+penguins-of-madagascar-dvd-rental-kids-family,Penguins of Madagascar,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96281850,,,,false,,,,,,,,,,lb,,,active
+the-boss-baby-dvd-rental-kids-family,The Boss Baby,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96249082,,,,false,,,,,,,,,,lb,,,active
+stuart-little-dvd-rental-kids-family,Stuart Little,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96216314,,,,false,,,,,,,,,,lb,,,active
+dancing-on-ice-dvd-rental-kids-family,Dancing on Ice,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96183546,,,,false,,,,,,,,,,lb,,,active
+open-season-dvd-rental-kids-family,Open Season,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96150778,,,,false,,,,,,,,,,lb,,,active
+the-polar-express-dvd-rental-kids-family,The Polar Express,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96118010,,,,false,,,,,,,,,,lb,,,active
+kangaroo-jack-gday-usa-dvd-rental-kids-family,Kangaroo Jack G'Day USA,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96085242,,,,false,,,,,,,,,,lb,,,active
+its-the-great-pumpkin-charlie-brown-dvd-rental-kids-family,"It's The Great Pumpkin, Charlie Brown.",,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96052474,,,,false,,,,,,,,,,lb,,,active
+doogal-dvd-rental-kids-family,Doogal,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,96019706,,,,false,,,,,,,,,,lb,,,active
+charlottes-web-dvd-rental-kids-family,Charlotte's Web,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,95954170,,,,false,,,,,,,,,,lb,,,active
+justice-league-starcrossed-the-movie-dvd-rental-kids-family,Justice League : Starcrossed the Movie,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,52079866,,,,false,,,,,,,,,,lb,,,active
+beverly-hills-chihuahua-2-dvd-rental-kids-family,Beverly Hills Chihuahua 2,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,52047098,,,,false,,,,,,,,,,lb,,,active
+the-lego-movie-dvd-rental-kids-family,The Lego Movie,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,52014330,,,,false,,,,,,,,,,lb,,,active
+stuart-little-2-dvd-rental-kids-family,Stuart Little 2,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51981562,,,,false,,,,,,,,,,lb,,,active
+danny-and-the-dinosaur-dvd-rental-kids-family,Danny and the Dinosaur,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51948794,,,,false,,,,,,,,,,lb,,,active
+justin-time-dvd-rental-kids-family,Justin Time,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51916026,,,,false,,,,,,,,,,lb,,,active
+despicable-me-dvd-rental-kids-family,Despicable Me,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51883258,,,,false,,,,,,,,,,lb,,,active
+hoot-dvd-rental-kids-family,Hoot,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51817722,,,,false,,,,,,,,,,lb,,,active
+beverly-hills-chihuahua-3-dvd-rental-kids-family,Beverly Hills Chihuahua 3,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51752186,,,,false,,,,,,,,,,lb,,,active
+the-adventures-of-milo-and-otis-dvd-rental-kids-family,The Adventures of Milo and Otis,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51588346,,,,false,,,,,,,,,,lb,,,active
+true-heart-dvd-rental-kids-family,True Heart,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51490042,,,,false,,,,,,,,,,lb,,,active
+curious-george-dvd-rental-kids-family,Curious George,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51457274,,,,false,,,,,,,,,,lb,,,active
+the-killing-dvd-rental-thriller,The Killing,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51424506,,,,false,,,,,,,,,,lb,,,active
+the-sicilian-dvd-rental-thriller,The Sicilian,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51391738,,,,false,,,,,,,,,,lb,,,active
+the-black-dahlia-dvd-rental-thriller,The Black Dahlia,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,51358970,,,,false,,,,,,,,,,lb,,,active
+swimfan-dvd-rental-thriller,Swimfan,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,48049402,,,,false,,,,,,,,,,lb,,,active
+white-noise-2-dvd-rental-thriller,White Noise 2,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,47983866,,,,false,,,,,,,,,,lb,,,active
+laser-mission-dvd-rental-thriller,Laser Mission,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,47951098,,,,false,,,,,,,,,,lb,,,active
+twisted-dvd-rental-thriller,Twisted,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,47918330,,,,false,,,,,,,,,,lb,,,active
+the-shallows-dvd-rental-thriller,The Shallows,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,47885562,,,,false,,,,,,,,,,lb,,,active
+dear-mr-gacy-dvd-rental-thriller,Dear Mr. Gacy,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,47852794,,,,false,,,,,,,,,,lb,,,active
+fear-in-the-night-dvd-rental-thriller,Fear in the Night,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,47820026,,,,false,,,,,,,,,,lb,,,active
+the-ghost-writer-dvd-rental-thriller,The Ghost Writer,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,47787258,,,,false,,,,,,,,,,lb,,,active
+anna-dvd-rental-thriller,Anna,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,47754490,,,,false,,,,,,,,,,lb,,,active
+the-awakening-dvd-rental-horror,The Awakening,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,42249466,,,,false,,,,,,,,,,lb,,,active
+the-remains-dvd-rental-horror,The Remains,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,42118394,,,,false,,,,,,,,,,lb,,,active
+the-matador-dvd-rental-action,The Matador,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,42085626,,,,false,,,,,,,,,,lb,,,active
+double-feature-missing-in-action-2-missing-in-action-iii-dvd-rental-action,"Double Feature: Missing in Action 2, Missing in Action III",,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,42052858,,,,false,,,,,,,,,,lb,,,active
+city-of-sin-dvd-rental-action,City of Sin,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41987322,,,,false,,,,,,,,,,lb,,,active
+double-feature-romeo-must-die-cradle-2-the-grave-dvd-rental-action,"Double Feature: Romeo Must Die, Cradle 2 the Grave",,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41921786,,,,false,,,,,,,,,,lb,,,active
+i-am-wrath-dvd-rental-action,I am Wrath,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41889018,,,,false,,,,,,,,,,lb,,,active
+passengers-dvd-rental-sci-fi,Passengers,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41856250,,,,false,,,,,,,,,,lb,,,active
+flight-93-dvd-rental-drama,Flight 93,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41823482,,,,false,,,,,,,,,,lb,,,active
+get-shorty-dvd-rental-comedy,Get Shorty,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41725178,,,,false,,,,,,,,,,lb,,,active
+the-watch-dvd-rental-comedy,The Watch,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41626874,,,,false,,,,,,,,,,lb,,,active
+unstoppable-dvd-rental-action,Unstoppable,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41397498,,,,false,,,,,,,,,,lb,,,active
+16-blocks-dvd-rental-action,16 Blocks,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41200890,,,,false,,,,,,,,,,lb,,,active
+batman-v-superman-dawn-of-justice-dvd-rental-action,Batman v Superman: Dawn of Justice,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41168122,,,,false,,,,,,,,,,lb,,,active
+ong-bak-the-thai-warrior-dvd-rental-action,Ong-Bak the Thai Warrior,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,41135354,,,,false,,,,,,,,,,lb,,,active
+serena-dvd-rental-drama,Serena,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,80383482,,,,false,,,,,,,,,,lb,,,active
+42-the-jackie-robinson-story-dvd-rental-drama,42 The Jackie Robinson Story,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,80350714,,,,false,,,,,,,,,,lb,,,active
+the-shawshank-redemption-dvd-rental-drama,The Shawshank Redemption,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,80317946,,,,false,,,,,,,,,,lb,,,active
+flags-of-our-fathers-dvd-rental-drama,Flags of Our Fathers,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,80285178,,,,false,,,,,,,,,,lb,,,active
+fences-dvd-rental-drama,Fences,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79859194,,,,false,,,,,,,,,,lb,,,active
+billy-elliot-dvd-rental-drama,Billy Elliot,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79826426,,,,false,,,,,,,,,,lb,,,active
+hardball-dvd-rental-drama,Hardball,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79793658,,,,false,,,,,,,,,,lb,,,active
+shouthpaw-dvd-rental-drama,Shouthpaw,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79760890,,,,false,,,,,,,,,,lb,,,active
+phenomenon-dvd-rental-drama,Phenomenon,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79728122,,,,false,,,,,,,,,,lb,,,active
+dirty-dancing-dvd-rental-drama,Dirty Dancing,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79695354,,,,false,,,,,,,,,,lb,,,active
+road-to-perdition-dvd-rental-drama,Road to Perdition,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79662586,,,,false,,,,,,,,,,lb,,,active
+feel-the-noise-dvd-rental-drama,Feel the Noise,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79629818,,,,false,,,,,,,,,,lb,,,active
+return-to-the-hiding-place-dvd-rental-drama,Return to the Hiding Place,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79531514,,,,false,,,,,,,,,,lb,,,active
+double-feature-stand-and-deliver-lean-on-me-dvd-rental-drama,"Double Feature: Stand and Deliver, Lean on Me",,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79498746,,,,false,,,,,,,,,,lb,,,active
+infamous-dvd-rental-drama,Infamous,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79400442,,,,false,,,,,,,,,,lb,,,active
+double-feature-state-property-state-pen-dvd-rental-drama,"Double Feature: State Property, State Property 2",,DVD,Uncategorized,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79367674,,,,false,,,,,,,,,,lb,,,active
+fifty-shades-of-gray-dvd-rental-drama,Fifty Shades of Gray,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79334906,,,,false,,,,,,,,,,lb,,,active
+the-patriot-dvd-rental-drama,The Patriot,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,79302138,,,,false,,,,,,,,,,lb,,,active
+my-big-fat-greek-wedding-dvd-rental-romantic-comedy,My Big Fat Greek Wedding,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62918138,,,,false,,,,,,,,,,lb,,,active
+a-fool-and-his-money-dvd-rental-romantic-comedy,A Fool and His Money,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62885370,,,,false,,,,,,,,,,lb,,,active
+4-films-in-1-paris-je-taime-the-truth-about-love-my-date-with-drew-jack-jill-vs-the-world-dvd-rental-romantic-comedy,"4 Films in 1: Paris, Je T'aime / The Truth About Love / My Date with Drew / Jack & Jill VS The World",,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62852602,,,,false,,,,,,,,,,lb,,,active
+mike-and-dave-need-wedding-dates-dvd-rental-romantic-comedy,Mike and Dave Need Wedding Dates,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62819834,,,,false,,,,,,,,,,lb,,,active
+must-love-dogs-dvd-rental-romantic-comedy,Must Love Dogs,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62787066,,,,false,,,,,,,,,,lb,,,active
+murphys-romance-dvd-rental-romantic-comedy,Murphy's Romance,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62754298,,,,false,,,,,,,,,,lb,,,active
+as-good-as-it-gets-dvd-rental-romantic-comedy,As Good As It Gets,,DVD,,,"Rental, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62655994,,,,false,,,,,,,,,,lb,,,active
+the-darkness-dvd-rental-horror,The Darkness,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62623226,,,,false,,,,,,,,,,lb,,,active
+the-skeleton-key-dvd-rental-horror,The Skeleton Key,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62524922,,,,false,,,,,,,,,,lb,,,active
+believers-dvd-rental-horror,Believers,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62492154,,,,false,,,,,,,,,,lb,,,active
+bone-daddy-dvd-rental-horror,Bone Daddy,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62459386,,,,false,,,,,,,,,,lb,,,active
+dementia-13-dvd-rental-horror,Dementia 13,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62426618,,,,false,,,,,,,,,,lb,,,active
+cry-wolf-dvd-rental-horror,Cry Wolf,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62393850,,,,false,,,,,,,,,,lb,,,active
+6-souls-dvd-rental-horror,6 Souls,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62361082,,,,false,,,,,,,,,,lb,,,active
+paranormal-entity-dvd-rental-horror,Paranormal Entity,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62328314,,,,false,,,,,,,,,,lb,,,active
+the-first-purge-dvd-rental-horror,The First Purge,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62295546,,,,false,,,,,,,,,,lb,,,active
+prom-night-dvd-rental-horror,Prom Night,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62230010,,,,false,,,,,,,,,,lb,,,active
+meet-the-spartans-dvd-rental-comedy,Meet the Spartans,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62197242,,,,false,,,,,,,,,,lb,,,active
+national-lampoons-vacation-dvd-rental-comedy,National Lampoon's Vacation,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62164474,,,,false,,,,,,,,,,lb,,,active
+keanu-dvd-rental-comedy,Keanu,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62131706,,,,false,,,,,,,,,,lb,,,active
+zookeeper-dvd-rental-comedy,Zookeeper,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,62098938,,,,false,,,,,,,,,,lb,,,active
+double-feature-terminator3-terminator-salvation-dvd-rental-sci-fi,"Double Feature: Terminator:3, Terminator Salvation",,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,72380154,,,,false,,,,,,,,,,lb,,,active
+the-triangle-dvd-rental-sci-fi,The Triangle,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,72347386,,,,false,,,,,,,,,,lb,,,active
+legend-of-the-naga-pearls-dvd-rental-fantasy,Legend of the Naga Pearls,,DVD,,,"Fantasy, Rental",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,72314618,,,,false,,,,,,,,,,lb,,,active
+the-dwarves-of-dragon-mountain-dvd-rental-fantasy,The Dwarves of Dragon Mountain,,DVD,,,"Fantasy, Rental",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,72281850,,,,false,,,,,,,,,,lb,,,active
+max-magician-and-the-legen-of-the-ring-dvd-rental-fantasy,Max Magician and the Legen of the Ring,,DVD,,,"Fantasy, Rental",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,72249082,,,,false,,,,,,,,,,lb,,,active
+clash-of-the-titans-dvd-rental-fantasy,Clash of the Titans,,DVD,,,"Fantasy, Rental",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,72216314,,,,false,,,,,,,,,,lb,,,active
+robin-hood-dvd-rental-fantasy,Robin hood,,DVD,,,"Fantasy, Rental",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,72183546,,,,false,,,,,,,,,,lb,,,active
+season-of-the-witch-dvd-rental-fantasy,Season of the Witch,,DVD,,,"Fantasy, Rental",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,72150778,,,,false,,,,,,,,,,lb,,,active
+good-charlotte-dvd-rental-music,Good Charlotte,,DVD,,,"Music, Rental",true,Genre,Music,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,72118010,,,,false,,,,,,,,,,lb,,,active
+casino-royale-dvd-rental-action,Casino Royale,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71823098,,,,false,,,,,,,,,,lb,,,active
+the-usual-suspects-dvd-rental-action,The Usual Suspects,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71790330,,,,false,,,,,,,,,,lb,,,active
+iron-man-dvd-rental-action,Iron Man,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71757562,,,,false,,,,,,,,,,lb,,,active
+the-wave-dvd-rental-action,The Wave,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71724794,,,,false,,,,,,,,,,lb,,,active
+machete-dvd-rental-action,Machete,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71692026,,,,false,,,,,,,,,,lb,,,active
+hitari-dvd-rental-action,Hitari,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71659258,,,,false,,,,,,,,,,lb,,,active
+django-unchained-dvd-rental-action,Django Unchained,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71626490,,,,false,,,,,,,,,,lb,,,active
+john-wick-chapter-3-parebellum-dvd-rental-action,John Wick Chapter 3: Parebellum,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71560954,,,,false,,,,,,,,,,lb,,,active
+golden-eye-dvd-rental-action,Golden Eye,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71528186,,,,false,,,,,,,,,,lb,,,active
+frank-and-jesse-dvd-rental-action,Frank and Jesse,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71495418,,,,false,,,,,,,,,,lb,,,active
+hidalgo-dvd-rental-action,Hidalgo,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71462650,,,,false,,,,,,,,,,lb,,,active
+ice-soldiers-dvd-rental-action,Ice Soldiers,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71429882,,,,false,,,,,,,,,,lb,,,active
+the-emperors-sword-dvd-rental-action,The Emperor's Sword,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,71397114,,,,false,,,,,,,,,,lb,,,active
+john-tucker-must-die-dvd-rental-comedy,John Tucker Must Die,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94982138,,,,false,,,,,,,,,,lb,,,active
+dirty-grandpa-dvd-rental-comedy,Dirty Grandpa,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94916602,,,,false,,,,,,,,,,lb,,,active
+fear-and-loathing-in-las-vegas-dvd-rental-comedy,Fear and Loathing in Las Vegas,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94883834,,,,false,,,,,,,,,,lb,,,active
+the-love-guru-dvd-rental-comedy,The Love Guru,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94851066,,,,false,,,,,,,,,,lb,,,active
+ghost-in-the-family-dvd-rental-comedy,Ghost in the Family,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94785530,,,,false,,,,,,,,,,lb,,,active
+whos-your-caddy-dvd-rental-comedy,Who's Your Caddy?,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91443194,,,,false,,,,,,,,,,lb,,,active
+blue-streak-dvd-rental-comedy,Blue Streak,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91410426,,,,false,,,,,,,,,,lb,,,active
+the-cowboy-way-dvd-rental-comedy,The Cowboy Way,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91377658,,,,false,,,,,,,,,,lb,,,active
+my-cousin-vinny-dvd-rental-comedy,My Cousin Vinny,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91344890,,,,false,,,,,,,,,,lb,,,active
+hall-pass-dvd-rental-comedy,Hall Pass,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91312122,,,,false,,,,,,,,,,lb,,,active
+the-dukes-of-hazzard-dvd-rental-comedy,The Dukes of Hazzard,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91279354,,,,false,,,,,,,,,,lb,,,active
+uncle-drew-dvd-rental-comedy,Uncle Drew,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91246586,,,,false,,,,,,,,,,lb,,,active
+tower-heist-dvd-rental-comedy,Tower Heist,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91213818,,,,false,,,,,,,,,,lb,,,active
+american-pie-presends-the-book-of-love-dvd-rental-comedy,American Pie Presends: The Book of Love,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91181050,,,,false,,,,,,,,,,lb,,,active
+i-now-pronounce-you-chuck-larry-dvd-rental-comedy,I Now Pronounce You Chuck & Larry,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91115514,,,,false,,,,,,,,,,lb,,,active
+knocked-up-dvd-rental-comedy,Knocked Up,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91049978,,,,false,,,,,,,,,,lb,,,active
+double-feature-spy-the-heat-dvd-rental-comedy,Double Feature: Spy / The Heat,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,91017210,,,,false,,,,,,,,,,lb,,,active
+the-oath-dvd-rental-comedy,The Oath,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,90951674,,,,false,,,,,,,,,,lb,,,active
+oceans-8-dvd-rental-comedy,Ocean's 8,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,90886138,,,,false,,,,,,,,,,lb,,,active
+the-brothers-solomon-dvd-rental-comedy,The Brothers Solomon,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,90853370,,,,false,,,,,,,,,,lb,,,active
+office-christmas-party-dvd-rental-comedy,Office Christmas Party,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,90820602,,,,false,,,,,,,,,,lb,,,active
+old-school-dvd-rental-comedy,Old School,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,90787834,,,,false,,,,,,,,,,lb,,,active
+get-him-to-the-greek-dvd-rental-comedy,Get Him to the Greek,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,90755066,,,,false,,,,,,,,,,lb,,,active
+rush-hour-3-dvd-rental-comedy,Rush Hour 3,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,89542650,,,,false,,,,,,,,,,lb,,,active
+tombstone-dvd-rental-drama,Tombstone,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94575354,,,,false,,,,,,,,,,lb,,,active
+star-wars-the-phantom-menace-dvd-rental-sci-fi,Star Wars: The Phantom Menace,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94542586,,,,false,,,,,,,,,,lb,,,active
+casino-dvd-rental-drama,Casino,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94509818,,,,false,,,,,,,,,,lb,,,active
+the-game-dvd-rental-thriller,The Game,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94477050,,,,false,,,,,,,,,,lb,,,active
+shrek-2-dvd-rental-kids-family,Shrek 2,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94444282,,,,false,,,,,,,,,,lb,,,active
+the-40-year-old-virgin-dvd-rental-comedy,The 40 Year-Old-Virgin,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94411514,,,,false,,,,,,,,,,lb,,,active
+the-dark-knight-dvd-rental-action,The Dark Knight,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94378746,,,,false,,,,,,,,,,lb,,,active
+troy-dvd-rental-action,Troy,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94345978,,,,false,,,,,,,,,,lb,,,active
+pirates-of-the-caribbean-dead-mans-chest-dvd-rental-kids-family,Pirates of the Caribbean: Dead Man's Chest,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94182138,,,,false,,,,,,,,,,lb,,,active
+moulin-rouge-dvd-rental-musical,Moulin Rouge!,,DVD,,,"Musical, Rental",true,Genre,Musical,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94149370,,,,false,,,,,,,,,,lb,,,active
+sin-city-dvd-rental-action,Sin City,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94116602,,,,false,,,,,,,,,,lb,,,active
+spider-man-2-dvd-rental-action,Spider-Man 2,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94083834,,,,false,,,,,,,,,,lb,,,active
+pirates-of-the-caribbean-the-curse-of-the-black-pearl-dvd-rental-kids-family,Pirates of the Caribbean: The Curse of the Black Pearl,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94051066,,,,false,,,,,,,,,,lb,,,active
+talladega-nights-the-ballad-of-ricky-bobby-dvd-rental-comedy,Talladega Nights: The Ballad of Ricky Bobby,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,94018298,,,,false,,,,,,,,,,lb,,,active
+the-spirit-dvd-rental-action,The Spirit,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93985530,,,,false,,,,,,,,,,lb,,,active
+semi-pro-dvd-rental-comedy,Semi-Pro,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93919994,,,,false,,,,,,,,,,lb,,,active
+big-fish-dvd-rental-drama,Big Fish,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93887226,,,,false,,,,,,,,,,lb,,,active
+crash-dvd-rental-drama,Crash,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93854458,,,,false,,,,,,,,,,lb,,,active
+starsky-hutch-dvd-rental-comedy,Starsky & Hutch,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93821690,,,,false,,,,,,,,,,lb,,,active
+carlitos-way-dvd-rental-action,Carlito's Way,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93788922,,,,false,,,,,,,,,,lb,,,active
+the-last-samurai-dvd-rental-action,The Last Samurai,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93756154,,,,false,,,,,,,,,,lb,,,active
+saving-private-ryan-dvd-rental-drama,Saving Private Ryan,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93723386,,,,false,,,,,,,,,,lb,,,active
+cars-dvd-rental-kids-family,Cars,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93690618,,,,false,,,,,,,,,,lb,,,active
+monty-python-and-the-holy-grail-dvd-rental-comedy,Monty Python and the Holy Grail,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,93657850,,,,false,,,,,,,,,,lb,,,active
+the-godfather-collection-dvd-rental-drama,The Godfather Collection,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83892986,,,,false,,,,,,,,,,lb,,,active
+entrapment-dvd-rental-action,Entrapment,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83860218,,,,false,,,,,,,,,,lb,,,active
+300-dvd-rental-action,300,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83827450,,,,false,,,,,,,,,,lb,,,active
+unfaithful-dvd-rental-thriller,Unfaithful,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83794682,,,,false,,,,,,,,,,lb,,,active
+i-am-legend-dvd-rental-sci-fi,I Am Legend,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83761914,,,,false,,,,,,,,,,lb,,,active
+walk-the-line-dvd-rental-drama,Walk the Line,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83729146,,,,false,,,,,,,,,,lb,,,active
+the-bourne-trilogy-dvd-rental-action,The Bourne Trilogy,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83696378,,,,false,,,,,,,,,,lb,,,active
+team-america-world-police-dvd-rental-comedy,Team America World Police,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83630842,,,,false,,,,,,,,,,lb,,,active
+garden-state-dvd-rental-drama,Garden State,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83565306,,,,false,,,,,,,,,,lb,,,active
+south-park-bigger-longer-uncut-dvd-rental-comedy,"South Park Bigger, Longer & Uncut",,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83532538,,,,false,,,,,,,,,,lb,,,active
+friday-night-lights-dvd-rental-drama,Friday Night Lights,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83499770,,,,false,,,,,,,,,,lb,,,active
+the-davinci-code-dvd-rental-thriller,The Davinci Code,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83467002,,,,false,,,,,,,,,,lb,,,active
+undercover-brother-dvd-rental-comedy,Undercover Brother,,DVD,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83434234,,,,false,,,,,,,,,,lb,,,active
+runaway-jury-dvd-rental-thriller,Runaway Jury,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83401466,,,,false,,,,,,,,,,lb,,,active
+footloose-dvd-rental-musical,Footloose,,DVD,,,"Musical, Rental",true,Genre,Musical,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83368698,,,,false,,,,,,,,,,lb,,,active
+star-wars-trilogy-iv-v-vi-dvd-rental-sci-fi,"Star Wars Trilogy: IV, V, VI",,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83335930,,,,false,,,,,,,,,,lb,,,active
+avatar-bluray-rental-sci-fi,Avatar,,Blu-Ray,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83303162,,,,false,,,,,,,,,,lb,,,active
+batman-begins-dvd-rental-action,Batman Begins,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83270394,,,,false,,,,,,,,,,lb,,,active
+perfect-stranger-dvd-rental-thriller,Perfect Stranger,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83237626,,,,false,,,,,,,,,,lb,,,active
+one-missed-call-dvd-rental-horror,One Missed Call,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83204858,,,,false,,,,,,,,,,lb,,,active
+reservoir-dogs-dvd-rental-thriller,Reservoir Dogs,,DVD,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83172090,,,,false,,,,,,,,,,lb,,,active
+memoirs-of-a-geisha-dvd-rental-drama,Memoirs of a Geisha,,DVD,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83139322,,,,false,,,,,,,,,,lb,,,active
+star-wars-attack-of-the-clones-dvd-rental-sci-fi,Star Wars: Attack of the Clones,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83106554,,,,false,,,,,,,,,,lb,,,active
+knowing-bluray-rental-thriller,Knowing,,Blu-Ray,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83073786,,,,false,,,,,,,,,,lb,,,active
+the-hangover-bluray-rental-comedy,The Hangover,,Blu-Ray,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83041018,,,,false,,,,,,,,,,lb,,,active
+watchmen-bluray-rental-action,Watchmen,,Blu-Ray,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,83008250,,,,false,,,,,,,,,,lb,,,active
+gi-joe-the-rise-of-cobra-bluray-rental-action,G.I. Joe: The Rise of Cobra,,Blu-Ray,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,82975482,,,,false,,,,,,,,,,lb,,,active
+fearless-bluray-rental-action,Fearless,,Blu-Ray,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,82942714,,,,false,,,,,,,,,,lb,,,active
+aviator-bluray-rental-drama,Aviator,,Blu-Ray,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,82909946,,,,false,,,,,,,,,,lb,,,active
+transformers-revenge-of-the-fallen-bluray-rental-action,Transformers: Revenge of the Fallen,,Blu-Ray,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,82877178,,,,false,,,,,,,,,,lb,,,active
+star-wars-revenge-of-the-sith-dvd-floor-sale-sci-fi,Star Wars: Revenge of the Sith,,DVD,Uncategorized,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,4,deny,manual,5.00,,true,true,,,,,44255226,,,,false,,,,,,,,,,lb,,,active
+star-wars-attack-of-the-clones-dvd-floor-sale-sci-fi,Star Wars: Attack of the Clones,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,44189690,,,,false,,,,,,,,,,lb,,,active
+star-wars-trilogy-bonus-meterial-dvd-floor-sale-documentary,Star Wars Trilogy: Bonus Meterial,,DVD,,,"Documentary, Floor Sale",true,Genre,Documentary,,,,,,,,,0.0,shopify,1,deny,manual,3.00,,true,true,,,,,44156922,,,,false,,,,,,,,,,lb,,,active
+no-country-for-old-men-dvd-floor-sale-thriller,No Country for Old Men,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,44124154,,,,false,,,,,,,,,,lb,,,active
+apt-pupil-dvd-floor-sale-horror,Apt Pupil,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,50850554,,,,false,,,,,,,,,,lb,,,active
+day-watch-dvd-floor-sale-horror,Day Watch,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,50817786,,,,false,,,,,,,,,,lb,,,active
+american-pie-dvd-floor-sale-comedy,American Pie,,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,50785018,,,,false,,,,,,,,,,lb,,,active
+mi2-dvd-floor-sale-action,M:I:2,,DVD,Uncategorized,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,2,deny,manual,5.00,,true,true,,,,,50752250,,,,false,,,,,,,,,,lb,,,active
+resident-evil-4-movie-collection-dvd-floor-sale-horror,Resident Evil: 4 Movie Collection,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,50686714,,,,false,,,,,,,,,,lb,,,active
+insomnia-dvd-floor-sale-thriller,Insomnia,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,50653946,,,,false,,,,,,,,,,lb,,,active
+angels-demons-dvd-floor-sale-thriller,Angels & Demons,,DVD,Uncategorized,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,2,deny,manual,5.00,,true,true,,,,,50621178,,,,false,,,,,,,,,,lb,,,active
+blade-ii-dvd-floor-sale-action,Blade II,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,50260730,,,,false,,,,,,,,,,lb,,,active
+sphere-dvd-floor-sale-sci-fi,Sphere,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,50227962,,,,false,,,,,,,,,,lb,,,active
+austin-powers-the-spy-who-shagged-me-dvd-floor-sale-comedy,Austin Powers: The Spy Who Shagged Me,,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,50195194,,,,false,,,,,,,,,,lb,,,active
+teenage-mutant-ninja-turtles-dvd-floor-sale-kids-family,Teenage Mutant Ninja Turtles,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,50129658,,,,false,,,,,,,,,,lb,,,active
+stuart-little-2-dvd-floor-sale-kids-family,Stuart Little 2,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,50096890,,,,false,,,,,,,,,,lb,,,active
+stuart-little-dvd-floor-sale-kids-family,Stuart Little,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,50064122,,,,false,,,,,,,,,,lb,,,active
+die-hard-dvd-floor-sale-action,Die Hard,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,50031354,,,,false,,,,,,,,,,lb,,,active
+lost-boys-the-tribe-dvd-floor-sale-horror,Lost Boys: the Tribe,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,49998586,,,,false,,,,,,,,,,lb,,,active
+hellboy-dvd-floor-sale-action,Hellboy,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,49965818,,,,false,,,,,,,,,,lb,,,active
+american-wedding-dvd-floor-sale-comedy,American Wedding,,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,2,deny,manual,5.00,,true,true,,,,,49933050,,,,false,,,,,,,,,,lb,,,active
+eye-of-the-beholder-dvd-floor-sale-thriller,Eye of the Beholder,,DVD,,,"Floor Sale, Thriller",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,49900282,,,,false,,,,,,,,,,lb,,,active
+bad-lieutentant-port-of-call-new-orleans-dvd-floor-sale-action,Bad Lieutentant: Port of Call New Orleans,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,49867514,,,,false,,,,,,,,,,lb,,,active
+the-abcs-of-death-dvd-floor-sale-horror,The ABCs of Death,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,49834746,,,,false,,,,,,,,,,lb,,,active
+jason-bourne-dvd-floor-sale-action,Jason Bourne,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,49801978,,,,false,,,,,,,,,,lb,,,active
+spider-man-2-dvd-floor-sale-action,Spider-Man 2,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21580794,,,,false,,,,,,,,,,lb,,,active
+beverly-hills-chihuahua-dvd-floor-sale-kids-family,Beverly Hills Chihuahua,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,4.00,,true,true,,,,,21548026,,,,false,,,,,,,,,,lb,,,active
+dracula-untold-dvd-floor-sale-horror,Dracula: Untold,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,4.00,,true,true,,,,,21515258,,,,false,,,,,,,,,,lb,,,active
+a-nightmare-on-elm-street-dvd-floor-sale-horror,A Nightmare on Elm Street,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,10.00,,true,true,,,,,21482490,,,,false,,,,,,,,,,lb,,,active
+oceans-twelve-dvd-floor-sale-comedy,Oceans Twelve,,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21449722,,,,false,,,,,,,,,,lb,,,active
+national-treasure-dvd-floor-sale-kids-family,National Treasure,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21416954,,,,false,,,,,,,,,,lb,,,active
+once-upon-a-time-in-mexico-dvd-floor-sale-action,Once Upon a Time in Mexico,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21384186,,,,false,,,,,,,,,,lb,,,active
+resident-evil-extinction-dvd-floor-sale-action,Resident Evil: Extinction,,DVD,Uncategorized,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,2,deny,manual,5.00,,true,true,,,,,21351418,,,,false,,,,,,,,,,lb,,,active
+death-race-dvd-floor-sale-action,Death Race,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21318650,,,,false,,,,,,,,,,lb,,,active
+jurassic-park-the-lost-world-collectors-dvd-floor-sale-action,Jurassic Park: The Lost World (collectors),,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,21285882,,,,false,,,,,,,,,,lb,,,active
+sunshine-dvd-floor-sale-sci-fi,Sunshine,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,10.00,,true,true,,,,,21220346,,,,false,,,,,,,,,,lb,,,active
+blade-trinity-dvd-floor-sale-action,Blade: Trinity,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,21187578,,,,false,,,,,,,,,,lb,,,active
+gladiator-dvd-floor-sale-action,Gladiator,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21154810,,,,false,,,,,,,,,,lb,,,active
+dark-city-dvd-floor-sale-sci-fi,Dark City,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,21122042,,,,false,,,,,,,,,,lb,,,active
+war-of-the-worlds-dvd-floor-sale-sci-fi,War of the Worlds,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21089274,,,,false,,,,,,,,,,lb,,,active
+wild-things-dvd-floor-sale-thriller,Wild Things,,DVD,Uncategorized,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,2,deny,manual,6.00,,true,true,,,,,21056506,,,,false,,,,,,,,,,lb,,,active
+tron-legacy-dvd-floor-sale-sci-fi,Tron: Legacy,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21023738,,,,false,,,,,,,,,,lb,,,active
+helloboy-ii-the-golden-army-dvd-floor-sale-action,Helloboy II: The Golden Army,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,20990970,,,,false,,,,,,,,,,lb,,,active
+red-eye-dvd-floor-sale-thriller,Red Eye,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,20958202,,,,false,,,,,,,,,,lb,,,active
+disturbia-dvd-floor-sale-thriller,Disturbia,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,20859898,,,,false,,,,,,,,,,lb,,,active
+all-in-dvd-floor-sale-drama,All In,,DVD,,,"Drama, Floor Sale",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,20827130,,,,false,,,,,,,,,,lb,,,active
+dune-dvd-floor-sale-sci-fi,Dune,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,20794362,,,,false,,,,,,,,,,lb,,,active
+leprechaun-origins-dvd-floor-sale-horror,Leprechaun: Origins,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,38193402,,,,false,,,,,,,,,,lb,,,active
+the-fugitive-us-marshals-dvd-floor-sale-action,The Fugitive / U.S. Marshals,,DVD,Uncategorized,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,2,deny,manual,7.00,,true,true,,,,,38127866,,,,false,,,,,,,,,,lb,,,active
+blade-runner-directors-cut-dvd-floor-sale-sci-fi,Blade Runner (Directors Cut),,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,38095098,,,,false,,,,,,,,,,lb,,,active
+krampus-dvd-floor-sale-horror,Krampus,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,38029562,,,,false,,,,,,,,,,lb,,,active
+the-descent-dvd-floor-sale-horror,The Descent,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,37996794,,,,false,,,,,,,,,,lb,,,active
+national-treasure-2-book-of-secrets-dvd-floor-sale-kids-family,National Treasure 2: Book of Secrets,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,37931258,,,,false,,,,,,,,,,lb,,,active
+annabelle-creation-dvd-floor-sale-horror,Annabelle Creation,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,37898490,,,,false,,,,,,,,,,lb,,,active
+the-ninth-gate-dvd-floor-sale-horror,The Ninth Gate,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,37832954,,,,false,,,,,,,,,,lb,,,active
+python-dvd-floor-sale-horror,Python,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,37767418,,,,false,,,,,,,,,,lb,,,active
+clerks-ii-dvd-floor-sale-comedy,Clerks II,,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,37701882,,,,false,,,,,,,,,,lb,,,active
+hesher-dvd-floor-sale-comedy,Hesher,,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,37636346,,,,false,,,,,,,,,,lb,,,active
+crank-2-high-voltage-dvd-floor-sale-action,Crank 2 High Voltage,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,37570810,,,,false,,,,,,,,,,lb,,,active
+eternals-dvd-floor-sale-sci-fi,Eternals,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,37505274,,,,false,,,,,,,,,,lb,,,active
+end-of-days-dvd-floor-sale-horror,End of Days,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,37439738,,,,false,,,,,,,,,,lb,,,active
+the-mist-dvd-floor-sale-horror,The Mist,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,37341434,,,,false,,,,,,,,,,lb,,,active
+sleepwalkers-dvd-floor-sale-horror,Sleepwalkers,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,37243130,,,,false,,,,,,,,,,lb,,,active
+tomorrowland-dvd-floor-sale-kids-family,Tomorrowland,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,89238010,,,,false,,,,,,,,,,lb,,,active
+beautiful-creatures-dvd-floor-sale-thriller,Beautiful Creatures,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,89205242,,,,false,,,,,,,,,,lb,,,active
+dave-chappelles-block-party-dvd-floor-sale-documentary,Dave Chappelle's Block Party,,DVD,,,"Documentary, Floor Sale",true,Genre,Documentary,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,89172474,,,,false,,,,,,,,,,lb,,,active
+sereal-mom-dvd-floor-sale-comedy,Sereal Mom,,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,10.00,,true,true,,,,,89139706,,,,false,,,,,,,,,,lb,,,active
+the-25th-hour-dvd-floor-sale-drama,The 25th Hour,,DVD,,,"Drama, Floor Sale",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,10.00,,true,true,,,,,89106938,,,,false,,,,,,,,,,lb,,,active
+the-heat-dvd-floor-sale-comedy,The Heat,,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,89074170,,,,false,,,,,,,,,,lb,,,active
+dracula-the-dark-prince-dvd-floor-sale-horror,Dracula: The Dark Prince,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,89041402,,,,false,,,,,,,,,,lb,,,active
+hostel-part-ii-unrated-dvd-floor-sale-horror,Hostel Part II (Unrated),,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,89008634,,,,false,,,,,,,,,,lb,,,active
+snakes-on-a-plane-dvd-floor-sale-horror,Snakes on a Plane,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,88975866,,,,false,,,,,,,,,,lb,,,active
+the-butchering-dvd-floor-sale-horror,The Butchering,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,88943098,,,,false,,,,,,,,,,lb,,,active
+lake-placid-dvd-floor-sale-horror,Lake Placid,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,88910330,,,,false,,,,,,,,,,lb,,,active
+outbreak-dvd-floor-sale-thriller,Outbreak,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,88877562,,,,false,,,,,,,,,,lb,,,active
+the-incredibles-dvd-floor-sale-kids-family,The Incredibles,,DVD,Uncategorized,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,2,deny,manual,5.00,,true,true,,,,,88844794,,,,false,,,,,,,,,,lb,,,active
+rock-n-rolla-dvd-floor-sale-comedy,Rock n Rolla,,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,88812026,,,,false,,,,,,,,,,lb,,,active
+cellular-dvd-floor-sale-thriller,Cellular,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,88779258,,,,false,,,,,,,,,,lb,,,active
+the-happening-dvd-floor-sale-sci-fi,The Happening,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,88746490,,,,false,,,,,,,,,,lb,,,active
+almost-famous-dvd-floor-sale-drama,Almost Famous,,DVD,,,"Drama, Floor Sale",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,86845946,,,,false,,,,,,,,,,lb,,,active
+donnie-darko-dvd-floor-sale-sci-fi,Donnie Darko,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,86780410,,,,false,,,,,,,,,,lb,,,active
+willow-dvd-floor-sale-fantasy,Willow,,DVD,,,"Fantasy, Floor Sale",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,9.00,,true,true,,,,,86747642,,,,false,,,,,,,,,,lb,,,active
+inglorious-bastards-dvd-floor-sale-action,Inglorious Basterds,,DVD,Uncategorized,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,2,deny,manual,8.00,,true,true,,,,,86714874,,,,false,,,,,,,,,,lb,,,active
+happy-feet-dvd-floor-sale-kids-family,Happy Feet,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,86682106,,,,false,,,,,,,,,,lb,,,active
+matrix-revolutions-dvd-6,Matrix Revolutions,,DVD,Uncategorized,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,2,deny,manual,6.00,,true,true,,,,,86346746,,,,false,,,,,,,,,,lb,,,active
+days-of-thunder-dvd-7,Days of Thunder,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,86313978,,,,false,,,,,,,,,,lb,,,active
+gone-in-60-seconds-dvd-5,Gone in 60 Seconds,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,86248442,,,,false,,,,,,,,,,lb,,,active
+rings-dvd-5,Rings,<p>103</p>,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,86215674,,,,false,,,,,,,,,,lb,,,active
+matrix-reloaded-dvd-6,Matrix Reloaded,,DVD,Uncategorized,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,5,deny,manual,6.00,,true,true,,,,,86019066,,,,false,,,,,,,,,,lb,,,active
+exorcist-the-beginning-dvd-7,Exorcist: The Beginning,<p>7</p>,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,85953530,,,,false,,,,,,,,,,lb,,,active
+straw-dogs-dvd-5,Straw Dogs,<p>5</p>,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,85920762,,,,false,,,,,,,,,,lb,,,active
+21-jump-street-dvd-5,21 Jump Street,<p>5</p>,DVD,Uncategorized,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,2,deny,manual,5.00,,true,true,,,,,85855226,,,,false,,,,,,,,,,lb,,,active
+kingsman-dvd-5,Kingsman,<p>5</p>,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,85658618,,,,false,,,,,,,,,,lb,,,active
+neighbors-dvd-5,Neighbors,<p>5</p>,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,85625850,,,,false,,,,,,,,,,lb,,,active
+stir-of-echos-dvd-6,Stir of Echos,<p>6</p>,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,85593082,,,,false,,,,,,,,,,lb,,,active
+harry-potter-and-the-prisoner-of-azkaban-dvd-6,Harry Potter and The Prisoner of Azkaban,<p>6</p>,DVD,Uncategorized,,"Fantasy, Floor Sale",true,Genre,Fantasy,,,,,,,,,0.0,shopify,2,deny,manual,6.00,,true,true,,,,,85560314,,,,false,,,,,,,,,,lb,,,active
+coal-miners-daughter-dvd-5,Coal Miner's Daughter,<p>5</p>,DVD,,,"Drama, Floor Sale",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,85527546,,,,false,,,,,,,,,,lb,,,active
+the-mummy-returns-dvd-5,The Mummy: Returns,<p><br></p>,DVD,Uncategorized,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,2,deny,manual,5.00,,true,true,,,,,84970490,,,,false,,,,,,,,,,lb,,,active
+the-mummy-tomb-of-the-dragon-emperor-dvd-5,The Mummy: Tomb of the Dragon Emperor,<p>5</p>,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,84904954,,,,false,,,,,,,,,,lb,,,active
+the-13th-warror-dvd-5,The 13th Warror,<p>5</p>,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,84708346,,,,false,,,,,,,,,,lb,,,active
+predator-dvd-10,Predator,<p>10</p>,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,10.00,,true,true,,,,,84675578,,,,false,,,,,,,,,,lb,,,active
+iron-man-2-dvd-5,Iron Man 2,<p>5</p>,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,84610042,,,,false,,,,,,,,,,lb,,,active
+scorpion-king-2-rise-of-a-warrior-dvd-5,Scorpion King 2: Rise of a Warrior,<p>5</p>,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,84577274,,,,false,,,,,,,,,,lb,,,active
+king-kong-dvd-5,King Kong,<p>5</p>,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,84544506,,,,false,,,,,,,,,,lb,,,active
+signs-dvd-8,Signs,<p>8</p>,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,84511738,,,,false,,,,,,,,,,lb,,,active
+fast-furious-9-movie-collection-dvd-11,Fast & Furious 9 Movie Collection,<p>11</p>,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,11.00,,true,true,,,,,84282362,,,,false,,,,,,,,,,lb,,,active
+prom-night-dvd-floor-sale-horror,Prom Night,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,22539514,,,,false,,,,,,,,,,lb,,,active
+resident-evil-afterlife-dvd-floor-sale-horror,Resident Evil: Afterlife,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,22310138,,,,false,,,,,,,,,,lb,,,active
+iron-man-3-dvd-floor-sale-action,Iron Man 3,,DVD,Uncategorized,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,2,deny,manual,5.00,,true,true,,,,,22277370,,,,false,,,,,,,,,,lb,,,active
+set-it-off-dvd-floor-sale-thriller,Set it Off,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,22244602,,,,false,,,,,,,,,,lb,,,active
+crazies-dvd-floor-sale-horror,Crazies,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,22211834,,,,false,,,,,,,,,,lb,,,active
+from-hell-dvd-floor-sale-horror,From Hell,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,22179066,,,,false,,,,,,,,,,lb,,,active
+gremlins-special-ed-dvd-floor-sale-comedy,Gremlins (Special Ed.),,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,4.00,,true,true,,,,,22146298,,,,false,,,,,,,,,,lb,,,active
+mercury-rising-dvd-floor-sale-action,Mercury Rising,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,22113530,,,,false,,,,,,,,,,lb,,,active
+geostorm-dvd-floor-sale-sci-fi,Geostorm,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,22015226,,,,false,,,,,,,,,,lb,,,active
+american-psycho-dvd-floor-sale-thriller,American Psycho,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,21818618,,,,false,,,,,,,,,,lb,,,active
+saw-ii-dvd-floor-sale-horror,Saw II,,DVD,Uncategorized,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,3,deny,manual,7.00,,true,true,,,,,21785850,,,,false,,,,,,,,,,lb,,,active
+saw-dvd-floor-sale-horror,Saw,,DVD,Uncategorized,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,2,deny,manual,6.00,,true,true,,,,,21753082,,,,false,,,,,,,,,,lb,,,active
+sharks-flipper-lopaka-dvd-floor-sale-kids-family,Sharks Flipper & Lopaka,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,4.00,,true,true,,,,,21687546,,,,false,,,,,,,,,,lb,,,active
+guardians-of-the-galaxy-dvd-floor-sale-action,Guardians of the Galaxy,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21654778,,,,false,,,,,,,,,,lb,,,active
+santa-clause-2-dvd-floor-sale-holiday,Santa Clause 2,,DVD,,,"Floor Sale, Holiday",true,Genre,Holiday,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21622010,,,,false,,,,,,,,,,lb,,,active
+ghost-of-the-needle-dvd-floor-sale-thriller,Ghost of the Needle,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21261562,,,,false,,,,,,,,,,lb,,,active
+the-jungle-book-2-dvd-floor-sale-kids-family,The Jungle Book 2,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21196026,,,,false,,,,,,,,,,lb,,,active
+the-devils-rejects-dvd-floor-sale-horror,The Devils Rejects,,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,10.00,,true,true,,,,,21163258,,,,false,,,,,,,,,,lb,,,active
+galaxy-quest-dvd-floor-sale-sci-fi,Galaxy Quest,,DVD,,,"Floor Sale, Sci-Fi",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,21097722,,,,false,,,,,,,,,,lb,,,active
+underworld-dvd-floor-sale-horror,Underworld,,DVD,Uncategorized,,"Floor Sale, Horror",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,21032186,,,,false,,,,,,,,,,lb,,,active
+spy-kids-3d-game-over-dvd-floor-sale-kids-family,Spy Kids 3D: Game Over,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,20999418,,,,false,,,,,,,,,,lb,,,active
+valkyrie-dvd-floor-sale-thriller,Valkyrie,,DVD,,,"Floor Sale, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,20966650,,,,false,,,,,,,,,,lb,,,active
+ghost-dvd-5,Ghost,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,65359354,,,,false,,,,,,,,,,lb,,,active
+iron-man-dvd-6,Iron Man,,DVD,Uncategorized,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,2,deny,manual,6.00,,true,true,,,,,65129978,,,,false,,,,,,,,,,lb,,,active
+the-tale-of-despereaux-dvd-5,The Tale of Despereaux,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,2,deny,manual,5.00,,true,true,,,,,64900602,,,,false,,,,,,,,,,lb,,,active
+sinbad-dvd-5,Sinbad,,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,64638458,,,,false,,,,,,,,,,lb,,,active
+x2-x-men-united-dvd-5,X2: X-Men United,,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,64409082,,,,false,,,,,,,,,,lb,,,active
+ghost-busters-dvd-8,Ghostbusters,,DVD,Uncategorized,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,64212474,,,,false,,,,,,,,,,lb,,,active
+ghost-rider-dvd-5,Ghost Rider,<p>113</p>,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,64015866,,,,false,,,,,,,,,,lb,,,active
+the-other-side-of-heaven-dvd-5,The Other Side of Heaven,,DVD,,,"Drama, Floor Sale",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,63786490,,,,false,,,,,,,,,,lb,,,active
+bedknobs-and-broomsticks-dvd-7,Bedknobs and Broomsticks,<p>7</p>,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,63589882,,,,false,,,,,,,,,,lb,,,active
+hocus-pocus-dvd-8,Hocus Pocus,<p>8</p>,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,63393274,,,,false,,,,,,,,,,lb,,,active
+finding-nemo-dvd-6,Finding Nemo,<p>6</p>,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,63196666,,,,false,,,,,,,,,,lb,,,active
+alien-vs-predator-dvd-6,Alien Vs. Predator,<p>6</p>,DVD,Uncategorized,,"Floor Sale, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,2,deny,manual,6.00,,true,true,,,,,61623802,,,,false,,,,,,,,,,lb,,,active
+the-others-collectors-ed-dvd-7,The Others (collectors ed.),<p>7</p>,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,59952634,,,,false,,,,,,,,,,lb,,,active
+death-wish-2-dvd-5,Death Wish 2,<p>5</p>,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,59559418,,,,false,,,,,,,,,,lb,,,active
+hellboy-dvd-5,Hellboy,<p>5</p>,DVD,,,"Fantasy, Floor Sale",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,59198970,,,,false,,,,,,,,,,lb,,,active
+the-hills-have-eyes-dvd-8,The Hills Have Eyes,<p>8</p>,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,57691642,,,,false,,,,,,,,,,lb,,,active
+fear-dot-com-dvd-7,Fear dot Com,<p>7</p>,DVD,,,"Floor Sale, Horror",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,57495034,,,,false,,,,,,,,,,lb,,,active
+where-the-wild-things-are-dvd-6,Where the Wild Things Are,<p><br></p>,DVD,Uncategorized,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,2,deny,manual,6.00,,true,true,,,,,57298426,,,,false,,,,,,,,,,lb,,,active
+elf-dvd-8,Elf,<p>8</p>,DVD,,,"Floor Sale, Holiday",true,Genre,Holiday,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,57134586,,,,false,,,,,,,,,,lb,,,active
+spaceballs-dvd-8,Spaceballs,<p>8</p>,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,55692794,,,,false,,,,,,,,,,lb,,,active
+fast-furious-hobbs-shaw-dvd-5,Fast & Furious: Hobbs & Shaw,<p>5</p>,DVD,,,"Action, Floor Sale",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,54119930,,,,false,,,,,,,,,,lb,,,active
+the-life-aquatic-dvd-7,The Life Aquatic,<p>7</p>,DVD,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,53857786,,,,false,,,,,,,,,,lb,,,active
+the-secret-of-nimh-dvd-8,The Secret of Nimh,<p>8</p>,DVD,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,52415994,,,,false,,,,,,,,,,lb,,,active
+snatch-dvd-6,Snatch,<p>6</p>,DVD,Uncategorized,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,2,deny,manual,6.00,,true,true,,,,,52219386,,,,false,,,,,,,,,,lb,,,active
+the-lord-of-the-rings-the-fellowship-of-the-ring-dvd-6,The Lord of the Rings: The Fellowship of the Ring,<p>6</p>,DVD,Uncategorized,,"Fantasy, Floor Sale",true,Genre,Fantasy,,,,,,,,,0.0,shopify,2,deny,manual,6.00,,true,true,,,,,50482682,,,,false,,,,,,,,,,lb,,,active
+the-incredible-hulk-dvd-rental-action,The Incredible Hulk,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,20058106,,,,false,,,,,,,,,,lb,,,active
+king-kong-dvd-rental-action,King Kong,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,20025338,,,,false,,,,,,,,,,lb,,,active
+man-of-steel-dvd-rental-action,Man of Steel,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19992570,,,,false,,,,,,,,,,lb,,,active
+aquaman-dvd-rental-action,Aquaman,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19927034,,,,false,,,,,,,,,,lb,,,active
+ronin-dvd-rental-action,Ronin,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19894266,,,,false,,,,,,,,,,lb,,,active
+rambo-last-blood-dvd-rental-action,Rambo: Last Blood,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19861498,,,,false,,,,,,,,,,lb,,,active
+gunslingers-revenge-dvd-rental-action,Gunslingers Revenge,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19828730,,,,false,,,,,,,,,,lb,,,active
+criminal-dvd-rental-action,Criminal,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19795962,,,,false,,,,,,,,,,lb,,,active
+caged-in-triple-feature-dvd-rental-action,Cage'd In: Triple Feature,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19763194,,,,false,,,,,,,,,,lb,,,active
+wrong-turn-at-tahoe-dvd-rental-action,Wrong Turn at Tahoe,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19730426,,,,false,,,,,,,,,,lb,,,active
+true-grit-dvd-rental-action,True Grit,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19697658,,,,false,,,,,,,,,,lb,,,active
+jurassic-world-fallen-kingdom-dvd-rental-action,Jurassic World: Fallen Kingdom,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19664890,,,,false,,,,,,,,,,lb,,,active
+the-outsider-dvd-rental-action,The Outsider,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19632122,,,,false,,,,,,,,,,lb,,,active
+hamburger-hill-dvd-rental-action,Hamburger Hill,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19599354,,,,false,,,,,,,,,,lb,,,active
+glass-dvd-rental-action,Glass,,DVD,,,"Action, Rental",true,Genre,Action,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19501050,,,,false,,,,,,,,,,lb,,,active
+alvin-and-the-chipmunks-chip-wrecked-dvd-rental-kids-family,Alvin and the Chipmunks: Chip Wrecked,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19468282,,,,false,,,,,,,,,,lb,,,active
+night-at-the-museum-secret-of-the-tomb-dvd-rental-kids-family,Night At The Museum: Secret of the Tomb,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19304442,,,,false,,,,,,,,,,lb,,,active
+warner-bros-animation-collection-dvd-rental-kids-family,Warner Bros. Animation Collection,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19271674,,,,false,,,,,,,,,,lb,,,active
+dog-jack-dvd-rental-kids-family,Dog Jack,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19238906,,,,false,,,,,,,,,,lb,,,active
+the-house-with-a-clock-in-its-walls-dvd-rental-kids-family,The House with a Clock in its Walls,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19206138,,,,false,,,,,,,,,,lb,,,active
+catch-that-kid-dvd-rental-kids-family,Catch That Kid,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19173370,,,,false,,,,,,,,,,lb,,,active
+home-alone-2-lost-in-new-york-dvd-rental-kids-family,Home Alone 2: Lost in New York,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19140602,,,,false,,,,,,,,,,lb,,,active
+the-seeker-dvd-rental-kids-family,The Seeker,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19107834,,,,false,,,,,,,,,,lb,,,active
+nims-island-dvd-rental-kids-family,Nim's Island,,DVD,,,"Kids & Family, Rental",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,19075066,,,,false,,,,,,,,,,lb,,,active
+replicas-dvd-rental-sci-fi,Replicas,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17764346,,,,false,,,,,,,,,,lb,,,active
+monster-hunter-dvd-rental-sci-fi,Monster Hunter,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17731578,,,,false,,,,,,,,,,lb,,,active
+skyline-dvd-rental-sci-fi,Skyline,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17698810,,,,false,,,,,,,,,,lb,,,active
+ai-artificial-intelligence-dvd-rental-sci-fi,A.I. Artificial Intelligence,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17666042,,,,false,,,,,,,,,,lb,,,active
+the-island-dvd-rental-sci-fi,The Island,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17633274,,,,false,,,,,,,,,,lb,,,active
+battlestar-galactica-razor-dvd-rental-sci-fi,Battlestar Galactica: RAZOR,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17600506,,,,false,,,,,,,,,,lb,,,active
+alien-covenant-dvd-rental-sci-fi,Alien Covenant,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17567738,,,,false,,,,,,,,,,lb,,,active
+pandorum-dvd-rental-sci-fi,Pandorum,,DVD,,,"Rental, Sci-Fi",true,Genre,Sci-Fi,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17534970,,,,false,,,,,,,,,,lb,,,active
+the-scorpion-king-dvd-rental-fantasy,The Scorpion King,,DVD,,,"Fantasy, Rental",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17502202,,,,false,,,,,,,,,,lb,,,active
+beowulf-grendel-dvd-rental-fantasy,Beowulf & Grendel,,DVD,,,"Fantasy, Rental",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17469434,,,,false,,,,,,,,,,lb,,,active
+the-legend-of-hercules-dvd-rental-fantasy,The Legend of Hercules,,DVD,,,"Fantasy, Rental",true,Genre,Fantasy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17436666,,,,false,,,,,,,,,,lb,,,active
+vlack-x-mas-dvd-rental-horror,Black X-Mas,,DVD,Uncategorized,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17403898,,,,false,,,,,,,,,,lb,,,active
+hatchet-dvd-rental-horror,Hatchet,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17338362,,,,false,,,,,,,,,,lb,,,active
+hostel-dvd-rental-horror,Hostel,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17272826,,,,false,,,,,,,,,,lb,,,active
+the-midnight-horror-collection-dvd-rental-horror,The Midnight Horror Collection,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17240058,,,,false,,,,,,,,,,lb,,,active
+my-bloody-valentine-april-fools-day-dvd-rental-horror,"My Bloody Valentine, April Fool's Day",,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17207290,,,,false,,,,,,,,,,lb,,,active
+hatchet-2-dvd-rental-horror,Hatchet 2,,DVD,,,"Horror, Rental",true,Genre,Horror,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,17174522,,,,false,,,,,,,,,,lb,,,active
+bicentennial-man-vhs-5,Bicentennial Man,<p>5</p>,VHS,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21983482,,,,false,,,,,,,,,,lb,,,active
+austin-powers-international-man-of-mystery-vhs-7,Austin Powers: International Man of Mystery,<p>7</p>,VHS,,,"Comedy, Floor Sale",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,7.00,,true,true,,,,,21950714,,,,false,,,,,,,,,,lb,,,active
+the-wedding-planner-vhs-5,The Wedding Planner,<p>5</p>,VHS,Uncategorized,,"Floor Sale, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,1,deny,manual,5.00,,true,true,,,,,21917946,,,,false,,,,,,,,,,lb,,,active
+pretty-woman-vhs-8,Pretty Woman,<p>8</p>,VHS,Uncategorized,,"Floor Sale, Romantic Comedy",true,Genre,Romantic Comedy,,,,,,,,,0.0,shopify,2,deny,manual,8.00,,true,true,,,,,21885178,,,,false,,,,,,,,,,lb,,,active
+patch-adams-vhs-6,Patch Adams,<p>6</p>,VHS,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,6.00,,true,true,,,,,21852410,,,,false,,,,,,,,,,lb,,,active
+all-dogs-go-to-heaven-vhs-8,All Dogs Go to Heaven,<p>8</p>,VHS,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,21819642,,,,false,,,,,,,,,,lb,,,active
+pinocchio-vhs-8,Pinocchio,<p>8</p>,VHS,,,"Floor Sale, Kids & Family",true,Genre,Kids & Family,,,,,,,,,0.0,shopify,1,deny,manual,8.00,,true,true,,,,,21786874,,,,false,,,,,,,,,,lb,,,active
+erin-brockovich-vhs-rental-drama,Erin Brockovich,,VHS,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18936058,,,,false,,,,,,,,,,lb,,,active
+stepmom-vhs-rental-drama,Stepmom,,VHS,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18870522,,,,false,,,,,,,,,,lb,,,active
+field-of-dreams-vhs-rental-drama,Field of Dreams,,VHS,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18837754,,,,false,,,,,,,,,,lb,,,active
+miss-congeniality-vhs-rental-comedy,Miss Congeniality,,VHS,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18804986,,,,false,,,,,,,,,,lb,,,active
+white-vhs-rental-foreign,White,,VHS,,,"Foreign, Rental",true,Genre,Foreign,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18772218,,,,false,,,,,,,,,,lb,,,active
+blue-hawaii-vhs-rental-musical,Blue Hawaii,,VHS,,,"Musical, Rental",true,Genre,Musical,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18739450,,,,false,,,,,,,,,,lb,,,active
+hold-that-ghost-vhs-rental-comedy,Hold That Ghost,,VHS,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18706682,,,,false,,,,,,,,,,lb,,,active
+suburban-commando-vhs-rental-comedy,Suburban Commando,,VHS,,,"Comedy, Rental",true,Genre,Comedy,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18673914,,,,false,,,,,,,,,,lb,,,active
+shining-through-vhs-rental-drama,Shining Through,,VHS,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18641146,,,,false,,,,,,,,,,lb,,,active
+rain-man-vhs-rental-drama,Rain Man,,VHS,,,"Drama, Rental",true,Genre,Drama,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18608378,,,,false,,,,,,,,,,lb,,,active
+along-came-a-spider-vhs-rental-thriller,Along Came a Spider,,VHS,,,"Rental, Thriller",true,Genre,Thriller,,,,,,,,,0.0,shopify,1,deny,manual,0.00,,true,true,,,,,18575610,,,,false,,,,,,,,,,lb,,,active

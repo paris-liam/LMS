@@ -51,12 +51,23 @@
             data-product-id="{{ product.id }}"
             ref="cards[]"
           >
-            {% content_for 'block',
-              type: '_product-card',
-              id: 'product-card',
-              closest.product: product,
-              product_view_context: 'search'
-            %}
+            {%- comment -%}
+              Rental movies can't be bought online (no add-to-cart exists on the
+              movie PDP) — the native product card would still show a real price
+              here, implying they can be. Use the price-free lms-product-card for
+              Rental results, same as the all-movies/shop-all collection pages;
+              retail results keep the native card with price.
+            {%- endcomment -%}
+            {% if product.tags contains 'Rental' %}
+              {% render 'lms-product-card', card_product: product %}
+            {% else %}
+              {% content_for 'block',
+                type: '_product-card',
+                id: 'product-card',
+                closest.product: product,
+                product_view_context: 'search'
+              %}
+            {% endif %}
           </li>
         {% endfor %}
       {% endcapture %}

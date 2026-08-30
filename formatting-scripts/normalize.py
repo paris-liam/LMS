@@ -13,6 +13,7 @@ from catalog_common import group_rows_by_handle
 from columns import (
     EXPORT_COLUMNS,
     FIXED_VALUES,
+    FORMATTED_TAG,
     GENRE_METAFIELD,
     REASON_COLUMN,
     TEMPLATE_COLUMNS,
@@ -105,7 +106,10 @@ def _build_row(primary: dict, resolved: dict, handle: str, shape: str) -> dict:
     out["Body (HTML)"] = primary.get("Body (HTML)", "") or ""
     out["Vendor"] = resolved["format"]
     out["Tags"] = ", ".join(
-        [resolved["type"], resolved["format"]] + resolved["genres"] + resolved["extras"]
+        [resolved["type"], resolved["format"]]
+        + resolved["genres"]
+        + resolved["extras"]
+        + [FORMATTED_TAG]
     )
     out["Option1 Value"] = resolved["genres"][0]
     out["Variant Price"] = resolved["price"]

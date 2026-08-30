@@ -39,6 +39,15 @@ class TestCollectProducts(unittest.TestCase):
         self.assertIn("no poster", products[0]["reason"])
         self.assertIn("no overview", products[0]["reason"])
 
+    def test_carries_vendor_and_genre_through_from_the_review_row(self):
+        products = collect_products(
+            [{"Handle": "x", "Title": "X", "Vendor": "DVD", "Genre": "horror",
+              "Kind": "ambiguous", "Reason": "r"}],
+            fetcher([result("X")]), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(products[0]["vendor"], "DVD")
+        self.assertEqual(products[0]["genre"], "horror")
+
     def test_a_failed_request_yields_a_card_with_no_candidates(self):
         def boom(query, year):
             raise RuntimeError("network down")
@@ -64,6 +73,34 @@ class TestBuildPickerHtml(unittest.TestCase):
                              "overview": "", "poster_path": ""}]}
         ])
         self.assertNotIn("</script><b>", html)
+
+    def test_renders_vendor_and_genre_tags_when_present(self):
+        html = build_picker_html([
+            {"handle": "x", "title": "X", "vendor": "VHS", "genre": "comedy",
+             "reason": "r", "candidates": []}
+        ])
+        self.assertIn('"vendor":"VHS"', html.replace(" ", ""))
+        self.assertIn('"genre":"comedy"', html.replace(" ", ""))
+
+    def test_omits_tags_entirely_when_vendor_and_genre_are_blank(self):
+        html = build_picker_html([
+            {"handle": "x", "title": "X", "vendor": "", "genre": "",
+             "reason": "r", "candidates": []}
+        ])
+        self.assertIn("tagsHtml", html)  # the conditional exists in the template
+        self.assertIn("filter(Boolean)", html)  # blanks are dropped, not rendered empty
+
+    def test_storage_keys_are_namespaced_by_batch_id(self):
+        """Pages sharing an origin (e.g. one static server) share
+        localStorage by key, not by file path. Without a per-batch
+        namespace, one batch's picks — and its decided counter — would
+        leak into every other batch's picker page."""
+        html = build_picker_html(
+            [{"handle": "x", "title": "X", "reason": "r", "candidates": []}],
+            batch_id="out-product_export_3",
+        )
+        self.assertIn('"tmdb-review-picks::" + BATCH_ID', html)
+        self.assertIn('"out-product_export_3"', html)
 
 
 class TestWritePicker(unittest.TestCase):

@@ -22,7 +22,7 @@ any file this script produced earlier. Output lands in `out-<inputname>/`
 | `issues.csv` | Fix the rows, then `run.py out-<name>/issues.csv` |
 | `review-picker.html` | Open it, pick the right poster, Export picks (only written when at least one row was ambiguous) |
 | `tmdb-picks.json` | `python3 formatting-scripts/apply_picks.py <picks> <upload.csv>` → `picks-applied.csv` |
-| `tmdb-unmatched.csv` | Paste a description/poster, or fix the title, then re-run it |
+| `tmdb-unmatched.csv` | Same columns as `upload.csv`, no Reason column — fix the title (see the run's console output for why each row didn't match) or paste a description/poster, then re-run it |
 | `run-report.txt` | Counts for the run |
 | `.tmdb-cache.json` | TMDB query cache for this output directory. Not an input file — don't feed it to `run.py`. |
 
@@ -87,7 +87,7 @@ live store.
   identity.
 - Genre is never inferred from a title; type is never inferred from price.
 - Existing descriptions and posters are never overwritten.
-- Nothing is ever written to product tags except `Type, Format, Genre…, extras`.
+- Nothing is ever written to product tags except `Type, Format, Genre…, extras, Formatted`.
 - The export output omits every column it does not set, so Shopify leaves
   those fields alone.
 

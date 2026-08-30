@@ -99,7 +99,7 @@ class TestExportNormalization(unittest.TestCase):
         clean, _ = normalize_rows(
             [export_row(Tags="Floor Sale, Action, Criterion Collection")], "export"
         )
-        self.assertEqual(clean[0]["Tags"], "Floor Sale, DVD, Action, Criterion Collection")
+        self.assertEqual(clean[0]["Tags"], "Floor Sale, DVD, Action, Criterion Collection, Formatted")
 
     def test_normalizes_vendor_case(self):
         clean, _ = normalize_rows([export_row(Vendor="BLU-RAY")], "export")
@@ -234,7 +234,7 @@ class TestTemplateNormalization(unittest.TestCase):
         )
         self.assertEqual(clean[0]["Option1 Value"], "Sci-Fi")
         self.assertEqual(clean[0][GENRE_METAFIELD], "sci-fi; thriller")
-        self.assertEqual(clean[0]["Tags"], "Rental, VHS, Sci-Fi, Thriller, A24")
+        self.assertEqual(clean[0]["Tags"], "Rental, VHS, Sci-Fi, Thriller, A24, Formatted")
 
     def test_extra_tags_column_rejects_a_genre_already_set_via_genre_1(self):
         """Genre 1=Comedy, Extra tags=Rental must not duplicate the type tag
@@ -243,7 +243,7 @@ class TestTemplateNormalization(unittest.TestCase):
             [template_row(**{"Genre 1": "Comedy", "Extra tags": "Rental"})],
             "template",
         )
-        self.assertEqual(clean[0]["Tags"], "Rental, VHS, Comedy")
+        self.assertEqual(clean[0]["Tags"], "Rental, VHS, Comedy, Formatted")
 
     def test_extra_tags_column_rejects_a_format_word(self):
         """A DVD product must not end up tagged Blu-Ray via Extra tags."""
@@ -252,7 +252,7 @@ class TestTemplateNormalization(unittest.TestCase):
             "template",
         )
         self.assertEqual(clean[0]["Vendor"], "DVD")
-        self.assertEqual(clean[0]["Tags"], "Rental, DVD, Comedy")
+        self.assertEqual(clean[0]["Tags"], "Rental, DVD, Comedy, Formatted")
 
     def test_extra_tags_column_rejects_a_genre_word_not_set_via_genre_1(self):
         """A Comedy product must not ship tagged Horror with no Horror genre,
@@ -261,7 +261,7 @@ class TestTemplateNormalization(unittest.TestCase):
             [template_row(**{"Genre 1": "Comedy", "Extra tags": "Horror"})],
             "template",
         )
-        self.assertEqual(clean[0]["Tags"], "Rental, VHS, Comedy")
+        self.assertEqual(clean[0]["Tags"], "Rental, VHS, Comedy, Formatted")
         self.assertEqual(clean[0][GENRE_METAFIELD], "comedy")
 
     def test_floor_sale_without_a_price_is_flagged(self):

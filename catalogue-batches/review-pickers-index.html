@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Review pickers — batches 3-13</title>
+<style>
+  body { font-family: -apple-system, Helvetica, Arial, sans-serif; max-width: 820px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+  h1 { font-size: 1.4rem; }
+  p.note { color: #555; }
+  p.warn { color: #973123; background: #fdf1ef; border: 1px solid #f2c7c0; border-radius: 6px; padding: .6rem .9rem; font-size: .9rem; }
+  table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+  th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid #ddd; vertical-align: middle; }
+  th { background: #f5f5f5; }
+  a.open { display: inline-block; padding: 0.25rem 0.6rem; background: #2b6cb0; color: #fff; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }
+  a.open:hover { background: #1a4e8a; }
+  code { background: #f0f0f0; padding: 0.1rem 0.3rem; border-radius: 3px; }
+  .cmd { font-size: 0.85rem; color: #444; }
+  .progress-cell { min-width: 160px; }
+  .progress-track { background: #eee; border-radius: 4px; height: 8px; overflow: hidden; margin-bottom: .25rem; }
+  .progress-fill { background: #5f8d7a; height: 100%; }
+  .progress-fill.complete { background: #2b6cb0; }
+  .progress-text { font-size: .8rem; color: #555; }
+  tr.complete .progress-text { color: #2b6cb0; font-weight: 600; }
+</style>
+</head>
+<body>
+  <h1>Review pickers — product_export batches 3&ndash;13</h1>
+  <p class="note">
+    Each row opens that batch's own <code>review-picker.html</code> in a new tab
+    (a picker page can't embed another origin's page inline, so this is a launcher,
+    not a single merged picker). Pick posters, click <strong>Export picks</strong>
+    in that tab &mdash; it downloads that batch's own <code>tmdb-picks.json</code>.
+    Move the download into the matching <code>out-product_export_N/</code> folder,
+    then run:
+  </p>
+  <p class="cmd"><code>python3 formatting-scripts/apply_picks.py catalogue-batches/out-product_export_N/tmdb-picks.json catalogue-batches/out-product_export_N/upload.csv</code></p>
+  <p class="warn" id="origin-warning" style="display:none">
+    This page was opened directly as a <code>file://</code> URL. Each picker page's
+    progress lives in its browser's <code>localStorage</code>, which is scoped to a
+    page's own origin — under <code>file://</code>, that can be inconsistent across
+    files depending on the browser, so the progress bars below may read 0 even
+    after you've made picks. Serve this folder over a local static server
+    (e.g. <code>python3 -m http.server</code> from the repo root) and open this
+    page through <code>http://localhost:&lt;port&gt;/...</code> for reliable progress.
+  </p>
+
+  <table>
+    <thead>
+      <tr><th>Batch</th><th>Ambiguous products</th><th class="progress-cell">Progress</th><th>Picker</th></tr>
+    </thead>
+    <tbody id="rows">
+      <tr data-batch="out-product_export_3" data-total="217"><td>3</td><td>217</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_3/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product_export_4" data-total="226"><td>4</td><td>226</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_4/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product_export_5" data-total="232"><td>5</td><td>232</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_5/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product_export_6" data-total="252"><td>6</td><td>252</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_6/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product_export_7" data-total="251"><td>7</td><td>251</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_7/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product_export_8" data-total="171"><td>8</td><td>171</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_8/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product_export_9" data-total="197"><td>9</td><td>197</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_9/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product_export_10" data-total="151"><td>10</td><td>151</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_10/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product_export_11" data-total="234"><td>11</td><td>234</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_11/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product_export_12" data-total="36"><td>12</td><td>36</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_12/review-picker.html" target="_blank">Open</a></td></tr>
+      <tr data-batch="out-product_export_13" data-total="27"><td>13</td><td>27</td><td class="progress-cell"><div class="progress-track"><div class="progress-fill"></div></div><div class="progress-text"></div></td><td><a class="open" href="out-product_export_13/review-picker.html" target="_blank">Open</a></td></tr>
+    </tbody>
+  </table>
+
+<script>
+if (location.protocol === "file:") {
+  document.getElementById("origin-warning").style.display = "block";
+}
+
+function decidedCount(batchId) {
+  try {
+    const raw = localStorage.getItem("tmdb-review-picks::" + batchId);
+    if (!raw) return 0;
+    return Object.keys(JSON.parse(raw)).length;
+  } catch (e) {
+    return 0;
+  }
+}
+
+document.querySelectorAll("#rows tr").forEach(row => {
+  const batchId = row.dataset.batch;
+  const total = Number(row.dataset.total);
+  const decided = decidedCount(batchId);
+  const pct = total ? Math.round((decided / total) * 100) : 0;
+  const fill = row.querySelector(".progress-fill");
+  const text = row.querySelector(".progress-text");
+  fill.style.width = pct + "%";
+  text.textContent = `${decided} / ${total} decided (${pct}%)`;
+  if (decided >= total && total > 0) {
+    fill.classList.add("complete");
+    row.classList.add("complete");
+  }
+});
+</script>
+</body>
+</html>

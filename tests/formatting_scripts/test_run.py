@@ -110,16 +110,15 @@ class TestRun(unittest.TestCase):
         outdir = Path(result["outdir"])
         unmatched = read_csv(outdir / "tmdb-unmatched.csv")
         self.assertEqual(result["unmatched"], 1)
-        self.assertIn("no TMDB match", unmatched[0]["Reason"])
         self.assertEqual(unmatched[0]["Title"], "Rushmore")
-        # Emitted in the output shape, so it feeds straight back into run.py.
-        self.assertEqual(list(unmatched[0]), ["Reason"] + TEMPLATE_COLUMNS)
+        # Emitted in the output shape (no Reason column), so the file is
+        # already upload.csv shape and feeds straight back into run.py.
+        self.assertEqual(list(unmatched[0]), TEMPLATE_COLUMNS)
 
-    def test_unmatched_rows_join_multiple_reasons_for_one_product(self):
-        """A product missing both a poster and an overview must show both
-        reasons, not just the first one recorded — otherwise the operator
-        fixes one, re-runs, and finds a second problem that was there all
-        along."""
+    def test_unmatched_rows_dont_duplicate_a_product_with_multiple_reasons(self):
+        """A product missing both a poster and an overview must still show
+        up once, not once per reason — otherwise the operator fixes one row,
+        re-runs, and finds a duplicate handle waiting for them."""
         def no_poster_no_overview(query, year):
             return {"results": [{"title": query, "release_date": "1998-01-01",
                                  "poster_path": "", "overview": ""}]}
@@ -133,9 +132,7 @@ class TestRun(unittest.TestCase):
         outdir = Path(result["outdir"])
         unmatched = read_csv(outdir / "tmdb-unmatched.csv")
         self.assertEqual(len(unmatched), 1)
-        self.assertIn("no poster", unmatched[0]["Reason"])
-        self.assertIn("no overview", unmatched[0]["Reason"])
-        self.assertIn(";", unmatched[0]["Reason"])
+        self.assertEqual(unmatched[0]["Title"], "Rushmore")
 
     def test_ambiguous_rows_produce_the_picker_page(self):
         def ambiguous(query, year):
@@ -234,7 +231,7 @@ class TestRun(unittest.TestCase):
         first_upload = Path(first["outdir"]) / "upload.csv"
         first_rows = read_csv(first_upload)
         self.assertEqual(first["issues"], 0)
-        self.assertEqual(first_rows[0]["Tags"], "Floor Sale, DVD, Action, Comedy")
+        self.assertEqual(first_rows[0]["Tags"], "Floor Sale, DVD, Action, Comedy, Formatted")
         first_text = first_upload.read_text(encoding="utf-8")
 
         second = run_module.run(first_upload, fetch_fn=fake_fetch, sleep_fn=lambda s: None)

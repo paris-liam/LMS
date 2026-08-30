@@ -20,7 +20,8 @@ def result(title, year="1998", poster="/p.jpg", overview="An overview long enoug
 
 def row(**overrides):
     base = {"Handle": "rushmore-vhs-rental", "Title": "Rushmore", "Body (HTML)": "",
-            "Image Src": "", "Image Alt Text": "", "Tags": "Rental, VHS, Comedy"}
+            "Image Src": "", "Image Alt Text": "", "Tags": "Rental, VHS, Comedy",
+            "Vendor": "VHS", "Genre (product.metafields.shopify.genre)": "comedy"}
     base.update(overrides)
     return base
 
@@ -132,6 +133,19 @@ class TestBuildOutput(unittest.TestCase):
     def test_writes_no_tags(self):
         out, _ = build_output([row()], fetcher([result("Rushmore")]), sleep_fn=lambda s: None)
         self.assertEqual(out[0]["Tags"], "Rental, VHS, Comedy")
+
+    def test_ambiguous_review_rows_carry_vendor_and_genre(self):
+        """The picker page needs format/genre without re-looking up the row —
+        classify_match only ever sees clean_title/year, so this has to be
+        threaded through from the source row explicitly."""
+        results = [result("The Thing", "1982"), result("The Thing", "2011")]
+        _, review = build_output(
+            [row(Title="The Thing", Vendor="DVD",
+                 **{"Genre (product.metafields.shopify.genre)": "horror"})],
+            fetcher(results), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review[0]["Vendor"], "DVD")
+        self.assertEqual(review[0]["Genre"], "horror")
 
 
 if __name__ == "__main__":

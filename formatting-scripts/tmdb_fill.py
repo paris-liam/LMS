@@ -11,6 +11,7 @@ import urllib.parse
 import urllib.request
 
 from catalog_common import group_rows_by_handle
+from columns import GENRE_METAFIELD
 
 TMDB_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
 POSTER_BASE_URL = "https://image.tmdb.org/t/p/w1280"
@@ -132,13 +133,16 @@ def build_output(
     rows: list[dict],
     fetch_fn,
     sleep_fn=time.sleep,
-    progress_fn=lambda index, total, handle, message: None,
+    progress_fn=lambda index, total, title, message: None,
 ) -> tuple[list[dict], list[dict]]:
     """Fill empty Image Src / Body (HTML) / Image Alt Text via TMDB.
 
     Returns (output_rows, review_rows). Row order and count are preserved.
-    Review rows are {"Handle", "Title", "Kind", "Reason"} where Kind is
-    "ambiguous" (send to the picker) or "unmatched" (send to the CSV).
+    Review rows are {"Handle", "Title", "Vendor", "Genre", "Kind", "Reason"}
+    where Kind is "ambiguous" (send to the picker) or "unmatched" (send to
+    the CSV). Vendor/Genre are carried through so the picker and the
+    unmatched CSV can show them without looking the row back up — Vendor
+    holds the physical format (VHS/DVD/Blu-Ray/4K), not a real vendor.
     Nothing is ever written to Tags.
     """
     output_rows: list[dict] = []
@@ -147,29 +151,34 @@ def build_output(
     groups = group_rows_by_handle(rows)
     total = len(groups)
 
-    def review(handle, title, kind, reason):
-        review_rows.append({"Handle": handle, "Title": title, "Kind": kind, "Reason": reason})
+    def review(handle, title, vendor, genre, kind, reason):
+        review_rows.append({
+            "Handle": handle, "Title": title, "Vendor": vendor, "Genre": genre,
+            "Kind": kind, "Reason": reason,
+        })
 
     for index, (handle, group) in enumerate(groups, start=1):
+        title = group[0].get("Title", "").strip() or handle
         need_img = needs_image(group)
         need_desc = needs_description(group)
 
         if not need_img and not need_desc:
             output_rows.extend(group)
-            progress_fn(index, total, handle, "already complete, skipped")
+            progress_fn(index, total, title, "already complete, skipped")
             continue
 
         primary = dict(group[0])
-        title = primary.get("Title", "").strip() or handle
+        vendor = primary.get("Vendor", "")
+        genre = primary.get(GENRE_METAFIELD, "")
         clean_title, year = clean_title_and_year(title)
 
         try:
             results = search_tmdb(fetch_fn, clean_title, year)
         except Exception as exc:
             sleep_fn(REQUEST_DELAY_SECONDS)
-            review(handle, title, "unmatched", f"TMDB request failed: {exc}")
+            review(handle, title, vendor, genre, "unmatched", f"TMDB request failed: {exc}")
             output_rows.extend(group)
-            progress_fn(index, total, handle, f"unmatched: request failed: {exc}")
+            progress_fn(index, total, title, f"unmatched: request failed: {exc}")
             continue
 
         sleep_fn(REQUEST_DELAY_SECONDS)
@@ -177,18 +186,18 @@ def build_output(
         best, kind = classify_match(clean_title, year, results)
 
         if kind == "none":
-            review(handle, title, "unmatched", "no TMDB match")
+            review(handle, title, vendor, genre, "unmatched", "no TMDB match")
             output_rows.extend(group)
-            progress_fn(index, total, handle, "unmatched: no TMDB match")
+            progress_fn(index, total, title, "unmatched: no TMDB match")
             continue
 
         if kind == "ambiguous":
             best_title = best.get("title", "?")
             best_year = (best.get("release_date") or "")[:4] or "?"
-            review(handle, title, "ambiguous",
+            review(handle, title, vendor, genre, "ambiguous",
                    f"ambiguous match (best candidate: '{best_title}' ({best_year}))")
             output_rows.extend(group)
-            progress_fn(index, total, handle, f"ambiguous: '{best_title}' ({best_year})")
+            progress_fn(index, total, title, f"ambiguous: '{best_title}' ({best_year})")
             continue
 
         match_year = (best.get("release_date") or "")[:4]
@@ -203,7 +212,7 @@ def build_output(
                     primary["Image Alt Text"] = f"{clean_title}{suffix} poster"
                 filled.append("image")
             else:
-                review(handle, title, "unmatched", "matched but TMDB has no poster")
+                review(handle, title, vendor, genre, "unmatched", "matched but TMDB has no poster")
 
         if need_desc:
             overview = (best.get("overview") or "").strip()
@@ -211,11 +220,11 @@ def build_output(
                 primary["Body (HTML)"] = f"<p>{overview}</p>"
                 filled.append("description")
             else:
-                review(handle, title, "unmatched", "matched but TMDB has no overview")
+                review(handle, title, vendor, genre, "unmatched", "matched but TMDB has no overview")
 
         output_rows.append(primary)
         output_rows.extend(group[1:])
-        progress_fn(index, total, handle, f"filled {', '.join(filled)}" if filled else "matched")
+        progress_fn(index, total, title, f"filled {', '.join(filled)}" if filled else "matched")
 
     return output_rows, review_rows
 
@@ -234,5 +243,5 @@ def make_tmdb_fetcher(api_key: str):
     return fetch
 
 
-def print_progress(index: int, total: int, handle: str, message: str) -> None:
-    print(f"[{index}/{total}] {handle}: {message}", flush=True)
+def print_progress(index: int, total: int, title: str, message: str) -> None:
+    print(f"[{index}/{total}] {title}: {message}", flush=True)

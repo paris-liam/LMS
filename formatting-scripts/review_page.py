@@ -39,14 +39,18 @@ def collect_products(
     review_rows: list[dict],
     fetch_fn,
     sleep_fn=time.sleep,
-    progress_fn=lambda index, total, handle, message: None,
+    progress_fn=lambda index, total, title, message: None,
 ) -> list[dict]:
     """Dedupe review rows by handle and fetch each product's candidates."""
     merged: dict[str, dict] = {}
     for row in review_rows:
         handle = row["Handle"]
         if handle not in merged:
-            merged[handle] = {"handle": handle, "title": row["Title"], "reasons": []}
+            merged[handle] = {
+                "handle": handle, "title": row["Title"],
+                "vendor": row.get("Vendor", ""), "genre": row.get("Genre", ""),
+                "reasons": [],
+            }
         merged[handle]["reasons"].append(row["Reason"])
 
     products = []
@@ -63,18 +67,29 @@ def collect_products(
         products.append({
             "handle": entry["handle"],
             "title": entry["title"],
+            "vendor": entry["vendor"],
+            "genre": entry["genre"],
             "reason": "; ".join(entry["reasons"]),
             "candidates": candidates,
         })
-        progress_fn(index, total, entry["handle"], message)
+        progress_fn(index, total, entry["title"], message)
 
     return products
 
 
-def build_picker_html(products: list[dict]) -> str:
-    """Render the self-contained picker page with embedded candidate data."""
+def build_picker_html(products: list[dict], batch_id: str = "default") -> str:
+    """Render the self-contained picker page with embedded candidate data.
+
+    batch_id namespaces this page's localStorage keys. Pages are commonly
+    served from one static-file origin (e.g. a local dev server), where
+    localStorage is shared by *origin*, not by file path — without a
+    per-batch namespace, every picker page reads and writes the same
+    picks object and the "N / total decided" counter on any one page
+    would count every other batch's decisions too.
+    """
     # Escape "</" so overview text can't terminate the script tag.
     products_json = json.dumps(products).replace("</", "<\\/")
+    batch_id_json = json.dumps(batch_id)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -87,9 +102,13 @@ def build_picker_html(products: list[dict]) -> str:
   header h1 {{ font-size: 1.1rem; margin: 0; flex: 1; }}
   #counter {{ color: #666; font-size: .9rem; }}
   #export {{ background: #973123; color: #fff; border: 0; border-radius: 6px; padding: .5rem 1rem; font-size: .9rem; cursor: pointer; }}
+  #hide-decided-label {{ font-size: .9rem; color: #444; display: flex; align-items: center; gap: .35rem; cursor: pointer; }}
   .card {{ background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.5rem; margin: 1.5rem 0; }}
   .card.decided {{ border-color: #5f8d7a; background: #f4faf7; }}
-  .card h2 {{ font-size: 1.05rem; margin: 0 0 .15rem; }}
+  body.hide-decided .card.decided {{ display: none; }}
+  .card h2 {{ font-size: 1.05rem; margin: 0 0 .15rem; display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }}
+  .tags {{ display: inline-flex; gap: .3rem; }}
+  .tag {{ font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; color: #5f8d7a; background: #eef5f1; border-radius: 3px; padding: .1rem .4rem; }}
   .card .meta {{ font-size: .8rem; color: #888; margin-bottom: .75rem; }}
   .card .meta a {{ color: #973123; }}
   .candidates {{ display: flex; flex-direction: column; gap: .5rem; }}
@@ -110,13 +129,21 @@ def build_picker_html(products: list[dict]) -> str:
 <header>
   <h1>Movie review picker</h1>
   <span id="counter"></span>
+  <label id="hide-decided-label"><input type="checkbox" id="hide-decided"> Hide decided</label>
   <button id="export">Export picks (tmdb-picks.json)</button>
 </header>
 <main id="cards"></main>
 <script>
 const PRODUCTS = {products_json};
-const STORAGE_KEY = "tmdb-review-picks";
-const MANUAL_KEY = "tmdb-review-manual";
+const BATCH_ID = {batch_id_json};
+const STORAGE_KEY = "tmdb-review-picks::" + BATCH_ID;
+const MANUAL_KEY = "tmdb-review-manual::" + BATCH_ID;
+const HIDE_DECIDED_KEY = "tmdb-review-hide-decided::" + BATCH_ID;
+// Pre-namespacing pages all wrote to this one shared key. Migrate any
+// entries for this batch's own handles into the namespaced key below,
+// so picks made before this page was regenerated aren't lost.
+const LEGACY_STORAGE_KEY = "tmdb-review-picks";
+const LEGACY_MANUAL_KEY = "tmdb-review-manual";
 
 function loadStored(key) {{
   try {{ return JSON.parse(localStorage.getItem(key)) || {{}}; }}
@@ -124,6 +151,29 @@ function loadStored(key) {{
 }}
 let picks = loadStored(STORAGE_KEY);
 let manualData = loadStored(MANUAL_KEY);
+
+// One-time migration: pull this batch's own handles out of the old shared
+// key, so picks made before namespacing existed aren't lost or, worse,
+// don't leak other batches' decided counts into this page's counter.
+(function migrateLegacyPicks() {{
+  const handles = new Set(PRODUCTS.map(p => p.handle));
+  const legacyPicks = loadStored(LEGACY_STORAGE_KEY);
+  const legacyManual = loadStored(LEGACY_MANUAL_KEY);
+  let changed = false;
+  for (const handle of Object.keys(legacyPicks)) {{
+    if (handles.has(handle) && !(handle in picks)) {{
+      picks[handle] = legacyPicks[handle];
+      changed = true;
+    }}
+  }}
+  for (const handle of Object.keys(legacyManual)) {{
+    if (handles.has(handle) && !(handle in manualData)) {{
+      manualData[handle] = legacyManual[handle];
+      changed = true;
+    }}
+  }}
+  if (changed) savePicks();
+}})();
 
 function savePicks() {{
   localStorage.setItem(STORAGE_KEY, JSON.stringify(picks));
@@ -157,8 +207,12 @@ function render() {{
       return optionHtml(product.handle, String(i), current === String(i), "",
         `${{poster}}<span class="info"><strong>${{esc(candidate.title)}}</strong> (${{esc(candidate.year) || "?"}})<br>${{overview}}</span>`);
     }}).join("");
+    const tags = [product.vendor, product.genre].filter(Boolean);
+    const tagsHtml = tags.length
+      ? `<span class="tags">${{tags.map(t => `<span class="tag">${{esc(t)}}</span>`).join("")}}</span>`
+      : "";
     return `<section class="card ${{current !== undefined ? "decided" : ""}}" data-handle="${{esc(product.handle)}}">
-      <h2>${{esc(product.title)}}</h2>
+      <h2>${{esc(product.title)}} ${{tagsHtml}}</h2>
       <div class="meta"><code>${{esc(product.handle)}}</code> — ${{esc(product.reason)}}
         · <a href="${{searchUrl}}" target="_blank">TMDB search</a>
         · <a href="${{googleUrl}}" target="_blank">Google</a></div>
@@ -186,6 +240,14 @@ function updateCounter() {{
   const decided = Object.keys(picks).length;
   document.getElementById("counter").textContent = `${{decided}} / ${{PRODUCTS.length}} decided`;
 }}
+
+const hideDecidedBox = document.getElementById("hide-decided");
+hideDecidedBox.checked = localStorage.getItem(HIDE_DECIDED_KEY) === "1";
+document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+hideDecidedBox.addEventListener("change", () => {{
+  document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+  localStorage.setItem(HIDE_DECIDED_KEY, hideDecidedBox.checked ? "1" : "0");
+}});
 
 document.getElementById("cards").addEventListener("change", event => {{
   const input = event.target;
@@ -266,7 +328,8 @@ def write_picker(review_rows, outdir, fetch_fn, sleep_fn=time.sleep, progress_fn
         progress_fn = lambda index, total, handle, message: None
 
     products = collect_products(review_rows, fetch_fn, sleep_fn=sleep_fn, progress_fn=progress_fn)
+    batch_id = Path(outdir).name
     Path(outdir).joinpath("review-picker.html").write_text(
-        build_picker_html(products), encoding="utf-8"
+        build_picker_html(products, batch_id=batch_id), encoding="utf-8"
     )
     return {"products": len(products)}

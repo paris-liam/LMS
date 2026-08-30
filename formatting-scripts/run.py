@@ -36,34 +36,29 @@ def output_dir_for(input_path) -> Path:
 
 
 def _unmatched_rows(review_rows, filled_rows, columns):
-    """Build tmdb-unmatched.csv rows: Reason + the normalized output columns.
+    """Build tmdb-unmatched.csv rows: the normalized output columns, no more.
 
     These rows already passed normalization — the only thing missing is a
     description or a poster. Emitting them in the output shape (rather than
-    the raw input shape) means the operator edits the same columns Shopify
-    will read, and the file feeds straight back into run.py.
+    the raw input shape, and without a Reason column) means the file is
+    already valid upload.csv shape: the operator edits the same columns
+    Shopify will read, and the file feeds straight back into run.py or
+    straight into Shopify once fixed.
     """
     by_handle = {}
     for row in filled_rows:
         by_handle.setdefault(row.get("Handle", ""), row)
 
-    reasons_by_handle = {}
     order = []
+    seen = set()
     for entry in review_rows:
         handle = entry["Handle"]
-        if entry["Kind"] != "unmatched" or handle not in by_handle:
+        if entry["Kind"] != "unmatched" or handle not in by_handle or handle in seen:
             continue
-        if handle not in reasons_by_handle:
-            reasons_by_handle[handle] = []
-            order.append(handle)
-        reasons_by_handle[handle].append(entry["Reason"])
+        seen.add(handle)
+        order.append(handle)
 
-    out = []
-    for handle in order:
-        source = by_handle[handle]
-        reason = "; ".join(reasons_by_handle[handle])
-        out.append({REASON_COLUMN: reason, **{c: source.get(c, "") for c in columns}})
-    return out
+    return [{c: by_handle[handle].get(c, "") for c in columns} for handle in order]
 
 
 def run(
@@ -133,7 +128,7 @@ def run(
     write_csv(outdir / "upload.csv", columns, filled_rows)
 
     unmatched = _unmatched_rows(review_rows, filled_rows, columns)
-    write_csv(outdir / "tmdb-unmatched.csv", [REASON_COLUMN] + columns, unmatched)
+    write_csv(outdir / "tmdb-unmatched.csv", columns, unmatched)
 
     ambiguous = [entry for entry in review_rows if entry["Kind"] == "ambiguous"]
     result["ambiguous"] = len({entry["Handle"] for entry in ambiguous})
@@ -182,7 +177,7 @@ def main():
                          help="Bypass the TMDB query cache and re-fetch everything")
     args = parser.parse_args()
 
-    api_key = os.environ.get("TMDB_API_KEY")
+    api_key = "259d3aaf7c2a60737d754042363eb5a6"
     if not args.skip_tmdb and not api_key:
         print("Note: TMDB_API_KEY is not set — running normalization only.", file=sys.stderr)
 

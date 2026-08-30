@@ -41,6 +41,7 @@ GENRE_ALIASES = {
     "kids": "Kids & Family",
     "romatic comedy": "Romantic Comedy",
     "muscal": "Musical",
+    "dcoumentary": "Documentary",
 }
 
 FORMAT_ALIASES = {

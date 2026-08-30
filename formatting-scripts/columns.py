@@ -9,6 +9,7 @@ be clobbered by the import.
 
 GENRE_METAFIELD = "Genre (product.metafields.shopify.genre)"
 REASON_COLUMN = "Reason"
+FORMATTED_TAG = "Formatted"
 
 TEMPLATE_COLUMNS = [
     "Handle",
