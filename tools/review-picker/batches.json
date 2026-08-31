@@ -50,5 +50,9 @@
   {
     "batch_id": "out-prod-new-products-8.31",
     "total": 197
+  },
+  {
+    "batch_id": "out-prod-new-products-no-format-8.31",
+    "total": 13
   }
 ]
