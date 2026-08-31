@@ -189,15 +189,35 @@ class TestBuildOutput(unittest.TestCase):
         self.assertEqual(out[0]["Image Alt Text"], "Rushmore (1998) poster")
 
     def test_vhs_falls_back_to_unfiltered_results_when_the_cutoff_empties_the_set(self):
-        """If every candidate is past the cutoff, that's more likely a
-        format/data mismatch than a true miss — fall back to the unfiltered
-        results rather than reporting no match."""
+        """A lone post-cutoff candidate is still the only candidate — since
+        the cutoff only ever runs on an already-ambiguous result, a single
+        confident match here never even reaches the filter."""
         out, review = build_output(
             [row(Title="Rushmore", Vendor="VHS")],
             fetcher([result("Rushmore", "2015")]), sleep_fn=lambda s: None,
         )
         self.assertEqual(review, [])
         self.assertTrue(out[0]["Image Src"])
+
+    def test_vhs_cutoff_never_overrides_an_already_confident_match(self):
+        """Regression: a VHS row can already have a confident (if
+        incomplete — e.g. TMDB has no poster for it) match to a post-cutoff
+        film that happens to share a title with an older, pre-cutoff film.
+        The cutoff filter must never run in that case — doing so would
+        silently swap the correct-but-posterless match for a same-titled
+        wrong one just because it's older and has a poster. Modeled on a
+        real catalogue case: "Long Walk Home" (2012, no poster) vs. "The
+        Long Walk Home" (1990, has a poster)."""
+        results = [
+            result("Long Walk Home", "2012", poster=None),
+            result("The Long Walk Home", "1990"),
+        ]
+        out, review = build_output(
+            [row(Title="Long Walk Home", Vendor="VHS")], fetcher(results), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review[0]["Kind"], "unmatched")
+        self.assertIn("poster", review[0]["Reason"])
+        self.assertEqual(out[0]["Image Src"], "")
 
     def test_vhs_cutoff_does_not_apply_when_the_title_itself_has_a_year(self):
         """An explicit title year wins over the format cutoff on conflict —

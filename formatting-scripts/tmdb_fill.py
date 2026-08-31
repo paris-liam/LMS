@@ -29,6 +29,12 @@ REQUEST_DELAY_SECONDS = 0.25
 # re-releases, so a date filter would wrongly exclude correct matches.
 VHS_YEAR_CUTOFF = 2008
 
+# The store's actual catalogue — VHS, DVD, Blu-ray, and 4K alike — doesn't
+# carry anything released in or after 2020, so a candidate dated that late
+# is essentially never the right match regardless of format. Looser than
+# VHS_YEAR_CUTOFF; VHS rows still use the tighter of the two.
+GLOBAL_YEAR_CUTOFF = 2019
+
 # Our Genre metafield holds Shopify taxonomy slugs (one or more, joined with
 # "; "). TMDB has no genre filter on /search/movie, but each result carries
 # genre_ids from TMDB's own fixed movie-genre list — mapped here so a
@@ -144,7 +150,7 @@ def is_vhs(vendor: str) -> bool:
     return "vhs" in (vendor or "").lower()
 
 
-def filter_vhs_candidates(results: list[dict], cutoff: int = VHS_YEAR_CUTOFF) -> list[dict]:
+def filter_by_year_cutoff(results: list[dict], cutoff: int) -> list[dict]:
     """Drop candidates released after `cutoff`. A candidate with no parseable
     release year is kept — there's nothing to filter it on. TMDB's search
     API has no date-range param, so this is applied client-side after the
@@ -282,15 +288,24 @@ def build_output(
 
         sleep_fn(REQUEST_DELAY_SECONDS)
 
-        if year is None and is_vhs(vendor):
-            filtered = filter_vhs_candidates(results)
-            if filtered:
-                results = filtered
-            # else: cutoff would empty the set entirely — fall back to the
-            # unfiltered results rather than reporting no match; that's more
-            # likely a format/data mismatch than a true miss (step 3).
-
         best, kind = classify_match(clean_title, year, results, genre)
+
+        # The year cutoff is a disambiguation aid, not a pre-filter: it only
+        # gets a say when the unfiltered result was already ambiguous. Never
+        # apply it ahead of classify_match — doing so can strip out the
+        # correct candidate (e.g. one TMDB has no poster for) and leave a
+        # same-titled but wrong film as the last one standing, turning a
+        # safe "needs a human" case into a confidently wrong auto-match.
+        # VHS gets the tighter VHS_YEAR_CUTOFF; every other format still
+        # gets the looser GLOBAL_YEAR_CUTOFF — the catalogue carries nothing
+        # from 2020 on regardless of format.
+        if year is None and kind == "ambiguous":
+            cutoff = VHS_YEAR_CUTOFF if is_vhs(vendor) else GLOBAL_YEAR_CUTOFF
+            filtered = filter_by_year_cutoff(results, cutoff)
+            if filtered and filtered != results:
+                filtered_best, filtered_kind = classify_match(clean_title, year, filtered, genre)
+                if filtered_kind == "confident":
+                    best, kind = filtered_best, filtered_kind
 
         if kind == "none":
             review(handle, title, vendor, genre, "unmatched", "no TMDB match")

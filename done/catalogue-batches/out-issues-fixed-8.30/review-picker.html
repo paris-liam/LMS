@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Movie review picker — 6 products</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; margin: 2rem auto; max-width: 1080px; padding: 0 1rem; background: #fafafa; color: #222; }
+  header { position: sticky; top: 0; background: #fafafa; padding: .75rem 0; border-bottom: 1px solid #ddd; z-index: 10; display: flex; align-items: center; gap: 1rem; }
+  header h1 { font-size: 1.1rem; margin: 0; flex: 1; }
+  #counter { color: #666; font-size: .9rem; }
+  #export { background: #973123; color: #fff; border: 0; border-radius: 6px; padding: .5rem 1rem; font-size: .9rem; cursor: pointer; }
+  #hide-decided-label { font-size: .9rem; color: #444; display: flex; align-items: center; gap: .35rem; cursor: pointer; }
+  .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+  .card.decided { border-color: #5f8d7a; background: #f4faf7; }
+  body.hide-decided .card.decided { display: none; }
+  .card h2 { font-size: 1.05rem; margin: 0 0 .15rem; display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+  .tags { display: inline-flex; gap: .3rem; }
+  .tag { font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; color: #5f8d7a; background: #eef5f1; border-radius: 3px; padding: .1rem .4rem; }
+  .card .meta { font-size: .8rem; color: #888; margin-bottom: .75rem; }
+  .card .meta a { color: #973123; }
+  .candidates { display: flex; flex-direction: column; gap: .5rem; }
+  label.option { display: flex; gap: .75rem; align-items: flex-start; border: 1px solid #eee; border-radius: 6px; padding: .5rem .75rem; cursor: pointer; }
+  label.option:hover { background: #f5f5f5; }
+  label.option input { margin-top: .3rem; }
+  label.option img { width: 60px; height: auto; border-radius: 3px; flex-shrink: 0; }
+  label.option .no-poster { width: 60px; height: 90px; background: #eee; color: #999; font-size: .65rem; display: flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; }
+  label.option .info { font-size: .85rem; line-height: 1.4; }
+  label.option .info strong { font-size: .9rem; }
+  label.option.special { background: #fdf6f5; }
+  .manual-fields { display: flex; flex-direction: column; gap: .4rem; margin: .25rem 0 0 2rem; }
+  .manual-fields input, .manual-fields textarea { font: inherit; font-size: .85rem; border: 1px solid #ccc; border-radius: 4px; padding: .4rem .5rem; width: 100%; box-sizing: border-box; }
+  .manual-fields textarea { min-height: 4.5em; resize: vertical; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Movie review picker</h1>
+  <span id="counter"></span>
+  <label id="hide-decided-label"><input type="checkbox" id="hide-decided"> Hide decided</label>
+  <button id="export">Export picks (tmdb-picks.json)</button>
+</header>
+<main id="cards"></main>
+<script>
+const PRODUCTS = [{"handle": "deja-vu", "title": "Deja Vu", "vendor": "VHS", "genre": "thriller", "reason": "ambiguous match (best candidate: 'Deja Vu' (1999))", "candidates": [{"id": 438185, "title": "Deja Vu", "year": "1999", "overview": "Psychological drama revolving around a couple caught in a living nightmare after the death of their young son in a car crash.", "poster_path": "/anhkLaFfPAg9rwnFLNTCIl5nyPe.jpg"}, {"id": 527215, "title": "Deja Vu", "year": "2018", "overview": "Jimin has killed a girl in a car accident when she was driving with her fiance Woojin. From that night, she experiences terrifying hallucination seeing the dead girl. Unable to bear it, she finally goes to the police to report the truth, only to find that she didn\u2019t actually have a car accident.", "poster_path": "/tetvwfnEkTJZ0t2efc808NmxuFN.jpg"}, {"id": 1319247, "title": "Deja-Vu", "year": "2024", "overview": "John is convinced he's been on this planet for longer than his lifetime. This feeling of knowing more than what meets the eye troubles him deeply. To find some peace of mind, he decides to consult an hypnotherapist to dive into his subconscious and get some clarity. This leads him to find some truth in his beliefs: the one that he has been living through multiple bodies, for centuries.", "poster_path": "/l95e6neJ6VAnFtKfVffSvZyGAI3.jpg"}, {"id": 1280240, "title": "DEJA VU", "year": "2023", "overview": "As a woman walks home on an eerie night, she experiences a temporal loop where a future version of herself warns her of what\u2019s to come.", "poster_path": "/iAaFIhTq3tFCPMyDo51KGcRVOPF.jpg"}, {"id": 645717, "title": "Deja Vu", "year": "2015", "overview": "", "poster_path": "/ab9XgvtR3BKW19GcvDbqfDg91Bb.jpg"}]}, {"handle": "look-who-s-talking", "title": "Look Who\u2019s Talking", "vendor": "VHS", "genre": "comedy", "reason": "ambiguous match (best candidate: 'Look Who's Talking' (1989))", "candidates": [{"id": 9494, "title": "Look Who's Talking", "year": "1989", "overview": "After a single, career-minded woman is left on her own to give birth to the child of a married man, she finds a new romantic chance in a cab driver. Meanwhile, the point-of-view of the newborn baby is narrated through voice-over.", "poster_path": "/uVM0D7Q6U9H6xMSZmMdfwECih5h.jpg"}, {"id": 11982, "title": "Look Who's Talking Now!", "year": "1993", "overview": "When high-powered executive Samantha LeBon hatches a scheme to spend a romantic Christmas with her new employee \u2013 the unsuspecting, blithesome James \u2013 his wife, their kids and their two dogs, Rocks and Daphne, must rescue him before he makes a terrible mistake.", "poster_path": "/73JahFiizkMVsrrslXInmNK54nC.jpg"}, {"id": 9356, "title": "Look Who's Talking Too", "year": "1990", "overview": "Mollie and James are together and raising a family, which now consists of an older Mikey and his baby sister, Julie. Tension between the siblings arises, and as well with Mollie and James when Mollie's brother Stuart moves in. Mikey is also learning how to use the toilet for the first time.", "poster_path": "/m409mVHmvDOZJltNzHJYigUthsW.jpg"}, {"id": 806667, "title": "Parrots: Look Who's Talking", "year": "1995", "overview": "A look at parrots, birds with a playful nature and remarkable mimicry skills that have endeared them to pet owners worldwide. Included: the largest parrot species, the hyacinth macaw; scarlet macaws, white cockatoos and monk parakeets.", "poster_path": "/ibXEkszGqhmlnpL8Grg0hUrFPDh.jpg"}, {"id": 531077, "title": "Dr. Alban: Look Who's Talking! - The Video... And More", "year": "1994", "overview": "The complete selection of Dr. Alban videos, plus live performance and exclusive interview footage.", "poster_path": "/Iyk9SZgG2c3AmLRRSPWyvSRk8p.jpg"}]}, {"handle": "celebrity-vhs-floor-sale", "title": "Celebrity", "vendor": "VHS", "genre": "comedy", "reason": "ambiguous match (best candidate: 'Celebrity' (1998))", "candidates": [{"id": 9466, "title": "Celebrity", "year": "1998", "overview": "The career and personal life of writer Lee are at a standstill, so he divorces his bashful wife, Robin, and dives into a new job as an entertainment journalist. His assignments take him to the swankiest corners of Manhattan, but as he jumps from one lavish party to another and engages in numerous empty romances, he starts to doubt the worth of his work. Meanwhile, top TV producer Tony falls for Robin and introduces her to the world of celebrity.", "poster_path": "/q4UJHtH14nO8tbMfGtJ3Z3Tw5RW.jpg"}, {"id": 392429, "title": "Celebrity", "year": "1928", "overview": "Kid Reagan is a prizefighter who poses as a poet as a publicity ploy. Jane, an actress hired to impersonate his high-class love interest, can\u2019t help falling for the big lug.", "poster_path": "/yi3p18PQFHTjQZ1FPrTdhNTleQe.jpg"}, {"id": 1502017, "title": "Celebrity", "year": "2012", "overview": "A hot show brim-full of Star Troupe energy.", "poster_path": "/qBOneOa6erg3dcQratEyHMxJqTE.jpg"}, {"id": 1525207, "title": "Celebrity", "year": "", "overview": "After his fans turn against him, an arrogant YouTube prankster casts his na\u00efve father in his latest prank video, unknowingly starring as his next victim.", "poster_path": ""}, {"id": 234831, "title": "Mr. Celebrity", "year": "1941", "overview": "A couple attempts to win custody of their orphaned grandson, who's being raised by his veterinarian uncle in a racetrack environment.", "poster_path": "/8EtuPXNF66ZkxJOtuJwryFuxOca.jpg"}]}, {"handle": "cherish-vhs-floor-sale", "title": "Cherish", "vendor": "VHS", "genre": "comedy", "reason": "ambiguous match (best candidate: 'Cherish' (2002))", "candidates": [{"id": 18408, "title": "Cherish", "year": "2002", "overview": "After a martini-induced rampage, a fantasy-prone young woman is placed under house arrest.", "poster_path": "/hTNAKGnqi8v4FRPEjm9Wl5S5yMz.jpg"}, {"id": 900960, "title": "Cherish", "year": "", "overview": "A woman whose brother is dying, a singer from Cape Verde, and an astronaut in space all experience different kinds of loss and realize how much they cherish what is about to disappear.", "poster_path": "/ge0zbfEqVq8OCQihaEr2KNFodwJ.jpg"}, {"id": 717489, "title": "Cherish", "year": "2018", "overview": "In the rural south, a Black boy tries to fly.", "poster_path": "/qqZvPIPGinF4vBLMNIozL2XwjZV.jpg"}, {"id": 1741989, "title": "Cherish", "year": "2026", "overview": "A woman comes to terms with what has been taken from her due to her old age.", "poster_path": "/1fLMTQ5Pb5B75xAeTsgOi57AmzL.jpg"}, {"id": 315696, "title": "Cherish", "year": "1998", "overview": "A gay man has lost his lover to a fatal illness and is trying to go on with his life. If only his preparations for a night of dancing weren't constantly reminding him of the one that he lost.", "poster_path": "/1gdTaueD7TkG3botY6JyV8rWz9j.jpg"}]}, {"handle": "speed-vhs-floor-sale", "title": "Speed", "vendor": "VHS", "genre": "action", "reason": "ambiguous match (best candidate: 'Speed' (1994))", "candidates": [{"id": 1637, "title": "Speed", "year": "1994", "overview": "Tensions run high when a crazed bomber rigs a Los Angeles bus with a device that will kill everyone on board if the vehicle's speed dips below fifty miles per hour.", "poster_path": "/82PkCE4R95KhHICUDF7G4Ly2z3l.jpg"}, {"id": 177937, "title": "Speed", "year": "1936", "overview": "Terry is the chief car tester for Emery Motors and Frank is an Engineer. Jane has just been hired to work in publicity. Frank and Terry both want Jane to be their girl. Terry has designed a new carburetor that should bring him fame and money, but he cannot get it to work correctly. Terry and Gadget have tested it for over a year, but it still is not perfected. Emery Motors assigns Frank to help Terry with the carburetor, but Terry is not happy because Frank is an Engineer and is also vying for Jane. They finish the carburetor, and to test it, they enter a car in the Indianapolis 500 race. Terry is not yet satisfied with the carburetor before the big race even though it has passed all the tests.", "poster_path": "/n22vSjDCcD0nr1vJcZh2ILYqtge.jpg"}, {"id": 339534, "title": "Speed", "year": "2015", "overview": "Four high school friends maintain their ties but finds themselves in very different situations when they reach 21. Chu-won was a promising athlete but, drinking heavily and unable to get past an old flame, he ruins his prospects. Goo-rim became on idol singer, but a drug scandal has seen him fall on hard times. Seo-won, as a medical student at a top university, was faring best among them, until he is diagnosed with leukemia and falls for a teenage escort from their old high school. Meanwhile, Dae-sung is a sex addict with a penchant for mature women who dreams of making his own film.", "poster_path": "/jEN5AUVmUrV1gJkTMZs9HyzryXl.jpg"}, {"id": 382598, "title": "Full Speed", "year": "2016", "overview": "A family together with their grandpa go on a vacation, when their new car won't stop and it nearly escapes crashing into a hundred cars.", "poster_path": "/hrExpoA2E2bCrSZ6VPWHHdzY2y.jpg"}, {"id": 12236, "title": "Speed Zone", "year": "1989", "overview": "An illegal race that takes place over the United States and nothing will stop this bunch of racers except for the occasional cop or a damsel in distress. Jackie Chan's car is not in this one, but many new cars make up for that. Who will win? Who will crash? Who will not even finish? Sit down and buckle up for the ride of your life.", "poster_path": "/cmAgnjrH7TlKjYUpS9NMGMlbkre.jpg"}]}, {"handle": "the-fly-vhs-floor-sale", "title": "The Fly", "vendor": "VHS", "genre": "horror", "reason": "ambiguous match (best candidate: 'The Fly' (1986))", "candidates": [{"id": 9426, "title": "The Fly", "year": "1986", "overview": "When brilliant, eccentric scientist Seth Brundle makes a huge technological breakthrough in teleportation, he decides to test it on himself. Unbeknownst to him, a common housefly manages to get inside the device and the two become one.", "poster_path": "/8gZWMhJHRvaXdXsNhERtqNHYpH3.jpg"}, {"id": 11815, "title": "The Fly", "year": "1958", "overview": "Industrialist Fran\u00e7ois Delambre is called late at night by his sister-in-law, Helene, who tells him that she has just killed her husband. Reluctant at first, she eventually explains to the police that he invented a matter transportation apparatus and, while experimenting on himself, a fly entered the chamber.", "poster_path": "/kXdBcDh2EbgSIf4Oo1dxKapZM2f.jpg"}, {"id": 1647011, "title": "The Fly", "year": "2026", "overview": "This cheeky short conjures the paranoid sensation we feel when there\u2019s a fly buzzing around the room, but offers a surprising resolution to the issue.", "poster_path": ""}, {"id": 1658901, "title": "The Fly", "year": "2025", "overview": "Inspired by Marcel Marceau\u2019s The Hands, The Fly is the first in a short film trilogy of experimental horror, based on Elf Lyons\u2019 one-woman show RAVEN.", "poster_path": "/3F96CGIWpwrh27YNPxGtxAeNAWB.jpg"}, {"id": 371297, "title": "The Fly", "year": "2014", "overview": "An uptight getaway driver waiting outside a bank robbery has three nerve shredding minutes to get through before his crew returns. All he has to do is focus.", "poster_path": ""}]}];
+const BATCH_ID = "out-issues-fixed-8.30";
+const STORAGE_KEY = "tmdb-review-picks::" + BATCH_ID;
+const MANUAL_KEY = "tmdb-review-manual::" + BATCH_ID;
+const HIDE_DECIDED_KEY = "tmdb-review-hide-decided::" + BATCH_ID;
+// Pre-namespacing pages all wrote to this one shared key. Migrate any
+// entries for this batch's own handles into the namespaced key below,
+// so picks made before this page was regenerated aren't lost.
+const LEGACY_STORAGE_KEY = "tmdb-review-picks";
+const LEGACY_MANUAL_KEY = "tmdb-review-manual";
+
+function loadStored(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || {}; }
+  catch (e) { return {}; }
+}
+let picks = loadStored(STORAGE_KEY);
+let manualData = loadStored(MANUAL_KEY);
+
+// One-time migration: pull this batch's own handles out of the old shared
+// key, so picks made before namespacing existed aren't lost or, worse,
+// don't leak other batches' decided counts into this page's counter.
+(function migrateLegacyPicks() {
+  const handles = new Set(PRODUCTS.map(p => p.handle));
+  const legacyPicks = loadStored(LEGACY_STORAGE_KEY);
+  const legacyManual = loadStored(LEGACY_MANUAL_KEY);
+  let changed = false;
+  for (const handle of Object.keys(legacyPicks)) {
+    if (handles.has(handle) && !(handle in picks)) {
+      picks[handle] = legacyPicks[handle];
+      changed = true;
+    }
+  }
+  for (const handle of Object.keys(legacyManual)) {
+    if (handles.has(handle) && !(handle in manualData)) {
+      manualData[handle] = legacyManual[handle];
+      changed = true;
+    }
+  }
+  if (changed) savePicks();
+})();
+
+function savePicks() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(picks));
+  localStorage.setItem(MANUAL_KEY, JSON.stringify(manualData));
+}
+
+function esc(text) {
+  const div = document.createElement("div");
+  div.textContent = text || "";
+  return div.innerHTML;
+}
+
+function optionHtml(handle, value, checked, extraClass, inner) {
+  return `<label class="option ${extraClass}">
+    <input type="radio" name="pick-${esc(handle)}" value="${value}" ${checked ? "checked" : ""}>
+    ${inner}
+  </label>`;
+}
+
+function render() {
+  const cards = document.getElementById("cards");
+  cards.innerHTML = PRODUCTS.map(product => {
+    const current = picks[product.handle];
+    const searchUrl = "https://www.themoviedb.org/search?query=" + encodeURIComponent(product.title);
+    const googleUrl = "https://www.google.com/search?q=" + encodeURIComponent(product.title + " movie");
+    const options = product.candidates.map((candidate, i) => {
+      const poster = candidate.poster_path
+        ? `<img src="https://image.tmdb.org/t/p/w185${esc(candidate.poster_path)}" alt="" loading="lazy">`
+        : '<div class="no-poster">no poster</div>';
+      const overview = candidate.overview ? esc(candidate.overview) : "<em>(no overview)</em>";
+      return optionHtml(product.handle, String(i), current === String(i), "",
+        `${poster}<span class="info"><strong>${esc(candidate.title)}</strong> (${esc(candidate.year) || "?"})<br>${overview}</span>`);
+    }).join("");
+    const tags = [product.vendor, product.genre].filter(Boolean);
+    const tagsHtml = tags.length
+      ? `<span class="tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</span>`
+      : "";
+    return `<section class="card ${current !== undefined ? "decided" : ""}" data-handle="${esc(product.handle)}">
+      <h2>${esc(product.title)} ${tagsHtml}</h2>
+      <div class="meta"><code>${esc(product.handle)}</code> — ${esc(product.reason)}
+        · <a href="${searchUrl}" target="_blank">TMDB search</a>
+        · <a href="${googleUrl}" target="_blank">Google</a></div>
+      <div class="candidates">
+        ${options}
+        ${optionHtml(product.handle, "manual", current === "manual", "special",
+          `<span class="info" style="flex:1"><strong>Manual entry</strong> — fill in what you found
+            <span class="manual-fields">
+              <input type="url" class="manual-image" placeholder="Image URL (leave blank to keep current)"
+                     value="${esc((manualData[product.handle] || {}).image_src || "")}">
+              <textarea class="manual-overview" placeholder="Description (leave blank to keep current)">${esc((manualData[product.handle] || {}).overview || "")}</textarea>
+            </span>
+          </span>`)}
+        ${optionHtml(product.handle, "skip", current === "skip", "special",
+          '<span class="info"><strong>Skip this one</strong> — leave it for a later pass</span>')}
+        ${optionHtml(product.handle, "undecided", current === undefined, "",
+          '<span class="info">Decide later</span>')}
+      </div>
+    </section>`;
+  }).join("");
+  updateCounter();
+}
+
+function updateCounter() {
+  const decided = Object.keys(picks).length;
+  document.getElementById("counter").textContent = `${decided} / ${PRODUCTS.length} decided`;
+}
+
+const hideDecidedBox = document.getElementById("hide-decided");
+hideDecidedBox.checked = localStorage.getItem(HIDE_DECIDED_KEY) === "1";
+document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+hideDecidedBox.addEventListener("change", () => {
+  document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+  localStorage.setItem(HIDE_DECIDED_KEY, hideDecidedBox.checked ? "1" : "0");
+});
+
+document.getElementById("cards").addEventListener("change", event => {
+  const input = event.target;
+  if (input.type !== "radio") return;
+  const handle = input.closest(".card").dataset.handle;
+  if (input.value === "undecided") {
+    delete picks[handle];
+  } else {
+    picks[handle] = input.value;
+  }
+  savePicks();
+  input.closest(".card").classList.toggle("decided", picks[handle] !== undefined);
+  updateCounter();
+});
+
+document.getElementById("cards").addEventListener("input", event => {
+  const input = event.target;
+  if (!input.classList.contains("manual-image") && !input.classList.contains("manual-overview")) return;
+  const card = input.closest(".card");
+  const handle = card.dataset.handle;
+  const fields = manualData[handle] || {};
+  if (input.classList.contains("manual-image")) fields.image_src = input.value;
+  else fields.overview = input.value;
+  manualData[handle] = fields;
+  // Typing in a manual field selects that card's Manual option.
+  if (picks[handle] !== "manual") {
+    picks[handle] = "manual";
+    const radio = card.querySelector('input[type="radio"][value="manual"]');
+    if (radio) radio.checked = true;
+    card.classList.add("decided");
+    updateCounter();
+  }
+  savePicks();
+});
+
+document.getElementById("export").addEventListener("click", () => {
+  const out = [];
+  for (const product of PRODUCTS) {
+    const pick = picks[product.handle];
+    if (pick === undefined) continue;
+    if (pick === "skip") {
+      out.push({handle: product.handle, choice: "skip"});
+    } else if (pick === "manual") {
+      const fields = manualData[product.handle] || {};
+      const image_src = (fields.image_src || "").trim();
+      const overview = (fields.overview || "").trim();
+      if (!image_src && !overview) continue; // nothing typed — skip
+      out.push({handle: product.handle, choice: "manual", image_src, overview});
+    } else {
+      const candidate = product.candidates[Number(pick)];
+      if (!candidate) continue;
+      out.push({
+        handle: product.handle,
+        choice: "tmdb",
+        poster_path: candidate.poster_path,
+        overview: candidate.overview,
+      });
+    }
+  }
+  const blob = new Blob([JSON.stringify(out, null, 2)], {type: "application/json"});
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "tmdb-picks.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
+
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+input:      catalogue-batches/done/product_export_9.csv
+shape:      export
+upload.csv: 499 rows written (products + extra-image rows)
+issues.csv: 1 rows need a fix
+ambiguous:  199 products in review-picker.html
+unmatched:  31 products in tmdb-unmatched.csv
+cache:      398 hits, 0 fetches

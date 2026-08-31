@@ -15,8 +15,10 @@ import time
 from pathlib import Path
 
 from tmdb_fill import (
+    GLOBAL_YEAR_CUTOFF,
     REQUEST_DELAY_SECONDS,
     clean_title_and_year,
+    filter_by_year_cutoff,
     genre_matches,
     search_tmdb,
     title_similarity,
@@ -41,8 +43,15 @@ def fetch_candidates(fetch_fn, title: str, year: int | None, genre: str = "") ->
     already have a perfect title match.
 
     This ordering only affects what the human sees first in the picker —
-    it never decides a match on its own (that stays classify_match's job)."""
+    it never decides a match on its own (that stays classify_match's job).
+
+    Candidates released in or after GLOBAL_YEAR_CUTOFF + 1 are dropped
+    outright (unless the title itself carried an explicit year) — the
+    catalogue doesn't carry anything that new, so a candidate from 2020 on
+    isn't a real option worth showing the reviewer."""
     results = search_tmdb(fetch_fn, title, year)
+    if year is None:
+        results = filter_by_year_cutoff(results, GLOBAL_YEAR_CUTOFF)
     results = sorted(
         results,
         key=lambda r: (
