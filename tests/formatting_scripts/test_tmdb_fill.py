@@ -111,7 +111,7 @@ class TestBuildOutput(unittest.TestCase):
 
     def test_ambiguous_results_are_reported_for_the_picker(self):
         results = [result("The Thing", "1982"), result("The Thing", "2011")]
-        out, review = build_output([row(Title="The Thing")], fetcher(results), sleep_fn=lambda s: None)
+        out, review = build_output([row(Title="The Thing", Vendor="DVD")], fetcher(results), sleep_fn=lambda s: None)
         self.assertEqual(review[0]["Kind"], "ambiguous")
         self.assertEqual(out[0]["Image Src"], "")
 
@@ -146,6 +146,77 @@ class TestBuildOutput(unittest.TestCase):
         )
         self.assertEqual(review[0]["Vendor"], "DVD")
         self.assertEqual(review[0]["Genre"], "horror")
+
+    def test_vhs_format_filters_out_a_post_cutoff_remake(self):
+        """A VHS row with no title year and two same-titled candidates (an
+        old release and a post-cutoff remake) should resolve confidently to
+        the old one — VHS didn't exist to carry the remake."""
+        results = [result("The Thing", "1982"), result("The Thing", "2011")]
+        out, review = build_output(
+            [row(Title="The Thing", Vendor="VHS")], fetcher(results), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review, [])
+        self.assertEqual(out[0]["Image Alt Text"], "The Thing (1982) poster")
+
+    def test_dvd_format_does_not_filter_by_year(self):
+        """The same two candidates on a DVD row must stay ambiguous — DVD
+        carries both new releases and old catalog re-releases, so no date
+        filter applies."""
+        results = [result("The Thing", "1982"), result("The Thing", "2011")]
+        out, review = build_output(
+            [row(Title="The Thing", Vendor="DVD")], fetcher(results), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review[0]["Kind"], "ambiguous")
+        self.assertEqual(out[0]["Image Src"], "")
+
+    def test_vhs_cutoff_boundary_is_inclusive_of_2008(self):
+        out, review = build_output(
+            [row(Title="Rushmore", Vendor="VHS")],
+            fetcher([result("Rushmore", "2008")]), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review, [])
+        self.assertTrue(out[0]["Image Src"])
+
+    def test_vhs_cutoff_excludes_2009_when_an_older_candidate_remains(self):
+        """A post-cutoff candidate is dropped from consideration even when
+        it's not the only one — the older candidate should win confidently
+        rather than the pair reading as ambiguous."""
+        results = [result("Rushmore", "1998"), result("Rushmore", "2009")]
+        out, review = build_output(
+            [row(Title="Rushmore", Vendor="VHS")], fetcher(results), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review, [])
+        self.assertEqual(out[0]["Image Alt Text"], "Rushmore (1998) poster")
+
+    def test_vhs_falls_back_to_unfiltered_results_when_the_cutoff_empties_the_set(self):
+        """If every candidate is past the cutoff, that's more likely a
+        format/data mismatch than a true miss — fall back to the unfiltered
+        results rather than reporting no match."""
+        out, review = build_output(
+            [row(Title="Rushmore", Vendor="VHS")],
+            fetcher([result("Rushmore", "2015")]), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review, [])
+        self.assertTrue(out[0]["Image Src"])
+
+    def test_vhs_cutoff_does_not_apply_when_the_title_itself_has_a_year(self):
+        """An explicit title year wins over the format cutoff on conflict —
+        a VHS row titled "... (2011)" should still be able to match 2011."""
+        out, review = build_output(
+            [row(Title="The Thing (2011)", Vendor="VHS")],
+            fetcher([result("The Thing", "2011")]), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review, [])
+        self.assertTrue(out[0]["Image Src"])
+
+    def test_non_vhs_vendor_values_are_treated_like_dvd(self):
+        """Blu-Ray/4K/blank Vendor values all get the same no-filter
+        treatment as DVD — only VHS carries the cutoff."""
+        results = [result("The Thing", "1982"), result("The Thing", "2011")]
+        out, review = build_output(
+            [row(Title="The Thing", Vendor="Blu-Ray")], fetcher(results), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review[0]["Kind"], "ambiguous")
 
 
 if __name__ == "__main__":

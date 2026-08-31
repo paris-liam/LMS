@@ -20,6 +20,15 @@ MATCH_THRESHOLD = 0.9
 MATCH_MARGIN = 0.05
 REQUEST_DELAY_SECONDS = 0.25
 
+# VHS stopped being a going format well before DVD/Blu-ray/4K did, so a VHS
+# row with no title year is very unlikely to be a post-cutoff release — a
+# same-titled remake showing up in TMDB's results is the main source of
+# false ambiguity there. Only applied when the title itself has no year
+# (an explicit title year always wins on conflict) and only for VHS — DVD/
+# Blu-ray/4K legitimately carry both new releases and old catalog
+# re-releases, so a date filter would wrongly exclude correct matches.
+VHS_YEAR_CUTOFF = 2008
+
 # Our Genre metafield holds Shopify taxonomy slugs (one or more, joined with
 # "; "). TMDB has no genre filter on /search/movie, but each result carries
 # genre_ids from TMDB's own fixed movie-genre list — mapped here so a
@@ -131,6 +140,38 @@ def search_tmdb(fetch_fn, title: str, year: int | None) -> list[dict]:
     return results
 
 
+def is_vhs(vendor: str) -> bool:
+    return "vhs" in (vendor or "").lower()
+
+
+def filter_vhs_candidates(results: list[dict], cutoff: int = VHS_YEAR_CUTOFF) -> list[dict]:
+    """Drop candidates released after `cutoff`. A candidate with no parseable
+    release year is kept — there's nothing to filter it on. TMDB's search
+    API has no date-range param, so this is applied client-side after the
+    fetch rather than as a query filter."""
+    kept = []
+    for r in results:
+        release_year = (r.get("release_date") or "")[:4]
+        if not release_year or not release_year.isdigit() or int(release_year) <= cutoff:
+            kept.append(r)
+    return kept
+
+
+def candidate_score(clean_title: str, genre: str, result: dict) -> float:
+    """Title similarity, nudged up by a genre-overlap boost, capped at 1.0.
+    Used by classify_match to rank and threshold auto-match candidates.
+
+    Not used for the review picker's candidate ordering — the 1.0 cap makes
+    the genre boost a no-op whenever two candidates already have a perfect
+    title match, which is exactly the case the picker needs genre to break
+    ties on. review_page.py ranks with title_similarity/genre_matches as
+    separate, uncapped sort keys instead."""
+    base = title_similarity(clean_title, result.get("title", ""))
+    if genre_matches(genre, result):
+        base = min(base + GENRE_SCORE_BOOST, 1.0)
+    return base
+
+
 def classify_match(
     clean_title: str, year: int | None, results: list[dict], genre: str = "",
 ) -> tuple[dict | None, str]:
@@ -152,10 +193,7 @@ def classify_match(
         return None, "none"
 
     def score(r: dict) -> float:
-        base = title_similarity(clean_title, r.get("title", ""))
-        if genre_matches(genre, r):
-            base = min(base + GENRE_SCORE_BOOST, 1.0)
-        return base
+        return candidate_score(clean_title, genre, r)
 
     scored = sorted(
         ((score(r), r) for r in results),
@@ -243,6 +281,14 @@ def build_output(
             continue
 
         sleep_fn(REQUEST_DELAY_SECONDS)
+
+        if year is None and is_vhs(vendor):
+            filtered = filter_vhs_candidates(results)
+            if filtered:
+                results = filtered
+            # else: cutoff would empty the set entirely — fall back to the
+            # unfiltered results rather than reporting no match; that's more
+            # likely a format/data mismatch than a true miss (step 3).
 
         best, kind = classify_match(clean_title, year, results, genre)
 

@@ -5,18 +5,53 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "formatting-scripts"))
 
-from review_page import MAX_CANDIDATES, build_picker_html, collect_products, write_picker
+from review_page import MAX_CANDIDATES, build_picker_html, collect_products, fetch_candidates, write_picker
 
 
-def result(title, year="1982"):
+def result(title, year="1982", popularity=0.0, vote_count=0, genre_ids=None):
     return {"id": 1, "title": title, "release_date": f"{year}-01-01",
-            "poster_path": "/p.jpg", "overview": "Overview."}
+            "poster_path": "/p.jpg", "overview": "Overview.",
+            "popularity": popularity, "vote_count": vote_count,
+            "genre_ids": genre_ids or []}
 
 
 def fetcher(results):
     def fetch(query, year):
         return {"results": results}
     return fetch
+
+
+class TestFetchCandidates(unittest.TestCase):
+    def test_orders_equally_titled_candidates_by_popularity(self):
+        """Obscure titles losing to a popular same-named title is the most
+        common failure mode — among equal title scores, popularity breaks
+        the tie for what the human sees first."""
+        obscure = result("The Thing", "1982", popularity=5.0)
+        popular = result("The Thing", "2011", popularity=90.0)
+        candidates = fetch_candidates(fetcher([obscure, popular]), "The Thing", None)
+        self.assertEqual(candidates[0]["year"], "2011")
+
+    def test_genre_match_outranks_popularity(self):
+        """A genre mismatch should override popularity when they conflict —
+        the plain-title-match candidate is more popular, but the
+        genre-matching one should still come first."""
+        horror_genre_id = 27
+        wrong_genre_popular = result("It", "2017", popularity=200.0, genre_ids=[35])
+        right_genre_obscure = result("It", "1990", popularity=10.0, genre_ids=[horror_genre_id])
+        candidates = fetch_candidates(
+            fetcher([wrong_genre_popular, right_genre_obscure]), "It", None, genre="horror",
+        )
+        self.assertEqual(candidates[0]["year"], "1990")
+
+    def test_popularity_does_not_disturb_a_clear_title_score_difference(self):
+        """A weaker title match must not jump ahead just because it's more
+        popular — popularity only breaks ties among close scores."""
+        strong_match = result("Rushmore", "1998", popularity=1.0)
+        weak_match_but_popular = result("Rush Hour", "1998", popularity=500.0)
+        candidates = fetch_candidates(
+            fetcher([weak_match_but_popular, strong_match]), "Rushmore", None,
+        )
+        self.assertEqual(candidates[0]["title"], "Rushmore")
 
 
 class TestCollectProducts(unittest.TestCase):

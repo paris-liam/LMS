@@ -14,15 +14,45 @@ import json
 import time
 from pathlib import Path
 
-from tmdb_fill import REQUEST_DELAY_SECONDS, clean_title_and_year, search_tmdb
+from tmdb_fill import (
+    REQUEST_DELAY_SECONDS,
+    clean_title_and_year,
+    genre_matches,
+    search_tmdb,
+    title_similarity,
+)
 
 MAX_CANDIDATES = 5
 THUMB_BASE_URL = "https://image.tmdb.org/t/p/w185"
 
+# Same-score candidates are grouped to this many decimal places before
+# popularity breaks the tie, so popularity only orders genuinely close
+# calls rather than nudging ahead of a clearly better (or worse) title match.
+SCORE_TIE_PRECISION = 3
 
-def fetch_candidates(fetch_fn, title: str, year: int | None) -> list[dict]:
-    """Search TMDB and map the top results to picker candidates."""
+
+def fetch_candidates(fetch_fn, title: str, year: int | None, genre: str = "") -> list[dict]:
+    """Search TMDB and map the top results to picker candidates, ranked by
+    title similarity first, genre match as a tiebreak, and popularity/vote
+    count as a final tiebreak among candidates still tied after that — so a
+    genre mismatch overrides popularity. This mirrors classify_match's own
+    signals (title_similarity, genre_matches) but without candidate_score's
+    1.0 cap, which would hide the genre tiebreak whenever two candidates
+    already have a perfect title match.
+
+    This ordering only affects what the human sees first in the picker —
+    it never decides a match on its own (that stays classify_match's job)."""
     results = search_tmdb(fetch_fn, title, year)
+    results = sorted(
+        results,
+        key=lambda r: (
+            round(title_similarity(title, r.get("title", "")), SCORE_TIE_PRECISION),
+            genre_matches(genre, r),
+            r.get("popularity") or 0,
+            r.get("vote_count") or 0,
+        ),
+        reverse=True,
+    )
     candidates = []
     for result in results[:MAX_CANDIDATES]:
         candidates.append({
@@ -58,7 +88,7 @@ def collect_products(
     for index, entry in enumerate(merged.values(), start=1):
         clean_title, year = clean_title_and_year(entry["title"])
         try:
-            candidates = fetch_candidates(fetch_fn, clean_title, year)
+            candidates = fetch_candidates(fetch_fn, clean_title, year, genre=entry["genre"])
             message = f"{len(candidates)} candidate(s)"
         except Exception as exc:
             candidates = []

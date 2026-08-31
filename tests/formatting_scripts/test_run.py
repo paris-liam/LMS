@@ -142,7 +142,7 @@ class TestRun(unittest.TestCase):
             ]}
 
         path = self.dir / "batch.csv"
-        row = template_input_row("The Thing", genre="Horror", tags="Rental, VHS, Horror")
+        row = template_input_row("The Thing", genre="Horror", fmt="DVD", tags="Rental, DVD, Horror")
         row["Year"] = ""
         write_csv(path, TEMPLATE_HEADER, [row])
 
