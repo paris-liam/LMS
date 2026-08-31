@@ -50,5 +50,69 @@ class TestBuildHostedPickerHtml(unittest.TestCase):
         self.assertIn("save automatically", html.lower())
 
 
+import json
+import tempfile
+from pathlib import Path
+
+from hosted_review_page import write_hosted_picker
+
+
+def result(title, year="1982"):
+    return {"id": 1, "title": title, "release_date": f"{year}-01-01",
+            "poster_path": "/p.jpg", "overview": "Overview."}
+
+
+def fetcher(results):
+    def fetch(query, year):
+        return {"results": results}
+    return fetch
+
+
+class TestWriteHostedPicker(unittest.TestCase):
+    def test_writes_the_batch_page(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            write_hosted_picker(
+                [{"Handle": "the-thing", "Title": "The Thing", "Kind": "ambiguous", "Reason": "r"}],
+                tools_dir, "out-x", fetcher([result("The Thing")]), sleep_fn=lambda s: None,
+            )
+            page = tools_dir / "out-x" / "index.html"
+            self.assertTrue(page.exists())
+            self.assertIn("the-thing", page.read_text(encoding="utf-8"))
+
+    def test_creates_an_empty_data_file_for_a_new_batch(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            write_hosted_picker(
+                [{"Handle": "x", "Title": "X", "Kind": "ambiguous", "Reason": "r"}],
+                tools_dir, "out-x", fetcher([result("X")]), sleep_fn=lambda s: None,
+            )
+            data_file = tools_dir / "data" / "out-x.json"
+            self.assertEqual(json.loads(data_file.read_text(encoding="utf-8")), [])
+
+    def test_does_not_clobber_an_existing_data_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            data_dir = tools_dir / "data"
+            data_dir.mkdir(parents=True)
+            existing = [{"handle": "x", "choice": "skip"}]
+            (data_dir / "out-x.json").write_text(json.dumps(existing), encoding="utf-8")
+
+            write_hosted_picker(
+                [{"Handle": "x", "Title": "X", "Kind": "ambiguous", "Reason": "r"}],
+                tools_dir, "out-x", fetcher([result("X")]), sleep_fn=lambda s: None,
+            )
+            self.assertEqual(json.loads((data_dir / "out-x.json").read_text(encoding="utf-8")), existing)
+
+    def test_returns_the_product_count(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            result_dict = write_hosted_picker(
+                [{"Handle": "x", "Title": "X", "Kind": "ambiguous", "Reason": "r"},
+                 {"Handle": "y", "Title": "Y", "Kind": "ambiguous", "Reason": "r"}],
+                Path(tmp), "out-x", fetcher([result("X")]), sleep_fn=lambda s: None,
+            )
+            self.assertEqual(result_dict["products"], 2)
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -258,3 +258,29 @@ hydrateFromServer();
 </body>
 </html>
 """
+
+
+def write_hosted_picker(
+    review_rows, tools_dir, batch_id, fetch_fn, sleep_fn=time.sleep, progress_fn=None,
+) -> dict:
+    """Write tools_dir/<batch_id>/index.html and, if absent, an empty
+    tools_dir/data/<batch_id>.json for a new batch."""
+    if progress_fn is None:
+        progress_fn = lambda index, total, handle, message: None
+
+    tools_dir = Path(tools_dir)
+    products = collect_products(review_rows, fetch_fn, sleep_fn=sleep_fn, progress_fn=progress_fn)
+
+    batch_dir = tools_dir / batch_id
+    batch_dir.mkdir(parents=True, exist_ok=True)
+    (batch_dir / "index.html").write_text(
+        build_hosted_picker_html(products, batch_id), encoding="utf-8"
+    )
+
+    data_dir = tools_dir / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+    data_file = data_dir / f"{batch_id}.json"
+    if not data_file.exists():
+        data_file.write_text("[]", encoding="utf-8")
+
+    return {"products": len(products)}
