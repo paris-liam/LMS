@@ -64,6 +64,29 @@ async function putFile({ owner, repo, branch, token, path, content, sha, message
   return { sha: body.content.sha };
 }
 
-module.exports = { isValidBatchId, mergePick, getFile, putFile };
+async function saveOnce({ owner, repo, branch, token, path, pick, message }, fetchImpl) {
+  const file = await getFile({ owner, repo, branch, token, path }, fetchImpl);
+  if (file === null) {
+    throw new Error(`Batch file does not exist: ${path}`);
+  }
+  const picks = mergePick(JSON.parse(file.content), pick);
+  const { sha } = await putFile(
+    { owner, repo, branch, token, path, content: JSON.stringify(picks, null, 2), sha: file.sha, message },
+    fetchImpl,
+  );
+  return { sha, picks };
+}
+
+async function saveWithRetry(args, fetchImpl = fetch) {
+  try {
+    return await saveOnce(args, fetchImpl);
+  } catch (err) {
+    if (!String(err.message).includes('409')) throw err;
+    return await saveOnce(args, fetchImpl);
+  }
+}
+
+module.exports = { isValidBatchId, mergePick, getFile, putFile, saveWithRetry };
 module.exports.getFile = getFile;
 module.exports.putFile = putFile;
+module.exports.saveWithRetry = saveWithRetry;

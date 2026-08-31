@@ -146,3 +146,77 @@ test('putFile throws on a 409 conflict', async () => {
     /409/,
   );
 });
+
+const { saveWithRetry } = require('../../tools/review-picker/api/_github.js');
+
+function jsonResponse(status, jsonBody) {
+  return { ok: status >= 200 && status < 300, status, json: async () => jsonBody };
+}
+
+function fileResponse(picksArray, sha) {
+  return jsonResponse(200, {
+    content: Buffer.from(JSON.stringify(picksArray), 'utf-8').toString('base64'),
+    sha,
+  });
+}
+
+test('saveWithRetry succeeds on the first try', async () => {
+  const calls = [];
+  const fetchImpl = async (url, opts) => {
+    calls.push(opts ? opts.method || 'GET' : 'GET');
+    if (calls.length === 1) return fileResponse([{ handle: 'a', choice: 'skip' }], 'sha-1');
+    return jsonResponse(200, { content: { sha: 'sha-2' } });
+  };
+  const result = await saveWithRetry(
+    {
+      owner: 'o', repo: 'r', branch: 'main', token: 't',
+      path: 'tools/review-picker/data/batch.json',
+      pick: { handle: 'b', choice: 'skip' },
+      message: 'pick b',
+    },
+    fetchImpl,
+  );
+  assert.deepEqual(result.picks, [
+    { handle: 'a', choice: 'skip' },
+    { handle: 'b', choice: 'skip' },
+  ]);
+  assert.equal(result.sha, 'sha-2');
+  assert.deepEqual(calls, ['GET', 'PUT']);
+});
+
+test('saveWithRetry retries once on a 409 then succeeds', async () => {
+  const calls = [];
+  const fetchImpl = async (url, opts) => {
+    const method = opts ? opts.method || 'GET' : 'GET';
+    calls.push(method);
+    if (method === 'GET') return fileResponse([{ handle: 'a', choice: 'skip' }], `sha-${calls.length}`);
+    if (calls.filter((m) => m === 'PUT').length === 1) return jsonResponse(409, { message: 'conflict' });
+    return jsonResponse(200, { content: { sha: 'final-sha' } });
+  };
+  const result = await saveWithRetry(
+    { owner: 'o', repo: 'r', branch: 'main', token: 't', path: 'x.json', pick: { handle: 'b', choice: 'skip' }, message: 'm' },
+    fetchImpl,
+  );
+  assert.equal(result.sha, 'final-sha');
+  assert.deepEqual(calls, ['GET', 'PUT', 'GET', 'PUT']);
+});
+
+test('saveWithRetry throws if the retry also conflicts', async () => {
+  const fetchImpl = async (url, opts) => {
+    const method = opts ? opts.method || 'GET' : 'GET';
+    if (method === 'GET') return fileResponse([], 'sha-x');
+    return jsonResponse(409, { message: 'conflict' });
+  };
+  await assert.rejects(
+    saveWithRetry({ owner: 'o', repo: 'r', branch: 'main', token: 't', path: 'x.json', pick: { handle: 'b', choice: 'skip' }, message: 'm' }, fetchImpl),
+    /409/,
+  );
+});
+
+test('saveWithRetry throws if the batch file does not exist', async () => {
+  const fetchImpl = async () => jsonResponse(404, {});
+  await assert.rejects(
+    saveWithRetry({ owner: 'o', repo: 'r', branch: 'main', token: 't', path: 'x.json', pick: { handle: 'b', choice: 'skip' }, message: 'm' }, fetchImpl),
+    /does not exist/,
+  );
+});
