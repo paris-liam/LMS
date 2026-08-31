@@ -26,3 +26,16 @@ test('rejects non-GET requests', async () => {
   await handler({ method: 'POST', query: { batch: 'out-x' } }, res);
   assert.equal(res.statusCode, 405);
 });
+
+test('reports a clear error when GITHUB_TOKEN is unset', async () => {
+  const previous = process.env.GITHUB_TOKEN;
+  delete process.env.GITHUB_TOKEN;
+  try {
+    const res = fakeRes();
+    await handler({ method: 'GET', query: { batch: 'out-x' } }, res);
+    assert.equal(res.statusCode, 500);
+    assert.match(res.body.error, /GITHUB_TOKEN/);
+  } finally {
+    if (previous !== undefined) process.env.GITHUB_TOKEN = previous;
+  }
+});

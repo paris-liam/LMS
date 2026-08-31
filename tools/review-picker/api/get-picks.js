@@ -13,6 +13,10 @@ async function handler(req, res) {
   }
 
   const { GITHUB_TOKEN, GITHUB_OWNER = 'paris-liam', GITHUB_REPO = 'LMS', GITHUB_BRANCH = 'main' } = process.env;
+  if (!GITHUB_TOKEN) {
+    res.status(500).json({ error: 'server not configured (missing GITHUB_TOKEN)' });
+    return;
+  }
   const path = `tools/review-picker/data/${batch}.json`;
 
   try {
