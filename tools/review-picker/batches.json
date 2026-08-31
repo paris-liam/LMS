@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "batch_id": "out-product_export_3",
+    "total": 215
+  },
+  {
+    "batch_id": "out-product_export_4",
+    "total": 225
+  },
+  {
+    "batch_id": "out-product_export_5",
+    "total": 240
+  },
+  {
+    "batch_id": "out-product_export_6",
+    "total": 250
+  },
+  {
+    "batch_id": "out-product_export_7",
+    "total": 255
+  },
+  {
+    "batch_id": "out-product_export_8",
+    "total": 172
+  },
+  {
+    "batch_id": "out-product_export_9",
+    "total": 199
+  },
+  {
+    "batch_id": "out-product_export_10",
+    "total": 156
+  },
+  {
+    "batch_id": "out-product_export_11",
+    "total": 235
+  },
+  {
+    "batch_id": "out-new-unformatted-8.30",
+    "total": 2181
+  },
+  {
+    "batch_id": "out-issues-fixed-8.30",
+    "total": 7
+  },
+  {
+    "batch_id": "out-circa-refill-8.30",
+    "total": 269
+  }
+]
