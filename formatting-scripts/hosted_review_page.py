@@ -16,7 +16,10 @@ from urllib.parse import quote
 
 from review_page import MAX_CANDIDATES, THUMB_BASE_URL, collect_products
 
-__all__ = ["build_hosted_picker_html", "write_hosted_picker"]
+__all__ = [
+    "build_hosted_picker_html", "write_hosted_picker",
+    "update_manifest", "build_launcher_html", "write_launcher",
+]
 
 
 def build_hosted_picker_html(products: list[dict], batch_id: str) -> str:
@@ -283,4 +286,93 @@ def write_hosted_picker(
     if not data_file.exists():
         data_file.write_text("[]", encoding="utf-8")
 
+    update_manifest(tools_dir, batch_id, len(products))
+    write_launcher(tools_dir)
+
     return {"products": len(products)}
+
+
+def update_manifest(tools_dir, batch_id: str, total: int) -> list[dict]:
+    """Add or update one batch's entry in tools_dir/batches.json, preserving order."""
+    tools_dir = Path(tools_dir)
+    manifest_path = tools_dir / "batches.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else []
+
+    for entry in manifest:
+        if entry["batch_id"] == batch_id:
+            entry["total"] = total
+            break
+    else:
+        manifest.append({"batch_id": batch_id, "total": total})
+
+    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    return manifest
+
+
+def build_launcher_html() -> str:
+    """Static launcher shell: fetches batches.json and each batch's live
+    progress from /api/get-picks client-side, so it never needs regenerating
+    just because a batch's decided-count changed."""
+    return """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Review pickers</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; max-width: 820px; margin: 2rem auto; padding: 0 1rem; color: #222; }
+  h1 { font-size: 1.4rem; }
+  table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+  th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid #ddd; vertical-align: middle; }
+  th { background: #f5f5f5; }
+  a.open { display: inline-block; padding: 0.35rem 0.8rem; background: #973123; color: #fff; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }
+  .progress-cell { min-width: 160px; }
+  .progress-track { background: #eee; border-radius: 4px; height: 8px; overflow: hidden; margin-bottom: .25rem; }
+  .progress-fill { background: #5f8d7a; height: 100%; }
+  .progress-fill.complete { background: #2b6cb0; }
+  .progress-text { font-size: .8rem; color: #555; }
+</style>
+</head>
+<body>
+  <h1>Review pickers</h1>
+  <table>
+    <thead><tr><th>Batch</th><th class="progress-cell">Progress</th><th></th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+<script>
+async function loadBatches() {
+  const batches = await (await fetch("batches.json")).json();
+  const rows = document.getElementById("rows");
+  for (const batch of batches) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${batch.batch_id}</td>
+      <td class="progress-cell">
+        <div class="progress-track"><div class="progress-fill" id="fill-${batch.batch_id}"></div></div>
+        <div class="progress-text" id="text-${batch.batch_id}">loading…</div>
+      </td>
+      <td><a class="open" href="${batch.batch_id}/" target="_blank">Open</a></td>`;
+    rows.appendChild(tr);
+
+    try {
+      const picks = await (await fetch(`/api/get-picks?batch=${encodeURIComponent(batch.batch_id)}`)).json();
+      const decided = picks.length;
+      const pct = batch.total ? Math.round((decided / batch.total) * 100) : 0;
+      document.getElementById(`fill-${batch.batch_id}`).style.width = `${pct}%`;
+      const text = document.getElementById(`text-${batch.batch_id}`);
+      text.textContent = `${decided} / ${batch.total} decided`;
+      if (decided >= batch.total) {
+        document.getElementById(`fill-${batch.batch_id}`).classList.add("complete");
+      }
+    } catch (e) {
+      document.getElementById(`text-${batch.batch_id}`).textContent = "progress unavailable";
+    }
+  }
+}
+loadBatches();
+</script>
+</body>
+</html>
+"""
+
+
+def write_launcher(tools_dir) -> None:
+    Path(tools_dir).joinpath("index.html").write_text(build_launcher_html(), encoding="utf-8")

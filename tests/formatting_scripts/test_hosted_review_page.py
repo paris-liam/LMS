@@ -113,6 +113,57 @@ class TestWriteHostedPicker(unittest.TestCase):
             )
             self.assertEqual(result_dict["products"], 2)
 
+    def test_updates_the_manifest_and_launcher(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            write_hosted_picker(
+                [{"Handle": "x", "Title": "X", "Kind": "ambiguous", "Reason": "r"}],
+                tools_dir, "out-x", fetcher([result("X")]), sleep_fn=lambda s: None,
+            )
+            manifest = json.loads((tools_dir / "batches.json").read_text(encoding="utf-8"))
+            self.assertEqual(manifest, [{"batch_id": "out-x", "total": 1}])
+            self.assertTrue((tools_dir / "index.html").exists())
+
+
+from hosted_review_page import update_manifest, write_launcher
+
+
+class TestManifest(unittest.TestCase):
+    def test_creates_the_manifest_with_one_entry(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            manifest = update_manifest(tools_dir, "out-x", 5)
+            self.assertEqual(manifest, [{"batch_id": "out-x", "total": 5}])
+            on_disk = json.loads((tools_dir / "batches.json").read_text(encoding="utf-8"))
+            self.assertEqual(on_disk, manifest)
+
+    def test_appends_a_second_batch(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            update_manifest(tools_dir, "out-x", 5)
+            manifest = update_manifest(tools_dir, "out-y", 3)
+            self.assertEqual(manifest, [
+                {"batch_id": "out-x", "total": 5},
+                {"batch_id": "out-y", "total": 3},
+            ])
+
+    def test_updates_an_existing_batch_in_place(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            update_manifest(tools_dir, "out-x", 5)
+            manifest = update_manifest(tools_dir, "out-x", 9)
+            self.assertEqual(manifest, [{"batch_id": "out-x", "total": 9}])
+
+
+class TestWriteLauncher(unittest.TestCase):
+    def test_writes_an_index_page_that_reads_the_manifest_and_get_picks(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            write_launcher(tools_dir)
+            html = (tools_dir / "index.html").read_text(encoding="utf-8")
+            self.assertIn("batches.json", html)
+            self.assertIn("/api/get-picks", html)
+
 
 if __name__ == "__main__":
     unittest.main()
