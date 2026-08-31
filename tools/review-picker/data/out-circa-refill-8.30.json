@@ -4,5 +4,11 @@
     "choice": "tmdb",
     "poster_path": "/xRsBqjd7uYtNT6t3lg7HPP0d8sw.jpg",
     "overview": "A young man is accused of rape and murder and placed on trial. His father doesn't believe that he is guilty, so in act of desperation he grabs the bailiff's guns and takes the whole jury hostage and insists that the prosecuting attorney re-investigates the crime that his son's accused of."
+  },
+  {
+    "handle": "trial",
+    "choice": "tmdb",
+    "poster_path": "/jJho2pES5IxgYh9PMLLglpql4rb.jpg",
+    "overview": "A Mexican boy accused of rape and murder becomes a pawn for Communists and red-baiters. A courtroom drama set in 1947 and underlying post-WW2 acute problems facing the USA such as stormy race relations and the growing threat of local communism."
   }
 ]
