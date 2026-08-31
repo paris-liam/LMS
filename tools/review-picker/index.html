@@ -25,7 +25,9 @@
   </table>
 <script>
 async function loadBatches() {
-  const batches = await (await fetch("batches.json")).json();
+  const manifestResponse = await fetch("batches.json");
+  if (!manifestResponse.ok) throw new Error("batches.json unavailable");
+  const batches = await manifestResponse.json();
   const rows = document.getElementById("rows");
   for (const batch of batches) {
     const tr = document.createElement("tr");
@@ -38,7 +40,10 @@ async function loadBatches() {
     rows.appendChild(tr);
 
     try {
-      const picks = await (await fetch(`/api/get-picks?batch=${encodeURIComponent(batch.batch_id)}`)).json();
+      const response = await fetch(`/api/get-picks?batch=${encodeURIComponent(batch.batch_id)}`);
+      if (!response.ok) throw new Error(`get-picks failed (${response.status})`);
+      const picks = await response.json();
+      if (!Array.isArray(picks)) throw new Error("get-picks returned a non-array");
       const decided = picks.length;
       const pct = batch.total ? Math.round((decided / batch.total) * 100) : 0;
       document.getElementById(`fill-${batch.batch_id}`).style.width = `${pct}%`;
@@ -52,7 +57,10 @@ async function loadBatches() {
     }
   }
 }
-loadBatches();
+loadBatches().catch(() => {
+  document.getElementById("rows").innerHTML =
+    '<tr><td colspan="3">Could not load the batch list.</td></tr>';
+});
 </script>
 </body>
 </html>

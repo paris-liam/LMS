@@ -10,6 +10,7 @@ See docs/superpowers/specs/2026-08-30-hosted-review-picker-design.md.
 """
 
 import json
+import re
 import time
 from pathlib import Path
 from urllib.parse import quote
@@ -17,9 +18,26 @@ from urllib.parse import quote
 from review_page import MAX_CANDIDATES, THUMB_BASE_URL, collect_products
 
 __all__ = [
-    "build_hosted_picker_html", "write_hosted_picker",
+    "build_hosted_picker_html", "write_hosted_picker", "validate_batch_id",
     "update_manifest", "build_launcher_html", "write_launcher",
 ]
+
+# KEEP IN SYNC with BATCH_ID_PATTERN in tools/review-picker/api/_github.js.
+# The API routes reject any batch id outside this pattern with a 400; validating
+# here means a bad id fails at generation time (for the operator) rather than
+# later, on the client's deployed page.
+BATCH_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9._-]*$")
+
+
+def validate_batch_id(batch_id) -> str:
+    """Raise ValueError unless batch_id matches the API's accepted slug pattern."""
+    if not isinstance(batch_id, str) or not BATCH_ID_PATTERN.match(batch_id):
+        raise ValueError(
+            f"invalid batch_id {batch_id!r}: must match {BATCH_ID_PATTERN.pattern} "
+            "(lowercase letters, digits, '.', '_', '-'; must start with a letter or digit). "
+            "The /api/save-pick and /api/get-picks routes reject anything else with a 400."
+        )
+    return batch_id
 
 
 def build_hosted_picker_html(products: list[dict], batch_id: str) -> str:
@@ -49,6 +67,7 @@ def build_hosted_picker_html(products: list[dict], batch_id: str) -> str:
   .save-state.saved {{ color: #5f8d7a; }}
   .save-state.saving {{ color: #888; }}
   .save-state.error {{ color: #973123; }}
+  .save-state.failed {{ color: #973123; font-weight: 700; }}
   .tags {{ display: inline-flex; gap: .3rem; }}
   .tag {{ font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; color: #5f8d7a; background: #eef5f1; border-radius: 3px; padding: .1rem .4rem; }}
   .card .meta {{ font-size: .8rem; color: #888; margin-bottom: .75rem; }}
@@ -84,6 +103,11 @@ const BATCH_ID = {batch_id_json};
 const STORAGE_KEY = "tmdb-review-picks::" + BATCH_ID;
 const MANUAL_KEY = "tmdb-review-manual::" + BATCH_ID;
 const HIDE_DECIDED_KEY = "tmdb-review-hide-decided::" + BATCH_ID;
+const PENDING_KEY = "tmdb-review-pending::" + BATCH_ID;
+
+const MANUAL_DEBOUNCE_MS = 1500;
+const MAX_SAVE_ATTEMPTS = 5;
+const RETRY_BASE_MS = 3000;
 
 function loadCache(key) {{
   try {{ return JSON.parse(localStorage.getItem(key)) || {{}}; }}
@@ -97,23 +121,93 @@ function saveCache() {{
 let picks = loadCache(STORAGE_KEY);
 let manualData = loadCache(MANUAL_KEY);
 let saveState = {{}};
+const debounceTimers = {{}};
 
+// Handles whose save has been started but not confirmed by the server. Persisted
+// so a reload mid-failure does not silently drop the pick: on load we re-POST
+// anything still pending that the server does not already have.
+function loadPending() {{
+  try {{
+    const raw = JSON.parse(localStorage.getItem(PENDING_KEY));
+    return Array.isArray(raw) ? raw : [];
+  }} catch (e) {{ return []; }}
+}}
+let pending = loadPending();
+function persistPending() {{
+  localStorage.setItem(PENDING_KEY, JSON.stringify(pending));
+}}
+function markPending(handle) {{
+  if (pending.indexOf(handle) === -1) {{ pending.push(handle); persistPending(); }}
+}}
+function clearPending(handle) {{
+  const i = pending.indexOf(handle);
+  if (i !== -1) {{ pending.splice(i, 1); persistPending(); }}
+}}
+
+// Returns the candidate index (as a string), "manual", "skip", or null when a
+// stored "tmdb" pick matches none of this page-load's candidates. null means
+// "leave undecided" -- never silently downgrade a good tmdb pick to a blank
+// manual one, which the client could then overwrite with nothing.
 function pickChoiceIndex(product, remotePick) {{
   if (remotePick.choice === "manual") return "manual";
   if (remotePick.choice === "skip") return "skip";
-  const idx = product.candidates.findIndex(c => c.poster_path === remotePick.poster_path && c.overview === remotePick.overview);
-  return idx === -1 ? "manual" : String(idx);
+  let idx = product.candidates.findIndex(
+    c => c.poster_path === remotePick.poster_path && c.overview === remotePick.overview);
+  if (idx === -1) {{
+    // poster_path is the stable identifier; overview text drifts between TMDB fetches.
+    idx = product.candidates.findIndex(
+      c => c.poster_path && c.poster_path === remotePick.poster_path);
+  }}
+  return idx === -1 ? null : String(idx);
+}}
+
+function matchesRemote(handle, value, remotePick) {{
+  if (!remotePick) return false;
+  const payload = buildPayload(handle, value);
+  if (remotePick.choice !== payload.choice) return false;
+  if (payload.choice === "tmdb") return (remotePick.poster_path || "") === (payload.poster_path || "");
+  if (payload.choice === "manual") {{
+    return (remotePick.image_src || "") === payload.image_src
+      && (remotePick.overview || "") === payload.overview;
+  }}
+  return true;
+}}
+
+function resendPending(remotePicks) {{
+  const byHandle = {{}};
+  for (const remotePick of remotePicks) byHandle[remotePick.handle] = remotePick;
+  for (const handle of pending.slice()) {{
+    const value = picks[handle];
+    if (value === undefined) {{ clearPending(handle); continue; }}
+    // A debounced save for this handle is already queued -- don't double-POST.
+    if (debounceTimers[handle]) continue;
+    if (matchesRemote(handle, value, byHandle[handle])) {{
+      clearPending(handle);
+      setSaveState(handle, "saved");
+      continue;
+    }}
+    savePick(handle, value);
+  }}
 }}
 
 async function hydrateFromServer() {{
+  let remotePicks = [];
   try {{
     const response = await fetch("/api/get-picks?batch={batch_id_url}");
     if (!response.ok) return;
-    const remotePicks = await response.json();
+    remotePicks = await response.json();
+    if (!Array.isArray(remotePicks)) return;
     for (const remotePick of remotePicks) {{
       const product = PRODUCTS.find(p => p.handle === remotePick.handle);
       if (!product) continue;
-      picks[remotePick.handle] = pickChoiceIndex(product, remotePick);
+      // A locally pending handle holds a newer, unconfirmed value -- don't clobber it.
+      if (pending.indexOf(remotePick.handle) !== -1) continue;
+      const choice = pickChoiceIndex(product, remotePick);
+      if (choice === null) {{
+        delete picks[remotePick.handle];
+        continue;
+      }}
+      picks[remotePick.handle] = choice;
       if (remotePick.choice === "manual") {{
         manualData[remotePick.handle] = {{ image_src: remotePick.image_src || "", overview: remotePick.overview || "" }};
       }}
@@ -121,6 +215,7 @@ async function hydrateFromServer() {{
     saveCache();
     render();
   }} catch (e) {{ /* offline or first load with nothing saved yet -- localStorage cache still applies */ }}
+  resendPending(remotePicks);
 }}
 
 function esc(text) {{
@@ -136,11 +231,43 @@ function optionHtml(handle, value, checked, extraClass, inner) {{
   </label>`;
 }}
 
+function saveStateLabel(state) {{
+  if (state === "saving") return "Saving…";
+  if (state === "saved") return "Saved ✓";
+  if (state === "failed") return "Not saved — save failed";
+  if (state === "error") return "Not saved — retrying";
+  return "";
+}}
+
 function saveStateHtml(handle) {{
-  const state = saveState[handle];
-  if (!state) return "";
-  const label = state === "saving" ? "Saving…" : state === "saved" ? "Saved ✓" : "Not saved — retrying";
-  return `<span class="save-state ${{state}}">${{label}}</span>`;
+  const state = saveState[handle] || "";
+  return `<span class="save-state ${{state}}">${{saveStateLabel(state)}}</span>`;
+}}
+
+function cardFor(handle) {{
+  const cards = document.getElementById("cards").children;
+  for (const card of cards) {{
+    if (card.dataset.handle === handle) return card;
+  }}
+  return null;
+}}
+
+// Update only this card's save-state indicator. Never re-render: a full render()
+// destroys the DOM (and focus/caret) of any manual field being typed into.
+function setSaveState(handle, state) {{
+  saveState[handle] = state;
+  const card = cardFor(handle);
+  if (!card) return;
+  const span = card.querySelector(".save-state");
+  if (!span) return;
+  span.className = "save-state " + state;
+  span.textContent = saveStateLabel(state);
+}}
+
+function markDecided(handle) {{
+  const card = cardFor(handle);
+  if (card) card.classList.add("decided");
+  updateCounter();
 }}
 
 function render() {{
@@ -210,9 +337,10 @@ function buildPayload(handle, value) {{
   return {{ batch: BATCH_ID, handle, choice: "tmdb", poster_path: candidate.poster_path, overview: candidate.overview }};
 }}
 
-async function savePick(handle, value) {{
-  saveState[handle] = "saving";
-  render();
+async function savePick(handle, value, attempt) {{
+  attempt = attempt || 0;
+  markPending(handle);
+  setSaveState(handle, "saving");
   try {{
     const response = await fetch("/api/save-pick", {{
       method: "POST",
@@ -220,12 +348,35 @@ async function savePick(handle, value) {{
       body: JSON.stringify(buildPayload(handle, value)),
     }});
     if (!response.ok) throw new Error("save failed");
-    saveState[handle] = "saved";
+    setSaveState(handle, "saved");
+    clearPending(handle);
   }} catch (e) {{
-    saveState[handle] = "error";
-    setTimeout(() => savePick(handle, value), 3000);
+    if (attempt + 1 >= MAX_SAVE_ATTEMPTS) {{
+      // Out of retries: leave a persistent error state rather than looping forever.
+      // The handle stays in `pending`, so a reload re-attempts it.
+      setSaveState(handle, "failed");
+      return;
+    }}
+    setSaveState(handle, "error");
+    setTimeout(() => {{
+      // Abandon this retry if a newer save has superseded it -- otherwise a stale
+      // queued retry can clobber the client's correction with the old value.
+      if (picks[handle] !== value) return;
+      if (debounceTimers[handle]) return;
+      savePick(handle, value, attempt + 1);
+    }}, RETRY_BASE_MS * Math.pow(2, attempt));
   }}
-  render();
+}}
+
+// Manual free-text saves are debounced: each save is a git commit, so saving on
+// every keystroke would produce one commit (and one Pages deploy) per character.
+function queueManualSave(handle) {{
+  markPending(handle);
+  clearTimeout(debounceTimers[handle]);
+  debounceTimers[handle] = setTimeout(() => {{
+    delete debounceTimers[handle];
+    savePick(handle, "manual");
+  }}, MANUAL_DEBOUNCE_MS);
 }}
 
 document.getElementById("cards").addEventListener("change", event => {{
@@ -234,6 +385,7 @@ document.getElementById("cards").addEventListener("change", event => {{
   const handle = input.closest(".card").dataset.handle;
   picks[handle] = input.value;
   saveCache();
+  markDecided(handle);
   savePick(handle, input.value);
 }});
 
@@ -252,7 +404,8 @@ document.getElementById("cards").addEventListener("input", event => {{
     if (radio) radio.checked = true;
   }}
   saveCache();
-  savePick(handle, "manual");
+  markDecided(handle);
+  queueManualSave(handle);
 }});
 
 render();
@@ -268,6 +421,7 @@ def write_hosted_picker(
 ) -> dict:
     """Write tools_dir/<batch_id>/index.html and, if absent, an empty
     tools_dir/data/<batch_id>.json for a new batch."""
+    validate_batch_id(batch_id)
     if progress_fn is None:
         progress_fn = lambda index, total, handle, message: None
 
@@ -340,7 +494,9 @@ def build_launcher_html() -> str:
   </table>
 <script>
 async function loadBatches() {
-  const batches = await (await fetch("batches.json")).json();
+  const manifestResponse = await fetch("batches.json");
+  if (!manifestResponse.ok) throw new Error("batches.json unavailable");
+  const batches = await manifestResponse.json();
   const rows = document.getElementById("rows");
   for (const batch of batches) {
     const tr = document.createElement("tr");
@@ -353,7 +509,10 @@ async function loadBatches() {
     rows.appendChild(tr);
 
     try {
-      const picks = await (await fetch(`/api/get-picks?batch=${encodeURIComponent(batch.batch_id)}`)).json();
+      const response = await fetch(`/api/get-picks?batch=${encodeURIComponent(batch.batch_id)}`);
+      if (!response.ok) throw new Error(`get-picks failed (${response.status})`);
+      const picks = await response.json();
+      if (!Array.isArray(picks)) throw new Error("get-picks returned a non-array");
       const decided = picks.length;
       const pct = batch.total ? Math.round((decided / batch.total) * 100) : 0;
       document.getElementById(`fill-${batch.batch_id}`).style.width = `${pct}%`;
@@ -367,7 +526,10 @@ async function loadBatches() {
     }
   }
 }
-loadBatches();
+loadBatches().catch(() => {
+  document.getElementById("rows").innerHTML =
+    '<tr><td colspan="3">Could not load the batch list.</td></tr>';
+});
 </script>
 </body>
 </html>
