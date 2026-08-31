@@ -44,6 +44,7 @@ class TestCanonicalGenre(unittest.TestCase):
         self.assertEqual(canonical_genre("Muscal"), "Musical")
         self.assertEqual(canonical_genre("Kids"), "Kids & Family")
         self.assertEqual(canonical_genre("Dcoumentary"), "Documentary")
+        self.assertEqual(canonical_genre("Thriler"), "Thriller")
 
     def test_unknown_values_return_none(self):
         for value in ("Special Interest", "Chicago", "#REF!", "#VALUE!", "", "   "):

@@ -1,8 +1,0 @@
-input:      catalogue-batches/issue-products/no-rental-or-floor-sale-tag.csv
-skip:       type
-force_price_zero: False
-tags added: Issue, Rental-or-Sale
-upload.csv: 51 rows written
-issues.csv: 8 rows still broken
-ambiguous:  2 products in review-picker.html
-unmatched:  1 products in tmdb-unmatched.csv

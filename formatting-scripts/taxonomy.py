@@ -42,6 +42,7 @@ GENRE_ALIASES = {
     "romatic comedy": "Romantic Comedy",
     "muscal": "Musical",
     "dcoumentary": "Documentary",
+    "thriler": "Thriller",
 }
 
 FORMAT_ALIASES = {

@@ -1,0 +1,7 @@
+input:      catalogue-batches/Compare-8.30/issues-fixed-input.csv
+shape:      export
+upload.csv: 16 rows written (products + extra-image rows)
+issues.csv: 12 rows need a fix
+ambiguous:  7 products in review-picker.html
+unmatched:  1 products in tmdb-unmatched.csv
+cache:      0 hits, 14 fetches

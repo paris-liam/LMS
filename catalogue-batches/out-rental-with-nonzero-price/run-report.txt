@@ -1,8 +1,0 @@
-input:      catalogue-batches/issue-products/rental-with-nonzero-price.csv
-skip:       (none)
-force_price_zero: True
-tags added: (none)
-upload.csv: 25 rows written
-issues.csv: 0 rows still broken
-ambiguous:  12 products in review-picker.html
-unmatched:  1 products in tmdb-unmatched.csv

@@ -1,7 +1,0 @@
-input:      catalogue-batches/issue-products/product-has-2-variants-deduped.csv
-shape:      export
-upload.csv: 4 rows written (products + extra-image rows)
-issues.csv: 3 rows need a fix
-ambiguous:  1 products in review-picker.html
-unmatched:  0 products in tmdb-unmatched.csv
-cache:      0 hits, 1 fetches
