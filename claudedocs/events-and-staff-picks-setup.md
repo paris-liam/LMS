@@ -30,14 +30,18 @@ Notes:
 - `events_to_show` in the section settings (2–5) caps how many render.
 - Section setting `events_link` should point to your full events/calendar page once you have one (currently blank).
 
-## 2. `staff_pick` metaobject — powers "Staff picks" (`sections/lms-staff-picks.liquid`)
+## 2. `community_pick` metaobject — powers "Community Picks" (`sections/lms-staff-picks.liquid`)
 
 **Admin → Settings → Custom data → Metaobjects → Add definition**
 
 | Setting | Value |
 |---|---|
-| Name | `Staff pick` |
-| Type (handle) | `staff_pick` |
+| Name | `Community Pick` |
+| Type (handle) | `community_pick` |
+
+Renamed from `staff_pick` on 2026-09-01 — that handle got reserved by another
+application on the production store, so both dev and production now use
+`community_pick` to keep the theme code identical across stores.
 
 Fields:
 
@@ -45,7 +49,8 @@ Fields:
 |---|---|---|
 | Product | `product` | Product reference |
 | Quote | `quote` | Multi-line text |
-| Staff name | `staff_name` | Single line text |
+| Community Name | `staff_name` | Single line text |
+| Community Link | `staff_link` | URL |
 
 Enable **Storefront access** here too.
 

@@ -83,7 +83,7 @@ Note: only works for rental movies (already tagged `Rental`, category Videos) �
 
 ### How it works
 
-Sourced from a `staff_pick` metaobject (Admin → Content → Staff picks — displays under the "Community Pick" name). Each entry has four fields:
+Sourced from a `community_pick` metaobject (Admin → Content → Community Pick). Renamed from `staff_pick` on 2026-09-01 (see production runbook Phase 3) — same fields, same behavior. Each entry has four fields:
 
 | Field | Label in admin | Required? |
 |---|---|---|
@@ -124,7 +124,7 @@ To remove a pick from the homepage without deleting the record, either set it to
 
 ### Production status
 
-Not yet set up — the `staff_pick` metaobject definition and any entries need to exist on production before this section will show anything there. Out of scope for this pass; flag when production content work starts.
+The `community_pick` metaobject definition exists on production as of 2026-09-01 — no entries yet. Real Community Pick entries still need to be created there (Admin → Content → Community Pick → Add entry) once the catalogue exists to reference real products.
 
 ---
 

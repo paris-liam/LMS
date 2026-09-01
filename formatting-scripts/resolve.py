@@ -87,7 +87,7 @@ def resolve_format(
         if from_tag:
             return from_tag, None
 
-    return None, f"no media format (Vendor {vendor!r} is not VHS/DVD/Blu-Ray/4K)"
+    return None, f"no media format (Vendor {vendor!r} is not VHS/DVD/Blu-Ray/4K/Laserdisc/Betamax)"
 
 
 def resolve_price(product_type: str, raw_price: str) -> tuple[str | None, str | None]:

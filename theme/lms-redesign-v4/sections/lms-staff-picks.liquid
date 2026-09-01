@@ -1,7 +1,7 @@
 {% comment %}
   lms-staff-picks — side panel (left) + scrollable picks row (right).
 
-  Picks are driven by a `staff_pick` metaobject (Admin → Content):
+  Picks are driven by a `community_pick` metaobject (Admin → Content):
     - product     Product reference (poster, title, and link come from it)
     - quote       Multi-line text (the shelf note)
     - staff_name  Single-line text
@@ -14,7 +14,7 @@
 {% endcomment %}
 
 {%- liquid
-  assign picks = shop.metaobjects.staff_pick.values
+  assign picks = shop.metaobjects.community_pick.values
   assign all_movies_url = collections['all-movies'].url
 -%}
 

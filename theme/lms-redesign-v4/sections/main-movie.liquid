@@ -32,7 +32,7 @@
         # claudedocs/2026-08-07-product-data-model-audit.md. The matching facet is
         # the built-in "Product vendor" filter in Search & Discovery. Only chip
         # recognised formats so a stray vendor name never renders as a format.
-        assign known_formats = 'VHS,DVD,BLU-RAY,4K' | split: ','
+        assign known_formats = 'VHS,DVD,BLU-RAY,4K,LASERDISC,BETAMAX' | split: ','
         assign vendor_upcase = product.vendor | upcase
         assign format_label = ''
         if known_formats contains vendor_upcase

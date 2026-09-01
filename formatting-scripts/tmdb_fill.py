@@ -27,10 +27,14 @@ REQUEST_DELAY_SECONDS = 0.25
 # (an explicit title year always wins on conflict) and only for VHS — DVD/
 # Blu-ray/4K legitimately carry both new releases and old catalog
 # re-releases, so a date filter would wrongly exclude correct matches.
+# Laserdisc and Betamax are comparably dead formats but have no cutoff of
+# their own yet — is_vhs()/VHS_YEAR_CUTOFF would need generalizing to a
+# per-format cutoff before they'd get the same treatment.
 VHS_YEAR_CUTOFF = 2008
 
-# The store's actual catalogue — VHS, DVD, Blu-ray, and 4K alike — doesn't
-# carry anything released in or after 2020, so a candidate dated that late
+# The store's actual catalogue — VHS, DVD, Blu-ray, 4K, Laserdisc, and
+# Betamax alike — doesn't carry anything released in or after 2020, so a
+# candidate dated that late
 # is essentially never the right match regardless of format. Looser than
 # VHS_YEAR_CUTOFF; VHS rows still use the tighter of the two.
 GLOBAL_YEAR_CUTOFF = 2019
@@ -332,7 +336,8 @@ def build_output(
     where Kind is "ambiguous" (send to the picker) or "unmatched" (send to
     the CSV). Vendor/Genre are carried through so the picker and the
     unmatched CSV can show them without looking the row back up — Vendor
-    holds the physical format (VHS/DVD/Blu-Ray/4K), not a real vendor.
+    holds the physical format (VHS/DVD/Blu-Ray/4K/Laserdisc/Betamax), not a
+    real vendor.
     Nothing is ever written to Tags.
     """
     output_rows: list[dict] = []

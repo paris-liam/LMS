@@ -1,5 +1,0 @@
-input entries:        2365
-resolved (confident): 1129
-still ambiguous:      1236
-image-fills.csv:      994 rows
-description-fills.csv:1007 rows

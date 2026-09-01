@@ -1,7 +1,7 @@
 """Canonical vocabulary for the movie catalogue: genres, formats and types.
 
 Genre labels are the 13 shelf genres; their values are the metaobject
-handles behind product.metafields.shopify.genre. Formats are the four
+handles behind product.metafields.shopify.genre. Formats are the
 values allowed in product.vendor (media format lives in Vendor, not in
 shopify.media-format — see claudedocs/2026-08-07-product-data-model-audit.md).
 
@@ -28,7 +28,7 @@ GENRES = {
     "Holiday": "holiday",
 }
 
-FORMATS = ["VHS", "DVD", "Blu-Ray", "4K"]
+FORMATS = ["VHS", "DVD", "Blu-Ray", "4K", "Laserdisc", "Betamax"]
 
 TYPES = ["Rental", "Floor Sale"]
 
@@ -47,6 +47,10 @@ GENRE_ALIASES = {
 
 FORMAT_ALIASES = {
     "bluray": "Blu-Ray",
+    "laser disc": "Laserdisc",
+    "laser": "Laserdisc",
+    "ld": "Laserdisc",
+    "beta": "Betamax",
 }
 
 TYPE_ALIASES = {

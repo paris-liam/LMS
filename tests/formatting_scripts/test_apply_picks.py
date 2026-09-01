@@ -78,6 +78,16 @@ class TestApplyPicks(unittest.TestCase):
         out, _ = apply_picks([row(), row(Handle="other")], [])
         self.assertEqual(len(out), 2)
 
+    def test_a_blank_status_is_filled_with_active_regardless_of_pick(self):
+        picks = [{"handle": "the-thing-4k-floor-sale", "choice": "skip"}]
+        out, _ = apply_picks([row(Status="")], picks)
+        self.assertEqual(out[0]["Status"], "active")
+
+    def test_an_existing_status_is_left_alone(self):
+        picks = [{"handle": "the-thing-4k-floor-sale", "choice": "skip"}]
+        out, _ = apply_picks([row(Status="draft")], picks)
+        self.assertEqual(out[0]["Status"], "draft")
+
 
 if __name__ == "__main__":
     unittest.main()

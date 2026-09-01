@@ -1,19 +1,21 @@
 # Production setup runbook — starting from a blank store
 
-Assumes production (`p0wkgv-wy.myshopify.com`) has **no theme content, no collections, no metaobjects, and no Supercycle setup** — a true blank slate on everything covered here. Assumes you are handling product upload + formatting + assigning the `product.movie` template **separately** — this runbook doesn't touch product data itself, only the store structure those products plug into.
+Assumed production (`p0wkgv-wy.myshopify.com`) had **no theme content, no collections, no metaobjects, and no Supercycle setup** — turned out to be only partly true (see Status note below). Assumes you are handling product upload + formatting + assigning the `product.movie` template **separately** — this runbook doesn't touch product data itself, only the store structure those products plug into.
 
-This is a planning document, not a log of actions taken — production is off-limits by default per this project's rules. Nothing here gets executed without you explicitly saying "go" on a specific phase.
+This is a living planning document, updated as phases are executed — production is off-limits by default per this project's rules, and nothing here gets executed without explicit go-ahead on a specific phase.
 
 Order matters — collections and theme sections reference tags/metaobjects/pages that need to exist first. Follow top to bottom.
 
+**Status as of 2026-09-01**: Production was NOT a true blank slate — it already had 4 collections (2 empty junk, 1 empty wrong-handle, `plans` with a real Supercycle-typed product in it), empty stub pages (`about`, `plans`, `membership` all with no content), a working nav skeleton, and Shopify-standard metafield definitions (no `custom.*` stand-ins yet). Supercycle also appears to already be installed (a "Little Movie Club" product with productType "Supercycle Plan" sits in `plans`), which contradicts the "blocked until install" assumption elsewhere — **investigation deferred** pending an Admin access issue on the client's end. Phases 0, 2, 3, and parts of 5/6 are done; Phase 4 (Collections) and Phase 7 (Supercycle) remain deferred — Phase 4 until the catalogue exists, Phase 7 until Supercycle's Admin UI is reachable again.
+
 ---
 
-## Phase 0: Theme code
+## Phase 0: Theme code — done 2026-09-01
 
-1. Confirm the live theme on production with `shopify theme list --store p0wkgv-wy.myshopify.com` — check the `[live]` role, don't assume by name (per project rule).
-2. **Pull before push**: `shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme <id>` — reconcile any merchant-made edits in the theme editor before overwriting.
-3. Push the theme code. Consider pushing to an **unpublished** theme first (`--unpublished`) so you can review/QA before it goes live, rather than pushing straight to the live theme.
-4. Don't publish it live yet — everything below (collections, metaobjects, pages, Supercycle) needs to exist first, or sections will render empty/broken the moment it's live, exactly like we found on dev.
+1. Confirmed the live theme (`164180295930`, renamed to "LMS Theme w/ coming soon page" but same ID as CLAUDE.md's record) — still running the **pre-migration Horizon 3.5.1 base** with only the coming-soon page, tokens, and fonts. None of the full redesign (homepage sections, movie PDP, events, membership) had ever been pushed.
+2. Given the scale of the diff (essentially every file, since production predates the 4.1.1 migration), reconciling file-by-file wasn't practical — pushed the full current `lms-redesign-v4` theme to a **new unpublished theme** instead: `LMS Redesign v4 (review)` (`#166751961338`). Preview: `https://p0wkgv-wy.myshopify.com?preview_theme_id=166751961338`.
+3. **Not published live** — collections, metaobjects, and Supercycle setup still need finishing first, or sections will render empty/broken exactly like we found on dev.
+4. Three unrelated unpublished themes found on production (`lms-7.8` ×2, `LMS-Theme-7.19`) — confirmed as old test pushes, left alone.
 
 ---
 
@@ -24,56 +26,53 @@ The theme code depends on these tags/fields existing on every movie product. Jus
 - **`Rental` tag** — required on every rentable movie. Powers the `all-movies` collection, the New Arrivals collection, and the PDP genre/format chips.
 - **Category = Videos** — the Shopify standard product taxonomy category. Required alongside `Rental` for the same collections.
 - **`product.vendor` = one of `VHS` / `DVD` / `Blu-Ray` / `4K`** — format lives in Vendor, not a metafield (see CLAUDE.md's data-model convention). The PDP and filters read this against a fixed whitelist.
-- **`shopify.genre` metafield** — standard category metafield, populated automatically once Category = Videos is set and a genre value is chosen.
+- **`shopify.genre` metafield** — standard category metafield, `list.metaobject_reference` type, populated automatically once Category = Videos is set and a genre value is chosen.
+
+  **Known gotcha, hit 2026-09-01 on the first real CSV upload (126 products, 74 failed with "Value require that you select a metaobject")**: dev's exports use several genre values (`action`, `comedy`, `thriller`, `romantic-comedy`, `musical`, `foreign`, `holiday`) that are legitimate Shopify taxonomy values but weren't yet instantiated as local `shopify--genre` metaobject entries on production — only the canonical Shopify-seeded set was (`Action & adventure`, `Humor & comedy`, etc., which dev's actual data doesn't use). CSV import can't auto-create a missing metaobject entry, so any product using one of those 7 values fails outright. **Fixed by creating all 7 entries on production directly via `metaobjectCreate` (type `shopify--genre`), matching dev's exact handle/label/`taxonomy_reference` GID.** If a future batch introduces yet another genre value dev has that production doesn't, it'll fail the same way — check dev's `shopify--genre` metaobjects against production's before a big import, not after.
 - Two tags applied **manually, ongoing** (not part of bulk upload): `new-arrival` and `community-pick` (see Phases 6 and 8 below).
 
 ---
 
-## Phase 2: Metafield definitions
+## Phase 2: Metafield definitions — done 2026-09-01
 
-Movie-specific metafield definitions (the `custom.*` stand-ins for future Supercycle fields, plus any others `data-cleanup/` relies on):
+Movie-specific metafield definitions (the `custom.*` stand-ins for future Supercycle fields, plus any others `data-cleanup/` relies on). The script itself needs a raw admin token (`SHOPIFY_ADMIN_TOKEN` or client credentials) which wasn't available this session, so the same 9 `metafieldDefinitionCreate` mutations were run directly via `shopify store execute` (CLI OAuth) instead — same result, script kept as-is for future runs where a token is available:
 
 ```bash
 SHOPIFY_STORE=p0wkgv-wy.myshopify.com ./scripts/create-movie-metafield-definitions.sh
 ```
 Requires `SHOPIFY_ADMIN_TOKEN` or `SHOPIFY_CLIENT_ID`/`SHOPIFY_CLIENT_SECRET` env vars (older auth pattern this script uses, distinct from the CLI's own OAuth session). Idempotent — safe to re-run.
 
+Also found an unexplained pre-existing metafield definition on production, `scf.avf` ("Rental Availability", single-line text, only 1 product uses it) — not from any of our scripts, not Supercycle (`supercycle.*`). Trivial usage, left alone; flag for cleanup during the catalogue-reconciliation pass.
+
 ---
 
-## Phase 3: Metaobject definitions
+## Phase 3: Metaobject definitions — done 2026-09-01
 
 Two content types need their definitions created before any entries can exist.
 
-1. **Community Pick** (`staff_pick`) — script exists:
-   ```bash
-   SHOPIFY_STORE=p0wkgv-wy.myshopify.com ./scripts/create-staff-pick-metaobject.sh
-   ```
-   Creates fields: `product` (product reference), `quote` (multi-line text), `staff_name` (single-line text), `staff_link` (URL). Storefront access must be Public Read.
+1. **Community Pick** (`community_pick`) — script: `scripts/create-community-pick-metaobject.sh`.
+   Creates fields: `product` (product reference), `quote` (multi-line text), `staff_name` (single-line text, labeled "Community Name"), `staff_link` (URL, labeled "Community Link"). Storefront access must be Public Read.
 
-2. **Event** (`event`) — **no script exists yet**, needs creating (either a new script mirroring the staff-pick one, or by hand in Admin → Content → Metaobject definitions → Add definition). Fields needed, matching what the theme reads:
+   **Renamed from `staff_pick` on 2026-09-01**: that handle was reserved by another application on production (an old test definition from earlier work, which stays reserved even after deletion). Both dev and production were moved to `community_pick` so the theme code stays identical across stores — dev's 9 existing entries were migrated in place, the old `staff_pick` definition was deleted on dev, and `sections/lms-staff-picks.liquid` now reads `shop.metaobjects.community_pick.values`. Created on production 2026-09-01, no entries yet.
+
+2. **Event** (`event`) — created directly via Admin GraphQL on production 2026-09-01, matching dev's live definition exactly:
    - `name` — single-line text
    - `description` — single-line text
    - `audience` — single-line text, with choices restricted to `["public", "member"]`
    - `link` — URL
    - `date` — date
-   
-   Storefront access: Public Read. Enable the "Publishable" capability (Active/Draft status) — the theme only renders Active entries.
+
+   Storefront access: Public Read. Publishable capability enabled — the theme only renders Active entries. No entries yet on production.
 
 ---
 
-## Phase 4: Collections
+## Phase 4: Collections — partly done 2026-09-01
 
-In this order (some depend on tags from Phase 1 already being applied to at least some products, so this phase and product upload can interleave):
-
-1. **All Movies** (`all-movies`) — smart collection: Category = Videos AND tag = Rental. Sort: Newest to oldest. No existing script for this one specifically — check if `create-curation-collections.sh` or a similar one-off needs writing, or create manually in Admin.
-2. **Online Store** (`online-store`) — smart collection: tag = `online-store`. This is the non-rental retail catalogue (merch, snacks, etc. — anything sold outright, never touches Supercycle).
-3. **New Arrivals** (`new-arrivals`) — script exists and is idempotent:
-   ```bash
-   SHOPIFY_STORE=p0wkgv-wy.myshopify.com ./scripts/create-new-arrivals-collection.sh
-   ```
-   Rule: Category = Videos AND tag = Rental AND tag = new-arrival. Sort: Newest to oldest. See `claudedocs/lms-admin-instructions.md` for the full New Arrivals mechanism and the Flow that needs building alongside this (Phase 6).
-4. **Plans** (`plans`) — **manual collection, not smart** (confirmed on dev — no rule set, products added by hand). This is what the Supercycle Membership Plans app block reads from. Likely gets auto-created by Supercycle itself during Membership-method setup (Phase 8) — check before creating manually to avoid a duplicate.
-5. **Optional curation collections** — a script already exists for three tag-driven merchandising collections, not required for any core section to function, create only if you want them live:
+1. **All Movies** (`all-movies`) — **done 2026-09-01**. Smart collection created matching dev exactly: Category = Videos AND tag = Rental, sort Newest-to-oldest, `templateSuffix: shop-all` (the infinite-scroll/vertical-filters template — easy to miss, dev had it, production needed it set explicitly). 0 products until the catalogue lands.
+2. **Online Store** (`online-store`) — **not created**, deliberately skipped for now. Smart collection: tag = `online-store`. This is the non-rental retail catalogue (merch, snacks, etc. — anything sold outright, never touches Supercycle).
+3. **New Arrivals** (`new-arrivals`) — **done 2026-09-01**. Same rule as the script (`create-new-arrivals-collection.sh`) but run directly via `shopify store execute` since the script needs a raw admin token: Category = Videos AND tag = Rental AND tag = new-arrival, sort Newest-to-oldest. See `claudedocs/lms-admin-instructions.md` for the full New Arrivals mechanism and the Flow that needs building alongside this (Phase 6).
+4. **Plans** (`plans`) — already existed on production before this runbook started (manual collection, 1 product — "Little Movie Club", productType "Supercycle Plan"). No action needed, ties into the still-unresolved Supercycle question (Phase 7).
+5. **Optional curation collections** — a script already exists for three tag-driven merchandising collections, not required for any core section to function, create only if wanted:
    ```bash
    SHOPIFY_STORE=p0wkgv-wy.myshopify.com ./scripts/create-curation-collections.sh
    ```
@@ -88,10 +87,12 @@ Page records need to exist with the right handle + template assignment for the t
 
 | Page | Handle | Template | Status |
 |---|---|---|---|
-| Membership | `membership` | `membership` | Create — content: hero copy + perks (see `templates/page.membership.json` for the structure to match) |
-| Events | `events` | `events` | Create — the full events calendar page |
-| Contact | `contact` | `contact` | Create if wanted — template exists in the theme |
-| Visit | `visit` | *(none exists — default page template)* | **Doesn't exist even on dev** — footer links to `/pages/visit` twice and both currently 404. Create this page (address, hours, map) before launch, or repoint those footer links elsewhere. |
+| Membership | `membership` | `membership` | **Done 2026-09-01** — page existed but on the default template; reassigned to `membership`. Still needs real content (hero copy + perks, see `templates/page.membership.json`). Nav's old "Plans" link (pointing at an empty, now-deleted `plans` page) was retargeted here. |
+| Events | `events` | `events` | **Done 2026-09-01** — created, empty body (template-driven, matches dev). Added to main-menu. |
+| Contact | `contact` | `contact` | Already existed, correct template — no action needed |
+| Visit | `visit` | *(none exists — default page template)* | **Still doesn't exist.** Needs real address/hours copy before creating — deferred, footer links to `/pages/visit` still 404 |
+| ~~Plans~~ | ~~`plans`~~ | — | **Deleted 2026-09-01** — was an empty stub duplicating membership's role; nav retargeted to `/pages/membership` instead |
+| ~~About~~ | ~~`about`~~ | — | **Deleted 2026-09-01** — empty stub, unreferenced in any nav |
 
 `/pages/data-sharing-opt-out` ("Your Privacy Choices") is auto-generated by Shopify's own privacy/consent settings, not something to create manually — it'll appear once relevant regional privacy settings are configured.
 
@@ -101,9 +102,10 @@ Page records need to exist with the right handle + template assignment for the t
 
 Three menus needed, matching dev's structure (fix the two bugs found there, don't copy them):
 
-1. **Main menu** (`main-menu`): Home (`/`), Rental Library (→ `all-movies` collection), Shop (→ `online-store` collection), Events (→ the `events` **page**, not the privacy page — this was a real bug on dev, get it right the first time here). Consider whether "Join the Club" belongs in the main nav too (it currently only lives as a hero CTA and header-gated element on dev).
-2. **Footer menu** (`footer`): Search, Privacy Choices (auto-links once the privacy page exists).
-3. **Customer account main menu** (`customer-account-main-menu`): Orders, Profile — standard, no custom setup needed.
+1. **Main menu** (`main-menu`): production currently has Home, Contact, Membership (retargeted from the deleted `plans` page), and Events (**done 2026-09-01**). Rental Library and Shop links still need to be added once the `all-movies`/`online-store` collections exist with real products (Phase 4, deferred). Consider whether "Join the Club" belongs in the main nav too.
+   - Also fixed the same bug on **dev**: its Events link pointed at `/pages/data-sharing-opt-out` (the privacy page) instead of `/pages/events` — corrected 2026-09-01.
+2. **Footer menu** (`footer`): Search, Privacy Choices (auto-links once the privacy page exists) — production already has both, no action needed.
+3. **Customer account main menu** (`customer-account-main-menu`): Orders, Profile — standard, already correct on production, no custom setup needed.
 
 ---
 
@@ -163,6 +165,8 @@ Things that live in `config/settings_data.json` / theme editor state, not code �
 
 ## Open questions to resolve before/during this work
 
-- Does Supercycle auto-create the `plans` collection, or does it need manual creation? (Phase 4/7)
+- **Is Supercycle actually installed and configured on production already?** A `plans` collection with an Active "Little Movie Club" product (productType "Supercycle Plan", zero metafields) exists, suggesting partial setup predating this runbook — but it can't be confirmed via Admin GraphQL (no generic "list installed apps" access with current auth), and the client currently can't open Supercycle's Admin UI to check directly. **Blocks Phase 7** until resolved.
+- Does Supercycle auto-create the `plans` collection, or does it need manual creation? (Phase 4/7) — moot if Supercycle turns out to already be installed; check its actual state first.
 - Is the 4-collection footer gap (`4k-blu-ray` etc.) worth building for launch, or genuinely deferred? (Phase 4)
-- What should the `visit` page and header announcement bar actually say? (Phases 5, 10)
+- What should the `visit` page and header announcement bar actually say? (Phases 5, 10) — Visit page creation deferred 2026-09-01 pending real address/hours copy.
+- What created the orphan `scf.avf` product metafield on production, and is it safe to delete? (Phase 2)

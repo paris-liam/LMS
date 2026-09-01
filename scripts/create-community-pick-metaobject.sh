@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
-# Creates the `staff_pick` metaobject definition (dev store by default).
+# Creates the `community_pick` metaobject definition (dev store by default).
 # The type handle and field keys must match what
-# theme/lms-redesign/sections/lms-staff-picks.liquid reads:
-#   shop.metaobjects.staff_pick.values → pick.product / pick.quote / pick.staff_name
+# theme/lms-redesign-v4/sections/lms-staff-picks.liquid reads:
+#   shop.metaobjects.community_pick.values → pick.product / pick.quote / pick.staff_name / pick.staff_link
+#
+# Renamed from `staff_pick` on 2026-09-01: that type handle got reserved by
+# another app on the production store, so both dev and production now use
+# `community_pick` to keep the theme code identical across stores.
 #
 # Usage (client credentials — exchanges ID+secret for a 24h automation token):
 #   export SHOPIFY_CLIENT_ID=...
 #   export SHOPIFY_CLIENT_SECRET=...
-#   ./scripts/create-staff-pick-metaobject.sh
+#   ./scripts/create-community-pick-metaobject.sh
 #
 # Or with a pre-minted token:
 #   export SHOPIFY_ADMIN_TOKEN=shpat_...
-#   ./scripts/create-staff-pick-metaobject.sh
+#   ./scripts/create-community-pick-metaobject.sh
 #
 # The app must be installed on the store with the
 # write_metaobject_definitions access scope.
@@ -19,7 +23,7 @@
 set -euo pipefail
 
 # Defaults to the dev store; override only when explicitly targeting production:
-#   SHOPIFY_STORE=p0wkgv-wy.myshopify.com ./scripts/create-staff-pick-metaobject.sh
+#   SHOPIFY_STORE=p0wkgv-wy.myshopify.com ./scripts/create-community-pick-metaobject.sh
 STORE="${SHOPIFY_STORE:-lms-sandbox-lutsfahz.myshopify.com}"
 API_VERSION="2026-01"
 
@@ -43,7 +47,7 @@ if [[ -z "${SHOPIFY_ADMIN_TOKEN:-}" ]]; then
 fi
 
 read -r -d '' QUERY <<'GRAPHQL' || true
-mutation CreateStaffPickDefinition($definition: MetaobjectDefinitionCreateInput!) {
+mutation CreateCommunityPickDefinition($definition: MetaobjectDefinitionCreateInput!) {
   metaobjectDefinitionCreate(definition: $definition) {
     metaobjectDefinition {
       id
@@ -60,9 +64,9 @@ GRAPHQL
 read -r -d '' VARIABLES <<'JSON' || true
 {
   "definition": {
-    "type": "staff_pick",
-    "name": "Staff pick",
-    "displayNameKey": "staff_name",
+    "type": "community_pick",
+    "name": "Community Pick",
+    "displayNameKey": "quote",
     "access": { "storefront": "PUBLIC_READ" },
     "capabilities": { "publishable": { "enabled": true } },
     "fieldDefinitions": [
@@ -70,7 +74,6 @@ read -r -d '' VARIABLES <<'JSON' || true
         "key": "product",
         "name": "Product",
         "type": "product_reference",
-        "required": true,
         "description": "Poster, title, and link on the storefront come from this product"
       },
       {
@@ -81,9 +84,15 @@ read -r -d '' VARIABLES <<'JSON' || true
       },
       {
         "key": "staff_name",
-        "name": "Staff name",
+        "name": "Community Name",
         "type": "single_line_text_field",
         "description": "Renders as \"— Picked by <name>\""
+      },
+      {
+        "key": "staff_link",
+        "name": "Community Link",
+        "type": "url",
+        "description": "Optional link for the \"Picked by\" author name"
       }
     ]
   }
@@ -106,5 +115,5 @@ if [[ "$ERRORS" != "0" ]] || echo "$RESPONSE" | jq -e '.errors' >/dev/null; then
 fi
 
 echo
-echo "✓ staff_pick metaobject definition created with storefront access enabled."
-echo "  Add entries in Admin → Content → Metaobjects → Staff pick."
+echo "✓ community_pick metaobject definition created with storefront access enabled."
+echo "  Add entries in Admin → Content → Metaobjects → Community Pick."

@@ -24,6 +24,11 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
     A "manual" pick is a deliberate operator override: whichever of its
     image_src/overview fields are non-empty replace the current values
     unconditionally. A "skip" pick leaves the row untouched.
+
+    A row with a Status column left blank fails Shopify's import outright
+    ("Status isn't valid") — a blank cell in a present column is not the
+    same as the column being absent, so a blank Status is filled with
+    "active" regardless of pick choice.
     """
     picks_by_handle = {pick["handle"]: pick for pick in picks}
     groups = group_rows_by_handle(rows)
@@ -70,6 +75,10 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
 
         output_rows.append(primary)
         output_rows.extend(group[1:])
+
+    for row in output_rows:
+        if "Status" in row and not (row.get("Status") or "").strip():
+            row["Status"] = "active"
 
     return output_rows, counts
 
