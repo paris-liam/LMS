@@ -139,8 +139,8 @@
   },
   {
     "handle": "almost-vhs-rental-comedy",
-    "choice": "manual",
-    "image_src": "https://lms-mu-flax.vercel",
-    "overview": ""
+    "choice": "tmdb",
+    "poster_path": "/7NlCaLAzu4I6QcNG0UZeqEoVHjG.jpg",
+    "overview": "Alex and Erica Boyer are a young couple in crisis. Alex, despite his loving wife, beautiful home and high-paying job, feels trapped. When Erica has an accident that leaves her temporarily confined to a wheelchair and requiring the services of a private nurse, the beautiful Lisa enters the Boyers' lives. A complicated situation develops as Alex sees Lisa as the cure for his own problems as well as his wife's."
   }
 ]
