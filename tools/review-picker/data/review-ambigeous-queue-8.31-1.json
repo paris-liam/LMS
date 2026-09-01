@@ -140,7 +140,7 @@
   {
     "handle": "almost-vhs-rental-comedy",
     "choice": "manual",
-    "image_src": "",
+    "image_src": "https://lms-mu-flax.vercel",
     "overview": ""
   }
 ]
