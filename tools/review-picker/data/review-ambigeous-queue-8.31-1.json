@@ -118,5 +118,11 @@
     "choice": "tmdb",
     "poster_path": "/yAcb58vipewa1BfNit2RjE6boXA.jpg",
     "overview": "After the disappearance of her scientist father, three peculiar beings send Meg, her brother, and her friend to space in order to find him."
+  },
+  {
+    "handle": "ace-ventura-vhs-7",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
