@@ -127,8 +127,8 @@
   },
   {
     "handle": "abduction-dvd-rental-action",
-    "choice": "manual",
-    "image_src": "",
-    "overview": ""
+    "choice": "tmdb",
+    "poster_path": "/d0TIDrwnMFVjg2EO4LsXQn1mbbc.jpg",
+    "overview": "For many years, Nathan Harper has had the uneasy feeling that life with his family isn't quite what it seems. As he draws closer to uncovering the truth, he is hunted by assassins, forcing him to flee with his neighbor, Karen, the only person he can trust."
   }
 ]
