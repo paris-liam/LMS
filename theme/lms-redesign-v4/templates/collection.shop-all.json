@@ -135,7 +135,7 @@
           "settings": {
             "enable_filtering": true,
             "filter_style": "vertical",
-            "show_search_input": false,
+            "show_search_input": true,
             "search_input_placeholder": "Search titles, directors…",
             "filter_width": "centered",
             "text_label_case": "default",
