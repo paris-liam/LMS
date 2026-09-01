@@ -124,5 +124,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": ""
+  },
+  {
+    "handle": "abduction-dvd-rental-action",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
