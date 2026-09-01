@@ -22,6 +22,21 @@ def fetcher(results):
 
 
 class TestFetchCandidates(unittest.TestCase):
+    def test_drops_candidates_released_in_or_after_2020(self):
+        """The catalogue carries nothing that new — a 2020+ candidate isn't
+        a real option and shouldn't clutter the picker."""
+        old = result("The Thing", "1982")
+        new = result("The Thing", "2021")
+        candidates = fetch_candidates(fetcher([old, new]), "The Thing", None)
+        self.assertEqual(len(candidates), 1)
+        self.assertEqual(candidates[0]["year"], "1982")
+
+    def test_keeps_a_2020_plus_candidate_when_the_title_has_an_explicit_year(self):
+        """An explicit title year (passed through from clean_title_and_year)
+        means the row itself claims that date — don't second-guess it."""
+        candidates = fetch_candidates(fetcher([result("Recent Movie", "2021")]), "Recent Movie", 2021)
+        self.assertEqual(len(candidates), 1)
+
     def test_orders_equally_titled_candidates_by_popularity(self):
         """Obscure titles losing to a popular same-named title is the most
         common failure mode — among equal title scores, popularity breaks

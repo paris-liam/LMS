@@ -13,9 +13,11 @@ from tmdb_fill import (
 )
 
 
-def result(title, year="1998", poster="/p.jpg", overview="An overview long enough to count."):
-    return {"title": title, "release_date": f"{year}-01-01",
-            "poster_path": poster, "overview": overview}
+def result(title, year="1998", poster="/p.jpg", overview="An overview long enough to count.",
+           genre_ids=None, popularity=0):
+    return {"title": title, "release_date": f"{year}-01-01" if year else "",
+            "poster_path": poster or "", "overview": overview,
+            "genre_ids": genre_ids or [], "popularity": popularity}
 
 
 def row(**overrides):
@@ -67,6 +69,84 @@ class TestClassifyMatch(unittest.TestCase):
 
     def test_a_known_year_that_matches_nothing_is_ambiguous(self):
         _, kind = classify_match("The Thing", 1975, [result("The Thing", "1982")])
+        self.assertEqual(kind, "ambiguous")
+
+    def test_partial_title_lone_candidate_is_ambiguous_not_auto_accepted(self):
+        """"It's the Rage" vs. "All the Rage" shares most tokens but isn't
+        the same title — a fuzzy matcher auto-accepting this would quietly
+        pick a wrong-but-similar film. Route to the picker instead."""
+        _, kind = classify_match("It's the Rage", None, [result("All the Rage")])
+        self.assertEqual(kind, "ambiguous")
+
+    def test_incomplete_duplicate_is_dropped_leaving_a_single_confident_match(self):
+        """A second same-titled candidate with blank year/poster is TMDB
+        duplicate-entry noise, not a real alternate release — once it's
+        dropped, the fully-populated candidate is the only one left."""
+        results = [result("Jagged Edge", "1985"), result("Jagged Edge", year="", poster=None)]
+        best, kind = classify_match("Jagged Edge", None, results)
+        self.assertEqual(kind, "confident")
+        self.assertEqual(best["release_date"][:4], "1985")
+
+    def test_incomplete_duplicate_dropped_even_when_it_sorts_first(self):
+        results = [result("Jagged Edge", year="", poster=None), result("Jagged Edge", "1985")]
+        best, kind = classify_match("Jagged Edge", None, results)
+        self.assertEqual(kind, "confident")
+        self.assertEqual(best["release_date"][:4], "1985")
+
+    def test_genre_mismatch_breaks_a_tie_between_two_exact_titles(self):
+        """"Mandela" has a dramatized 1987 biopic and documentaries from
+        1989/1996 — catalog genre "drama" should resolve to the 1987 one
+        without any popularity guesswork."""
+        results = [
+            result("Mandela", "1987", genre_ids=[18]),
+            result("Mandela", "1989", genre_ids=[99]),
+            result("Mandela", "1996", genre_ids=[99]),
+        ]
+        best, kind = classify_match("Mandela", None, results, genre="drama")
+        self.assertEqual(kind, "confident")
+        self.assertEqual(best["release_date"][:4], "1987")
+
+    def test_large_popularity_gap_breaks_a_tie_when_genre_does_not(self):
+        """When both exact-title candidates share (or lack) genre data, a
+        10x+ popularity gap is a reasonable signal for the well-known film
+        over the obscure one."""
+        results = [
+            result("Paradise Alley", "1978", popularity=25.0),
+            result("Paradise Alley", "1962", popularity=1.0),
+        ]
+        best, kind = classify_match("Paradise Alley", None, results, genre="drama")
+        self.assertEqual(kind, "confident")
+        self.assertEqual(best["release_date"][:4], "1978")
+
+    def test_genre_tiebreak_ignores_a_candidate_beyond_the_catalog_year_range(self):
+        """Regression: a 2025 same-titled candidate can be the *only* one
+        tagged with the catalog's genre among several exact-title ties,
+        which would otherwise win the genre tiebreak outright — but the
+        catalogue carries nothing from 2020 on, so that candidate must be
+        excluded from tiebreak consideration before genre gets to decide,
+        the same way GLOBAL_YEAR_CUTOFF already excludes it elsewhere.
+        Modeled on a real catalogue case: "Elephant" (comedy genre) had
+        2003/1993/2010/2020/2025 exact-title candidates, and only the 2025
+        one carried a comedy genre tag."""
+        results = [
+            result("Elephant", "2003", genre_ids=[80, 18], popularity=5.19),
+            result("Elephant", "1993", genre_ids=[10770, 80, 18], popularity=1.13),
+            result("Elephant", "2010", genre_ids=[18], popularity=0.78),
+            result("Elephant", "2020", genre_ids=[99, 10751, 12], popularity=2.32),
+            result("Elephant", "2025", genre_ids=[35, 18], popularity=1.71),
+        ]
+        best, kind = classify_match("Elephant", None, results, genre="comedy")
+        self.assertEqual(kind, "ambiguous")
+        self.assertEqual(best["release_date"][:4], "2003")
+
+    def test_small_popularity_gap_is_not_decisive(self):
+        """A small gap isn't a reliable enough signal to auto-accept — this
+        should still go to the picker."""
+        results = [
+            result("Communion", "1989", popularity=12.0),
+            result("Communion", "2013", popularity=9.0),
+        ]
+        _, kind = classify_match("Communion", None, results, genre="drama")
         self.assertEqual(kind, "ambiguous")
 
 
@@ -230,13 +310,51 @@ class TestBuildOutput(unittest.TestCase):
         self.assertTrue(out[0]["Image Src"])
 
     def test_non_vhs_vendor_values_are_treated_like_dvd(self):
-        """Blu-Ray/4K/blank Vendor values all get the same no-filter
-        treatment as DVD — only VHS carries the cutoff."""
+        """Blu-Ray/4K/blank Vendor values all get the same treatment as
+        DVD — the tight 2008 VHS cutoff doesn't apply, only the looser
+        2019 global one, so a same-titled 2011 candidate still causes
+        genuine ambiguity here."""
         results = [result("The Thing", "1982"), result("The Thing", "2011")]
         out, review = build_output(
             [row(Title="The Thing", Vendor="Blu-Ray")], fetcher(results), sleep_fn=lambda s: None,
         )
         self.assertEqual(review[0]["Kind"], "ambiguous")
+
+    def test_global_cutoff_resolves_a_post_2020_candidate_on_a_non_vhs_row(self):
+        """The catalogue carries nothing from 2020 on regardless of format —
+        a DVD row with a same-titled 2020+ candidate should resolve
+        confidently to the older one, same disambiguation logic as VHS but
+        with the looser cutoff."""
+        results = [result("The Thing", "1982"), result("The Thing", "2021")]
+        out, review = build_output(
+            [row(Title="The Thing", Vendor="DVD")], fetcher(results), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review, [])
+        self.assertEqual(out[0]["Image Alt Text"], "The Thing (1982) poster")
+
+    def test_global_cutoff_boundary_is_inclusive_of_2019(self):
+        results = [result("The Thing", "1982"), result("The Thing", "2019")]
+        out, review = build_output(
+            [row(Title="The Thing", Vendor="DVD")], fetcher(results), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review[0]["Kind"], "ambiguous")
+
+    def test_global_cutoff_never_overrides_an_already_confident_match(self):
+        """Same regression class as the VHS cutoff bug, generalized: a DVD
+        row can already have a confident (if incomplete) match to a 2020+
+        film sharing a title with an older one — the global cutoff must
+        never run ahead of classify_match and swap it for the wrong older
+        film just because the real match has no poster."""
+        results = [
+            result("Long Walk Home", "2021", poster=None),
+            result("The Long Walk Home", "1990"),
+        ]
+        out, review = build_output(
+            [row(Title="Long Walk Home", Vendor="DVD")], fetcher(results), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(review[0]["Kind"], "unmatched")
+        self.assertIn("poster", review[0]["Reason"])
+        self.assertEqual(out[0]["Image Src"], "")
 
 
 if __name__ == "__main__":

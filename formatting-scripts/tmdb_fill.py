@@ -163,6 +163,51 @@ def filter_by_year_cutoff(results: list[dict], cutoff: int) -> list[dict]:
     return kept
 
 
+def _is_populated(result: dict) -> bool:
+    return bool((result.get("release_date") or "").strip()) and bool((result.get("poster_path") or "").strip())
+
+
+def drop_incomplete_duplicates(results: list[dict]) -> list[dict]:
+    """Within groups of candidates sharing the same normalized title, drop
+    any missing year and/or poster if a fully-populated candidate exists in
+    the same group — these are almost always TMDB's own sparse/duplicate
+    entries, not real alternate releases, and left in they cause a false
+    tie against the real match."""
+    groups: dict[str, list[dict]] = {}
+    for r in results:
+        groups.setdefault(normalize_title(r.get("title", "")), []).append(r)
+
+    kept = []
+    for group in groups.values():
+        if len(group) > 1 and any(_is_populated(r) for r in group):
+            kept.extend(r for r in group if _is_populated(r))
+        else:
+            kept.extend(group)
+    return kept
+
+
+# A gap this large between the top two candidates' popularity is treated as
+# a soft-but-usable signal that the more popular one is the real match — a
+# smaller gap isn't decisive enough to auto-accept on its own.
+POPULARITY_TIEBREAK_FACTOR = 10
+
+
+def popularity_tiebreak(candidates: list[dict]) -> dict | None:
+    """Return the candidate with a decisive popularity lead over the
+    runner-up, or None if the gap isn't large enough (or there's nothing to
+    compare)."""
+    if len(candidates) < 2:
+        return None
+    ranked = sorted(candidates, key=lambda r: r.get("popularity") or 0, reverse=True)
+    top_pop = ranked[0].get("popularity") or 0
+    runner_pop = ranked[1].get("popularity") or 0
+    if top_pop <= 0:
+        return None
+    if runner_pop <= 0 or top_pop / runner_pop >= POPULARITY_TIEBREAK_FACTOR:
+        return ranked[0]
+    return None
+
+
 def candidate_score(clean_title: str, genre: str, result: dict) -> float:
     """Title similarity, nudged up by a genre-overlap boost, capped at 1.0.
     Used by classify_match to rank and threshold auto-match candidates.
@@ -194,9 +239,23 @@ def classify_match(
     or tipping a close call over MATCH_THRESHOLD/MATCH_MARGIN. It cannot
     manufacture a match on its own: title similarity still has to be in the
     right neighborhood first.
+
+    Sparse/duplicate TMDB entries (same title, missing year and/or poster)
+    are dropped before scoring — see drop_incomplete_duplicates — so they
+    can't manufacture a false tie against the real candidate.
+
+    When several fully-populated candidates are still genuinely tied on
+    title alone (e.g. three "Mandela" entries), two more signals get a shot
+    at resolving it before giving up: a genre match that narrows the tie to
+    exactly one candidate wins outright, and failing that, a 10x+
+    popularity gap (POPULARITY_TIEBREAK_FACTOR) between the top two is
+    treated as decisive. Neither can resolve a tie the title/genre data
+    genuinely doesn't support — that's still routed to the picker.
     """
     if not results:
         return None, "none"
+
+    results = drop_incomplete_duplicates(results)
 
     def score(r: dict) -> float:
         return candidate_score(clean_title, genre, r)
@@ -217,9 +276,35 @@ def classify_match(
 
     if best_score < MATCH_THRESHOLD:
         return best, "ambiguous"
-    if len(scored) > 1 and best_score - scored[1][0] < MATCH_MARGIN:
-        return best, "ambiguous"
-    return best, "confident"
+
+    tied = [r for s, r in scored if best_score - s < MATCH_MARGIN]
+    if len(tied) == 1:
+        return best, "confident"
+
+    # Multiple strong, fully-populated candidates still tied on title alone:
+    # try narrowing by genre, then by a decisive popularity gap, before
+    # giving up and sending this to the picker. A candidate newer than the
+    # catalogue could ever carry is excluded from this narrowing first —
+    # otherwise it can be the one candidate that happens to carry the right
+    # genre tag (or the most popularity) and win a tie it was never really
+    # in contention for. This mirrors GLOBAL_YEAR_CUTOFF's build_output-level
+    # filter, but scoped to just the tiebreak: `best` (and thus the
+    # ambiguous fallback) still reflects the unfiltered field.
+    plausible = filter_by_year_cutoff(tied, GLOBAL_YEAR_CUTOFF)
+    if plausible:
+        tied = plausible
+
+    genre_filtered = [r for r in tied if genre_matches(genre, r)]
+    if len(genre_filtered) == 1:
+        return genre_filtered[0], "confident"
+    if genre_filtered:
+        tied = genre_filtered
+
+    pop_winner = popularity_tiebreak(tied)
+    if pop_winner is not None:
+        return pop_winner, "confident"
+
+    return best, "ambiguous"
 
 
 def strip_html(text: str | None) -> str:

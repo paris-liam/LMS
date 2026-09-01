@@ -1,7 +1,0 @@
-input:      catalogue-batches/Compare-8.30/prod-new-products-movies.csv
-shape:      export
-upload.csv: 388 rows written (products + extra-image rows)
-issues.csv: 23 rows need a fix
-ambiguous:  197 products in review-picker.html
-unmatched:  21 products in tmdb-unmatched.csv
-cache:      7 hits, 382 fetches
