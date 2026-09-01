@@ -7,9 +7,9 @@
   },
   {
     "handle": "that-man-is-pregnant-vhs-rental-comedy",
-    "choice": "tmdb",
-    "poster_path": "/xUyD0ee4AE1EZw1Sz9AAwpimZm.jpg",
-    "overview": "A man becomes pregnant in a zany comedy."
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   },
   {
     "handle": "13-assassins",
