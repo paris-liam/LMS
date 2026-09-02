@@ -38,5 +38,11 @@
     "choice": "tmdb",
     "poster_path": "/9iqrqOjLaFcGNnSQlJxYLfgrhqn.jpg",
     "overview": "A group of troopers take refuge in an abandoned outpost after fighting alien bugs, failing to realize that more danger lays in wait."
+  },
+  {
+    "handle": "stealth-dvd-floor-sale-thriller",
+    "choice": "tmdb",
+    "poster_path": "/cVtQHyTwaDhYFVRFXSuDthC2bXH.jpg",
+    "overview": "Deeply ensconced in a top-secret military program, three pilots struggle to bring an artificial intelligence program under control ... before it initiates the next world war."
   }
 ]
