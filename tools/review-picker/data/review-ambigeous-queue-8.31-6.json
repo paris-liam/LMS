@@ -896,5 +896,11 @@
     "choice": "tmdb",
     "poster_path": "/5xIjktjXuro7anZ6AR58t5ZYWjQ.jpg",
     "overview": "An earthquake shatters a peaceful Los Angeles morning and opens a fissure deep into the earth, causing lava to start bubbling up. As a volcano begins forming in the La Brea Tar Pits, the director of the city's emergency management service, working with a geologist, must then use every resource in the city to try and stop the volcano from consuming LA."
+  },
+  {
+    "handle": "volunteers",
+    "choice": "tmdb",
+    "poster_path": "/tua28Wyv9uGBtPTBGCP7GsN3Znu.jpg",
+    "overview": "After graduating from Yale in 1962, womanizing Lawrence flees a gambling debt that his rich dad won't pay and takes his roomie's place as a Peace Corps Volunteer in the Thai Golden Triangle with two other PCVs. Will he survive two years?"
   }
 ]
