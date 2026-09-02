@@ -400,5 +400,11 @@
     "choice": "tmdb",
     "poster_path": "/4w4BJk3l8y9gYwPPLRs6uPHOmGL.jpg",
     "overview": "An unorthodox investigation into the wrongful conviction of Randall Dale Adams for the 1976 murder of Dallas police officer Robert Wood. Using stylized reenactments and interviews with key figures, conflicting testimonies and evidence are presented to argue that Adams was framed by a corrupt justice system, ultimately leading to his exoneration."
+  },
+  {
+    "handle": "the-three-muskateers-dvd-rental-action",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
