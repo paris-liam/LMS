@@ -298,5 +298,11 @@
     "choice": "tmdb",
     "poster_path": "/2kXdqUS7RrUo5w9f7BAMDGM9lCH.jpg",
     "overview": "After being passed over for a promotion, secretary Deidre turns to murder and blackmail."
+  },
+  {
+    "handle": "the-secrets-of-dumbledore-bluray",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
