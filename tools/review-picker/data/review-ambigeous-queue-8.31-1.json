@@ -256,5 +256,9 @@
     "choice": "tmdb",
     "poster_path": "/zr48JEuwxcYM03NcdJU6qWMHPtq.jpg",
     "overview": "The true story of William Wilberforce and his courageous quest to end the British slave trade. Along the way, Wilberforce meets intense opposition, but his minister urges him to see the cause through."
+  },
+  {
+    "handle": "300-spartans-dvd-rental-action",
+    "choice": "skip"
   }
 ]
