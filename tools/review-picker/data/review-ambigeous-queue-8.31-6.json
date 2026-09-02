@@ -874,5 +874,11 @@
   {
     "handle": "vertigo-vhs-floor-sale-drama",
     "choice": "skip"
+  },
+  {
+    "handle": "vice-versa-vhs-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/6XOY24NV30EI62sqsCOlmZdmKfh.jpg",
+    "overview": "A mysterious oriental skull transforms a father into his son, and vice versa."
   }
 ]
