@@ -853,7 +853,9 @@
   },
   {
     "handle": "uss-poseidon-phantom-below-dvd-rental-action",
-    "choice": "skip"
+    "choice": "tmdb",
+    "poster_path": "/xYAroHRpZAVSMkTSepNkZiRHqNX.jpg",
+    "overview": "In the cold, dark waters off North Korea a U.S. Navy fast attack submarine meets with a mysterious disaster - it's attacked and nearly sunk by an ominous stealth submarine resulting in the deaths of the Executive Officer and the Engineering Officer."
   },
   {
     "handle": "vacation",
