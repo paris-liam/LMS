@@ -26,5 +26,11 @@
     "choice": "tmdb",
     "poster_path": "/xfSAoBEm9MNBjmlNcDYLvLSMlnq.jpg",
     "overview": "When the sinister Sith unveil a thousand-year-old plot to rule the galaxy, the Republic crumbles and from its ashes rises the evil Galactic Empire. Jedi hero Anakin Skywalker must choose a side."
+  },
+  {
+    "handle": "star-wars-the-phantom-menace-dvd-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/6wkfovpn7Eq8dYNKaG5PY3q2oq6.jpg",
+    "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi."
   }
 ]
