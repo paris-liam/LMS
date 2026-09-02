@@ -172,5 +172,11 @@
     "choice": "tmdb",
     "poster_path": "/7rmA1HwYp2GKM85BL0cVwCaosGr.jpg",
     "overview": "When undercover FBI agent Frank Castle's wife and son are slaughtered, he becomes 'the Punisher' -- a ruthless vigilante willing to go to any length to avenge his family."
+  },
+  {
+    "handle": "the-pyramid-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/joPb4PUPP7xClD6XPiQ7laBEtZf.jpg",
+    "overview": "An archaeological team attempt to unlock the secrets of a lost pyramid only to find themselves hunted by an insidious creature."
   }
 ]
