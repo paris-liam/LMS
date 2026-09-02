@@ -41,6 +41,11 @@
         {%- endif -%}
       {%- endform -%}
 
+      {%- comment -%} Locksmith passcode entry — lets visitors with a key unlock restricted content from here {%- endcomment -%}
+      <div class="cs-passcode">
+        {{ locksmith_passcode_form }}
+      </div>
+
       {%- comment -%} App blocks (e.g. Instafeed Instagram feed) — added via the theme editor {%- endcomment -%}
       <div class="cs-ig">
         {% content_for 'blocks' %}
@@ -184,6 +189,13 @@
   }
   .cs-btn:hover { filter: brightness(1.07); }
   .cs-btn:active { transform: scale(0.97); }
+
+  .cs-passcode {
+    margin: 24px auto 0;
+    max-width: 540px;
+    text-align: center;
+    font-family: var(--lms-font-mono);
+  }
 
   .cs-success {
     font-family: var(--lms-font-mono);

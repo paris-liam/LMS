@@ -520,9 +520,6 @@
       "settings": {
         "eyebrow": "Just dropped",
         "heading": "New arrivals this week",
-        "collection": "all",
-        "products_to_show": 5,
-        "button_label": "BROWSE ALL →",
         "background_color": "",
         "padding-block-start": 24,
         "padding-block-end": 72
@@ -605,7 +602,6 @@
         "heading": "Community picks",
         "description": "<p>Movies we've been watching, arguing about, and pressing into people's hands. Every pick comes with a hand-written shelf note. Updated weekly.</p>",
         "link_label": "Full list →",
-        "link": "",
         "background_color": "",
         "padding-block-start": 0,
         "padding-block-end": 72

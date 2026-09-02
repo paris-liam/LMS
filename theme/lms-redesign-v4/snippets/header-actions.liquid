@@ -137,12 +137,15 @@
     </a>
   {% endif %}
 
+  {% comment %} TEMP: Join the Club button hidden while site is locked down. Uncomment to restore. {% endcomment %}
+  {% comment %}
   <a
     href="{{ section.settings.join_club_url | default: '/pages/membership' }}"
     class="lms-btn lms-btn--primary lms-btn--sm header-actions__action header-actions__join-club{% if display_style == 'text' %} header-actions__text-style{% endif %}"
   >
     {{ section.settings.join_club_label | default: 'Join the Club' }}
   </a>
+  {% endcomment %}
 
   <span
     ref="liveRegion"

@@ -47,9 +47,13 @@ High-level tracks the work keeps returning to. **These are not specs** — no fo
 
 | Theme | ID | Status |
 |-------|----|--------|
-| LMS Redesign (WIP) | `164180295930` | **LIVE / published** — despite the name, this is production |
+| LMS Redesign v4 (review) | `166751961338` | **LIVE / published** (as of 2026-09-02) |
+| LMS Theme w/ coming soon page | `164180295930` | Unpublished — was previously live |
 | Horizon 3.5.1 | `161348780282` | Unpublished — rollback backup |
 | Studio 15.4.1 | `163892461818` | Unpublished, ignored — older architecture, no `blocks/` dir |
+| lms-7.8 | `164724637946` | Unpublished |
+| lms-7.8 | `164724867322` | Unpublished |
+| LMS-Theme-7.19 | `165100781818` | Unpublished |
 
 **Rule**: Before any push, run `shopify theme list` and identify the live theme by its `[live]` role — never trust the theme name or a remembered ID.
 
@@ -183,15 +187,15 @@ All routine pushes, pulls, previews, and API scripts go to `lms-sandbox-lutsfahz
 ### Pull before push — always (production only, on explicit instruction)
 
 ```bash
-shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 164180295930
+shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338
 ```
 
 The client edits colour schemes and section settings in the Shopify theme editor **on production**. Those edits exist only on the store. A blind push uploads the full local copy and silently overwrites them. Always pull first, reconcile any incoming changes with git, then push.
 
-For code-only changes, prefer a narrow push with `--only` to avoid touching merchant-managed files:
+For code-only changes, prefer a narrow push with `--only` to avoid touching merchant-managed files. Pushing to the live theme in a non-interactive context (e.g. Claude Code's Bash tool) requires `--allow-live`, or the CLI fails with "Failed to prompt":
 
 ```bash
-shopify theme push --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 164180295930 --only sections/coming-soon.liquid
+shopify theme push --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338 --only sections/coming-soon.liquid --allow-live
 ```
 
 ### `shopify theme dev` — run in your own terminal
@@ -209,8 +213,8 @@ shopify theme push --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.mys
 shopify theme pull --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com --theme 140918915134
 
 # Deploy to PRODUCTION — only on explicit instruction (pull first!)
-shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 164180295930
-shopify theme push --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 164180295930
+shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338
+shopify theme push --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338 --allow-live
 
 # Lint
 shopify theme check --path theme/lms-redesign-v4

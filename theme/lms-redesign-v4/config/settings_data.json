@@ -113,15 +113,7 @@
           "container_radius": 8,
           "input_radius": 8,
           "input_opacitiy": 50,
-          "space": 20,
-          "theme_page_color": "#f3f3f3",
-          "theme_card_color": "#ffffff",
-          "theme_primary_color": "#1973b0",
-          "theme_font_color": "#272727",
-          "theme_border_color": "#dfdfdf",
-          "theme_subdued_color": "#707070",
-          "theme_button_radius": 8,
-          "theme_card_radius": 6
+          "space": 20
         }
       }
     },

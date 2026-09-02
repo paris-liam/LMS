@@ -1,3 +1,7 @@
+{%- comment %}<locksmith:6636>{% endcomment -%}
+  {%- include 'locksmith' -%}
+{%- comment %}</locksmith:6636>{% endcomment -%}
+
 <!doctype html>
 <html
   {% if request.design_mode %}
@@ -6,6 +10,7 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    {{ locksmith_initializations }}
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"
