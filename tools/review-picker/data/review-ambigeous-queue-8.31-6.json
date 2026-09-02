@@ -668,5 +668,11 @@
     "choice": "tmdb",
     "poster_path": "/nE4ih0nzpqz0x154Vig0QJUc6Sr.jpg",
     "overview": "A horror anthology containing three stories: a female college professor is aggressively pursued by one of her students; a prudish brunette determines that her free-spirited blonde sister is evil; and a woman's night turns upside down after she purchases an ancient Zuni fetish doll."
+  },
+  {
+    "handle": "triple-cross-vhs-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/aJhCUSkZgXm8pKy1sBO4XKPzx4M.jpg",
+    "overview": "Safecracker Eddie Chapman is languishing in prison on the island of Jersey when the Nazis arrive. An adept manipulator of situations, Chapman convinces the Germans to use him to spy on the British. And when the would-be traitor arrives home, he convinces the English to use him as a double agent -- in exchange for a full pardon."
   }
 ]
