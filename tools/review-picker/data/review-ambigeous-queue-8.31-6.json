@@ -880,5 +880,11 @@
     "choice": "tmdb",
     "poster_path": "/6XOY24NV30EI62sqsCOlmZdmKfh.jpg",
     "overview": "A mysterious oriental skull transforms a father into his son, and vice versa."
+  },
+  {
+    "handle": "village-of-the-damned",
+    "choice": "tmdb",
+    "poster_path": "/hDNZHzYy62mOAsby0PTadKQh7so.jpg",
+    "overview": "An American village is visited by some unknown life form which leaves the women of the village pregnant. Nine months later, the babies are born, and they all look normal, but it doesn't take the \"parents\" long to realize that the kids are not human or humane."
   }
 ]
