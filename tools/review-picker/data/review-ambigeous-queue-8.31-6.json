@@ -568,5 +568,11 @@
     "choice": "tmdb",
     "poster_path": "/5WEGUQIFpwUh4T4ZMMdzECsvXNS.jpg",
     "overview": "Wes Block is a detective who's put on the case of a serial killer whose victims are young and pretty women. The murders are getting personal when the killer chooses victims who are acquaintances of Block. Even his daughters are threatened."
+  },
+  {
+    "handle": "tinseltown-vhs-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/mnwC6ard6NsWD7u3T6UBSwqShgZ.jpg",
+    "overview": "In Hollywood it's all about who you know, and the only person two friends know is a serial killer."
   }
 ]
