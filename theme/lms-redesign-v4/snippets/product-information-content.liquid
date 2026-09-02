@@ -86,7 +86,7 @@
   class="section-background{% if settings.background_color != blank %} color-custom-{{ section_id }}{% endif %}"
 ></div>
 <div
-  class="product-information section section--{{ content_width }} spacing-style{% if settings.background_color != blank %} color-custom-{{ section_id }}{% endif %} relative"
+  class="product-information section section--{{ content_width }} spacing-style{% if settings.background_color != blank %} color-custom-{{ section_id }}{% endif %}{% if request.page_type == 'product' %} product-information--pdp{% endif %} relative"
   style="{% render 'spacing-style', settings: settings %} --gap: {{ settings.gap }}px;"
   data-testid="product-information"
 >
@@ -290,6 +290,18 @@
           }
         }
       }
+    }
+  }
+
+  /* Shrink the media/carousel column on the standalone product page only.
+     min-width beats max-width in CSS sizing, so the base rule's
+     `min-width: 100%` (used to stop grid blowout) has to be reset here too. */
+  @media screen and (min-width: 750px) {
+    .product-information--pdp .product-information__media {
+      width: 100%;
+      min-width: 0;
+      max-width: 30rem;
+      margin-inline: auto;
     }
   }
 

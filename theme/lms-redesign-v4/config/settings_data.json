@@ -9,6 +9,8 @@
  */
 {
   "current": {
+    "show_second_image_on_hover": false,
+    "product_card_carousel": false,
     "logo_height": 36,
     "logo_height_mobile": 28,
     "page_text_color": "{{ settings.color_palette.foreground }}",
