@@ -1168,5 +1168,9 @@
     "choice": "tmdb",
     "poster_path": "/v4ncgZjG2Zu8ZW5al1vIZTsSjqX.jpg",
     "overview": "An Amazon princess comes to the world of Man in the grips of the First World War to confront the forces of evil and bring an end to human conflict."
+  },
+  {
+    "handle": "wrongly-accused-dvd-5",
+    "choice": "skip"
   }
 ]
