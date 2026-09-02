@@ -412,5 +412,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "the three musketeers"
+  },
+  {
+    "handle": "the-tourist-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/qwfUH9gnvaXwvVRsgbL4L2jpLUz.jpg",
+    "overview": "American tourist Frank meets mysterious British woman Elise on the train to Venice. Romance seems to bud, but there's more to her than meets the eye."
   }
 ]
