@@ -984,5 +984,11 @@
     "choice": "tmdb",
     "poster_path": "/4AffH6eOUQEdJeIcP2sRscaC9yZ.jpg",
     "overview": "Hounded by the press for shooting a doctor, an ousted Los Angeles policeman works his own case."
+  },
+  {
+    "handle": "was-the-dog-vhs-rental-comedy",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
