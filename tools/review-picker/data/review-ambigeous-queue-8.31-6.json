@@ -136,5 +136,11 @@
     "choice": "manual",
     "image_src": "The ",
     "overview": "The Postman (1997)"
+  },
+  {
+    "handle": "the-princess-bride-vhs-floor-sale-kdis-family",
+    "choice": "tmdb",
+    "poster_path": "/7axhsbEzFan6HQQ1aMOy7w3CFRx.jpg",
+    "overview": "A socially awkward but very bright 15-year-old girl being raised by a single mom discovers that she is the princess of a small European country because of the recent death of her long-absent father, who, unknown to her, was the crown prince of Genovia. She must make a choice between continuing the life of a San Francisco teen or stepping up to the throne."
   }
 ]
