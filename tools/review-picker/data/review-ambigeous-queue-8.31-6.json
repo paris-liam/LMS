@@ -1175,7 +1175,9 @@
   },
   {
     "handle": "women-men-vhs-floor-sale-drama",
-    "choice": "skip"
+    "choice": "manual",
+    "image_src": "",
+    "overview": "The three stories being adapted are \"Hills Like White Elephants\" by Ernest Hemingway, \"The Man in the Brooks Brothers Suit\" by Mary McCarthy, and \"Dusk Before Fireworks\" by Dorothy Parker. All are about romantic liaisons.\n\n"
   },
   {
     "handle": "wonder-woman-bluray-floor-sale-action",
