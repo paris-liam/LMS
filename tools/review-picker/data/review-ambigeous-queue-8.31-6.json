@@ -601,7 +601,9 @@
   },
   {
     "handle": "too-smooth-vhs-rental-drama",
-    "choice": "skip"
+    "choice": "tmdb",
+    "poster_path": "/s7i9a1J4moEDW19p3iQI9tRegcW.jpg",
+    "overview": "A self-obsessed man runs through one woman after another in this screwball comedy. One of his rejected former lovers decides to take it upon herself to see to it that he never develops another relationship."
   },
   {
     "handle": "too-young-to-die-vhs-rental-drama",
