@@ -938,5 +938,11 @@
     "choice": "tmdb",
     "poster_path": "/2sdmKtRz2SlGSLxxZDePKm5zxus.jpg",
     "overview": "A former U.S. soldier returns to his hometown to find it overrun by crime and corruption, which prompts him to clean house."
+  },
+  {
+    "handle": "wall-street-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/2tQYq9ntzn2dEwDIGLBSipYPenv.jpg",
+    "overview": "A young and impatient stockbroker is willing to do anything to get to the top, including trading on illegal inside information taken through a ruthless and greedy corporate raider, who takes the youth under his wing."
   }
 ]
