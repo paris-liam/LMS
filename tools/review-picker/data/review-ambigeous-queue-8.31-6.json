@@ -184,5 +184,11 @@
     "choice": "tmdb",
     "poster_path": "/joPb4PUPP7xClD6XPiQ7laBEtZf.jpg",
     "overview": "An archaeological team attempt to unlock the secrets of a lost pyramid only to find themselves hunted by an insidious creature."
+  },
+  {
+    "handle": "the-queen-dvd-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/v08RH5Cx9EFAQMBWQuE5jHAgHYs.jpg",
+    "overview": "The Queen is an intimate behind the scenes glimpse at the interaction between HM Elizabeth II and Prime Minister Tony Blair during their struggle, following the death of Diana, to reach a compromise between what was a private tragedy for the Royal family and the public's demand for an overt display of mourning."
   }
 ]
