@@ -574,5 +574,11 @@
     "choice": "tmdb",
     "poster_path": "/mnwC6ard6NsWD7u3T6UBSwqShgZ.jpg",
     "overview": "In Hollywood it's all about who you know, and the only person two friends know is a serial killer."
+  },
+  {
+    "handle": "to-catch-of-thief-vhs-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/PCd4HrPll2IMI5LjvCvW9eb0Vu.jpg",
+    "overview": "Documentary of the making of Alfred Hitchcock's classic 1955 tale."
   }
 ]
