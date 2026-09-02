@@ -1018,5 +1018,11 @@
   {
     "handle": "web-master-vhs",
     "choice": "skip"
+  },
+  {
+    "handle": "web-of-deceit-vhs-rental-romantic-comedy",
+    "choice": "tmdb",
+    "poster_path": "/eJrpOTCbJr6xg1DLGNm7pv2C87i.jpg",
+    "overview": "After making a name for herself on the West Coast, a defense lawyer returns to her hometown of Atlanta to argue a controversial rape-murder case. But it's not all work and no play: once there, she reenters high society and has a reunion with an old flame -- who just happens to be the prosecuting attorney on her case. As she investigates her client's claims of innocence, she uncovers a sinister conspiracy that threatens both her life and her new romance."
   }
 ]
