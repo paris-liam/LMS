@@ -304,5 +304,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "Fantastic Beasts: The Secrets of Dumbledore"
+  },
+  {
+    "handle": "the-seeker-dvd-rental-kids-family",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
