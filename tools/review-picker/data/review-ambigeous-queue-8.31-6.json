@@ -70,5 +70,11 @@
     "choice": "tmdb",
     "poster_path": "/k41IvHDLgZO2ae7RuU77wQjScIj.jpg",
     "overview": "A British medical doctor fights a cholera outbreak in a small Chinese village, while also being trapped at home in a loveless marriage to an unfaithful wife."
+  },
+  {
+    "handle": "the-paperboy-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/AiALtw5Nl4adb6oO4VndBPo3RkQ.jpg",
+    "overview": "A reporter returns to his Florida hometown to investigate a case involving a death row inmate."
   }
 ]
