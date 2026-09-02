@@ -848,5 +848,9 @@
     "choice": "tmdb",
     "poster_path": "/4TiYPqJ3aQ1XdsiBAkcxsfwnonm.jpg",
     "overview": "The Truth Tour was the second concert tour by American recording artist Usher."
+  },
+  {
+    "handle": "uss-poseidon-phantom-below-dvd-rental-action",
+    "choice": "skip"
   }
 ]
