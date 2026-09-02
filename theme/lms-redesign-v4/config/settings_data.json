@@ -100,7 +100,7 @@
     "blocks": {
       "5699156801985690058": {
         "type": "shopify://apps/supercycle/blocks/supercycle/7b3228ed-a72a-4935-9fee-0cebe8daa0aa",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "availability_filter_url": false,
           "locale_override": "",
