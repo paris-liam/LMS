@@ -1039,7 +1039,9 @@
   },
   {
     "handle": "welcome-to-spring-break-vhs-floor-sale-comedy",
-    "choice": "skip"
+    "choice": "tmdb",
+    "poster_path": "/febAGZx40j1PMReqqUCZFxdztlL.jpg",
+    "overview": "In Miami, Florida, biker gang leader Edward \"Diablo\" Santer is about to be executed for murder when he proclaims his innocence and vows revenge from the grave. When a mysterious biker comes to town during Spring Break festivities, leaving several teenagers electrocuted to death, some begin to suspect that Santer has made good on his promise."
   },
   {
     "handle": "werewolf-vhs-rental-horror",
