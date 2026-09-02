@@ -961,7 +961,9 @@
   },
   {
     "handle": "wall-e-bluray-floor-sale-kids-family",
-    "choice": "skip"
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   },
   {
     "handle": "wanted-dvd-floor-sale-thriller",
