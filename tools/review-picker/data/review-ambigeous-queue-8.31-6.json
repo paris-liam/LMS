@@ -602,5 +602,11 @@
   {
     "handle": "too-smooth-vhs-rental-drama",
     "choice": "skip"
+  },
+  {
+    "handle": "too-young-to-die-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/GGo6AblNm3BuBOJvKKxYjvmjec.jpg",
+    "overview": "An abused 15 year old is charged with a murder that carries the death penalty in this fact-based story."
   }
 ]
