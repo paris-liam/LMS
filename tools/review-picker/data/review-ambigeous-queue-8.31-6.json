@@ -133,8 +133,8 @@
   },
   {
     "handle": "the-postman-vhs",
-    "choice": "manual",
-    "image_src": "",
-    "overview": ""
+    "choice": "tmdb",
+    "poster_path": "/njH1PU2nAYa5yvrJAmwRGmvxqFo.jpg",
+    "overview": "Abbas, a resident of Cairo, is appointed by the government to hold the office of supervisor in a post office in a small village in Upper Egypt."
   }
 ]
