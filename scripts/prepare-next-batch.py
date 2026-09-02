@@ -52,8 +52,14 @@ def read_rows(path):
 
 
 def write_rows(path, fieldnames, rows):
+    # extrasaction="ignore": the static production export has ~4,400 rows with
+    # a handful of extra unnamed trailing fields beyond its declared header
+    # (a pre-existing data-quality artifact in that file, not something this
+    # script introduces). Every field we actually read (Barcode, SKU, Image
+    # Src, Tags, Price, scf.avf) sits well before that point and is unaffected
+    # — safe to just drop the unnamed overflow rather than crash on it.
     with open(path, "w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=fieldnames)
+        w = csv.DictWriter(fh, fieldnames=fieldnames, extrasaction="ignore")
         w.writeheader()
         for row in rows:
             w.writerow(row)
