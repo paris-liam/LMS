@@ -890,5 +890,11 @@
   {
     "handle": "virtual-assassin-vhs",
     "choice": "skip"
+  },
+  {
+    "handle": "volcano-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/5xIjktjXuro7anZ6AR58t5ZYWjQ.jpg",
+    "overview": "An earthquake shatters a peaceful Los Angeles morning and opens a fissure deep into the earth, causing lava to start bubbling up. As a volcano begins forming in the La Brea Tar Pits, the director of the city's emergency management service, working with a geologist, must then use every resource in the city to try and stop the volcano from consuming LA."
   }
 ]
