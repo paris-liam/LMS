@@ -156,7 +156,7 @@ def build_picker_html(products: list[dict], batch_id: str = "default") -> str:
   label.option input {{ margin-top: .3rem; }}
   label.option img {{ width: 60px; height: auto; border-radius: 3px; flex-shrink: 0; }}
   label.option .no-poster {{ width: 60px; height: 90px; background: #eee; color: #999; font-size: .65rem; display: flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; }}
-  label.option .info {{ font-size: .85rem; line-height: 1.4; }}
+  label.option .info {{ font-size: .85rem; line-height: 1.4; flex: 1; min-width: 0; }}
   label.option .info strong {{ font-size: .9rem; }}
   label.option.special {{ background: #fdf6f5; }}
   .manual-fields {{ display: flex; flex-direction: column; gap: .4rem; margin: .25rem 0 0 2rem; }}

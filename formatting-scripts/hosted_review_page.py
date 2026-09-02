@@ -78,7 +78,7 @@ def build_hosted_picker_html(products: list[dict], batch_id: str) -> str:
   label.option input {{ margin-top: .3rem; width: 1.15rem; height: 1.15rem; }}
   label.option img {{ width: 70px; height: auto; border-radius: 3px; flex-shrink: 0; }}
   label.option .no-poster {{ width: 70px; height: 105px; background: #eee; color: #999; font-size: .65rem; display: flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; }}
-  label.option .info {{ font-size: .9rem; line-height: 1.45; }}
+  label.option .info {{ font-size: .9rem; line-height: 1.45; flex: 1; min-width: 0; }}
   label.option .info strong {{ font-size: .95rem; }}
   .secondary-options {{ display: flex; flex-direction: column; gap: .6rem; margin-top: .25rem; font-size: .85rem; }}
   .secondary-options label.option {{ padding: .4rem .6rem; background: #fdf6f5; }}
