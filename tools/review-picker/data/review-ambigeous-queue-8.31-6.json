@@ -680,5 +680,11 @@
     "choice": "tmdb",
     "poster_path": "/ozrV1xtwU3Y5XOFuVn9T00ZYoiV.jpg",
     "overview": "Boozer, skirt chaser, careless father. You could create your own list of reporter Steve Everett's faults but there's no time. A San Quentin Death Row prisoner is slated to die at midnight – a man Everett has suddenly realized is innocent."
+  },
+  {
+    "handle": "true-grit-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/tCrB8pcjadZjsDk7rleGJaIv78k.jpg",
+    "overview": "Following the murder of her father by a hired hand, a 14-year-old farm girl sets out to capture the killer. To aid her, she hires the toughest U.S. Marshal she can find—a man with 'true grit'—Reuben J. 'Rooster' Cogburn."
   }
 ]
