@@ -1014,5 +1014,9 @@
     "choice": "tmdb",
     "poster_path": "/5XBVURkON7jyzxr0cONWeTbgAov.jpg",
     "overview": "Two escaped cons' only prayer to escape is to pass themselves off as priests and pass by the police blockade at the border into the safety of Canada."
+  },
+  {
+    "handle": "web-master-vhs",
+    "choice": "skip"
   }
 ]
