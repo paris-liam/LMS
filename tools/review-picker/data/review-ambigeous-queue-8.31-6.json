@@ -502,5 +502,11 @@
     "choice": "tmdb",
     "poster_path": "/uCC3j4pV9eOZwzDUWp2ilbcTf1f.jpg",
     "overview": "Young Dorothy finds herself in a magical world where she makes friends with a lion, a scarecrow and a tin man as they make their way along the yellow brick road to talk with the Wizard and ask for the things they miss most in their lives. The Wicked Witch of the West is the only thing that could stop them."
+  },
+  {
+    "handle": "the-wolf-man-vhs",
+    "choice": "tmdb",
+    "poster_path": "/vG8fu5syTtQLzK1hQXyi3ugOPNF.jpg",
+    "overview": "After his brother's death, Larry Talbot returns home to his father and the family estate. Events soon take a turn for the worse when Larry is bitten by a werewolf."
   }
 ]
