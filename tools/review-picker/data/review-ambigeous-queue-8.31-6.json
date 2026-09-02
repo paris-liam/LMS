@@ -1027,7 +1027,9 @@
   },
   {
     "handle": "web-master-vhs",
-    "choice": "skip"
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   },
   {
     "handle": "web-of-deceit-vhs-rental-romantic-comedy",
