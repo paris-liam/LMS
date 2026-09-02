@@ -238,5 +238,11 @@
     "choice": "tmdb",
     "poster_path": "/rWN6xIyAcXMZ5yFp4LdQvNTlpnL.jpg",
     "overview": "In Germany, an old man attacks another old man and is arrested. The attacker refuses to speak. A female lawyer is appointed to him. She discovers that the attacker has numbers tattooed on his arm and the attacked man was a German officer."
+  },
+  {
+    "handle": "the-rules-of-the-game-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "",
+    "overview": "A groom preparing for his Stag Night in a beautiful country house tells us a story of an engagement gone horribly wrong."
   }
 ]
