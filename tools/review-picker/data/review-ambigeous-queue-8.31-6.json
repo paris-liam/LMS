@@ -638,5 +638,11 @@
     "choice": "tmdb",
     "poster_path": "/mdKTgDrYC1fYSfYXdWAcypsrzLy.jpg",
     "overview": "Examination of the events that led to the 1988 bombing of Pan Am Flight 103 over Lockerbie, Scotland."
+  },
+  {
+    "handle": "trapped-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/4sujD0KP5O90TXAWrTjqDPBTnfQ.jpg",
+    "overview": "When their daughter is abducted by experienced kidnappers, the Jennings turn the tables on their seemingly fool-proof plan."
   }
 ]
