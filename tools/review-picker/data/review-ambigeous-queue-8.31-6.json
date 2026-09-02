@@ -978,5 +978,11 @@
     "choice": "tmdb",
     "poster_path": "/iY8KZMQqLwHQTKgEXlmNoSlymZM.jpg",
     "overview": "The plot concerns a small group of people who are forced to flee from their base (which happens to be a Mission) in an old school bus when the VC launch a vicious assault upon it. Along the way they are joined by a group of three battle hardened American Special Forces soldiers and together they desperately fight to make it to safety."
+  },
+  {
+    "handle": "warning-shot-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/4AffH6eOUQEdJeIcP2sRscaC9yZ.jpg",
+    "overview": "Hounded by the press for shooting a doctor, an ousted Los Angeles policeman works his own case."
   }
 ]
