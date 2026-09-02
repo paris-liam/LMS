@@ -310,5 +310,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "The Seeker: The Dark Is Rising"
+  },
+  {
+    "handle": "the-sicilian-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/3zjrYyAtTs0uxX1a4hhDR3Ir5Rz.jpg",
+    "overview": "Egocentric bandit Salvatore Giuliano fights the Church, the Mafia, and the landed gentry while leading a populist movement for Sicilian independence."
   }
 ]
