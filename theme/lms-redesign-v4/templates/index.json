@@ -526,7 +526,7 @@
       }
     },
     "lms_shop_membership": {
-      "type": "lms-shop-membership",
+      "type": "lms-membership",
       "blocks": {
         "perk_rental": {
           "type": "perk",
@@ -564,11 +564,6 @@
         "perk_events"
       ],
       "settings": {
-        "shop_eyebrow": "Shop online",
-        "shop_heading": "Can't make it in? Shop online.",
-        "shop_description": "<p>The same curated shelves, shipped to your door.</p>",
-        "shop_collection": "online-store",
-        "shop_link_label": "Shop now →",
         "membership_eyebrow": "Little Movie Club · $160/yr",
         "membership_heading": "Card carrying movie lover",
         "card_est_text": "Est. 2026",
@@ -600,7 +595,7 @@
       "settings": {
         "eyebrow": "",
         "heading": "Community picks",
-        "description": "<p>Movies your neighbors have been watching, arguing about, and pressing into people's hands. Updated weekly.</p>",
+        "description": "<p>Movies your neighbors have been watching, arguing about, and pressing into people's hands. Updated often.</p>",
         "link_label": "Full list →",
         "background_color": "",
         "padding-block-start": 0,
@@ -612,7 +607,7 @@
       "name": "LMS newsletter",
       "settings": {
         "eyebrow": "Newsletter",
-        "heading": "Get emails about physical movies from an irl store",
+        "heading": "Get electronic mail about physical movies from an irl store",
         "body": "<p>New inventory, events, and happenings are a few clicks away. </p>",
         "placeholder": "you@email.com",
         "button_label": "Sign up",

@@ -114,7 +114,7 @@
             "body": {
               "type": "text",
               "settings": {
-                "text": "<p>Remember browsing  shelves of movies either by yourself, with friends, your family or even for a date night? Well, we're bringing it back. Join the LITTLE MOVIE CLUB for one year of access to our rental library. See the full details below.</p>",
+                "text": "<h2><strong>LAUNCHING MEMBERSHIPS 9/20 AT </strong><a href=\"https://www.instagram.com/p/Dbs_p98jjoR/?img_index=1\" title=\"https://www.instagram.com/p/Dbs_p98jjoR/?img_index=1\"><strong>CORE MEMORIES</strong></a><strong>. SEE INSTAGRAM FOR DETAILS.</strong></h2><p>Remember wandering the aisles of a video store - alone, with friends, with the family, or trying to impress a date? It's back. Join the <strong>Little Movie Club </strong>for a full year of access to our rental library. </p><p>Our shelves are built with the community and filled with what streaming and Redbox never offered: Criterion Collection titles with all the special features, wild box sets, hard-to-find films, and the comfort classics you love. </p><p><strong>Full details below.</strong></p>",
                 "width": "fit-content",
                 "max_width": "none",
                 "alignment": "left",
@@ -125,7 +125,7 @@
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "text_color": "",
+                "text_color": "{{ settings.color_palette.background }}",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -211,7 +211,7 @@
           "type": "lms-membership-card",
           "settings": {
             "card_est_text": "Est. 2026",
-            "card_name_text": "— your name here —"
+            "card_name_text": "M. Night"
           },
           "blocks": {}
         }
@@ -260,7 +260,7 @@
         "item_1": {
           "type": "text",
           "settings": {
-            "text": "<p>Rental library</p>",
+            "text": "<p>Access to Rental library</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -360,7 +360,7 @@
         "item_3": {
           "type": "text",
           "settings": {
-            "text": "<p>Free birthday movie</p>",
+            "text": "<p>Free Birthday Movie</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -410,7 +410,7 @@
         "item_4": {
           "type": "text",
           "settings": {
-            "text": "<p>Members events</p>",
+            "text": "<p>Member Events</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -460,7 +460,7 @@
         "item_5": {
           "type": "text",
           "settings": {
-            "text": "<p>First dibs on drops</p>",
+            "text": "<p>First Dibs on Drops</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -510,7 +510,7 @@
         "item_6": {
           "type": "text",
           "settings": {
-            "text": "<p>Bring a friend</p>",
+            "text": "<p>Unlimited Rentals</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -643,7 +643,7 @@
       "settings": {
         "eyebrow": "What you get",
         "heading": "A year of film discoveries for $160",
-        "subheading": "six little reasons it pays to be in the club.",
+        "subheading": "six little reasons it pays to be in the club",
         "background_color": "",
         "padding-block-start": 84,
         "padding-block-end": 84

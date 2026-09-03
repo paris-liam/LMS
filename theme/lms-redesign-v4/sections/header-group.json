@@ -50,6 +50,7 @@
           "type": "_header-logo",
           "static": true,
           "settings": {
+            "logo": "shopify://shop_images/LittleMovieStore_Logo_Horiztonal_Black_723b410e-f2a0-4740-b157-9f802fb10a8a.png",
             "logo_height": 21,
             "logo_height_mobile": 22,
             "hide_logo_on_home_page": false,
