@@ -32,7 +32,7 @@
 #   SHOPIFY_STORE=p0wkgv-wy.myshopify.com ./scripts/set-movie-template.sh --apply
 
 set -euo pipefail
-STORE="${SHOPIFY_STORE:-lms-sandbox-lutsfahz.myshopify.com}"
+STORE="${SHOPIFY_STORE:-p0wkgv-wy.myshopify.com}"
 TEMPLATE_SUFFIX="movie"
 TEMPLATE_FILE="templates/product.${TEMPLATE_SUFFIX}.json"
 
