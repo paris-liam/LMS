@@ -26,18 +26,18 @@ Supercycle's membership system ("Methods > Membership") is built out of a few pi
 
 ---
 
-## 2. Setting up the $100/yr membership plan — step by step
+## 2. Setting up the $160/yr membership plan — step by step
 
-**Goal for v1:** yearly membership, $100/yr, lets the member hold **1 item at a time**, with **no enforced hold-duration cap** (see open item above) and **effectively unlimited swaps** over the year.
+**Goal for v1:** yearly membership, $160/yr, lets the member hold **3 items at a time**, with **no enforced hold-duration cap** (target is 2 weeks per item, but see open item above — Supercycle Membership has no native field for this) and **effectively unlimited swaps** over the year.
 
 ### A. Create the plan in Supercycle admin
 
 1. In Shopify admin, go to **Supercycle > Settings > Methods > Membership**.
 2. Click **Add plan**.
 3. Set the plan title (this becomes the linked Shopify product's title — use something customer-facing, e.g. "LMS Annual Membership").
-4. Set the **credit/item allowance to 1** (one item held at a time).
+4. Set the **credit/item allowance to 3** (three items held at a time).
 5. Set the **swap allowance** high enough to be effectively unlimited for a year of normal use (check what the actual field/max value is when you get to this screen — the docs don't give a hard number, so this needs eyeballing in the UI).
-6. Set the **purchase option / pricing tier**: yearly billing, $100/yr. (If the UI offers multiple intervals per plan — e.g. monthly vs. yearly tiers on the same plan — decide whether we want *only* yearly for now, or scaffold monthly too and hide it. Default to yearly-only for v1 unless you want both.)
+6. Set the **purchase option / pricing tier**: yearly billing, $160/yr. (If the UI offers multiple intervals per plan — e.g. monthly vs. yearly tiers on the same plan — decide whether we want *only* yearly for now, or scaffold monthly too and hide it. Default to yearly-only for v1 unless you want both.)
 7. Save the plan.
 
 ### B. Enable membership on rentable products
@@ -58,14 +58,14 @@ Supercycle's membership system ("Methods > Membership") is built out of a few pi
 
 ### D. Verify end-to-end
 
-- [ ] Tag/metafield check: after a test signup, confirm the test customer has `Has active subscription` + related tags, and `customer.metafields.supercycle.membership` shows credit allowance = 1.
-- [ ] PDP check: on a membership-enabled product, confirm the Methods block reflects credit availability (button enabled when a credit is free, disabled/messaged when the member's 1 credit is already checked out).
+- [ ] Tag/metafield check: after a test signup, confirm the test customer has `Has active subscription` + related tags, and `customer.metafields.supercycle.membership` shows credit allowance = 3.
+- [ ] PDP check: on a membership-enabled product, confirm the Methods block reflects credit availability (button enabled while any of the 3 credits are free, disabled/messaged once all 3 are checked out).
 - [ ] Header/hero check: confirm "Join the club" buttons hide correctly for this now-active member (existing gating logic in `sections/header.liquid` / `sections/lms-hero.liquid`).
 
 ---
 
 ## Open questions / follow-ups log
 
-- **7-day hold duration**: no native membership-plan setting for this. Revisit once we've looked at return-trigger automation or decide it's purely operational (reminder emails / honor system).
+- **2-week hold duration**: no native membership-plan setting for this (updated from the earlier 7-day target). Decided 2026-09-03: not enforcing for v1 — record plan settings now (allowance=3, $160/yr) and revisit enforcement (return-trigger automation vs. reminder emails / honor system) later.
 - **Swap allowance ceiling**: need to check the actual UI to see what counts as "unlimited enough" for a year of normal single-item swapping.
 - **Monthly vs. yearly pricing tiers**: decide if the plan should ever offer more than the one yearly option.
