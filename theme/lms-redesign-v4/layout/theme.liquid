@@ -53,10 +53,6 @@
     {%- assign lms_hide_header = false -%}
     {%- if template.suffix == 'coming-soon' -%}
       {%- assign lms_hide_header = true -%}
-    {%- elsif request.page_type == 'collection' and collection.handle == 'online-store' -%}
-      {%- assign lms_hide_header = true -%}
-    {%- elsif request.page_type == 'product' -%}
-      {%- assign lms_hide_header = true -%}
     {%- endif -%}
 
     <div class="page-wrapper">
