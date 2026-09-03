@@ -152,5 +152,9 @@
     "choice": "tmdb",
     "poster_path": "/7ExUSN9s9gX9bhVM17zDLEizano.jpg",
     "overview": "A young beautician, newly arrived in a small Louisiana town, finds work at the local salon, where a small group of women share a close bond of friendship and welcome her into the fold."
+  },
+  {
+    "handle": "stoke-vhs",
+    "choice": "skip"
   }
 ]
