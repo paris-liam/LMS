@@ -100,5 +100,5 @@
       "block_order": ["eyebrow", "heading"]
     }
   },
-  "order": ["main", "recommendations"]
+  "order": ["main"]
 }
