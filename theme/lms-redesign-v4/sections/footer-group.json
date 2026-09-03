@@ -186,7 +186,7 @@
             "links": {
               "type": "text",
               "settings": {
-                "text": "<p>2001 S. 10th Street Philly, PA<br/>Thur–Sat: Noon-7pm | Sun: 10am-6pm<br/><a href=\"/pages/events\">Events calendar</a></p>",
+                "text": "<p><a href=\"https://maps.app.goo.gl/xLWfHPt4MYzszyDs9\" title=\"https://maps.app.goo.gl/xLWfHPt4MYzszyDs9\">2001 S. 10th Street Philly, PA</a><br/>Thur–Sat: Noon-7pm | Sun: 10am-6pm<br/><a href=\"/pages/events\">Events calendar</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -320,7 +320,7 @@
       "settings": {
         "section_width": "page-width",
         "gap": 40,
-        "background_color": "#3a2018",
+        "background_color": "#000000",
         "padding-block-start": 60,
         "padding-block-end": 36
       }
@@ -397,7 +397,7 @@
       "settings": {
         "section_width": "page-width",
         "gap": 24,
-        "background_color": "#3a2018",
+        "background_color": "#000000",
         "divider_thickness": 1,
         "divider_color": "",
         "padding-block-start": 20,

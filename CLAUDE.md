@@ -11,6 +11,12 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 
 ---
 
+## ⚠️ TEMPORARY: production is the working store (until major release)
+
+**Decided 2026-09-03.** Until the site's major release, **production (`p0wkgv-wy.myshopify.com`) is the source of truth and the default target for theme work** — this inverts the normal "Store rule" below. Pull-before-push still applies (the client edits live there), but skip asking "did they mean production" — assume yes. Revert to the dev-default rule once the major release ships; this block should be removed at that point.
+
+---
+
 ## Read first
 
 **`lms-supercycle-feature-plan.md`** (repo root) — the full feature plan. Start with its **"▶ Pre-Supercycle build track"** section and the **buildability index**: what's buildable now (🔨), buildable with a stand-in (🧩), or blocked until install (🔒).
@@ -35,7 +41,7 @@ High-level tracks the work keeps returning to. **These are not specs** — no fo
 | `lms-sandbox-lutsfahz.myshopify.com` | **Dev store — the default target for ALL work** (pushes, pulls, theme dev, Admin API scripts, metafield/metaobject definitions, test data). |
 | `p0wkgv-wy.myshopify.com` | Production — the real client store. **OFF-LIMITS by default.** Only push, pull, or edit anything here when the user explicitly says the operation targets the official/production store, per-operation. |
 
-**Store rule**: never assume production. If an instruction doesn't name the production store, it means the dev store. When a production operation IS requested, restate the target store before running it.
+**Store rule (normal state — currently overridden, see the TEMPORARY note above)**: never assume production. If an instruction doesn't name the production store, it means the dev store. When a production operation IS requested, restate the target store before running it.
 
 ### Working theme on dev store
 

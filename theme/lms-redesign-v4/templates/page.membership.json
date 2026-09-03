@@ -116,7 +116,7 @@
               "settings": {
                 "text": "<h2><strong>LAUNCHING MEMBERSHIPS 9/20 AT </strong><a href=\"https://www.instagram.com/p/Dbs_p98jjoR/?img_index=1\" title=\"https://www.instagram.com/p/Dbs_p98jjoR/?img_index=1\"><strong>CORE MEMORIES</strong></a><strong>. SEE INSTAGRAM FOR DETAILS.</strong></h2><p>Remember wandering the aisles of a video store - alone, with friends, with the family, or trying to impress a date? It's back. Join the <strong>Little Movie Club </strong>for a full year of access to our rental library. </p><p>Our shelves are built with the community and filled with what streaming and Redbox never offered: Criterion Collection titles with all the special features, wild box sets, hard-to-find films, and the comfort classics you love. </p><p><strong>Full details below.</strong></p>",
                 "width": "fit-content",
-                "max_width": "none",
+                "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -206,19 +206,10 @@
             "button_secondary",
             "fine_print"
           ]
-        },
-        "membership_card": {
-          "type": "lms-membership-card",
-          "settings": {
-            "card_est_text": "Est. 2026",
-            "card_name_text": "M. Night"
-          },
-          "blocks": {}
         }
       },
       "block_order": [
-        "copy_group",
-        "membership_card"
+        "copy_group"
       ],
       "settings": {
         "media_type_1": "image",
@@ -574,7 +565,7 @@
       ],
       "settings": {
         "movement_direction": "normal",
-        "background_color": "#3a2018",
+        "background_color": "#000000",
         "padding-block-start": 12,
         "padding-block-end": 12,
         "gap_between_elements": 22
@@ -587,7 +578,7 @@
           "type": "perk",
           "settings": {
             "number": "01",
-            "title": "Rent 3 movies at a time.",
+            "title": "Rent 3 Movies at a Time",
             "body": "Take home 3 movies and return within 2 weeks. Includes box sets & new releases."
           }
         },

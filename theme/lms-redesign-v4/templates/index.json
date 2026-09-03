@@ -29,16 +29,8 @@
         "button_secondary": {
           "type": "button",
           "settings": {
-            "label": "BROWSE THE SHELVES",
+            "label": "BROWSE THE LIBRARY",
             "link": "shopify://collections/all-movies",
-            "style": "outline"
-          }
-        },
-        "button_tertiary": {
-          "type": "button",
-          "settings": {
-            "label": "SHOP THE ONLINE STORE",
-            "link": "shopify://collections/online-store",
             "style": "outline"
           }
         },
@@ -68,7 +60,6 @@
         "slide_1",
         "button_primary",
         "button_secondary",
-        "button_tertiary",
         "info_location",
         "info_hours",
         "info_membership"
@@ -82,7 +73,7 @@
         "autoplay_speed": 5,
         "background_color": "",
         "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-end": 16
       }
     },
     "lms_ticker": {
@@ -509,7 +500,7 @@
       ],
       "settings": {
         "movement_direction": "normal",
-        "background_color": "#3a2018",
+        "background_color": "#000000",
         "padding-block-start": 12,
         "padding-block-end": 12,
         "gap_between_elements": 22
@@ -532,28 +523,28 @@
           "type": "perk",
           "settings": {
             "title": "Full rental library access",
-            "detail": "borrow anything, anytime"
+            "detail": "borrow 3 movies at a time"
           }
         },
         "perk_discount": {
           "type": "perk",
           "settings": {
-            "title": "10% off every purchase",
-            "detail": "every single visit"
+            "title": "10% off in store purchases",
+            "detail": ""
           }
         },
         "perk_birthday": {
           "type": "perk",
           "settings": {
             "title": "A free birthday movie",
-            "detail": "on us, every year"
+            "detail": "on us"
           }
         },
         "perk_events": {
           "type": "perk",
           "settings": {
             "title": "Members-only events",
-            "detail": "first invites, always"
+            "detail": "come hang"
           }
         }
       },
@@ -565,7 +556,7 @@
       ],
       "settings": {
         "membership_eyebrow": "Little Movie Club · $160/yr",
-        "membership_heading": "Card carrying movie lover",
+        "membership_heading": "Card Carrying Movie Lover",
         "card_est_text": "Est. 2026",
         "card_name_text": "Patrick Bateman",
         "price_text": "$160",
