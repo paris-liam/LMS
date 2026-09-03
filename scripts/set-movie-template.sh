@@ -10,7 +10,7 @@
 # design and the Supercycle contract in CLAUDE.md. Re-run after every import.
 #
 # PREDICATE — vendor, not tags. Vendor carries the media format (VHS/DVD/
-# Blu-Ray/4K), which is what makes a product a movie under the data model
+# Blu-Ray/4K/Laserdisc/Betamax), which is what makes a product a movie under the data model
 # decided 2026-08-07. Tags are NOT safe here: `Rango Tote bag` is merch tagged
 # `Floor Sale` (would wrongly get the movie template) and `Deja Vu` is a real
 # movie carrying neither scoping tag (would be missed).
@@ -74,7 +74,7 @@ echo "✓ Live theme '${THEME_NAME}' has ${TEMPLATE_FILE}"
 echo
 
 # --- Find movies by vendor -------------------------------------------------
-SEARCH_QUERY="vendor:VHS OR vendor:DVD OR vendor:'Blu-Ray' OR vendor:'BLU-RAY' OR vendor:4K OR vendor:'4k' OR vendor:'Dvd'"
+SEARCH_QUERY="vendor:VHS OR vendor:DVD OR vendor:'Blu-Ray' OR vendor:'BLU-RAY' OR vendor:4K OR vendor:'4k' OR vendor:'Dvd' OR vendor:Laserdisc OR vendor:Betamax"
 
 FIND='query Find($q: String!, $after: String) {
   products(first: 100, after: $after, query: $q) {

@@ -50,7 +50,6 @@
           "type": "_header-logo",
           "static": true,
           "settings": {
-            "logo": "shopify://shop_images/Logo_Horiztonal_Black.svg",
             "logo_height": 21,
             "logo_height_mobile": 22,
             "hide_logo_on_home_page": false,
@@ -89,6 +88,8 @@
         "menu_position": "right",
         "menu_row": "top",
         "customer_account_menu": "customer-account-main-menu",
+        "join_club_label": "Join the Club",
+        "join_club_url": "",
         "show_search": false,
         "search_position": "right",
         "search_row": "top",

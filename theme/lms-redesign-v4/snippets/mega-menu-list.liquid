@@ -76,16 +76,10 @@
   class="mega-menu__list list-unstyled"
   style="--menu-image-border-radius: {{ image_border_radius }}px;"
 >
-  {%- comment %}<locksmith:5c7c>{% endcomment -%}
-    {%- assign locksmith_3808_forloop__size = 0 %}{% for link in parent_link.links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: parent_link, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_3808_forloop__size = locksmith_3808_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_3808_forloop__index = nil -%}
-  {%- comment %}</locksmith:5c7c>{% endcomment -%}
   {% for link in parent_link.links %}
-    {%- comment %}<locksmith:8b35>{% endcomment -%}
-      {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: link, subject_parent: parent_link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_3808_forloop__index == nil %}{% assign locksmith_3808_forloop__index = 1 %}{% assign locksmith_3808_forloop__index0 = 0 %}{% else %}{% assign locksmith_3808_forloop__index = locksmith_3808_forloop__index | plus: 1 %}{% assign locksmith_3808_forloop__index0 = locksmith_3808_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_3808_forloop__index == 1 %}{% assign locksmith_3808_forloop__first = true %}{% else %}{% assign locksmith_3808_forloop__first = false %}{% endif %}{% if locksmith_3808_forloop__index == locksmith_3808_forloop__size %}{% assign locksmith_3808_forloop__last = true %}{% else %}{% assign locksmith_3808_forloop__last = false %}{% endif %}{% assign locksmith_3808_forloop__rindex = locksmith_3808_forloop__size | minus: locksmith_3808_forloop__index | minus: 1 %}{% assign locksmith_3808_forloop__rindex0 = locksmith_3808_forloop__size | minus: locksmith_3808_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-    {%- comment %}</locksmith:8b35>{% endcomment -%}
     {% liquid
       # Decide whether to open a column span, and how many columns of the grid to span
-      if locksmith_3808_forloop__first or open_column_span == false
+      if forloop.first or open_column_span == false
         assign open_column_span = true
 
         # Don't allow orphan links in a column
@@ -148,14 +142,8 @@
             style="column-count: {{ column_span }};"
           {% endif %}
         >
-          {%- comment %}<locksmith:04e0>{% endcomment -%}
-            {%- assign locksmith_6f00_forloop__size = 0 %}{% for childLink in link.links %}{% capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childLink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == 'true' %}{% assign locksmith_6f00_forloop__size = locksmith_6f00_forloop__size | plus: 1 %}{% endif %}{% endfor %}{% assign locksmith_6f00_forloop__index = nil -%}
-          {%- comment %}</locksmith:04e0>{% endcomment -%}
           {% for childLink in link.links %}
-            {%- comment %}<locksmith:758c>{% endcomment -%}
-              {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: childLink, subject_parent: link, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% if locksmith_6f00_forloop__index == nil %}{% assign locksmith_6f00_forloop__index = 1 %}{% assign locksmith_6f00_forloop__index0 = 0 %}{% else %}{% assign locksmith_6f00_forloop__index = locksmith_6f00_forloop__index | plus: 1 %}{% assign locksmith_6f00_forloop__index0 = locksmith_6f00_forloop__index0 | plus: 1 %}{% endif %}{% if locksmith_6f00_forloop__index == 1 %}{% assign locksmith_6f00_forloop__first = true %}{% else %}{% assign locksmith_6f00_forloop__first = false %}{% endif %}{% if locksmith_6f00_forloop__index == locksmith_6f00_forloop__size %}{% assign locksmith_6f00_forloop__last = true %}{% else %}{% assign locksmith_6f00_forloop__last = false %}{% endif %}{% assign locksmith_6f00_forloop__rindex = locksmith_6f00_forloop__size | minus: locksmith_6f00_forloop__index | minus: 1 %}{% assign locksmith_6f00_forloop__rindex0 = locksmith_6f00_forloop__size | minus: locksmith_6f00_forloop__index0 | minus: 1 %}{% else %}{% continue %}{% endif -%}
-            {%- comment %}</locksmith:758c>{% endcomment -%}
-            {% assign break_after_modulo = locksmith_6f00_forloop__index | modulo: links_before_wrap %}
+            {% assign break_after_modulo = forloop.index | modulo: links_before_wrap %}
             <li
               {% if break_after_modulo == 0 and should_break_columns %}
                 style="break-after: column;"
@@ -175,9 +163,9 @@
 
     {% liquid
       # Check conditions for closing the span at the end of each iteration, then close the span if needed
-      assign next_linklist = parent_link.links[locksmith_3808_forloop__index]
+      assign next_linklist = parent_link.links[forloop.index]
 
-      if locksmith_3808_forloop__last
+      if forloop.last
         assign open_column_span = false
       elsif menu_content_type == 'collection_images'
         assign open_column_span = false

@@ -117,62 +117,7 @@
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
-          "blocks": {
-            "heading": {
-              "type": "text",
-              "settings": {
-                "text": "<p><strong>Shop</strong></p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "0.6875rem",
-                "line_height": "normal",
-                "letter_spacing": "0.22em",
-                "case": "uppercase",
-                "wrap": "pretty",
-                "text_color": "#8fcdcf",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 8,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "links": {
-              "type": "text",
-              "settings": {
-                "text": "<p><a href=\"/collections/new-arrivals\">New arrivals</a><br/><a href=\"/collections/4k-blu-ray\">4K & Blu-ray</a><br/><a href=\"/collections/used-vhs\">Used & VHS</a><br/><a href=\"/collections/mystery-bags\">Mystery bags</a></p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "0.75rem",
-                "line_height": "loose",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "#D4C9C0",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "heading",
-            "links"
-          ]
+          "blocks": {}
         },
         "visit_col": {
           "type": "group",
@@ -241,7 +186,7 @@
             "links": {
               "type": "text",
               "settings": {
-                "text": "<p><a href=\"/pages/visit\">Passyunk Ave, Philly</a><br/><a href=\"/pages/visit\">Hours & map</a><br/><a href=\"/collections/rental-library\">Rental library</a><br/><a href=\"/pages/events\">Events calendar</a></p>",
+                "text": "<p>2001 S. 10th Street Philly, PA<br/>Thur–Sat: Noon-7pm | Sun: 10am-6pm<br/><a href=\"/pages/events\">Events calendar</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -311,7 +256,7 @@
             "heading": {
               "type": "text",
               "settings": {
-                "text": "<p><strong>The Club</strong></p>",
+                "text": "<p><strong>Little Movie Club</strong></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -336,7 +281,7 @@
             "links": {
               "type": "text",
               "settings": {
-                "text": "<p><a href=\"/pages/membership\">Join the club</a><br><a href=\"/pages/membership\">Member perks</a><br><a href=\"/pages/membership\">Borrow buddy</a><br><a href=\"/pages/membership\">Refer a friend</a></p>",
+                "text": "<p><a href=\"/pages/membership\">Join the club</a></p><p><a href=\"/collections/rental-library\">Rental library</a><br/></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",

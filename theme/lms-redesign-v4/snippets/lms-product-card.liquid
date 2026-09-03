@@ -8,9 +8,10 @@
   - Poster:     card_product.featured_image
   - Title:      card_product.title
   - Director:   card_product.metafields.custom.director (hidden when blank)
-  - Format:     card_product.vendor — media format (VHS / DVD / Blu-Ray / 4K) is
-                stored in the Vendor field, not a metafield. See
-                claudedocs/2026-08-07-product-data-model-audit.md for why.
+  - Format:     card_product.vendor — media format (VHS / DVD / Blu-Ray / 4K /
+                Laserdisc / Betamax) is stored in the Vendor field, not a
+                metafield. See claudedocs/2026-08-07-product-data-model-audit.md
+                for why.
   - Condition:  card_product.metafields.custom.media_condition (retail new-sealed only; used/rental copies use Supercycle item condition)
   - Rare flag:  card_product.tags contains 'rare'
 
@@ -23,7 +24,7 @@
   # retail products whose vendor is a real vendor name. Only badge recognised
   # formats; compare case-insensitively so the un-normalised `BLU-RAY` / `Dvd`
   # rows still badge (they display as-typed until the vendor cleanup pass runs).
-  assign known_formats = 'VHS,DVD,BLU-RAY,4K' | split: ','
+  assign known_formats = 'VHS,DVD,BLU-RAY,4K,LASERDISC,BETAMAX' | split: ','
   assign vendor_upcase = card_product.vendor | upcase
   assign format_label = ''
   if known_formats contains vendor_upcase

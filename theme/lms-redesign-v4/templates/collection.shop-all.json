@@ -16,7 +16,7 @@
           "type": "text",
           "name": "Eyebrow",
           "settings": {
-            "text": "<p>The shelves</p>",
+            "text": "<p>Browse The Shelves</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "Title",
           "settings": {
-            "text": "<h1>Shop everything</h1>",
+            "text": "<h1>LMS Rental Library</h1>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -68,7 +68,7 @@
           "type": "text",
           "name": "Description",
           "settings": {
-            "text": "<p>Every format, every shelf, every note we've left. Browse without pressure.</p>",
+            "text": "<p>Every title on our Library, searchable from your couch. Browse by format or genre and see what's in and what's out before you walk over. </p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",

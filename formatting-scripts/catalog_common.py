@@ -10,7 +10,19 @@ import csv
 def load_export(path) -> tuple[list[str], list[dict]]:
     with open(path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
-        return list(reader.fieldnames), list(reader)
+        fieldnames, rows = list(reader.fieldnames), list(reader)
+
+    # Some raw Shopify exports pluralize this to "Variant Barcodes" instead
+    # of the usual "Variant Barcode" (seen 2026-09-02 on a production
+    # export). Normalize to the singular so every downstream reader
+    # (normalize.py's row.get("Variant Barcode"), etc.) sees it consistently
+    # regardless of which spelling the source file used.
+    if "Variant Barcodes" in fieldnames and "Variant Barcode" not in fieldnames:
+        fieldnames = ["Variant Barcode" if f == "Variant Barcodes" else f for f in fieldnames]
+        for row in rows:
+            row["Variant Barcode"] = row.pop("Variant Barcodes")
+
+    return fieldnames, rows
 
 
 def write_csv(path, fieldnames: list[str], rows: list[dict]) -> None:
