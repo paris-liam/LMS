@@ -14,7 +14,17 @@
       data-search-results
     >
       {% if predictive_search.performed %}
-        {% assign search_results_count = predictive_search.resources.products.size
+        {% liquid
+          assign scoped_products = "" | split: ""
+          for product in predictive_search.resources.products
+            assign product_collection_handles = product.collections | map: 'handle'
+            if product_collection_handles contains 'all-movies'
+              assign matched_product_array = predictive_search.resources.products | where: 'id', product.id
+              assign scoped_products = scoped_products | concat: matched_product_array
+            endif
+          endfor
+        %}
+        {% assign search_results_count = scoped_products.size
           | plus: predictive_search.resources.pages.size
           | plus: predictive_search.resources.articles.size
           | plus: predictive_search.resources.collections.size
@@ -62,11 +72,10 @@
         {% endif %}
 
         {%- if search_results_count > 0 -%}
-          {% if predictive_search.resources.products.size > 0 %}
+          {% if scoped_products.size > 0 %}
             {%- liquid
               assign title = 'content.search_results_resource_products' | t
-              assign products = predictive_search.resources.products
-              render 'predictive-search-products-list', title: title, products: products
+              render 'predictive-search-products-list', title: title, products: scoped_products
             -%}
           {% endif %}
 
@@ -122,15 +131,15 @@
 
       {% if predictive_search.performed %}
         {%- if search_results_count > 0 -%}
-          {% assign total_results = predictive_search.resources.products.size
+          {% assign total_results = scoped_products.size
             | plus: predictive_search.resources.collections.size
             | plus: predictive_search.resources.pages.size
             | plus: predictive_search.resources.articles.size
           %}
           {% assign single_result_url = null %}
           {% if total_results == 1 %}
-            {% if predictive_search.resources.products.size == 1 %}
-              {% assign single_result_url = predictive_search.resources.products.first.url %}
+            {% if scoped_products.size == 1 %}
+              {% assign single_result_url = scoped_products.first.url %}
             {% elsif predictive_search.resources.collections.size == 1 %}
               {% assign single_result_url = predictive_search.resources.collections.first.url %}
             {% elsif predictive_search.resources.pages.size == 1 %}
