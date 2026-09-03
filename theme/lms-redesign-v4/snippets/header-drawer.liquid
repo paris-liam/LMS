@@ -93,12 +93,15 @@
         class="menu-drawer__quick-links menu-drawer__animated-element"
         style="--menu-drawer-animation-index: 0;"
       >
+        {% comment %} TEMP: Join the Club button hidden while site is locked down. Uncomment to restore. {% endcomment %}
+        {% comment %}
         <a
           href="{{ section.settings.join_club_url | default: '/pages/membership' }}"
           class="menu-drawer__account"
         >
           {{ section.settings.join_club_label | default: 'Join the Club' }}
         </a>
+        {% endcomment %}
 
         {% if shop.customer_accounts_enabled %}
           <a

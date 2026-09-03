@@ -1,7 +1,3 @@
-{%- comment %}<locksmith:6636>{% endcomment -%}
-  {%- include 'locksmith' -%}
-{%- comment %}</locksmith:6636>{% endcomment -%}
-
 <!doctype html>
 <html
   {% if request.design_mode %}
@@ -10,7 +6,6 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
-    {{ locksmith_initializations }}
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"
@@ -52,6 +47,10 @@
 
     {%- assign lms_hide_header = false -%}
     {%- if template.suffix == 'coming-soon' -%}
+      {%- assign lms_hide_header = true -%}
+    {%- elsif request.page_type == 'collection' and collection.handle == 'online-store' -%}
+      {%- assign lms_hide_header = true -%}
+    {%- elsif request.page_type == 'product' -%}
       {%- assign lms_hide_header = true -%}
     {%- endif -%}
 

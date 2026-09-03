@@ -111,30 +111,100 @@
               },
               "blocks": {}
             },
-            "body": {
-              "type": "text",
+            "group_4acCgE": {
+              "type": "group",
+              "name": "t:names.group",
               "settings": {
-                "text": "<h2><strong>LAUNCHING MEMBERSHIPS 9/20 AT </strong><a href=\"https://www.instagram.com/p/Dbs_p98jjoR/?img_index=1\" title=\"https://www.instagram.com/p/Dbs_p98jjoR/?img_index=1\"><strong>CORE MEMORIES</strong></a><strong>. SEE INSTAGRAM FOR DETAILS.</strong></h2><p>Remember wandering the aisles of a video store - alone, with friends, with the family, or trying to impress a date? It's back. Join the <strong>Little Movie Club </strong>for a full year of access to our rental library. </p><p>Our shelves are built with the community and filled with what streaming and Redbox never offered: Criterion Collection titles with all the special features, wild box sets, hard-to-find films, and the comfort classics you love. </p><p><strong>Full details below.</strong></p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "{{ settings.color_palette.background }}",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "content_direction": "row",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 20,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "custom",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "background_media": "none",
+                "background_color": "",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
-              "blocks": {}
+              "blocks": {
+                "text_3jDrCP": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h2><strong>LAUNCHING MEMBERSHIPS 9/20 AT </strong><a href=\"https://www.instagram.com/p/Dbs_p98jjoR/?img_index=1\" title=\"https://www.instagram.com/p/Dbs_p98jjoR/?img_index=1\"><strong>CORE MEMORIES</strong></a><strong>. SEE INSTAGRAM FOR DETAILS.</strong></h2><p>Remember wandering the aisles of a video store - alone, with friends, with the family, or trying to impress a date? It's back. Join the <strong>Little Movie Club </strong>for a full year of access to our rental library. </p><p>Our shelves are built with the community and filled with what streaming and Redbox never offered: Criterion Collection titles with all the special features, wild box sets, hard-to-find films, and the comfort classics you love. </p><p><strong>Full details below.</strong></p>",
+                    "width": "fit-content",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "rte",
+                    "font": "var(--font-body--family)",
+                    "font_size": "1rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "text_color": "{{ settings.color_palette.background }}",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                },
+                "image_npN8xK": {
+                  "type": "image",
+                  "name": "t:names.image",
+                  "settings": {
+                    "image": "shopify://shop_images/PNG_image_ca5197d4-d2fc-4fae-9487-328225ddeeba.png",
+                    "link": "",
+                    "image_ratio": "adapt",
+                    "width": "custom",
+                    "custom_width": 61,
+                    "width_mobile": "fit-content",
+                    "custom_width_mobile": 61,
+                    "height": "fit",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_color": "",
+                    "border_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "text_3jDrCP",
+                "image_npN8xK"
+              ]
             },
             "button_primary": {
               "type": "button",
@@ -201,7 +271,7 @@
           "block_order": [
             "eyebrow",
             "heading",
-            "body",
+            "group_4acCgE",
             "button_primary",
             "button_secondary",
             "fine_print"
@@ -630,6 +700,9 @@
         "perk_4",
         "perk_5",
         "perk_6"
+      ],
+      "custom_css": [
+        ".lms-perks-grid-section {padding-top: 2rem;}"
       ],
       "settings": {
         "eyebrow": "What you get",
