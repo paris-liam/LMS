@@ -18,5 +18,9 @@
   {
     "batch_id": "review-ambigeous-queue-8.31-5",
     "total": 200
+  },
+  {
+    "batch_id": "review-9.2-gaps",
+    "total": 135
   }
 ]

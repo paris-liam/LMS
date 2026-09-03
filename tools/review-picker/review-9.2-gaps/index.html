@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Movie review picker — 135 products</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; margin: 2rem auto; max-width: 1080px; padding: 0 1rem; background: #fafafa; color: #222; }
+  header { position: sticky; top: 0; background: #fafafa; padding: .75rem 0; border-bottom: 1px solid #ddd; z-index: 10; }
+  header h1 { font-size: 1.2rem; margin: 0 0 .25rem; }
+  header p.instructions { margin: 0; color: #555; font-size: .95rem; }
+  header .status-row { display: flex; align-items: center; gap: 1rem; margin-top: .5rem; }
+  #counter { color: #666; font-size: .9rem; }
+  #hide-decided-label { font-size: .9rem; color: #444; display: flex; align-items: center; gap: .35rem; cursor: pointer; }
+  .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .card.decided { border-color: #5f8d7a; background: #f4faf7; }
+  body.hide-decided .card.decided { display: none; }
+  .card h2 { font-size: 1.15rem; margin: 0 0 .15rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+  .save-state { font-size: .8rem; font-weight: 500; }
+  .save-state.saved { color: #5f8d7a; }
+  .save-state.saving { color: #888; }
+  .save-state.error { color: #973123; }
+  .save-state.failed { color: #973123; font-weight: 700; }
+  .tags { display: inline-flex; gap: .3rem; }
+  .tag { font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; color: #5f8d7a; background: #eef5f1; border-radius: 3px; padding: .1rem .4rem; }
+  .card .meta { font-size: .8rem; color: #888; margin-bottom: .75rem; }
+  .card .meta a { color: #973123; }
+  .candidates { display: flex; flex-direction: column; gap: .6rem; }
+  label.option { display: flex; gap: .85rem; align-items: flex-start; border: 1px solid #eee; border-radius: 6px; padding: .75rem 1rem; cursor: pointer; }
+  label.option:hover { background: #f5f5f5; }
+  label.option input { margin-top: .3rem; width: 1.15rem; height: 1.15rem; }
+  label.option img { width: 70px; height: auto; border-radius: 3px; flex-shrink: 0; }
+  label.option .no-poster { width: 70px; height: 105px; background: #eee; color: #999; font-size: .65rem; display: flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; }
+  label.option .info { font-size: .9rem; line-height: 1.45; flex: 1; min-width: 0; }
+  label.option .info strong { font-size: .95rem; }
+  .secondary-options { display: flex; flex-direction: column; gap: .6rem; margin-top: .25rem; font-size: .85rem; }
+  .secondary-options label.option { padding: .4rem .6rem; background: #fdf6f5; }
+  .manual-fields { display: flex; flex-direction: column; gap: .4rem; margin: .25rem 0 0 2rem; }
+  .manual-fields input, .manual-fields textarea { font: inherit; font-size: .85rem; border: 1px solid #ccc; border-radius: 4px; padding: .4rem .5rem; width: 100%; box-sizing: border-box; }
+  .manual-fields textarea { min-height: 4.5em; resize: vertical; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Pick the right movie</h1>
+  <p class="instructions">For each title below, choose the correct poster and description. Your choices save automatically as you go — no need to submit anything when you're done.</p>
+  <div class="status-row">
+    <span id="counter"></span>
+    <label id="hide-decided-label"><input type="checkbox" id="hide-decided"> Hide decided</label>
+  </div>
+</header>
+<main id="cards"></main>
+<script>
+const PRODUCTS = [{"handle": "under-siege-laserdisc-floor-sale-action", "title": "Under Siege", "vendor": "Laserdisc", "genre": "action", "reason": "ambiguous match (best candidate: 'Under Siege' (1992))", "candidates": [{"id": 8845, "title": "Under Siege", "year": "1992", "overview": "A disgruntled ex-CIA operative, his assistant and their assembled group of terrorists seize a battleship with nuclear blackmail in mind. They've planned for every contingency but ignore the ship's cook, former Navy SEAL Casey Ryback\u2014an error that could be fatal.", "poster_path": "/7tzVzgGKhLsQoiyDh2tiGcPeTpH.jpg"}, {"id": 4655, "title": "Under Siege", "year": "1980", "overview": "A band of thugs belonging to an organized crime family assaults several casinos at the same time creating death and panic in their wake. As they flee the scenes of their crimes police begin to close in on them, so they quickly hide themselves in a villa owned by a wealthy industrialist taking him and his family hostage.", "poster_path": "/wf4k3iR7XWlqlSoMy0Jdu7OYnDD.jpg"}, {"id": 358075, "title": "Under Siege", "year": "1986", "overview": "Terrorists launch an attack against the USA. Their first strike is by a suicide squad that detonates a truckload of explosives at an army base in Washington DC. FBI probes indicate that the attack is by Arab terrorists led by Iranians. Subsequent attacks are via airplanes exploded in mid-air, crowded restaurants, and an attack on a mall. Administration cabinet heads push the President to retaliate. The director of the FBI believes that there may be more to the story than the investigation has revealed and the Secretary of Defense is the only other person urging caution.", "poster_path": "/bA5ZTO6kcnQTt9A3M3Zg4SAauvr.jpg"}, {"id": 1374524, "title": "Goa Under Siege", "year": "1999", "overview": "The impact of large-scale tourism on the hosts: the ecology, economy and culture of Goa.", "poster_path": ""}, {"id": 44263, "title": "City Under Siege", "year": "2010", "overview": "Sunny is a na\u00efve circus performer who dreams of inheriting his father's knife-throwing skills. However, his hostile colleagues continue to bully him, relegating him to a lowly clown. On a tour to Malaysia, Cheung and other performers discover a cave occupied by the Japanese army during World War II. Instead of finding treasure, the performers - including Sunny - are sprayed with a mysterious chemical that turns them into superhuman mutants...", "poster_path": "/8FDwOGJT7OSE3Rho4qDoifMpOTW.jpg"}]}, {"handle": "dumb-and-dumber-laserdisc-floor-sale-comedy", "title": "Dumb and Dumber", "vendor": "Laserdisc", "genre": "comedy", "reason": "ambiguous match (best candidate: 'Dumb and Dumber' (1994))", "candidates": [{"id": 8467, "title": "Dumb and Dumber", "year": "1994", "overview": "Lloyd and Harry are two men whose stupidity is really indescribable. When Mary, a beautiful woman, loses an important suitcase with money before she leaves for Aspen, the two friends (who have found the suitcase) decide to return it to her. After some \"adventures\" they finally get to Aspen where, using the lost money they live it up and fight for Mary's heart.", "poster_path": "/4LdpBXiCyGKkR8FGHgjKlphrfUc.jpg"}, {"id": 100042, "title": "Dumb and Dumber To", "year": "2014", "overview": "20 years since their first adventure, Lloyd and Harry go on a road trip to find Harry's newly discovered daughter, who was given up for adoption.", "poster_path": "/cvEi0xV7TUkabJGuzulhvbMjrHi.jpg"}, {"id": 1376656, "title": "Dumb and Dumber - Making Of", "year": "2004", "overview": "The Cast and Crew talk about \"Dumb and Dumber\" (1994).", "poster_path": "/h0XJK9dCFPolz0orvCq5lRxRFno.jpg"}, {"id": 10152, "title": "Dumb and Dumberer: When Harry Met Lloyd", "year": "2003", "overview": "This wacky prequel to the 1994 blockbuster goes back to the lame-brained Harry and Lloyd's days as classmates at a Rhode Island high school, where the unprincipled principal puts the pair in remedial courses as part of a scheme to fleece the school.", "poster_path": "/qxD6P3UXASFCdbrVavceZzgOfI9.jpg"}, {"id": 336076, "title": "\"That's Awesome!\": The Story of 'Dumb and Dumber To'", "year": "2015", "overview": "An expansive, five-part 45 minute making-of with cast and crew interviews.", "poster_path": "/tMgjtEZAK1adgu2YwX4ZvRmukVd.jpg"}]}, {"handle": "under-siege-2-laserdisc-floor-sale-action", "title": "Under Siege 2", "vendor": "Laserdisc", "genre": "action", "reason": "ambiguous match (best candidate: 'Under Siege 2: Dark Territory' (1995))", "candidates": [{"id": 3512, "title": "Under Siege 2: Dark Territory", "year": "1995", "overview": "A passenger train has been hijacked by an electronics expert and turned into an untraceable command center for a weapons satellite. He has planned to blow up Washington DC and only one man can stop him, former Navy SEAL Casey Ryback.", "poster_path": "/gElwFCQTbSK5hdK0PVyia547nst.jpg"}]}, {"handle": "the-naked-gun-2-1-2-laserdisc-floor-sale-comedy", "title": "The Naked Gun 2 1/2", "vendor": "Laserdisc", "genre": "comedy", "reason": "ambiguous match (best candidate: 'The Naked Gun 2\u00bd: The Smell of Fear' (1991))", "candidates": [{"id": 37137, "title": "The Naked Gun 2\u00bd: The Smell of Fear", "year": "1991", "overview": "Bumbling lieutenant Frank Drebin is out to foil the big boys in the energy industry, who intend to suppress technology that will put them out of business.", "poster_path": "/v9niLQWVzVPB1cP1ThNdEaLZG1Q.jpg"}]}, {"handle": "the-three-muskateers-dvd-rental-action", "title": "The Three Muskateers", "vendor": "DVD", "genre": "action", "reason": "ambiguous match (best candidate: 'Constable Hyung-rae and the Three Insect Muskateers' (1990))", "candidates": [{"id": 814995, "title": "Constable Hyung-rae and the Three Insect Muskateers", "year": "1990", "overview": "Sol-i and Song-i head to Hanyang with the blueprint for a cannon invented by their father. On the way, they meet Japanese pirates and get captured, but Baek Du-geon appears and defeats the pirates and saves Sol-i and Song-i. Sol-i and Song-i arrive in Hanyang and hand over the blueprint to Hong Cham-pan, and Baek Du-gun and the three insect musketeers cause a commotion. Hong Cham-pan, who was handed the blueprint, works with the snake demon and tries to sell the blueprint to a Japanese spy (Miyamoto).  Based on the popular segment 'Drumbeat from the Border' from KBS's Humor No. 1 at the time.", "poster_path": "/lDOIL9uYui0XY2s8myCbFuApsQS.jpg"}]}, {"handle": "the-seeker-dvd-rental-kids-family", "title": "The Seeker", "vendor": "DVD", "genre": "kids-family", "reason": "ambiguous match (best candidate: 'The Seeker' (2016))", "candidates": [{"id": 390887, "title": "The Seeker", "year": "2016", "overview": "A daughter's idyllic life is turned upside-down by immense tragedy. As she grows older, her cynicism and apathy towards her new reality is challenged by a reminder from the past that sets her on a pilgrimage that will define her.", "poster_path": "/nEk7aUPtz3JfcaCu4np830UL7ih.jpg"}, {"id": 672279, "title": "The Seeker", "year": "2019", "overview": "In an attempt to reconnect with her family after four years, Isabela decides to introduce her liberal and free-loving boyfriend Giovani. HIs presence will be more important than they could ever imagine.", "poster_path": "/zpeJyyX6panT3IiKFrEFwJ6oxRL.jpg"}, {"id": 117867, "title": "The Seeker", "year": "2005", "overview": "It's Easyrider with a quadriplegic at the throttle when forty-five year old Evan Somers sets out on a self-reflective odyssey by modified motorcycle seeking answers to the questions of his life.", "poster_path": ""}, {"id": 1129567, "title": "The Seeker", "year": "2017", "overview": "After reports of an Unidentified Flying Object crashing in the Highlands of Scotland, a quiet and lonely man has an encounter with a strange being. Waking up disorientated he finds himself consumed by an alien impulse which leads him to seek out those closest to him and turn them to his extra-terrestrial will. Look closely and observe your friends and family with keen regard. They could be\u2026THE SEEKER.", "poster_path": "/grReARSeORPMA9zVWBOI5lUib6F.jpg"}, {"id": 1314724, "title": "The Baby Seeker", "year": "", "overview": "When an evil entity, hungry for infants, targets a family, their babysitter's life transforms into a living nightmare, trapping her in a terrifying battle between reality and the supernatural.", "poster_path": "/nmi5R0CqRMCKcPQihkAJZc5koce.jpg"}]}, {"handle": "was-the-dog-vhs-rental-comedy", "title": "Was The Dog", "vendor": "VHS", "genre": "comedy", "reason": "ambiguous match (best candidate: 'Mom, What\u2019s Up With the Dog?' (2022))", "candidates": [{"id": 551721, "title": "The Dog Was Running", "year": "1990", "overview": "The fate of stray dogs of town, who wander around seeking their puppies. There are different types of dogs: those who win at contests, those working for police, circus dogs, those at dogfights. In contrast with the above privileged creatures, the future of strays is probably gloomy, sooner or later they end up under the wheels of a car or with the dogcatcher.", "poster_path": "/uFao0xQDMbcnkJkc5hPntvAWowz.jpg"}, {"id": 148436, "title": "A Dog Was Walking on the Piano", "year": "1978", "overview": "The 16-year-old Tanya Canareykina decided to drastically change her life. For starters she fell in love with a pilot who played the trumpet and had sad, dreaming eyes. Because of him, she stopped seeing Misha whom she\u2019d known since early childhood. She did like Misha, but he wasn\u2019t romantic at all\u2026", "poster_path": "/vCklfdAFK1MoXuTuipOVc1S6n9G.jpg"}, {"id": 145812, "title": "A Spruce Was Born in the Forest", "year": "1972", "overview": "The film tells us how painted little man became alive and went to the wood for the fir-tree.", "poster_path": "/iqm7zNoy4kUVziwTbFant8MeZKn.jpg"}, {"id": 243347, "title": "I am the dog that was always here", "year": "2013", "overview": "I am the dog that was always here (loop) is a nine minutes video loop set in the outskirts of Istanbul, focuses on moments of transition and marginalised experiences of time, seen through the lens of a street dog. Having been moved by the authorities to peripheral pockets and no man\u2019s lands outside the expanding city, the dogs are continuously moving along lines of gentrification and corporate city making. Through looping and repetition, Eriksson relates this process to an experience of time: exploring the present as a complex gap between past and future, one in which an increasing process of erasure, spurred on by a shrinking public realm, also removes other registers of being and seeing.", "poster_path": ""}, {"id": 213584, "title": "The Dog It Was That Died", "year": "1989", "overview": "Rupert Purvis jumps off a bridge onto a dog, causing problems for Blair, his superior at MI5. Blair must convince Hogbin, the agent who's been tailing Purvis, of which side Purvis is really on--once he finds out what it is.", "poster_path": "/5NcXLznax3BrAsaFpuf8bIfSR2E.jpg"}]}, {"handle": "the-rules-of-the-game-dvd-rental-comedy", "title": "The Rules of the Game", "vendor": "DVD", "genre": "comedy", "reason": "ambiguous match (best candidate: 'The Rules of the Game' (1999))", "candidates": [{"id": 776, "title": "The Rules of the Game", "year": "1939", "overview": "The Marquis de la Chesnaye and his wife host a weekend gala where a variety of complicated romantic and social entanglements between guests and servants lead to tragedy, all against the backdrop of a looming war.", "poster_path": "/8JOzt7uFZyshcuzCBmYU6CDJL4D.jpg"}, {"id": 316632, "title": "The Rules of the Game", "year": "1975", "overview": "Dramatist Luigi Pirandello's mordant comedy of manners tells the tale of upper-crust Italians Silia Gala and her sneering spouse, Leone, who finds his impassivity tested when he has to duel his wife's frustrated paramour.", "poster_path": "/1rgZCoG6EfSpnFKwLIPFKQwURFT.jpg"}, {"id": 296269, "title": "The Rules of the Game", "year": "2009", "overview": "A groom preparing for his Stag Night in a beautiful country house tells us a story of an engagement gone horribly wrong.", "poster_path": ""}, {"id": 75983, "title": "The Rules of the Game", "year": "1999", "overview": "David Chow infiltrates a gang to take revenge on a triad boss, Shing. His close friend, Chun, was beaten so brutally by Shing that he was left paralyzed. To add to his pain, David\u2019s crush, Ann, chooses to date Shing instead of him. Therefore, David joins Shing\u2019s gang under the pretense of seeking wealth and a better future. Secretly, he plans his revenge against Shing.", "poster_path": "/rWPUbU78DDAowWjMuYDSfd3REaA.jpg"}, {"id": 1553536, "title": "The Rules of the Game", "year": "2013", "overview": "The film closely follows the lives of patients in a hospice. We witness their everyday existence \u2013 their tears, pain and suffering, but also some joyful moments. For, against all expectations, a hospice is not only a place where one comes to die.", "poster_path": ""}]}, {"handle": "the-three-muskateers-bluray-floor-sale-action", "title": "The Three Muskateers", "vendor": "Blu-Ray", "genre": "action", "reason": "ambiguous match (best candidate: 'Constable Hyung-rae and the Three Insect Muskateers' (1990))", "candidates": [{"id": 814995, "title": "Constable Hyung-rae and the Three Insect Muskateers", "year": "1990", "overview": "Sol-i and Song-i head to Hanyang with the blueprint for a cannon invented by their father. On the way, they meet Japanese pirates and get captured, but Baek Du-geon appears and defeats the pirates and saves Sol-i and Song-i. Sol-i and Song-i arrive in Hanyang and hand over the blueprint to Hong Cham-pan, and Baek Du-gun and the three insect musketeers cause a commotion. Hong Cham-pan, who was handed the blueprint, works with the snake demon and tries to sell the blueprint to a Japanese spy (Miyamoto).  Based on the popular segment 'Drumbeat from the Border' from KBS's Humor No. 1 at the time.", "poster_path": "/lDOIL9uYui0XY2s8myCbFuApsQS.jpg"}]}, {"handle": "187-vhs", "title": "187", "vendor": "VHS", "genre": "thriller", "reason": "ambiguous match (best candidate: 'A.I. 187' (2019))", "candidates": [{"id": 614365, "title": "A.I. 187", "year": "2019", "overview": "The A.I. 187 chip which can revolutionize the inner workings of the human brain has been developed for the greater good, but falling in the wrong hands can be a weapon of mass destruction.", "poster_path": "/wNcTkJ38MyCaU7KvMH3C3LcMDmv.jpg"}, {"id": 946828, "title": "Series 18.7", "year": "2016", "overview": "short film by Naoko Tasaka", "poster_path": "/bRz4G8HGNuZIZralt4HJ39XKSat.jpg"}, {"id": 1481697, "title": "Building 187", "year": "", "overview": "In war-torn Lebanon, neighbors in Bsalim experience the conflict solely through their television screens, trapped in a hypnotic cycle of fear and detachment.", "poster_path": ""}, {"id": 473973, "title": "L.A. County 187", "year": "2003", "overview": "It's another night in L.A. County 187 for policeman Walter Drazin and his team, but when they find the corpses of an Asian family in a burned down club, arson and murder come to the fore. As Drazin investigates the guests of the club, the sordid truth about the city's underworld activities rears its ugly head.", "poster_path": "/5PCLa3DZvIjm3pYpMzQYbpeA9QI.jpg"}, {"id": 1415750, "title": "187cm vs 185cm", "year": "", "overview": "Dong Yoon and Yoon Hee went to the library. Dong Yoon suddenly goes to the bathroom, and in the meantime, Yoo Seop appears.", "poster_path": "/xRyuZYTmYZjNQjeJ9yLT9dNopxu.jpg"}]}, {"handle": "the-secrets-of-dumbledore-bluray", "title": "The Secrets of Dumbledore", "vendor": "Blu-Ray", "genre": "fantasy", "reason": "ambiguous match (best candidate: 'Fantastic Beasts: The Secrets of Dumbledore' (2022))", "candidates": []}, {"handle": "alien-ressurrection-laserdisc-floor-sale-sci-fi", "title": "Alien Ressurrection", "vendor": "Laserdisc", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "falling-down-limited-edition-blu-ray-4k-ultra-hd-4k-floor-sale-action", "title": "Falling Down (Limited Edition) [Blu-ray] [4K Ultra HD]", "vendor": "4K", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "tcm-sci-fi-collection-dvd-rental-sci-fi", "title": "TCM Sci-Fi Collection", "vendor": "DVD", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "snowboat-academy-vhs-rental-comedy", "title": "Snowboat Academy", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-spider-and-the-fly-vhs-floor-sale-drama", "title": "The Spider and the Fly", "vendor": "VHS", "genre": "drama", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "camoulage-vhs-floor-sale-comedy", "title": "Camoulage", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "bangkock-dangerous-dvd-rental-action", "title": "Bangkock Dangerous", "vendor": "DVD", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-moment-cultcave-vhs-floor-sale-musical", "title": "The Moment (Cult Cave)", "vendor": "VHS", "genre": "musical", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "backrooms-cultcave-vhs-floor-sale-horror", "title": "Backrooms (Cult Cave)", "vendor": "VHS", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "misled-screener-vhs-floor-sale-thriller", "title": "Misled - Screener", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "scared-cargo-vhs-floor-sale-thriller", "title": "Scared Cargo", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "walt-disney-mini-classics-commemorative-edition-vhs-floor-sale-kids-family", "title": "Walt Disney Mini Classics: Commemorative Edition", "vendor": "VHS", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "lightnight-incident-vhs-rental-thriller", "title": "Lightnight incident", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "lightnight-incident-vhs-floor-sale-thriller", "title": "Lightnight Incident", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "salems-lot-limited-edition-4k-ultra-hd-4k-floor-sale-horror", "title": "Salem's Lot [Limited Edition] [4K Ultra HD]", "vendor": "4K", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "giallo-essentials-yellow-edition-standard-edition-blu-ray-bluray-floor-sale-horror", "title": "Giallo Essentials [Yellow Edition] Standard Edition [Blu-ray]", "vendor": "Blu-Ray", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "jackie-chans-breakout-hits-limited-edition-4k-ultra-hd-4k-floor-sale-action", "title": "Jackie Chan's Breakout Hits [Limited Edition] [4K Ultra HD]", "vendor": "4K", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "mom-can-i-keep-him-vhs-rental-kids-family", "title": "Mom, Can I Keep Him?", "vendor": "VHS", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "space-rangers-chronicles-2-vhs-rental-sci-fi", "title": "Space Rangers Chronicles 2", "vendor": "VHS", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "leviathan-promotional-cassette-vhs-floor-sale-comedy", "title": "Leviathan Promotional Cassette", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "beauty-shop-leagally-blonde-dvd-rental-comedy", "title": "Beauty Shop / Leagally Blonde", "vendor": "DVD", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "resident-evil-collection-dvd-7", "title": "Resident Evil Collection", "vendor": "DVD", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "miramax-movies-dvd-floor-sale-drama", "title": "Miramax Movies", "vendor": "DVD", "genre": "drama", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "star-wars-i-ii-iii-bluray-16", "title": "Star Wars: I, II, III", "vendor": "Blu-Ray", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "15-classic-movies-dvd-rental-drama", "title": "15 Classic Movies", "vendor": "DVD", "genre": "drama", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "get-hard-central-intelligence-dvd-rental-comedy", "title": "Get Hard / Central Intelligence", "vendor": "DVD", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "masters-of-terror-8-horror-films-dvd-rental-horror", "title": "Masters of Terror: 8 Horror Films", "vendor": "DVD", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "american-horror-stories-12-movie-collection-dvd-rental-horror", "title": "American Horror Stories 12 Movie Collection", "vendor": "DVD", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "3-movie-collection-think-like-a-man-think-like-a-man-too-about-last-night-dvd-rental-romantic-comedy", "title": "3 Movie Collection: Think Like a Man, Think Like a Man Too, About Last Night", "vendor": "DVD", "genre": "romantic-comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "mark-wahlberg-rockstar-perfect-storm-three-kings-corrupter-dvd-rental-action", "title": "Mark Wahlberg: Rockstar, Perfect Storm, Three Kings, Corrupter", "vendor": "DVD", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "missing-in-action-triple-feature-dvd-rental-action", "title": "Missing in Action Triple Feature", "vendor": "DVD", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "action-4-movie-series-contraband-savages-traffic-miami-vice-dvd-6", "title": "Action 4-Movie Series: Contraband, Savages, Traffic, Miami Vice", "vendor": "DVD", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "laugh-out-loud-pineapple-express-the-interview-the-night-before-this-is-the-end-dvd-6", "title": "Laugh Out Loud: Pineapple Express, The Interview, The Night Before, This is the End", "vendor": "DVD", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "8-movie-monster-pack-dvd-5", "title": "8 Movie Monster Pack", "vendor": "DVD", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "double-feature-the-land-before-time-6-7-dvd-rental-kids-family", "title": "Double Feature: The Land Before Time 6&7", "vendor": "DVD", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "against-the-ropes-contrecoups-dvd-rental-drama", "title": "Against the Ropes: Contrecoups", "vendor": "DVD", "genre": "drama", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-shadow-collection-8-movies-dvd-rental-horror", "title": "The Shadow Collection: 8 Movies", "vendor": "DVD", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "max-magician-and-the-legen-of-the-ring-dvd-rental-fantasy", "title": "Max Magician and the Legen of the Ring", "vendor": "DVD", "genre": "fantasy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-bourne-trilogy-dvd-rental-action", "title": "The Bourne Trilogy", "vendor": "DVD", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "star-wars-trilogy-iv-v-vi-dvd-rental-sci-fi", "title": "Star Wars Trilogy: IV, V, VI", "vendor": "DVD", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "star-wars-trilogy-bonus-meterial-dvd-floor-sale-documentary", "title": "Star Wars Trilogy: Bonus Meterial", "vendor": "DVD", "genre": "documentary", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "fast-furious-9-movie-collection-dvd-11", "title": "Fast & Furious 9 Movie Collection", "vendor": "DVD", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "sharks-flipper-lopaka-dvd-floor-sale-kids-family", "title": "Sharks Flipper & Lopaka", "vendor": "DVD", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "caged-in-triple-feature-dvd-rental-action", "title": "Cage'd In: Triple Feature", "vendor": "DVD", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "warner-bros-animation-collection-dvd-rental-kids-family", "title": "Warner Bros. Animation Collection", "vendor": "DVD", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "monster-hunter-dvd-rental-sci-fi", "title": "Monster Hunter", "vendor": "DVD", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "my-bloody-valentine-april-fools-day-dvd-rental-horror", "title": "My Bloody Valentine, April Fool's Day", "vendor": "DVD", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-cat-in-the-hat-sing-along-vhs-rental-kids-family", "title": "The Cat In The Hat Sing-Along", "vendor": "VHS", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "miami-vice-ii-vhs-rental-action", "title": "Miami Vice II", "vendor": "VHS", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "dracula-sucks-dvd-rental-horror", "title": "Dracula Sucks", "vendor": "DVD", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "kino-film-noir-dvd-rental-thriller", "title": "KINO Film Noir", "vendor": "DVD", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "horror-classics-nightmare-castle-dr-jeckyll-mr-hyde-vhs-floor-sale-horror", "title": "Horror Classics: Nightmare Castle, Dr. Jeckyll & Mr. Hyde", "vendor": "VHS", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "paul-mccartney-back-in-the-us-concert-film-dvd-rental-musical", "title": "Paul McCartney | Back in the US Concert Film", "vendor": "DVD", "genre": "musical", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "incubus-volume-2-dvd-rental-musical", "title": "Incubus | Volume 2", "vendor": "DVD", "genre": "musical", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "portaits-of-a-killer-vhs-floor-sale-thriller", "title": "Portaits of a Killer", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "pico-de-gallo-vhs-floor-sale-comedy", "title": "Pico de Gallo", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "courage-and-fire-vhs-floor-sale-drama", "title": "Courage and Fire", "vendor": "VHS", "genre": "drama", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "stephen-kings-nightshift-collection-vhs-floor-sale-horror", "title": "Stephen King's Nightshift Collection", "vendor": "VHS", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "in-the-army-vhs-floor-sale-comedy", "title": "In the Army", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "a-house-on-the-hills-vhs-floor-sale-thriller", "title": "A House on the Hills", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "mututal-needs-vhs-floor-sale-thriller", "title": "Mututal Needs", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "wild-america-fantastic-follies-vhs-floor-sale-kids-family", "title": "Wild America: Fantastic Follies", "vendor": "VHS", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-mummy-collectors-set-dvd-floor-sale-action", "title": "The Mummy Collector's Set", "vendor": "DVD", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "mission-impossible-6-movie-collection-bluray-floor-sale-action", "title": "Mission: Impossible 6 Movie Collection", "vendor": "Blu-Ray", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "trilogy-commando-predator-terminator-bluray-floor-sale-action", "title": "Trilogy: Commando, Predator, Terminator", "vendor": "Blu-Ray", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-bourne-trilogy-bluray-floor-sale-action", "title": "The Bourne Trilogy", "vendor": "Blu-Ray", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "double-feature-first-wives-club-sliding-doors-dvd-floor-sale-comedy-drama", "title": "Double Feature: First Wives Club, Sliding Doors", "vendor": "DVD", "genre": "comedy; drama", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "captain-america-3-movie-collection-3d-bluray-floor-sale-action", "title": "Captain AMerica: 3 Movie Collection (3D)", "vendor": "Blu-Ray", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "national-geographic-ocean-drifters-floor-sale-kids-family", "title": "National Geographic: Ocean Drifters", "vendor": "VHS", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "livin-the-blues-vhs-floor-sale-thriller", "title": "Livin' the Blues", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "prince-caspian-and-the-voyage-of-the-dawn-treader-vhs-floor-sale-kids-family", "title": "Prince Caspian and the Voyage of the Dawn Treader", "vendor": "VHS", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "sister-act-ii-vhs-floor-sale-comedy", "title": "Sister Act II", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "easier-said-vhs-floor-sale-comedy", "title": "Easier Said", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "provovateur-vhs-floor-sale-thriller", "title": "Provovateur", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "in-search-of-the-dragon-vhs-floor-sale-documentary", "title": "In Search of the Dragon", "vendor": "VHS", "genre": "documentary", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "pirates-of-the-caribbean-4-movie-collection-bluray-floor-sale-action", "title": "Pirates of the Caribbean - 4 Movie Collection", "vendor": "Blu-Ray", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "richard-pryor-triple-feature-bluray-floor-sale-comedy", "title": "Richard Pryor Triple Feature", "vendor": "Blu-Ray", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "triple-feature-v-for-vendetta-bluray-floor-sale-action", "title": "Triple Feature: V for Vendetta +", "vendor": "Blu-Ray", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "star-trek-2-disc-special-edition-bluray-floor-sale-sci-fi", "title": "Star Trek: 2 Disc Special Edition", "vendor": "Blu-Ray", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "tron-legacy-tron-the-original-classic-bluray-floor-sale-sci-fi", "title": "Tron Legacy / Tron: The Original Classic", "vendor": "Blu-Ray", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "star-wars-iv-v-vi-bluray-floor-sale-sci-fi", "title": "Star Wars: IV, V, VI", "vendor": "Blu-Ray", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "where-the-wild-things-are-the-neverending-story-bluray-floor-sale-kids-family", "title": "Where the Wild Things Are / The Neverending Story", "vendor": "Blu-Ray", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "harry-potter-complete-8-film-collection-bluray-floor-sale-kids-family", "title": "Harry Potter: Complete 8-Film Collection", "vendor": "Blu-Ray", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-ice-house-dvd-floor-sale-drama", "title": "The Ice House", "vendor": "DVD", "genre": "drama", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "lincon-and-lee-at-antietam-dvd-floor-sale-documentary", "title": "Lincon and Lee at Antietam", "vendor": "DVD", "genre": "documentary", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-little-mermaid-3-movie-collection-bluray-floor-sale-kids-family", "title": "The Little Mermaid (3 Movie Collection)", "vendor": "Blu-Ray", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "9-to-5-vhs-floor-sale-comedy", "title": "9 to 5", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-funnniest-men-of-comedy-vhs", "title": "The Funnniest Men of Comedy", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "murder-in-texas-vhs", "title": "Murder in Texas", "vendor": "VHS", "genre": "drama", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "fast-fortune-vhs", "title": "Fast Fortune", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "somethingn-special-vhs", "title": "Somethingn Special", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "4-film-favorites-batman-collection-bluray", "title": "4 Film Favorites: Batman Collection", "vendor": "Blu-Ray", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "expendables-1-2-3-bluray", "title": "Expendables 1,2&3", "vendor": "Blu-Ray", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "strike-screener-vhs", "title": "Strike (Screener)", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-cutting-ege-vhs", "title": "The Cutting Ege", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "xmen-collection-dvd", "title": "XMen Collection", "vendor": "DVD", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-outer-limits-the-sixth-finger-vhs", "title": "The Outer Limits: The Sixth Finger", "vendor": "VHS", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-outer-limits-demon-with-a-glass-hand-vhs", "title": "The Outer Limits: Demon with a Glass Hand", "vendor": "VHS", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-outer-limits-second-chance-vhs", "title": "The Outer Limits: Second Chance", "vendor": "VHS", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "space-marines-ruby-jean-and-joe-vhs", "title": "Space Marines / Ruby Jean and Joe", "vendor": "VHS", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "mission-galactica-the-cyclone-attack-vhs", "title": "Mission Galactica: The Cyclone Attack", "vendor": "VHS", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "secrets-of-a-married-man-vhs", "title": "Secrets of a Married Man", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "wise-cracks-vhs", "title": "Wise Cracks", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "living-it-up-english-dubbed-vhs", "title": "Living It Up (English Dubbed)", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-caged-heart-vhs", "title": "The Caged Heart", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "sand-diego-zoo-its-a-wild-life-vhs", "title": "San Diego Zoo: It's a Wild Life", "vendor": "VHS", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "huck-the-kind-of-hearts-vhs", "title": "Huck & The Kind of Hearts", "vendor": "VHS", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "harry-potter-and-the-deathly-hollows-bluray", "title": "Harry Potter and the Deathly Hollows", "vendor": "Blu-Ray", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "almost-pregnant-a-bedtime-story", "title": "Almost Pregnant: A Bedtime Story", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "outsiders", "title": "Outsiders", "vendor": "VHS", "genre": "drama", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "puss-in-boots-faerie-tale-theatre", "title": "Puss in Boots (Faerie Tale Theatre)", "vendor": "VHS", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "alegria-an-enchanting-fable", "title": "Alegria: An Enchanting Fable", "vendor": "VHS", "genre": "musical", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "area-51-secrets-of-dreamland", "title": "Area 51 Secrets of Dreamland", "vendor": "VHS", "genre": "documentary", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "wide-awake-demo-tape", "title": "Wide Awake (Demo Tape)", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "evil-judgment-vinegar-syndrome", "title": "Evil Judgment (Vinegar Syndrome)", "vendor": "Blu-Ray", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "lost-picture-show-vinegar-syndrome", "title": "Lost Picture Show (Vinegar Syndrome)", "vendor": "Blu-Ray", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "hugo-mask-special-horrible-full-head-mask-with-hair", "title": "Hugo Mask Special! Horrible Full Head Mask With Hair!", "vendor": "Blu-Ray", "genre": "horror", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "the-cardona-collection-vol-2-vinegar-syndrome", "title": "The Cardona Collection Vol. 2 (Vinegar Syndrome)", "vendor": "Blu-Ray", "genre": "action", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "backtrack-1992-directors-cut", "title": "BackTrack (1992 Director's Cut)", "vendor": "VHS", "genre": "thriller", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "an-american-summer-vhs", "title": "An American Summer [vhs]", "vendor": "VHS", "genre": "drama", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "missing-link-peter-elliot-vhs-rare-1st-edition-original-release-1989-mca", "title": "Missing Link Peter Elliot Vhs Rare 1st Edition Original Release 1989 Mca", "vendor": "VHS", "genre": "sci-fi", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "americas-great-national-parks-yosemite-yellowstone-grand-canyon-vhs-vcr-tapes", "title": "America's Great National Parks Yosemite Yellowstone Grand Canyon Vhs Vcr Tapes", "vendor": "VHS", "genre": "kids-family", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "an-evening-with-robin-williams-live-uncensored", "title": "An Evening With Robin Williams: Live & Uncensored", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}, {"handle": "jerry-seinfeld-comedian-demo-tape", "title": "Jerry Seinfeld: Comedian (Demo Tape)", "vendor": "VHS", "genre": "comedy", "reason": "no TMDB match", "candidates": [], "source_folder": "9.2-gaps"}];
+const BATCH_ID = "review-9.2-gaps";
+const STORAGE_KEY = "tmdb-review-picks::" + BATCH_ID;
+const MANUAL_KEY = "tmdb-review-manual::" + BATCH_ID;
+const HIDE_DECIDED_KEY = "tmdb-review-hide-decided::" + BATCH_ID;
+const PENDING_KEY = "tmdb-review-pending::" + BATCH_ID;
+
+const MANUAL_DEBOUNCE_MS = 1500;
+const MAX_SAVE_ATTEMPTS = 5;
+const RETRY_BASE_MS = 3000;
+
+function loadCache(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || {}; }
+  catch (e) { return {}; }
+}
+function saveCache() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(picks));
+  localStorage.setItem(MANUAL_KEY, JSON.stringify(manualData));
+}
+
+let picks = loadCache(STORAGE_KEY);
+let manualData = loadCache(MANUAL_KEY);
+let saveState = {};
+const debounceTimers = {};
+
+// Handles whose save has been started but not confirmed by the server. Persisted
+// so a reload mid-failure does not silently drop the pick: on load we re-POST
+// anything still pending that the server does not already have.
+function loadPending() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(PENDING_KEY));
+    return Array.isArray(raw) ? raw : [];
+  } catch (e) { return []; }
+}
+let pending = loadPending();
+function persistPending() {
+  localStorage.setItem(PENDING_KEY, JSON.stringify(pending));
+}
+function markPending(handle) {
+  if (pending.indexOf(handle) === -1) { pending.push(handle); persistPending(); }
+}
+function clearPending(handle) {
+  const i = pending.indexOf(handle);
+  if (i !== -1) { pending.splice(i, 1); persistPending(); }
+}
+
+// Returns the candidate index (as a string), "manual", "skip", or null when a
+// stored "tmdb" pick matches none of this page-load's candidates. null means
+// "leave undecided" -- never silently downgrade a good tmdb pick to a blank
+// manual one, which the client could then overwrite with nothing.
+function pickChoiceIndex(product, remotePick) {
+  if (remotePick.choice === "manual") return "manual";
+  if (remotePick.choice === "skip") return "skip";
+  let idx = product.candidates.findIndex(
+    c => c.poster_path === remotePick.poster_path && c.overview === remotePick.overview);
+  if (idx === -1) {
+    // poster_path is the stable identifier; overview text drifts between TMDB fetches.
+    idx = product.candidates.findIndex(
+      c => c.poster_path && c.poster_path === remotePick.poster_path);
+  }
+  return idx === -1 ? null : String(idx);
+}
+
+function matchesRemote(handle, value, remotePick) {
+  if (!remotePick) return false;
+  const payload = buildPayload(handle, value);
+  if (remotePick.choice !== payload.choice) return false;
+  if (payload.choice === "tmdb") return (remotePick.poster_path || "") === (payload.poster_path || "");
+  if (payload.choice === "manual") {
+    return (remotePick.image_src || "") === payload.image_src
+      && (remotePick.overview || "") === payload.overview;
+  }
+  return true;
+}
+
+function resendPending(remotePicks) {
+  const byHandle = {};
+  for (const remotePick of remotePicks) byHandle[remotePick.handle] = remotePick;
+  for (const handle of pending.slice()) {
+    const value = picks[handle];
+    if (value === undefined) { clearPending(handle); continue; }
+    // A debounced save for this handle is already queued -- don't double-POST.
+    if (debounceTimers[handle]) continue;
+    if (matchesRemote(handle, value, byHandle[handle])) {
+      clearPending(handle);
+      setSaveState(handle, "saved");
+      continue;
+    }
+    savePick(handle, value);
+  }
+}
+
+async function hydrateFromServer() {
+  let remotePicks = [];
+  try {
+    const response = await fetch("/api/get-picks?batch=review-9.2-gaps");
+    if (!response.ok) return;
+    remotePicks = await response.json();
+    if (!Array.isArray(remotePicks)) return;
+    for (const remotePick of remotePicks) {
+      const product = PRODUCTS.find(p => p.handle === remotePick.handle);
+      if (!product) continue;
+      // A locally pending handle holds a newer, unconfirmed value -- don't clobber it.
+      if (pending.indexOf(remotePick.handle) !== -1) continue;
+      const choice = pickChoiceIndex(product, remotePick);
+      if (choice === null) {
+        delete picks[remotePick.handle];
+        continue;
+      }
+      picks[remotePick.handle] = choice;
+      if (remotePick.choice === "manual") {
+        manualData[remotePick.handle] = { image_src: remotePick.image_src || "", overview: remotePick.overview || "" };
+      }
+    }
+    saveCache();
+    render();
+  } catch (e) { /* offline or first load with nothing saved yet -- localStorage cache still applies */ }
+  resendPending(remotePicks);
+}
+
+function esc(text) {
+  const div = document.createElement("div");
+  div.textContent = text || "";
+  return div.innerHTML;
+}
+
+function optionHtml(handle, value, checked, extraClass, inner) {
+  return `<label class="option ${extraClass}">
+    <input type="radio" name="pick-${esc(handle)}" value="${value}" ${checked ? "checked" : ""}>
+    ${inner}
+  </label>`;
+}
+
+function saveStateLabel(state) {
+  if (state === "saving") return "Saving…";
+  if (state === "saved") return "Saved ✓";
+  if (state === "failed") return "Not saved — save failed";
+  if (state === "error") return "Not saved — retrying";
+  return "";
+}
+
+function saveStateHtml(handle) {
+  const state = saveState[handle] || "";
+  return `<span class="save-state ${state}">${saveStateLabel(state)}</span>`;
+}
+
+function cardFor(handle) {
+  const cards = document.getElementById("cards").children;
+  for (const card of cards) {
+    if (card.dataset.handle === handle) return card;
+  }
+  return null;
+}
+
+// Update only this card's save-state indicator. Never re-render: a full render()
+// destroys the DOM (and focus/caret) of any manual field being typed into.
+function setSaveState(handle, state) {
+  saveState[handle] = state;
+  const card = cardFor(handle);
+  if (!card) return;
+  const span = card.querySelector(".save-state");
+  if (!span) return;
+  span.className = "save-state " + state;
+  span.textContent = saveStateLabel(state);
+}
+
+function markDecided(handle) {
+  const card = cardFor(handle);
+  if (card) card.classList.add("decided");
+  updateCounter();
+}
+
+function render() {
+  const cards = document.getElementById("cards");
+  cards.innerHTML = PRODUCTS.map(product => {
+    const current = picks[product.handle];
+    const searchUrl = "https://www.themoviedb.org/search?query=" + encodeURIComponent(product.title);
+    const googleUrl = "https://www.google.com/search?q=" + encodeURIComponent(product.title + " movie");
+    const options = product.candidates.map((candidate, i) => {
+      const poster = candidate.poster_path
+        ? `<img src="https://image.tmdb.org/t/p/w185${esc(candidate.poster_path)}" alt="" loading="lazy">`
+        : '<div class="no-poster">no poster</div>';
+      const overview = candidate.overview ? esc(candidate.overview) : "<em>(no overview)</em>";
+      return optionHtml(product.handle, String(i), current === String(i), "",
+        `${poster}<span class="info"><strong>${esc(candidate.title)}</strong> (${esc(candidate.year) || "?"})<br>${overview}</span>`);
+    }).join("");
+    const tags = [product.vendor, product.genre].filter(Boolean);
+    const tagsHtml = tags.length
+      ? `<span class="tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</span>`
+      : "";
+    return `<section class="card ${current !== undefined ? "decided" : ""}" data-handle="${esc(product.handle)}">
+      <h2>${esc(product.title)} ${tagsHtml} ${saveStateHtml(product.handle)}</h2>
+      <div class="meta"><code>${esc(product.handle)}</code> — ${esc(product.reason)}
+        · <a href="${searchUrl}" target="_blank">TMDB search</a>
+        · <a href="${googleUrl}" target="_blank">Google</a></div>
+      <div class="candidates">
+        ${options}
+        <div class="secondary-options">
+          ${optionHtml(product.handle, "manual", current === "manual", "special",
+            `<span class="info"><strong>Type it in myself</strong>
+              <span class="manual-fields">
+                <input type="url" class="manual-image" placeholder="Image URL (leave blank to keep current)"
+                       value="${esc((manualData[product.handle] || {}).image_src || "")}">
+                <textarea class="manual-overview" placeholder="Description (leave blank to keep current)">${esc((manualData[product.handle] || {}).overview || "")}</textarea>
+              </span>
+            </span>`)}
+          ${optionHtml(product.handle, "skip", current === "skip", "special",
+            '<span class="info"><strong>None of these match — skip</strong></span>')}
+        </div>
+      </div>
+    </section>`;
+  }).join("");
+  updateCounter();
+}
+
+function updateCounter() {
+  const decided = Object.keys(picks).length;
+  document.getElementById("counter").textContent = `${decided} / ${PRODUCTS.length} decided`;
+}
+
+const hideDecidedBox = document.getElementById("hide-decided");
+hideDecidedBox.checked = localStorage.getItem(HIDE_DECIDED_KEY) === "1";
+document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+hideDecidedBox.addEventListener("change", () => {
+  document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+  localStorage.setItem(HIDE_DECIDED_KEY, hideDecidedBox.checked ? "1" : "0");
+});
+
+function buildPayload(handle, value) {
+  if (value === "skip") return { batch: BATCH_ID, handle, choice: "skip" };
+  if (value === "manual") {
+    const fields = manualData[handle] || {};
+    return { batch: BATCH_ID, handle, choice: "manual", image_src: fields.image_src || "", overview: fields.overview || "" };
+  }
+  const product = PRODUCTS.find(p => p.handle === handle);
+  const candidate = product.candidates[Number(value)];
+  return { batch: BATCH_ID, handle, choice: "tmdb", poster_path: candidate.poster_path, overview: candidate.overview };
+}
+
+async function savePick(handle, value, attempt) {
+  attempt = attempt || 0;
+  markPending(handle);
+  setSaveState(handle, "saving");
+  try {
+    const response = await fetch("/api/save-pick", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(buildPayload(handle, value)),
+    });
+    if (!response.ok) throw new Error("save failed");
+    setSaveState(handle, "saved");
+    clearPending(handle);
+  } catch (e) {
+    if (attempt + 1 >= MAX_SAVE_ATTEMPTS) {
+      // Out of retries: leave a persistent error state rather than looping forever.
+      // The handle stays in `pending`, so a reload re-attempts it.
+      setSaveState(handle, "failed");
+      return;
+    }
+    setSaveState(handle, "error");
+    setTimeout(() => {
+      // Abandon this retry if a newer save has superseded it -- otherwise a stale
+      // queued retry can clobber the client's correction with the old value.
+      if (picks[handle] !== value) return;
+      if (debounceTimers[handle]) return;
+      savePick(handle, value, attempt + 1);
+    }, RETRY_BASE_MS * Math.pow(2, attempt));
+  }
+}
+
+// Manual free-text saves are debounced: each save is a git commit, so saving on
+// every keystroke would produce one commit (and one Pages deploy) per character.
+function queueManualSave(handle) {
+  markPending(handle);
+  clearTimeout(debounceTimers[handle]);
+  debounceTimers[handle] = setTimeout(() => {
+    delete debounceTimers[handle];
+    savePick(handle, "manual");
+  }, MANUAL_DEBOUNCE_MS);
+}
+
+document.getElementById("cards").addEventListener("change", event => {
+  const input = event.target;
+  if (input.type !== "radio") return;
+  const handle = input.closest(".card").dataset.handle;
+  picks[handle] = input.value;
+  saveCache();
+  markDecided(handle);
+  savePick(handle, input.value);
+});
+
+document.getElementById("cards").addEventListener("input", event => {
+  const input = event.target;
+  if (!input.classList.contains("manual-image") && !input.classList.contains("manual-overview")) return;
+  const card = input.closest(".card");
+  const handle = card.dataset.handle;
+  const fields = manualData[handle] || {};
+  if (input.classList.contains("manual-image")) fields.image_src = input.value;
+  else fields.overview = input.value;
+  manualData[handle] = fields;
+  if (picks[handle] !== "manual") {
+    picks[handle] = "manual";
+    const radio = card.querySelector('input[type="radio"][value="manual"]');
+    if (radio) radio.checked = true;
+  }
+  saveCache();
+  markDecided(handle);
+  queueManualSave(handle);
+});
+
+render();
+hydrateFromServer();
+</script>
+</body>
+</html>
