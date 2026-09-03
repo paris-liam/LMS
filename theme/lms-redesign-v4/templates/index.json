@@ -573,8 +573,8 @@
         "button_label": "JOIN THE CLUB →",
         "button_link": "/pages/membership",
         "background_color": "",
-        "padding-block-start": 72,
-        "padding-block-end": 72
+        "padding-block-start": 40,
+        "padding-block-end": 40
       }
     },
     "lms_events_full": {
