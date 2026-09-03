@@ -228,5 +228,11 @@
     "choice": "tmdb",
     "poster_path": "/AjxnGP5gsCf1Oz9D9gfoiFFpViC.jpg",
     "overview": "Super Dave Osborne, our accident-prone stuntman hero, comes out of a self-imposed retirement to raise money for his new girlfriend's son's heart operation."
+  },
+  {
+    "handle": "super-troopers",
+    "choice": "tmdb",
+    "poster_path": "/yJyxPItcLNVfYr7idOphQTmQ9hK.jpg",
+    "overview": "Five bored, occasionally high and always ineffective Vermont state troopers must prove their worth to the governor or lose their jobs. After stumbling on a drug ring, they plan to make a bust, but a rival police force is out to steal the glory."
   }
 ]
