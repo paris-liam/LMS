@@ -13,6 +13,7 @@
                 metafield. See claudedocs/2026-08-07-product-data-model-audit.md
                 for why.
   - Condition:  card_product.metafields.custom.media_condition (retail new-sealed only; used/rental copies use Supercycle item condition)
+  - Genre:      card_product.metafields.shopify.genre.value.first.label (hidden when blank)
   - Rare flag:  card_product.tags contains 'rare'
 
   Usage:
@@ -30,6 +31,7 @@
   if known_formats contains vendor_upcase
     assign format_label = card_product.vendor
   endif
+  assign genre_label = card_product.metafields.shopify.genre.value.first.label.value
 -%}
 
 {%- if card_product and card_product != empty -%}
@@ -57,6 +59,9 @@
       <span class="lms-product-card__tags">
         {%- if format_label != blank -%}
           <span class="lms-badge lms-badge--muted">{{ format_label }}</span>
+        {%- endif -%}
+        {%- if genre_label != blank -%}
+          <span class="lms-badge lms-badge--muted">{{ genre_label }}</span>
         {%- endif -%}
         {%- if card_product.metafields.custom.media_condition != blank -%}
           <span class="lms-badge lms-badge--muted">{{ card_product.metafields.custom.media_condition.value }}</span>
