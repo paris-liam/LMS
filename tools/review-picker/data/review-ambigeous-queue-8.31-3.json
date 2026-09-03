@@ -1,1 +1,192 @@
-[]
+[
+  {
+    "handle": "howard-stern-private-parts-vhs",
+    "choice": "tmdb",
+    "poster_path": "/8nCc9fhXCVvetlqpxkrCTc9NwOz.jpg",
+    "overview": "The life and career of shock-jock superstar Howard Stern is recounted from his humble beginnings to his view from the top. Possessing a desire to be an on-air personality since childhood, Stern meanders through the radio world, always with his supportive wife, Alison, by his side. Landing a gig in Washington, D.C., Stern meets Robin Quivers, who will become his long-time partner in crime. When the two move to New York, they face the wrath of NBC executives."
+  },
+  {
+    "handle": "i-heart-huckabees-vhs-floor-sale-comedy",
+    "choice": "tmdb",
+    "poster_path": "/h27ytqXyOrAB6KmRx2abOp8p2W.jpg",
+    "overview": "A husband-and-wife team play detective, but not in the traditional sense. Instead, the happy duo helps others solve their existential issues, the kind that keep you up at night, wondering what it all means."
+  },
+  {
+    "handle": "inferno-skyscraper-escape-dvd",
+    "choice": "tmdb",
+    "poster_path": "/A3laQfentQdbloFeGCPeCGZrzrQ.jpg",
+    "overview": "Disaster hits when two teenagers are caught in a fire on the 20th floor of a skyscraper. Their parents are on the 60th. Will they survive the flames?"
+  },
+  {
+    "handle": "invasion-of-the-tinysauruses-dvd-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/zREv4ST6lZUcxWIy2LPJKB011Gj.jpg",
+    "overview": "Littlefoot and his friends return in another adventure. But this time, they aren't the smallest dinosaurs in the valley anymore."
+  },
+  {
+    "handle": "its-the-rage-vhs-floor-sale-drama",
+    "choice": "tmdb",
+    "poster_path": "/ug180c08YBK7kaRi5HGrqmCWNLf.jpg",
+    "overview": "A rich cross-section of urban USA find their lives changed when their fates collide at gunpoint. At the centre of it all are Helen and Warren Harding, an up-scale couple on the brink of divorce, whose awakening in the night by a burglar sets off a catastrophic series of events."
+  },
+  {
+    "handle": "jarhead-3-bluray-floor-sale-action",
+    "choice": "tmdb",
+    "poster_path": "/namZEDSMbFOSI3sMjzeSJ4E176o.jpg",
+    "overview": "Corporal Evan Albright joined the elite Marine Corps Security Guards to save the world and see some action-not necessarily in that order. But his first assignment, protecting a U. S. Embassy in a seemingly safe Middle Eastern capitol, relegates his unit to wrangling \"gate groupies\" protesting outside the compound and honing their marksmanship by playing video games. So Albright and his team are caught off guard when well-armed and well-trained militants launch a surprise attack aimed at killing an informant in the embassy. Heavily out-gunned, they will have to muster all the courage and fire power they can as their once routine assignment spirals into all-out war."
+  },
+  {
+    "handle": "jimi-hendrix-jimi-plays-berkeley-vhs-rental-musical",
+    "choice": "tmdb",
+    "poster_path": "/tP5GNIN8bju97TPLZr9tIWLhMnr.jpg",
+    "overview": "This rousing world-famous concert is regarded by critics to be one of Jimi Hendrix's finest performances ever. Taking footage from two separate performances at the Berkeley Community Theater on May 30th, 1970, these incendiary shows help illustrate the student uprisings in Berkeley, by setting footage to the stunning backdrop of some awe-inspiring Hendrix material. Tracks include \"Purple Haze,\" \"Voodoo Child (Slight Return),\" \"Star Spangled Banner,\" \"Hey Joe,\" and many others. This is a never-to-be-forgotten musical experience you will enjoy over and over again."
+  },
+  {
+    "handle": "josh-and-sam-vhs-floor-sale-comedy",
+    "choice": "tmdb",
+    "poster_path": "/dWggqpyiZzhvpIyef5ZPB4Lsscu.jpg",
+    "overview": "Josh and Sam are two brothers facing change, their mother is about to marry a French accountant and the kids are sent to go live with their father in Florida. Meanwhile, Josh tells Sam that he is a \"S.A.M.\" that is going to be sent to Africa to fight in a war and that Canada is a safe haven for any S.A.M. unwilling to fight. Will Josh & S.A.M. make it to Canada or will they wish they should have never left home?"
+  },
+  {
+    "handle": "journey-to-the-far-side-of-the-sun-vhs",
+    "choice": "tmdb",
+    "poster_path": "/tW7Dr74ovic9wTAqoeRZy2SQ96L.jpg",
+    "overview": "A planet is discovered in the same orbit as Earth's but is located on the exact opposite side of the sun, making it not visible from Earth. The European Space Exploration Council decide to send American astronaut Glenn Ross and British scientist John Kane via spaceship to explore the other planet."
+  },
+  {
+    "handle": "jurassic-park-jurassic-world-fallen-kingdom-steelbook-bluray-floor-sale-4k-action",
+    "choice": "tmdb",
+    "poster_path": "/x2Us3jR6ToMJjbcPbLimYoxf6xr.jpg",
+    "overview": "Three years after Jurassic World was destroyed, Isla Nublar now sits abandoned. When the island's dormant volcano begins roaring to life, Owen and Claire mount a campaign to rescue the remaining dinosaurs from this extinction-level event."
+  },
+  {
+    "handle": "justice-league-gotham-city-breakout-dvd-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/lVlV77juRfkB4gXtkgEqZyqHzkk.jpg",
+    "overview": "The caped crusader reluctantly agrees to let Batgirl and Nightwing take him on a long overdue vacation from crime-fighting, while Superman and the Justice League watch over Gotham City."
+  },
+  {
+    "handle": "la-femme-nikita-vhs-floor-sale-action",
+    "choice": "tmdb",
+    "poster_path": "/1ulQDewUG4KKHOhpXdGKm3GdLFq.jpg",
+    "overview": "A beautiful felon, sentenced to life in prison for the murder of a policeman, is given a second chance \u2013 as a secret political assassin controlled by the government."
+  },
+  {
+    "handle": "leapin-lizards-vhs-floor-sale-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/2IgqKTu5DvBHzi4ogZppluROAU8.jpg",
+    "overview": "Television played a key role in the legendary Liberace career making him a household word to millions and the medium's first matinee idol. \"Leapin' Lizards, It's Liberace!\" video taped in 1978 was his first major television special from Las Vegas. \"Leapin' Lizards, It's Liberace!\" gives us a spoofed view of a typical day in the life of Mr.Showmanship, before he was off to \"work\" at the Las Vegas Hilton Hotel in his mirrored Rolls Royce. There is a view of the magnificent Liberace Las Vegas Villa, from bedroom to piano motif swimming pool. After arriving at the Hilton showroom, guest star Debbie Reynolds, Liberace's favorite movie star and performer, joins him on stage for a salute to the Broadway musical, \"Annie,\" complete with Sandy the Dog."
+  },
+  {
+    "handle": "leroy-and-stich-dvd-floor-sale-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/1LCfRArffse3PnqkACooOHkWcry.jpg",
+    "overview": "Lilo, Stitch, Jumba, and Pleakley have finally caught all of Jumba's genetic experiments and found the one true place where each of them belongs. Stitch, Jumba and Pleakley are offered positions in the Galactic Alliance, turning them down so they can stay on Earth with Lilo, but Lilo realizes her alien friends have places where they belong \u2013 and it's finally time to say \"aloha\"."
+  },
+  {
+    "handle": "lion-king-1-1-2-dvd-floor-sale-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/u2hN0WT7Dz46HfhQbr6uzSYfVW4.jpg",
+    "overview": "Timon the meerkat and Pumbaa the warthog are best pals and the unsung heroes of the African savanna. This prequel to the smash Disney animated adventure takes you back -- way back -- before Simba's adventure began. You'll find out all about Timon and Pumbaa and tag along as they search for the perfect home and attempt to raise a rambunctious lion cub."
+  },
+  {
+    "handle": "loaded-weapon-1-vhs",
+    "choice": "tmdb",
+    "poster_path": "/moP0nyVWVisqSeH6nMewWyIPV6z.jpg",
+    "overview": "An LA detective is murdered because she has microfilm with the recipe to make cocaine cookies. Two cops partner to find and stop the fiends before they can dope the nation by distributing their wares via the 'Wilderness Girls' cookie drive."
+  },
+  {
+    "handle": "lonely-guy-vhs-rental-romantic-comedy",
+    "choice": "tmdb",
+    "poster_path": "/y6HWtKt6m41SMZuUeFcs94nWfHs.jpg",
+    "overview": "A writer for a greeting card company learns the true meaning of loneliness when he comes home to find his girlfriend in bed with another man."
+  },
+  {
+    "handle": "mary-kate-ashleys-school-dance-party-vhs-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/sXMGar5XopP4a3klBWD4ltV9zjX.jpg",
+    "overview": "Mary-Kate, Ashley and their friends are all excited about the big school dance.  Unfortunately, Mary-Kate doesn't have a date yet, and Ashley is nervous about her decision to run for Queen of the Dance.  Join the girls as they put on their best outfits and get ready to party because you're invited to dance the night away with Mary-Kate and Ashley."
+  },
+  {
+    "handle": "mi-vida-loca-my-crazy-life-vhs-floor-sale-drama",
+    "choice": "tmdb",
+    "poster_path": "/gtKIaHUqkNqdgVnMFosyVJXvKMC.jpg",
+    "overview": "Two Indigenous Latina bestfriends, Mousie and Sad Girl live in a contemporary Los Angeles poor Indigenous Hispanic American neighborhood. But when Sad Girl becomes pregnant by Mousie's boyfriend, a drug dealer named Ernesto, the two become bitter enemies. While their dispute escalates towards violence, the violence of the world around them soon also impacts their lives."
+  },
+  {
+    "handle": "miami-vice-the-movie-vhs-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/iK5MXD5pefmg46ZY52SE97iurjn.jpg",
+    "overview": "Miami detective Sonny Crockett reluctantly teams with New York City cop Rico Tubbs when both of them end up pursuing a drug dealer who killed their respective partners."
+  },
+  {
+    "handle": "michael-jackson-moonwalker-vhs",
+    "choice": "tmdb",
+    "poster_path": "/3GwTPQkAcgDeAirRpEuJG8HDdRz.jpg",
+    "overview": "This fantastical movie inspired by the music of Michael Jackson features imaginative interpretations of hit tracks from the iconic 1987 album \u201cBad\u201d."
+  },
+  {
+    "handle": "miss-congeniality-2-dvd-floor-sale-comedy",
+    "choice": "tmdb",
+    "poster_path": "/gcYoIHND3ugn2VH1cNHHNQasEyI.jpg",
+    "overview": "After her triumph at the Miss United States pageant, FBI agent Gracie Hart becomes an overnight sensation -- and the new \"face of the FBI\". But it's time to spring into action again when the pageant's winner, Cheryl, and emcee, Stan, are abducted."
+  },
+  {
+    "handle": "mission-of-the-shark-vhs-floor-sale-drama",
+    "choice": "tmdb",
+    "poster_path": "/8umESu1763uloiI6oTUAQWG6l5R.jpg",
+    "overview": "True story of the sinking of the U.S.S. Indianapolis, its crew's struggle to survive the sharks and exposure, and the captain's scape-goat court-martial."
+  },
+  {
+    "handle": "molly-gina-vhs-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/mqj8sAR22ihLjCard9qqd5zzT9t.jpg",
+    "overview": "Molly is the former secretary of a murdered private detective. Gina, a budding actress, witnessed the shooting which also killed her boyfriend. Together, they set out to bring the culprits to justice."
+  },
+  {
+    "handle": "monsters-university-monsters-inc-bluray-floor-sale-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/y7thwJ7z5Bplv6vwl6RI0yteaDD.jpg",
+    "overview": "A look at the relationship between Mike and Sulley during their days at Monsters University \u2014 when they weren't necessarily the best of friends."
+  },
+  {
+    "handle": "motives-2-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/dsbmWCEd09QwWjlmdgeDCAbgpMz.jpg",
+    "overview": "Vivica A. Fox and Shemar Moore return for this thrilling sequel to Motives that picks up three years after the events of the original film. Innocent convict Emery Simms is serving time for a crime he didn't commit; while most convict's claims of innocence are shoddy at best, Emery has every reason to protest his wrongful incarceration. Meanwhile, in the outside world, Emery's ex-wife (Fox) has married his best friend and the pair is struggling to build a normal life together. When Emery is killed in prison and his brother Donovan (Brian J. White) discovers the truth about what killed his ill-fated sibling, his quest to cut through the complex web of lies and deceit which previously ensnared Emery threatens to bring about deadly consequences."
+  },
+  {
+    "handle": "mpd-psycho-dvd-floor-sale-thriller",
+    "choice": "tmdb",
+    "poster_path": "/AnUUQfkv45IJM0ZBNnz1FOZFVKi.jpg",
+    "overview": "A reworking of MPD Psycho by the author of the original manga Eiji Otsuka edited from the TV show and newly-filmed scenes."
+  },
+  {
+    "handle": "naked-country-vhs-floor-sale-comedy",
+    "choice": "tmdb",
+    "poster_path": "/h8Qo15R7EPfvHAZ6v9oiNOGzaNB.jpg",
+    "overview": "Far North Queensland, 1955.  Deep in the untamed frontier tough rancher Lance Dillon and his sensual, but bored wife, battle inhospitable nature to eke out a living from their cattle herd.  When the aborigines kill the Dillon's prize bull a chase begins that will culminate in bloody tragedy with Lance pitted against Mandaru - an aborigine struggling to maintain his cultural way of life"
+  },
+  {
+    "handle": "night-watch-day-watch",
+    "choice": "tmdb",
+    "poster_path": "/c99EkthlyDtdVh0xTaKsk9PRDg1.jpg",
+    "overview": "A man who serves in the war between the forces of Light and Dark comes into possession of a device that can restore life to Moscow, which was nearly destroyed by an apocalyptic event."
+  },
+  {
+    "handle": "laberinth-dvd-floor-sale-fantasy",
+    "choice": "skip"
+  },
+  {
+    "handle": "lonesome-dove-dvd-rental-drama",
+    "choice": "skip"
+  },
+  {
+    "handle": "love-and-monsters-dvd-rental-action",
+    "choice": "skip"
+  },
+  {
+    "handle": "midnight-strangers",
+    "choice": "skip"
+  }
+]

@@ -546,23 +546,6 @@
     "source_folder": "out-circa-refill-8.30"
   },
   {
-    "handle": "an-all-dogs-christmas-christmas-carol-dvd-rental-holiday",
-    "title": "An All Dogs Christmas / Christmas Carol",
-    "vendor": "DVD",
-    "genre": "holiday",
-    "reason": "ambiguous match (best candidate: 'An All Dogs Christmas Carol' (1998))",
-    "candidates": [
-      {
-        "id": 51985,
-        "title": "An All Dogs Christmas Carol",
-        "year": "1998",
-        "overview": "Charlie, Itchy and Sasha itch and scratch their way through everything and anything in an effort to save Christmas from the wicked hellhound Belladonna, who wants to use dogs from all over the world to ruin Christmas.",
-        "poster_path": "/7J8qq1O1kAjVdpDJnxuzNC5tH3H.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
-  },
-  {
     "handle": "an-ideal-husband-vhs-floor-sale-comedy",
     "title": "An Ideal Husband",
     "vendor": "VHS",
@@ -1379,23 +1362,6 @@
     "source_folder": "out-product_export_10"
   },
   {
-    "handle": "avatar-extended-bluray",
-    "title": "Avatar (Extended)",
-    "vendor": "Blu-Ray",
-    "genre": "sci-fi",
-    "reason": "ambiguous match (best candidate: 'Avatar' (2009))",
-    "candidates": [
-      {
-        "id": 19995,
-        "title": "Avatar",
-        "year": "2009",
-        "overview": "In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.",
-        "poster_path": "/gKY6q7SjCkAU6FqvqWybDYgUKIF.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_10"
-  },
-  {
     "handle": "b-a-d-cats",
     "title": "B.A.D. Cats",
     "vendor": "VHS",
@@ -1757,23 +1723,6 @@
     "source_folder": "out-product_export_10"
   },
   {
-    "handle": "be-cool-get-shorty-dvd-floor-sale-comedy",
-    "title": "Be Cool / Get Shorty",
-    "vendor": "DVD",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Be Cool' (2005))",
-    "candidates": [
-      {
-        "id": 4551,
-        "title": "Be Cool",
-        "year": "2005",
-        "overview": "Disenchanted with the movie industry, Chili Palmer tries the music industry, meeting and romancing a widow of a music executive along the way.",
-        "poster_path": "/ekKCH7Zkb5ZTr1f1AczZY23FH.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
-  },
-  {
     "handle": "beautiful-creatures-bluray",
     "title": "Beautiful Creatures",
     "vendor": "Blu-Ray",
@@ -1948,23 +1897,6 @@
       }
     ],
     "source_folder": "out-circa-refill-8.30"
-  },
-  {
-    "handle": "beef-4-dvd-floor-sale-documentary",
-    "title": "Beef 4",
-    "vendor": "DVD",
-    "genre": "documentary",
-    "reason": "ambiguous match (best candidate: 'Beef IV' (2007))",
-    "candidates": [
-      {
-        "id": 65772,
-        "title": "Beef IV",
-        "year": "2007",
-        "overview": "Beef IV is the fourth installment of the Beef series. It is a documentary about Hip hop rivalries and beefs (arguments). It was released on DVD on September 18, 2007. It was directed by Peter Alton and lasts approximately 108 minutes. It was narrated by Charlie Murphy.",
-        "poster_path": "/l5mlfDP342vGKOK1rNztaW6DHv6.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
   },
   {
     "handle": "before-and-after",
@@ -2181,23 +2113,6 @@
     "source_folder": "out-circa-refill-8.30"
   },
   {
-    "handle": "beverly-hills-chihuahua-3-dvd-rental-kids-family",
-    "title": "Beverly Hills Chihuahua 3",
-    "vendor": "DVD",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Beverly Hills Chihuahua 3: Viva la Fiesta!' (2012))",
-    "candidates": [
-      {
-        "id": 105965,
-        "title": "Beverly Hills Chihuahua 3: Viva la Fiesta!",
-        "year": "2012",
-        "overview": "When Papi, Chloe, the pups, Uncle Pedro, and their owners move to a hotel, the smallest pup Rosa feels like she doesn't fit in, and Papi wants to make her feel better by showing her how special she is.",
-        "poster_path": "/fK3U8xulldz6lhMDuz3LFB7ngWH.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_5"
-  },
-  {
     "handle": "beverly-hills-cop-vhs-floor-sale-comedy",
     "title": "Beverly Hills Cop",
     "vendor": "VHS",
@@ -2227,23 +2142,6 @@
       }
     ],
     "source_folder": "out-product_export_7"
-  },
-  {
-    "handle": "beyond-the-sea-dvd",
-    "title": "Beyond the Sea",
-    "vendor": "DVD",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: 'Beyond the Sea' (2004))",
-    "candidates": [
-      {
-        "id": 6478,
-        "title": "Beyond the Sea",
-        "year": "2004",
-        "overview": "Based on the life and career of legendary entertainer, Bobby Darin, the biopic moves back and forth between his childhood and adulthood, to tell the tale of his life.",
-        "poster_path": "/wIewPJNyyTIMI5rQzcElc23jenW.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
   },
   {
     "handle": "big-business-vhs",
@@ -2540,40 +2438,6 @@
     "source_folder": "out-product_export_7"
   },
   {
-    "handle": "black-x-mas-dvd-rental-horror",
-    "title": "Black X-Mas",
-    "vendor": "DVD",
-    "genre": "horror",
-    "reason": "ambiguous match (best candidate: 'Black Christmas' (2006))",
-    "candidates": [
-      {
-        "id": 9656,
-        "title": "Black Christmas",
-        "year": "2006",
-        "overview": "As the residents of sorority house Pi Kappa Sigma prepare for the festive season, a stranger begins a series of obscene phone calls with dubious intentions...",
-        "poster_path": "/4eDKgdHcyIAB5pvGRCjdgFKh3eC.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
-  },
-  {
-    "handle": "vlack-x-mas-dvd-rental-horror",
-    "title": "Black X-Mas",
-    "vendor": "DVD",
-    "genre": "horror",
-    "reason": "ambiguous match (best candidate: 'Black Christmas' (2006))",
-    "candidates": [
-      {
-        "id": 9656,
-        "title": "Black Christmas",
-        "year": "2006",
-        "overview": "As the residents of sorority house Pi Kappa Sigma prepare for the festive season, a stranger begins a series of obscene phone calls with dubious intentions...",
-        "poster_path": "/4eDKgdHcyIAB5pvGRCjdgFKh3eC.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_5"
-  },
-  {
     "handle": "blade-of-kings-dvd",
     "title": "Blade of Kings",
     "vendor": "DVD",
@@ -2641,23 +2505,6 @@
       }
     ],
     "source_folder": "out-new-unformatted-8.30"
-  },
-  {
-    "handle": "blink-dvd-rental-thriller",
-    "title": "Blink",
-    "vendor": "DVD",
-    "genre": "thriller",
-    "reason": "ambiguous match (best candidate: 'Blink' (1993))",
-    "candidates": [
-      {
-        "id": 26203,
-        "title": "Blink",
-        "year": "1993",
-        "overview": "Emma is an attractive girl in her 20s who has been blind for 20 years. A new type of eye operation partially restores her sight, but she is having problems: sometimes she doesn't \"remember\" what she's seen until later. One night she is awakened by a commotion upstairs. Peering out of her door, she sees a shadowy figure descending the stairs. Convinced that her neighbour has been murdered she approaches the police, only to find that she is unsure if it was just her new eyes playing tricks on her.",
-        "poster_path": "/wP6dfv85SQLogoNguUd6jO1A4be.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
   },
   {
     "handle": "blow-bluray-floor-sale-drama",
@@ -3009,23 +2856,6 @@
     "source_folder": "out-product_export_4"
   },
   {
-    "handle": "brother-bear-brother-bear-2-bluray-floor-sale-kids-family",
-    "title": "Brother Bear & Brother Bear 2",
-    "vendor": "Blu-Ray",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Brother Bear 2' (2006))",
-    "candidates": [
-      {
-        "id": 10010,
-        "title": "Brother Bear 2",
-        "year": "2006",
-        "overview": "Kenai finds his childhood human friend Nita and the two embark on a journey to burn the amulet he gave to her before he was a bear, much to Koda's dismay.",
-        "poster_path": "/yaA8q2zHHUgFWdJNxXyAdU71SzM.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_7"
-  },
-  {
     "handle": "brothers",
     "title": "Brothers",
     "vendor": "Blu-Ray",
@@ -3103,23 +2933,6 @@
       }
     ],
     "source_folder": "out-product_export_3"
-  },
-  {
-    "handle": "bubblegum-crisis-hurricane-live-2033-vhs-floor-sale-anime-sci-fi",
-    "title": "Bubblegum Crisis - Hurricane Live 2033",
-    "vendor": "VHS",
-    "genre": "sci-fi",
-    "reason": "ambiguous match (best candidate: 'Hurricane Live! 2033' (1990))",
-    "candidates": [
-      {
-        "id": 878002,
-        "title": "Hurricane Live! 2033",
-        "year": "1990",
-        "overview": "Hurricane Live 2033: More Music of the Bubblegum Crisis spotlights the music that helped to make 80's series The Bubblegum Crisis the popular early piece of anime that its become. The hard rock songs of Priss and the Replicants are played amidst a video montage of the series' most exciting action sequences, and rarely seen live footage from the musicians themselves is also included.",
-        "poster_path": "/cs0geH14ME6poubdeGQcqMYfV7a.jpg"
-      }
-    ],
-    "source_folder": "out-prod-new-products-8.31"
   },
   {
     "handle": "buck-rogers-in-the-25th-century-vhs-rental-sci-fi",
@@ -3279,23 +3092,6 @@
       }
     ],
     "source_folder": "out-product_export_6"
-  },
-  {
-    "handle": "captain-corellis-vhs-floor-sale-drama",
-    "title": "Captain Corelli's",
-    "vendor": "VHS",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: 'Captain Corelli's Mandolin' (2001))",
-    "candidates": [
-      {
-        "id": 1722,
-        "title": "Captain Corelli's Mandolin",
-        "year": "2001",
-        "overview": "When a fisherman leaves to fight with the Greek army during World War II, his fianc\u00e9e falls in love with the local Italian commander.",
-        "poster_path": "/9YahF8HFypIKFTvOTiYzObA0hom.jpg"
-      }
-    ],
-    "source_folder": "out-new-unformatted-8.30"
   },
   {
     "handle": "carpool-vhs",
@@ -4086,23 +3882,6 @@
     "source_folder": "out-product_export_7"
   },
   {
-    "handle": "charlottes-web-2-vhs",
-    "title": "Charlottes Web 2",
-    "vendor": "VHS",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Charlotte's Web 2: Wilbur's Great Adventure' (2003))",
-    "candidates": [
-      {
-        "id": 21250,
-        "title": "Charlotte's Web 2: Wilbur's Great Adventure",
-        "year": "2003",
-        "overview": "Wilbur the pig knows how important friendship is - he learned that from a spider named Charlotte. So when Wilbur meets Cardigan, a lonely lamb, Wilbur immediately makes him his friend.",
-        "poster_path": "/af0H9v4XUotReBCsLnOptBamVRY.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
-  },
-  {
     "handle": "checking-out-vhs-rental-comedy",
     "title": "Checking Out",
     "vendor": "VHS",
@@ -4571,23 +4350,6 @@
       }
     ],
     "source_folder": "out-product_export_5"
-  },
-  {
-    "handle": "city-slickers-ii-vhs",
-    "title": "City Slickers II",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'City Slickers II: The Legend of Curly's Gold' (1994))",
-    "candidates": [
-      {
-        "id": 11310,
-        "title": "City Slickers II: The Legend of Curly's Gold",
-        "year": "1994",
-        "overview": "Mitch Robbins' 40th birthday begins quite well until he returns home and finds his brother Glen, the black sheep of the family, in his sofa. Nevertheless he is about to have a wonderful birthday-night with his wife when he discovers a treasure map of Curly by chance. Together with Phil and unfortunately Glen he tries to find the hidden gold of Curly's father in the desert of Arizona.",
-        "poster_path": "/gh0lsyJARglhpbKmnY8i8M7V5bI.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_10"
   },
   {
     "handle": "clash-of-the-titans-dvd-rental-fantasy",
@@ -5695,23 +5457,6 @@
     "source_folder": "out-circa-refill-8.30"
   },
   {
-    "handle": "cria-cuervos-dvd-rental-drama",
-    "title": "Cria Cuervos",
-    "vendor": "DVD",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: 'Cria!' (1976))",
-    "candidates": [
-      {
-        "id": 51857,
-        "title": "Cria!",
-        "year": "1976",
-        "overview": "Ana, an eight-year-old girl living in Madrid with her grandmother and two sisters, mourns the death of her mother.",
-        "poster_path": "/hueMt6pkaV8nwVGwKP2uuiqF5DJ.jpg"
-      }
-    ],
-    "source_folder": "out-new-unformatted-8.30"
-  },
-  {
     "handle": "crimes-of-the-future",
     "title": "Crimes of the Future",
     "vendor": "Blu-Ray",
@@ -6183,23 +5928,6 @@
       }
     ],
     "source_folder": "out-product_export_10"
-  },
-  {
-    "handle": "dancer-texas-vhs-floor-sale-drama",
-    "title": "Dancer, Texas",
-    "vendor": "VHS",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: 'Dancer, Texas Pop. 81' (1998))",
-    "candidates": [
-      {
-        "id": 78373,
-        "title": "Dancer, Texas Pop. 81",
-        "year": "1998",
-        "overview": "Four guys, best friends, have grown up together in DANCER, TEXAS POP. 81, a tiny town in West Texas. Years ago, they made a solemn vow to leave town together as soon as they graduate. Now, it's that weekend and the time has come to \"put up or shut up.\" The clock is ticking and as all 81 people in the town watch, comment, offer advice and place bets, these four very different boys with unique backgrounds struggle with the biggest decision of their lives... whether to stay or leave home.",
-        "poster_path": "/khV9zPcvgOjrqwlk3dI1lGojZib.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
   },
   {
     "handle": "dancing-in-the-dark",
@@ -6855,23 +6583,6 @@
     "source_folder": "out-product_export_4"
   },
   {
-    "handle": "deep-blue-sea-deep-blue-sea-2-dvd-rental-horror",
-    "title": "Deep Blue Sea / Deep Blue Sea 2",
-    "vendor": "DVD",
-    "genre": "horror",
-    "reason": "ambiguous match (best candidate: 'Deep Blue Sea 2' (2018))",
-    "candidates": [
-      {
-        "id": 492336,
-        "title": "Deep Blue Sea 2",
-        "year": "2018",
-        "overview": "When shark conservationist Dr. Misty Calhoun is invited to consult on a top-secret project run by pharmaceutical billionaire Carl Durant, she is shocked to learn that the company is using unpredictable and highly aggressive bull sharks as its test subjects, which soon break loose and cause havoc.",
-        "poster_path": "/xqjAHXMJLORx9vVsCTJ6ZPJcr3D.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
-  },
-  {
     "handle": "deep-cover-vhs-floor-sale-action",
     "title": "Deep Cover",
     "vendor": "VHS",
@@ -7005,23 +6716,6 @@
         "year": "1998",
         "overview": "The anti-terrorist team Delta Force destroys a billion dollar cocaine stash, to the extreme displeasure of drug cartel leader Umberto Salvatore. To retaliate, he hijacks a stealth submarine and threatens to unleash a biological weapon with the power to kill everyone in New York City.",
         "poster_path": "/d3BOmNSoXHX1HbzTrQhTvm139bv.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_8"
-  },
-  {
-    "handle": "delta-force-commando-2-vhs-floor-sale-action",
-    "title": "Delta Force Commando 2",
-    "vendor": "VHS",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Delta Force Commando II: Priority Red One' (1990))",
-    "candidates": [
-      {
-        "id": 80559,
-        "title": "Delta Force Commando II: Priority Red One",
-        "year": "1990",
-        "overview": "Only one enemy has ever beat him. Now he needs her to save his life.",
-        "poster_path": "/bJKxz0RjdlzJPYm2xO9xEC2MCtG.jpg"
       }
     ],
     "source_folder": "out-product_export_8"
@@ -7350,23 +7044,6 @@
       }
     ],
     "source_folder": "out-product_export_7"
-  },
-  {
-    "handle": "detective-pikachu-bluray-floor-sale-4k-kids-family",
-    "title": "Detective Pikachu",
-    "vendor": "4K",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Pok\u00e9mon Detective Pikachu' (2019))",
-    "candidates": [
-      {
-        "id": 447404,
-        "title": "Pok\u00e9mon Detective Pikachu",
-        "year": "2019",
-        "overview": "In a world where people collect pocket-size monsters (Pok\u00e9mon) to do battle, a boy comes across an intelligent monster who seeks to be a detective.",
-        "poster_path": "/uhWvnFgg3BNlcUz0Re1HfQqIcCD.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_9"
   },
   {
     "handle": "dial-m-for-murder-vhs-floor-sale-thriller",
@@ -7984,23 +7661,6 @@
     "source_folder": "out-prod-new-products-8.31"
   },
   {
-    "handle": "downton-abbey-the-motion-picture-dvd-rental-drama",
-    "title": "Downton Abbey: The Motion Picture",
-    "vendor": "DVD",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: 'Downton Abbey' (2019))",
-    "candidates": [
-      {
-        "id": 535544,
-        "title": "Downton Abbey",
-        "year": "2019",
-        "overview": "The beloved Crawleys and their intrepid staff prepare for the most important moment of their lives. A royal visit from the King and Queen of England will unleash scandal, romance and intrigue that will leave the future of Downton hanging in the balance.",
-        "poster_path": "/pWt1iRuhNpeVDNP2QiUT2C5OiBt.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
-  },
-  {
     "handle": "downtown-vhs-floor-sale-comedy",
     "title": "Downtown",
     "vendor": "VHS",
@@ -8343,23 +8003,6 @@
     "source_folder": "out-product_export_4"
   },
   {
-    "handle": "dying-to-get-rich-susans-plan-vhs-floor-sale-comedy",
-    "title": "Dying to Get Rich! Susan's Plan",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Susan's Plan' (1998))",
-    "candidates": [
-      {
-        "id": 83489,
-        "title": "Susan's Plan",
-        "year": "1998",
-        "overview": "Susan wants her reprehensible ex-husband dead and, in several bungled attempts by henchmen, tries to accomplish the deed.",
-        "poster_path": "/kSzJiqJBQ771Vr2RJOBdYyLPa5H.jpg"
-      }
-    ],
-    "source_folder": "out-prod-new-products-8.31"
-  },
-  {
     "handle": "earthly-possessions-vhs",
     "title": "Earthly Possessions",
     "vendor": "VHS",
@@ -8451,23 +8094,6 @@
       }
     ],
     "source_folder": "out-new-unformatted-8.30"
-  },
-  {
-    "handle": "efficiency-expert-vhs-floor-sale-comedy",
-    "title": "Efficiency Expert",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Spotswood' (1992))",
-    "candidates": [
-      {
-        "id": 16982,
-        "title": "Spotswood",
-        "year": "1992",
-        "overview": "Wallace is an efficiency expert, managing the high-profile downsizing of a major auto parts factory. But when he is hired to evaluate a small moccasin factory which seems from another era, Wallace has to reconsider the rapid modernization he advocates, as he is confronted by the human faces such plans hurt.",
-        "poster_path": "/t7YiAgDrraufIDlwAFU3fKtm0Hz.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_9"
   },
   {
     "handle": "electra-dvd-rental-action",
@@ -8800,23 +8426,6 @@
         "year": "2019",
         "overview": "Two Detectives are searching for clues to some very unique murders. A close friend finding her faith in search to clear her friend and a very bad man make up the main characters to this thriller.",
         "poster_path": "/eby1urIajG1CFvaV1KAIxEoTiKR.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
-  },
-  {
-    "handle": "enormous-changes-vhs",
-    "title": "Enormous Changes",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Enormous Changes at the Last Minute' (1983))",
-    "candidates": [
-      {
-        "id": 220388,
-        "title": "Enormous Changes at the Last Minute",
-        "year": "1983",
-        "overview": "This film is made up of three segments that share no plot but have a general thematic relationship. In the first segment, Virginia and her three children are left by her shiftless husband and she is courted by an old beau who is now divorced. In the second, a divorced woman reacts to some unexpected revelations from her aged father. In the third, a childless, middle-aged social worker is swept into an affair with a young cab driver and finds herself pregnant.",
-        "poster_path": "/cSDXA9ox0kVnl0ziPoJLcw1B56y.jpg"
       }
     ],
     "source_folder": "out-product_export_11"
@@ -9305,23 +8914,6 @@
     "source_folder": "out-product_export_3"
   },
   {
-    "handle": "fast-furious-hobbs-shaw-dvd-5",
-    "title": "Fast & Furious: Hobbs & Shaw",
-    "vendor": "DVD",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Fast & Furious Presents: Hobbs & Shaw' (2019))",
-    "candidates": [
-      {
-        "id": 384018,
-        "title": "Fast & Furious Presents: Hobbs & Shaw",
-        "year": "2019",
-        "overview": "Ever since US Diplomatic Security Service Agent Hobbs and lawless outcast Shaw first faced off, they just have traded smack talk and body blows. But when cyber-genetically enhanced anarchist Brixton's ruthless actions threaten the future of humanity, they join forces to defeat him.",
-        "poster_path": "/qRyy2UmjC5ur9bDi3kpNNRCc5nc.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_5"
-  },
-  {
     "handle": "fatally-yours-vhs-floor-sale-thriller",
     "title": "Fatally Yours",
     "vendor": "VHS",
@@ -9520,40 +9112,6 @@
       }
     ],
     "source_folder": "out-product_export_3"
-  },
-  {
-    "handle": "federico-fellinis-8-1-2",
-    "title": "Federico Fellini's 8 1/2",
-    "vendor": "DVD",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: '8\u00bd' (1963))",
-    "candidates": [
-      {
-        "id": 422,
-        "title": "8\u00bd",
-        "year": "1963",
-        "overview": "Guido Anselmi, a film director, finds himself creatively barren at the peak of his career. Urged by his doctors to rest, Anselmi heads for a luxurious resort, but a sorry group gathers\u2014his producer, staff, actors, wife, mistress, and relatives\u2014each one begging him to get on with the show. In retreat from their dependency, he fantasizes about past women and dreams of his childhood.",
-        "poster_path": "/23VIf7zNxAgaXwIlvzd3IvOd9sY.jpg"
-      }
-    ],
-    "source_folder": "out-circa-refill-8.30"
-  },
-  {
-    "handle": "federico-fellinis-amarcord",
-    "title": "Federico Fellini's Amarcord",
-    "vendor": "DVD",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: 'Amarcord' (1973))",
-    "candidates": [
-      {
-        "id": 7857,
-        "title": "Amarcord",
-        "year": "1973",
-        "overview": "In an Italian seaside town, young Titta gets into trouble with his friends and watches various local eccentrics as they engage in often absurd behavior. Frequently clashing with his stern father and defended by his doting mother, Titta witnesses the actions of a wide range of characters, from his extended family to Fascist loyalists to sensual women, with certain moments shifting into fantastical scenarios.",
-        "poster_path": "/kS7i093sQpkLTawUEdgf4HVOHSc.jpg"
-      }
-    ],
-    "source_folder": "out-circa-refill-8.30"
   },
   {
     "handle": "fighting-dvd-4",
@@ -10128,23 +9686,6 @@
     "reason": "ambiguous match (best candidate: 'Tardis of Love: Juliana and Diogo's Adventure' (2023))",
     "candidates": [],
     "source_folder": "out-product_export_7"
-  },
-  {
-    "handle": "fortress-2-re-entry-dvd-rental-sci-fi",
-    "title": "Fortress 2 Re-entry",
-    "vendor": "DVD",
-    "genre": "sci-fi",
-    "reason": "ambiguous match (best candidate: 'Fortress 2' (2000))",
-    "candidates": [
-      {
-        "id": 11119,
-        "title": "Fortress 2",
-        "year": "2000",
-        "overview": "John Brennick once again finds himself imprisoned, but this time in a new, more sophisticated fortress prison in outer space. But Brennick's not a man to give in easily, and with a 10-year-old son waiting for him back on earth, he's going to pack some serious assault on the evil corporation.",
-        "poster_path": "/dVNFoj8NqfnNJN4Syq8aXbAS10B.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
   },
   {
     "handle": "foul-play-vhs-floor-sale-comedy",
@@ -11272,23 +10813,6 @@
     "source_folder": "out-product_export_11"
   },
   {
-    "handle": "gore-vidals-billy-the-kid-vhs-rental-action",
-    "title": "Gore Vidal's Billy the Kid",
-    "vendor": "VHS",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Billy the Kid' (1989))",
-    "candidates": [
-      {
-        "id": 291385,
-        "title": "Billy the Kid",
-        "year": "1989",
-        "overview": "Gore Vidal's historical novel is brought to life in this television production of Turner Network Television's Billy the Kid.",
-        "poster_path": "/4X69ZORXruvF7QgxWawiANXLlQ2.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
-  },
-  {
     "handle": "grand-prix-dvd-rental-drama",
     "title": "Grand Prix",
     "vendor": "DVD",
@@ -11869,57 +11393,6 @@
     "source_folder": "out-product_export_3"
   },
   {
-    "handle": "harry-potter-and-the-sorcerers-stone-dvd-floor-sale-kids-family",
-    "title": "Harry Potter and the Sorcerer's Stone",
-    "vendor": "DVD",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Harry Potter and the Philosopher's Stone' (2001))",
-    "candidates": [
-      {
-        "id": 671,
-        "title": "Harry Potter and the Philosopher's Stone",
-        "year": "2001",
-        "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard\u2014with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths\u2014and about the villain who's to blame.",
-        "poster_path": "/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
-  },
-  {
-    "handle": "harry-potter-and-the-sorcerers-stone-vhs-floor-sale-kids-family",
-    "title": "Harry Potter And The Sorcerer's Stone",
-    "vendor": "VHS",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Harry Potter and the Philosopher's Stone' (2001))",
-    "candidates": [
-      {
-        "id": 671,
-        "title": "Harry Potter and the Philosopher's Stone",
-        "year": "2001",
-        "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard\u2014with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths\u2014and about the villain who's to blame.",
-        "poster_path": "/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_6"
-  },
-  {
-    "handle": "harry-potter-and-the-sorcerers-stone-vhs-rental-kids-family",
-    "title": "Harry Potter and the Sorcerer's Stone",
-    "vendor": "VHS",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Harry Potter and the Philosopher's Stone' (2001))",
-    "candidates": [
-      {
-        "id": 671,
-        "title": "Harry Potter and the Philosopher's Stone",
-        "year": "2001",
-        "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard\u2014with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths\u2014and about the villain who's to blame.",
-        "poster_path": "/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg"
-      }
-    ],
-    "source_folder": "out-prod-new-products-8.31"
-  },
-  {
     "handle": "harvey-vhs-floor-sale-comedy",
     "title": "Harvey",
     "vendor": "VHS",
@@ -12020,23 +11493,6 @@
     "source_folder": "out-product_export_5"
   },
   {
-    "handle": "hawaiian-beach-party-vhs",
-    "title": "Hawaiian Beach Party",
-    "vendor": "VHS",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'You're Invited to Mary-Kate and Ashley's Hawaiian Beach Party' (1996))",
-    "candidates": [
-      {
-        "id": 500326,
-        "title": "You're Invited to Mary-Kate and Ashley's Hawaiian Beach Party",
-        "year": "1996",
-        "overview": "Mary-Kate and Ashley go with their friends to Hawaii for a party.",
-        "poster_path": "/mAsmaOJUY6wI5eEXixZ4aWMmo1S.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
-  },
-  {
     "handle": "heart-vhs-floor-sale-drama",
     "title": "Heart",
     "vendor": "VHS",
@@ -12083,23 +11539,6 @@
       }
     ],
     "source_folder": "out-prod-new-products-8.31"
-  },
-  {
-    "handle": "hearts-of-darkness-vhs",
-    "title": "Hearts of Darkness",
-    "vendor": "VHS",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: 'The Making of Hearts of Darkness' (2025))",
-    "candidates": [
-      {
-        "id": 4539,
-        "title": "Hearts of Darkness: A Filmmaker's Apocalypse",
-        "year": "1991",
-        "overview": "A chronicle of the production problems \u2014 including bad weather, actors' health, war near the filming locations, and more \u2014 which plagued the filming of Apocalypse Now, increasing costs and nearly destroying the life and career of Francis Ford Coppola.",
-        "poster_path": "/nVMCtL3r2nj4fySihDDvamaVkfx.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_10"
   },
   {
     "handle": "held-up-dvd-rental-comedy",
@@ -12703,23 +12142,6 @@
     "source_folder": "out-product_export_5"
   },
   {
-    "handle": "homer-eddie-vhs",
-    "title": "Homer & Eddie",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Homer and Eddie' (1989))",
-    "candidates": [
-      {
-        "id": 46786,
-        "title": "Homer and Eddie",
-        "year": "1989",
-        "overview": "A mentally disabled man gets help from a sociopath when he tries to reunite with his dying father, who years earlier disowned him.",
-        "poster_path": "/b4gM4Yh40QnYXkXiFao6nDFomjL.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_10"
-  },
-  {
     "handle": "homeward-bound-vhs-6",
     "title": "Homeward Bound",
     "vendor": "VHS",
@@ -12849,23 +12271,6 @@
       }
     ],
     "source_folder": "out-new-unformatted-8.30"
-  },
-  {
-    "handle": "honeymoon-academy-vhs",
-    "title": "Honeymoon Academy",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'For Better or for Worse' (1989))",
-    "candidates": [
-      {
-        "id": 165401,
-        "title": "For Better or for Worse",
-        "year": "1989",
-        "overview": "A honeymooning couple become entangled in a plot to recover plates for counterfeiting US dollars. SHE thinks she's just retired from a government 'dirty jobs' department, but her superiors have other ideas. HE thinks she's a retired travel agent.",
-        "poster_path": "/sNBlel6T9jT9TmMXjlqsBQHL4lH.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
   },
   {
     "handle": "horrible-bosses-bluray-floor-sale-comedy",
@@ -13092,23 +12497,6 @@
     "source_folder": "out-product_export_9"
   },
   {
-    "handle": "howard-stern-private-parts-vhs",
-    "title": "Howard Stern Private Parts",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Private Parts' (1997))",
-    "candidates": [
-      {
-        "id": 9403,
-        "title": "Private Parts",
-        "year": "1997",
-        "overview": "The life and career of shock-jock superstar Howard Stern is recounted from his humble beginnings to his view from the top. Possessing a desire to be an on-air personality since childhood, Stern meanders through the radio world, always with his supportive wife, Alison, by his side. Landing a gig in Washington, D.C., Stern meets Robin Quivers, who will become his long-time partner in crime. When the two move to New York, they face the wrath of NBC executives.",
-        "poster_path": "/8nCc9fhXCVvetlqpxkrCTc9NwOz.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
-  },
-  {
     "handle": "hush-dvd-rental-horror",
     "title": "Hush",
     "vendor": "DVD",
@@ -13242,23 +12630,6 @@
       }
     ],
     "source_folder": "out-product_export_5"
-  },
-  {
-    "handle": "i-heart-huckabees-vhs-floor-sale-comedy",
-    "title": "I Heart Huckabees",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'I \u2665 Huckabees' (2004))",
-    "candidates": [
-      {
-        "id": 1599,
-        "title": "I \u2665 Huckabees",
-        "year": "2004",
-        "overview": "A husband-and-wife team play detective, but not in the traditional sense. Instead, the happy duo helps others solve their existential issues, the kind that keep you up at night, wondering what it all means.",
-        "poster_path": "/h27ytqXyOrAB6KmRx2abOp8p2W.jpg"
-      }
-    ],
-    "source_folder": "out-prod-new-products-8.31"
   },
   {
     "handle": "i-know-what-you-did-last-summer-vhs",
@@ -13617,23 +12988,6 @@
     "source_folder": "out-circa-refill-8.30"
   },
   {
-    "handle": "inferno-skyscraper-escape-dvd",
-    "title": "Inferno: Skyscraper Escape",
-    "vendor": "DVD",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Crystal Inferno' (2017))",
-    "candidates": [
-      {
-        "id": 465545,
-        "title": "Crystal Inferno",
-        "year": "2017",
-        "overview": "Disaster hits when two teenagers are caught in a fire on the 20th floor of a skyscraper. Their parents are on the 60th. Will they survive the flames?",
-        "poster_path": "/A3laQfentQdbloFeGCPeCGZrzrQ.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
-  },
-  {
     "handle": "insomnia-dvd-5",
     "title": "Insomnia",
     "vendor": "DVD",
@@ -13827,23 +13181,6 @@
     "source_folder": "out-new-unformatted-8.30"
   },
   {
-    "handle": "invasion-of-the-tinysauruses-dvd-rental-kids-family",
-    "title": "Invasion of the Tinysauruses",
-    "vendor": "DVD",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'The Land Before Time XI: Invasion of the Tinysauruses' (2005))",
-    "candidates": [
-      {
-        "id": 24556,
-        "title": "The Land Before Time XI: Invasion of the Tinysauruses",
-        "year": "2005",
-        "overview": "Littlefoot and his friends return in another adventure. But this time, they aren't the smallest dinosaurs in the valley anymore.",
-        "poster_path": "/zREv4ST6lZUcxWIy2LPJKB011Gj.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_5"
-  },
-  {
     "handle": "it-could-happen-to-you-vhs-rental-romantic-comedy",
     "title": "It Could Happen to You",
     "vendor": "VHS",
@@ -13918,23 +13255,6 @@
       }
     ],
     "source_folder": "out-product_export_7"
-  },
-  {
-    "handle": "its-the-rage-vhs-floor-sale-drama",
-    "title": "It's the Rage",
-    "vendor": "VHS",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: 'All the Rage' (1999))",
-    "candidates": [
-      {
-        "id": 30946,
-        "title": "All the Rage",
-        "year": "1999",
-        "overview": "A rich cross-section of urban USA find their lives changed when their fates collide at gunpoint. At the centre of it all are Helen and Warren Harding, an up-scale couple on the brink of divorce, whose awakening in the night by a burglar sets off a catastrophic series of events.",
-        "poster_path": "/ug180c08YBK7kaRi5HGrqmCWNLf.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
   },
   {
     "handle": "jackass-3-unrated-dvd-rental-comedy",
@@ -14113,23 +13433,6 @@
     "source_folder": "out-product_export_9"
   },
   {
-    "handle": "jarhead-3-bluray-floor-sale-action",
-    "title": "Jarhead 3",
-    "vendor": "Blu-Ray",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Jarhead 3: The Siege' (2016))",
-    "candidates": [
-      {
-        "id": 378385,
-        "title": "Jarhead 3: The Siege",
-        "year": "2016",
-        "overview": "Corporal Evan Albright joined the elite Marine Corps Security Guards to save the world and see some action-not necessarily in that order. But his first assignment, protecting a U. S. Embassy in a seemingly safe Middle Eastern capitol, relegates his unit to wrangling \"gate groupies\" protesting outside the compound and honing their marksmanship by playing video games. So Albright and his team are caught off guard when well-armed and well-trained militants launch a surprise attack aimed at killing an informant in the embassy. Heavily out-gunned, they will have to muster all the courage and fire power they can as their once routine assignment spirals into all-out war.",
-        "poster_path": "/namZEDSMbFOSI3sMjzeSJ4E176o.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_9"
-  },
-  {
     "handle": "jesse-james-vhs-floor-sale-drama",
     "title": "Jesse James",
     "vendor": "VHS",
@@ -14190,23 +13493,6 @@
       }
     ],
     "source_folder": "out-product_export_8"
-  },
-  {
-    "handle": "jimi-hendrix-jimi-plays-berkeley-vhs-rental-musical",
-    "title": "Jimi Hendrix | Jimi Plays Berkeley",
-    "vendor": "VHS",
-    "genre": "musical",
-    "reason": "ambiguous match (best candidate: 'Jimi Plays Berkeley' (2003))",
-    "candidates": [
-      {
-        "id": 64051,
-        "title": "Jimi Plays Berkeley",
-        "year": "2003",
-        "overview": "This rousing world-famous concert is regarded by critics to be one of Jimi Hendrix's finest performances ever. Taking footage from two separate performances at the Berkeley Community Theater on May 30th, 1970, these incendiary shows help illustrate the student uprisings in Berkeley, by setting footage to the stunning backdrop of some awe-inspiring Hendrix material. Tracks include \"Purple Haze,\" \"Voodoo Child (Slight Return),\" \"Star Spangled Banner,\" \"Hey Joe,\" and many others. This is a never-to-be-forgotten musical experience you will enjoy over and over again.",
-        "poster_path": "/tP5GNIN8bju97TPLZr9tIWLhMnr.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_6"
   },
   {
     "handle": "john-carpenter-bluray-floor-sale-sci-fi",
@@ -14285,23 +13571,6 @@
     "source_folder": "out-product_export_9"
   },
   {
-    "handle": "josh-and-sam-vhs-floor-sale-comedy",
-    "title": "Josh and Sam",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Josh & S.A.M.' (1993))",
-    "candidates": [
-      {
-        "id": 48706,
-        "title": "Josh & S.A.M.",
-        "year": "1993",
-        "overview": "Josh and Sam are two brothers facing change, their mother is about to marry a French accountant and the kids are sent to go live with their father in Florida. Meanwhile, Josh tells Sam that he is a \"S.A.M.\" that is going to be sent to Africa to fight in a war and that Canada is a safe haven for any S.A.M. unwilling to fight. Will Josh & S.A.M. make it to Canada or will they wish they should have never left home?",
-        "poster_path": "/dWggqpyiZzhvpIyef5ZPB4Lsscu.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_7"
-  },
-  {
     "handle": "journey-to-the-center-of-the-earth-dvd-floor-sale-sci-fi",
     "title": "Journey to the Center of the Earth",
     "vendor": "DVD",
@@ -14378,23 +13647,6 @@
     "source_folder": "out-product_export_9"
   },
   {
-    "handle": "journey-to-the-far-side-of-the-sun-vhs",
-    "title": "Journey to the Far Side of the Sun",
-    "vendor": "VHS",
-    "genre": "sci-fi",
-    "reason": "ambiguous match (best candidate: 'Doppelg\u00e4nger' (1969))",
-    "candidates": [
-      {
-        "id": 40430,
-        "title": "Doppelg\u00e4nger",
-        "year": "1969",
-        "overview": "A planet is discovered in the same orbit as Earth's but is located on the exact opposite side of the sun, making it not visible from Earth. The European Space Exploration Council decide to send American astronaut Glenn Ross and British scientist John Kane via spaceship to explore the other planet.",
-        "poster_path": "/tW7Dr74ovic9wTAqoeRZy2SQ96L.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
-  },
-  {
     "handle": "joyeux-noel-dvd-rental-drama",
     "title": "Joyeux Noel",
     "vendor": "DVD",
@@ -14452,23 +13704,6 @@
         "year": "",
         "overview": "Exactly what the title says",
         "poster_path": ""
-      }
-    ],
-    "source_folder": "out-product_export_9"
-  },
-  {
-    "handle": "jurassic-park-jurassic-world-fallen-kingdom-steelbook-bluray-floor-sale-4k-action",
-    "title": "Jurassic Park / Jurassic World: Fallen Kingdom (Steelbook)",
-    "vendor": "4K",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Jurassic World: Fallen Kingdom' (2018))",
-    "candidates": [
-      {
-        "id": 351286,
-        "title": "Jurassic World: Fallen Kingdom",
-        "year": "2018",
-        "overview": "Three years after Jurassic World was destroyed, Isla Nublar now sits abandoned. When the island's dormant volcano begins roaring to life, Owen and Claire mount a campaign to rescue the remaining dinosaurs from this extinction-level event.",
-        "poster_path": "/x2Us3jR6ToMJjbcPbLimYoxf6xr.jpg"
       }
     ],
     "source_folder": "out-product_export_9"
@@ -14617,23 +13852,6 @@
       }
     ],
     "source_folder": "out-product_export_7"
-  },
-  {
-    "handle": "justice-league-gotham-city-breakout-dvd-rental-kids-family",
-    "title": "Justice League: Gotham City Breakout",
-    "vendor": "DVD",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'LEGO DC Comics Super Heroes: Justice League - Gotham City Breakout' (2016))",
-    "candidates": [
-      {
-        "id": 396330,
-        "title": "LEGO DC Comics Super Heroes: Justice League - Gotham City Breakout",
-        "year": "2016",
-        "overview": "The caped crusader reluctantly agrees to let Batgirl and Nightwing take him on a long overdue vacation from crime-fighting, while Superman and the Justice League watch over Gotham City.",
-        "poster_path": "/lVlV77juRfkB4gXtkgEqZyqHzkk.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
   },
   {
     "handle": "kafka-vhs",
@@ -15268,23 +14486,6 @@
     "source_folder": "out-product_export_9"
   },
   {
-    "handle": "la-femme-nikita-vhs-floor-sale-action",
-    "title": "La Femme Nikita",
-    "vendor": "VHS",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Nikita' (1990))",
-    "candidates": [
-      {
-        "id": 9322,
-        "title": "Nikita",
-        "year": "1990",
-        "overview": "A beautiful felon, sentenced to life in prison for the murder of a policeman, is given a second chance \u2013 as a secret political assassin controlled by the government.",
-        "poster_path": "/1ulQDewUG4KKHOhpXdGKm3GdLFq.jpg"
-      }
-    ],
-    "source_folder": "out-new-unformatted-8.30"
-  },
-  {
     "handle": "laberinth-dvd-floor-sale-fantasy",
     "title": "Laberinth",
     "vendor": "DVD",
@@ -15466,40 +14667,6 @@
       }
     ],
     "source_folder": "out-product_export_10"
-  },
-  {
-    "handle": "leapin-lizards-vhs-floor-sale-kids-family",
-    "title": "Leapin Lizards",
-    "vendor": "VHS",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Leapin' Lizards, It's Liberace!' (1978))",
-    "candidates": [
-      {
-        "id": 531308,
-        "title": "Leapin' Lizards, It's Liberace!",
-        "year": "1978",
-        "overview": "Television played a key role in the legendary Liberace career making him a household word to millions and the medium's first matinee idol. \"Leapin' Lizards, It's Liberace!\" video taped in 1978 was his first major television special from Las Vegas. \"Leapin' Lizards, It's Liberace!\" gives us a spoofed view of a typical day in the life of Mr.Showmanship, before he was off to \"work\" at the Las Vegas Hilton Hotel in his mirrored Rolls Royce. There is a view of the magnificent Liberace Las Vegas Villa, from bedroom to piano motif swimming pool. After arriving at the Hilton showroom, guest star Debbie Reynolds, Liberace's favorite movie star and performer, joins him on stage for a salute to the Broadway musical, \"Annie,\" complete with Sandy the Dog.",
-        "poster_path": "/2IgqKTu5DvBHzi4ogZppluROAU8.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_8"
-  },
-  {
-    "handle": "leroy-and-stich-dvd-floor-sale-kids-family",
-    "title": "Leroy and Stich",
-    "vendor": "DVD",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Leroy & Stitch' (2006))",
-    "candidates": [
-      {
-        "id": 21316,
-        "title": "Leroy & Stitch",
-        "year": "2006",
-        "overview": "Lilo, Stitch, Jumba, and Pleakley have finally caught all of Jumba's genetic experiments and found the one true place where each of them belongs. Stitch, Jumba and Pleakley are offered positions in the Galactic Alliance, turning them down so they can stay on Earth with Lilo, but Lilo realizes her alien friends have places where they belong \u2013 and it's finally time to say \"aloha\".",
-        "poster_path": "/1LCfRArffse3PnqkACooOHkWcry.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_9"
   },
   {
     "handle": "les-miserables-dvd-floor-sale-muscal",
@@ -15799,23 +14966,6 @@
     "source_folder": "out-product_export_4"
   },
   {
-    "handle": "lion-king-1-1-2-dvd-floor-sale-kids-family",
-    "title": "Lion King 1 1/2",
-    "vendor": "DVD",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'The Lion King 1\u00bd' (2004))",
-    "candidates": [
-      {
-        "id": 11430,
-        "title": "The Lion King 1\u00bd",
-        "year": "2004",
-        "overview": "Timon the meerkat and Pumbaa the warthog are best pals and the unsung heroes of the African savanna. This prequel to the smash Disney animated adventure takes you back -- way back -- before Simba's adventure began. You'll find out all about Timon and Pumbaa and tag along as they search for the perfect home and attempt to raise a rambunctious lion cub.",
-        "poster_path": "/u2hN0WT7Dz46HfhQbr6uzSYfVW4.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_9"
-  },
-  {
     "handle": "lip-service-vhs-rental-thriller",
     "title": "Lip Service",
     "vendor": "VHS",
@@ -15975,23 +15125,6 @@
     "source_folder": "out-circa-refill-8.30"
   },
   {
-    "handle": "loaded-weapon-1-vhs",
-    "title": "Loaded Weapon 1",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'National Lampoon's Loaded Weapon 1' (1993))",
-    "candidates": [
-      {
-        "id": 9644,
-        "title": "National Lampoon's Loaded Weapon 1",
-        "year": "1993",
-        "overview": "An LA detective is murdered because she has microfilm with the recipe to make cocaine cookies. Two cops partner to find and stop the fiends before they can dope the nation by distributing their wares via the 'Wilderness Girls' cookie drive.",
-        "poster_path": "/moP0nyVWVisqSeH6nMewWyIPV6z.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
-  },
-  {
     "handle": "lolita-vhs",
     "title": "Lolita",
     "vendor": "VHS",
@@ -16059,23 +15192,6 @@
       }
     ],
     "source_folder": "out-product_export_9"
-  },
-  {
-    "handle": "lonely-guy-vhs-rental-romantic-comedy",
-    "title": "Lonely Guy",
-    "vendor": "VHS",
-    "genre": "romantic-comedy",
-    "reason": "ambiguous match (best candidate: 'The Lonely Guy' (1984))",
-    "candidates": [
-      {
-        "id": 27171,
-        "title": "The Lonely Guy",
-        "year": "1984",
-        "overview": "A writer for a greeting card company learns the true meaning of loneliness when he comes home to find his girlfriend in bed with another man.",
-        "poster_path": "/y6HWtKt6m41SMZuUeFcs94nWfHs.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
   },
   {
     "handle": "lonesome-dove-dvd-rental-drama",
@@ -16989,23 +16105,6 @@
     "source_folder": "out-product_export_6"
   },
   {
-    "handle": "mary-kate-ashleys-school-dance-party-vhs-rental-kids-family",
-    "title": "Mary Kate & Ashley's School Dance Party",
-    "vendor": "VHS",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'You're Invited to Mary-Kate & Ashley's School Dance Party' (2000))",
-    "candidates": [
-      {
-        "id": 96101,
-        "title": "You're Invited to Mary-Kate & Ashley's School Dance Party",
-        "year": "2000",
-        "overview": "Mary-Kate, Ashley and their friends are all excited about the big school dance.  Unfortunately, Mary-Kate doesn't have a date yet, and Ashley is nervous about her decision to run for Queen of the Dance.  Join the girls as they put on their best outfits and get ready to party because you're invited to dance the night away with Mary-Kate and Ashley.",
-        "poster_path": "/sXMGar5XopP4a3klBWD4ltV9zjX.jpg"
-      }
-    ],
-    "source_folder": "out-prod-new-products-8.31"
-  },
-  {
     "handle": "mary-poppins-bluray-floor-sale-kids-family",
     "title": "Mary Poppins",
     "vendor": "Blu-Ray",
@@ -17490,40 +16589,6 @@
     "source_folder": "out-product_export_11"
   },
   {
-    "handle": "mi-vida-loca-my-crazy-life-vhs-floor-sale-drama",
-    "title": "Mi Vida Loca My Crazy Life",
-    "vendor": "VHS",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: 'Mi Vida Loca' (1994))",
-    "candidates": [
-      {
-        "id": 32325,
-        "title": "Mi Vida Loca",
-        "year": "1994",
-        "overview": "Two Indigenous Latina bestfriends, Mousie and Sad Girl live in a contemporary Los Angeles poor Indigenous Hispanic American neighborhood. But when Sad Girl becomes pregnant by Mousie's boyfriend, a drug dealer named Ernesto, the two become bitter enemies. While their dispute escalates towards violence, the violence of the world around them soon also impacts their lives.",
-        "poster_path": "/gtKIaHUqkNqdgVnMFosyVJXvKMC.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_6"
-  },
-  {
-    "handle": "miami-vice-the-movie-vhs-rental-action",
-    "title": "Miami Vice The Movie",
-    "vendor": "VHS",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Miami Vice: Brother's Keeper' (1984))",
-    "candidates": [
-      {
-        "id": 126341,
-        "title": "Miami Vice: Brother's Keeper",
-        "year": "1984",
-        "overview": "Miami detective Sonny Crockett reluctantly teams with New York City cop Rico Tubbs when both of them end up pursuing a drug dealer who killed their respective partners.",
-        "poster_path": "/iK5MXD5pefmg46ZY52SE97iurjn.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_6"
-  },
-  {
     "handle": "michael-vhs-floor-sale-drama",
     "title": "Michael",
     "vendor": "VHS",
@@ -17553,23 +16618,6 @@
       }
     ],
     "source_folder": "out-product_export_7"
-  },
-  {
-    "handle": "michael-jackson-moonwalker-vhs",
-    "title": "Michael Jackson Moonwalker",
-    "vendor": "VHS",
-    "genre": "musical",
-    "reason": "ambiguous match (best candidate: 'Moonwalker' (1988))",
-    "candidates": [
-      {
-        "id": 13192,
-        "title": "Moonwalker",
-        "year": "1988",
-        "overview": "This fantastical movie inspired by the music of Michael Jackson features imaginative interpretations of hit tracks from the iconic 1987 album \u201cBad\u201d.",
-        "poster_path": "/3GwTPQkAcgDeAirRpEuJG8HDdRz.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
   },
   {
     "handle": "mickeys-once-upon-a-christmas-dvd-floor-sale-kids-family",
@@ -17872,23 +16920,6 @@
     "source_folder": "out-circa-refill-8.30"
   },
   {
-    "handle": "miss-congeniality-2-dvd-floor-sale-comedy",
-    "title": "Miss Congeniality 2",
-    "vendor": "DVD",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Miss Congeniality 2: Armed and Fabulous' (2005))",
-    "candidates": [
-      {
-        "id": 10040,
-        "title": "Miss Congeniality 2: Armed and Fabulous",
-        "year": "2005",
-        "overview": "After her triumph at the Miss United States pageant, FBI agent Gracie Hart becomes an overnight sensation -- and the new \"face of the FBI\". But it's time to spring into action again when the pageant's winner, Cheryl, and emcee, Stan, are abducted.",
-        "poster_path": "/gcYoIHND3ugn2VH1cNHHNQasEyI.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
-  },
-  {
     "handle": "miss-julie-dvd-rental-drama",
     "title": "Miss Julie",
     "vendor": "DVD",
@@ -18048,23 +17079,6 @@
     "source_folder": "out-product_export_7"
   },
   {
-    "handle": "mission-of-the-shark-vhs-floor-sale-drama",
-    "title": "Mission of the Shark",
-    "vendor": "VHS",
-    "genre": "drama",
-    "reason": "ambiguous match (best candidate: 'Mission of the Shark: The Saga of the U.S.S. Indianapolis' (1991))",
-    "candidates": [
-      {
-        "id": 131485,
-        "title": "Mission of the Shark: The Saga of the U.S.S. Indianapolis",
-        "year": "1991",
-        "overview": "True story of the sinking of the U.S.S. Indianapolis, its crew's struggle to survive the sharks and exposure, and the captain's scape-goat court-martial.",
-        "poster_path": "/8umESu1763uloiI6oTUAQWG6l5R.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_7"
-  },
-  {
     "handle": "modern-love-vhs",
     "title": "Modern Love",
     "vendor": "VHS",
@@ -18172,23 +17186,6 @@
     "source_folder": "out-new-unformatted-8.30"
   },
   {
-    "handle": "molly-gina-vhs-rental-action",
-    "title": "Molly & Gina",
-    "vendor": "VHS",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Molly and Gina' (1994))",
-    "candidates": [
-      {
-        "id": 279941,
-        "title": "Molly and Gina",
-        "year": "1994",
-        "overview": "Molly is the former secretary of a murdered private detective. Gina, a budding actress, witnessed the shooting which also killed her boyfriend. Together, they set out to bring the culprits to justice.",
-        "poster_path": "/mqj8sAR22ihLjCard9qqd5zzT9t.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
-  },
-  {
     "handle": "money-for-nothing-vhs-floor-sale-drama",
     "title": "Money for Nothing",
     "vendor": "VHS",
@@ -18270,23 +17267,6 @@
       }
     ],
     "source_folder": "out-circa-refill-8.30"
-  },
-  {
-    "handle": "monsters-university-monsters-inc-bluray-floor-sale-kids-family",
-    "title": "Monsters University / Monsters, Inc.",
-    "vendor": "Blu-Ray",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Monsters University' (2013))",
-    "candidates": [
-      {
-        "id": 62211,
-        "title": "Monsters University",
-        "year": "2013",
-        "overview": "A look at the relationship between Mike and Sulley during their days at Monsters University \u2014 when they weren't necessarily the best of friends.",
-        "poster_path": "/y7thwJ7z5Bplv6vwl6RI0yteaDD.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_7"
   },
   {
     "handle": "monte-carlo-dvd-rental-romantic-comedy",
@@ -18545,23 +17525,6 @@
     "source_folder": "out-product_export_10"
   },
   {
-    "handle": "motives-2-dvd-rental-thriller",
-    "title": "Motives 2",
-    "vendor": "DVD",
-    "genre": "thriller",
-    "reason": "ambiguous match (best candidate: 'Motives 2 : Retribution' (2007))",
-    "candidates": [
-      {
-        "id": 39178,
-        "title": "Motives 2 : Retribution",
-        "year": "2007",
-        "overview": "Vivica A. Fox and Shemar Moore return for this thrilling sequel to Motives that picks up three years after the events of the original film. Innocent convict Emery Simms is serving time for a crime he didn't commit; while most convict's claims of innocence are shoddy at best, Emery has every reason to protest his wrongful incarceration. Meanwhile, in the outside world, Emery's ex-wife (Fox) has married his best friend and the pair is struggling to build a normal life together. When Emery is killed in prison and his brother Donovan (Brian J. White) discovers the truth about what killed his ill-fated sibling, his quest to cut through the complex web of lies and deceit which previously ensnared Emery threatens to bring about deadly consequences.",
-        "poster_path": "/dsbmWCEd09QwWjlmdgeDCAbgpMz.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
-  },
-  {
     "handle": "moulin-rouge-dvd-rental-musical",
     "title": "Moulin Rouge!",
     "vendor": "DVD",
@@ -18605,23 +17568,6 @@
       }
     ],
     "source_folder": "out-product_export_5"
-  },
-  {
-    "handle": "mpd-psycho-dvd-floor-sale-thriller",
-    "title": "MPD-PSYCHO",
-    "vendor": "DVD",
-    "genre": "thriller",
-    "reason": "ambiguous match (best candidate: 'MPD-PSYCHO/FAKE' (2002))",
-    "candidates": [
-      {
-        "id": 1077583,
-        "title": "MPD-PSYCHO/FAKE",
-        "year": "2002",
-        "overview": "A reworking of MPD Psycho by the author of the original manga Eiji Otsuka edited from the TV show and newly-filmed scenes.",
-        "poster_path": "/AnUUQfkv45IJM0ZBNnz1FOZFVKi.jpg"
-      }
-    ],
-    "source_folder": "out-new-unformatted-8.30"
   },
   {
     "handle": "mr-nice-guy",
@@ -19183,23 +18129,6 @@
     "source_folder": "out-product_export_7"
   },
   {
-    "handle": "naked-country-vhs-floor-sale-comedy",
-    "title": "Naked Country",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'The Naked Country' (1985))",
-    "candidates": [
-      {
-        "id": 257822,
-        "title": "The Naked Country",
-        "year": "1985",
-        "overview": "Far North Queensland, 1955.  Deep in the untamed frontier tough rancher Lance Dillon and his sensual, but bored wife, battle inhospitable nature to eke out a living from their cattle herd.  When the aborigines kill the Dillon's prize bull a chase begins that will culminate in bloody tragedy with Lance pitted against Mandaru - an aborigine struggling to maintain his cultural way of life",
-        "poster_path": "/h8Qo15R7EPfvHAZ6v9oiNOGzaNB.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_8"
-  },
-  {
     "handle": "national-lampoons-animal-house-vhs-floor-sale-comedy",
     "title": "National Lampoons: Animal House",
     "vendor": "VHS",
@@ -19581,23 +18510,6 @@
       }
     ],
     "source_folder": "out-product_export_11"
-  },
-  {
-    "handle": "night-watch-day-watch",
-    "title": "Night Watch / Day Watch",
-    "vendor": "Blu-Ray",
-    "genre": "horror",
-    "reason": "ambiguous match (best candidate: 'Day Watch' (2006))",
-    "candidates": [
-      {
-        "id": 2269,
-        "title": "Day Watch",
-        "year": "2006",
-        "overview": "A man who serves in the war between the forces of Light and Dark comes into possession of a device that can restore life to Moscow, which was nearly destroyed by an apocalyptic event.",
-        "poster_path": "/c99EkthlyDtdVh0xTaKsk9PRDg1.jpg"
-      }
-    ],
-    "source_folder": "out-circa-refill-8.30"
   },
   {
     "handle": "nightfall-vhs",
@@ -20156,23 +19068,6 @@
     "source_folder": "out-prod-new-products-8.31"
   },
   {
-    "handle": "nunsense-nunsense-2-vhs-floor-sale-musical",
-    "title": "Nunsense & Nunsense 2",
-    "vendor": "VHS",
-    "genre": "musical",
-    "reason": "ambiguous match (best candidate: 'Nunsense 2: The Sequel' (1994))",
-    "candidates": [
-      {
-        "id": 265609,
-        "title": "Nunsense 2: The Sequel",
-        "year": "1994",
-        "overview": "In this sequel to the Off-Broadway musical hit, the Little Sisters of Hoboken put together another musical revue, to thank all the people who saw the first show and helped them solve their little \"monetary\" problem.",
-        "poster_path": "/qVxb4Y8EVxYLOCYF3zKlrJqYo8I.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_7"
-  },
-  {
     "handle": "nuts-vhs-rental-drama",
     "title": "Nuts",
     "vendor": "VHS",
@@ -20278,23 +19173,6 @@
       }
     ],
     "source_folder": "out-product_export_4"
-  },
-  {
-    "handle": "oceans-8-dvd-rental-comedy",
-    "title": "Ocean's 8",
-    "vendor": "DVD",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Ocean's Eight' (2018))",
-    "candidates": [
-      {
-        "id": 402900,
-        "title": "Ocean's Eight",
-        "year": "2018",
-        "overview": "Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century at New York's annual Met Gala.",
-        "poster_path": "/MvYpKlpFukTivnlBhizGbkAe3v.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_5"
   },
   {
     "handle": "oceans-eleven-floor-sale-drama",
@@ -20563,23 +19441,6 @@
     "source_folder": "out-prod-new-products-8.31"
   },
   {
-    "handle": "omen-3-the-final-conflict-vhs-floor-sale-horror",
-    "title": "Omen 3: The Final Conflict",
-    "vendor": "VHS",
-    "genre": "horror",
-    "reason": "ambiguous match (best candidate: 'The Final Conflict' (1981))",
-    "candidates": [
-      {
-        "id": 10768,
-        "title": "The Final Conflict",
-        "year": "1981",
-        "overview": "Damien Thorn has helped rescue the world from a recession, appearing to be a benign corporate benefactor. When he then becomes U.S. Ambassador to the United Kingdom, Damien fulfills a terrifying biblical prophecy. He also faces his own potential demise as an astronomical event brings about the second coming of Christ.",
-        "poster_path": "/jDW2C77QNMQe6Lp2jeqAQXe2uaX.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_9"
-  },
-  {
     "handle": "on-golden-pond-vhs-floor-sale-drama",
     "title": "On Golden Pond",
     "vendor": "VHS",
@@ -20710,23 +19571,6 @@
         "year": "2003",
         "overview": "An hour-long archival documentary on the film's production.",
         "poster_path": "/f5lNUWMS37SDbWbADyGOxj26Ayg.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_5"
-  },
-  {
-    "handle": "ong-bak-the-thai-warrior-dvd-rental-action",
-    "title": "Ong-Bak the Thai Warrior",
-    "vendor": "DVD",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Ong-Bak' (2003))",
-    "candidates": [
-      {
-        "id": 9316,
-        "title": "Ong-Bak",
-        "year": "2003",
-        "overview": "When the head of a statue sacred to a village is stolen, a young martial artist goes to the big city and finds himself taking on the underworld to retrieve it.",
-        "poster_path": "/oagqAwp48dMPoCT94yDJUDOCVPi.jpg"
       }
     ],
     "source_folder": "out-product_export_5"
@@ -21461,23 +20305,6 @@
     "source_folder": "out-product_export_8"
   },
   {
-    "handle": "path-to-paradise-vhs-floor-sale-thriller",
-    "title": "Path to Paradise",
-    "vendor": "VHS",
-    "genre": "thriller",
-    "reason": "ambiguous match (best candidate: 'Path to Paradise: The Untold Story of the World Trade Center Bombing' (1997))",
-    "candidates": [
-      {
-        "id": 38734,
-        "title": "Path to Paradise: The Untold Story of the World Trade Center Bombing",
-        "year": "1997",
-        "overview": "The incredible story of the events leading up to the 1993 bombing of the World Trade Center in New York and the capture of the terrorists.",
-        "poster_path": "/p0lTkoo94ozBu0PZkKHlpYIu4oG.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_8"
-  },
-  {
     "handle": "paul-blart-mall-cop-dvd-rental-kids-family",
     "title": "Paul Blart: Mall Cop",
     "vendor": "DVD",
@@ -21583,23 +20410,6 @@
       }
     ],
     "source_folder": "out-product_export_10"
-  },
-  {
-    "handle": "pebble-the-penguin-vhs",
-    "title": "Pebble the Penguin",
-    "vendor": "VHS",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'The Pebble and the Penguin' (1995))",
-    "candidates": [
-      {
-        "id": 54648,
-        "title": "The Pebble and the Penguin",
-        "year": "1995",
-        "overview": "A bashful bachelor penguin named Hubie, who's partial to a pretty female named Marina. Ancient penguin ritual dictates that males present a pebble to their intended, then mate for life. Hubie finds a spiffy stone, but before he can bestow it on Marina, dastardly rival Drake tosses him into the churning sea, and Hubie gets swept away.",
-        "poster_path": "/aWi36nNbyMw51yGN0tTSOrOLu6L.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
   },
   {
     "handle": "perfect-stranger-dvd-rental-thriller",
@@ -21721,23 +20531,6 @@
       }
     ],
     "source_folder": "out-product_export_6"
-  },
-  {
-    "handle": "peter-pan-peter-pan-2-bluray-floor-sale-kids-family",
-    "title": "Peter Pan / Peter Pan 2",
-    "vendor": "Blu-Ray",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'DDT Wrestle Peter Pan 2025 - Night 2' (2025))",
-    "candidates": [
-      {
-        "id": 16690,
-        "title": "Return to Never Land",
-        "year": "2002",
-        "overview": "In 1940, the world is besieged by World War II. Wendy, all grown up, has two children; including Jane, who does not believe Wendy's stories about Peter Pan.",
-        "poster_path": "/wB3r2b8sxUZspqNyr8copMlt7se.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_8"
   },
   {
     "handle": "petes-dragon-dvd-floor-sale-kids-family",
@@ -22258,40 +21051,6 @@
     "source_folder": "out-product_export_10"
   },
   {
-    "handle": "pokemon-heroes-the-movie-dvd",
-    "title": "Pokemon Heroes: The Movie",
-    "vendor": "DVD",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Pok\u00e9mon Heroes' (2002))",
-    "candidates": [
-      {
-        "id": 33875,
-        "title": "Pok\u00e9mon Heroes",
-        "year": "2002",
-        "overview": "Ash, Pikachu and the gang try and stop a pair of thieves hiding out in the canals and alleyways of Altomare, the age-old water capital. Joining the adventure are two new legendary Pok\u00e9mon, a pair of siblings named Latias and Latios, who serve as peacekeepers and protectors of the Soul Dew \u2014 a priceless treasure with a mysterious power.",
-        "poster_path": "/eySv5rdYLW1k6LxepxCNl8ND26R.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
-  },
-  {
-    "handle": "police-academy-6-vhs-floor-sale-comedy",
-    "title": "Police Academy 6",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Police Academy 6: City Under Siege' (1989))",
-    "candidates": [
-      {
-        "id": 11895,
-        "title": "Police Academy 6: City Under Siege",
-        "year": "1989",
-        "overview": "Our favourite police men are called together to deal with a gang who rob banks and jewelers. Using their various talents as well as their extraordinary luck, the crooks stand no chance against our men and women in blue.",
-        "poster_path": "/gRFJ3xLewH1rwEplZBfKS4vGpFV.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
-  },
-  {
     "handle": "police-story-dvd-rental-action",
     "title": "Police Story",
     "vendor": "DVD",
@@ -22594,40 +21353,6 @@
       }
     ],
     "source_folder": "out-product_export_9"
-  },
-  {
-    "handle": "prince-of-persia-dvd-rental-action",
-    "title": "Prince of Persia",
-    "vendor": "DVD",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Prince of Persia: The Sands of Time' (2010))",
-    "candidates": [
-      {
-        "id": 9543,
-        "title": "Prince of Persia: The Sands of Time",
-        "year": "2010",
-        "overview": "A rogue prince reluctantly joins forces with a mysterious princess and together, they race against dark forces to safeguard an ancient dagger capable of releasing the Sands of Time \u2013 gift from the gods that can reverse time and allow its possessor to rule the world.",
-        "poster_path": "/siNGMLdOUNYLEGtlsnmQcpO2XZX.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
-  },
-  {
-    "handle": "prince-of-persia-dvd-floor-sale-action",
-    "title": "Prince of Persia",
-    "vendor": "DVD",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Prince of Persia: The Sands of Time' (2010))",
-    "candidates": [
-      {
-        "id": 9543,
-        "title": "Prince of Persia: The Sands of Time",
-        "year": "2010",
-        "overview": "A rogue prince reluctantly joins forces with a mysterious princess and together, they race against dark forces to safeguard an ancient dagger capable of releasing the Sands of Time \u2013 gift from the gods that can reverse time and allow its possessor to rule the world.",
-        "poster_path": "/siNGMLdOUNYLEGtlsnmQcpO2XZX.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_8"
   },
   {
     "handle": "private-parts-vhs-floor-sale-comedy",
@@ -22936,23 +21661,6 @@
         "year": "1918",
         "overview": "Young J\u00f6rgen Steenfeld is the heir of it over the chimney-indebted estate Steensgaard and unable to clear up its finances. He is being looked after by his old friend, \"M\u00e4sterkatten\", ie the enterprising, charming but somewhat irreplaceable Karl Konstantin Kattrup, who has been relegated from the university. Kattrup, involved as a manager at Steensgaard. Steenfeld receives visits by county governor Markdanner and her daughter Rose. The Countess is planning a marriage between Rose and J\u00f6rgen, but J\u00f6rgen is secretly in love with the orphan Helga Anthon, called Pips. The conditions are further complicated by the appearance of Kattrup and Rose.",
         "poster_path": "/f52DHlIEQ7uVvyfwLk9DxcjeaRw.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_8"
-  },
-  {
-    "handle": "python-wolf-vhs-floor-sale-thriller",
-    "title": "Python Wolf",
-    "vendor": "VHS",
-    "genre": "thriller",
-    "reason": "ambiguous match (best candidate: 'C.A.T. Squad: Python Wolf' (1988))",
-    "candidates": [
-      {
-        "id": 219375,
-        "title": "C.A.T. Squad: Python Wolf",
-        "year": "1988",
-        "overview": "The Counter Assault Tactical (C.A.T.) Squad investigates a spy who is supplying plutonium to the Sjambok, a racist South African paramilitary group that is working on a nuclear bomb. The American government, too, is investigating Sjambok, using the top-secret spy plane Python Wolf. When one of the members of the C.A.T. Squad is shot down over South Africa during another mission, his squad leader undertakes a rescue operation to bring his friend back home.",
-        "poster_path": "/4XeMkEjD2IaCiTwKyCCwedlGpnI.jpg"
       }
     ],
     "source_folder": "out-product_export_8"
@@ -23680,23 +22388,6 @@
     "source_folder": "out-new-unformatted-8.30"
   },
   {
-    "handle": "return-to-snowy-river-vhs-floor-sale-kids-family",
-    "title": "Return to Snowy River",
-    "vendor": "VHS",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'The Man From Snowy River II' (1988))",
-    "candidates": [
-      {
-        "id": 13965,
-        "title": "The Man From Snowy River II",
-        "year": "1988",
-        "overview": "After a few years trying to earn money to marry Jessica Harrison, Jim Craig returns to Snowy River. But he finds that a lot of things have changed.",
-        "poster_path": "/6I94myoMi28trV8lxDq2DWhzLFe.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_7"
-  },
-  {
     "handle": "revelation-vhs-floor-sale-horor",
     "title": "Revelation",
     "vendor": "VHS",
@@ -23823,23 +22514,6 @@
       }
     ],
     "source_folder": "out-new-unformatted-8.30"
-  },
-  {
-    "handle": "revenge-of-the-nerds-iv-vhs",
-    "title": "Revenge of the Nerds IV",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Revenge of the Nerds IV: Nerds in Love' (1994))",
-    "candidates": [
-      {
-        "id": 21029,
-        "title": "Revenge of the Nerds IV: Nerds in Love",
-        "year": "1994",
-        "overview": "Lewis and his nerdy friends attend Booger's wedding to the daughter of a rich politician, but nerd-haters in the family do everything possible to prevent the wedding going ahead. Meanwhile, Lewis awaits with eagerness the birth of his unborn foetal child...",
-        "poster_path": "/9JLkd95T4E7lNWsrQt8a3YZYgPi.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
   },
   {
     "handle": "richard-iii-vhs-floor-sale-drama",
@@ -24125,23 +22799,6 @@
     "source_folder": "out-new-unformatted-8.30"
   },
   {
-    "handle": "rudolph-the-movie-vhs-rental-kids-family",
-    "title": "Rudolph the Movie",
-    "vendor": "VHS",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Rudolph the Red-Nosed Reindeer: The Movie' (1998))",
-    "candidates": [
-      {
-        "id": 33719,
-        "title": "Rudolph the Red-Nosed Reindeer: The Movie",
-        "year": "1998",
-        "overview": "Young Rudolph suffers a childhood accident that sees his nose turn from the publicly accepted norm of black to a glowing red colour. His parents worry about him getting teased, and indeed he does in the end. When he is beaten in the reindeer games by his rival for a doe he fancies, Rudolph runs away and moves into a cave with Slyly the Fox. However can he overcome his fear and reach his true potential?",
-        "poster_path": "/pNwHtfMVcqmWat1MfMJ9XSVBBXR.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_6"
-  },
-  {
     "handle": "runaway-bride-vhs-floor-sale-romantic-comedy",
     "title": "Runaway Bride",
     "vendor": "VHS",
@@ -24268,23 +22925,6 @@
       }
     ],
     "source_folder": "out-prod-new-products-8.31"
-  },
-  {
-    "handle": "russell-simmons-presents-the-show-vhs-floor-sale-documentary",
-    "title": "Russell Simmons Presents The Show",
-    "vendor": "VHS",
-    "genre": "documentary",
-    "reason": "ambiguous match (best candidate: 'The Show' (1995))",
-    "candidates": [
-      {
-        "id": 56088,
-        "title": "The Show",
-        "year": "1995",
-        "overview": "A documentary about the culture of hip-hop. Through interviews with some of hip-hops biggest names, the film makers attempt to find out why it has become so popular.",
-        "poster_path": "/u08TkPYyKeHvkrpvLEZxRLVxdwu.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_7"
   },
   {
     "handle": "sabrina-the-teenage-witch-1995-vhs",
@@ -24508,23 +23148,6 @@
     "source_folder": "out-product_export_4"
   },
   {
-    "handle": "santa-clause-2-dvd-floor-sale-holiday",
-    "title": "Santa Clause 2",
-    "vendor": "DVD",
-    "genre": "holiday",
-    "reason": "ambiguous match (best candidate: 'The Santa Clause 2' (2002))",
-    "candidates": [
-      {
-        "id": 9021,
-        "title": "The Santa Clause 2",
-        "year": "2002",
-        "overview": "Better watch out! The big guy in red is coming to town once again. This time, Scott Calvin -- also known as Santa Claus -- finds out there's an obscure clause in his contract requiring him to take on a wife. He has to leave the North Pole to fulfill his obligations, or else he'll be forced to give up his Yuletide gig.",
-        "poster_path": "/2EAMkz0z1pbr9weOY1Y7buy2AxV.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_5"
-  },
-  {
     "handle": "savior-vhs-floor-sale-drama",
     "title": "Savior",
     "vendor": "VHS",
@@ -24689,23 +23312,6 @@
       }
     ],
     "source_folder": "out-product_export_5"
-  },
-  {
-    "handle": "saw-the-final-chapter-dvd-rental-horror",
-    "title": "Saw: The Final Chapter",
-    "vendor": "DVD",
-    "genre": "horror",
-    "reason": "ambiguous match (best candidate: 'Saw 3D' (2010))",
-    "candidates": [
-      {
-        "id": 41439,
-        "title": "Saw 3D",
-        "year": "2010",
-        "overview": "As a deadly battle rages over Jigsaw's brutal legacy, a group of Jigsaw survivors gathers to seek the support of self-help guru and fellow survivor Bobby Dagen, a man whose own dark secrets unleash a new wave of terror.",
-        "poster_path": "/qHCZ6LjtmqWDfXXN28TlIC9OppK.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
   },
   {
     "handle": "scala-or-the-incredibly-strange-rise-and-fall-of-the-worlds-wildest-cinema-and-how-it-influenced-a-mixed-up-generation-of-weirdos-and-misfits",
@@ -25052,23 +23658,6 @@
     "source_folder": "out-product_export_5"
   },
   {
-    "handle": "sesame-street-presents-follow-that-bird-vhs-floor-sale-kids-family",
-    "title": "Sesame Street Presents: Follow That Bird",
-    "vendor": "VHS",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Follow That Bird' (1985))",
-    "candidates": [
-      {
-        "id": 36536,
-        "title": "Follow That Bird",
-        "year": "1985",
-        "overview": "Big Bird is sent to live far from Sesame Street by a pesky social worker, who thinks it would be better for him to live with other birds. Unhappy, Big Bird runs away from his foster home, prompting the rest of the Sesame Street gang to go on a cross-country journey to find him.",
-        "poster_path": "/kkhgC0IDWtmPYX6FxMrVGx7jJnn.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_7"
-  },
-  {
     "handle": "seven-dvd-floor-sale-thriller",
     "title": "Seven",
     "vendor": "DVD",
@@ -25319,23 +23908,6 @@
       }
     ],
     "source_folder": "out-product_export_8"
-  },
-  {
-    "handle": "shallows",
-    "title": "Shallows",
-    "vendor": "4K",
-    "genre": "thriller",
-    "reason": "ambiguous match (best candidate: 'The Shallows' (2016))",
-    "candidates": [
-      {
-        "id": 332567,
-        "title": "The Shallows",
-        "year": "2016",
-        "overview": "While surfing on a secluded beach, Nancy finds herself in the feeding grounds of a great white shark. Though stranded only 200 yards from shore, survival proves to be the ultimate test of wills, requiring all of her ingenuity, resourcefulness, and fortitude.",
-        "poster_path": "/bnBV7hZmLuA0Si5Aop481sPF2RY.jpg"
-      }
-    ],
-    "source_folder": "out-circa-refill-8.30"
   },
   {
     "handle": "shame-vhs-floor-sale-drama",
@@ -25863,23 +24435,6 @@
     "source_folder": "out-prod-new-products-8.31"
   },
   {
-    "handle": "sketch-artist-ii-vhs",
-    "title": "Sketch Artist II",
-    "vendor": "VHS",
-    "genre": "thriller",
-    "reason": "ambiguous match (best candidate: 'Sketch Artist II: Hands That See' (1995))",
-    "candidates": [
-      {
-        "id": 107345,
-        "title": "Sketch Artist II: Hands That See",
-        "year": "1995",
-        "overview": "Police sketch artist Jack Whitfield helps blind rape victim Emmy describe her attacker \u2013 a serial rapist and murderer who is now out to get her.",
-        "poster_path": "/jpmsv0oDgCxxy0GGpSvSxMyFu9v.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
-  },
-  {
     "handle": "skindeep-1989-vhs-floor-sale-comedy",
     "title": "Skindeep (1989)",
     "vendor": "VHS",
@@ -26303,23 +24858,6 @@
         "year": "1988",
         "overview": "Pavel Voskoy, a first-year student at a teacher training college, accidentally finds himself caught up in a whirlwind of complicated relationships between a group of students (notorious hooligans) and the college rector. Pavel's social inexperience and naivety lead to unfortunate consequences.",
         "poster_path": "/k8Xk6TmCk1Vp37U6dXgbYfNU8jj.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
-  },
-  {
-    "handle": "snow-snow-2-brain-freeze-dvd-rental-holiday",
-    "title": "Snow / Snow 2 Brain Freeze",
-    "vendor": "DVD",
-    "genre": "holiday",
-    "reason": "ambiguous match (best candidate: 'Snow 2: Brain Freeze' (2008))",
-    "candidates": [
-      {
-        "id": 51836,
-        "title": "Snow 2: Brain Freeze",
-        "year": "2008",
-        "overview": "When Nick gets amnesia, it's up to Sandy and Buddy the reindeer to save him and Christmas.",
-        "poster_path": "/Rnn2bXZZmUOyD80alueT0KoBWs.jpg"
       }
     ],
     "source_folder": "out-product_export_4"
@@ -26902,23 +25440,6 @@
     "source_folder": "out-product_export_11"
   },
   {
-    "handle": "spy-kids-2-dvd-rental-kids-family",
-    "title": "Spy Kids 2",
-    "vendor": "DVD",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Spy Kids 2: The Island of Lost Dreams' (2002))",
-    "candidates": [
-      {
-        "id": 9488,
-        "title": "Spy Kids 2: The Island of Lost Dreams",
-        "year": "2002",
-        "overview": "Exploring the further adventures of Carmen and Juni Cortez, who have now joined the family spy business as Level 2 OSS agents. Their new mission is to save the world from a mad scientist living on a volcanic island populated by an imaginative menagerie of creatures. On this bizarre island, none of the Cortez's gadgets work and they must rely on their wits--and each other--to survive and save the day.",
-        "poster_path": "/z8pfWCk6SlxxDLXXQdUHdxF5dwJ.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
-  },
-  {
     "handle": "spy-kids-3d-dvd-floor-sale-kids-family",
     "title": "Spy Kids 3D",
     "vendor": "DVD",
@@ -26986,40 +25507,6 @@
       }
     ],
     "source_folder": "out-product_export_4"
-  },
-  {
-    "handle": "star-wars-a-new-hope-vhs-rental-sci-fi",
-    "title": "Star Wars a New Hope",
-    "vendor": "VHS",
-    "genre": "sci-fi",
-    "reason": "ambiguous match (best candidate: 'Star Wars' (1977))",
-    "candidates": [
-      {
-        "id": 11,
-        "title": "Star Wars",
-        "year": "1977",
-        "overview": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
-        "poster_path": "/fai0rspsNeJCS69wHNjOdWxcI7P.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_6"
-  },
-  {
-    "handle": "star-wars-return-of-the-jedi-vhs-floor-sale-sci-fi",
-    "title": "Star Wars Return of the Jedi",
-    "vendor": "VHS",
-    "genre": "sci-fi",
-    "reason": "ambiguous match (best candidate: 'Return of the Jedi' (1983))",
-    "candidates": [
-      {
-        "id": 1892,
-        "title": "Return of the Jedi",
-        "year": "1983",
-        "overview": "Luke Skywalker leads a mission to rescue his friend Han Solo from the clutches of Jabba the Hutt, the Emperor prepares to crush the Rebellion with a more powerful Death Star, and the Rebel fleet mounts a massive attack on the space station. Luke Skywalker confronts Darth Vader in a final climactic duel before the evil Emperor.",
-        "poster_path": "/jQYlydvHm3kUix1f8prMucrplhm.jpg"
-      }
-    ],
-    "source_folder": "out-prod-new-products-8.31"
   },
   {
     "handle": "star-wars-the-phantom-menace-vhs-floor-sale-sci-fi",
@@ -27175,23 +25662,6 @@
       }
     ],
     "source_folder": "out-product_export_8"
-  },
-  {
-    "handle": "stir-of-echoes-2-dvd-rental-thriller",
-    "title": "Stir of Echoes 2",
-    "vendor": "DVD",
-    "genre": "thriller",
-    "reason": "ambiguous match (best candidate: 'Stir of Echoes: The Homecoming' (2007))",
-    "candidates": [
-      {
-        "id": 34734,
-        "title": "Stir of Echoes: The Homecoming",
-        "year": "2007",
-        "overview": "A soldier returns home from the Iraq war only to be haunted by visions of the dead.",
-        "poster_path": "/cHfi643JkyJe647vtLE8SSZICI9.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
   },
   {
     "handle": "stoke-vhs",
@@ -28053,23 +26523,6 @@
     "source_folder": "out-product_export_3"
   },
   {
-    "handle": "t2-judgement-day-bluray",
-    "title": "T2: Judgement Day",
-    "vendor": "Blu-Ray",
-    "genre": "sci-fi",
-    "reason": "ambiguous match (best candidate: 'Terminator 2: Judgment Day' (1991))",
-    "candidates": [
-      {
-        "id": 280,
-        "title": "Terminator 2: Judgment Day",
-        "year": "1991",
-        "overview": "Ten years after the events of the original, a reprogrammed T-800 is sent back in time to protect young John Connor from the shape-shifting T-1000. Together with his mother Sarah, he fights to stop Skynet from triggering a nuclear apocalypse.",
-        "poster_path": "/jFTVD4XoWQTcg7wdyJKa8PEds5q.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_11"
-  },
-  {
     "handle": "taking-chance-dvd-floor-sale-drama",
     "title": "Taking Chance",
     "vendor": "DVD",
@@ -28354,23 +26807,6 @@
       }
     ],
     "source_folder": "out-product_export_3"
-  },
-  {
-    "handle": "thats-the-way-i-like-it-vhs-floor-sale-comedy",
-    "title": "That's the Way I Like It",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Forever Fever' (1998))",
-    "candidates": [
-      {
-        "id": 44807,
-        "title": "Forever Fever",
-        "year": "1998",
-        "overview": "Hock, a Bruce Lee-worshipping grocery boy, falls in love with disco after a screening of his favorite kung fu film is replaced with a \"Saturday Night Fever\" clone.  Partnering up with his friend Mei, he signs up for dancing lessons to prepare for a contest, in order to make some extra cash and buy a new motorcycle.",
-        "poster_path": "/wZflIL6jyQ6flv5e4Payx1FrNMm.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_7"
   },
   {
     "handle": "the-39-steps-vhs-rental-thriller",
@@ -28877,23 +27313,6 @@
     "source_folder": "out-product_export_5"
   },
   {
-    "handle": "the-baby-bot-chase-rolie-polie-olie-dvd-rental-kids-family",
-    "title": "The Baby Bot Chase: Rolie Polie Olie",
-    "vendor": "DVD",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'Rolie Polie Olie: The Baby Bot Chase' (2003))",
-    "candidates": [
-      {
-        "id": 110043,
-        "title": "Rolie Polie Olie: The Baby Bot Chase",
-        "year": "2003",
-        "overview": "An ill-fated attempt to capture a wishing star as a gift for their parents leads Rolie and Zowie into a musical outer space venture that brings a pair of lost twins into their lives in the multicolored robotic family's second feature-length outing. The baby bots have inadvertently left their dwelling, a fantasy foster home more akin to amusement park than institution. When Rolie and Zowie bring the misplaced babies back to their home planet, Mom and Dad are willing to give up the Family Fun Day Parade in order to track down the \"mothership.\" The intergalactic road trip results in the discovery that the infants need a good adoptive home. The parents offer verbal agreement (no red tape or exorbitant fees here!) and it's back home in time for the parade in this sweetly unjaded 68-minute movie from the folks at Disney Playhouse. (Ages 2 to 7) --Kimberly Heinrichs",
-        "poster_path": "/8wlDOI4oJZYpxWmZZ2BF7DlvBG4.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_4"
-  },
-  {
     "handle": "the-bananas-boat-vhs",
     "title": "The Bananas Boat",
     "vendor": "VHS",
@@ -29323,23 +27742,6 @@
       }
     ],
     "source_folder": "out-product_export_4"
-  },
-  {
-    "handle": "the-brothers-grimsby-dvd-rental-comedy",
-    "title": "The Brothers Grimsby",
-    "vendor": "DVD",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'Grimsby' (2016))",
-    "candidates": [
-      {
-        "id": 267193,
-        "title": "Grimsby",
-        "year": "2016",
-        "overview": "Wrongfully accused and on the run, a top MI6 assassin joins forces with his long-lost, football hooligan brother to save the world from a sinister plot.",
-        "poster_path": "/2jQGFmShpdflApc5oidJZ97m1d1.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_3"
   },
   {
     "handle": "the-butchering-dvd-floor-sale-horror",
@@ -30713,23 +29115,6 @@
     "source_folder": "out-product_export_8"
   },
   {
-    "handle": "the-fugitive-us-marshals-dvd-floor-sale-action",
-    "title": "The Fugitive / U.S. Marshals",
-    "vendor": "DVD",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'U.S. Marshals' (1998))",
-    "candidates": [
-      {
-        "id": 11808,
-        "title": "U.S. Marshals",
-        "year": "1998",
-        "overview": "U.S. Marshal Sam Gerard is accompanying a plane load of convicts from Chicago to New York. The plane crashes spectacularly, and Mark Sheridan escapes. But when Diplomatic Security Agent John Royce is assigned to help Gerard recapture Sheridan, it becomes clear that Sheridan is more than just another murderer.",
-        "poster_path": "/5ST0BydDSXtW5AtfDDhTVS13pTt.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_5"
-  },
-  {
     "handle": "the-gambler-dvd-rental-action",
     "title": "The Gambler",
     "vendor": "DVD",
@@ -31623,23 +30008,6 @@
         "year": "1914",
         "overview": "Two couples head for Reno to swap partners, but change their minds at the last minute.",
         "poster_path": ""
-      }
-    ],
-    "source_folder": "out-product_export_9"
-  },
-  {
-    "handle": "the-hudsucker-vhs-floor-sale-comedy",
-    "title": "The Hudsucker",
-    "vendor": "VHS",
-    "genre": "comedy",
-    "reason": "ambiguous match (best candidate: 'The Hudsucker Proxy' (1994))",
-    "candidates": [
-      {
-        "id": 11934,
-        "title": "The Hudsucker Proxy",
-        "year": "1994",
-        "overview": "A naive business graduate is installed as president of a manufacturing company as part of a stock scam.",
-        "poster_path": "/xBQBr6Q1OTivouBK66oFgy86n03.jpg"
       }
     ],
     "source_folder": "out-product_export_9"
@@ -32660,23 +31028,6 @@
     "source_folder": "out-new-unformatted-8.30"
   },
   {
-    "handle": "the-last-of-philip-banter-vhs-floor-sale-thriller",
-    "title": "The Last of Philip Banter",
-    "vendor": "VHS",
-    "genre": "thriller",
-    "reason": "ambiguous match (best candidate: 'Banter' (1986))",
-    "candidates": [
-      {
-        "id": 366787,
-        "title": "Banter",
-        "year": "1986",
-        "overview": "An alcoholic partier becomes a paranoid maniac when a manuscript that predicts real-life horrors takes possession of his mind.",
-        "poster_path": "/iCGusfY637oOepBCiD80WSyt09w.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_8"
-  },
-  {
     "handle": "the-last-of-the-mohicans-dvd-floor-sale-action",
     "title": "The Last of the Mohicans",
     "vendor": "DVD",
@@ -32938,23 +31289,6 @@
       }
     ],
     "source_folder": "out-circa-refill-8.30"
-  },
-  {
-    "handle": "the-legend-of-the-shadowless-sword-dvd-floor-sale-action",
-    "title": "The Legend of the Shadowless Sword",
-    "vendor": "DVD",
-    "genre": "action",
-    "reason": "ambiguous match (best candidate: 'Shadowless Sword' (2005))",
-    "candidates": [
-      {
-        "id": 14763,
-        "title": "Shadowless Sword",
-        "year": "2005",
-        "overview": "927 AD. The Killer-Blade Army has toppled the ruling dynasty, plunging the kingdom into chaos. The only remaining heir, Prince Jung-Hyun is living in exile, unaware of his family's dark fate. Still loyal to the dynasty, the beautiful and deadly warrior Soha sets out to find Jung-Hyun and guide him to become the great leader he was born to be. But with the Army's greatest assassins and the criminal underworld hunting them, Soha and Jung-Hyun are swept into an explosive, non-stop battle of swords, wits and bloodshed as they fight to reclaim the fallen throne.",
-        "poster_path": "/g8zYKidsjUXDjftPWo9DkrV2gcC.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_9"
   },
   {
     "handle": "the-libertine-dvd-floor-sale-drama",
@@ -33908,23 +32242,6 @@
       }
     ],
     "source_folder": "out-product_export_8"
-  },
-  {
-    "handle": "the-nut-job-nut-job-2-dvd-rental-kids-family",
-    "title": "The Nut Job & Nut Job 2",
-    "vendor": "DVD",
-    "genre": "kids-family",
-    "reason": "ambiguous match (best candidate: 'The Nut Job 2: Nutty by Nature' (2017))",
-    "candidates": [
-      {
-        "id": 335777,
-        "title": "The Nut Job 2: Nutty by Nature",
-        "year": "2017",
-        "overview": "When the evil mayor of Oakton decides to bulldoze Liberty Park and build a dangerous amusement park in its place, Surly Squirrel and his ragtag group of animal friends need to band together to save their home, defeat the mayor, and take back the park.",
-        "poster_path": "/xOfdQHNF9TlrdujyAjiKfUhxSXy.jpg"
-      }
-    ],
-    "source_folder": "out-product_export_5"
   },
   {
     "handle": "the-nutty-professor-vhs-rental-comedy",
