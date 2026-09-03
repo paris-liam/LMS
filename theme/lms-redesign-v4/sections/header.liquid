@@ -835,16 +835,18 @@
         grid-template-areas: 'left right';
       }
 
+      /* LMS: give the menu's column the flexible space instead of the other column, so menu
+         links get priority over "More" collapsing while the logo/actions side just takes what it needs */
       /* If the header-menu is in the right column */
       &:has(.header__column--right header-menu) {
-        --header-right: auto;
-        --header-left: minmax(max-content, 1fr);
+        --header-right: minmax(max-content, 1fr);
+        --header-left: max-content;
       }
 
       /* If the header-menu is in the left column */
       &:has(.header__column--left header-menu) {
-        --header-left: auto;
-        --header-right: minmax(max-content, 1fr);
+        --header-left: minmax(max-content, 1fr);
+        --header-right: max-content;
       }
     }
 

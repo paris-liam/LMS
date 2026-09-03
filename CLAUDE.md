@@ -15,6 +15,8 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 
 **Decided 2026-09-03.** Until the site's major release, **production (`p0wkgv-wy.myshopify.com`) is the source of truth and the default target for theme work** — this inverts the normal "Store rule" below. Pull-before-push still applies (the client edits live there), but skip asking "did they mean production" — assume yes. Revert to the dev-default rule once the major release ships; this block should be removed at that point.
 
+**"Push" / "deploy" default to production.** When the user says "push", "deploy", or "push to production" without naming a store, target `p0wkgv-wy.myshopify.com` — do not ask for confirmation first. Still pull before pushing (see Deployment workflow below), and still restate the target store in the response so the action is visible. Say so explicitly only if the user names the dev store instead.
+
 ---
 
 ## Read first
@@ -186,11 +188,11 @@ This is the current live page — it IS the Shopify password page. Key details:
 
 ## Deployment workflow
 
-### Default target: the dev store
+### Default target: production (temporary — see the ⚠️ TEMPORARY block above)
 
-All routine pushes, pulls, previews, and API scripts go to `lms-sandbox-lutsfahz.myshopify.com`. Production commands (below) run only on explicit per-operation instruction.
+**"Push" or "deploy" with no store named means production** (`p0wkgv-wy.myshopify.com`, live theme `166751961338`) — don't ask which store first, just restate the target when you act. Target the dev store only when the user names it explicitly. This inverts Horizon's normal default; revert once the TEMPORARY block above is removed.
 
-### Pull before push — always (production only, on explicit instruction)
+### Pull before push — always, on every production push
 
 ```bash
 shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338
@@ -211,16 +213,16 @@ shopify theme push --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com 
 ### Common commands
 
 ```bash
-# Local preview (dev store)
-shopify theme dev --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com
+# Deploy to PRODUCTION — the default for "push"/"deploy" right now (pull first!)
+shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338
+shopify theme push --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338 --allow-live
 
-# Push / pull dev store (working theme 140918915134)
+# Push / pull dev store (working theme 140918915134) — only when the user names the dev store
 shopify theme push --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com --theme 140918915134
 shopify theme pull --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com --theme 140918915134
 
-# Deploy to PRODUCTION — only on explicit instruction (pull first!)
-shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338
-shopify theme push --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338 --allow-live
+# Local preview (dev store)
+shopify theme dev --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com
 
 # Lint
 shopify theme check --path theme/lms-redesign-v4
