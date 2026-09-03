@@ -4,10 +4,10 @@
   Redesign pass (2026-09-03): restyled toward docs/product-a.dc.html mockup —
   breadcrumb, badges above title, 3:4 poster with stylized fallback, "About
   the film" label, related-products rail (see templates/product.movie.json).
-  Availability status and notify-me are removed for now — see git history for
-  the prior implementation if they need to come back. NO price / variant /
-  add-to-cart / dynamic checkout / Supercycle Methods slot — all transactions
-  are in-store.
+  Availability label restored (2026-09-03) reading supercycle.* metafields;
+  notify-me is still removed — see git history if it needs to come back.
+  NO price / variant / add-to-cart / dynamic checkout / Supercycle Methods
+  slot — all transactions are in-store.
 {% endcomment %}
 
 {%- liquid
@@ -27,6 +27,21 @@
   assign format_label = ''
   if known_formats contains vendor_upcase
     assign format_label = product.vendor
+  endif
+
+  # STAND-IN NOTE: reading Supercycle-owned metafields, do not create the namespace.
+  assign sc_enabled = product.metafields.supercycle.supercycle_enabled
+  assign movie_available = true
+  assign movie_label = 'Available in-store'
+  if sc_enabled == true
+    assign sc_variant = product.selected_or_first_available_variant
+    assign sc_uncommitted = sc_variant.metafields.supercycle.uncommitted_inventory
+    if sc_uncommitted
+      assign movie_label = 'Available now'
+    else
+      assign movie_available = false
+      assign movie_label = 'Currently out'
+    endif
   endif
 -%}
 
@@ -76,6 +91,14 @@
         </div>
         {% # theme-check-enable HardcodedRoutes %}
       {%- endif -%}
+
+      <div class="lms-movie__availability">
+        {%- if movie_available -%}
+          <span class="lms-movie__stock lms-movie__stock--in"><span aria-hidden="true">● </span>{{ movie_label }}</span>
+        {%- else -%}
+          <span class="lms-movie__stock lms-movie__stock--out"><span aria-hidden="true">● </span>{{ movie_label }}</span>
+        {%- endif -%}
+      </div>
 
       <h1 class="lms-movie__title">{{ product.title }}</h1>
 
@@ -155,6 +178,13 @@
 .lms-movie__details { display: flex; flex-direction: column; gap: 16px; }
 .lms-movie__chips { display: flex; gap: 8px; flex-wrap: wrap; }
 .lms-movie__chips a { text-decoration: none; }
+.lms-movie__availability {
+  font-family: var(--lms-font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+.lms-movie__stock--in { color: var(--lms-sage); }
+.lms-movie__stock--out { color: var(--lms-text-muted); }
 .lms-movie__title {
   font-family: var(--lms-font-display);
   font-weight: var(--lms-fw-head-semi);
