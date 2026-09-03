@@ -31,7 +31,11 @@
   if known_formats contains vendor_upcase
     assign format_label = card_product.vendor
   endif
-  assign genre_label = card_product.metafields.shopify.genre.value.first.label.value
+  # .first does not work on this list-of-metaobjects drop — only iteration does.
+  assign genre_label = ''
+  for genre_item in card_product.metafields.shopify.genre.value limit: 1
+    assign genre_label = genre_item.label
+  endfor
 -%}
 
 {%- if card_product and card_product != empty -%}

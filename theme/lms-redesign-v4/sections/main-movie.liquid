@@ -26,8 +26,13 @@
       <h1 class="lms-movie__title">{{ product.title }}</h1>
 
       {%- liquid
-        assign genre_label = product.metafields.shopify.genre.value.first.label.value
-        assign genre_handle = product.metafields.shopify.genre.value.first.system.handle
+        # .first does not work on this list-of-metaobjects drop — only iteration does.
+        assign genre_label = ''
+        assign genre_handle = ''
+        for genre_item in product.metafields.shopify.genre.value limit: 1
+          assign genre_label = genre_item.label
+          assign genre_handle = genre_item.system.handle
+        endfor
         # Media format lives in product.vendor, not a metafield — see
         # claudedocs/2026-08-07-product-data-model-audit.md. The matching facet is
         # the built-in "Product vendor" filter in Search & Discovery. Only chip
