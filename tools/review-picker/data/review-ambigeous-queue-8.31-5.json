@@ -204,5 +204,11 @@
     "choice": "tmdb",
     "poster_path": "/ugqdTcTEiIl37jv0QiSUlpplEke.jpg",
     "overview": "In 1971, a young woman moves from the French countryside to Paris and begins a passionate love affair with a feminist leader."
+  },
+  {
+    "handle": "sunburn",
+    "choice": "tmdb",
+    "poster_path": "/pP9qJHqqxCxX0QGIJzTCH8W3kYQ.jpg",
+    "overview": "A model and a private eye help a New York insurance investigator on a deadly case in Acapulco."
   }
 ]
