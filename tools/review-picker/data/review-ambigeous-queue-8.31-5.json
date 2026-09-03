@@ -13,13 +13,13 @@
     "handle": "star-wars-attack-of-the-clones-dvd-rental-sci-fi",
     "choice": "tmdb",
     "poster_path": "/oZNPzxqM2s5DyVWab09NTQScDQt.jpg",
-    "overview": "Following an assassination attempt on Senator Padm\u00e9 Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars."
+    "overview": "Following an assassination attempt on Senator Padmé Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars."
   },
   {
     "handle": "star-wars-attack-of-the-clones-dvd-floor-sale-sci-fi",
     "choice": "tmdb",
     "poster_path": "/oZNPzxqM2s5DyVWab09NTQScDQt.jpg",
-    "overview": "Following an assassination attempt on Senator Padm\u00e9 Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars."
+    "overview": "Following an assassination attempt on Senator Padmé Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars."
   },
   {
     "handle": "star-wars-revenge-of-the-sith-dvd-floor-sale-sci-fi",
@@ -140,5 +140,11 @@
   {
     "handle": "the-new-girl-a-model-agent-vhs-floor-sale-thriller",
     "choice": "skip"
+  },
+  {
+    "handle": "steel-vhs",
+    "choice": "tmdb",
+    "poster_path": "/ufA7d5LT2rGj58KaZErPhcMkJ4U.jpg",
+    "overview": "When a renegade military reject puts new superweapons in dangerous hands, John Henry Irons becomes Steel. Wearing body armor, wielding a fearsome electrohammer and riding a gadget-packed motorcycle, he's ready to wage war... if he can fix the untimely glitches in his untested gear."
   }
 ]
