@@ -14,16 +14,7 @@
       data-search-results
     >
       {% if predictive_search.performed %}
-        {% liquid
-          assign search_scope_collection = collections['all-movies']
-          assign scoped_products = "" | split: ""
-          for product in predictive_search.resources.products
-            if product.collections contains search_scope_collection
-              assign scoped_products = scoped_products | concat: product
-            endif
-          endfor
-        %}
-        {% assign search_results_count = scoped_products.size
+        {% assign search_results_count = predictive_search.resources.products.size
           | plus: predictive_search.resources.pages.size
           | plus: predictive_search.resources.articles.size
           | plus: predictive_search.resources.collections.size
@@ -71,10 +62,11 @@
         {% endif %}
 
         {%- if search_results_count > 0 -%}
-          {% if scoped_products.size > 0 %}
+          {% if predictive_search.resources.products.size > 0 %}
             {%- liquid
               assign title = 'content.search_results_resource_products' | t
-              render 'predictive-search-products-list', title: title, products: scoped_products
+              assign products = predictive_search.resources.products
+              render 'predictive-search-products-list', title: title, products: products
             -%}
           {% endif %}
 
@@ -130,15 +122,15 @@
 
       {% if predictive_search.performed %}
         {%- if search_results_count > 0 -%}
-          {% assign total_results = scoped_products.size
+          {% assign total_results = predictive_search.resources.products.size
             | plus: predictive_search.resources.collections.size
             | plus: predictive_search.resources.pages.size
             | plus: predictive_search.resources.articles.size
           %}
           {% assign single_result_url = null %}
           {% if total_results == 1 %}
-            {% if scoped_products.size == 1 %}
-              {% assign single_result_url = scoped_products.first.url %}
+            {% if predictive_search.resources.products.size == 1 %}
+              {% assign single_result_url = predictive_search.resources.products.first.url %}
             {% elsif predictive_search.resources.collections.size == 1 %}
               {% assign single_result_url = predictive_search.resources.collections.first.url %}
             {% elsif predictive_search.resources.pages.size == 1 %}
