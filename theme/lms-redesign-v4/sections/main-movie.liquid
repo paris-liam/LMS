@@ -1,12 +1,50 @@
 {% comment %}
   main-movie — dedicated read-only PDP for rental/movie products.
   Spec: docs/superpowers/specs/2026-07-17-movie-product-template-design.md
-  Shows poster, title, curated genre/format chips, in-store availability,
-  out-of-stock notify-me, and description. NO price / variant / add-to-cart /
-  dynamic checkout / Supercycle Methods slot — all transactions are in-store.
+  Redesign pass (2026-09-03): restyled toward docs/product-a.dc.html mockup —
+  breadcrumb, badges above title, 3:4 poster with stylized fallback, "About
+  the film" label, related-products rail (see templates/product.movie.json).
+  Availability status and notify-me are removed for now — see git history for
+  the prior implementation if they need to come back. NO price / variant /
+  add-to-cart / dynamic checkout / Supercycle Methods slot — all transactions
+  are in-store.
 {% endcomment %}
 
+{%- liquid
+  # .first does not work on this list-of-metaobjects drop — only iteration does.
+  assign genre_label = ''
+  assign genre_handle = ''
+  for genre_item in product.metafields.shopify.genre.value limit: 1
+    assign genre_label = genre_item.label
+    assign genre_handle = genre_item.system.handle
+  endfor
+  # Media format lives in product.vendor, not a metafield — see
+  # claudedocs/2026-08-07-product-data-model-audit.md. The matching facet is
+  # the built-in "Product vendor" filter in Search & Discovery. Only chip
+  # recognised formats so a stray vendor name never renders as a format.
+  assign known_formats = 'VHS,DVD,BLU-RAY,4K,LASERDISC,BETAMAX' | split: ','
+  assign vendor_upcase = product.vendor | upcase
+  assign format_label = ''
+  if known_formats contains vendor_upcase
+    assign format_label = product.vendor
+  endif
+-%}
+
 <section class="lms-movie page-width">
+  {% # theme-check-disable HardcodedRoutes %}
+  <div class="lms-movie__breadcrumb">
+    <a href="/collections/all-movies">← Back to the shelves</a>
+    <span aria-hidden="true">·</span>
+    {%- if genre_label != blank -%}
+      <a href="/collections/all-movies">All Movies</a>
+      <span aria-hidden="true">/</span>
+      <a href="/collections/all-movies?filter.p.m.shopify.genre={{ genre_handle | url_encode }}">{{ genre_label }}</a>
+    {%- else -%}
+      <a href="/collections/all-movies">All Movies</a>
+    {%- endif -%}
+  </div>
+  {% # theme-check-enable HardcodedRoutes %}
+
   <div class="lms-movie__grid">
     <div class="lms-movie__media">
       {%- if product.featured_image -%}
@@ -18,32 +56,14 @@
             loading: 'eager',
             alt: product.featured_image.alt | default: product.title }}
       {%- else -%}
-        <div class="lms-movie__placeholder">{{ 'product-1' | placeholder_svg_tag }}</div>
+        <div class="lms-movie__placeholder">
+          <span class="lms-movie__placeholder-title">{{ product.title }}</span>
+          <span class="lms-movie__placeholder-caption">Cover art coming soon</span>
+        </div>
       {%- endif -%}
     </div>
 
     <div class="lms-movie__details">
-      <h1 class="lms-movie__title">{{ product.title }}</h1>
-
-      {%- liquid
-        # .first does not work on this list-of-metaobjects drop — only iteration does.
-        assign genre_label = ''
-        assign genre_handle = ''
-        for genre_item in product.metafields.shopify.genre.value limit: 1
-          assign genre_label = genre_item.label
-          assign genre_handle = genre_item.system.handle
-        endfor
-        # Media format lives in product.vendor, not a metafield — see
-        # claudedocs/2026-08-07-product-data-model-audit.md. The matching facet is
-        # the built-in "Product vendor" filter in Search & Discovery. Only chip
-        # recognised formats so a stray vendor name never renders as a format.
-        assign known_formats = 'VHS,DVD,BLU-RAY,4K,LASERDISC,BETAMAX' | split: ','
-        assign vendor_upcase = product.vendor | upcase
-        assign format_label = ''
-        if known_formats contains vendor_upcase
-          assign format_label = product.vendor
-        endif
-      -%}
       {%- if genre_label != blank or format_label != blank -%}
         {% # theme-check-disable HardcodedRoutes %}
         <div class="lms-movie__chips">
@@ -56,41 +76,14 @@
         </div>
         {% # theme-check-enable HardcodedRoutes %}
       {%- endif -%}
-      {# STAND-IN: inventory qty now; swap to scf.avf / supercycle.* on install #}
-      {%- assign movie_in_stock = false -%}
-      {%- if product.available -%}{%- assign movie_in_stock = true -%}{%- endif -%}
 
-      <div class="lms-movie__availability">
-        {%- if movie_in_stock -%}
-          <span class="lms-movie__stock lms-movie__stock--in"><span aria-hidden="true">● </span>Available in-store</span>
-        {%- else -%}
-          <span class="lms-movie__stock lms-movie__stock--out"><span aria-hidden="true">● </span>Currently out</span>
-        {%- endif -%}
-      </div>
-      <p class="lms-movie__instore">Rent or buy this title in-store.</p>
-      {%- unless movie_in_stock -%}
-        <div class="lms-movie__notify">
-          {%- form 'contact', class: 'lms-movie__notify-form' -%}
-            {%- if form.posted_successfully? -%}
-              <p class="lms-movie__notify-success">Thanks — we'll let you know when it's back in.</p>
-            {%- else -%}
-              <input type="hidden" name="contact[Movie]" value="{{ product.title | escape }} ({{ product.handle }})">
-              <input type="hidden" name="contact[body]" value="Back-in-stock request for {{ product.title | escape }} ({{ product.handle }})">
-              {%- if form.errors -%}
-                <p class="lms-movie__notify-error">{{ form.errors | default_errors }}</p>
-              {%- endif -%}
-              <label class="lms-movie__notify-label" for="lms-notify-email-{{ section.id }}">Notify me when it's back</label>
-              <div class="lms-movie__notify-row">
-                <input id="lms-notify-email-{{ section.id }}" type="email" name="contact[email]" placeholder="you@email.com" required>
-                <button type="submit" class="button">Notify me</button>
-              </div>
-            {%- endif -%}
-          {%- endform -%}
-        </div>
-      {%- endunless -%}
+      <h1 class="lms-movie__title">{{ product.title }}</h1>
 
       {%- if product.description != blank -%}
-        <div class="lms-movie__description rte">{{ product.description }}</div>
+        <div class="lms-movie__about">
+          <span class="lms-eyebrow">About the film</span>
+          <div class="lms-movie__description rte">{{ product.description }}</div>
+        </div>
       {%- endif -%}
     </div>
   </div>
@@ -98,34 +91,84 @@
 
 {% stylesheet %}
 .lms-movie { padding-block: 32px; }
+.lms-movie__breadcrumb {
+  font-family: var(--lms-font-mono);
+  font-size: 13px;
+  color: var(--lms-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.lms-movie__breadcrumb a { color: inherit; text-decoration: none; }
+.lms-movie__breadcrumb a:hover { color: var(--lms-text-strong); }
 .lms-movie__grid {
   display: grid;
-  grid-template-columns: minmax(0, 45%) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
   gap: 48px;
   align-items: start;
 }
-.lms-movie__media img,
-.lms-movie__placeholder svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: var(--lms-border-width) solid var(--lms-border-default);
-  border-radius: var(--lms-radius-xs);
+.lms-movie__media {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--lms-radius-lg);
+  overflow: hidden;
+  border: var(--lms-border-width-strong) solid var(--lms-border-strong);
+  box-shadow: var(--lms-shadow-lg);
 }
-.lms-movie__details { display: flex; flex-direction: column; gap: 20px; }
-.lms-movie__title { font-family: var(--lms-font-display); color: var(--lms-text-strong); margin: 0; }
+.lms-movie__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lms-movie__placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--lms-brick);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+  position: relative;
+}
+.lms-movie__placeholder-title {
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-semi);
+  font-size: 34px;
+  line-height: 1.08;
+  color: var(--lms-text-on-brick);
+}
+.lms-movie__placeholder-caption {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  font-family: var(--lms-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 249, 239, 0.6);
+}
+.lms-movie__details { display: flex; flex-direction: column; gap: 16px; }
 .lms-movie__chips { display: flex; gap: 8px; flex-wrap: wrap; }
 .lms-movie__chips a { text-decoration: none; }
-.lms-movie__availability { font-family: var(--lms-font-mono); font-size: 14px; }
-.lms-movie__stock--in { color: var(--lms-sage); }
-.lms-movie__stock--out { color: var(--lms-text-muted); }
-.lms-movie__instore { font-family: var(--lms-font-mono); font-size: 13px; color: var(--lms-text-muted); margin: 0; }
+.lms-movie__title {
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-semi);
+  font-size: 40px;
+  line-height: 1.04;
+  color: var(--lms-text-strong);
+  margin: 0;
+}
+.lms-movie__about { margin-top: 8px; }
+.lms-movie__about .lms-movie__description { margin-top: 10px; }
 .lms-movie__description { color: var(--lms-text-body); }
-.lms-movie__notify-label { display: block; font-family: var(--lms-font-mono); font-size: 13px; margin-bottom: 6px; }
-.lms-movie__notify-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-.lms-movie__notify-success { color: var(--lms-sage); font-family: var(--lms-font-mono); }
 @media (max-width: 749px) {
   .lms-movie__grid { grid-template-columns: 1fr; gap: 24px; }
+  .lms-movie__title { font-size: 30px; }
 }
 {% endstylesheet %}
 
