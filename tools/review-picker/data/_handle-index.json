@@ -1,0 +1,4294 @@
+{
+  "15-classic-movies-dvd-rental-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "187-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "3-kids-movies-beautiy-the-beast-puss-in-boots-jack-the-giant-killer-dvd-floor-sale-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "3-movie-collection-think-like-a-man-think-like-a-man-too-about-last-night-dvd-rental-romantic-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "300-spartans-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "4-film-favorites-batman-collection-bluray": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "8-movie-monster-pack-dvd-5": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "9-to-5-vhs-floor-sale-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "a-christmas-carol-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "a-christmas-story-clamshell-vhs-floor-sale-holiday": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "a-christmas-story-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "a-fool-and-his-money-vhs-rental-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "a-house-on-the-hills-vhs-floor-sale-thriller": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "ace-ventura-pet-detective-dvd-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "action-4-movie-series-contraband-savages-traffic-miami-vice-dvd-6": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "after-hours-4k-uhd-blu-ray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "after-hours-bluray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "against-the-ropes-contrecoups-dvd-rental-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "akira-kurosawa-s-dreams-4k-uhd-blu-ray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "alegria-an-enchanting-fable": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "alice-through-the-looking-glass-alice-in-wonderland-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "alien-4k-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "alien-ressurrection-laserdisc-floor-sale-sci-fi": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "all-i-want-for-christmas-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "almost-pregnant-a-bedtime-story": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "ambushed-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "amelia-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "america": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "american-dream-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "american-gun-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "american-horror-stories-12-movie-collection-dvd-rental-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "american-pie-dvd-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "american-pie-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "american-women": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "americas-great-national-parks-yosemite-yellowstone-grand-canyon-vhs-vcr-tapes": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "an-american-summer-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "an-evening-with-robin-williams-live-uncensored": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "an-ideal-husband-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "and-she-was-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "angel-of-death": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "animatrix-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "anna-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "anna-karenina": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "anna-karenina-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "annapolis-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "anne-of-green-gables": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "annie-dvd-rental-musical": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "another-woman-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "antony-and-cleopatra-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "area-51-secrets-of-dreamland": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "armageddon-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "armageddon-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "armageddon-vhs-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "assassination": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "atonement-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "audition-dvd-floor-sale-foreign": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "australia-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "b-a-d-cats": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "babes-in-toyland-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "baby-mana-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "backdraft-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "backrooms-cultcave-vhs-floor-sale-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "backtrack-1992-directors-cut": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "bakers-wife-the-bluray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "ball-buster-vhs-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "bananas-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "bananas-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "bandits-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "bangkock-dangerous-dvd-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "barbie-the-fairy-princess-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "barbie-the-fairy-princess-bluray-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "basic-instinct-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "batman-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "battle-los-angeles-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "bay-watch-bluray": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "baywatch-the-movie-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "beautiful-creatures-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "beautiful-people-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "beauty-and-the-beast-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "beauty-and-the-beast-vhs-rental-fantasy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "beauty-shop-leagally-blonde-dvd-rental-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "before-and-after": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "behind-the-scenes-point-break-hot-shots-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "ben-hur-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "benji-in-benjis-very-own-christmas-story-vhs-floor-sale-holiday": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "beowulf-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "beverly-hills-chihuahua-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "beverly-hills-chihuahua-dvd-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "beverly-hills-cop-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "big-business-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "big-country-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "big-trouble-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "bingo-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "black-cat-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "black-death-bluray-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "blade-of-kings-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "blind-justice-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "body-of-evidence-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "boiler-room-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "boogeyman-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "boys-dont-cry-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "breakfast-club-the-4k-uhd-blu-ray-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "bright-future-dvd-floor-sale-foreign": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "brooklyn-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "brylcreem-boys-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "bubble-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "buck-rogers-in-the-25th-century-vhs-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "caged-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "caged-in-triple-feature-dvd-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "call-of-the-wild-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "camoulage-vhs-floor-sale-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "cape-fear-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "captain-america-3-movie-collection-3d-bluray-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "carpool-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "casino-royal-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "casino-royale-bluray-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "casino-royale-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "castaway-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cat-on-a-hot-tin-roof-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cause-of-evidence-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "celebrity-vhs-floor-sale": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "celebrity-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "celebrity-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cement-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "center-stage-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "chain-of-command-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "champion-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "changeling-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "charlottes-web-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "charlottes-web-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "charlottes-web-dvd-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "charlottes-web-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "checking-out-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "checkmate-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "children-of-dune-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "china-girl-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "chocolat-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "choices-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "christmas-in-connecticut-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "christmas-vacation-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "chrome-soldiers-the-secret-passion-of-robert-clayton": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "cinderella-4k-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cinderella-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cinderella-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "circle-of-fear-vhs-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "city-of-sin-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "civil-war-4k-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "clash-of-the-titans-bluray-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "clash-of-the-titans-dvd-floor-sale-fantasy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "clash-of-the-titans-dvd-rental-fantasy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "claudia-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "clean-dvd-floor-sale-foreign": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "clerks-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cloudy-with-a-chance-of-meatballs-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "code-hunter": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "code-name-dancer-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cold-feet-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cold-heart-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cold-mountain-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "coming-home-for-christmas-dvd-rental-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "complete-kubrick-the-4k-uhd-blu-ray-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "conan-the-barbarian-bluray-floor-sale-fantasy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "concussion-bluray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "contact-dvd-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "contact-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "contact-vhs-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "contact-vhs-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "contagion-dvd-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "contraband-bluray-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "contract-killer-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cop-and-a-half-vhs-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "count-of-monte-cristo-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "courage-and-fire-vhs-floor-sale-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "covert-action-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "crackers-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "crash-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "crash-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "crash-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "crimes-of-the-future": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "criminal-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "crocodile-dundee-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cross-my-heart-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "crossroads-dvd-rental-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cruel-intentions-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cry-wolf-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "cry-wolf-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dance-with-me-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dance-with-me-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dance-with-me-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dangerous-game-vhs-14": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dark-journey-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "date-night-bluray-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dave-chappelles-block-party-dvd-floor-sale-documentary": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "davinci-code-bluray-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dawn-of-the-dead-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dead-heat-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dead-in-the-water-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dead-of-night-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dead-poets-society-vhs-1989-robin-williams-buy-2-get-1-free": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "death-race-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "death-wish-4-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "deceit-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "deceived-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "deception-dvd-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "deep-blue-sea-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "deep-cover-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "defiance-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "defiance-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "delision-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "delta-force-2-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "delta-force-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "delusion-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dementia-13-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "desert-blue-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "desert-heat-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "desperado-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "despicable-me-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "despicable-me-dvd-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dial-m-for-murder-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "diamonds-edge-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dick-tracy-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dillinger-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "diner-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dirty-dancing-bluray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dirty-dancing-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "do-the-right-thing-bluray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "do-the-right-thing-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "do-the-right-thing-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "doa-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "doctor-strange-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dolphin-tale-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "don-king-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dont-be-a-menace-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "doppelganger-the-evil-within-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dorf-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "double-edge-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "double-edge-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "double-feature-first-wives-club-sliding-doors-dvd-floor-sale-comedy-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "double-feature-the-land-before-time-6-7-dvd-rental-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "double-jeopardy-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "downtown-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dracula-bram-stokers-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dracula-sucks-dvd-rental-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "dragnet-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dragon-heart-3-dvd-rental-fantasy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dragonfight-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "drum-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "duel-to-the-death-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dumb-and-dumber-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dumb-and-dumber-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dumb-and-dumber-laserdisc-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dummy-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "dying-to-get-rich-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "earthly-possessions-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "easier-said-vhs-floor-sale-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "east-is-east-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "easy-money-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "easyriders-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "easyriders-video-magazine-12-vhs-floor-sale-special-interest": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "easyriders-video-magazine-15-vhs-floor-sale-special-interest": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "eddie-and-the-cruisers-ii-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "electra-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "elephant-man-the-4k-uhd-blu-ray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "elephant-man-the-bluray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "elephant-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "elizabeth-i-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "elysium-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "emma-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "empire-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "enigma-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "enter-the-invincible-hero-dvd-floor-sale-foreign": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "envy-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "envy-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "europa-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "ever-after-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "evil-judgment-vinegar-syndrome": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "excellent-cadavers-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "expendables-1-2-3-bluray": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "exposed-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "eye-in-the-sky-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "face-to-face-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "face-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "faerie-tale-theater-the-snow-queen-vhs-rental-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "fair-game-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fallen-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fallen-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "falling-down-limited-edition-blu-ray-4k-ultra-hd-4k-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "family-business-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "family-tree-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fantasic-beasts-the-crimes-of-grindelwald-bluray-rental-fantasy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "far-from-heaven-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "far-from-heaven-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fass-black-vhs-floor-sale-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "fast-fortune-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "fast-furious-9-movie-collection-dvd-11": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "fatally-yours-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fate-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fear-in-the-night-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fearless-bluray-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fearless-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "feast-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fighting-dvd-4": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fighting-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "final-destination-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "final-destination-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "final-encounter-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "finao-mission-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fire-breather-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fireworks-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "first-men-in-the-moon-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "flash-fire-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fool-proof-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "for-love-or-money-dvd-rental-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "for-richer-for-poorer-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "forbidden-choices-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "forever-julia-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "forever-young-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "foul-play-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "frank-and-jesse-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "friendship-bluray-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fun-with-dick-and-jane-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "funny-farm-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "fx-fx2-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gallipoli-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gamer-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gangster-world-vhs-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gaumont-treasures-vol-2-dvd-rental-special-interest": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "get-carter-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "get-hard-central-intelligence-dvd-rental-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "ghost-busters-dvd-8": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "ghost-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "ghost-sealed-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "giallo-essentials-yellow-edition-standard-edition-blu-ray-bluray-floor-sale-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "girl-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "girls-fight-tonite-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "girls-in-prison-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "girls-trip-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "girls-will-be-girls-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gloria-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "glory-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "god-of-killers-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "godzilla-4k-uhd-blu-ray-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "godzilla-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "golden-eye-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "golden-gate-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gone-are-the-days-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gone-dvd-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gone-in-60-seconds-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gone-in-60-seconds-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "good-idea-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "good-luck-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "goonies-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gospel-according-to-vic-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "grand-prix-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "grave-indiscretion-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "greetings-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "ground-zero-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "ground-zero-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gunshy-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "gypsy-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "half-brothers-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "halloween-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hamlet-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hansel-gretel-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hard-justice-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hard-justice-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hard-to-kill-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hard-to-kill-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "harry-potter-and-the-deathly-hallows-part-1-dvd-floor-sale-fantasy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "harry-potter-and-the-deathly-hollows-bluray": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "harry-potter-complete-8-film-collection-bluray-floor-sale-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "harvey-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hatchet-2-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hatchet-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "heart-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hearts-and-souls-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "held-up-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hellboy-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hellboy-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hercules-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "here-on-earth-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hero-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "heroes-of-the-heart-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hidden-city-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "high-and-low-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "high-crime-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "high-stakes-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hitchhikers-guide-to-the-galaxy-dvd-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hollywood-trouble-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "holy-matrimony-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "home-for-christmas-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "home-of-the-brave-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "home-of-the-brave-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "homeward-bound-2-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "homeward-bound-vhs-6": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "homeward-bound-vhs-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "homework-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "horrible-bosses-bluray-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "horror-classics-nightmare-castle-dr-jeckyll-mr-hyde-vhs-floor-sale-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "horror-theater-dvd-floor-sale-foreign": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hostage-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hot-stuff-1979-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hot-tub-time-machine-bluray-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "hotel-transylvania-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "how-the-grinch-stole-christmas-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "how-to-train-your-dragon-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "huck-the-kind-of-hearts-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "hugo-mask-special-horrible-full-head-mask-with-hair": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "hush-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "i-am-legend-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "i-am-legend-dvd-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "i-know-what-you-did-last-summer-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "i-want-you-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "if-looks-could-kill-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "impulse-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "in-search-of-the-dragon-vhs-floor-sale-documentary": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "in-the-army-vhs-floor-sale-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "in-the-name-of-the-father-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "incubus-volume-2-dvd-rental-musical": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "indiana-jones-widescreen-set-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "indictment-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "inferno-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "insomnia-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "insomnia-dvd-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "insomnia-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "intimate-stranger-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "into-the-abyss-dvd-floor-sale-documentary": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "invasion-dvd-6": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "invasion-of-privacy-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "iron-man-trilogy-bluray-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "it-1990-dvd-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "it-could-happen-to-you-vhs-rental-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "its-a-bundyful-life-vhs-floor-sale-holiday": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "its-complicated-bluray-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "jackass-3-unrated-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "jackie-chan-emergence-of-a-superstar-bluray-floor-sale-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "jackie-chans-breakout-hits-limited-edition-4k-ultra-hd-4k-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "jailbait-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "jakob-the-liar-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "jane-austens-persuasion-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "jane-eyre-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "jerry-seinfeld-comedian-demo-tape": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "jesse-james-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "jezebel-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "john-carpenter-bluray-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "john-woos-once-a-thief-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "joker-bluray-floor-sale-4k-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "journey-to-the-center-of-the-earth-2008-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "journey-to-the-center-of-the-earth-dvd-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "joyeux-noel-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "jump-off-a-building-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "just-friends-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "just-looking-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "just-married-vhs-floor-sale-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "just-one-time-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "k2-the-ultimate-high-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "kafka-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "kansas-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "keatons-cop-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "kidnap-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "kill-bill-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "kill-em-all-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "kill-zone-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "killing-time-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "king-kong-vs-godzilla-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "king-of-new-york-1995-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "kingsman-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "kingsman-the-secret-bluray-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "kino-film-noir-dvd-rental-thriller": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "kiss-or-kill-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "knock-knock-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "krampus-dvd-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "kung-fu-panda-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "laberinth-dvd-floor-sale-fantasy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "lake-placid-dvd-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "last-man-standing-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "last-man-standing-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "laugh-out-loud-pineapple-express-the-interview-the-night-before-this-is-the-end-dvd-6": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "layover-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "les-miserables-dvd-floor-sale-muscal": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "les-miserables-in-concert-vhs-rental-musical": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "lethal-weapon-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "leviathan-promotional-cassette-vhs-floor-sale-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "lifeform-dvd-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "lightnight-incident-vhs-floor-sale-thriller": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "lightnight-incident-vhs-rental-thriller": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "lincon-and-lee-at-antietam-dvd-floor-sale-documentary": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "lip-service-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "little-heros-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "little-house-on-the-praire-christmas-at-plum-creek-vhs-floor-sale-holiday": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "little-sister-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "livin-the-blues-vhs-floor-sale-thriller": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "living-it-up-english-dubbed-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "lolita-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "lone-star-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "lonesome-dove-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "loopers-bluray-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "los-lonely-boys-dvd-rental-musical": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "lost-in-space-vhs-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "lost-picture-show-vinegar-syndrome": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "love-a-45-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "love-affair-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "love-kills-vhs-floor-sale-thriler": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "love-letters-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "love-on-the-run-vhs-floor-sale-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "loverboy-vhs-floor-sale-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "lucky-break-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "luzia-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mad-money-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "magdalenes-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "maid-to-order-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "making-mr-right-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "malcom-x-4k-rental-criterion-collection-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "mama-mia-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mama-mia-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "marie-antoinette-4k-uhd-blu-ray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "marie-antoinette-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mark-of-the-devil-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mark-wahlberg-rockstar-perfect-storm-three-kings-corrupter-dvd-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "masala-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "master-and-commander-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "master-and-commander-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "masterminds-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "masters-of-terror-8-horror-films-dvd-rental-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "matilda-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "matrix-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "max-magician-and-the-legen-of-the-ring-dvd-rental-fantasy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "mckenna-shoots-for-the-stars-bluray-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mechanic-bluray-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "men-in-black-dvd-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "meteorites-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mi2-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "miami-vice-ii-vhs-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "michael-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mickeys-once-upon-a-christmas-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "miiii-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "miiii-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "miles-from-home-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mind-lies": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "miracle-on-34th-street-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "miracle-on-34th-street-vhs-rental-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mirage-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "miramax-movies-dvd-floor-sale-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "misled-screener-vhs-floor-sale-thriller": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "miss-julie-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "missing-in-action-triple-feature-dvd-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "missing-link-peter-elliot-vhs-rare-1st-edition-original-release-1989-mca": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "mission-galactica-the-cyclone-attack-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "mission-impossible-6-movie-collection-bluray-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "mission-impossible-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mission-impossible-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mission-of-justice-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "modern-love-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "modern-romance-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "molly-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mom-can-i-keep-him-vhs-rental-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "money-for-nothing-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "monster-hunter-dvd-rental-sci-fi": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "monte-carlo-dvd-rental-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "moondance-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "morituri-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mortal-kombat-legacy-dvd-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "most-wanted-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "most-wanted-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "most-wanted-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mother-of-tears-dvd-floor-sale-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "moulin-rouge-dvd-floor-sale-musical": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "moulin-rouge-dvd-rental-musical": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "much-ado-about-nothing-vhs-floor-sale-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mud-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mulan-mulan-ii-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "murder-in-texas-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "murphys-fault-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mussolini-and-i-vhs-rental-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "mututal-needs-vhs-floor-sale-thriller": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "my-big-fat-greek-wedding-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "my-big-fat-greek-wedding-dvd-rental-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "my-bloody-valentine-april-fools-day-dvd-rental-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "my-boyfriends-back-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "my-father-the-hero-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "my-girl-my-girl-2-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "my-one-and-only-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "my-summer-story-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mysterious-island-vhs-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "mystery-monsters-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "nailed-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "national-geographic-ocean-drifters-floor-sale-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "national-lampoons-animal-house-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "nature-of-the-beast-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "neighbors-bluray-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "neighbors-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "neighbors-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "network-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "new-york-cop-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "new-york-nights-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "new-york-yankees-the-movie-vhs-floor-sale-documentary": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "night-and-the-city-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "night-buffalo-dvd-rental-foreign": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "night-train-to-terror-vhs-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "night-watch-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "nightfall-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "nightfall-vhs-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "no-mans-land-vhs-6": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "no-place-to-hide-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "no-way-out-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "noah-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "noah-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "noahs-ark-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "nobodys-fool-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "northern-extremes-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "not-of-this-earth-vhs-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "not-quite-human-vhs-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "nothing-but-trouble-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "notorious-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "nuts-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "ocean-eleven-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "oceans-eleven-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "odd-jobs-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "off-beat-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "off-the-wall": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "oklahoma-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "old-school-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "old-school-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "on-golden-pond-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "on-the-beach-vhs-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "one-missed-call-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "open-call-dvd-rental-documentary": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "open-season-dvd-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "operation-dalmatian-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "original-sin-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "othello-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "others-the-4k-uhd-blu-ray-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "others-the-bluray-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "our-town-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "out-of-season-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "out-of-time-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "outrage-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "outsiders": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "padre-pio-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "painted-lady-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pals-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "paradise-alley-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "paranoid-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "parental-guidance-bluray-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "paul-blart-mall-cop-dvd-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "paul-mccartney-back-in-the-us-concert-film-dvd-rental-musical": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "payback-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "payoff-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "perfect-stranger-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "perfume-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "perversion-story-dvd-floor-sale-foreign": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "peter-pan-vhs-10": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "petes-dragon-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "phantasm-remastered-steelbook-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "philadelphia-sports-follies-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "picnic-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pico-de-gallo-vhs-floor-sale-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "pinocchio-vhs-8": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pinocchio-vhs-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pirates-of-the-caribbean-4-movie-collection-bluray-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "pirates-of-the-caribbean-dvd-floor-sale-4k-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pirates-of-the-caribbean-dvd-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pitch-perfect-bluray-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "plan-b-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "planet-of-the-apes-vhs-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pocahontas-vhs-6": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "point-blank-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "point-break": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "poison-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "police-story-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "portaits-of-a-killer-vhs-floor-sale-thriller": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "possession-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "premonition-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pretty-woman-vhs-8": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pretty-woman-vhs-floor-sale-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "price-of-glory-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pride-and-prejudice-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "prince-caspian-and-the-voyage-of-the-dawn-treader-vhs-floor-sale-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "prince-charming-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "private-parts-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "project-x-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "prom-night-dvd-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "prom-night-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "provovateur-vhs-floor-sale-thriller": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "ps-i-love-you-dvd-floor-sale-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "public-enemies-bluray-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "public-enemies-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "pursuit-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "puss-in-boots-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "puss-in-boots-faerie-tale-theatre": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "queen-margot-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "radio-days-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "rage-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "ragnarok-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "rampage-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "ransom-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "ransom-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "rare-bird-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "real-life-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "rear-window-4k-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "rebel-run-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "red-beard-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "red-dawn-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "red-eye-dvd-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "red-riding-hood-bluray-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "red-skeltons-christmas-dinner-vhs-floor-sale-holiday": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "reefer-madness-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "relentless-2-dead-on-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "reservoir-dogs-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "resident-evil-collection-dvd-7": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "retribution-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "revelation-vhs-floor-sale-horor": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "revenge-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "revenge-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "richard-iii-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "richard-pryor-triple-feature-bluray-floor-sale-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "rings-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "riverworld-dvd-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "robin-hood-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "role-models-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "romeo-juliet-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "rough-air-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "runaway-bride-vhs-floor-sale-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "runaway-bride-vhs-rental-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "rush-hour-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sabrina-the-teenage-witch-1995-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sahara-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "salems-lot-limited-edition-4k-ultra-hd-4k-floor-sale-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "salt-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "salvador-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sammy-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "samson-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sanata-jr-vhs-floor-sale-holiday": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "sand-diego-zoo-its-a-wild-life-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "sanky-panky-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "santa-clause-2-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "save-the-last-dance-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "savior-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "saw-ii-dvd-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "say-anthing-dvd-rental-romantic-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "scandalous-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "scared-cargo-vhs-floor-sale-thriller": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "scarface-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "scarface-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "scary-stories-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "scavengers-vhs-academy-1988-stunts-kenneth-david-gilman-brenda-bakke": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "secret-agent-the-4k-uhd-blu-ray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "secret-agent-the-bluray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "secrets-of-a-married-man-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "see-no-evil-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "see-no-evil-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sense-and-sensibility-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "september-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "serena-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "seven-dvd-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "seven-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "seven-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sex-and-the-city-dvd-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "shades-of-fear-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "shadow-hunter-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "shadowlands-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "shakedown-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "shame-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "shameless-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sharks-flipper-lopaka-dvd-floor-sale-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "shattered-glass-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sherlock-holmes-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sherlock-holmes-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "shooter-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "showdown-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sid-nancy-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sin-city-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sin-city-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "singles-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "singles-vhs-floor-sale-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sister-act-ii-vhs-floor-sale-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "skindeep-1989-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "skiptrace-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "skyscraper-bluray-floor-sale-4k-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sleeping-beauty-1989-vhs-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sleeping-beauty-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sleeping-beauty-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sleeping-beauty-vhs-10": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sleepy-hollow-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "slit-second-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "smart-money-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "smithereens-1984-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "smoke-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "snitch-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "snow-white-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "snow-white-vhs-10": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "snowboat-academy-vhs-rental-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "soap-dish-vhs-rental-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "soccer-dog-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "solaris-vhs-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "soldiers-fortune-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "somethingn-special-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "son-of-kong-vhs-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "south-pacific-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "space-marines-ruby-jean-and-joe-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "space-rangers-chronicles-2-vhs-rental-sci-fi": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "speed-2-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "speed-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "speed-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "speed-vhs-floor-sale": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "speed-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "spider-man-2002-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "spider-man-spider-man-2-full-screen-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "splendor-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "spy-kids-3d-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "spys-vhs-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "star-trek-2-disc-special-edition-bluray-floor-sale-sci-fi": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "star-wars-i-ii-iii-bluray-16": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "star-wars-iv-v-vi-bluray-floor-sale-sci-fi": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "star-wars-the-phantom-menace-vhs-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "star-wars-trilogy-bonus-meterial-dvd-floor-sale-documentary": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "star-wars-trilogy-iv-v-vi-dvd-rental-sci-fi": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "star-wars-trilogy-special-edition-vhs-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "state-of-grace-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "steam-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "steel-magnolias-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "steel-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "stephen-kings-nightshift-collection-vhs-floor-sale-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "stoke-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "stone-cold-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "storm-of-the-century-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "straw-dogs-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "stray-dog-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "streetwise-bluray-rental-criterion-collection-documentary": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "strike-screener-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "stuart-little-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "stuart-little-dvd-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sucker-punch-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "summers-end-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "summertime-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sunset-strip-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "super-8-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "super-dave-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "super-dave-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "super-dragons-dynamo-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "superman-ii-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "superman-the-movie-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "supernova-vhs-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "surviving-christmas-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sweet-dreams-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "sweet-dreams-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "swing-kids-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "swingers-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "taking-chance-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "tall-tales-legends-annie-oakley-vhs-rental-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "tam-lin-dvd-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "tarzan-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "tcm-sci-fi-collection-dvd-rental-sci-fi": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "teenage-mutant-ninja-turtles-2-vhs-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "teenage-mutant-ninja-turtles-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "terror-from-under-the-house-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "texas-chainsaw-massacre-dvd-6": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "thank-god-its-friday-1986-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "that-darn-cat-vhs-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-39-steps-vhs-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-abyss-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-accountant-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-adventures-of-buckaroo-banzai-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-age-of-innocence-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-american-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-arrival-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-assignment": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-assignment-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-associate-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-awakening-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-bananas-boat-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-beatles-a-hard-days-night-vhs-floor-sale-musical": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-best-years-of-our-lives-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-beverly-hillbillies-christmas-vhs-floor-sale-holiday": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-blue-angel-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-boondock-saints-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-boondock-saints-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-boss-baby-dvd-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-boss-unrated-bluray-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-bounty-hunter-bluray-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-bourne-identity-1988-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-bourne-trilogy-bluray-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-bourne-trilogy-dvd-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-boxer-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-breed-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-bridges-of-medison-county-vhs-rental-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-butchering-dvd-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-butterfly-effect-collection-dvd-rental-sci-fi": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-caged-heart-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-call-of-the-wild-bluray-rental-drama-4k": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-call-of-the-wild-dvd-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-candidate-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-cardona-collection-vol-2-vinegar-syndrome": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-cat-and-the-canary-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-cat-in-the-hat-sing-along-vhs-rental-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-chidlren-of-times-square-vhs-floor-sale-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-choice-dvd-rental-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-cookout-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-covenant-bluray-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-cradle-will-fall-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-crocodile-hunter-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-curve-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-cutting-ege-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-dark-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-dark-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-dark-knight-trilogy-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-day-after-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-day-the-earth-stood-still-dvd-floor-sale-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-day-the-earth-stood-still-dvd-rental-sci-fi": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-dead-one-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-debt-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-dogfighters-vhs-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-dwarves-of-dragon-mountain-dvd-rental-fantasy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-edge-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-enforcer-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-expert-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-family-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-fast-and-the-furious-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-fighter-bluray-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-firm-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-fly-vhs-floor-sale": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-fly-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-fog-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-four-feathers-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-four-feathers-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-fox-and-the-hound-vhs-8": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-fox-and-the-hound-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-funnniest-men-of-comedy-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-gambler-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-gateway-dvd-rental-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-gathering-dvd-rental-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-getaway-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-gift-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-girl-in-the-picture-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-girl-with-the-hungry-eyes-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-good-doctor-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-good-shepherd-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-great-gatsby-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-great-moment-dvd-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-grudge-dvd-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-guardian-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-gun-run-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-guru-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-hand-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-hangover-part-ii-bluray-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-heartbreak-kid-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-heat-dvd-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-highwayman-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-hills-have-eyes-dvd-8": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-honeymooners-dvd-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-honeymooners-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-human-factor-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-hunchback-of-notre-dame-vhs-6": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-hunchback-of-notre-dame-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-hunter-dvd-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-hunters-dvd-floor-sale-fantasy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-hurricane-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-hurricane-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-hustle-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-ice-house-dvd-floor-sale-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-importance-of-being-earnest-vhs-floor-sale-romantic-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-in-laws-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-incredibly-true-adventures-of-2-girls-in-love-vhs-rental-comedy": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-inheritors-vhs-floor-sale-foreign": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-island-of-dr-moreau-1978-vhs-floor-sale-horror": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-italian-straw-hat-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-joy-luck-club-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-joy-luck-club-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-jungle-book-1982-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-jungle-book-dvd-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-jungle-book-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-jungle-book-vhs-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-kill-reflex-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-killing-hour-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-king-and-i-dvd": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-king-guards-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-kitchen-soto-vhs-rental-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-ladykillers-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-last-king-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-last-metro-dvd-floor-sale-foreign": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-last-of-the-mohicans-dvd-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-last-of-the-mohicans-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-last-samurai-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-last-waltz-bluray-rental-criterion-collection-musical": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-last-winter-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-legend-of-sleepy-hollow": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-libertine-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-life-and-times-of-the-chocolate-killer-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-life-aquatic-dvd-7": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-line-staten-island-bluray-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-lion-in-winter-vhs-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-lion-in-winter-vhs-rental-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-lion-king-bluray-floor-sale-4k-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-lion-king-vhs-10": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-lion-king-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-little-mermaid-3-movie-collection-bluray-floor-sale-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-little-mermaid-bluray-floor-sale-4k-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-lone-ranger-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-lorax-bluray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-losers-bluray-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-losers-dvd-5": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-magic-of-christmas-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-magic-sword-dvd-rental-fantasy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-man-who-knew-too-much-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-man-with-the-iron-fist-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-man-with-the-iron-fists-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-manchurian-candidate-dvd-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-matador-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-matchmaker-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-merry-widow-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-mighty-ducks-vhs-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-mission-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-moment-cultcave-vhs-floor-sale-musical": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-mummy-collectors-set-dvd-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-naked-gun-2-1-2-laserdisc-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-navigator-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-negotiator-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-net-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-new-girl-a-model-agent-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-new-world-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-nutty-professor-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-nutty-professor-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-nutty-professor-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-outer-limits-demon-with-a-glass-hand-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-outer-limits-second-chance-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-outer-limits-the-sixth-finger-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-postman-always-rings-twice-vhs-floor-sale-thriller": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-reckoning-vhs-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-rules-of-the-game-dvd-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-secret-life-of-pets-bluray-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-secrets-of-dumbledore-bluray": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-seeker-dvd-rental-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-shadow-collection-8-movies-dvd-rental-horror": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-spider-and-the-fly-vhs-floor-sale-drama": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-story-of-christ-vhs-floor-sale-holiday": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-survivors-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-talented-mr-ripley-vhs-2000": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "the-thin-blue-line-bluray-rental-criterion-collection-documentary": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-three-muskateers-bluray-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-three-muskateers-dvd-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-time-of-the-wolf-vhs-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-van-vhs-floor-sale-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "the-way-back-bluray-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "tie-died-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "to-die-for-bluray-rental-criterion-collection-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "tokyo-eyes-dvd-floor-sale-foreign": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "toys-trains-christmas-2-vhs-floor-sale-holiday": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "toys-trains-christmas-vhs-floor-sale-holiday": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "trilogy-commando-predator-terminator-bluray-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "triple-feature-v-for-vendetta-bluray-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "tron-legacy-tron-the-original-classic-bluray-floor-sale-sci-fi": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "unbreakable-vhs-floor-sale-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "under-siege-2-laserdisc-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "under-siege-laserdisc-floor-sale-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "virgin-suicides-the-blu-ray-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "virgin-suicides-the-dvd-floor-sale-drama": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "wall-e-4k-rental-criterion-collection-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "wall-e-4k-uhd-blu-ray-floor-sale-kids-family": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "walt-disney-mini-classics-commemorative-edition-vhs-floor-sale-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "wanted-bluray-rental-action": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "warner-bros-animation-collection-dvd-rental-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "warren-millers-playground-bluray-floor-sale-documentary": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "was-the-dog-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "where-the-wild-things-are-the-neverending-story-bluray-floor-sale-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "wide-awake-demo-tape": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "wild-america-fantastic-follies-vhs-floor-sale-kids-family": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "wilderness-adventures-vhs": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "wildside-crimea-of-the-century-vhs-rental-action": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "wise-cracks-vhs": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "wiz-the-bluray-floor-sale-musical": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "working-girl-vhs-rental-comedy": {
+    "batch": "ambiguous-queue",
+    "status": "queued"
+  },
+  "xmen-collection-dvd": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  },
+  "y-tu-mama-tabien-dvd-floor-sale-foreign": {
+    "batch": "unmatched-queue",
+    "status": "queued"
+  }
+}
