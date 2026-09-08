@@ -146,31 +146,87 @@ class TestExportNormalization(unittest.TestCase):
         self.assertEqual(clean[1]["Vendor"], "")
 
 
-class TestExportIssues(unittest.TestCase):
-    def test_flags_a_row_with_no_usable_genre(self):
+class TestExportBestEffort(unittest.TestCase):
+    """A row missing genre/format/type/price still uploads, tagged Issue_*
+    so the client can fix it in the admin — it doesn't get blocked into
+    issues.csv. Only genuinely bad data still blocks (see TestExportIssues)."""
+
+    def test_no_usable_genre_uploads_with_issue_tag(self):
         clean, issues = normalize_rows(
-            [export_row(**{"Option1 Value": "Special Interest", "Tags": "Floor Sale"})],
+            [export_row(**{"Option1 Value": "Special Interest", "Tags": "Floor Sale",
+                           "Variant Price": "9.99"})],
             "export",
         )
-        self.assertEqual(clean, [])
-        self.assertIn("no usable genre", issues[0]["Reason"])
+        self.assertEqual(issues, [])
+        self.assertEqual(clean[0]["Option1 Value"], "")
+        self.assertEqual(clean[0][GENRE_METAFIELD], "")
+        self.assertIn("Issue_Genre_Needed", clean[0]["Tags"])
 
-    def test_flags_a_row_with_no_format(self):
+    def test_no_format_uploads_with_raw_vendor_and_issue_tag(self):
         clean, issues = normalize_rows([export_row(Vendor="Unknown")], "export")
-        self.assertEqual(clean, [])
-        self.assertIn("no media format", issues[0]["Reason"])
+        self.assertEqual(issues, [])
+        self.assertEqual(clean[0]["Vendor"], "Unknown")
+        self.assertIn("Issue_Needs_Format", clean[0]["Tags"])
+        self.assertNotIn("Unknown,", clean[0]["Tags"])  # not treated as a format tag
 
-    def test_flags_a_row_with_no_type_tag(self):
-        clean, issues = normalize_rows([export_row(Tags="Action")], "export")
-        self.assertEqual(clean, [])
-        self.assertIn("no Rental or Floor Sale tag", issues[0]["Reason"])
+    def test_no_type_tag_uploads_with_raw_price_and_issue_tag(self):
+        clean, issues = normalize_rows(
+            [export_row(Tags="Action", **{"Variant Price": "12.99"})], "export"
+        )
+        self.assertEqual(issues, [])
+        tag_list = [t.strip() for t in clean[0]["Tags"].split(",")]
+        self.assertIn("Issue_Rental_Or_Sale", tag_list)
+        self.assertNotIn("Rental", tag_list)
+        self.assertNotIn("Floor Sale", tag_list)
+        # type unknown -> price can't be validated, passes through as-is
+        self.assertEqual(clean[0]["Variant Price"], "12.99")
 
-    def test_flags_a_rental_priced_above_zero(self):
+    def test_rental_priced_above_zero_uploads_with_raw_price_and_issue_tag(self):
         clean, issues = normalize_rows(
             [export_row(Tags="Rental, Action", **{"Variant Price": "12.99"})], "export"
         )
+        self.assertEqual(issues, [])
+        self.assertEqual(clean[0]["Variant Price"], "12.99")
+        self.assertIn("Issue_Rental_Price", clean[0]["Tags"])
+
+    def test_floor_sale_with_no_price_uploads_with_issue_tag(self):
+        clean, issues = normalize_rows(
+            [export_row(Tags="Floor Sale, Action", **{"Variant Price": ""})], "export"
+        )
+        self.assertEqual(issues, [])
+        self.assertEqual(clean[0]["Variant Price"], "")
+        self.assertIn("Issue_No_Price", clean[0]["Tags"])
+
+    def test_an_existing_issue_tag_is_not_duplicated(self):
+        clean, issues = normalize_rows(
+            [export_row(Vendor="Unknown", Tags="Floor Sale, Action, Issue_Needs_Format")],
+            "export",
+        )
+        self.assertEqual(issues, [])
+        self.assertEqual(clean[0]["Tags"].count("Issue_Needs_Format"), 1)
+
+
+class TestExportIssues(unittest.TestCase):
+    def test_flags_ambiguous_type(self):
+        clean, issues = normalize_rows(
+            [export_row(Tags="Rental, Floor Sale, Action")], "export"
+        )
         self.assertEqual(clean, [])
-        self.assertIn("Rental with a nonzero price", issues[0]["Reason"])
+        self.assertIn("tagged as both", issues[0]["Reason"])
+
+    def test_flags_an_unreadable_price(self):
+        clean, issues = normalize_rows(
+            [export_row(Tags="Rental, Action", **{"Variant Price": "abc"})], "export"
+        )
+        self.assertEqual(clean, [])
+        self.assertIn("unreadable price", issues[0]["Reason"])
+
+    def test_flags_a_negative_floor_sale_price(self):
+        clean, issues = normalize_rows(
+            [export_row(Tags="Floor Sale, Action", **{"Variant Price": "-5"})], "export"
+        )
+        self.assertEqual(clean, [])
+        self.assertIn("negative price", issues[0]["Reason"])
 
     def test_flags_a_multi_variant_product(self):
         rows = [
@@ -182,7 +238,7 @@ class TestExportIssues(unittest.TestCase):
         self.assertIn("2 variants", issues[0]["Reason"])
 
     def test_issue_rows_carry_the_original_columns_verbatim_for_editing(self):
-        original = export_row(Vendor="Unknown")
+        original = export_row(Tags="Rental, Floor Sale, Action")
         _, issues = normalize_rows([original], "export")
         for key, value in original.items():
             self.assertEqual(issues[0][key], value, key)
@@ -190,7 +246,7 @@ class TestExportIssues(unittest.TestCase):
 
     def test_every_row_of_a_flagged_product_goes_to_issues(self):
         rows = [
-            export_row(Vendor="Unknown"),
+            export_row(Tags="Rental, Floor Sale, Action"),
             {"Handle": "legend-of-zorro", "Image Src": "https://cdn.shopify.com/y.jpg",
              "Image Position": "2"},
         ]
@@ -264,12 +320,12 @@ class TestTemplateNormalization(unittest.TestCase):
         self.assertEqual(clean[0]["Tags"], "Rental, VHS, Comedy, Formatted")
         self.assertEqual(clean[0][GENRE_METAFIELD], "comedy")
 
-    def test_floor_sale_without_a_price_is_flagged(self):
+    def test_floor_sale_without_a_price_uploads_with_issue_tag(self):
         clean, issues = normalize_rows(
             [template_row(Tags="Floor Sale, VHS, Comedy")], "template"
         )
-        self.assertEqual(clean, [])
-        self.assertIn("Floor Sale with no price", issues[0]["Reason"])
+        self.assertEqual(issues, [])
+        self.assertIn("Issue_No_Price", clean[0]["Tags"])
 
 
 class TestGrouping(unittest.TestCase):

@@ -21,7 +21,7 @@ from pathlib import Path
 from catalog_common import group_rows_by_handle, load_export, write_csv
 from columns import EXPORT_COLUMNS, FIXED_VALUES, FORMATTED_TAG, GENRE_METAFIELD, REASON_COLUMN
 from detect import strip_reason
-from normalize import _flag, _image_row, _is_variant_row, _blank_row
+from normalize import _flag, _image_row, _is_variant_row, _blank_row, is_non_catalogue_product
 from resolve import extra_tags, resolve_format, resolve_genres, resolve_price, resolve_type, split_list
 from taxonomy import genre_handle
 import tmdb_fill
@@ -134,6 +134,9 @@ def normalize_partial(
 
     for handle, group in group_rows_by_handle(rows):
         primary = group[0]
+
+        if is_non_catalogue_product(primary):
+            continue
 
         variant_rows = [row for row in group if _is_variant_row(row)]
         if len(variant_rows) > 1:

@@ -1,10 +1,13 @@
+import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "formatting-scripts"))
 
-from apply_picks import apply_picks
+from apply_picks import apply_picks, run
+from review_registry import load_registry
 from tmdb_fill import POSTER_BASE_URL
 
 
@@ -87,6 +90,72 @@ class TestApplyPicks(unittest.TestCase):
         picks = [{"handle": "the-thing-4k-floor-sale", "choice": "skip"}]
         out, _ = apply_picks([row(Status="draft")], picks)
         self.assertEqual(out[0]["Status"], "draft")
+
+    def test_a_tmdb_pick_is_reported_as_resolved(self):
+        picks = [{"handle": "the-thing-4k-floor-sale", "choice": "tmdb",
+                   "poster_path": "/p.jpg", "overview": "An overview."}]
+        _, counts = apply_picks([row()], picks)
+        self.assertEqual(counts["resolved_handles"], ["the-thing-4k-floor-sale"])
+
+    def test_a_manual_pick_is_reported_as_resolved(self):
+        picks = [{"handle": "the-thing-4k-floor-sale", "choice": "manual",
+                   "image_src": "https://x/p.jpg", "overview": "Typed in."}]
+        _, counts = apply_picks([row()], picks)
+        self.assertEqual(counts["resolved_handles"], ["the-thing-4k-floor-sale"])
+
+    def test_a_skip_pick_is_not_reported_as_resolved(self):
+        picks = [{"handle": "the-thing-4k-floor-sale", "choice": "skip"}]
+        _, counts = apply_picks([row()], picks)
+        self.assertEqual(counts["resolved_handles"], [])
+
+
+class TestRunMarksTheRegistryResolved(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.dir = Path(self.tmp.name)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_run_with_tools_dir_marks_applied_handles_resolved(self):
+        picks_path = self.dir / "picks.json"
+        picks_path.write_text(json.dumps([
+            {"handle": "the-thing-4k-floor-sale", "choice": "tmdb",
+             "poster_path": "/p.jpg", "overview": "An overview."},
+        ]), encoding="utf-8")
+
+        base_path = self.dir / "upload.csv"
+        with open(base_path, "w", newline="", encoding="utf-8") as f:
+            import csv
+            fieldnames = list(row())
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerow(row())
+
+        tools_dir = self.dir / "tools-review-picker"
+        run(picks_path, base_path, self.dir, tools_dir=tools_dir)
+
+        registry = load_registry(tools_dir)
+        self.assertEqual(registry["the-thing-4k-floor-sale"]["status"], "resolved")
+
+    def test_run_without_tools_dir_does_not_touch_any_registry(self):
+        picks_path = self.dir / "picks.json"
+        picks_path.write_text(json.dumps([
+            {"handle": "the-thing-4k-floor-sale", "choice": "tmdb",
+             "poster_path": "/p.jpg", "overview": "An overview."},
+        ]), encoding="utf-8")
+
+        base_path = self.dir / "upload.csv"
+        with open(base_path, "w", newline="", encoding="utf-8") as f:
+            import csv
+            fieldnames = list(row())
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerow(row())
+
+        counts = run(picks_path, base_path, self.dir)  # no tools_dir
+        self.assertEqual(counts["resolved_handles"], ["the-thing-4k-floor-sale"])
+        self.assertFalse((self.dir / "data").exists())
 
 
 if __name__ == "__main__":

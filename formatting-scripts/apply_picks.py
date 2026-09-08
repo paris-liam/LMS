@@ -12,6 +12,7 @@ import json
 from pathlib import Path
 
 from catalog_common import group_rows_by_handle, load_export, write_csv
+from review_registry import load_registry, mark_resolved, save_registry
 from tmdb_fill import POSTER_BASE_URL, needs_description, needs_image
 
 
@@ -38,6 +39,9 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
         "applied": 0,
         "skipped": 0,
         "unknown": sum(1 for handle in picks_by_handle if handle not in known_handles),
+        # Handles with a real (non-skip) pick applied — the review-picker
+        # registry marks these resolved so they never get re-queued.
+        "resolved_handles": [],
     }
 
     output_rows: list[dict] = []
@@ -62,6 +66,7 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
             if overview:
                 primary["Body (HTML)"] = f"<p>{overview}</p>"
             counts["applied"] += 1
+            counts["resolved_handles"].append(handle)
         else:
             poster_path = (pick.get("poster_path") or "").strip()
             overview = (pick.get("overview") or "").strip()
@@ -72,6 +77,7 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
             if needs_description(group) and overview:
                 primary["Body (HTML)"] = f"<p>{overview}</p>"
             counts["applied"] += 1
+            counts["resolved_handles"].append(handle)
 
         output_rows.append(primary)
         output_rows.extend(group[1:])
@@ -83,7 +89,11 @@ def apply_picks(rows: list[dict], picks: list[dict]) -> tuple[list[dict], dict]:
     return output_rows, counts
 
 
-def run(picks_path, base_path, outdir) -> dict:
+def run(picks_path, base_path, outdir, tools_dir=None) -> dict:
+    """Apply picks and write picks-applied.csv. If `tools_dir` is given (the
+    review-picker root, e.g. tools/review-picker), the handles that got a
+    real pick applied are marked "resolved" in its registry, so they never
+    get re-queued by a later run.py invocation."""
     with open(picks_path, encoding="utf-8") as f:
         picks = json.load(f)
 
@@ -92,6 +102,12 @@ def run(picks_path, base_path, outdir) -> dict:
 
     outdir = Path(outdir)
     write_csv(outdir / "picks-applied.csv", fieldnames, output_rows)
+
+    if tools_dir is not None and counts["resolved_handles"]:
+        registry = load_registry(tools_dir)
+        mark_resolved(registry, counts["resolved_handles"])
+        save_registry(tools_dir, registry)
+
     return counts
 
 
@@ -106,17 +122,40 @@ def main():
         default=None,
         help="Directory to write picks-applied.csv (default: base CSV's directory)",
     )
+    parser.add_argument(
+        "--tools-dir",
+        default=None,
+        help="Review-picker root (tools/review-picker) to mark applied handles resolved in. "
+             "Defaults to picks_json's grandparent dir when picks_json looks like "
+             "<tools_dir>/data/<batch>.json; pass explicitly otherwise, or --no-registry to skip.",
+    )
+    parser.add_argument(
+        "--no-registry", action="store_true",
+        help="Don't touch the review-picker registry, even if --tools-dir would resolve to one.",
+    )
     args = parser.parse_args()
 
     base_path = Path(args.base_csv)
     outdir = Path(args.outdir) if args.outdir else base_path.parent
     outdir.mkdir(parents=True, exist_ok=True)
 
-    counts = run(Path(args.picks_json), base_path, outdir)
+    picks_path = Path(args.picks_json)
+    if args.no_registry:
+        tools_dir = None
+    elif args.tools_dir:
+        tools_dir = Path(args.tools_dir)
+    elif picks_path.parent.name == "data":
+        tools_dir = picks_path.parent.parent
+    else:
+        tools_dir = None
+
+    counts = run(picks_path, base_path, outdir, tools_dir=tools_dir)
     print(f"Applied TMDB picks: {counts['applied']}")
     print(f"Skipped: {counts['skipped']}")
     if counts["unknown"]:
         print(f"Warning: {counts['unknown']} pick handle(s) not found in {base_path.name}")
+    if tools_dir is not None and counts["resolved_handles"]:
+        print(f"Marked resolved in {tools_dir}/data/_handle-index.json: {len(counts['resolved_handles'])}")
     print(f"Output -> {outdir / 'picks-applied.csv'}")
 
 

@@ -1,4 +1,5 @@
 import csv
+import json
 import sys
 import tempfile
 import unittest
@@ -41,8 +42,15 @@ class TestRun(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.dir = Path(self.tmp.name)
+        # Ambiguous/unmatched rows now queue into tools/review-picker — point
+        # every run_module.run() call in this test class at an isolated tmp
+        # dir instead of the real repo's tools/review-picker by default.
+        self.tools_dir = self.dir / "tools-review-picker"
+        self._real_default_tools_dir = run_module.DEFAULT_TOOLS_DIR
+        run_module.DEFAULT_TOOLS_DIR = self.tools_dir
 
     def tearDown(self):
+        run_module.DEFAULT_TOOLS_DIR = self._real_default_tools_dir
         self.tmp.cleanup()
 
     def test_output_dir_is_derived_from_the_input_name(self):
@@ -67,9 +75,12 @@ class TestRun(unittest.TestCase):
         self.assertTrue((outdir / "run-report.txt").exists())
 
     def test_broken_rows_land_in_issues_with_a_reason_and_the_original_columns(self):
+        """A row missing genre/format/type/price still uploads (tagged
+        Issue_*, see test_normalize.py); only genuinely bad data — here, a
+        product tagged as both Rental and Floor Sale — still blocks."""
         path = self.dir / "batch.csv"
         good = template_input_row("Rushmore")
-        bad = template_input_row("Mystery", genre="Special Interest", tags="Rental, VHS")
+        bad = template_input_row("Mystery", tags="Rental, Floor Sale, VHS, Comedy")
         write_csv(path, TEMPLATE_HEADER, [good, bad])
 
         result = run_module.run(path, fetch_fn=fake_fetch, sleep_fn=lambda s: None)
@@ -78,19 +89,18 @@ class TestRun(unittest.TestCase):
         issues = read_csv(outdir / "issues.csv")
         self.assertEqual(result["issues"], 1)
         self.assertEqual(issues[0]["Title"], "Mystery")
-        self.assertIn("no usable genre", issues[0]["Reason"])
+        self.assertIn("tagged as both", issues[0]["Reason"])
         self.assertIn("Genre 1", issues[0])  # helper columns survive for editing
         self.assertEqual(len(read_csv(outdir / "upload.csv")), 1)
 
     def test_a_corrected_issues_file_is_a_valid_input(self):
         path = self.dir / "batch.csv"
         write_csv(path, TEMPLATE_HEADER,
-                  [template_input_row("Mystery", genre="Special Interest", tags="Rental, VHS")])
+                  [template_input_row("Mystery", tags="Rental, Floor Sale, VHS, Comedy")])
         first = run_module.run(path, fetch_fn=fake_fetch, sleep_fn=lambda s: None)
 
         issues_path = Path(first["outdir"]) / "issues.csv"
         rows = read_csv(issues_path)
-        rows[0]["Genre 1"] = "Comedy"
         rows[0]["Tags"] = "Rental, VHS, Comedy"
         write_csv(issues_path, list(rows[0]), rows)
 
@@ -100,7 +110,7 @@ class TestRun(unittest.TestCase):
         upload = read_csv(Path(second["outdir"]) / "upload.csv")
         self.assertEqual(upload[0]["Handle"], "mystery-vhs-rental")
 
-    def test_unmatched_rows_get_their_own_fixable_file(self):
+    def test_unmatched_rows_are_queued_not_written_locally(self):
         path = self.dir / "batch.csv"
         write_csv(path, TEMPLATE_HEADER, [template_input_row("Rushmore")])
 
@@ -108,17 +118,20 @@ class TestRun(unittest.TestCase):
             path, fetch_fn=lambda q, y: {"results": []}, sleep_fn=lambda s: None
         )
         outdir = Path(result["outdir"])
-        unmatched = read_csv(outdir / "tmdb-unmatched.csv")
         self.assertEqual(result["unmatched"], 1)
-        self.assertEqual(unmatched[0]["Title"], "Rushmore")
-        # Emitted in the output shape (no Reason column), so the file is
-        # already upload.csv shape and feeds straight back into run.py.
-        self.assertEqual(list(unmatched[0]), TEMPLATE_COLUMNS)
+        self.assertEqual(result["unmatched_queued"], 1)
+        self.assertFalse((outdir / "tmdb-unmatched.csv").exists())
+
+        products_path = self.tools_dir / "data" / "unmatched-queue.products.json"
+        products = json.loads(products_path.read_text(encoding="utf-8"))
+        self.assertEqual(len(products), 1)
+        self.assertEqual(products[0]["title"], "Rushmore")
+        self.assertEqual(products[0]["candidates"], [])  # no TMDB results -> manual-only card
 
     def test_unmatched_rows_dont_duplicate_a_product_with_multiple_reasons(self):
-        """A product missing both a poster and an overview must still show
-        up once, not once per reason — otherwise the operator fixes one row,
-        re-runs, and finds a duplicate handle waiting for them."""
+        """A product missing both a poster and an overview must still queue
+        once, not once per reason — otherwise the operator fixes one row,
+        re-runs, and finds a duplicate card waiting for them."""
         def no_poster_no_overview(query, year):
             return {"results": [{"title": query, "release_date": "1998-01-01",
                                  "poster_path": "", "overview": ""}]}
@@ -129,12 +142,12 @@ class TestRun(unittest.TestCase):
         result = run_module.run(
             path, fetch_fn=no_poster_no_overview, sleep_fn=lambda s: None
         )
-        outdir = Path(result["outdir"])
-        unmatched = read_csv(outdir / "tmdb-unmatched.csv")
-        self.assertEqual(len(unmatched), 1)
-        self.assertEqual(unmatched[0]["Title"], "Rushmore")
+        self.assertEqual(result["unmatched_queued"], 1)
+        products_path = self.tools_dir / "data" / "unmatched-queue.products.json"
+        products = json.loads(products_path.read_text(encoding="utf-8"))
+        self.assertEqual(len(products), 1)
 
-    def test_ambiguous_rows_produce_the_picker_page(self):
+    def test_ambiguous_rows_are_queued_in_the_hosted_picker(self):
         def ambiguous(query, year):
             return {"results": [
                 {"title": "The Thing", "release_date": "1982-01-01", "poster_path": "/a.jpg", "overview": "A."},
@@ -148,7 +161,36 @@ class TestRun(unittest.TestCase):
 
         result = run_module.run(path, fetch_fn=ambiguous, sleep_fn=lambda s: None)
         self.assertEqual(result["ambiguous"], 1)
-        self.assertTrue((Path(result["outdir"]) / "review-picker.html").exists())
+        self.assertEqual(result["ambiguous_queued"], 1)
+        self.assertFalse((Path(result["outdir"]) / "review-picker.html").exists())
+        self.assertTrue((self.tools_dir / "ambiguous-queue" / "index.html").exists())
+
+    def test_a_handle_already_queued_is_not_added_again(self):
+        """Re-running on data that overlaps a handle already sitting in the
+        queue must not create a duplicate card for it."""
+        def ambiguous(query, year):
+            return {"results": [
+                {"title": "The Thing", "release_date": "1982-01-01", "poster_path": "/a.jpg", "overview": "A."},
+                {"title": "The Thing", "release_date": "2011-01-01", "poster_path": "/b.jpg", "overview": "B."},
+            ]}
+
+        path = self.dir / "batch.csv"
+        row = template_input_row("The Thing", genre="Horror", fmt="DVD", tags="Rental, DVD, Horror")
+        row["Year"] = ""
+        write_csv(path, TEMPLATE_HEADER, [row])
+
+        first = run_module.run(path, fetch_fn=ambiguous, sleep_fn=lambda s: None,
+                                outdir=self.dir / "out-first")
+        self.assertEqual(first["ambiguous_queued"], 1)
+
+        second = run_module.run(path, fetch_fn=ambiguous, sleep_fn=lambda s: None,
+                                 outdir=self.dir / "out-second")
+        self.assertEqual(second["ambiguous"], 1)  # still seen this run...
+        self.assertEqual(second["ambiguous_queued"], 0)  # ...but not re-queued
+
+        products_path = self.tools_dir / "data" / "ambiguous-queue.products.json"
+        products = json.loads(products_path.read_text(encoding="utf-8"))
+        self.assertEqual(len(products), 1)
 
     def test_skip_tmdb_leaves_descriptions_empty_and_makes_no_requests(self):
         calls = []
