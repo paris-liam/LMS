@@ -271,7 +271,64 @@ class TestWriteHostedPicker(unittest.TestCase):
             self.assertTrue((tools_dir / "index.html").exists())
 
 
-from hosted_review_page import update_manifest, write_launcher
+from hosted_review_page import append_to_queue, load_products, update_manifest, write_launcher
+
+
+def review_row(handle, title="X"):
+    return {"Handle": handle, "Title": title, "Vendor": "VHS", "Genre": "horror",
+            "Kind": "ambiguous", "Reason": "r"}
+
+
+class TestAppendToQueue(unittest.TestCase):
+    def test_new_handles_are_added_and_registered(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            registry = {}
+            outcome = append_to_queue(
+                [review_row("a"), review_row("b")], tools_dir, "ambiguous-queue",
+                fetcher([result("X")]), registry, sleep_fn=lambda s: None,
+            )
+            self.assertEqual(outcome["added"], 2)
+            self.assertEqual(outcome["batch_total"], 2)
+            self.assertEqual(registry["a"], {"batch": "ambiguous-queue", "status": "queued"})
+            self.assertEqual(registry["b"], {"batch": "ambiguous-queue", "status": "queued"})
+
+    def test_a_handle_already_in_the_registry_is_skipped(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            registry = {"a": {"batch": "ambiguous-queue", "status": "queued"}}
+            outcome = append_to_queue(
+                [review_row("a"), review_row("b")], tools_dir, "ambiguous-queue",
+                fetcher([result("X")]), registry, sleep_fn=lambda s: None,
+            )
+            self.assertEqual(outcome["added"], 1)
+            products = load_products(tools_dir, "ambiguous-queue")
+            self.assertEqual([p["handle"] for p in products], ["b"])
+
+    def test_a_second_call_merges_into_the_existing_product_list(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            registry = {}
+            append_to_queue([review_row("a")], tools_dir, "ambiguous-queue",
+                             fetcher([result("X")]), registry, sleep_fn=lambda s: None)
+            outcome = append_to_queue([review_row("b")], tools_dir, "ambiguous-queue",
+                                       fetcher([result("X")]), registry, sleep_fn=lambda s: None)
+            self.assertEqual(outcome["added"], 1)
+            self.assertEqual(outcome["batch_total"], 2)
+            products = load_products(tools_dir, "ambiguous-queue")
+            self.assertEqual({p["handle"] for p in products}, {"a", "b"})
+            page = (tools_dir / "ambiguous-queue" / "index.html").read_text(encoding="utf-8")
+            self.assertIn('"a"', page)
+            self.assertIn('"b"', page)
+
+    def test_no_new_rows_touches_nothing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            tools_dir = Path(tmp)
+            registry = {"a": {"batch": "ambiguous-queue", "status": "resolved"}}
+            outcome = append_to_queue([review_row("a")], tools_dir, "ambiguous-queue",
+                                       fetcher([result("X")]), registry, sleep_fn=lambda s: None)
+            self.assertEqual(outcome["added"], 0)
+            self.assertFalse((tools_dir / "ambiguous-queue").exists())
 
 
 class TestManifest(unittest.TestCase):

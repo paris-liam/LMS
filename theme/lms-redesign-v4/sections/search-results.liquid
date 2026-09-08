@@ -34,7 +34,17 @@
     {% paginate search.results by products_per_page %}
       {% if search.results_count > 0 %}
         {% content_for 'block', type: 'filters', id: 'filters', results: search, results_size: search.results_count %}
-        {% assign products = search.results | where: 'object_type', 'product' %}
+        {% liquid
+          assign all_products = search.results | where: 'object_type', 'product'
+          assign products = "" | split: ""
+          for product in all_products
+            assign product_collection_handles = product.collections | map: 'handle'
+            if product_collection_handles contains 'all-movies'
+              assign matched_product_array = all_products | where: 'id', product.id
+              assign products = products | concat: matched_product_array
+            endif
+          endfor
+        %}
       {% else %}
         {% assign collection = settings.empty_state_collection | default: collections.all %}
         {% assign default_title = 'content.search_results_resource_products' | t %}

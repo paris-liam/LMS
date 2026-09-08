@@ -71,6 +71,10 @@ class TestCanonicalFormat(unittest.TestCase):
         self.assertEqual(canonical_format("4k"), "4K")
         self.assertEqual(canonical_format("vhs"), "VHS")
 
+    def test_4k_uhd_variants_map_to_4k(self):
+        self.assertEqual(canonical_format("4K UHD/BLU-RAY"), "4K")
+        self.assertEqual(canonical_format("4K UHD"), "4K")
+
     def test_non_format_vendors_return_none(self):
         for value in ("Unknown", "Unknown Brand", "Little Movie Store",
                       "Walt Disney", "Arrow Video", "Supercycle", ""):

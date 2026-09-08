@@ -16,10 +16,12 @@ from pathlib import Path
 from urllib.parse import quote
 
 from review_page import MAX_CANDIDATES, THUMB_BASE_URL, collect_products
+from review_registry import filter_unknown, mark_queued
 
 __all__ = [
     "build_hosted_picker_html", "write_hosted_picker", "validate_batch_id",
     "update_manifest", "build_launcher_html", "write_launcher",
+    "append_to_queue", "load_products", "save_products",
 ]
 
 # KEEP IN SYNC with BATCH_ID_PATTERN in tools/review-picker/api/_github.js.
@@ -444,6 +446,78 @@ def write_hosted_picker(
     write_launcher(tools_dir)
 
     return {"products": len(products)}
+
+
+def _products_path(tools_dir, batch_id: str) -> Path:
+    return Path(tools_dir) / "data" / f"{batch_id}.products.json"
+
+
+def load_products(tools_dir, batch_id: str) -> list[dict]:
+    """The full accumulated product list for an evergreen queue batch —
+    the source of truth for what index.html embeds, kept separately from
+    data/<batch_id>.json (which holds only decided picks)."""
+    path = _products_path(tools_dir, batch_id)
+    if not path.exists():
+        return []
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def save_products(tools_dir, batch_id: str, products: list[dict]) -> None:
+    path = _products_path(tools_dir, batch_id)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(products, indent=2), encoding="utf-8")
+
+
+def append_to_queue(
+    review_rows, tools_dir, batch_id, fetch_fn, registry: dict,
+    sleep_fn=time.sleep, progress_fn=None,
+) -> dict:
+    """Add review rows to an evergreen queue batch, skipping any handle
+    already in `registry` (queued in some batch, or already resolved) and
+    merging genuinely new products into the batch's persisted product list
+    rather than replacing it — so a card already shown to the client, and
+    any candidates it holds, is never dropped by a later run.
+
+    `registry` is mutated in place (new handles marked "queued") but not
+    saved — the caller owns save_registry, so several batches can share
+    one load/save around a run.
+    """
+    validate_batch_id(batch_id)
+    if progress_fn is None:
+        progress_fn = lambda index, total, handle, message: None
+
+    tools_dir = Path(tools_dir)
+
+    new_rows = filter_unknown(review_rows, registry)
+    if not new_rows:
+        return {"added": 0, "batch_total": len(load_products(tools_dir, batch_id))}
+
+    new_products = collect_products(new_rows, fetch_fn, sleep_fn=sleep_fn, progress_fn=progress_fn)
+
+    existing = load_products(tools_dir, batch_id)
+    existing_handles = {p["handle"] for p in existing}
+    added = [p for p in new_products if p["handle"] not in existing_handles]
+    merged = existing + added
+    save_products(tools_dir, batch_id, merged)
+
+    batch_dir = tools_dir / batch_id
+    batch_dir.mkdir(parents=True, exist_ok=True)
+    (batch_dir / "index.html").write_text(
+        build_hosted_picker_html(merged, batch_id), encoding="utf-8"
+    )
+
+    data_dir = tools_dir / "data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+    data_file = data_dir / f"{batch_id}.json"
+    if not data_file.exists():
+        data_file.write_text("[]", encoding="utf-8")
+
+    mark_queued(registry, [p["handle"] for p in added], batch_id)
+
+    update_manifest(tools_dir, batch_id, len(merged))
+    write_launcher(tools_dir)
+
+    return {"added": len(added), "batch_total": len(merged)}
 
 
 def update_manifest(tools_dir, batch_id: str, total: int) -> list[dict]:

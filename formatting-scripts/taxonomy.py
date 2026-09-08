@@ -51,6 +51,8 @@ FORMAT_ALIASES = {
     "laser": "Laserdisc",
     "ld": "Laserdisc",
     "beta": "Betamax",
+    "4k uhd blu ray": "4K",
+    "4k uhd": "4K",
 }
 
 TYPE_ALIASES = {

@@ -15,11 +15,16 @@ from columns import (
     FIXED_VALUES,
     FORMATTED_TAG,
     GENRE_METAFIELD,
+    ISSUE_TAG_GENRE_NEEDED,
+    ISSUE_TAG_NEEDS_FORMAT,
+    ISSUE_TAG_NO_PRICE,
+    ISSUE_TAG_RENTAL_OR_SALE,
+    ISSUE_TAG_RENTAL_PRICE,
     REASON_COLUMN,
     TEMPLATE_COLUMNS,
 )
 from handles import HandleAllocator, derive_handle
-from resolve import extra_tags, resolve_format, resolve_genres, resolve_price, resolve_type, split_list
+from resolve import _dedupe, extra_tags, resolve_format, resolve_genres, resolve_price, resolve_type, split_list
 from taxonomy import genre_handle
 
 
@@ -51,7 +56,14 @@ def _image_row(row: dict, shape: str) -> dict:
 
 
 def _resolve_product(primary: dict, shape: str) -> tuple[dict | None, str | None]:
-    """Resolve one primary row into output values, or return a reason."""
+    """Resolve one primary row into output values, or return a reason.
+
+    A field that can't be resolved doesn't block the row by itself — it's
+    left unresolved and flagged with an Issue_* tag so the client can find
+    and fix it in the admin, while the rest of the product still uploads.
+    Only genuinely bad data — an ambiguous type tag, an unreadable price,
+    or a negative Floor Sale price — still returns a reason and blocks.
+    """
     tags = split_list(primary.get("Tags", ""))
     option1_value = (primary.get("Option1 Value") or "").strip()
 
@@ -61,23 +73,40 @@ def _resolve_product(primary: dict, shape: str) -> tuple[dict | None, str | None
         if shape == "template" else []
     )
 
+    issue_tags: list[str] = []
+    raw_price = (primary.get("Variant Price") or "").strip()
+
     product_type, reason = resolve_type(tags)
     if reason:
-        return None, reason
+        if not reason.startswith("no Rental or Floor Sale tag"):
+            return None, reason  # tagged as both — ambiguous, needs a human
+        issue_tags.append(ISSUE_TAG_RENTAL_OR_SALE)
 
     media_format, reason = resolve_format(
         primary.get("Vendor", ""), option1_value, tags, helper_format
     )
     if reason:
-        return None, reason
+        issue_tags.append(ISSUE_TAG_NEEDS_FORMAT)
 
     genres, reason = resolve_genres(option1_value, tags, helper_genres)
     if reason:
-        return None, reason
+        issue_tags.append(ISSUE_TAG_GENRE_NEEDED)
 
-    price, reason = resolve_price(product_type, primary.get("Variant Price", ""))
-    if reason:
-        return None, reason
+    if product_type is None:
+        # Can't validate a price against an unknown type — pass it through
+        # exactly as found, for a person to set correctly once type is known.
+        price = raw_price
+    else:
+        price, reason = resolve_price(product_type, primary.get("Variant Price", ""))
+        if reason:
+            if reason.startswith("Floor Sale with no price"):
+                issue_tags.append(ISSUE_TAG_NO_PRICE)
+                price = raw_price
+            elif reason.startswith("Rental with a nonzero price"):
+                issue_tags.append(ISSUE_TAG_RENTAL_PRICE)
+                price = raw_price
+            else:
+                return None, reason  # unreadable or negative — needs a human
 
     extras = extra_tags(tags)
     if shape == "template":
@@ -87,9 +116,11 @@ def _resolve_product(primary: dict, shape: str) -> tuple[dict | None, str | None
     return {
         "type": product_type,
         "format": media_format,
+        "raw_vendor": (primary.get("Vendor") or "").strip(),
         "genres": genres,
         "price": price,
         "extras": extras,
+        "issue_tags": issue_tags,
     }, None
 
 
@@ -104,14 +135,17 @@ def _build_row(primary: dict, resolved: dict, handle: str, shape: str) -> dict:
     out["Handle"] = handle
     out["Title"] = title
     out["Body (HTML)"] = primary.get("Body (HTML)", "") or ""
-    out["Vendor"] = resolved["format"]
-    out["Tags"] = ", ".join(
-        [resolved["type"], resolved["format"]]
-        + resolved["genres"]
-        + resolved["extras"]
-        + [FORMATTED_TAG]
-    )
-    out["Option1 Value"] = resolved["genres"][0]
+    out["Vendor"] = resolved["format"] or resolved["raw_vendor"]
+
+    tag_parts = []
+    if resolved["type"]:
+        tag_parts.append(resolved["type"])
+    if resolved["format"]:
+        tag_parts.append(resolved["format"])
+    tag_parts += resolved["genres"] + resolved["extras"] + resolved["issue_tags"] + [FORMATTED_TAG]
+    out["Tags"] = ", ".join(_dedupe(tag_parts))
+
+    out["Option1 Value"] = resolved["genres"][0] if resolved["genres"] else ""
     out["Variant Price"] = resolved["price"]
     out["Image Src"] = image_src
     out["Image Alt Text"] = alt_text or (f"{title} poster" if image_src else "")
@@ -147,6 +181,19 @@ def _group_products(rows: list[dict], shape: str) -> list[tuple[str, list[dict]]
     return group_rows_by_handle(rows)
 
 
+def is_non_catalogue_product(primary: dict) -> bool:
+    """True for a product this pipeline shouldn't touch at all: a
+    Supercycle membership plan (Vendor "Supercycle") or a non-movie
+    storefront item tagged "online-store" (t-shirts, bumper stickers,
+    etc.). These get skipped entirely — left out of both upload.csv and
+    issues.csv — rather than run through the movie catalogue rules.
+    """
+    if (primary.get("Vendor") or "").strip() == "Supercycle":
+        return True
+    tags = split_list(primary.get("Tags", ""))
+    return any(tag.strip().lower() == "online-store" for tag in tags)
+
+
 def normalize_rows(rows: list[dict], shape: str) -> tuple[list[dict], list[dict]]:
     """Normalize every product. Returns (clean_rows, issue_rows)."""
     allocator = HandleAllocator()
@@ -160,6 +207,9 @@ def normalize_rows(rows: list[dict], shape: str) -> tuple[list[dict], list[dict]
 
     for handle, group in _group_products(rows, shape):
         primary = group[0]
+
+        if is_non_catalogue_product(primary):
+            continue
 
         variant_rows = [row for row in group if _is_variant_row(row)]
         if len(variant_rows) > 1:

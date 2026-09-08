@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Movie review picker — 17 products</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; margin: 2rem auto; max-width: 1080px; padding: 0 1rem; background: #fafafa; color: #222; }
+  header { position: sticky; top: 0; background: #fafafa; padding: .75rem 0; border-bottom: 1px solid #ddd; z-index: 10; display: flex; align-items: center; gap: 1rem; }
+  header h1 { font-size: 1.1rem; margin: 0; flex: 1; }
+  #counter { color: #666; font-size: .9rem; }
+  #export { background: #973123; color: #fff; border: 0; border-radius: 6px; padding: .5rem 1rem; font-size: .9rem; cursor: pointer; }
+  #hide-decided-label { font-size: .9rem; color: #444; display: flex; align-items: center; gap: .35rem; cursor: pointer; }
+  .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.5rem; margin: 1.5rem 0; }
+  .card.decided { border-color: #5f8d7a; background: #f4faf7; }
+  body.hide-decided .card.decided { display: none; }
+  .card h2 { font-size: 1.05rem; margin: 0 0 .15rem; display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+  .tags { display: inline-flex; gap: .3rem; }
+  .tag { font-size: .7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; color: #5f8d7a; background: #eef5f1; border-radius: 3px; padding: .1rem .4rem; }
+  .card .meta { font-size: .8rem; color: #888; margin-bottom: .75rem; }
+  .card .meta a { color: #973123; }
+  .candidates { display: flex; flex-direction: column; gap: .5rem; }
+  label.option { display: flex; gap: .75rem; align-items: flex-start; border: 1px solid #eee; border-radius: 6px; padding: .5rem .75rem; cursor: pointer; }
+  label.option:hover { background: #f5f5f5; }
+  label.option input { margin-top: .3rem; }
+  label.option img { width: 60px; height: auto; border-radius: 3px; flex-shrink: 0; }
+  label.option .no-poster { width: 60px; height: 90px; background: #eee; color: #999; font-size: .65rem; display: flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; }
+  label.option .info { font-size: .85rem; line-height: 1.4; flex: 1; min-width: 0; }
+  label.option .info strong { font-size: .9rem; }
+  label.option.special { background: #fdf6f5; }
+  .manual-fields { display: flex; flex-direction: column; gap: .4rem; margin: .25rem 0 0 2rem; }
+  .manual-fields input, .manual-fields textarea { font: inherit; font-size: .85rem; border: 1px solid #ccc; border-radius: 4px; padding: .4rem .5rem; width: 100%; box-sizing: border-box; }
+  .manual-fields textarea { min-height: 4.5em; resize: vertical; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Movie review picker</h1>
+  <span id="counter"></span>
+  <label id="hide-decided-label"><input type="checkbox" id="hide-decided"> Hide decided</label>
+  <button id="export">Export picks (tmdb-picks.json)</button>
+</header>
+<main id="cards"></main>
+<script>
+const PRODUCTS = [{"handle": "wall-e-4k-uhd-blu-ray-floor-sale-kids-family", "title": "WALL\u2022E", "vendor": "4K", "genre": "kids-family", "reason": "ambiguous match (best candidate: 'Eton Wall Game' (1921))", "candidates": [{"id": 1561933, "title": "Eton Wall Game", "year": "1921", "overview": "Eton school's peculiar version of football.", "poster_path": "/x2PNeZKs2EmzOLvLODvExrM4VKq.jpg"}, {"id": 298621, "title": "Wall Engravings", "year": "1968", "overview": "Jeanne looks back on her love for Jean. The melancholic young man wouldn't accept the world as it was, always wishing to depart. She doesn't know that he's dead.", "poster_path": "/cgOg2SI8Cb8XSBfb64mIhyqsXOY.jpg"}, {"id": 167156, "title": "Eiger: Wall of death", "year": "2010", "overview": "A history of one of the world's most challenging mountains, the Eiger, and its infamous north face. The film gets to the heart of one of Europe's most notorious peaks, exploring its character and its impact on the people who climb it and live in its awesome shadow", "poster_path": "/lWsJM78YKl3qMTp6CXzXUpmblOX.jpg"}, {"id": 1298068, "title": "Dawn Wall Exclusive", "year": "2015", "overview": "S10 of Reel Rock. A first look at Tommy Caldwell and Kevin Jorgeson's epic final push to free climb the Dawn Wall. It marked the greatest climbing achievement of a generation and captured the world's imagination. As our team works on a major feature film about the event slated for next year, Reel Rock 10 will include an exclusive first look at the drama playing out at the crux of the route.", "poster_path": "/qTLvb2OffmxL8zECq8cyVA2XAAO.jpg"}, {"id": 468467, "title": "Robert Wall: Ex-FBI Agent", "year": "1972", "overview": "This television program follows an FBI agent provocateur, Robert Wall. Wall chronicles how he spied on people and institutions. He describes how he surveilled Stokeley Carmichae and tried to incite violence at a peace march.", "poster_path": "/nrNnAEjbDmZa44HZzT2OnuIvGjJ.jpg"}]}, {"handle": "after-hours-4k-uhd-blu-ray-floor-sale-drama", "title": "After Hours", "vendor": "4K", "genre": "drama", "reason": "ambiguous match (best candidate: 'After Hours' (1985))", "candidates": [{"id": 10843, "title": "After Hours", "year": "1985", "overview": "Desperate to escape his mind-numbing routine, uptown Manhattan office worker Paul Hackett ventures downtown for a hookup with a mystery woman.", "poster_path": "/8upjM945SVY99tu2Z8OG27Jd4m6.jpg"}, {"id": 1274376, "title": "After Hours", "year": "2017", "overview": "New York City nightlife in 2017 brings a tempestuous mix of love and lust as multiple characters navigate their way in the city with their own flair.", "poster_path": "/oGnWIluAJP37gfRjiDUyvxdTioB.jpg"}, {"id": 148144, "title": "After Hours", "year": "1985", "overview": "A sensitive portrayal of a young office worker who alleges sexual abuse by her employer. She loses her job as a result of her claims. This dramatised situation looks at the ways in which an employee can be victimised in an office environment without those around being aware of the situation.", "poster_path": "/wIfH66wFbQvi6U5x2oEeVTZYJTU.jpg"}, {"id": 800041, "title": "After Hours", "year": "2019", "overview": "A pensive man wearing an empty ID jacket and a broken watch drifts through public spaces on the way home.", "poster_path": "/jCmiZ6NM0DMPGEtYEFUQKrLsLuk.jpg"}, {"id": 1570411, "title": "After Hours", "year": "2013", "overview": "Something strange and unpredictable takes inthe mysteriously vacant rooms of Berlin\u2019s infamous Techno club Berghain. A group of wild animals occupy the monumental spaces of the former power station. We explore the building together with the animals and experience its dimensions from a new, nonhuman perspective. The brutality of the industrial architecture is confronted with the beauty of these shy creatures.", "poster_path": "/6eJSzbY3Nw1TuEOurPbVMBG3gAq.jpg"}]}, {"handle": "akira-kurosawa-s-dreams-4k-uhd-blu-ray-floor-sale-drama", "title": "Akira Kurosawa\u2019s Dreams", "vendor": "4K", "genre": "drama", "reason": "ambiguous match (best candidate: 'Dreams' (1990))", "candidates": [{"id": 12516, "title": "Dreams", "year": "1990", "overview": "Eight visually rich vignettes drawn from Kurosawa\u2019s own dreams\u2014fox weddings and vanished orchards, a soldier\u2019s ghosts, a walk through Van Gogh\u2019s canvases, nuclear nightmares, and a water-mill utopia\u2014meditate on childhood, art, mortality, and humanity\u2019s uneasy bond with nature.", "poster_path": "/ua17wrOrUjyqxuYmnUrmOVBMf4G.jpg"}]}, {"handle": "others-the-4k-uhd-blu-ray-floor-sale-horror", "title": "Others, The", "vendor": "4K", "genre": "horror", "reason": "ambiguous match (best candidate: 'The Others' (2001))", "candidates": [{"id": 1933, "title": "The Others", "year": "2001", "overview": "Grace is a woman who lives in an old house kept dark because her two children, Anne and Nicholas, have a rare sensitivity to light. When the family begins to suspect the house is haunted, Grace fights to protect her children at any cost in the face of strange events and disturbing visions.", "poster_path": "/p8g1vlTvpM6nr2hMMiZ1fUlKF0D.jpg"}, {"id": 691061, "title": "The Others", "year": "", "overview": "Remake of the 2001 horror film.", "poster_path": ""}, {"id": 354080, "title": "The Others", "year": "1969", "overview": "A modern lesbian couple decides to have a baby, but first they need to find a man to impregnate one of them. They also deal with social pressure and a journalist who wants to expose their unusual story even though they insist on privacy.", "poster_path": "/sOOzY9UCPTePJhphiPy5wFVDsRw.jpg"}, {"id": 198535, "title": "The Others", "year": "1975", "overview": "Spinoza, attempting to discover why his son committed suicide, meets his girlfriend and his rival for her affections.", "poster_path": "/5034uXu0EyV8OE7n18dk6yQxFbm.jpg"}, {"id": 1277674, "title": "The Others", "year": "1970", "overview": "Robert and Claire inherited an old Victorian house which they plan to renovate. While visiting the place their car breaks down and they are forced to spend the night there.", "poster_path": ""}]}, {"handle": "godzilla-4k-uhd-blu-ray-floor-sale-sci-fi", "title": "Godzilla", "vendor": "4K", "genre": "sci-fi", "reason": "ambiguous match (best candidate: 'Godzilla' (2014))", "candidates": [{"id": 124905, "title": "Godzilla", "year": "2014", "overview": "Ford Brody, a Navy bomb expert, has just reunited with his family in San Francisco when he is forced to go to Japan to help his estranged father, Joe. Soon, both men are swept up in an escalating crisis when an ancient alpha predator arises from the sea to combat malevolent adversaries that threaten the survival of humanity. The creatures leave colossal destruction in their wake, as they make their way toward their final battleground: San Francisco.", "poster_path": "/tphkjmQq8WebuVwNXelmjLUXuPJ.jpg"}, {"id": 929, "title": "Godzilla", "year": "1998", "overview": "French nuclear tests irradiate an iguana into a giant monster that viciously attacks freighter ships in the Pacific Ocean. A team of experts, including Niko Tatopoulos, conclude that the oversized reptile is the culprit. Before long, the giant lizard is loose in Manhattan as the US military races to destroy the monster before it reproduces and it's spawn takes over the world.", "poster_path": "/xJVl1I95StraYAwaNbBkVoWE2qA.jpg"}, {"id": 1678, "title": "Godzilla", "year": "1954", "overview": "Japan is thrown into a panic after several ships are sunk near Odo Island. An expedition to the island led by Dr. Kyohei Yamane soon discover something far more devastating than imagined in the form of a 50 meter tall monster whom the natives call Gojira. Now the monster begins a rampage that threatens to destroy not only Japan, but the rest of the world as well.", "poster_path": "/2W0Yw0qrgVMgdsSCZRKtfvaAh0i.jpg"}, {"id": 340315, "title": "Godzilla", "year": "1977", "overview": "A re-edited Italian-language dubbed version of the original Godzilla, using as a basis the U.S. version, \"Godzilla, King of the Monsters!\" (1956), plus WWII newsreel footage and clips from other science fiction films. The re-edited film was then colorized via a process called \"Spectrorama 70\" consisting of applying various colored gels to the black and white footage. The film's opening and ending also features new music composed by musicians Fabio Frizzi, Franco Bixio, and Vince Tempera (under the pseudonym Magnetic System).", "poster_path": "/nlyJGyYbs4plrWsJqK0NfcIpYfp.jpg"}, {"id": 315011, "title": "Shin Godzilla", "year": "2016", "overview": "When a massive, gilled monster emerges from the deep and tears through the city, the government scrambles to save its citizens.  A rag-tag team of volunteers cuts through a web of red tape to uncover the monster's weakness and its mysterious ties to a foreign superpower.  But time is not on their side - the greatest catastrophe to ever befall the world is about to evolve right before their very eyes.", "poster_path": "/jPNShaWZMpVF0iQ7j1dvTuZLD20.jpg"}]}, {"handle": "breakfast-club-the-4k-uhd-blu-ray-floor-sale-comedy", "title": "Breakfast Club, The", "vendor": "4K", "genre": "comedy", "reason": "ambiguous match (best candidate: 'The Breakfast Club' (1985))", "candidates": [{"id": 2108, "title": "The Breakfast Club", "year": "1985", "overview": "Five high school students from different walks of life endure a Saturday detention under a power-hungry principal. The disparate group includes rebel John, princess Claire, outcast Allison, brainy Brian and Andrew, the jock. Each has a chance to tell his or her story, making the others see them a little differently -- and when the day ends, they question whether school will ever be the same.", "poster_path": "/gp4zlj7wgbiofLMNsTPndMuO3PN.jpg"}, {"id": 1638524, "title": "The Second Breakfast Club", "year": "", "overview": "The Second Breakfast Club is a bold adaption of the famous original Breakfast Club movie by John Hughes. Shot in a single day by a rag-tag team of actors, camera operators and directors (usually taking multiple roles each), it explores the timeless themes of friendship and identity through the setting of a final college assignment.  The protagonists meet at one of their places for a final replacement assignment for their 'Professional Development' course. They all have different reasons to be anxious about their futures as their university time draws to an end. The energy and fun bursts off the screen as they get to know each other, sing together, dance together and eventually grow together.", "poster_path": ""}, {"id": 543788, "title": "Madonna and the Breakfast Club", "year": "2019", "overview": "The documentary story of Madonna's struggling days in New York with her first band \"Breakfast Club,\" leading up to her first solo record deal.", "poster_path": "/iJUpfQdhDmQrQ1ouDPUBaag38Bi.jpg"}, {"id": 333404, "title": "The Wednesday Morning Breakfast Club", "year": "2013", "overview": "A short film that tells the story of three older men who come into the same restaurant on Wednesday mornings at the same time every week. The story is told from the perspective of Megan, the newly hired waitress at the restaurant that takes classes at night. Through her deliberate acts of respect and purposeful efforts to get to know these gentlemen the shroud of their grumpy appearance is lifted and as the men open up the impact of their life stories extend beyond Megan.", "poster_path": "/sFVQ7bGt5Y2GLP8g9NXFcchXzVb.jpg"}]}, {"handle": "elephant-man-the-4k-uhd-blu-ray-floor-sale-drama", "title": "Elephant Man, The", "vendor": "4K", "genre": "drama", "reason": "ambiguous match (best candidate: 'The Elephant Man' (1980))", "candidates": [{"id": 1955, "title": "The Elephant Man", "year": "1980", "overview": "A Victorian surgeon rescues a heavily disfigured man being mistreated by his \"owner\" as a side-show freak. Behind his monstrous fa\u00e7ade, there is revealed a person of great intelligence and sensitivity. Based on the true story of Joseph Merrick (called John Merrick in the film), a severely deformed man in 19th century London.", "poster_path": "/u0wpPYjuSt8DIe1Y3Vapnh8jcKE.jpg"}, {"id": 263065, "title": "The Elephant Man", "year": "1982", "overview": "A taped version of the stage play about a hideously deformed 19th-century London man and how he managed to triumph over his disease.", "poster_path": "/ur3YCaRWSNQXqjo1y1Au8374e62.jpg"}, {"id": 1473844, "title": "The Elephant Man", "year": "", "overview": "Based on Bernard Pomerance\u2019s Tony Award-winning play. Plot TBA.", "poster_path": "/tgju97B8r5ArCNofF8FAPMB57Yu.jpg"}, {"id": 616849, "title": "The Terrible Elephant Man Revealed", "year": "2001", "overview": "This collage of interviews with the producers, John Hurt, and the makeup man comes off as both interesting and informative. Hurt's recollections about the role and the crazy makeup he worked in, are fascinating, as are the stories about the makeup artist using the real remains of John Merrick archived in the London hospital. A shorter bit has the artist explaining the exact construction of his amibitious makup, and he also narrates a slide show that includes color photos of the finished work. There are some mind-boggling stills of the real Merrick's grotesquely contorted skull, where excess bone seems to have grown like tallow dripping from a horrible candle, or a foaming tumor of excess calcification.", "poster_path": "/3Yxh4abFiTCxNUJj9H99ZtNOBtr.jpg"}, {"id": 269274, "title": "Revenge of the Elephant Man", "year": "2004", "overview": "A short directed by Ken Russell.", "poster_path": ""}]}, {"handle": "secret-agent-the-4k-uhd-blu-ray-floor-sale-drama", "title": "Secret Agent, The", "vendor": "4K", "genre": "drama", "reason": "ambiguous match (best candidate: 'The Secret Agent' (2025))", "candidates": [{"id": 1449677, "title": "Secret Agent: The Swallow", "year": "1960", "overview": "A Shaw Brothers production", "poster_path": "/6yQOdifXQmCVh6qA6F1uhzQ3Qi9.jpg"}, {"id": 47199, "title": "The Secret Agent", "year": "1996", "overview": "In 1880s London, pornographic bookseller Verloc is a double agent for the Russian government, providing information to Chief Inspector Heat about a lazy anarchist organization. In order for the anarchists to be arrested, an act of terrorism must occur. So Verloc decides to set up bombs \u2013 which leads to tragedy \u2013 not only for himself but also for his family, including wife Winnie and brother-in-law, Stevie.", "poster_path": "/tPHoV5WGQROGQmbSw4h8NGWB22c.jpg"}, {"id": 394956, "title": "The Secret Agent", "year": "2015", "overview": "An adaptation of the 1907 political novel of the same title by Joseph Conrad set in Portugal during the so-called \"Hot Summer\" of 1975, re-contextualizing the anarchist prose within the Carnation Revolution.", "poster_path": "/kmuyUfEXZ2T3SgzmDRNl8zkwqTY.jpg"}, {"id": 862894, "title": "The Secret Agent", "year": "1992", "overview": "1992 BBC adaptation of the Joseph Conrad novel of 1907 concerning the mostly inactive spy Alfred Verloc, who is ordered by his superior Mr Vladimir to carry out a terrorist act. Verloc reluctantly plans the operation, seeking help from The Professor. Verloc is also an informant for the police and the Assistant Commissioner and Chief Inspector Heat add additional pressure on Verloc and his attempts to carry out his plan. Verloc\u2019s subsequent actions gravely affect his wife who is devoted to her mentally unbalanced brother Stevie.", "poster_path": "/gwqz3jl1aHhcTzJQ8MOqneZYiGJ.jpg"}, {"id": 1489766, "title": "The Secret Agent", "year": "1975", "overview": "A bomb-throwing incident in 1905 sets off a train of events which ends in a murder and a suicide.", "poster_path": ""}]}, {"handle": "marie-antoinette-4k-uhd-blu-ray-floor-sale-drama", "title": "Marie Antoinette", "vendor": "4K", "genre": "drama", "reason": "ambiguous match (best candidate: 'Marie Antoinette' (2006))", "candidates": [{"id": 1887, "title": "Marie Antoinette", "year": "2006", "overview": "A retelling of the story of France\u2019s iconic but ill-fated queen, Marie Antoinette - from her betrothal and marriage to Louis XVI at fifteen to her reign as queen at nineteen and ultimately the fall of Versailles.", "poster_path": "/cybXGmv8Rjd5Os8Xml6YxMBQ0Zt.jpg"}, {"id": 43847, "title": "Marie Antoinette", "year": "1938", "overview": "The young Austrian princess Marie Antoinette is arranged to marry Louis XVI, future king of France, in a politically advantageous marriage for the rival countries. The opulent Marie indulges in various whims and flirtations. When Louis XV passes and Louis XVI ascends the French throne, his queen's extravagant lifestyle earns the hatred of the French people, who despise her Austrian heritage.", "poster_path": "/nmsqzJUN6B0guVHfXINhofe4Myt.jpg"}, {"id": 846739, "title": "Marie Antoinette", "year": "1903", "overview": "Silent film.", "poster_path": "/axrQoUThUGybwV6pCQPw7DI4sfT.jpg"}, {"id": 946624, "title": "Marie Antoinette", "year": "1983", "overview": "Marie Antoinette takes us on a walking tour of the Petit Trianon, a charming little farm on the grounds of Versailles. Her commentary includes reflections on life, God, and the peasants, providing valuable insights into the royal character of this important character.", "poster_path": "/x3xtLzcUoFKlvSytKyCQJE2oAlZ.jpg"}, {"id": 43426, "title": "Histoires : Marie Antoinette", "year": "2005", "overview": "", "poster_path": ""}]}, {"handle": "the-fly-vhs-floor-sale", "title": "The Fly", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'The Fly' (1986))", "candidates": [{"id": 9426, "title": "The Fly", "year": "1986", "overview": "When brilliant, eccentric scientist Seth Brundle makes a huge technological breakthrough in teleportation, he decides to test it on himself. Unbeknownst to him, a common housefly manages to get inside the device and the two become one.", "poster_path": "/8gZWMhJHRvaXdXsNhERtqNHYpH3.jpg"}, {"id": 11815, "title": "The Fly", "year": "1958", "overview": "Industrialist Fran\u00e7ois Delambre is called late at night by his sister-in-law, Helene, who tells him that she has just killed her husband. Reluctant at first, she eventually explains to the police that he invented a matter transportation apparatus and, while experimenting on himself, a fly entered the chamber.", "poster_path": "/kXdBcDh2EbgSIf4Oo1dxKapZM2f.jpg"}, {"id": 371297, "title": "The Fly", "year": "2014", "overview": "An uptight getaway driver waiting outside a bank robbery has three nerve shredding minutes to get through before his crew returns. All he has to do is focus.", "poster_path": ""}, {"id": 10344, "title": "The Fly II", "year": "1989", "overview": "Martin Brundle, born of the human/fly, is adopted by his father's place of employment (Bartok Inc.) while the employees simply wait for his mutant chromosomes to come out of their dormant state.", "poster_path": "/gORksEPahEgO409HYJOZlNVyEpe.jpg"}, {"id": 472370, "title": "What the Fly !?", "year": "2014", "overview": "A lizard conductor leads his symphony orchestra when suddenly he encounters a noise that disturbs the course of his majestic work.", "poster_path": "/jerPAuzVzKFzizs5xaNXsvT2PZF.jpg"}]}, {"handle": "celebrity-vhs-floor-sale", "title": "Celebrity", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'Celebrity' (1998))", "candidates": [{"id": 9466, "title": "Celebrity", "year": "1998", "overview": "The career and personal life of writer Lee are at a standstill, so he divorces his bashful wife, Robin, and dives into a new job as an entertainment journalist. His assignments take him to the swankiest corners of Manhattan, but as he jumps from one lavish party to another and engages in numerous empty romances, he starts to doubt the worth of his work. Meanwhile, top TV producer Tony falls for Robin and introduces her to the world of celebrity.", "poster_path": "/q4UJHtH14nO8tbMfGtJ3Z3Tw5RW.jpg"}, {"id": 1502017, "title": "Celebrity", "year": "2012", "overview": "A hot show brim-full of Star Troupe energy.", "poster_path": "/qBOneOa6erg3dcQratEyHMxJqTE.jpg"}, {"id": 392429, "title": "Celebrity", "year": "1928", "overview": "Kid Reagan is a prizefighter who poses as a poet as a publicity ploy. Jane, an actress hired to impersonate his high-class love interest, can\u2019t help falling for the big lug.", "poster_path": "/yi3p18PQFHTjQZ1FPrTdhNTleQe.jpg"}, {"id": 1525207, "title": "Celebrity", "year": "", "overview": "After his fans turn against him, an arrogant YouTube prankster casts his na\u00efve father in his latest prank video, unknowingly starring as his next victim.", "poster_path": ""}, {"id": 234831, "title": "Mr. Celebrity", "year": "1941", "overview": "A couple attempts to win custody of their orphaned grandson, who's being raised by his veterinarian uncle in a racetrack environment.", "poster_path": "/8EtuPXNF66ZkxJOtuJwryFuxOca.jpg"}]}, {"handle": "speed-vhs-floor-sale", "title": "Speed", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'Speed' (1994))", "candidates": [{"id": 1637, "title": "Speed", "year": "1994", "overview": "Tensions run high when a crazed bomber rigs a Los Angeles bus with a device that will kill everyone on board if the vehicle's speed dips below fifty miles per hour.", "poster_path": "/82PkCE4R95KhHICUDF7G4Ly2z3l.jpg"}, {"id": 177937, "title": "Speed", "year": "1936", "overview": "Terry is the chief car tester for Emery Motors and Frank is an Engineer. Jane has just been hired to work in publicity. Frank and Terry both want Jane to be their girl. Terry has designed a new carburetor that should bring him fame and money, but he cannot get it to work correctly. Terry and Gadget have tested it for over a year, but it still is not perfected. Emery Motors assigns Frank to help Terry with the carburetor, but Terry is not happy because Frank is an Engineer and is also vying for Jane. They finish the carburetor, and to test it, they enter a car in the Indianapolis 500 race. Terry is not yet satisfied with the carburetor before the big race even though it has passed all the tests.", "poster_path": "/n22vSjDCcD0nr1vJcZh2ILYqtge.jpg"}, {"id": 339534, "title": "Speed", "year": "2015", "overview": "Four high school friends maintain their ties but finds themselves in very different situations when they reach 21. Chu-won was a promising athlete but, drinking heavily and unable to get past an old flame, he ruins his prospects. Goo-rim became on idol singer, but a drug scandal has seen him fall on hard times. Seo-won, as a medical student at a top university, was faring best among them, until he is diagnosed with leukemia and falls for a teenage escort from their old high school. Meanwhile, Dae-sung is a sex addict with a penchant for mature women who dreams of making his own film.", "poster_path": "/jEN5AUVmUrV1gJkTMZs9HyzryXl.jpg"}, {"id": 382598, "title": "Full Speed", "year": "2016", "overview": "A family together with their grandpa go on a vacation, when their new car won't stop and it nearly escapes crashing into a hundred cars.", "poster_path": "/hrExpoA2E2bCrSZ6VPWHHdzY2y.jpg"}, {"id": 71141, "title": "Jake Speed", "year": "1986", "overview": "Jake Speed (Wayne Crawford) is the lead character in some of the biggest page-turners of the 1940s. A chiseled, heroic action figure, Speed saves lives on paper, but when a young girl is kidnapped and her sister (Karen Kopins) begs the real-life Speed for help, he must find a way to be as gallant as the book hero whose creation he's inspired. Accompanied by the victim's sibling, Speed flies to Africa to see if he's up to the task.", "poster_path": "/9zlGxL1aBYH0bqQQ1CmoBiiZNBg.jpg"}]}, {"handle": "tie-died-vhs", "title": "Tie-Died", "vendor": "VHS", "genre": "", "reason": "ambiguous match (best candidate: 'Tie-Died: Rock 'n Roll's Most Deadicated Fans' (1995))", "candidates": [{"id": 102445, "title": "Tie-Died: Rock 'n Roll's Most Deadicated Fans", "year": "1995", "overview": "Filmed during the Grateful Dead's 1994 summer tour, this film chronicles the lives of the \"Deadheads\"-- free-spirited fans who follow the band around the country.", "poster_path": ""}]}, {"handle": "our-town-vhs", "title": "Our Town", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Our Town' (2026))", "candidates": [{"id": 23283, "title": "Our Town", "year": "1940", "overview": "Change comes slowly to a small New Hampshire town in the early 20th century. We see birth, life and death in this small community.", "poster_path": "/tXYWSUIUfiG06XzgSSkd4sQFOru.jpg"}, {"id": 55767, "title": "Our Town", "year": "2007", "overview": "A writer kills his landlady and stages the body to look like the work of an active serial killer. Anxious that the police might figure out the truth, he decides to insert himself into the investigation using his detective friend.", "poster_path": "/xK9TrtbVQbPlCSEtiGa40XdWBCw.jpg"}, {"id": 1758303, "title": "Our Town", "year": "1999", "overview": "A production by the Russian Academic Youth Theater based on Thornton Wilder's play of the same name. Life, love, and death are the three components of this performance. The action begins on May 7, 1901, in a small American town. Two families, the Gibbs and the Webb, live next door to each other. Their children attend school, and their entire lives are spent in full view of each other.", "poster_path": ""}, {"id": 723654, "title": "Our Town", "year": "1955", "overview": "Change comes slowly to a small New Hampshire town in the early 20th century. People grow up, get married, live, and die. Milk and the newspaper get delivered every morning, and nobody locks their front doors. This musicalization of Thornton Wilder's classic play stars Frank Sinatra, who introduces the song, \"Love and Marriage,\" which would go on to be immortalized as the theme song to the sitcom \"Married with Children.\"", "poster_path": "/8xRr536tL86TwSBe4KxZzlEPXDo.jpg"}, {"id": 398525, "title": "Our Town", "year": "1956", "overview": "In 1906, after finishing a tough migrant job in the Philippines, Takichi has returned to Japan. He starts to work as a rickshaw driver, but his lover had died of an illness, leaving a baby girl, Hatsue. Hatsue grows up beautifully and falls in love with Shintaro. But Takichi objects to their relationship...", "poster_path": "/fzvIslSc5uOIP59hVc56ZvytuxM.jpg"}]}, {"handle": "september-vhs", "title": "September", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'September' (1978))", "candidates": [{"id": 22477, "title": "September", "year": "1987", "overview": "After a suicide attempt, Lane has moved into her country house to recuperate. Her best friend, Stephanie, has come to join her for the summer. Lane's mother, Diane, has recently arrived with her husband Lloyd, Lane's stepfather. Lane is close to two neighbors: Peter, and Howard. Howard is in love with Lane, Lane is in love with Peter, and Peter is in love with Stephanie.", "poster_path": "/gTsFkvUt9wrGOZh6JNDSFd2LIBT.jpg"}, {"id": 620862, "title": "September", "year": "1978", "overview": "After he fails to be accepted in college, Vali is questioned by police for participating in various thefts. He needs an alibi and he thinks the best one would be his father in Bucharest. To get there, he steals a motorcycle. In Bucharest he meets store clerk Ani\u0219oara, and he invites her to a seaside escapade. Their one day of love and future optimism is ended abruptly by a tragic motorcycle accident.", "poster_path": "/lAxRQ316dpfT54RaQtjr3x4Ow0.jpg"}, {"id": 385138, "title": "September", "year": "2003", "overview": "Couples and families in the days after September 11, 2001. All relationships become complictaed, but only one of the four nested stories surrounding a German who condemns the attack, and her husband, a Muslim who advocates it, offers approximate a discussion approach to the attack. The remaining episodes are poorly staged, construction-looking relationship tragedies.", "poster_path": ""}, {"id": 32584, "title": "September", "year": "2007", "overview": "The friendship of two 15-year-old boys \u2013 one black, one white \u2013 begins to fall apart under the stress of a changing world.", "poster_path": "/rV9swv3lR2J2J4jf0UED4yqeYtH.jpg"}, {"id": 1303100, "title": "September", "year": "", "overview": "A man in a boat on Central Park Lake considers what he lost and what he should have held on to in the wake of the AIDS epidemic.", "poster_path": "/6qVa1DpPVu0Fpe2zyGkamR4Feok.jpg"}]}, {"handle": "easyriders-vhs", "title": "Easyriders", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Easyriders No. 4' (1990))", "candidates": [{"id": 379588, "title": "Easyriders No. 4", "year": "1990", "overview": "Harley Ridin', modern day, legends. from the great north to the Deep South from the east coast to the west coast.  Freedom lovin' Americans daring to be themselves.", "poster_path": "/xGglnHsAF4zclxKSXe348tYcvG.jpg"}, {"id": 421192, "title": "Easyriders Video Magazine No. 1", "year": "1988", "overview": "Rip-roarin' action and side-splittin' laughs set to great tunes on the highest quality video and sound possible. Don't miss this chance to relive the greatest decade in Harley-Davidson history with the low life staff of EASYRIDERS magazine.", "poster_path": ""}]}, {"handle": "retribution-vhs", "title": "Retribution", "vendor": "VHS", "genre": "drama", "reason": "ambiguous match (best candidate: 'Retribution' (2023))", "candidates": [{"id": 351145, "title": "Retribution", "year": "2015", "overview": "While Carlos, a banking executive, takes his two kids to school in his car, he gets a phone call telling him that there is a bomb under the seats and he must to gather a large amount of money; otherwise, his car will blow up.", "poster_path": "/s8L5mN9USLpuSM9Pl7c5UC9unYj.jpg"}, {"id": 203720, "title": "Retribution", "year": "1969", "overview": "The continuation of a story started by Alexander Stolper epic movie \"The Alive and the Dead\".", "poster_path": "/sDjBjjIbzfSt3TVecm8QsRLUh4L.jpg"}, {"id": 413332, "title": "Retribution", "year": "2017", "overview": "A hardened debt-collector goes on a 24-hour rampage through London in an attempt to avenge the brutal attack on his teenage daughter.", "poster_path": "/thBDJdutALUzNOYkBU31YgHZlnE.jpg"}, {"id": 1655805, "title": "Retribution", "year": "2019", "overview": "Two old college friends meet up and talk about the past and the turns it's taken for both of them.", "poster_path": ""}, {"id": 464872, "title": "Retribution", "year": "2017", "overview": "A suicidal girl falls in love with a fallen angel.", "poster_path": "/h5zIG4iXIoEUjFzooOUF3xPTMkY.jpg"}]}];
+const BATCH_ID = "out-issues_fixed";
+const STORAGE_KEY = "tmdb-review-picks::" + BATCH_ID;
+const MANUAL_KEY = "tmdb-review-manual::" + BATCH_ID;
+const HIDE_DECIDED_KEY = "tmdb-review-hide-decided::" + BATCH_ID;
+// Pre-namespacing pages all wrote to this one shared key. Migrate any
+// entries for this batch's own handles into the namespaced key below,
+// so picks made before this page was regenerated aren't lost.
+const LEGACY_STORAGE_KEY = "tmdb-review-picks";
+const LEGACY_MANUAL_KEY = "tmdb-review-manual";
+
+function loadStored(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || {}; }
+  catch (e) { return {}; }
+}
+let picks = loadStored(STORAGE_KEY);
+let manualData = loadStored(MANUAL_KEY);
+
+// One-time migration: pull this batch's own handles out of the old shared
+// key, so picks made before namespacing existed aren't lost or, worse,
+// don't leak other batches' decided counts into this page's counter.
+(function migrateLegacyPicks() {
+  const handles = new Set(PRODUCTS.map(p => p.handle));
+  const legacyPicks = loadStored(LEGACY_STORAGE_KEY);
+  const legacyManual = loadStored(LEGACY_MANUAL_KEY);
+  let changed = false;
+  for (const handle of Object.keys(legacyPicks)) {
+    if (handles.has(handle) && !(handle in picks)) {
+      picks[handle] = legacyPicks[handle];
+      changed = true;
+    }
+  }
+  for (const handle of Object.keys(legacyManual)) {
+    if (handles.has(handle) && !(handle in manualData)) {
+      manualData[handle] = legacyManual[handle];
+      changed = true;
+    }
+  }
+  if (changed) savePicks();
+})();
+
+function savePicks() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(picks));
+  localStorage.setItem(MANUAL_KEY, JSON.stringify(manualData));
+}
+
+function esc(text) {
+  const div = document.createElement("div");
+  div.textContent = text || "";
+  return div.innerHTML;
+}
+
+function optionHtml(handle, value, checked, extraClass, inner) {
+  return `<label class="option ${extraClass}">
+    <input type="radio" name="pick-${esc(handle)}" value="${value}" ${checked ? "checked" : ""}>
+    ${inner}
+  </label>`;
+}
+
+function render() {
+  const cards = document.getElementById("cards");
+  cards.innerHTML = PRODUCTS.map(product => {
+    const current = picks[product.handle];
+    const searchUrl = "https://www.themoviedb.org/search?query=" + encodeURIComponent(product.title);
+    const googleUrl = "https://www.google.com/search?q=" + encodeURIComponent(product.title + " movie");
+    const options = product.candidates.map((candidate, i) => {
+      const poster = candidate.poster_path
+        ? `<img src="https://image.tmdb.org/t/p/w185${esc(candidate.poster_path)}" alt="" loading="lazy">`
+        : '<div class="no-poster">no poster</div>';
+      const overview = candidate.overview ? esc(candidate.overview) : "<em>(no overview)</em>";
+      return optionHtml(product.handle, String(i), current === String(i), "",
+        `${poster}<span class="info"><strong>${esc(candidate.title)}</strong> (${esc(candidate.year) || "?"})<br>${overview}</span>`);
+    }).join("");
+    const tags = [product.vendor, product.genre].filter(Boolean);
+    const tagsHtml = tags.length
+      ? `<span class="tags">${tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</span>`
+      : "";
+    return `<section class="card ${current !== undefined ? "decided" : ""}" data-handle="${esc(product.handle)}">
+      <h2>${esc(product.title)} ${tagsHtml}</h2>
+      <div class="meta"><code>${esc(product.handle)}</code> — ${esc(product.reason)}
+        · <a href="${searchUrl}" target="_blank">TMDB search</a>
+        · <a href="${googleUrl}" target="_blank">Google</a></div>
+      <div class="candidates">
+        ${options}
+        ${optionHtml(product.handle, "manual", current === "manual", "special",
+          `<span class="info" style="flex:1"><strong>Manual entry</strong> — fill in what you found
+            <span class="manual-fields">
+              <input type="url" class="manual-image" placeholder="Image URL (leave blank to keep current)"
+                     value="${esc((manualData[product.handle] || {}).image_src || "")}">
+              <textarea class="manual-overview" placeholder="Description (leave blank to keep current)">${esc((manualData[product.handle] || {}).overview || "")}</textarea>
+            </span>
+          </span>`)}
+        ${optionHtml(product.handle, "skip", current === "skip", "special",
+          '<span class="info"><strong>Skip this one</strong> — leave it for a later pass</span>')}
+        ${optionHtml(product.handle, "undecided", current === undefined, "",
+          '<span class="info">Decide later</span>')}
+      </div>
+    </section>`;
+  }).join("");
+  updateCounter();
+}
+
+function updateCounter() {
+  const decided = Object.keys(picks).length;
+  document.getElementById("counter").textContent = `${decided} / ${PRODUCTS.length} decided`;
+}
+
+const hideDecidedBox = document.getElementById("hide-decided");
+hideDecidedBox.checked = localStorage.getItem(HIDE_DECIDED_KEY) === "1";
+document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+hideDecidedBox.addEventListener("change", () => {
+  document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
+  localStorage.setItem(HIDE_DECIDED_KEY, hideDecidedBox.checked ? "1" : "0");
+});
+
+document.getElementById("cards").addEventListener("change", event => {
+  const input = event.target;
+  if (input.type !== "radio") return;
+  const handle = input.closest(".card").dataset.handle;
+  if (input.value === "undecided") {
+    delete picks[handle];
+  } else {
+    picks[handle] = input.value;
+  }
+  savePicks();
+  input.closest(".card").classList.toggle("decided", picks[handle] !== undefined);
+  updateCounter();
+});
+
+document.getElementById("cards").addEventListener("input", event => {
+  const input = event.target;
+  if (!input.classList.contains("manual-image") && !input.classList.contains("manual-overview")) return;
+  const card = input.closest(".card");
+  const handle = card.dataset.handle;
+  const fields = manualData[handle] || {};
+  if (input.classList.contains("manual-image")) fields.image_src = input.value;
+  else fields.overview = input.value;
+  manualData[handle] = fields;
+  // Typing in a manual field selects that card's Manual option.
+  if (picks[handle] !== "manual") {
+    picks[handle] = "manual";
+    const radio = card.querySelector('input[type="radio"][value="manual"]');
+    if (radio) radio.checked = true;
+    card.classList.add("decided");
+    updateCounter();
+  }
+  savePicks();
+});
+
+document.getElementById("export").addEventListener("click", () => {
+  const out = [];
+  for (const product of PRODUCTS) {
+    const pick = picks[product.handle];
+    if (pick === undefined) continue;
+    if (pick === "skip") {
+      out.push({handle: product.handle, choice: "skip"});
+    } else if (pick === "manual") {
+      const fields = manualData[product.handle] || {};
+      const image_src = (fields.image_src || "").trim();
+      const overview = (fields.overview || "").trim();
+      if (!image_src && !overview) continue; // nothing typed — skip
+      out.push({handle: product.handle, choice: "manual", image_src, overview});
+    } else {
+      const candidate = product.candidates[Number(pick)];
+      if (!candidate) continue;
+      out.push({
+        handle: product.handle,
+        choice: "tmdb",
+        poster_path: candidate.poster_path,
+        overview: candidate.overview,
+      });
+    }
+  }
+  const blob = new Blob([JSON.stringify(out, null, 2)], {type: "application/json"});
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "tmdb-picks.json";
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
+
+render();
+</script>
+</body>
+</html>

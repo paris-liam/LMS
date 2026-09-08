@@ -20,11 +20,37 @@ any file this script produced earlier. Output lands in `out-<inputname>/`
 |---|---|
 | `upload.csv` | Import it: Shopify admin → Products → Import |
 | `issues.csv` | Fix the rows, then `run.py out-<name>/issues.csv` |
-| `review-picker.html` | Open it, pick the right poster, Export picks (only written when at least one row was ambiguous) |
-| `tmdb-picks.json` | `python3 formatting-scripts/apply_picks.py <picks> <upload.csv>` → `picks-applied.csv` |
-| `tmdb-unmatched.csv` | Same columns as `upload.csv`, no Reason column — fix the title (see the run's console output for why each row didn't match) or paste a description/poster, then re-run it |
 | `run-report.txt` | Counts for the run |
 | `.tmdb-cache.json` | TMDB query cache for this output directory. Not an input file — don't feed it to `run.py`. |
+
+That's it — a row this script can't match/fill by itself never lands in a
+local file any more. Ambiguous rows (multiple plausible TMDB matches) and
+unmatched rows (no TMDB match at all) are appended straight to two
+**evergreen queues** in `tools/review-picker/` — `ambiguous-queue` and
+`unmatched-queue` — the same hosted picker the client already uses. A
+handle already sitting in either queue (or already resolved, see below) is
+never added again, so re-running on overlapping data is always safe.
+
+When the client has decided some picks, pull `tools/review-picker/data/`
+and apply them to whichever `upload.csv` actually has those handles:
+
+```bash
+python3 formatting-scripts/apply_picks.py \
+  tools/review-picker/data/ambiguous-queue.json out-<name>/upload.csv
+```
+
+This also marks each applied handle **resolved** in
+`tools/review-picker/data/_handle-index.json`, so it's never re-queued even
+if the same title shows up again in a later batch.
+
+**Auto git sync**: whenever a run actually queues something new, `run.py`'s
+CLI (not the library `run()` function — tests never touch git) pulls,
+commits, and pushes `tools/review-picker/` on its own, so Vercel redeploys
+with the new cards automatically. It refuses to pull if there's uncommitted
+work anywhere *outside* `tools/review-picker/` (leaves the queue files
+written but uncommitted instead, with a note), never force-pushes or skips
+hooks, and reports — rather than retries — a pull/commit/push failure. Pass
+`--no-git-sync` to just write the files locally.
 
 The TMDB cache is only saved to disk once at the end of the fill stage
 (and again after the picker stage, if one runs). If a long run is
@@ -49,6 +75,9 @@ Flags:
   indefinitely, so this is the escape hatch when TMDB later gains a film or
   a matching bug gets fixed and you need those queries re-checked.
 - `--outdir` — write to a directory other than the default `out-<inputname>/`.
+- `--tools-dir` — override the `tools/review-picker` directory the queues
+  live in (default: this repo's own). Mainly for testing.
+- `--no-git-sync` — write the queue files locally without pulling/committing/pushing.
 
 ## The loop
 
@@ -57,9 +86,11 @@ Flags:
 3. **Run `scripts/set-movie-template.sh`** — imported movies otherwise land
    on the default product template, which shows a $0.00 Buy Now button on
    rentals.
-4. Open the picker, choose posters, export, apply, import `picks-applied.csv`.
-5. Fix `issues.csv` and `tmdb-unmatched.csv`, run the script on each, import
-   what comes out. Repeat until both files come back empty.
+4. Fix `issues.csv`, run the script on it, import what comes out. Repeat
+   until it comes back empty.
+5. Whenever the client has worked through some of `ambiguous-queue` or
+   `unmatched-queue`, `git pull` and run `apply_picks.py` against the
+   `upload.csv` file(s) that hold those handles.
 
    **Opening `issues.csv` in Excel (export runs only):** these files carry a
    `Variant Barcode` column, and some of our barcodes start with a `0`

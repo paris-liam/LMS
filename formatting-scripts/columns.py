@@ -11,6 +11,16 @@ GENRE_METAFIELD = "Genre (product.metafields.shopify.genre)"
 REASON_COLUMN = "Reason"
 FORMATTED_TAG = "Formatted"
 
+# A row missing one of these fields still uploads — the field is left
+# unresolved and one of these tags is added so the client can find and fix
+# it in the admin. Only genuinely bad data (an ambiguous type, an unreadable
+# or negative price) still blocks the row into issues.csv.
+ISSUE_TAG_RENTAL_OR_SALE = "Issue_Rental_Or_Sale"
+ISSUE_TAG_NEEDS_FORMAT = "Issue_Needs_Format"
+ISSUE_TAG_GENRE_NEEDED = "Issue_Genre_Needed"
+ISSUE_TAG_NO_PRICE = "Issue_No_Price"
+ISSUE_TAG_RENTAL_PRICE = "Issue_Rental_Price"
+
 TEMPLATE_COLUMNS = [
     "Handle",
     "Title",
