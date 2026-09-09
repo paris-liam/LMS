@@ -15,7 +15,6 @@
 
 {%- liquid
   assign picks = shop.metaobjects.community_pick.values
-  assign all_movies_url = collections['all-movies'].url
 -%}
 
 {% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
@@ -35,11 +34,6 @@
             <div class="lms-staff__desc rte">{{ section.settings.description }}</div>
           {%- endif -%}
         </div>
-        {%- if section.settings.link_label != blank and all_movies_url != blank -%}
-          <a href="{{ all_movies_url }}?filter.p.tag=community-pick" class="lms-staff__textlink">
-            {{- section.settings.link_label -}}
-          </a>
-        {%- endif -%}
       </div>
 
       <div class="lms-staff__grid">
@@ -123,17 +117,6 @@
 }
 .lms-staff__desc p { margin: 0 0 1em; }
 .lms-staff__desc p:last-child { margin-bottom: 0; }
-.lms-staff__textlink {
-  font-family: var(--lms-font-mono);
-  font-weight: var(--lms-fw-mono-med);
-  font-size: 12px;
-  letter-spacing: var(--lms-tracking-wide);
-  text-transform: uppercase;
-  color: var(--lms-brick);
-  text-decoration: none;
-  margin-top: 24px;
-}
-.lms-staff__textlink:hover { color: var(--lms-brick-dark); }
 
 .lms-staff__grid {
   display: flex;
@@ -243,13 +226,6 @@ a.lms-staff__by:hover { color: var(--lms-brick-dark); text-decoration: underline
       "id": "description",
       "label": "Description",
       "default": "<p>Movies we've been watching, arguing about, and pressing into people's hands. Every pick comes with a hand-written shelf note. Updated weekly.</p>"
-    },
-    {
-      "type": "text",
-      "id": "link_label",
-      "label": "Link label",
-      "default": "Full list →",
-      "info": "Leave blank to hide. Links to the inventory page with the Community Picks filter turned on."
     },
     { "type": "header", "content": "Section style" },
     {
