@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 # Assigns the `movie` template suffix (templates/product.movie.json) to every
+# DEPRECATED (2026-09-09). The movie layout is now templates/product.json,
+# the theme default, so imported movies need no suffix at all. Use
+# scripts/set-product-templates.sh. Kept only as a repair tool for a store
+# that has not had the template migration applied.
 # movie product, so movies render on the read-only in-store PDP instead of the
 # default product template.
 #
