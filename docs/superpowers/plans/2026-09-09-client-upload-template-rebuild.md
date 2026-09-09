@@ -864,6 +864,58 @@ Download the `Shopify import` tab as CSV.
 **Confirm the store before importing — this is the dev store, not production:**
 `lms-sandbox-lutsfahz.myshopify.com` → Products → Import → Add file → Import products.
 
+- [ ] **Step 5b: Save the export as the sheet↔contract seam fixture**
+
+This is the one artifact in the whole build that is **not** generated from
+`TEMPLATE_COLUMNS`, so it is the only thing that can genuinely disagree with
+it. A fixture this repo generates itself can only compare the constant
+against a header built from that same constant — which is why the seam check
+lives here rather than in `test_columns.py`.
+
+Copy the CSV you just downloaded into the repo:
+
+```bash
+cd "/Users/liamparis/web-projects/personal/Little Movie Store/LMS-sandbox"
+cp ~/Downloads/<the-downloaded-file>.csv \
+   formatting-scripts/client-template/client-upload-template.sheet-export.csv
+```
+
+Add this test to `tests/formatting_scripts/test_client_template_files.py`:
+
+```python
+SHEET_EXPORT_CSV = os.path.join(
+    TEMPLATE_DIR, "client-upload-template.sheet-export.csv"
+)
+
+
+class TestSheetExportSeam(unittest.TestCase):
+    """The real spreadsheet's own output against the column contract.
+
+    Unlike every other fixture here, this file is produced by Google Sheets,
+    not by TEMPLATE_COLUMNS — so it can actually disagree, which is the whole
+    point. If someone edits the tab-2 formula and this test fails, the formula
+    drifted from the contract.
+    """
+
+    def test_sheet_export_header_matches_template_columns(self):
+        with open(SHEET_EXPORT_CSV, newline="", encoding="utf-8") as handle:
+            header = next(csv.reader(handle))
+        self.assertEqual(header, TEMPLATE_COLUMNS)
+
+    def test_sheet_export_rows_match_the_transform(self):
+        self.assertEqual(_read(SHEET_EXPORT_CSV), _read(EXPECTED_CSV))
+```
+
+Run it:
+
+```bash
+python3 -m unittest tests.formatting_scripts.test_client_template_files -v
+```
+
+Expected: PASS. **A failure here means the spreadsheet formula and the Python
+transform disagree** — fix the formula in `import-tab-formula.txt` and
+re-export, since the Python side is the tested one.
+
 - [ ] **Step 6: Verify both products landed**
 
 Open each imported product in the dev admin and confirm:
