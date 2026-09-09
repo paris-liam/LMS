@@ -36,20 +36,27 @@ The homepage section reads a fixed smart collection, handle `new-arrivals`. A pr
 
 No one ever edits this collection directly — it's rule-driven.
 
-### Decision: tagging is manual, not automatic
+### Decision: tagging is fully automatic (reversed 2026-09-09)
 
-We considered auto-tagging every new product as `new-arrival` (via a Shopify Flow triggered on product creation), but rejected it: production gets periodic bulk uploads, and a bulk upload of older backlog titles would flood the New Arrivals rail for a week, indistinguishable from genuinely new stock.
+Originally we auto-tagged nothing and had the client apply `new-arrival` by hand, specifically to avoid a bulk upload of older backlog titles flooding the rail for a week, indistinguishable from genuinely new stock. **That decision was reversed on 2026-09-09** — both tagging and untagging are now automatic via two Shopify Flow workflows on production. The bulk-upload flooding risk this originally guarded against is a known, accepted tradeoff of the reversal, not an oversight.
 
-**Instead: the client applies the `new-arrival` tag by hand**, only when a title is genuinely new stock on the shelf. A Shopify Flow still auto-*removes* the tag after 7 days, so nobody has to remember to clean it up.
+Two Flow workflows, both **live on production** as of 2026-09-09:
 
-**Follow-up to revisit later** (not committed to): if a better "genuinely new" signal ever becomes available — e.g. a dedicated "date received" field distinct from Shopify's product-created timestamp — this could go fully automatic. Flagged, not scheduled.
+**1. "New Arrival auto-tag"**
+- Trigger: Product created
+- Condition: Tag contains `Rental`
+- Action: Add tags → `new-arrival`
 
-### Client steps: marking a title as a New Arrival
+**2. "New Arrival tag auto-expiry (daily sweep)"**
+- Trigger: Scheduled time → recurring Daily
+- Action — Get product data: query `tag:new-arrival` (kept to this single filter — combining it with a date filter in the same query is a known Shopify Flow bug that silently breaks the tag filter)
+- Action — For each: loop over the products returned above
+- Inside the loop — Condition: `Product > Created at` is before `{{ scheduledAt | date_minus: "7 days" }}`
+- Inside the "true" branch — Action — Remove product tags: `new-arrival`, applied to the current loop item
 
-1. Open the product in Shopify Admin → Products.
-2. In the **Tags** field, add: `new-arrival` (lowercase, with the hyphen, exactly as written).
-3. Save. It appears in the New Arrivals section on the site right away.
-4. You don't need to remove it — it automatically drops off after 7 days. To pull it sooner, just delete the `new-arrival` tag from the product.
+Note: Shopify Flow has no "tag added" trigger for products (only Customer has tag-added/removed triggers), which is why expiry is a daily scheduled sweep rather than an event-driven workflow — since Workflow 1 tags on creation, tag age and product age are the same thing, so sweeping on `Created at` is equivalent.
+
+No client action needed day-to-day — tagging is automatic. To pull a title off New Arrivals sooner, delete the `new-arrival` tag from the product manually.
 
 Note: only works for rental movies (already tagged `Rental`, category Videos) — tagging a piece of merch `new-arrival` won't make it appear here.
 
@@ -57,8 +64,8 @@ Note: only works for rental movies (already tagged `Rental`, category Videos) �
 
 - [x] Dev store: smart collection exists and rule set verified correct.
 - [x] Dev store: 5 sample titles manually tagged so the rail shows real content (OPEN SEASON, Never Been Kissed, The Adventures of Pluto Nash, The Grifters, Who's the Man?).
-- [ ] Dev store: build the auto-expiry Flow (Admin → Apps → Flow) — see steps below — so those demo tags actually age out, and so the mechanism is validated before copying to production.
-- [ ] Production: run the same setup (below).
+- [x] Production: both Flow workflows ("New Arrival auto-tag" and "New Arrival tag auto-expiry (daily sweep)") built and turned on, 2026-09-09.
+- [ ] Dev store: build the same two Flow workflows (not yet confirmed done on dev — only production is confirmed).
 
 ### Production setup steps
 
@@ -68,13 +75,7 @@ Note: only works for rental movies (already tagged `Rental`, category Videos) �
    SHOPIFY_STORE=p0wkgv-wy.myshopify.com ./scripts/create-new-arrivals-collection.sh
    ```
    Or manually in Admin → Products → Collections → Create collection: title "New Arrivals", handle `new-arrivals`, match **all** conditions: Category = Videos, Tag = Rental, Tag = new-arrival. Sort: Newest to oldest.
-3. **Build the auto-expiry Flow.** Admin → Apps → Flow → Create workflow:
-   - **Trigger:** "Tag added"
-   - **Condition:** tag equals `new-arrival`
-   - **Action 1:** "Wait" → 7 days
-   - **Action 2:** "Remove tags" → `new-arrival` → apply to the triggering product
-
-   Name it "New Arrival tag auto-expiry" and turn it on.
+3. **Build the two Flow workflows** — see "New Arrival auto-tag" and "New Arrival tag auto-expiry (daily sweep)" above. Done on production 2026-09-09.
 4. No theme changes needed — the section already reads `collections['new-arrivals']` by handle.
 
 ---

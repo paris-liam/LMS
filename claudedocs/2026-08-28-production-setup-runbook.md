@@ -29,7 +29,7 @@ The theme code depends on these tags/fields existing on every movie product. Jus
 - **`shopify.genre` metafield** — standard category metafield, `list.metaobject_reference` type, populated automatically once Category = Videos is set and a genre value is chosen.
 
   **Known gotcha, hit 2026-09-01 on the first real CSV upload (126 products, 74 failed with "Value require that you select a metaobject")**: dev's exports use several genre values (`action`, `comedy`, `thriller`, `romantic-comedy`, `musical`, `foreign`, `holiday`) that are legitimate Shopify taxonomy values but weren't yet instantiated as local `shopify--genre` metaobject entries on production — only the canonical Shopify-seeded set was (`Action & adventure`, `Humor & comedy`, etc., which dev's actual data doesn't use). CSV import can't auto-create a missing metaobject entry, so any product using one of those 7 values fails outright. **Fixed by creating all 7 entries on production directly via `metaobjectCreate` (type `shopify--genre`), matching dev's exact handle/label/`taxonomy_reference` GID.** If a future batch introduces yet another genre value dev has that production doesn't, it'll fail the same way — check dev's `shopify--genre` metaobjects against production's before a big import, not after.
-- Two tags applied **manually, ongoing** (not part of bulk upload): `new-arrival` and `community-pick` (see Phases 6 and 8 below).
+- One tag applied **manually, ongoing** (not part of bulk upload): `community-pick` (see Phase 8 below). `new-arrival` was manual originally but is now fully automated via Flow (see Phase 6) — reversed 2026-09-09.
 
 ---
 
@@ -70,7 +70,7 @@ Two content types need their definitions created before any entries can exist.
 
 1. **All Movies** (`all-movies`) — **done 2026-09-01**. Smart collection created matching dev exactly: Category = Videos AND tag = Rental, sort Newest-to-oldest, `templateSuffix: shop-all` (the infinite-scroll/vertical-filters template — easy to miss, dev had it, production needed it set explicitly). 0 products until the catalogue lands.
 2. **Online Store** (`online-store`) — **not created**, deliberately skipped for now. Smart collection: tag = `online-store`. This is the non-rental retail catalogue (merch, snacks, etc. — anything sold outright, never touches Supercycle).
-3. **New Arrivals** (`new-arrivals`) — **done 2026-09-01**. Same rule as the script (`create-new-arrivals-collection.sh`) but run directly via `shopify store execute` since the script needs a raw admin token: Category = Videos AND tag = Rental AND tag = new-arrival, sort Newest-to-oldest. See `claudedocs/lms-admin-instructions.md` for the full New Arrivals mechanism and the Flow that needs building alongside this (Phase 6).
+3. **New Arrivals** (`new-arrivals`) — **done 2026-09-01**. Same rule as the script (`create-new-arrivals-collection.sh`) but run directly via `shopify store execute` since the script needs a raw admin token: Category = Videos AND tag = Rental AND tag = new-arrival, sort Newest-to-oldest. See `claudedocs/lms-admin-instructions.md` for the full New Arrivals mechanism and the two Flow workflows built alongside this (Phase 6, done 2026-09-09).
 4. **Plans** (`plans`) — already existed on production before this runbook started (manual collection, 1 product — "Little Movie Club", productType "Supercycle Plan"). No action needed, ties into the still-unresolved Supercycle question (Phase 7).
 5. **Optional curation collections** — a script already exists for three tag-driven merchandising collections, not required for any core section to function, create only if wanted:
    ```bash
@@ -125,7 +125,7 @@ Three menus needed, matching dev's structure (fix the two bugs found there, don'
 
 Already fully documented in `claudedocs/lms-admin-instructions.md` — summarizing the production-specific steps:
 
-- **New Arrivals**: after the collection exists (Phase 4), build the "New Arrival tag auto-expiry" Flow in Admin → Apps → Flow (trigger: tag added = `new-arrival` → wait 7 days → remove tag). Client tags products by hand going forward.
+- **New Arrivals** — **done 2026-09-09**: after the collection exists (Phase 4), built two Flow workflows in Admin → Apps → Flow: "New Arrival auto-tag" (trigger: Product created, condition: tag contains Rental, action: add tag new-arrival) and "New Arrival tag auto-expiry (daily sweep)" (trigger: Scheduled time daily, since Flow has no product tag-added trigger — gets products tagged new-arrival, then for each one whose Created at is ≥7 days old, removes the tag). Both live on production; tagging is now fully automatic, no client action needed. See `claudedocs/lms-admin-instructions.md` for full detail.
 - **Community Picks**: after the metaobject definition exists (Phase 3) and products are uploaded, create real entries (Admin → Content → Staff picks) with a real Product reference, quote, and name for each. Nothing shows until at least one entry has a resolved Product.
 
 ---

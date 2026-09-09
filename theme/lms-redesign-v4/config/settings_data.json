@@ -102,15 +102,15 @@
     "blocks": {
       "5699156801985690058": {
         "type": "shopify://apps/supercycle/blocks/supercycle/7b3228ed-a72a-4935-9fee-0cebe8daa0aa",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "availability_filter_url": false,
           "locale_override": "",
           "buttonClass": "button",
-          "color_background": "#FFFFFF",
+          "color_background": "#ffffff",
           "color_border": "#cccccc",
           "color_text": "#000000",
-          "color_input_background": "#FFFFFF",
+          "color_input_background": "#ffffff",
           "color_input_label": "#000000",
           "container_radius": 8,
           "input_radius": 8,
