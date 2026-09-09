@@ -1275,7 +1275,7 @@ SKIPPED=0
 FAILED=0
 PROCESSED=0
 
-while IFS=$'\t' read -r PRODUCT_ID TITLE VENDOR CURRENT; do
+while IFS=$'\t' read -r -u 3 PRODUCT_ID TITLE VENDOR CURRENT; do
   PROCESSED=$((PROCESSED + 1))
 
   if [[ "$CURRENT" == "$TARGET_SUFFIX" ]]; then
@@ -1289,7 +1289,7 @@ while IFS=$'\t' read -r PRODUCT_ID TITLE VENDOR CURRENT; do
     else
       SET_VARS=$(jq -n --arg id "$PRODUCT_ID" --arg suffix "$TARGET_SUFFIX" '{id: $id, suffix: $suffix}')
     fi
-    SET_RESP=$(shopify store execute --store "$STORE" --allow-mutations -j -q "$SET_TEMPLATE" -v "$SET_VARS")
+    SET_RESP=$(shopify store execute --store "$STORE" --allow-mutations -j -q "$SET_TEMPLATE" -v "$SET_VARS" < /dev/null)
     SET_ERR=$(echo "$SET_RESP" | jq -r '.productUpdate.userErrors[0].message // empty')
     if [[ -n "$SET_ERR" ]]; then
       FAILED=$((FAILED + 1))
@@ -1303,7 +1303,7 @@ while IFS=$'\t' read -r PRODUCT_ID TITLE VENDOR CURRENT; do
   if $APPLY && (( PROCESSED % 100 == 0 )); then
     echo "  ... ${PROCESSED}/${TOTAL}"
   fi
-done < "$COLLECT_FILE"
+done 3< "$COLLECT_FILE"
 
 echo
 if $APPLY; then
