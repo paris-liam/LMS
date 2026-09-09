@@ -1308,7 +1308,7 @@ Expected: `syntax OK`, then the usage line and exit 1.
 
 - [ ] **Step 3: Mark the old script deprecated**
 
-Insert after line 2 of `scripts/set-movie-template.sh`:
+Insert immediately after the shebang line of `scripts/set-movie-template.sh`, followed by a `#` separator line, so the original description below stays intact:
 
 ```bash
 # DEPRECATED (2026-09-09). The movie layout is now templates/product.json,
