@@ -1,4 +1,3 @@
-import csv
 import sys
 import unittest
 from pathlib import Path
@@ -14,16 +13,12 @@ from columns import (
     TEMPLATE_COLUMNS,
 )
 
-TEMPLATE_CSV = REPO_ROOT / "formatting-scripts/client-template/client-upload-template.expected.csv"
-
 
 class TestTemplateContract(unittest.TestCase):
-    def test_matches_the_client_template_header_exactly(self):
-        """The seam: if the sheet changes and this doesn't, imports drift."""
-        with open(TEMPLATE_CSV, newline="", encoding="utf-8") as f:
-            header = next(csv.reader(f))
-        # The import file is exactly the 17 Shopify columns, no helper tail.
-        self.assertEqual(TEMPLATE_COLUMNS, header)
+    # The sheet-vs-contract seam test lives with the real spreadsheet export, not
+    # here: any fixture this repo generates from TEMPLATE_COLUMNS can only compare
+    # the constant against itself. A CSV exported from the built Google Sheet can
+    # genuinely disagree, so that check is added when that export first exists.
 
     def test_has_seventeen_columns(self):
         self.assertEqual(len(TEMPLATE_COLUMNS), 17)
