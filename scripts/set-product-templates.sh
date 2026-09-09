@@ -87,8 +87,15 @@ fi
 echo "✓ Live theme '${THEME_NAME}' has ${REQUIRED_TEMPLATE}"
 echo
 
+# Pin sortKey: ID so ordering is stable across pages. The default relevance
+# ordering on a query-filtered connection shifts as matched products stop
+# matching (e.g. clear-movie removing the very suffix it's paginating on),
+# which lets the shrinking result set drag matched-but-unvisited products
+# out from under the cursor — pages, and whole products, get silently
+# skipped. Collect-then-mutate (below) removes the interleaving that causes
+# this, and the pinned sort keeps collection itself stable too.
 FIND='query Find($q: String!, $after: String) {
-  products(first: 100, after: $after, query: $q) {
+  products(first: 100, after: $after, query: $q, sortKey: ID) {
     edges { cursor node { id title vendor templateSuffix } }
     pageInfo { hasNextPage }
   }
@@ -100,10 +107,12 @@ SET_TEMPLATE='mutation SetTemplate($id: ID!, $suffix: String) {
   }
 }'
 
+# --- Phase 1: collect. Paginate to completion, mutating nothing. -----------
+COLLECT_FILE=$(mktemp)
+trap 'rm -f "$COLLECT_FILE"' EXIT
+
 AFTER="null"
-CHANGED=0
-SKIPPED=0
-FAILED=0
+TOTAL=0
 
 while :; do
   VARS=$(jq -n --arg q "$SEARCH_QUERY" --argjson after "$AFTER" '{q: $q, after: $after}')
@@ -112,22 +121,34 @@ while :; do
   if [[ -z "$EDGES" ]]; then break; fi
 
   while IFS= read -r EDGE; do
-    PRODUCT_ID=$(echo "$EDGE" | jq -r '.node.id')
-    TITLE=$(echo "$EDGE" | jq -r '.node.title')
-    VENDOR=$(echo "$EDGE" | jq -r '.node.vendor')
-    CURRENT=$(echo "$EDGE" | jq -r '.node.templateSuffix // ""')
+    echo "$EDGE" | jq -r '[.node.id, .node.title, .node.vendor, (.node.templateSuffix // "")] | @tsv' >> "$COLLECT_FILE"
+    TOTAL=$((TOTAL + 1))
+  done <<< "$EDGES"
 
-    if [[ "$CURRENT" == "$TARGET_SUFFIX" ]]; then
-      SKIPPED=$((SKIPPED + 1))
-      continue
-    fi
+  HAS_NEXT=$(echo "$RESP" | jq -r '.products.pageInfo.hasNextPage')
+  if [[ "$HAS_NEXT" != "true" ]]; then break; fi
+  LAST_CURSOR=$(echo "$RESP" | jq -r '.products.edges[-1].cursor')
+  AFTER=$(jq -n --arg c "$LAST_CURSOR" '$c')
+done
 
-    if ! $APPLY; then
-      CHANGED=$((CHANGED + 1))
-      echo "  would set [${VENDOR}] ${TITLE}: '${CURRENT}' -> '${TARGET_SUFFIX}'"
-      continue
-    fi
+echo "Collected ${TOTAL} product(s) matching '${SEARCH_QUERY}'"
+echo
 
+# --- Phase 2: mutate. Iterate the collected file only — no GraphQL reads. --
+CHANGED=0
+SKIPPED=0
+FAILED=0
+PROCESSED=0
+
+while IFS=$'\t' read -r PRODUCT_ID TITLE VENDOR CURRENT; do
+  PROCESSED=$((PROCESSED + 1))
+
+  if [[ "$CURRENT" == "$TARGET_SUFFIX" ]]; then
+    SKIPPED=$((SKIPPED + 1))
+  elif ! $APPLY; then
+    CHANGED=$((CHANGED + 1))
+    echo "  would set [${VENDOR}] ${TITLE}: '${CURRENT}' -> '${TARGET_SUFFIX}'"
+  else
     if [[ -z "$TARGET_SUFFIX" ]]; then
       SET_VARS=$(jq -n --arg id "$PRODUCT_ID" '{id: $id, suffix: null}')
     else
@@ -142,13 +163,12 @@ while :; do
       CHANGED=$((CHANGED + 1))
       echo "  ✓ [${VENDOR}] ${TITLE}"
     fi
-  done <<< "$EDGES"
+  fi
 
-  HAS_NEXT=$(echo "$RESP" | jq -r '.products.pageInfo.hasNextPage')
-  if [[ "$HAS_NEXT" != "true" ]]; then break; fi
-  LAST_CURSOR=$(echo "$RESP" | jq -r '.products.edges[-1].cursor')
-  AFTER=$(jq -n --arg c "$LAST_CURSOR" '$c')
-done
+  if $APPLY && (( PROCESSED % 100 == 0 )); then
+    echo "  ... ${PROCESSED}/${TOTAL}"
+  fi
+done < "$COLLECT_FILE"
 
 echo
 if $APPLY; then
