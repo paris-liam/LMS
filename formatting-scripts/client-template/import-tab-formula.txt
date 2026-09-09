@@ -30,8 +30,10 @@ PASTE INTO TAB 2, CELL A1:
 ------------------------------------------------------------------
 
 =LET(
-  src,     FILTER('Add movies'!A2:J, 'Add movies'!A2:A<>""),
-  n,       ROWS(src),
+  raw,     IFERROR(FILTER('Add movies'!A2:J, 'Add movies'!A2:A<>""), ""),
+  empty,   ISTEXT(raw),
+  src,     IF(empty, {"","","","","","","","","",""}, raw),
+  n,       IF(empty, 0, ROWS(src)),
   title,   INDEX(src,,1),
   fmt,     INDEX(src,,2),
   typ,     INDEX(src,,3),
@@ -51,8 +53,9 @@ PASTE INTO TAB 2, CELL A1:
   priceo,  MAP(typ, price, LAMBDA(y, p, IF(y = "Rental", "0", TO_TEXT(p)))),
   alt,     MAP(title, img, LAMBDA(t, i, IF(i = "", "", t & " poster"))),
   genres,  MAP(g1, g2, g3, LAMBDA(a, b, c, TEXTJOIN("; ", TRUE, gh(a), gh(b), gh(c)))),
+  o1,      MAP(g1, g2, g3, LAMBDA(a, b, c, IF(a <> "", a, IF(b <> "", b, c)))),
   header,  {"Handle","Title","Body (HTML)","Vendor","Product Category","Tags","Status","Option1 Name","Option1 Value","Variant Inventory Tracker","Variant Inventory Qty","Variant Inventory Policy","Variant Fulfillment Service","Variant Price","Image Src","Image Alt Text","Genre (product.metafields.shopify.genre)"},
-  body,    HSTACK(handle, title, descr, fmt, konst("Media > Videos"), tags, konst("Active"), konst("Genre"), g1, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, img, alt, genres),
+  body,    HSTACK(handle, title, descr, fmt, konst("Media > Videos"), tags, konst("Active"), konst("Genre"), o1, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, img, alt, genres),
   IF(n = 0, header, VSTACK(header, body))
 )
 
