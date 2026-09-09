@@ -22,7 +22,11 @@
   # claudedocs/2026-08-07-product-data-model-audit.md. The matching facet is
   # the built-in "Product vendor" filter in Search & Discovery. Only chip
   # recognised formats so a stray vendor name never renders as a format.
-  assign known_formats = 'VHS,DVD,BLU-RAY,4K,LASERDISC,BETAMAX' | split: ','
+  # The recognised-format list is a theme setting so a new format needs no
+  # code change. Falls back to the built-in list when the setting is blank,
+  # so clearing it can never blank every badge on the storefront.
+  assign format_setting = settings.lms_known_formats | default: 'VHS,DVD,BLU-RAY,4K,LASERDISC,BETAMAX'
+  assign known_formats = format_setting | upcase | replace: ', ', ',' | split: ','
   assign vendor_upcase = product.vendor | upcase
   assign format_label = ''
   if known_formats contains vendor_upcase
