@@ -1,0 +1,85 @@
+LITTLE MOVIE STORE — upload sheet, tab 2 ("Shopify import")
+
+Paste the formula below into cell A1 of tab 2. Nothing else goes on that
+tab. It reads tab 1 ("Add movies") and emits the header row plus one row
+per filled-in movie — it grows and shrinks on its own, so there is never
+anything to drag down.
+
+Tab 1 columns, in order (A-J):
+  A Title   B Format   C Type   D Genre 1   E Genre 2   F Genre 3
+  G Price   H Description   I Image URL   J Extra tags
+
+Tab 3 is named `mappings` and holds ONLY this table, starting in A1:
+
+  Comedy            comedy
+  Action            action
+  Drama             drama
+  Kids & Family     kids-family
+  Sci-Fi            sci-fi
+  Thriller          thriller
+  Horror            horror
+  Romantic Comedy   romantic-comedy
+  Musical           musical
+  Fantasy           fantasy
+  Documentary       documentary
+  Foreign           foreign
+  Holiday           holiday
+
+------------------------------------------------------------------
+PASTE INTO TAB 2, CELL A1:
+------------------------------------------------------------------
+
+=LET(
+  src,     FILTER('Add movies'!A2:J, 'Add movies'!A2:A<>""),
+  n,       ROWS(src),
+  title,   INDEX(src,,1),
+  fmt,     INDEX(src,,2),
+  typ,     INDEX(src,,3),
+  g1,      INDEX(src,,4),
+  g2,      INDEX(src,,5),
+  g3,      INDEX(src,,6),
+  price,   INDEX(src,,7),
+  descr,   INDEX(src,,8),
+  img,     INDEX(src,,9),
+  extra,   INDEX(src,,10),
+  slug,    LAMBDA(t, REGEXREPLACE(REGEXREPLACE(REGEXREPLACE(LOWER(TRIM(TO_TEXT(t))), "['’]", ""), "[^a-z0-9]+", "-"), "^-+|-+$", "")),
+  gh,      LAMBDA(g, IF(g="", "", IFERROR(VLOOKUP(g, mappings!$A:$B, 2, FALSE), ""))),
+  base,    MAP(title, fmt, typ, LAMBDA(t, f, y, slug(t) & "-" & slug(f) & "-" & slug(y))),
+  handle,  MAP(SEQUENCE(n), LAMBDA(i, LET(b, INDEX(base, i), k, COUNTIF(ARRAY_CONSTRAIN(base, i, 1), b), IF(k = 1, b, b & "-" & k)))),
+  konst,   LAMBDA(v, MAP(title, LAMBDA(x, v))),
+  tags,    MAP(typ, fmt, g1, g2, g3, extra, LAMBDA(y, f, a, b, c, e, TEXTJOIN(", ", TRUE, y, f, a, b, c, e))),
+  priceo,  MAP(typ, price, LAMBDA(y, p, IF(y = "Rental", "0", TO_TEXT(p)))),
+  alt,     MAP(title, img, LAMBDA(t, i, IF(i = "", "", t & " poster"))),
+  genres,  MAP(g1, g2, g3, LAMBDA(a, b, c, TEXTJOIN("; ", TRUE, gh(a), gh(b), gh(c)))),
+  header,  {"Handle","Title","Body (HTML)","Vendor","Product Category","Tags","Status","Option1 Name","Option1 Value","Variant Inventory Tracker","Variant Inventory Qty","Variant Inventory Policy","Variant Fulfillment Service","Variant Price","Image Src","Image Alt Text","Genre (product.metafields.shopify.genre)"},
+  body,    HSTACK(handle, title, descr, fmt, konst("Media > Videos"), tags, konst("Active"), konst("Genre"), g1, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, img, alt, genres),
+  IF(n = 0, header, VSTACK(header, body))
+)
+
+------------------------------------------------------------------
+NOTES FOR WHOEVER BUILDS THE SHEET
+------------------------------------------------------------------
+
+* The 17 output columns and their order are fixed — they are the contract
+  in formatting-scripts/columns.py:TEMPLATE_COLUMNS. Do not add, remove or
+  reorder them.
+
+* `handle` is the only non-trivial part. COUNTIF over ARRAY_CONSTRAIN gives
+  each row a count of how many earlier rows (inclusive) share its base
+  handle, so the first Rushmore VHS rental is `rushmore-vhs-rental` and the
+  next two are `-2` and `-3`. It is O(n^2); if a 200+ row batch feels slow,
+  replace `base` and `handle` with two helper columns in tab 2 columns S and
+  T and reference those instead.
+
+* `slug` deletes apostrophes and collapses every other non-alphanumeric run
+  to a single hyphen, so `The Monkey's Uncle` becomes `the-monkeys-uncle`
+  and `Amélie` becomes `am-lie`. That matches
+  formatting-scripts/handles.py:slugify exactly. Accented titles are fixed
+  by typing over that one cell.
+
+* `konst` exists because a bare string in HSTACK would not repeat down the
+  rows. It maps the constant over `title` purely to get an array of the
+  right height.
+
+* `TO_TEXT` around the price stops Sheets from formatting 19.99 as a locale
+  number with a comma decimal separator on export.
