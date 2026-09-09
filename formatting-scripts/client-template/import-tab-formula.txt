@@ -31,7 +31,7 @@ PASTE INTO TAB 2, CELL A1:
 
 =LET(
   raw,     IFERROR(FILTER('Add movies'!A2:J, 'Add movies'!A2:A<>""), ""),
-  empty,   ISTEXT(raw),
+  empty,   COLUMNS(raw) = 1,
   src,     IF(empty, {"","","","","","","","","",""}, raw),
   n,       IF(empty, 0, ROWS(src)),
   title,   INDEX(src,,1),
