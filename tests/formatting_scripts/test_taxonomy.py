@@ -62,8 +62,8 @@ class TestGenreHandle(unittest.TestCase):
 
 
 class TestCanonicalFormat(unittest.TestCase):
-    def test_four_formats(self):
-        self.assertEqual(FORMATS, ["VHS", "DVD", "Blu-Ray", "4K"])
+    def test_six_formats(self):
+        self.assertEqual(FORMATS, ["VHS", "DVD", "Blu-Ray", "4K", "Laserdisc", "Betamax"])
 
     def test_fixes_case_from_the_real_export(self):
         self.assertEqual(canonical_format("BLU-RAY"), "Blu-Ray")

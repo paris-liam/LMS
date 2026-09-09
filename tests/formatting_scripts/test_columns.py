@@ -14,7 +14,7 @@ from columns import (
     TEMPLATE_COLUMNS,
 )
 
-TEMPLATE_CSV = REPO_ROOT / "data-cleanup/client-template/client-upload-template-rental.csv"
+TEMPLATE_CSV = REPO_ROOT / "formatting-scripts/client-template/client-upload-template.expected.csv"
 
 
 class TestTemplateContract(unittest.TestCase):
@@ -22,8 +22,8 @@ class TestTemplateContract(unittest.TestCase):
         """The seam: if the sheet changes and this doesn't, imports drift."""
         with open(TEMPLATE_CSV, newline="", encoding="utf-8") as f:
             header = next(csv.reader(f))
-        # The sheet carries helper columns R-W after the 17 Shopify columns.
-        self.assertEqual(TEMPLATE_COLUMNS, header[:17])
+        # The import file is exactly the 17 Shopify columns, no helper tail.
+        self.assertEqual(TEMPLATE_COLUMNS, header)
 
     def test_has_seventeen_columns(self):
         self.assertEqual(len(TEMPLATE_COLUMNS), 17)
