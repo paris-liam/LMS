@@ -504,20 +504,20 @@ PASTE INTO TAB 2, CELL A1:
   empty,   COLUMNS(raw) = 1,
   src,     IF(empty, {"","","","","","","","","",""}, raw),
   n,       IF(empty, 0, ROWS(src)),
-  title,   INDEX(src,,1),
-  fmt,     INDEX(src,,2),
-  typ,     INDEX(src,,3),
+  title,   TRIM(INDEX(src,,1)),
+  fmt,     TRIM(INDEX(src,,2)),
+  typ,     TRIM(INDEX(src,,3)),
   g1,      INDEX(src,,4),
   g2,      INDEX(src,,5),
   g3,      INDEX(src,,6),
-  price,   INDEX(src,,7),
+  price,   TRIM(INDEX(src,,7)),
   descr,   INDEX(src,,8),
-  img,     INDEX(src,,9),
+  img,     TRIM(INDEX(src,,9)),
   extra,   INDEX(src,,10),
   slug,    LAMBDA(t, REGEXREPLACE(REGEXREPLACE(REGEXREPLACE(LOWER(TRIM(TO_TEXT(t))), "['’]", ""), "[^a-z0-9]+", "-"), "^-+|-+$", "")),
   gh,      LAMBDA(g, IF(g="", "", IFERROR(VLOOKUP(g, mappings!$A:$B, 2, FALSE), ""))),
   base,    MAP(title, fmt, typ, LAMBDA(t, f, y, slug(t) & "-" & slug(f) & "-" & slug(y))),
-  handle,  MAP(SEQUENCE(n), LAMBDA(i, LET(b, INDEX(base, i), k, COUNTIF(ARRAY_CONSTRAIN(base, i, 1), b), IF(k = 1, b, b & "-" & k)))),
+  handle,  MAP(SEQUENCE(MAX(n, 1)), LAMBDA(i, LET(b, INDEX(base, i), k, COUNTIF(ARRAY_CONSTRAIN(base, i, 1), b), IF(k = 1, b, b & "-" & k)))),
   konst,   LAMBDA(v, MAP(title, LAMBDA(x, v))),
   tags,    MAP(typ, fmt, g1, g2, g3, extra, LAMBDA(y, f, a, b, c, e, TEXTJOIN(", ", TRUE, y, f, a, b, c, e))),
   priceo,  MAP(typ, price, LAMBDA(y, p, IF(y = "Rental", "0", TO_TEXT(p)))),
@@ -526,7 +526,7 @@ PASTE INTO TAB 2, CELL A1:
   o1,      MAP(g1, g2, g3, LAMBDA(a, b, c, IF(a <> "", a, IF(b <> "", b, c)))),
   header,  {"Handle","Title","Body (HTML)","Vendor","Product Category","Tags","Status","Option1 Name","Option1 Value","Variant Inventory Tracker","Variant Inventory Qty","Variant Inventory Policy","Variant Fulfillment Service","Variant Price","Image Src","Image Alt Text","Genre (product.metafields.shopify.genre)"},
   body,    HSTACK(handle, title, descr, fmt, konst("Media > Videos"), tags, konst("Active"), konst("Genre"), o1, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, img, alt, genres),
-  IF(n = 0, header, VSTACK(header, body))
+  IF(empty, header, VSTACK(header, body))
 )
 
 ------------------------------------------------------------------

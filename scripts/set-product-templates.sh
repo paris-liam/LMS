@@ -44,14 +44,18 @@ fi
 
 case "$MODE" in
   retail)
-    SEARCH_QUERY="vendor:Supercycle OR tag:online-store"
+    SEARCH_QUERY="vendor:'Supercycle' OR tag:'online-store'"
     TARGET_SUFFIX="retail"
-    REQUIRED_TEMPLATE="templates/product.retail.json"
+    REQUIRED_TEMPLATES=("templates/product.retail.json")
     ;;
   clear-movie)
     SEARCH_QUERY="template_suffix:movie"
     TARGET_SUFFIX=""
-    REQUIRED_TEMPLATE="templates/product.json"
+    # Both templates are required: product.json is the clear-movie target
+    # itself, and product.retail.json must already exist from the swap —
+    # its absence is the real signal that the swap hasn't happened yet, since
+    # every theme ships a templates/product.json regardless.
+    REQUIRED_TEMPLATES=("templates/product.json" "templates/product.retail.json")
     ;;
   *)
     echo "Usage: $0 <retail|clear-movie> [--apply]" >&2
@@ -64,27 +68,30 @@ echo "Mode:  ${MODE} -> templateSuffix '${TARGET_SUFFIX}'"
 $APPLY && echo "       APPLY (will modify products)" || echo "       DRY RUN (pass --apply to commit)"
 echo
 
-# --- Preflight: the live theme must contain the template we're pointing at --
+# --- Preflight: the live theme must contain every template this mode needs -
 THEME_Q='query Theme($f: [String!]) {
   themes(first: 1, roles: [MAIN]) {
-    nodes { id name files(filenames: $f, first: 1) { nodes { filename } } }
+    nodes { id name files(filenames: $f, first: 10) { nodes { filename } } }
   }
 }'
-THEME_VARS=$(jq -n --arg f "$REQUIRED_TEMPLATE" '{f: [$f]}')
+THEME_VARS=$(jq -n --argjson f "$(printf '%s\n' "${REQUIRED_TEMPLATES[@]}" | jq -R . | jq -s .)" '{f: $f}')
 THEME_RESP=$(shopify store execute --store "$STORE" -j -q "$THEME_Q" -v "$THEME_VARS")
 THEME_NAME=$(echo "$THEME_RESP" | jq -r '.themes.nodes[0].name // empty')
-HAS_TEMPLATE=$(echo "$THEME_RESP" | jq -r '.themes.nodes[0].files.nodes[0].filename // empty')
 
 if [[ -z "$THEME_NAME" ]]; then
   echo "✗ Could not read the live theme from ${STORE}" >&2
   exit 1
 fi
-if [[ -z "$HAS_TEMPLATE" ]]; then
-  echo "✗ Live theme '${THEME_NAME}' has no ${REQUIRED_TEMPLATE}." >&2
-  echo "  Push the theme first, or these products will render a broken page." >&2
-  exit 1
-fi
-echo "✓ Live theme '${THEME_NAME}' has ${REQUIRED_TEMPLATE}"
+
+for REQUIRED_TEMPLATE in "${REQUIRED_TEMPLATES[@]}"; do
+  HAS_TEMPLATE=$(echo "$THEME_RESP" | jq -r --arg f "$REQUIRED_TEMPLATE" '.themes.nodes[0].files.nodes[] | select(.filename == $f) | .filename // empty')
+  if [[ -z "$HAS_TEMPLATE" ]]; then
+    echo "✗ Live theme '${THEME_NAME}' has no ${REQUIRED_TEMPLATE}." >&2
+    echo "  Push the theme first, or these products will render a broken page." >&2
+    exit 1
+  fi
+  echo "✓ Live theme '${THEME_NAME}' has ${REQUIRED_TEMPLATE}"
+done
 echo
 
 # Pin sortKey: ID so ordering is stable across pages. The default relevance
@@ -117,15 +124,23 @@ TOTAL=0
 while :; do
   VARS=$(jq -n --arg q "$SEARCH_QUERY" --argjson after "$AFTER" '{q: $q, after: $after}')
   RESP=$(shopify store execute --store "$STORE" -j -q "$FIND" -v "$VARS")
+
+  if ! jq -e '.products' >/dev/null 2>&1 <<< "$RESP"; then
+    echo "✗ Page read failed — response had no .products payload:" >&2
+    echo "$RESP" | head -c 500 >&2
+    exit 1
+  fi
+
   EDGES=$(echo "$RESP" | jq -c '.products.edges[]?')
-  if [[ -z "$EDGES" ]]; then break; fi
-
-  while IFS= read -r EDGE; do
-    echo "$EDGE" | jq -r '[.node.id, .node.title, .node.vendor, (.node.templateSuffix // "")] | @tsv' >> "$COLLECT_FILE"
-    TOTAL=$((TOTAL + 1))
-  done <<< "$EDGES"
-
   HAS_NEXT=$(echo "$RESP" | jq -r '.products.pageInfo.hasNextPage')
+
+  if [[ -n "$EDGES" ]]; then
+    while IFS= read -r EDGE; do
+      echo "$EDGE" | jq -r '[.node.id, .node.title, .node.vendor, (.node.templateSuffix // "")] | @tsv' >> "$COLLECT_FILE"
+      TOTAL=$((TOTAL + 1))
+    done <<< "$EDGES"
+  fi
+
   if [[ "$HAS_NEXT" != "true" ]]; then break; fi
   LAST_CURSOR=$(echo "$RESP" | jq -r '.products.edges[-1].cursor')
   AFTER=$(jq -n --arg c "$LAST_CURSOR" '$c')

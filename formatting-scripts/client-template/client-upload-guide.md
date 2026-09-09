@@ -45,13 +45,14 @@ Do this once, on your master copy.
    `Shopify import`, and paste the formula from `import-tab-formula.txt`
    into cell **A1**. Nothing else goes on this tab.
 
-4. **Add the dropdowns** on the `Add movies` tab. Select the whole column,
-   then Data → Data validation → Dropdown:
+4. **Add the dropdowns** on the `Add movies` tab. For each column, select
+   from **row 2 down** (not the header row — including it makes the header
+   cell flag as invalid), then Data → Data validation → Dropdown:
 
-   - **Format** (column B): `VHS`, `DVD`, `Blu-Ray`, `4K`, `Laserdisc`, `Betamax`
-   - **Type** (column C): `Rental`, `Floor Sale`
-   - **Genre 1, 2, 3** (columns D, E, F): "Dropdown (from a range)" →
-     `mappings!A1:A13`
+   - **Format** (range `B2:B`): `VHS`, `DVD`, `Blu-Ray`, `4K`, `Laserdisc`, `Betamax`
+   - **Type** (range `C2:C`): `Rental`, `Floor Sale`
+   - **Genre 1, 2, 3** (ranges `D2:D`, `E2:E`, `F2:F`): "Dropdown (from a
+     range)" → `mappings!A1:A13`
 
 That's the whole setup. From here you only ever touch the `Add movies` tab.
 
@@ -72,12 +73,16 @@ rows** — select the row and press Ctrl+D twice.
 | Genre 1 | Pick from the dropdown — this is the shelf genre, and it prints on the barcode label |
 | Description | A sentence or two about the film |
 | Image URL | A public web address for the poster image |
+| Price | **Required on Floor Sale rows.** Leave blank on Rental rows — they're priced by membership, not a shelf price |
+
+**A blank Price on a Floor Sale row is not caught by anything** — the
+product still imports, and it goes live on the website sellable at **$0.00**.
+Double-check Price is filled in on every Floor Sale row before you upload.
 
 **Fill in when it applies:**
 
 | Column | When |
 |---|---|
-| Price | Floor Sale rows only. Leave blank on rentals — they're priced by membership, not a shelf price |
 | Genre 2, Genre 3 | If the film genuinely fits more than one genre. Website only; doesn't affect the label |
 | Extra tags | Curation labels, comma-separated — e.g. `Criterion Collection, A24` |
 
@@ -99,6 +104,9 @@ typed by hand become two separate options in the website's filters.
    were *created* and how many were *updated*. On a batch of new movies it
    should be **all created and none updated**. If it says anything was
    updated, see "When a movie gets updated instead of added" below.
+
+Imported products are set **Active** and go live on the website immediately
+— there is no draft or review step.
 
 ---
 
@@ -152,8 +160,9 @@ Two steps, and the second one needs your developer:
 1. Add it to the **Format** dropdown (Data → Data validation on column B).
 2. Ask your developer to add it to the theme setting **Recognised media
    formats** (Online Store → Themes → Customize → Theme settings). Until
-   that's done the new format won't show as a badge on the product page and
-   won't appear in the website's Format filter.
+   that's done the new format won't show as a badge on the product page.
+   (It appears in the website's Format filter automatically — no developer
+   step needed for that part.)
 
 ## Adding a new genre
 

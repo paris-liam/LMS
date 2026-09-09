@@ -2125,7 +2125,7 @@
         "id": "lms_known_formats",
         "label": "Recognised media formats",
         "default": "VHS,DVD,BLU-RAY,4K,LASERDISC,BETAMAX",
-        "info": "Comma-separated, uppercase. A product whose Vendor matches one of these shows a format badge and appears in the Format filter. Add a new format here after adding it to the upload sheet's dropdown. Leaving this blank falls back to the built-in list."
+        "info": "Comma-separated, uppercase. A product whose Vendor matches one of these shows a format badge. Add a new format here after adding it to the upload sheet's dropdown. Leaving this blank falls back to the built-in list."
       }
     ]
   }
