@@ -25,8 +25,19 @@
   # The recognised-format list is a theme setting so a new format needs no
   # code change. Falls back to the built-in list when the setting is blank,
   # so clearing it can never blank every badge on the storefront.
+  # Each entry is stripped individually rather than by removing all spaces:
+  # the setting is merchant-edited, so "VHS ,DVD" or a trailing space must
+  # still match, while genuinely multi-word formats like "4K UHD" survive.
   assign format_setting = settings.lms_known_formats | default: 'VHS,DVD,BLU-RAY,4K,LASERDISC,BETAMAX'
-  assign known_formats = format_setting | upcase | replace: ', ', ',' | split: ','
+  assign format_parts = format_setting | upcase | split: ','
+  assign known_formats = ''
+  for format_part in format_parts
+    assign format_trimmed = format_part | strip
+    if format_trimmed != blank
+      assign known_formats = known_formats | append: format_trimmed | append: ','
+    endif
+  endfor
+  assign known_formats = known_formats | split: ','
   assign vendor_upcase = product.vendor | upcase
   assign format_label = ''
   if known_formats contains vendor_upcase
