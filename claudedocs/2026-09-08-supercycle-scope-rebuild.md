@@ -27,15 +27,17 @@ This narrows "the entire Supercycle system" to five functional pieces:
 
 Queried directly against `p0wkgv-wy.myshopify.com`, not assumed from docs (which turned out to understate how far along production is, and overstate how much of it is customer-visible).
 
+> **⚠️ Partially superseded 2026-09-10.** Four rows below changed within two days — flagged inline. Re-query before relying on any figure here; this section is a snapshot, not a standing fact.
+
 | Area | Finding |
 |---|---|
 | **Supercycle installation** | Confirmed installed — the app-reserved `supercycle.methods` product metafield definition exists. |
 | **Membership plan** | **Already exists and is real.** "Little Movie Club -- 1 Year" (status Active), linked to a genuine Shopify selling plan ("Yearly", 1-year billing interval). An earlier draft, "Little Movie Club" (no "-- 1 Year"), is Archived — leftover, not live. |
 | **Plans collection** | Exists (`plans`), contains the 1 active plan product. Correctly scoped. |
-| **Catalogue import** | **Only 52 of 3,130** rental-tagged/All-Movies products have been imported into Supercycle at all (i.e., carry the `supercycle.methods` metafield in any form). That's ~1.7% of the catalogue. |
-| **Membership method enabled per-title** | Of those 52 imported, most show an **empty** methods array (`[]`) — imported but no rental method turned on. Spot-checked and confirmed only **2 titles** (*Avalanche*, *Fatal Attraction*) with Membership actively enabled (`["Membership"]`). Exact count needs a manual pass inside Supercycle's own Products view — JSON-array metafield search isn't reliably filterable via the generic Admin API. |
-| **Availability data (`uncommitted_inventory`)** | Not present on production at all — this was dev-only work (from the 2026-07-15 availability-filter build) and was never migrated. No blocker for the in-store-only scope, since online availability filtering isn't in this scope. |
-| **Storefront visibility** | **The Supercycle app embed is explicitly disabled** (`"disabled": true`) in the live theme's `settings_data.json` — same state found on dev (commit `d572857`, "hiding supercycle for now," 2026-09-02). Nothing Supercycle-related currently renders anywhere on the live storefront, even though the plan/product data exists behind the scenes. |
+| **Catalogue import** | **Only 52 of 3,130** rental-tagged/All-Movies products have been imported into Supercycle at all (i.e., carry the `supercycle.methods` metafield in any form). That's ~1.7% of the catalogue. **→ 2026-09-10: 79 imported.** Note the count method used here is unreliable — `supercycle.methods` turned out to be missing on many genuinely-imported products (see the sync bug below); `supercycle.supercycle_enabled` is the better presence signal. |
+| **Membership method enabled per-title** | Of those 52 imported, most show an **empty** methods array (`[]`) — imported but no rental method turned on. Spot-checked and confirmed only **2 titles** (*Avalanche*, *Fatal Attraction*) with Membership actively enabled (`["Membership"]`). **→ 2026-09-10: 3 titles** (Zack Parker's Proxy, Fatal Attraction, Rear Window) — and *Avalanche* is no longer among them, because the `supercycle.methods` definition was accidentally deleted and its values were only partially restored. **A per-title `methods` value is not a reliable proxy for "Membership is enabled"** — Supercycle's own Products view shows methods active on titles whose Shopify metafield is absent. Exact count needs a manual pass inside Supercycle's own Products view — JSON-array metafield search isn't reliably filterable via the generic Admin API. |
+| **Availability data (`uncommitted_inventory`)** | ~~Not present on production at all.~~ **→ 2026-09-10: WRONG / changed.** The variant metafield `supercycle.uncommitted_inventory` (boolean) is live on production with **81 populated values**. It drives the PDP in-stock label. The *storefront filter* built on it returns no products (unresolved), but the data is real and readable from Liquid. |
+| **Storefront visibility** | ~~App embed explicitly disabled.~~ **→ 2026-09-10: now ENABLED** (`"disabled": false`). The storefront password page has also been removed, so the site is publicly reachable. |
 | **Membership Plans app block** | Present and configured on `templates/page.membership.json` (pointed at the `plans` collection), but inert while the app embed is off. Needs live re-verification once re-enabled — the checkout-redirect settings (`redirect_type: "custom"`) were flagged unverified in the 2026-08-28 dev-site audit and haven't been retested since. |
 | **Serialized items (physical copies)** | **Not verifiable via generic Admin API** — Items are Supercycle-internal data, not a standard Shopify object. Needs a direct check inside Supercycle's own admin UI, or the client, to know how many (if any) items have been created. Treat as **unknown, assume zero** until confirmed. |
 | **POS rental-checkout support** | **Unconfirmed** — this was flagged as an open question in the original feature plan (running question #6) and was never resolved. Given the confirmed scope is now in-store-only, this is the single most consequential unknown in this document — see §4. |
@@ -50,7 +52,7 @@ Queried directly against `p0wkgv-wy.myshopify.com`, not assumed from docs (which
 Flat list, each sized qualitatively (S/M/L) with the reasoning — no invented hour/dollar figures; translate sizes to your own rate once the open questions in §4 are resolved (POS depth in particular can swing size on item 4).
 
 ### A. Membership plan configuration — **Done, verify only**
-- Plan exists, correct billing (yearly). Confirm allowance (1 item) and swap allowance (unlimited) match the intended design in `supercycle-explained.md` — not verifiable from outside Supercycle's settings screen.
+- Plan exists, correct billing (yearly). **Confirmed 2026-09-10: $160/yr, item allowance 3, unlimited swaps** — this replaces the earlier $100/allowance-1 figure that appeared in several docs.
 - **Size: S** (a verification pass, not a build).
 
 ### B. Catalogue import + per-title Membership enablement — **Largest item**

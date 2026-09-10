@@ -7,7 +7,7 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 - **Dev store (default workspace)**: `lms-sandbox-lutsfahz.myshopify.com`
 - **Production store**: `p0wkgv-wy.myshopify.com` — touch only on explicit instruction
 - **Theme**: Horizon (Shopify OS 2.0)
-- **Circular commerce** is handled by the **Supercycle** app — **installed and live** on the dev store. **Confirmed rental-only scope (2026-07-15): Membership method only** (item-based credits, allowance = 1 movie at a time, unlimited/same-day swaps) — no Calendar, no Subscription, and **no Resale method at all**. A title is either live in Supercycle (rentable) or pulled out of Supercycle and sold as a plain Shopify product/POS sale; never both for the same item. The `Has active subscription` customer tag is applied automatically by the app. See `supercycle-explained.md` for how it works and `supercycle-progress.md` for the build log.
+- **Circular commerce** is handled by the **Supercycle** app — **installed and live on PRODUCTION** (`p0wkgv-wy.myshopify.com`), not the dev store (verified 2026-09-10 via Admin API; the dev store has no Supercycle products). **Confirmed rental-only scope (2026-07-15): Membership method only** (item-based credits, **allowance = 3 items at a time**, unlimited/same-day swaps, **$160/yr** — revised 2026-09-03 from the earlier $100/allowance-1 figure) — no Calendar, no Subscription, and **no Resale method at all**. A title is either live in Supercycle (rentable) or pulled out of Supercycle and sold as a plain Shopify product/POS sale; never both for the same item. The `Has active subscription` customer tag is applied automatically by the app. See `supercycle-explained.md` for how it works and the running build log (`supercycle-progress.md` was retired into it on 2026-09-10).
 
 ---
 
@@ -21,17 +21,17 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 
 ## Read first
 
-**`lms-supercycle-feature-plan.md`** (repo root) — the full feature plan. Start with its **"▶ Pre-Supercycle build track"** section and the **buildability index**: what's buildable now (🔨), buildable with a stand-in (🧩), or blocked until install (🔒).
+**`claudedocs/2026-09-08-supercycle-scope-rebuild.md`** — the canonical, production-audited scope for the Supercycle system. It supersedes `lms-supercycle-feature-plan.md`, which bundled in a lot of work that never touches Supercycle; that older plan is still useful as product-vision background and for its buildability index, but it is **not** the current scope.
 
 ---
 
 ## Major next steps (project roadmap — keep in mind, not yet specced)
 
-High-level tracks the work keeps returning to. **These are not specs** — no formal plan exists for #2 or #4 yet; they're recorded so they aren't forgotten. All prior work has been on the **dev store**; several of these are about eventually getting **production** to parity.
+High-level tracks the work keeps returning to. **These are not specs** — no formal plan exists for #2 or #4 yet; they're recorded so they aren't forgotten. Earlier work happened on the **dev store**, but since 2026-09-02/03 **production is the working store** for products *and* theme code, and Supercycle runs there.
 
-1. **Finish the Supercycle setup + availability/waitlist build** (dev store). In progress — see `docs/superpowers/plans/2026-07-15-availability-filter-and-backinstock-waitlist-admin-runbook.md` (Section A = Supercycle setup, then filter + waitlist). **Near-term.**
+1. **Finish the Supercycle setup + availability/waitlist build** (**production**). In progress — see `docs/superpowers/plans/2026-07-15-availability-filter-and-backinstock-waitlist-admin-runbook.md` (Section A = Supercycle setup, then filter + waitlist). **Near-term.**
 2. **Push the reformatted catalogue to PRODUCTION** (not urgent). **Source of truth = the dev store's current live products** (they carry the in-store TMDB fills, dedup, and tag edits — the pipeline CSV is *not* the authority). Not a blind push: diff production against the dev-store set, reformat any products that exist **only on production** (new since the dev export), and reconcile so production ends up with the full, correctly-formatted catalogue. The `formatting-scripts/` pipeline is the tooling. Note production is a moving target — the client keeps uploading to it (see #3).
-3. **Updated client product-upload sheet** (near-term). The client uploads products by importing a Google Sheet that's **already in Shopify product-CSV column format, straight into production**. Deliverable: a **corrected CSV template** with our reformatted fields + rental scoping (Rental tag, `shopify.media-format`/`shopify.genre`, one-product-per-movie+format) so his ongoing uploads land already-formatted. **Duplicate handling is deliberately NOT prevented at upload time** — per decision, he bulk-uploads freely (few duplicates expected), and we periodically **export the full catalogue and run a dedupe + reformat pass** (the 2026-07-15 duplicate-cleanup + copy-consolidation plans) to combine copies and normalize. **No products are included in Supercycle on production until the whole catalogue is cataloged**, so copies-as-items happens after that reconciliation, not at upload.
+3. **Updated client product-upload sheet** (near-term). The client uploads products by importing a Google Sheet that's **already in Shopify product-CSV column format, straight into production**. Deliverable: a **corrected CSV template** with our reformatted fields + rental scoping (Rental tag, `shopify.media-format`/`shopify.genre`, one-product-per-movie+format) so his ongoing uploads land already-formatted. **Duplicate handling is deliberately NOT prevented at upload time** — per decision, he bulk-uploads freely (few duplicates expected), and we periodically **export the full catalogue and run a dedupe + reformat pass** (the 2026-07-15 duplicate-cleanup + copy-consolidation plans) to combine copies and normalize. **Superseded 2026-09-10:** products *are* now being included in Supercycle on production ahead of a full catalogue pass — 79 titles imported, a handful with the Membership method enabled. Copies-as-items still happens after reconciliation for the bulk of the catalogue.
 4. **Stand up all remaining admin work on PRODUCTION** (not urgent): content, collections, Search & Discovery, Supercycle, etc. — the production equivalent of everything configured on the dev store. Depends on #2.
 
 ---
@@ -84,25 +84,28 @@ Working branch: `main`
 
 ## Supercycle integration contract
 
-Supercycle is installed, but the **Methods app block on the PDP is not yet mounted**. These three rules exist so it can mount cleanly when that happens. Treat them as non-negotiable.
+Supercycle is installed and live on production. Treat these rules as non-negotiable.
 
-### 1. Reserve the Methods-block slot on the PDP — do NOT build a competing rent/buy button
+### 1. The movie PDP is READ-ONLY — no product form, no add-to-cart, no Methods-block slot
 
-- Keep a single, standard product form with a detectable variant input (`[name="id"]`) and **one** add-to-cart button — Supercycle's Methods block reuses this button once mounted.
-- Leave an app-block slot in the product section so the merchant can place the Methods block.
+**Reversed 2026-09-08** (see `claudedocs/2026-09-08-supercycle-scope-rebuild.md` §1). The earlier version of this rule told you to reserve a Methods-block slot and keep an add-to-cart button on the PDP. That is no longer the design: **rental checkout stays in-store**, at the counter via Shopify POS + Supercycle. `sections/main-movie.liquid` therefore has no price, variant selector, add-to-cart, dynamic checkout, or app-block slot — and that is correct, not an omission. Do not "restore" any of them.
+
+The PDP shows: poster, description, attribute chips, and an in-stock indicator (see `supercycle-explained.md` → availability label). Membership enrollment is the one online transaction, and it happens on the membership page via the Membership Plans app block, not on a movie PDP.
+
 - Do **not** add dynamic checkout / "Buy now" / express-checkout buttons on rentable products — they bypass the takeover. This is a **hard requirement everywhere in this build**, not a per-product judgment call: Supercycle is rental-only (Membership method), nobody purchases a movie through it, so no dynamic-checkout/express-checkout path should ever be reachable from a movie PDP.
 
 ### 2. Member-gating reads the `Has active subscription` customer tag
 
 - `{% if customer.tags contains 'Has active subscription' %}…{% endif %}`
 - Supercycle applies this tag live to real members. For a test customer, apply it manually to develop/test member discounts, event gating, and the birthday perk.
-- The Methods block (once mounted) does its own finer-grained check against `customer.metafields.supercycle.membership.value.quotas.credits.allowance` — the tag check here is coarse ("are they a member at all"), not a substitute for that. See `supercycle-explained.md`.
+- Supercycle's own Methods block does a finer-grained check against `customer.metafields.supercycle.membership.value.quotas.credits.allowance` — the tag check here is coarse ("are they a member at all"), not a substitute for that. See `supercycle-explained.md`.
 
-### 3. Use `custom.*` stand-in metafields for Supercycle data — NEVER create the `supercycle` namespace
+### 3. READ the real `supercycle.*` metafields — but NEVER create anything in that namespace
 
-- The `supercycle` metafield namespace is app-reserved and will collide on install.
-- Build availability facets, badges, and `data-` attributes against `custom.*` keys that **mirror the eventual `supercycle.*` structure** (e.g. `custom.uncommitted_inventory` ↔ `supercycle.uncommitted_inventory`) so swap day is find-and-replace.
-- Mark every stand-in so it's greppable: `{# STAND-IN: swap to supercycle.* on install #}`
+- Supercycle is installed, so the `custom.*` stand-ins are obsolete: read the real fields directly. `sections/main-movie.liquid` already does this for the availability label.
+- The namespace is app-reserved and **owned by the app** — never create, write, or hand-edit a value in it.
+- **Never delete a `supercycle.*` metafield *definition*.** Deleting one wipes its values across the entire catalogue in seconds, and re-creating the definition does **not** restore them — only re-toggling the method per product does, and that only works on some products. This happened on 2026-09-10; see `supercycle-explained.md`.
+- Creating a *definition* for an app-owned metafield (to make it filterable) is the one safe exception — but note Shopify rejects the admin-filterable capability on **variant** metafields (`INVALID_CAPABILITY`).
 
 ---
 
@@ -124,17 +127,17 @@ Supercycle is installed, but the **Methods app block on the PDP is not yet mount
 
 ### Buildable now (no further Supercycle work needed)
 
-- Catalogue + PDP (with the reserved Methods slot)
+- Catalogue + PDP (read-only; no Methods slot — see integration contract §1)
 - Shopify data structure: collection taxonomy, product metafield definitions, and the **non-serialized retail catalogue** (merch / snacks / art / apparel — never touches Supercycle)
 - Curation + merchandising: curation tags, collections, badges, weekly-drops collection, retail bundles, recommendation rails
-- Facets via Shopify Search & Discovery, wired to `custom.*` stand-ins
+- Facets via Shopify Search & Discovery, wired to the real `supercycle.*` metafields
 - Capture UIs: notify-me form, birthday capture, mystery-pack product, gift-card product
 
-See the plan's buildability index for per-feature detail.
+See `claudedocs/2026-09-08-supercycle-scope-rebuild.md` for current scope, and the older feature plan's buildability index for per-feature background.
 
 ### Still blocked / not yet wired up
 
-Methods app block on the PDP (per the integration contract below, not yet mounted) · availability-filter app blocks · the $100/yr membership plan itself (item-based credits, allowance = 1, unlimited swaps) and enabling membership per product · create-item · shipping buffers · return-trigger automation · player rentals · rental-at-POS + serial scanning · mystery-pack inventory reconciliation.
+The storefront availability filter (broken — the `supercycle.uncommitted_inventory` variant metafield returns no products through Search & Discovery despite 81 populated values; see `supercycle-explained.md`) · enabling the Membership method per product at catalogue scale · create-item · shipping buffers · return-trigger automation · player rentals · rental-at-POS + serial scanning · mystery-pack inventory reconciliation.
 
 Out of scope entirely (not just blocked): Supercycle's Calendar, Subscription, and Resale methods. Supercycle is rental-only via Membership — no Supercycle-mediated purchase path exists or is planned.
 

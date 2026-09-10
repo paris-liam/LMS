@@ -1,5 +1,7 @@
 # LMS × Supercycle — Storefront Feature Requests & Implementation Plan
 
+> **⚠️ SUPERSEDED as the current scope (2026-09-08).** `claudedocs/2026-09-08-supercycle-scope-rebuild.md` is the canonical, production-audited scope for the Supercycle system — it deliberately excludes the work in this plan that never touches Supercycle (weekly drops, bundles, recommendations, loyalty, events/ticketing, space rental, retail catalogue). This document is still useful as **product-vision background** and for its **buildability index**, but do not plan from it. Figures inside it were corrected on 2026-09-10 ($160/yr, allowance 3); other details may still be stale.
+
 A running record of the features being scoped for the Little Movie Store build (online **and** in-store), and how each one will be accomplished on Supercycle + Shopify (Horizon theme). Each entry notes whether it's native, configured, or a custom build, plus any caveats and open questions.
 
 Features 1–8 were scoped from direct requests; Features 9–16 and the refinements were surfaced by reviewing the March 2026 investor deck against the plan.
@@ -182,7 +184,7 @@ Surfaces (any combination):
 
 | Step | Where | Detail |
 |---|---|---|
-| Create the plan | Supercycle admin → Settings → Methods → Membership → Add plan | Single yearly purchase option (LMS = $100/yr). **Credit system: item-based**, credit/item allowance = **1** (one movie out at a time). **Swap allowance: unlimited, no cooldown** — a member can return and re-borrow the same day, as often as they want. Saving creates a linked Shopify **plan product** (placeholder — never sell directly). |
+| Create the plan | Supercycle admin → Settings → Methods → Membership → Add plan | Single yearly purchase option (LMS = **$160/yr**, revised 2026-09-03). **Credit system: item-based**, credit/item allowance = **3** (three movies out at a time). **Swap allowance: unlimited, no cooldown** — a member can return and re-borrow the same day, as often as they want. Saving creates a linked Shopify **plan product** (placeholder — never sell directly). |
 | Enable on products | Supercycle → Products | Turn on membership method per rentable title. Item-based credit system means there's no per-title credit cost to set. |
 | Build membership page | Shopify admin + theme editor | Create a "Membership plans" collection, add plan product(s); create a page; add the **Membership plans app block** pointed at that collection. |
 
@@ -377,7 +379,7 @@ Use **Shopify native bundles** (Shopify Bundles app) or a bundle app. If a bundl
 
 ## Feature 16 — Membership punch card / loyalty 🟡 Phase 2 · 🔨 Build now (no SC dep)
 
-**What it is:** A punch-card / loyalty mechanic (deck page 34) separate from the $100/year membership.
+**What it is:** A punch-card / loyalty mechanic (deck page 34) separate from the $160/year membership.
 
 Options: a **loyalty app** (Smile, Rivo, etc.), or build creatively on Supercycle **credits**. First decision is conceptual: is this its own points/punch program, or just a facet of membership? Resolve that before picking tooling.
 

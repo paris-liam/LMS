@@ -3,136 +3,132 @@
 **Companion to the code plan:** `docs/superpowers/plans/2026-07-15-availability-filter-and-backinstock-waitlist.md`
 **Design rationale:** `docs/superpowers/specs/2026-07-15-availability-filter-and-backinstock-waitlist-design.md`
 
-This is the by-hand work in Shopify Admin, the Supercycle app, Search & Discovery, and Flow. **No code changes here** — the theme code lives in the companion plan. Everything runs on the **dev store `lms-sandbox-lutsfahz.myshopify.com`** unless you are explicitly told otherwise. Do this on production only on a per-operation instruction.
+> **Rewritten 2026-09-10 to match reality.** This runbook was written in July against the **dev store** and against assumptions that have since been disproved. It has been corrected in place. Two things to know before reading: the store is now **production**, and **Section A is largely already done**. Sections of the original that were simply wrong (notably B1) are marked rather than silently deleted.
 
-Work top to bottom — later phases depend on earlier ones. Section A (Supercycle setup) blocks literally everything else; do not start Section B, C, or the code plan until A is done and verified.
+This is the by-hand work in Shopify Admin, the Supercycle app, Search & Discovery, and Flow. **No code changes here** — the theme code lives in the companion plan.
 
-> **⚠️ Known caveat — proceeding on Supercycle's guidance (2026-07-16).** Live testing found `supercycle.uncommitted_inventory` (variant) did **not** flip after a rental was created and fulfilled — it stayed `1` while Supercycle's internal inventory read "0 uncommitted / 1 on order". Supercycle **support confirmed** this metafield is the right availability signal and that it updates on **fulfillment state** (once the item is with the customer), recommending it as a condition on an **automatic (smart) Shopify collection**. Their claim contradicts our observed result (likely a write-lag or a store-side issue support is still reconciling). **Decision: build Sections B & C now as if the metafield is correct and current** — support will close the gap on their side. If the write is never fixed, the fallback is the **Methods filter app block** (beta) / **Storefront Product Availability API** for the filter and PDP OOS state. See `[[supercycle-uncommitted-inventory-integer]]`. (Also confirmed: an item commits at **fulfillment**, not order creation. Support calls the metafield "boolean"; it's actually integer `1` — logic unchanged.)
-
-> **✅ Filter-count decision (settled 2026-07-15).** The availability filter is added as a **fifth** filter on the search/shop-all page, on top of the four in the sibling spec `docs/superpowers/specs/2026-07-15-rental-scoped-catalogue-and-filters-design.md` (New Arrivals, Community Picks, Format, Genre). That spec's "exactly four" restriction described the state *before* this work; the fifth "In stock now" filter is an intentional addition here. Section B builds it.
+**Store: `p0wkgv-wy.myshopify.com` (production).** Supercycle is installed and live there, **not** on the dev store — every "dev store" reference in the July original was wrong. The dev store has no Supercycle products at all.
 
 ---
 
-## Section A — Supercycle setup (prerequisite; blocks everything)
+## Status at a glance (2026-09-10)
 
-None of the availability data or the waitlist return-trigger exists until movies are actually live in Supercycle. Do this first.
+| Section | State |
+|---|---|
+| **A — Supercycle setup** | Mostly **done**. Plan exists and is Active; 79 titles imported; app embed enabled. Outstanding: Membership enabled on only 3 titles, and a **sync bug** blocks enabling it reliably. |
+| **B — Availability filter** | **Blocked / broken.** The filter returns no products. B1 as written is impossible. |
+| **C — Waitlist** | **Deferred** (unchanged, see below). |
 
-### A1 — (Optional, PRE-IMPORT ONLY) Set Shopify inventory quantities before import
+**The two live blockers:**
 
-This step only does anything **before** A2 — its sole purpose is to let Supercycle auto-generate items at import time. **Once you've imported (A2), skip it entirely** and create items in A3 instead. Per Supercycle docs, items should be created *inside the Supercycle product, not the Shopify product* ("Supercycle is responsible for inventory management after import"), so A3 is the correct path regardless.
+1. **Product-level sync bug.** Enabling the Membership method reliably writes `supercycle.membership_configuration`, but `supercycle.methods`, `supercycle.total_uncommitted_inventory` and the `Supercycle product` tag land on only *some* products. A controlled six-title test succeeded on two and failed on four. Ruled out: missing items, and Shopify inventory tracking. Cause unknown — with Supercycle support (`claudedocs/2026-09-10-supercycle-support-ticket.md`).
+2. **Storefront filter returns nothing.** See Section B.
 
-- (Pre-import only) **Admin → Products** → for each rentable movie SKU, set an inventory quantity equal to the number of physical copies you hold.
+---
 
-### A2 — Import rentable movies into Supercycle
+## Section A — Supercycle setup
 
-1. **Admin → Products.**
-2. Filter/select the rentable movies. (These carry the `Rental` tag per the rental-scoped spec — filter by `tag:Rental` if that scoping is already applied, otherwise select the titles you intend to rent.)
-3. **Bulk actions → Include in Supercycle.**
-4. Confirm.
+### A1 — (Pre-import only) Set Shopify inventory quantities
 
-**What this does:** hands inventory + pricing control for each imported product to Supercycle. Shopify's own inventory management turns **off** for those products.
+Only meaningful **before** A2 — it lets Supercycle auto-generate items at import. After importing, create items in A3 instead.
 
-**Verify:** open one imported product in Supercycle (**Apps → Supercycle → Products**). It should list under Supercycle-managed products. Back in **Admin → Products**, that product's inventory should now read as managed by Supercycle rather than Shopify.
+Per Supercycle's docs, importing sets the product to **"Inventory not tracked"** in Shopify and hands inventory management to Supercycle. Note that ~51 of the imported products are nonetheless `tracked: true`, most likely because a later client CSV upload switched tracking back on. **Tracking state does not affect whether the product-level metafields sync** — that was tested and disproved on 2026-09-10.
+
+### A2 — Import rentable movies into Supercycle ✅ partly done (79 titles)
+
+**Admin → Products** → select the rentable movies (they carry the `Rental` tag) → **Bulk actions → Include in Supercycle** → confirm.
+
+**Verify:** the product gains `supercycle.supercycle_enabled = true`. Use **that** field, not `supercycle.methods`, to tell whether a product is imported — `methods` is unreliable (blocker 1).
 
 ### A3 — Create items (one per physical copy)
 
-For each imported title, create one item per physical disc you own, **inside Supercycle** (not the Shopify product). Navigation:
+**Apps → Supercycle → Products → [movie] → variants table → quantity dropdown → Add inventory**, then:
 
-**Apps → Supercycle → Products → [the movie] → variants table → current-quantity dropdown → Add inventory**, then choose one:
+- **Fastest:** **"Add without serials"** → enter the number of physical copies → Review → Add inventory.
+- **Traceable:** one serial per line, `LMS-NNNNNNN` scheme.
+- **At scale:** CSV import, or the Supercycle Scanner.
 
-- **Fastest (recommended to unblock the build):** click **"Add without serials"** → enter the number of physical copies → **Review → Add inventory**. Creates `Active` items with no serials — enough for the availability filter and waitlist, which only need an item to be `Active` and not in a cycle. Serials can be added later per item.
-- **Traceable:** add one serial per line using the `LMS-NNNNNNN` scheme.
-- **Alternatives at scale:** CSV import (columns: Item ID, Variant Shopify ID, SKU, Visibility, Status; optional Condition) or the Supercycle Scanner (scanning an unknown tag opens "Create item").
+**Availability gotcha:** an item counts as available only when Visibility = **`Active`** and it isn't in a cycle.
 
-**On barcodes:** the barcode shown in Shopify's inventory section is the Shopify *variant* barcode (one per title/SKU, shared by every copy) — it is **not** a per-item Supercycle serial and generally can't be used as one (two copies of a title share the same barcode and would collide). It's only useful as a Scanner lookup handle, or as the serial for a title where you hold exactly one copy.
+> Never surface `LMS-NNNNNNN` serials on the storefront.
 
-**Availability gotcha:** an item counts as available only when Visibility = **`Active`** *and* it isn't currently in a cycle. Make sure new items land as `Active`, not `Draft` — otherwise `supercycle.uncommitted_inventory` won't reflect them.
+### A4 — Enable the Membership method per product ⚠️ blocked by the sync bug
 
-**Verify:** a title with 2 physical copies shows 2 `Active` items in Supercycle.
+**Apps → Supercycle → Products → [product] → Membership → toggle on → Save.** Item-based credits mean there is no per-title credit cost to set; those fields are greyed out.
 
-> Reminder from CLAUDE.md: never surface `LMS-NNNNNNN` serials on the storefront. They stay admin-side.
+**As of 2026-09-10 only 3 titles have a `supercycle.methods` value** (Zack Parker's Proxy, Fatal Attraction, Rear Window). Toggling off→save→on→save is the only known way to (re)write it, and it works on some products and not others — blocker 1. Do not assume a title is enabled because Supercycle's own Products view says so; check the Shopify metafield.
 
-### A4 — Enable the Membership method per product
+**No confirmed bulk-enable path.** Re-check **Supercycle → Products → ••• → Bulk update options** on production — the docs describe a CSV flow that wasn't available on the dev store in July.
 
-- **Apps → Supercycle → Products → [product] → select the Membership rental method → toggle on → Save.**
-- Item-based credits mean there is **no per-title credit cost** to configure — the credit-cost fields are greyed out; that's expected.
-- Repeat for every imported rentable title.
+### A5 — Create the membership plan ✅ done
 
-**No confirmed bulk-enable path (as of 2026-07-15, dev store).** The docs describe a Products-list ••• → "Bulk update options" → Membership → CSV flow, but on this store the Products-list ••• only shows "Block dates," and the Membership options-table bulk menu (rename / update credit cost / update checkout price / apply to markets / apply to item conditions / delete) only edits *existing* options — nothing there *adds* the method to products that lack it. Doc-clarity feedback filed with Supercycle. Until resolved, enable per-product. You only need a handful for the rent-out test and to build/test the filter + waitlist, so don't block on doing all ~50.
+**Apps → Supercycle → Settings → Methods → Membership.** The plan exists as **"Little Movie Club -- 1 Year"** (Active), linked to a real Shopify selling plan.
 
-**Verify:** the product shows Membership enabled in Supercycle.
+- Purchase option: **$160/yr** *(corrected — the July original said $100/yr)*
+- Credit / item allowance: **3** *(corrected — the July original said 1)*
+- Order and return allowance: **unlimited** (`null`/blank)
 
-### A5 — Create the membership plan
+An earlier draft plan, "Little Movie Club" (no "-- 1 Year"), is Archived — leftover, not live.
 
-- **Apps → Supercycle → Settings → Methods → Membership → Add plan.**
-- Purchase option: **$100/yr**.
-- Credit / item allowance: **1** (one movie out at a time).
-- Order allowance: **unlimited** — set to `null`/blank (the "unlimited" option, not a large number). This is a literal supported setting; confirmed via the `Membership created/updated` Flow payload where `orderAllowance` is documented as "(`null` if unlimited)".
-- Return allowance: **unlimited** — same, `null`/blank.
-- Save.
+### A6 — Mount the app blocks ⚠️ the PDP half is CANCELLED
 
-**Verify:** the plan shows allowance 1, unlimited orders, unlimited returns.
+**The Methods block is NOT mounted on the PDP, and must not be.** Reversed 2026-09-08: rental checkout stays **in-store** via Shopify POS, and the movie PDP is deliberately read-only — no product form, no add-to-cart, no app-block slot. See `CLAUDE.md` → integration contract §1. The July instruction to add a Methods block to the product template is void.
 
-### A6 — Mount the app blocks (theme editor, no code)
-
-The theme already allow-lists an `@app` block in the product section (`_product-details`), so this is placement only.
-
-1. **Online Store → Customize** → open a **product** template on the working theme (`140918915134`).
-2. In the product section, **Add block → Apps → [Supercycle] Methods** block. Position it where the buy button sits.
-3. Open the **Membership page** template (`page.membership`) → **Add block → Apps → Membership plans** block. Save.
-
-**Verify:** on a rentable PDP preview, the Methods block renders. On the membership page, the plans block renders and offers the $100/yr plan.
-
-> Integration contract (CLAUDE.md): the Methods block **reuses the theme's single add-to-cart button** — do not add any dynamic-checkout / "Buy now" / express-checkout button to a movie PDP. The companion code plan's notify-me button must not break this; that interaction is a verification gate in the code plan (Task 1).
+Still required: the **Membership plans** block on the membership page template (`page.membership`), pointed at the `plans` collection. Already present and configured; the app embed is enabled as of 2026-09-10.
 
 ### A7 — Enable automatic recredit on return
 
-- **Apps → Supercycle → Settings → Membership rental → "Automatically recredit returns on request" → on.**
-- So a member's credit and the item's availability state update without a manual admin step per return.
+**Apps → Supercycle → Settings → Membership rental → "Automatically recredit returns on request" → on.**
 
-**Verify:** setting shows enabled.
+### A8 — Gate check
 
-### A8 — Gate check before proceeding
-
-Do not continue until **all** are true:
-- [ ] At least one rentable title is imported into Supercycle with ≥1 Active item.
-- [ ] Membership is enabled on that title.
-- [ ] The $100/yr plan exists (allowance 1, unlimited orders/returns).
-- [ ] The Methods block is mounted on the PDP.
-- [ ] On that title's PDP, `variant.metafields.supercycle.uncommitted_inventory` is now populated. **How to check:** Admin → Products → [title] → scroll to **Metafields → View all** (or Admin API) → confirm a `supercycle.uncommitted_inventory` boolean value exists on the variant. This is the signal the availability filter and the notify-me button both read; if it's absent, Supercycle hasn't finished wiring the product and neither feature will work.
+- [x] Titles imported with items.
+- [ ] Membership enabled on the titles you intend to rent — **blocked by the sync bug**.
+- [x] The plan exists ($160/yr, allowance 3, unlimited orders/returns).
+- [x] `supercycle.uncommitted_inventory` populates — **confirmed, 81 variants** (34 `true`, 18 `false`).
+- [x] ~~Methods block mounted on the PDP~~ — cancelled, see A6.
 
 ---
 
 ## Section B — Availability filter (Search & Discovery)
 
-**Only after Section A.** This assumes decision (a) from the top-of-file callout (a fifth filter is acceptable). No code — `blocks/filters.liquid` already renders any filter Search & Discovery exposes, on both the search page and collection pages.
+> **⛔ Currently broken (2026-09-10).** The filter returns **No products** on the live storefront, in both value forms, despite 81 populated values. Re-tested 54 minutes after the last configuration change with no change, so it is **not** an indexing delay. This is unresolved and is Issue 3 in the support ticket.
 
 ### B1 — Make `supercycle.uncommitted_inventory` filterable
 
-1. **Admin → Settings → Custom data → Variants → View unstructured/all metafields.** ⚠️ It's under **Variants, NOT Products** — `uncommitted_inventory` is a *variant* metafield. (The Products page only shows the product-level `supercycle.total_uncommitted_inventory`, which is a different, count-based field.)
-2. Find `supercycle.uncommitted_inventory` (variant metafield, created by Supercycle) → **Add definition** for it.
+The metafield is a **variant** metafield, type **boolean**, display name "Rental availability", created by Supercycle. It already exists on production with 81 values.
 
-   > **Fallback if variant metafields aren't filterable in your Search & Discovery:** use the product-level **`supercycle.total_uncommitted_inventory`** (visible under Custom data → Products) instead — support confirmed it also updates on fulfillment. It's an integer *count* (`0` = none available, `≥1` = available) rather than a `1`/`0` flag, so in B2 you'd relabel each count value or, more simply, treat "any value ≥ 1" as in-stock. Prefer the variant flag when available; this is the backup.
-   - Type: **Boolean** — confirmed 2026-07-16 when adding the definition, Shopify auto-detected the stored value as boolean, and Supercycle support independently called it a boolean. (An earlier admin read showed "1", which we took for integer — that was a misread; the definition-detection + support are authoritative. `true` = a copy is available/uncommitted, `false`/absent = none.)
-   - Enable **"Filter on the product list and in the Admin API."**
-   - Save.
+> **❌ The July instruction here was impossible.** It said to enable **"Filter on the product list and in the Admin API."** Shopify **rejects** that capability on a variant metafield:
+> ```
+> INVALID_CAPABILITY: The capability admin_filterable is not valid for this definition.
+> ```
+> Admin-list filtering is product-level only. `smartCollectionCondition` *can* be enabled on it (done 2026-09-10) and made no difference to the storefront filter.
 
-> This mirrors the earlier `supercycle.methods` runbook step: you're **only enabling filtering** on a Supercycle-owned metafield, not creating data under it. Do **not** create anything else under the `supercycle` namespace (CLAUDE.md).
+> **Do NOT delete this definition, or the `supercycle.methods` one.** Deleting a definition wipes its values catalogue-wide in seconds and re-creating it does not restore them. This happened on 2026-09-10 to `supercycle.methods`.
 
-### B2 — Add the Search & Discovery filter
+The product-level **`supercycle.methods`** definition (`Supercycle Methods`, type `list.single_line_text_field`, admin-filterable + smart-collection-condition enabled) **does** work as a storefront filter — `?filter.p.m.supercycle.methods=Membership` correctly returns its 3 products.
 
-1. **Apps → Search & Discovery → Filters → Add filter.**
-2. Source: **Uncommitted inventory** (the `supercycle.uncommitted_inventory` metafield).
-3. Relabel the filter for the storefront: **"In stock now"** (use the filter group's "Filter label" rename field — see `[[search-discovery-filter-customization]]`). Because the metafield is a **boolean**, the value list will show **True/False** — relabel the **True** value to **"Available"** via the value-rename workaround (create a group of one; see that same memory). Products with `false`/no value simply won't carry the True value, so selecting "Available" filters to in-stock titles.
-4. Save all changes before leaving the app.
+### B2 — Add the Search & Discovery filters
 
-> **Avoid the beta block:** do **not** use Search & Discovery's dedicated Supercycle "availability filter" app block — it's in beta with known limitations. A plain boolean-metafield-as-filter (what you just did) is the standard, non-beta mechanism and is enough for "is a copy available right now."
+**Apps → Search & Discovery → Filters → Add filter.** Sources: **Rental availability** (the variant metafield) and **Supercycle Methods**.
 
-### B3 — Verify on both surfaces
+Relabel for the storefront: "In stock now", with the `true` value relabelled "Available".
 
-1. **Search page** (`sections/search-results.liquid`) and **shop-all collection page** (`templates/collection.shop-all.json`): confirm an **"In stock now"** filter now appears in the sidebar on both.
-2. Live test: with a test membership account, rent out a title's only Active copy → its `supercycle.uncommitted_inventory` flips to `false` → confirm the title **drops off** results when "In stock now" is active, on **both** search and collection pages.
-3. Process that rental's return through to **received** (Section A7 auto-recredit, or manually) → confirm the title **reappears** under the filter.
+### B3 — Verify
+
+Test each filter **in isolation** before combining — filters AND together, so one broken clause zeroes the whole result set. That is exactly what made the combined URL look empty when the `methods` half was fine.
+
+Current results on `/collections/all-movies` (57 products):
+
+| Filter | Result |
+|---|---|
+| `?filter.p.m.supercycle.methods=Membership` | ✅ 3 items |
+| `?filter.v.m.supercycle.uncommitted_inventory=1` | ❌ No products |
+| `?filter.v.m.supercycle.uncommitted_inventory=true` | ❌ No products |
+
+**Note:** even once fixed, this filter can only ever surface titles that have a `methods` value — 3 today. Blocker 1 gates the useful scope of Section B.
+
+**Working alternative, already shipped:** the PDP in-stock label in `sections/main-movie.liquid` reads the same variant metafield **directly in Liquid**, bypassing the Search & Discovery index entirely. It works on all 52 of 57 products that carry the metafield. If the filter stays broken, the same Liquid-read approach on product cards is the fallback for collection-level availability.
 
 ---
 
