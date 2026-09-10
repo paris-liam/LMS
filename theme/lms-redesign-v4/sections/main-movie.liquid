@@ -50,12 +50,21 @@
   assign movie_label = 'Available in-store'
   if sc_enabled == true
     assign sc_variant = product.selected_or_first_available_variant
+    # A boolean metafield unwraps to a plain true/false, so an absent metafield
+    # (nil) and a genuine false are both falsy. Treating them alike made a
+    # half-synced product render "Currently out" when it has no data at all.
+    # uncommitted_inventory_count is the presence probe: `default` replaces nil
+    # but leaves a real 0 intact, so -1 means "no availability data".
+    # `== blank` cannot be used for this — in Liquid, `false == blank` is true.
+    assign sc_count = sc_variant.metafields.supercycle.uncommitted_inventory_count | default: -1
     assign sc_uncommitted = sc_variant.metafields.supercycle.uncommitted_inventory
-    if sc_uncommitted
-      assign movie_label = 'Available now'
-    else
-      assign movie_available = false
-      assign movie_label = 'Currently out'
+    if sc_count >= 0
+      if sc_uncommitted
+        assign movie_label = 'Available now'
+      else
+        assign movie_available = false
+        assign movie_label = 'Currently out'
+      endif
     endif
   endif
 -%}

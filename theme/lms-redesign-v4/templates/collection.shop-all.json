@@ -128,6 +128,22 @@
     },
     "1788887013662304a4": {
       "type": "_blocks",
+      "blocks": {
+        "supercycle_methods_filter_JAgLmA": {
+          "type": "shopify://apps/supercycle/blocks/methods-filter/7b3228ed-a72a-4935-9fee-0cebe8daa0aa",
+          "settings": {
+            "enable_calendar": false,
+            "enable_membership": true,
+            "enable_subscription": false,
+            "enable_resale": false,
+            "collections_section_id": "template--23813604573434__main",
+            "custom_css": ""
+          }
+        }
+      },
+      "block_order": [
+        "supercycle_methods_filter_JAgLmA"
+      ],
       "settings": {
         "content_direction": "column",
         "vertical_on_mobile": true,
