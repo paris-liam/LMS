@@ -128,6 +128,10 @@ SET_TEMPLATE='mutation SetTemplate($id: ID!, $suffix: String) {
   }
 }'
 
+# Retry budget shared by the page reads in Phase 1 and the batched mutations
+# in Phase 2: 4 attempts with 3/6/9s backoff.
+MAX_ATTEMPTS=4
+
 # --- Phase 1: collect. Paginate to completion, mutating nothing. -----------
 COLLECT_FILE=$(mktemp)
 trap 'rm -f "$COLLECT_FILE"' EXIT
@@ -138,10 +142,27 @@ EXCLUDED=0
 
 while :; do
   VARS=$(jq -n --arg q "$SEARCH_QUERY" --argjson after "$AFTER" '{q: $q, after: $after}')
-  RESP=$(shopify store execute --store "$STORE" -j -q "$FIND" -v "$VARS")
 
-  if ! jq -e '.products' >/dev/null 2>&1 <<< "$RESP"; then
-    echo "✗ Page read failed — response had no .products payload:" >&2
+  # Retry page reads for the same reason the mutations retry: collecting the
+  # full catalogue is ~70 sequential requests, and a single transient abort
+  # ("Request was aborted before it completed") would otherwise kill the run
+  # under set -e before a single product is touched. Reads are side-effect
+  # free, so retrying costs nothing but time.
+  PAGE_ATTEMPT=1
+  PAGE_OK=false
+  while (( PAGE_ATTEMPT <= MAX_ATTEMPTS )); do
+    if RESP=$(shopify store execute --store "$STORE" -j -q "$FIND" -v "$VARS" < /dev/null 2>/dev/null) \
+       && jq -e '.products' >/dev/null 2>&1 <<< "$RESP"; then
+      PAGE_OK=true
+      break
+    fi
+    echo "  … page read failed (attempt ${PAGE_ATTEMPT}/${MAX_ATTEMPTS}), retrying" >&2
+    sleep $(( PAGE_ATTEMPT * 3 ))
+    PAGE_ATTEMPT=$(( PAGE_ATTEMPT + 1 ))
+  done
+
+  if ! $PAGE_OK; then
+    echo "✗ Page read failed after ${MAX_ATTEMPTS} attempts — no .products payload:" >&2
     echo "$RESP" | head -c 500 >&2
     exit 1
   fi
@@ -189,7 +210,6 @@ echo
 # returning something without a .data payload). Retries are safe because the
 # mutation is idempotent: setting a suffix that is already set is a no-op.
 BATCH_SIZE=25
-MAX_ATTEMPTS=4
 
 CHANGED=0
 SKIPPED=0
