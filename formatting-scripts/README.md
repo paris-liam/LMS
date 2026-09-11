@@ -83,9 +83,13 @@ Flags:
 
 1. Run the script.
 2. Import `upload.csv`.
-3. **Run `scripts/set-movie-template.sh`** — imported movies otherwise land
-   on the default product template, which shows a $0.00 Buy Now button on
-   rentals.
+3. **No template step is needed.** Since 2026-09-11 `templates/product.json`
+   IS the read-only movie layout, so an imported movie — which the CSV import
+   can only ever create without a template suffix — renders correctly with no
+   post-import script. Only the four non-movie products (the membership
+   plans, the shirt, the bumper sticker) carry a suffix, `retail`; set it with
+   `scripts/set-product-templates.sh retail --apply` if you add another.
+   `scripts/set-movie-template.sh` is deprecated and now a no-op.
 4. Fix `issues.csv`, run the script on it, import what comes out. Repeat
    until it comes back empty.
 5. Whenever the client has worked through some of `ambiguous-queue` or
