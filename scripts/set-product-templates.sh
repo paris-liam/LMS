@@ -46,11 +46,25 @@ case "$MODE" in
   retail)
     SEARCH_QUERY="vendor:'Supercycle' OR tag:'online-store'"
     TARGET_SUFFIX="retail"
+    # vendor: and tag: filters ARE honoured by the search API (verified), so
+    # the query alone identifies these products.
+    SOURCE_SUFFIX_FILTER=""
     REQUIRED_TEMPLATES=("templates/product.retail.json")
     ;;
   clear-movie)
     SEARCH_QUERY="template_suffix:movie"
     TARGET_SUFFIX=""
+    # LOAD-BEARING. Shopify's `template_suffix:` search filter is silently
+    # IGNORED — `template_suffix:nonsense_xyz` returns every product in the
+    # store (verified 2026-09-11 on the dev store: 25 of 25). So the query
+    # above cannot be trusted to narrow anything, and Phase 1 re-checks each
+    # product's real templateSuffix against this value instead.
+    #
+    # Without it this mode mutates every product whose suffix isn't already
+    # empty — including the `retail` products set by the retail pass, which
+    # would drop the membership plan onto the movie template and remove its
+    # add-to-cart, breaking online enrollment.
+    SOURCE_SUFFIX_FILTER="movie"
     # Both templates are required: product.json is the clear-movie target
     # itself, and product.retail.json must already exist from the swap —
     # its absence is the real signal that the swap hasn't happened yet, since
@@ -120,6 +134,7 @@ trap 'rm -f "$COLLECT_FILE"' EXIT
 
 AFTER="null"
 TOTAL=0
+EXCLUDED=0
 
 while :; do
   VARS=$(jq -n --arg q "$SEARCH_QUERY" --argjson after "$AFTER" '{q: $q, after: $after}')
@@ -136,6 +151,15 @@ while :; do
 
   if [[ -n "$EDGES" ]]; then
     while IFS= read -r EDGE; do
+      # The search query cannot be trusted to have narrowed anything (see the
+      # SOURCE_SUFFIX_FILTER note above); filter on the real value here.
+      if [[ -n "$SOURCE_SUFFIX_FILTER" ]]; then
+        NODE_SUFFIX=$(echo "$EDGE" | jq -r '.node.templateSuffix // ""')
+        if [[ "$NODE_SUFFIX" != "$SOURCE_SUFFIX_FILTER" ]]; then
+          EXCLUDED=$((EXCLUDED + 1))
+          continue
+        fi
+      fi
       echo "$EDGE" | jq -r '[.node.id, .node.title, .node.vendor, (.node.templateSuffix // "")] | @tsv' >> "$COLLECT_FILE"
       TOTAL=$((TOTAL + 1))
     done <<< "$EDGES"
@@ -147,6 +171,9 @@ while :; do
 done
 
 echo "Collected ${TOTAL} product(s) matching '${SEARCH_QUERY}'"
+if [[ -n "$SOURCE_SUFFIX_FILTER" ]]; then
+  echo "  (${EXCLUDED} returned by the search but excluded: templateSuffix is not '${SOURCE_SUFFIX_FILTER}')"
+fi
 echo
 
 # --- Phase 2: mutate. Iterate the collected file only — no GraphQL reads. --
