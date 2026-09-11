@@ -79,6 +79,29 @@ Flags:
   live in (default: this repo's own). Mainly for testing.
 - `--no-git-sync` — write the queue files locally without pulling/committing/pushing.
 
+## Checking a sheet before importing it
+
+```bash
+python3 formatting-scripts/check_upload.py <csv>
+```
+
+Takes either tab of the client upload sheet — the fill tab or the Shopify
+import tab — and reports what Shopify would accept but shouldn't. Exits 0 when
+clean, 1 when not, so it can gate an import.
+
+It exists for one failure in particular: a genre the `mappings` tab doesn't
+know makes the sheet's VLOOKUP return `""` through `IFERROR`, so the product
+imports with an **empty genre metafield** — live on the storefront, missing
+from the genre filter, with nothing anywhere saying why. That fault survived
+three import rounds in testing before anyone spotted it.
+
+Also catches duplicate handles (two rows sharing one become a single product
+with two variants), a Floor Sale priced 0 (a live product sellable at $0.00),
+a Rental carrying a price, untracked inventory, a Vendor that isn't a media
+format, and missing posters or copy.
+
+It cannot catch a genre that is valid but wrong for the film — nothing can.
+
 ## The loop
 
 1. Run the script.
