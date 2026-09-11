@@ -523,14 +523,14 @@
           "type": "perk",
           "settings": {
             "title": "Full rental library access",
-            "detail": "borrow 3 movies at a time"
+            "detail": "3 movies at a time"
           }
         },
         "perk_discount": {
           "type": "perk",
           "settings": {
             "title": "10% off in store purchases",
-            "detail": ""
+            "detail": "lucky duck"
           }
         },
         "perk_birthday": {
@@ -587,7 +587,6 @@
         "eyebrow": "",
         "heading": "Community picks",
         "description": "<p>Movies your neighbors have been watching, arguing about, and pressing into people's hands. Updated often.</p>",
-        "link_label": "Full list →",
         "background_color": "",
         "padding-block-start": 0,
         "padding-block-end": 72
