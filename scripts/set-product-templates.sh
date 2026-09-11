@@ -177,10 +177,91 @@ fi
 echo
 
 # --- Phase 2: mutate. Iterate the collected file only — no GraphQL reads. --
+#
+# Mutations are sent in batches of BATCH_SIZE using GraphQL aliases: one
+# request carries N productUpdate calls sharing a single $suffix variable.
+# One-request-per-product was measured at roughly a second each — over two
+# hours for a full catalogue pass, and long enough that a transient
+# ECONNRESET killed a real run after 71 products. Batching cuts ~7,000
+# requests to ~280.
+#
+# Each batch is retried on a transport failure (the CLI exiting non-zero or
+# returning something without a .data payload). Retries are safe because the
+# mutation is idempotent: setting a suffix that is already set is a no-op.
+BATCH_SIZE=25
+MAX_ATTEMPTS=4
+
 CHANGED=0
 SKIPPED=0
 FAILED=0
 PROCESSED=0
+
+PENDING_IDS=()
+PENDING_LABELS=()
+
+flush_batch() {
+  local n=${#PENDING_IDS[@]}
+  (( n == 0 )) && return 0
+
+  # mutation Batch($suffix: String, $id0: ID!, ...) { p0: productUpdate(...) ... }
+  local decls="\$suffix: String" body="" i
+  for (( i = 0; i < n; i++ )); do
+    decls+=", \$id${i}: ID!"
+    body+="  p${i}: productUpdate(product: {id: \$id${i}, templateSuffix: \$suffix}) { userErrors { field message } }"$'\n'
+  done
+  local query="mutation Batch(${decls}) {"$'\n'"${body}}"
+
+  local vars
+  if [[ -z "$TARGET_SUFFIX" ]]; then
+    vars=$(jq -n '{suffix: null}')
+  else
+    vars=$(jq -n --arg s "$TARGET_SUFFIX" '{suffix: $s}')
+  fi
+  for (( i = 0; i < n; i++ )); do
+    vars=$(jq --arg k "id${i}" --arg v "${PENDING_IDS[$i]}" '. + {($k): $v}' <<< "$vars")
+  done
+
+  local attempt=1 resp ok=false
+  while (( attempt <= MAX_ATTEMPTS )); do
+    # A response is only trusted when it carries a result for EVERY alias this
+    # batch asked about. Merely-valid JSON is not enough: a GraphQL-level
+    # error comes back as {"errors":[...]} with no per-alias keys, and
+    # `.p0.userErrors[0].message // empty` yields empty for a missing key —
+    # so every product in the batch would be counted CHANGED having never
+    # been touched. Phase 1 already guards its reads this way; Phase 2 must
+    # match it.
+    if resp=$(shopify store execute --store "$STORE" --allow-mutations -j -q "$query" -v "$vars" < /dev/null 2>/dev/null) \
+       && jq -e --argjson n "$n" \
+            '. as $root | (($root | has("errors")) | not) and all(range($n); . as $i | $root | has("p\($i)"))' \
+            >/dev/null 2>&1 <<< "$resp"; then
+      ok=true
+      break
+    fi
+    echo "  … batch request failed (attempt ${attempt}/${MAX_ATTEMPTS}), retrying" >&2
+    sleep $(( attempt * 3 ))
+    attempt=$(( attempt + 1 ))
+  done
+
+  if ! $ok; then
+    FAILED=$(( FAILED + n ))
+    echo "  ✗ batch of ${n} failed after ${MAX_ATTEMPTS} attempts" >&2
+    PENDING_IDS=(); PENDING_LABELS=()
+    return 0
+  fi
+
+  for (( i = 0; i < n; i++ )); do
+    local err
+    err=$(jq -r --arg a "p${i}" '.[$a].userErrors[0].message // empty' <<< "$resp")
+    if [[ -n "$err" ]]; then
+      FAILED=$(( FAILED + 1 ))
+      echo "  ✗ ${PENDING_LABELS[$i]}: ${err}"
+    else
+      CHANGED=$(( CHANGED + 1 ))
+    fi
+  done
+
+  PENDING_IDS=(); PENDING_LABELS=()
+}
 
 while IFS=$'\t' read -r -u 3 PRODUCT_ID TITLE VENDOR CURRENT; do
   PROCESSED=$((PROCESSED + 1))
@@ -191,26 +272,16 @@ while IFS=$'\t' read -r -u 3 PRODUCT_ID TITLE VENDOR CURRENT; do
     CHANGED=$((CHANGED + 1))
     echo "  would set [${VENDOR}] ${TITLE}: '${CURRENT}' -> '${TARGET_SUFFIX}'"
   else
-    if [[ -z "$TARGET_SUFFIX" ]]; then
-      SET_VARS=$(jq -n --arg id "$PRODUCT_ID" '{id: $id, suffix: null}')
-    else
-      SET_VARS=$(jq -n --arg id "$PRODUCT_ID" --arg suffix "$TARGET_SUFFIX" '{id: $id, suffix: $suffix}')
+    PENDING_IDS+=("$PRODUCT_ID")
+    PENDING_LABELS+=("[${VENDOR}] ${TITLE}")
+    if (( ${#PENDING_IDS[@]} >= BATCH_SIZE )); then
+      flush_batch
+      echo "  ... ${PROCESSED}/${TOTAL} (${CHANGED} changed, ${FAILED} failed)"
     fi
-    SET_RESP=$(shopify store execute --store "$STORE" --allow-mutations -j -q "$SET_TEMPLATE" -v "$SET_VARS" < /dev/null)
-    SET_ERR=$(echo "$SET_RESP" | jq -r '.productUpdate.userErrors[0].message // empty')
-    if [[ -n "$SET_ERR" ]]; then
-      FAILED=$((FAILED + 1))
-      echo "  ✗ ${TITLE}: ${SET_ERR}"
-    else
-      CHANGED=$((CHANGED + 1))
-      echo "  ✓ [${VENDOR}] ${TITLE}"
-    fi
-  fi
-
-  if $APPLY && (( PROCESSED % 100 == 0 )); then
-    echo "  ... ${PROCESSED}/${TOTAL}"
   fi
 done 3< "$COLLECT_FILE"
+
+$APPLY && flush_batch
 
 echo
 if $APPLY; then
