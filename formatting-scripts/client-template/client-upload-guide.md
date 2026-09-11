@@ -20,26 +20,24 @@ Do this once, on your master copy.
    appears to **`Add movies`**. It has the ten columns you fill in, plus two
    example rows — look at them, then delete them before your first real batch.
 
-2. **Add the `mappings` tab.** Add a second sheet, name it exactly
-   `mappings`, and paste this table starting in cell A1:
+2. **Add the `mappings` tab.** Don't type or paste this one — import it, so
+   the values land exactly right. File → Import → Upload →
+   `genre-mappings.csv` → **Insert new sheet**. Rename the new tab to exactly
+   `mappings`.
 
-   | | |
-   |---|---|
-   | Comedy | comedy |
-   | Action | action |
-   | Drama | drama |
-   | Kids & Family | kids-family |
-   | Sci-Fi | sci-fi |
-   | Thriller | thriller |
-   | Horror | horror |
-   | Romantic Comedy | romantic-comedy |
-   | Musical | musical |
-   | Fantasy | fantasy |
-   | Documentary | documentary |
-   | Foreign | foreign |
-   | Holiday | holiday |
+   You should end up with 13 rows: genre names in column A, and a matching
+   code in column B (`Comedy` / `comedy`, `Kids & Family` / `kids-family`,
+   and so on). Check that **A4 reads `Kids & Family`** and **A11 reads
+   `Documentary`** — if either is missing or split across two cells, the
+   import didn't land cleanly. Delete the tab and import again.
 
    Right-click the tab → Hide sheet. You never need to look at it again.
+
+   **Why this matters more than it looks.** Every genre you pick is looked up
+   in this tab. If a genre is missing from it, the upload still works and the
+   product still appears — but its genre is silently left empty, so it won't
+   show on the product page and won't appear in the website's genre filter.
+   Nothing warns you. That's why it's imported rather than typed.
 
 3. **Add the `Shopify import` tab.** Add a third sheet, name it exactly
    `Shopify import`, and paste the formula from `import-tab-formula.txt`
