@@ -206,24 +206,6 @@
                 "image_npN8xK"
               ]
             },
-            "button_primary": {
-              "type": "button",
-              "settings": {
-                "label": "Become a member",
-                "link": "#plans",
-                "open_in_new_tab": false,
-                "style_class": "button",
-                "custom_button_background": "{{ settings.color_palette.foreground }}",
-                "custom_button_text": "{{ settings.color_palette.background }}",
-                "custom_button_border": "{{ settings.color_palette.background }}",
-                "link_text_color": "",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            },
             "button_secondary": {
               "type": "button",
               "settings": {
@@ -272,7 +254,6 @@
             "eyebrow",
             "heading",
             "group_4acCgE",
-            "button_primary",
             "button_secondary",
             "fine_print"
           ]
@@ -712,78 +693,12 @@
         "padding-block-start": 84,
         "padding-block-end": 84
       }
-    },
-    "1780928794877ebf06": {
-      "type": "_blocks",
-      "blocks": {
-        "supercycle_membership_plans_MdRHJR": {
-          "type": "shopify://apps/supercycle/blocks/membership-plans/7b3228ed-a72a-4935-9fee-0cebe8daa0aa",
-          "settings": {
-            "collection": "plans",
-            "groups": "none",
-            "value_labels": "",
-            "credit_name": "",
-            "redirect_to_last_product_page": true,
-            "redirect_type": "custom",
-            "redirect_url": "",
-            "create_account": false,
-            "button_label": "Become a member",
-            "membership_in_cart_message": "A membership is already in cart",
-            "additive_plan_message": "You already have this plan. Buying it again adds a second membership.",
-            "additive_membership_message": "You already have [current_plan_title]. Buying this plan adds another membership.",
-            "button_class": "button button--secondary",
-            "primary_button_class": "button button--primary",
-            "color_background": "#331f1d",
-            "color_plan_background": "#331f1d",
-            "color_plan_text": "{{ settings.color_palette.background }}",
-            "color_plan_border": "#3b2019",
-            "plan_border_radius": 8,
-            "space": 20,
-            "padding_top": 40,
-            "padding_bottom": 52,
-            "template": "<div class=\"plan-card-button\">\n  [plan_button]\n</div>",
-            "custom_css": ".plan-card-title { font-family: var(--lms-font-display); } .plan-card-price, .plan-card-interval, .plan-card-credits, .plan-card-features, .plan-card-button { font-family: var(--lms-font-mono); } .plan-card-wrapper { box-shadow: 0 1px 2px rgba(58, 32, 24, 0.08); padding: 32px 30px; }"
-          }
-        }
-      },
-      "block_order": [
-        "supercycle_membership_plans_MdRHJR"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 12,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "background_media": "none",
-        "background_color": "#331f1d",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_color": "",
-        "border_radius": 0,
-        "padding-block-start": 0,
-        "padding-block-end": 0
-      }
     }
   },
   "order": [
     "main",
     "membership_hero",
     "membership_marquee",
-    "membership_perks",
-    "1780928794877ebf06"
+    "membership_perks"
   ]
 }

@@ -1,0 +1,198 @@
+{% comment %}
+  lms-faq — centered eyebrow/heading, then a stack of native <details>
+  accordion items (one per "question" block). No JS: <details>/<summary>
+  gives free keyboard + screen-reader support.
+{% endcomment %}
+
+{% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
+<div class="lms-faq color-custom-{{ section.id }}"
+  style="--lms-pad-top: {{ section.settings.padding-block-start }}px; --lms-pad-bottom: {{ section.settings.padding-block-end }}px;"
+  {{ section.shopify_attributes }}>
+  <div class="lms-container lms-container--narrow">
+    <div class="lms-faq__header">
+      {% render 'lms-eyebrow', text: section.settings.eyebrow %}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="lms-faq__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="lms-faq__list">
+        {%- for block in section.blocks -%}
+          <details class="lms-faq__item" {{ block.shopify_attributes }}>
+            <summary class="lms-faq__question">
+              <span>{{ block.settings.question }}</span>
+              <span class="lms-faq__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="lms-faq__answer rte">{{ block.settings.answer }}</div>
+          </details>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+.lms-faq {
+  background: var(--lms-bg, var(--lms-parchment));
+  padding-block: var(--lms-pad-top, 72px) var(--lms-pad-bottom, 72px);
+}
+.lms-container--narrow {
+  max-width: 720px;
+}
+.lms-faq__header {
+  text-align: center;
+  margin: 0 auto 40px;
+}
+.lms-faq .lms-eyebrow { display: block; }
+.lms-faq__heading {
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-med);
+  font-size: 34px;
+  line-height: var(--lms-lh-tight);
+  color: var(--lms-text-strong);
+  margin: 12px 0 0;
+}
+.lms-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.lms-faq__item {
+  border: var(--lms-border-width) solid var(--lms-border-default);
+  border-radius: var(--lms-radius-md);
+  background: var(--lms-bg);
+  padding: 4px 24px;
+}
+.lms-faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-med);
+  font-size: 17px;
+  color: var(--lms-text-strong);
+  cursor: pointer;
+  list-style: none;
+}
+.lms-faq__question::-webkit-details-marker { display: none; }
+.lms-faq__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+.lms-faq__icon::before,
+.lms-faq__icon::after {
+  content: "";
+  position: absolute;
+  background: var(--lms-brick);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.lms-faq__icon::before { width: 100%; height: 2px; }
+.lms-faq__icon::after {
+  width: 2px;
+  height: 100%;
+  transition: transform 0.15s ease;
+}
+.lms-faq__item[open] .lms-faq__icon::after { transform: translate(-50%, -50%) scaleY(0); }
+.lms-faq__answer {
+  padding: 0 0 22px;
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-light);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--lms-text-muted);
+}
+.lms-faq__answer p { margin: 0 0 1em; }
+.lms-faq__answer p:last-child { margin-bottom: 0; }
+
+@media screen and (max-width: 549px) {
+  .lms-faq__item { padding: 4px 18px; }
+  .lms-faq__question { font-size: 15px; }
+}
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "LMS FAQ",
+  "tag": "section",
+  "class": "lms-faq-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Questions"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently asked questions"
+    },
+    { "type": "header", "content": "Section style" },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:settings.background_color",
+      "placeholder": "t:settings.default"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question here?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Your answer here.</p>"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "LMS FAQ",
+      "blocks": [
+        { "type": "question" },
+        { "type": "question" },
+        { "type": "question" }
+      ]
+    }
+  ]
+}
+{% endschema %}
