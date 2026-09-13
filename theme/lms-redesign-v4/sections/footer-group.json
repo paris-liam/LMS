@@ -117,7 +117,62 @@
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
-          "blocks": {}
+          "blocks": {
+            "heading": {
+              "type": "text",
+              "settings": {
+                "text": "<p><strong>Help</strong></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "0.6875rem",
+                "line_height": "normal",
+                "letter_spacing": "0.22em",
+                "case": "uppercase",
+                "wrap": "pretty",
+                "text_color": "#8fcdcf",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 8,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "links": {
+              "type": "text",
+              "settings": {
+                "text": "<p><a href=\"/pages/faq\">FAQ</a></p><p><a href=\"/pages/membership-terms\">Membership Terms</a></p><p><a href=\"/pages/contact\">Contact</a></p>",
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "0.8125rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "text_color": "#d4c9c0",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "heading",
+            "links"
+          ]
         },
         "visit_col": {
           "type": "group",
