@@ -206,6 +206,25 @@
                 "image_npN8xK"
               ]
             },
+            "button_join": {
+              "type": "button",
+              "name": "Join the Club",
+              "settings": {
+                "label": "Join the Club — $160/year",
+                "link": "/products/little-movie-club-membership",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "custom_button_background": "",
+                "custom_button_text": "",
+                "custom_button_border": "",
+                "link_text_color": "",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            },
             "button_secondary": {
               "type": "button",
               "settings": {
@@ -254,6 +273,7 @@
             "eyebrow",
             "heading",
             "group_4acCgE",
+            "button_join",
             "button_secondary",
             "fine_print"
           ]
