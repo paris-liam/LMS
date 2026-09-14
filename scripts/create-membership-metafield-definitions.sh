@@ -8,7 +8,7 @@
 #   SHOPIFY_STORE=other-store.myshopify.com ./scripts/create-membership-metafield-definitions.sh
 #
 # Auth: uses the Shopify CLI's own session (run `shopify store auth --store <store>
-# --scopes write_metafield_definitions` once first if needed).
+# --scopes write_customers` once first if needed).
 
 set -euo pipefail
 STORE="${SHOPIFY_STORE:-lms-sandbox-lutsfahz.myshopify.com}"
