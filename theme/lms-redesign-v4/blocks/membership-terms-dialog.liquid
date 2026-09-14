@@ -1,0 +1,57 @@
+{%- doc -%}
+  Membership terms disclosure paragraph + a dialog that shows the real
+  /pages/membership-terms content inline, so a customer reading the terms
+  doesn't lose their place (or their filled-in birthday/checkbox) on the
+  product page. Reuses the theme's existing dialog-component (see
+  assets/dialog.js) rather than building a new modal mechanism.
+
+  Fails closed if JS doesn't load: the link is a real anchor to the real
+  page, opening in a new tab, so nothing is lost either way.
+{%- enddoc -%}
+<p class="membership-terms-notice">
+  By purchasing, you agree to the
+  <a
+    href="/pages/membership-terms"
+    target="_blank"
+    rel="noopener"
+    class="membership-terms-trigger"
+  >Little Movie Club Membership Agreement</a>.
+</p>
+
+<dialog-component id="membership-terms-dialog">
+  <dialog class="membership-terms-dialog dialog-modal color-custom-popover" ref="dialog" scroll-lock>
+    <button
+      ref="closeButton"
+      on:click="/closeDialog"
+      class="button button-unstyled close-button membership-terms-dialog__close"
+      aria-label="{{ 'accessibility.close_dialog' | t }}"
+    >
+      {{- 'icon-close.svg' | inline_asset_content -}}
+    </button>
+    <div class="membership-terms-dialog__content">
+      {{ pages['membership-terms'].content }}
+    </div>
+  </dialog>
+</dialog-component>
+
+<script
+  src="{{ 'membership-terms-dialog.js' | asset_url }}"
+  type="module"
+  fetchpriority="low"
+></script>
+
+{% stylesheet %}
+  .membership-terms-dialog__content {
+    max-width: 60ch;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: var(--padding-lg, 24px);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Membership terms dialog",
+  "tag": null
+}
+{% endschema %}

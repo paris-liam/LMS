@@ -173,30 +173,10 @@
               },
               "blocks": {}
             },
-            "text_membership_terms_notice": {
-              "type": "text",
-              "name": "Membership terms notice",
-              "settings": {
-                "text": "<p>By purchasing, you agree to the <a href=\"/pages/membership-terms\">Little Movie Club Membership Agreement</a>.</p>",
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "paragraph",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "text_color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 12,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
+            "membership_terms_dialog": {
+              "type": "membership-terms-dialog",
+              "name": "Membership terms dialog",
+              "settings": {},
               "blocks": {}
             },
             "custom_property_terms_checkbox": {
@@ -245,6 +225,8 @@
                 "stacking": true,
                 "show_pickup_availability": false,
                 "gift_card_form": false,
+                "hide_dynamic_checkout": true,
+                "enable_checkout_redirect": true,
                 "padding-block-start": 12,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -299,7 +281,7 @@
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
-            "text_membership_terms_notice",
+            "membership_terms_dialog",
             "custom_property_terms_checkbox",
             "custom_property_birthday",
             "buy_buttons_eYQEYi",
