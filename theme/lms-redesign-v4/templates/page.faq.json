@@ -1,41 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "name": "Title",
-          "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "text_color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "heading"
-      ],
       "settings": {
         "content_direction": "column",
         "gap": 32,
+        "background_color": "",
         "padding-block-start": 40,
         "padding-block-end": 0
       }
@@ -43,37 +22,238 @@
     "faq": {
       "type": "lms-faq",
       "blocks": {
-        "q1": {
-          "type": "question",
+        "cat1": {
+          "type": "category",
           "settings": {
-            "question": "How does renting work?",
-            "answer": "<p>Join the Little Movie Club, then swing by the shop to check movies out and return them — no online checkout for rentals.</p>"
+            "title": "Memberships & Rentals",
+            "background_color": "#5f8d7a"
           }
         },
         "q2": {
           "type": "question",
           "settings": {
-            "question": "Can I buy a movie from the rental library?",
-            "answer": "<p>Rental library titles aren’t for sale online or in this catalogue. Check the shop for items available to purchase.</p>"
+            "question": "What is the Little Movie Club?",
+            "answer": "<p>It's our membership - $160 a year, and it's how the rental library works. Members get:</p><ul><li>Access to the full rental library, 3 movies out at a time</li><li>10% off anything you buy in the store</li><li>Invitations to our Member Events</li><li>A free movie on your birthday</li><li>A physical membership card</li></ul>"
           }
         },
         "q3": {
           "type": "question",
           "settings": {
-            "question": "How do I become a member?",
-            "answer": "<p>Membership sign-up isn’t open online yet — see the Membership page for details and follow us for the launch date.</p>"
+            "question": "Wait, no rental fees?",
+            "answer": "<p>Correct. The membership is the fee. Take out three movies, bring them back, take out three more. There's no cap on how many times you do that in a year.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "How long do I get to keep a movie?",
+            "answer": "<p>Fourteen days. Bring it back in the condition you got it in, swap it for something else.</p>"
+          }
+        },
+        "q5": {
+          "type": "question",
+          "settings": {
+            "question": "What happens if I'm late?",
+            "answer": "<p>Nothing dramatic. There's no daily late fee and no one is going to call your house, but if we see you out in the neighborhood we’ll mention it. We can't check out more movies to you while something is overdue, and if a movie is 30 days past its due date we treat it as lost and charge you the current market rate to replace it. At that point it's yours. Congratulations on your new movie, we suppose.</p>"
+          }
+        },
+        "q6": {
+          "type": "question",
+          "settings": {
+            "question": "What if something gets damaged or goes missing?",
+            "answer": "<p>If a rental is lost, stolen, or damaged beyond normal wear while it's with you, we'll charge the market-rate replacement cost. That applies the whole time you have it, not just after it's overdue. Normal wear is fine - these are movies, they get watched.</p>"
+          }
+        },
+        "q7": {
+          "type": "question",
+          "settings": {
+            "question": "What is a ‘free movie on your birthday’?",
+            "answer": "<p>It’s a movie you pick out from the store on your birthday as a gift. It is a birthday gift to you, Little Movie Club Member. Happy Birthday, please enjoy this movie that is $17 and under.</p>"
+          }
+        },
+        "q8": {
+          "type": "question",
+          "settings": {
+            "question": "I bought a membership before you opened. When does my year start?",
+            "answer": "<p>On opening day, not on the day you bought it. Pre-sale members get the full twelve months from our elusive opening date.</p>"
+          }
+        },
+        "q9": {
+          "type": "question",
+          "settings": {
+            "question": "Does my membership renew automatically?",
+            "answer": "<p>Yes, once a year at whatever the annual fee is at that time. We'll give you a heads up before it charges. You can cancel any time and that stops future renewals, though we can't refund the year you're already in - and anything you've got checked out still needs to come back.</p>"
+          }
+        },
+        "q10": {
+          "type": "question",
+          "settings": {
+            "question": "Can my roommate use my card?",
+            "answer": "<p>Membership is for you, personally. Rentals are for personal, non-commercial use, and please don't pass them along to someone else. If a movie doesn't come back, it's on your account. Your household watching a movie together is obviously fine. That's like, the entire idea.</p>"
+          }
+        },
+        "q11": {
+          "type": "question",
+          "settings": {
+            "question": "Do I have to be a member to shop?",
+            "answer": "<p>Not at all. Roughly half the store is movies for sale, and that's open to everyone. The membership is specifically for the rental side.</p>"
+          }
+        },
+        "q12": {
+          "type": "question",
+          "settings": {
+            "question": "I donated movies to the rental library. Do I get anything?",
+            "answer": "<p>You do. Pre-Launch Donors receive three free months of membership. If you already bought a full year, we'll add the three months on top. Bring yourself to the counter and we'll sort it out.</p>"
+          }
+        },
+        "q13": {
+          "type": "question",
+          "settings": {
+            "question": "Can I donate movies?",
+            "answer": "<p>Yes, and we'd love that. Bring them by. Anything we can't shelve, we'll find a home for. Donations help build the rental library, which is the whole point.</p>"
+          }
+        },
+        "cat14": {
+          "type": "category",
+          "settings": {
+            "title": "Formats",
+            "background_color": "#8fcdcf"
+          }
+        },
+        "q15": {
+          "type": "question",
+          "settings": {
+            "question": "What formats do you carry?",
+            "answer": "<p>VHS, DVD, Blu-ray, and 4K UHD. We have 1 Betamax as of this writing. If you find it in the store, we’ll give you a sticker.</p>"
+          }
+        },
+        "q16": {
+          "type": "question",
+          "settings": {
+            "question": "You actually have VHS? Like, to rent?",
+            "answer": "<p>Why would you ask that? Yes, we actually have VHS. Some of it is genuinely the only way to see certain movies. Some of it is on the shelf because the cover art is incredible and we have no regrets.</p>"
+          }
+        },
+        "q17": {
+          "type": "question",
+          "settings": {
+            "question": "How many movies do you have?",
+            "answer": "<p>This is the LITTLE movie store, so we can comfortably fit around 8,000 titles in the store. There's more in the basement, and it rotates.</p>"
+          }
+        },
+        "q18": {
+          "type": "question",
+          "settings": {
+            "question": "Do I need a VCR?",
+            "answer": "<p>If you're watching VHS, yes. We can't help you there, but we admire your commitment.</p>"
+          }
+        },
+        "q19": {
+          "type": "question",
+          "settings": {
+            "question": "Do you buy or trade movies?",
+            "answer": "<p>NOT YET! Let us get the toilet installed first, then we can talk buying and trading.</p>"
+          }
+        },
+        "cat20": {
+          "type": "category",
+          "settings": {
+            "title": "Location & Hours",
+            "background_color": "#973123"
+          }
+        },
+        "q21": {
+          "type": "question",
+          "settings": {
+            "question": "Where are you?",
+            "answer": "<p>2001 S 10th Street, South Philadelphia. In between the Bok Building and Passyunk Ave.</p>"
+          }
+        },
+        "q22": {
+          "type": "question",
+          "settings": {
+            "question": "When do you open?",
+            "answer": "<p>October 2026 - stay tuned for confirmation.</p>"
+          }
+        },
+        "q23": {
+          "type": "question",
+          "settings": {
+            "question": "What are your hours?",
+            "answer": "<p>Thursday - Saturday: Noon - 7 | Sunday 10-6 with Member Events taking place after business hours</p>"
+          }
+        },
+        "q24": {
+          "type": "question",
+          "settings": {
+            "question": "Is there parking?",
+            "answer": "<p>Brother, what? No. Street Parking.</p>"
+          }
+        },
+        "q25": {
+          "type": "question",
+          "settings": {
+            "question": "Can I bring my dog into the store?",
+            "answer": "<p>Service dogs are allowed. Air Buds, Beethovens and Cujos are not.</p>"
+          }
+        },
+        "q26": {
+          "type": "question",
+          "settings": {
+            "question": "How do I get in touch?",
+            "answer": "<p>hello@littlemoviestore.com</p>"
+          }
+        },
+        "cat27": {
+          "type": "category",
+          "settings": {
+            "title": "Who Framed Roger Rabbit?",
+            "background_color": "#3a2018"
+          }
+        },
+        "q28": {
+          "type": "question",
+          "settings": {
+            "question": "Judge Doom framed Roger Rabbit.",
+            "answer": "<p>He did it to secure the deed to Toontown, so he could dissolve it with a chemical compound of turpentine, acetone, and benzene and build a freeway over it.</p><p>He was also, it turns out, a toon himself! Specifically the one who killed Eddie Valiant's brother. A shock.</p><p>The real answer is that Roger Rabbit didn't kill anybody, the whole thing was about public transit, and the movie is somehow both a hard-boiled noir and a cartoon about a sentient dip. It's a miracle it was ever made. We have it. Come rent it.</p>"
           }
         }
       },
       "block_order": [
-        "q1",
+        "cat1",
         "q2",
-        "q3"
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "cat14",
+        "q15",
+        "q16",
+        "q17",
+        "q18",
+        "q19",
+        "cat20",
+        "q21",
+        "q22",
+        "q23",
+        "q24",
+        "q25",
+        "q26",
+        "cat27",
+        "q28"
       ],
       "settings": {
-        "eyebrow": "Questions",
+        "eyebrow": "",
         "heading": "Frequently asked questions",
-        "background_color": "",
+        "subheading": "Everything you probably want to know before you walk in, plus a few things you didn't ask.",
+        "background_color": "{{ settings.color_palette.background }}",
         "padding-block-start": 24,
         "padding-block-end": 84
       }

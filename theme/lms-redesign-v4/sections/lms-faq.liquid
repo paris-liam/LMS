@@ -1,7 +1,9 @@
 {% comment %}
   lms-faq — centered eyebrow/heading, then a stack of native <details>
-  accordion items (one per "question" block). No JS: <details>/<summary>
-  gives free keyboard + screen-reader support.
+  accordion CATEGORIES. Each "category" block opens a new collapsible
+  group; every "question" block after it renders inside that group as
+  plain (non-collapsible) content until the next "category" block.
+  No JS: <details>/<summary> gives free keyboard + screen-reader support.
 {% endcomment %}
 
 {% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
@@ -14,19 +16,36 @@
       {%- if section.settings.heading != blank -%}
         <h2 class="lms-faq__heading">{{ section.settings.heading }}</h2>
       {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="lms-faq__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
     </div>
 
     {%- if section.blocks.size > 0 -%}
       <div class="lms-faq__list">
+        {%- assign lms_faq_open = false -%}
         {%- for block in section.blocks -%}
-          <details class="lms-faq__item" {{ block.shopify_attributes }}>
-            <summary class="lms-faq__question">
-              <span>{{ block.settings.question }}</span>
-              <span class="lms-faq__icon" aria-hidden="true"></span>
-            </summary>
-            <div class="lms-faq__answer rte">{{ block.settings.answer }}</div>
-          </details>
+          {%- case block.type -%}
+            {%- when 'category' -%}
+              {%- if lms_faq_open -%}</div></details>{%- endif -%}
+              {%- if block.settings.background_color != blank -%}
+                {%- render 'contrast-override', background_color: block.settings.background_color, section_id: block.id -%}
+              {%- endif -%}
+              <details class="lms-faq__category{% if block.settings.background_color != blank %} color-custom-{{ block.id }}{% endif %}" {{ block.shopify_attributes }}>
+                <summary class="lms-faq__category-title">
+                  <span>{{ block.settings.title }}</span>
+                  <span class="lms-faq__icon" aria-hidden="true"></span>
+                </summary>
+                <div class="lms-faq__category-body">
+              {%- assign lms_faq_open = true -%}
+            {%- when 'question' -%}
+              <div class="lms-faq__qa" {{ block.shopify_attributes }}>
+                <p class="lms-faq__q">{{ block.settings.question }}</p>
+                <div class="lms-faq__a rte">{{ block.settings.answer }}</div>
+              </div>
+          {%- endcase -%}
         {%- endfor -%}
+        {%- if lms_faq_open -%}</div></details>{%- endif -%}
       </div>
     {%- endif -%}
   </div>
@@ -53,42 +72,50 @@
   color: var(--lms-text-strong);
   margin: 12px 0 0;
 }
+.lms-faq__subheading {
+  font-family: var(--lms-font-mono);
+  font-weight: var(--lms-fw-mono-light);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--lms-text-muted);
+  margin: 12px 0 0;
+}
 .lms-faq__list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 18px;
 }
-.lms-faq__item {
-  border: var(--lms-border-width) solid var(--lms-border-default);
-  border-radius: var(--lms-radius-md);
-  background: var(--lms-bg);
-  padding: 4px 24px;
+.lms-faq__category {
+  border: var(--lms-border-width) solid var(--color-border, var(--lms-border-default));
+  border-radius: var(--lms-radius-lg);
+  background: var(--color-background, var(--lms-bg));
+  padding: 6px 32px;
 }
-.lms-faq__question {
+.lms-faq__category-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 20px 0;
+  padding: 26px 0;
   font-family: var(--lms-font-display);
   font-weight: var(--lms-fw-head-med);
-  font-size: 17px;
-  color: var(--lms-text-strong);
+  font-size: 21px;
+  color: var(--color-foreground, var(--lms-text-strong));
   cursor: pointer;
   list-style: none;
 }
-.lms-faq__question::-webkit-details-marker { display: none; }
+.lms-faq__category-title::-webkit-details-marker { display: none; }
 .lms-faq__icon {
   position: relative;
   flex-shrink: 0;
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
 }
 .lms-faq__icon::before,
 .lms-faq__icon::after {
   content: "";
   position: absolute;
-  background: var(--lms-brick);
+  background: var(--color-foreground, var(--lms-brick));
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -99,21 +126,42 @@
   height: 100%;
   transition: transform 0.15s ease;
 }
-.lms-faq__item[open] .lms-faq__icon::after { transform: translate(-50%, -50%) scaleY(0); }
-.lms-faq__answer {
-  padding: 0 0 22px;
+.lms-faq__category[open] .lms-faq__icon::after { transform: translate(-50%, -50%) scaleY(0); }
+.lms-faq__category-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 28px;
+}
+.lms-faq__qa {
+  padding: 18px 0;
+  border-top: var(--lms-border-width) solid var(--color-border, var(--lms-border-default));
+}
+.lms-faq__qa:first-child { border-top: none; }
+.lms-faq__q {
+  margin: 0 0 6px;
+  font-family: var(--lms-font-display);
+  font-weight: var(--lms-fw-head-med);
+  font-size: 17px;
+  color: var(--color-foreground, var(--lms-text-strong));
+}
+.lms-faq__a {
   font-family: var(--lms-font-mono);
   font-weight: var(--lms-fw-mono-light);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.7;
-  color: var(--lms-text-muted);
+  color: var(--color-foreground-muted, var(--lms-text-muted));
 }
-.lms-faq__answer p { margin: 0 0 1em; }
-.lms-faq__answer p:last-child { margin-bottom: 0; }
+.lms-faq__a p { margin: 0 0 0.75em; }
+.lms-faq__a p:last-child { margin-bottom: 0; }
+.lms-faq__a ul,
+.lms-faq__a ol { margin: 0 0 0.75em; padding-left: 1.25em; }
+.lms-faq__a li { margin: 0 0 0.25em; }
 
 @media screen and (max-width: 549px) {
-  .lms-faq__item { padding: 4px 18px; }
-  .lms-faq__question { font-size: 15px; }
+  .lms-faq__category { padding: 6px 22px; }
+  .lms-faq__category-title { font-size: 18px; padding: 20px 0; }
+  .lms-faq__q { font-size: 16px; }
+  .lms-faq__a { font-size: 14px; }
 }
 {% endstylesheet %}
 
@@ -134,6 +182,12 @@
       "id": "heading",
       "label": "Heading",
       "default": "Frequently asked questions"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Everything you probably want to know before you walk in, plus a few things you didn't ask."
     },
     { "type": "header", "content": "Section style" },
     {
@@ -165,6 +219,24 @@
   ],
   "blocks": [
     {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category title",
+          "default": "Category title"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "t:settings.background_color",
+          "placeholder": "t:settings.default"
+        }
+      ]
+    },
+    {
       "type": "question",
       "name": "Question",
       "settings": [
@@ -183,12 +255,12 @@
       ]
     }
   ],
-  "max_blocks": 20,
+  "max_blocks": 50,
   "presets": [
     {
       "name": "LMS FAQ",
       "blocks": [
-        { "type": "question" },
+        { "type": "category" },
         { "type": "question" },
         { "type": "question" }
       ]
