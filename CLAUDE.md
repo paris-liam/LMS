@@ -1,5 +1,13 @@
 # CLAUDE.md — Little Movie Store (LMS)
 
+## ⛔ DEPRECATED: Supercycle is being replaced entirely (decided 2026-09-13)
+
+**Supercycle is no longer the rental/circular-commerce system for this project.** We are moving to **Shopify Subscriptions + Libib** instead. Everything in this file that references Supercycle (the "Supercycle integration contract" section, the PDP read-only/no-checkout rule as justified by Supercycle, the `supercycle.*` metafield rules, the member-gating tag check, and every "Supercycle" line in the roadmap/build-status sections below) describes the **old, abandoned design** and is kept only as historical context — do not implement against it, do not treat its rules as live constraints, and do not read/write `supercycle.*` metafields going forward.
+
+**How to apply:** Until the Shopify Subscriptions + Libib replacement is spec'd, treat rental checkout/fulfillment as **undecided** rather than falling back to any Supercycle-era assumption (in-store-only checkout via POS, Methods-block slot avoidance, etc.). If a task touches rental flow, ask rather than assume the old contract still holds. New planning docs for the replacement should live in `claudedocs/` and supersede `claudedocs/2026-09-08-supercycle-scope-rebuild.md` and `lms-supercycle-feature-plan.md` (both now historical background only).
+
+---
+
 ## What this is
 
 Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/resale/membership shop. The storefront is currently live behind a password page (coming-soon).
@@ -7,7 +15,7 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 - **Dev store (default workspace)**: `lms-sandbox-lutsfahz.myshopify.com`
 - **Production store**: `p0wkgv-wy.myshopify.com` — touch only on explicit instruction
 - **Theme**: Horizon (Shopify OS 2.0)
-- **Circular commerce** is handled by the **Supercycle** app — **installed and live on PRODUCTION** (`p0wkgv-wy.myshopify.com`), not the dev store (verified 2026-09-10 via Admin API; the dev store has no Supercycle products). **Confirmed rental-only scope (2026-07-15): Membership method only** (item-based credits, **allowance = 3 items at a time**, unlimited/same-day swaps, **$160/yr** — revised 2026-09-03 from the earlier $100/allowance-1 figure) — no Calendar, no Subscription, and **no Resale method at all**. A title is either live in Supercycle (rentable) or pulled out of Supercycle and sold as a plain Shopify product/POS sale; never both for the same item. The `Has active subscription` customer tag is applied automatically by the app. See `supercycle-explained.md` for how it works and the running build log (`supercycle-progress.md` was retired into it on 2026-09-10).
+- **Circular commerce (HISTORICAL — see deprecation notice above):** was handled by the **Supercycle** app, installed and live on PRODUCTION (`p0wkgv-wy.myshopify.com`), not the dev store. That integration is being torn out in favor of **Shopify Subscriptions + Libib**. The scope/allowance/pricing details that used to live here (Membership method, $160/yr, 3-item allowance, etc.) are old Supercycle-era decisions and no longer apply — do not carry them into the new design without re-confirming.
 
 ---
 
@@ -21,18 +29,18 @@ Shopify storefront for **Little Movie Store (LMS)** — a physical-media rental/
 
 ## Read first
 
-**`claudedocs/2026-09-08-supercycle-scope-rebuild.md`** — the canonical, production-audited scope for the Supercycle system. It supersedes `lms-supercycle-feature-plan.md`, which bundled in a lot of work that never touches Supercycle; that older plan is still useful as product-vision background and for its buildability index, but it is **not** the current scope.
+**`claudedocs/2026-09-08-supercycle-scope-rebuild.md` is HISTORICAL** — it was the canonical, production-audited scope for the now-abandoned Supercycle system. It and `lms-supercycle-feature-plan.md` are kept only as product-vision background; neither is current scope. There is no replacement scope doc yet for Shopify Subscriptions + Libib — write one under `claudedocs/` when that work is spec'd.
 
 ---
 
 ## Major next steps (project roadmap — keep in mind, not yet specced)
 
-High-level tracks the work keeps returning to. **These are not specs** — no formal plan exists for #2 or #4 yet; they're recorded so they aren't forgotten. Earlier work happened on the **dev store**, but since 2026-09-02/03 **production is the working store** for products *and* theme code, and Supercycle runs there.
+High-level tracks the work keeps returning to. **These are not specs** — no formal plan exists for #2 or #4 yet; they're recorded so they aren't forgotten. Earlier work happened on the **dev store**, but since 2026-09-02/03 **production is the working store** for products *and* theme code.
 
-1. **Finish the Supercycle setup + availability/waitlist build** (**production**). In progress — see `docs/superpowers/plans/2026-07-15-availability-filter-and-backinstock-waitlist-admin-runbook.md` (Section A = Supercycle setup, then filter + waitlist). **Near-term.**
+1. **~~Finish the Supercycle setup + availability/waitlist build~~ — ABANDONED (2026-09-13).** Supercycle is being replaced by Shopify Subscriptions + Libib; do not continue the runbook at `docs/superpowers/plans/2026-07-15-availability-filter-and-backinstock-waitlist-admin-runbook.md`. A new plan for the Subscriptions + Libib approach doesn't exist yet.
 2. **Push the reformatted catalogue to PRODUCTION** (not urgent). **Source of truth = the dev store's current live products** (they carry the in-store TMDB fills, dedup, and tag edits — the pipeline CSV is *not* the authority). Not a blind push: diff production against the dev-store set, reformat any products that exist **only on production** (new since the dev export), and reconcile so production ends up with the full, correctly-formatted catalogue. The `formatting-scripts/` pipeline is the tooling. Note production is a moving target — the client keeps uploading to it (see #3).
-3. **Updated client product-upload sheet** (near-term). The client uploads products by importing a Google Sheet that's **already in Shopify product-CSV column format, straight into production**. **DELIVERED 2026-09-11** — `formatting-scripts/client-template/` holds the sheet (scaffold CSV, the tab-2 array formula, `genre-mappings.csv`, and the client guide). Spec: `docs/superpowers/specs/2026-09-09-client-upload-template-rebuild-design.md`. The client fills 10 columns on one tab; a second tab builds the exact 17-column Shopify import CSV (`formatting-scripts/columns.py:TEMPLATE_COLUMNS`). Scoping is the `Rental` / `Floor Sale` tag, genre on `shopify.genre`, format in `Vendor`, **one product per physical copy**. Validated end-to-end against a dev-store import of 20 real products, and pinned by a seam test comparing a live sheet export to the tested Python transform. **Duplicate handling is deliberately NOT prevented at upload time** — per decision, he bulk-uploads freely (few duplicates expected), and we periodically **export the full catalogue and run a dedupe + reformat pass** (the 2026-07-15 duplicate-cleanup + copy-consolidation plans) to combine copies and normalize. **Superseded 2026-09-10:** products *are* now being included in Supercycle on production ahead of a full catalogue pass — 79 titles imported, a handful with the Membership method enabled. Copies-as-items still happens after reconciliation for the bulk of the catalogue.
-4. **Stand up all remaining admin work on PRODUCTION** (not urgent): content, collections, Search & Discovery, Supercycle, etc. — the production equivalent of everything configured on the dev store. Depends on #2.
+3. **Updated client product-upload sheet** (near-term). The client uploads products by importing a Google Sheet that's **already in Shopify product-CSV column format, straight into production**. **DELIVERED 2026-09-11** — `formatting-scripts/client-template/` holds the sheet (scaffold CSV, the tab-2 array formula, `genre-mappings.csv`, and the client guide). Spec: `docs/superpowers/specs/2026-09-09-client-upload-template-rebuild-design.md`. The client fills 10 columns on one tab; a second tab builds the exact 17-column Shopify import CSV (`formatting-scripts/columns.py:TEMPLATE_COLUMNS`). Scoping is the `Rental` / `Floor Sale` tag, genre on `shopify.genre`, format in `Vendor`, **one product per physical copy**. Validated end-to-end against a dev-store import of 20 real products, and pinned by a seam test comparing a live sheet export to the tested Python transform. **Duplicate handling is deliberately NOT prevented at upload time** — per decision, he bulk-uploads freely (few duplicates expected), and we periodically **export the full catalogue and run a dedupe + reformat pass** (the 2026-07-15 duplicate-cleanup + copy-consolidation plans) to combine copies and normalize. **HISTORICAL note (2026-09-10, no longer applies):** products had been enrolled directly in Supercycle on production ahead of a full catalogue pass (79 titles, some with the Membership method enabled) — that enrollment is moot now that Supercycle is being dropped.
+4. **Stand up all remaining admin work on PRODUCTION** (not urgent): content, collections, Search & Discovery, the Shopify Subscriptions + Libib setup (replacing Supercycle), etc. — the production equivalent of everything configured on the dev store. Depends on #2.
 
 ---
 
@@ -49,7 +57,7 @@ High-level tracks the work keeps returning to. **These are not specs** — no fo
 
 | Theme | ID | Status |
 |-------|----|--------|
-| Working theme (v4) | `140918915134` | Current push/pull target on `lms-sandbox-lutsfahz.myshopify.com` |
+| Working theme (v4) | `142364311614` | **Live/MAIN** theme on `lms-sandbox-lutsfahz.myshopify.com` (verified 2026-09-13; `140918915134` is unpublished and stale as a reference) |
 
 ### Theme IDs on production store
 
@@ -82,9 +90,12 @@ Working branch: `main`
 
 ---
 
-## Supercycle integration contract
+## Supercycle integration contract — HISTORICAL, NO LONGER LIVE (superseded 2026-09-13)
 
-Supercycle is installed and live on production. Treat these rules as non-negotiable.
+**Supercycle has been dropped in favor of Shopify Subscriptions + Libib.** Nothing below is a current constraint — it documents the old design for background only. Do not enforce these rules on new work; do not assume rental checkout must stay in-store, that a Methods-block slot must be avoided, or that `supercycle.*` metafields matter, until the Subscriptions + Libib replacement is designed and documented.
+
+<details>
+<summary>Old Supercycle rules (kept for historical reference)</summary>
 
 ### 1. The movie PDP is READ-ONLY — no product form, no add-to-cart, no Methods-block slot
 
@@ -107,6 +118,8 @@ The PDP shows: poster, description, attribute chips, and an in-stock indicator (
 - **Never delete a `supercycle.*` metafield *definition*.** Deleting one wipes its values across the entire catalogue in seconds, and re-creating the definition does **not** restore them — only re-toggling the method per product does, and that only works on some products. This happened on 2026-09-10; see `supercycle-explained.md`.
 - Creating a *definition* for an app-owned metafield (to make it filterable) is the one safe exception — but note Shopify rejects the admin-filterable capability on **variant** metafields (`INVALID_CAPABILITY`).
 
+</details>
+
 ---
 
 ## Build status
@@ -125,21 +138,19 @@ The PDP shows: poster, description, attribute chips, and an in-stock indicator (
 
 - Homepage sections beyond Units 1–2 (see `claudedocs/plans/homepage-units-1-2.md` for what's explicitly deferred)
 
-### Buildable now (no further Supercycle work needed)
+### Buildable now (independent of the rental-system replacement)
 
-- Catalogue + PDP (read-only; no Methods slot — see integration contract §1)
-- Shopify data structure: collection taxonomy, product metafield definitions, and the **non-serialized retail catalogue** (merch / snacks / art / apparel — never touches Supercycle)
+- Catalogue + PDP (read-only for now — the old "no Methods slot" rationale is historical; re-evaluate PDP checkout once Subscriptions + Libib is designed)
+- Shopify data structure: collection taxonomy, product metafield definitions, and the **non-serialized retail catalogue** (merch / snacks / art / apparel — never touched Supercycle and isn't affected by the switch)
 - Curation + merchandising: curation tags, collections, badges, weekly-drops collection, retail bundles, recommendation rails
-- Facets via Shopify Search & Discovery, wired to the real `supercycle.*` metafields
+- Facets via Shopify Search & Discovery — the `supercycle.*` metafield wiring is now moot; facets will need rework against whatever fields Subscriptions + Libib expose
 - Capture UIs: notify-me form, birthday capture, mystery-pack product, gift-card product
 
-See `claudedocs/2026-09-08-supercycle-scope-rebuild.md` for current scope, and the older feature plan's buildability index for per-feature background.
+`claudedocs/2026-09-08-supercycle-scope-rebuild.md` and the older feature plan's buildability index are historical background only — not current scope.
 
-### Still blocked / not yet wired up
+### Rental system: ABANDONED Supercycle build, replacement not yet specced
 
-The storefront availability filter (broken — the `supercycle.uncommitted_inventory` variant metafield returns no products through Search & Discovery despite 81 populated values; see `supercycle-explained.md`) · enabling the Membership method per product at catalogue scale · create-item · shipping buffers · return-trigger automation · player rentals · rental-at-POS + serial scanning · mystery-pack inventory reconciliation.
-
-Out of scope entirely (not just blocked): Supercycle's Calendar, Subscription, and Resale methods. Supercycle is rental-only via Membership — no Supercycle-mediated purchase path exists or is planned.
+Everything below the old Supercycle build (availability filter, Membership-method enrollment, create-item, shipping buffers, return-trigger automation, player rentals, rental-at-POS + serial scanning, mystery-pack inventory reconciliation) is **abandoned along with Supercycle**, not merely blocked. Shopify Subscriptions + Libib is the new direction; no build plan exists for it yet.
 
 ---
 
@@ -229,9 +240,9 @@ Both storefronts sit behind Shopify's password page. Use these with `--store-pas
 shopify theme pull --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338
 shopify theme push --path theme/lms-redesign-v4 --store p0wkgv-wy.myshopify.com --theme 166751961338 --allow-live
 
-# Push / pull dev store (working theme 140918915134) — only when the user names the dev store
-shopify theme push --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com --theme 140918915134
-shopify theme pull --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com --theme 140918915134
+# Push / pull dev store (working theme 142364311614) — only when the user names the dev store
+shopify theme push --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com --theme 142364311614
+shopify theme pull --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com --theme 142364311614
 
 # Local preview (dev store)
 shopify theme dev --path theme/lms-redesign-v4 --store lms-sandbox-lutsfahz.myshopify.com
@@ -244,7 +255,7 @@ shopify theme check --path theme/lms-redesign-v4
 
 ## Conventions
 
-- **`templates/product.json` IS the movie layout** (since 2026-09-11). Shopify's product-CSV import cannot set a template suffix, so the default was inverted: movies need no suffix and render the read-only PDP automatically; only the four non-movie products (2 membership plans, the shirt, the bumper sticker) carry `retail`. Never reintroduce a price, variant picker, add-to-cart or dynamic-checkout button here — see the Supercycle integration contract. Migration tool: `scripts/set-product-templates.sh` (`scripts/set-movie-template.sh` is deprecated and now a no-op).
+- **`templates/product.json` IS the movie layout** (since 2026-09-11). Shopify's product-CSV import cannot set a template suffix, so the default was inverted: movies need no suffix and render the read-only PDP automatically; only the four non-movie products (2 membership plans, the shirt, the bumper sticker) carry `retail`. The no-checkout PDP rule was originally justified by the (now-abandoned) Supercycle integration contract above — treat it as the status quo until the Subscriptions + Libib design says otherwise, not as a permanent constraint. Migration tool: `scripts/set-product-templates.sh` (`scripts/set-movie-template.sh` is deprecated and now a no-op).
 - **Shopify's `template_suffix:` product-search filter is silently ignored** — `template_suffix:nonsense` returns every product. Never trust it to narrow a query; re-check each product's real `templateSuffix` after fetching. `vendor:` and `tag:` filters are honoured.
 - **Media format lives in `product.vendor`** (`VHS` / `DVD` / `Blu-Ray` / `4K` / `Laserdisc` / `Betamax`, the last two added 2026-09-02) — decided 2026-08-07, NOT in `shopify.media-format`. Vendor already carries format on 3,274/3,550 production products while the metafield is empty on all of them, and Vendor stays visible in the admin product list so it can't silently drift. The theme reads `product.vendor` behind a whitelist that lives in the **`lms_known_formats` theme setting** (Customize → Theme settings → Little Movie Store), defaulting to `VHS,DVD,BLU-RAY,4K,LASERDISC,BETAMAX` — `sections/main-movie.liquid` and `snippets/lms-product-card.liquid` read the setting and fall back to that literal when it's blank, so a new format needs no code change. The facet is Search & Discovery's built-in **Product vendor** filter (`filter.p.vendor`), which picks up new vendor values on its own. Studio/label therefore cannot live in Vendor — use a tag. Rationale: `claudedocs/2026-08-07-product-data-model-audit.md`.
 - Otherwise prefer **metafields** over tags for typed/structured product data (genre stays on `shopify.genre`, new/used); tags are fine for simple curation buckets ("Rare Finds", "Staff Picks").
