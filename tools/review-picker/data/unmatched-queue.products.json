@@ -5,7 +5,8 @@
     "vendor": "4K",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "y-tu-mama-tabien-dvd-floor-sale-foreign",
@@ -13,7 +14,8 @@
     "vendor": "DVD",
     "genre": "foreign",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "mother-of-tears-dvd-floor-sale-horror",
@@ -21,7 +23,8 @@
     "vendor": "DVD",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "mortal-kombat-legacy-dvd-floor-sale-action",
@@ -29,7 +32,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "fass-black-vhs-floor-sale-drama",
@@ -37,7 +41,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "new-york-yankees-the-movie-vhs-floor-sale-documentary",
@@ -45,7 +50,8 @@
     "vendor": "VHS",
     "genre": "documentary",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-chidlren-of-times-square-vhs-floor-sale-drama",
@@ -53,7 +59,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "tall-tales-legends-annie-oakley-vhs-rental-drama",
@@ -61,7 +68,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-kitchen-soto-vhs-rental-drama",
@@ -69,7 +77,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-incredibly-true-adventures-of-2-girls-in-love-vhs-rental-comedy",
@@ -77,7 +86,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "mussolini-and-i-vhs-rental-drama",
@@ -85,7 +95,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "soap-dish-vhs-rental-comedy",
@@ -93,7 +104,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-bridges-of-medison-county-vhs-rental-drama",
@@ -101,7 +113,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "benji-in-benjis-very-own-christmas-story-vhs-floor-sale-holiday",
@@ -109,7 +122,8 @@
     "vendor": "VHS",
     "genre": "holiday",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "its-a-bundyful-life-vhs-floor-sale-holiday",
@@ -117,7 +131,8 @@
     "vendor": "VHS",
     "genre": "holiday",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "a-christmas-story-clamshell-vhs-floor-sale-holiday",
@@ -125,7 +140,8 @@
     "vendor": "VHS",
     "genre": "holiday",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "red-skeltons-christmas-dinner-vhs-floor-sale-holiday",
@@ -133,7 +149,8 @@
     "vendor": "VHS",
     "genre": "holiday",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "little-house-on-the-praire-christmas-at-plum-creek-vhs-floor-sale-holiday",
@@ -141,7 +158,8 @@
     "vendor": "VHS",
     "genre": "holiday",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "sanata-jr-vhs-floor-sale-holiday",
@@ -149,7 +167,8 @@
     "vendor": "VHS",
     "genre": "holiday",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "toys-trains-christmas-2-vhs-floor-sale-holiday",
@@ -157,7 +176,8 @@
     "vendor": "VHS",
     "genre": "holiday",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "toys-trains-christmas-vhs-floor-sale-holiday",
@@ -165,7 +185,8 @@
     "vendor": "VHS",
     "genre": "holiday",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-beverly-hillbillies-christmas-vhs-floor-sale-holiday",
@@ -173,7 +194,8 @@
     "vendor": "VHS",
     "genre": "holiday",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "3-kids-movies-beautiy-the-beast-puss-in-boots-jack-the-giant-killer-dvd-floor-sale-kids-family",
@@ -181,7 +203,8 @@
     "vendor": "DVD",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "jackie-chan-emergence-of-a-superstar-bluray-floor-sale-drama",
@@ -189,7 +212,8 @@
     "vendor": "Blu-Ray",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-butterfly-effect-collection-dvd-rental-sci-fi",
@@ -197,7 +221,8 @@
     "vendor": "DVD",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "say-anthing-dvd-rental-romantic-comedy",
@@ -205,7 +230,8 @@
     "vendor": "DVD",
     "genre": "romantic-comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "fantasic-beasts-the-crimes-of-grindelwald-bluray-rental-fantasy",
@@ -213,7 +239,8 @@
     "vendor": "Blu-Ray",
     "genre": "fantasy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "iron-man-trilogy-bluray-rental-action",
@@ -221,7 +248,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-line-staten-island-bluray-rental-action",
@@ -229,7 +257,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-dogfighters-vhs-rental-action",
@@ -237,7 +266,8 @@
     "vendor": "VHS",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "wildside-crimea-of-the-century-vhs-rental-action",
@@ -245,7 +275,8 @@
     "vendor": "VHS",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "ball-buster-vhs-rental-action",
@@ -253,7 +284,8 @@
     "vendor": "VHS",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "faerie-tale-theater-the-snow-queen-vhs-rental-kids-family",
@@ -261,7 +293,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "unbreakable-vhs-floor-sale-action",
@@ -269,7 +302,8 @@
     "vendor": "VHS",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "alien-ressurrection-laserdisc-floor-sale-sci-fi",
@@ -277,7 +311,8 @@
     "vendor": "Laserdisc",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "falling-down-limited-edition-blu-ray-4k-ultra-hd-4k-floor-sale-action",
@@ -285,7 +320,8 @@
     "vendor": "4K",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "tcm-sci-fi-collection-dvd-rental-sci-fi",
@@ -293,7 +329,8 @@
     "vendor": "DVD",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "snowboat-academy-vhs-rental-comedy",
@@ -301,7 +338,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-spider-and-the-fly-vhs-floor-sale-drama",
@@ -309,7 +347,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "camoulage-vhs-floor-sale-comedy",
@@ -317,7 +356,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "bangkock-dangerous-dvd-rental-action",
@@ -325,7 +365,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-moment-cultcave-vhs-floor-sale-musical",
@@ -333,7 +374,8 @@
     "vendor": "VHS",
     "genre": "musical",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "backrooms-cultcave-vhs-floor-sale-horror",
@@ -341,7 +383,8 @@
     "vendor": "VHS",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "misled-screener-vhs-floor-sale-thriller",
@@ -349,7 +392,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "scared-cargo-vhs-floor-sale-thriller",
@@ -357,7 +401,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "walt-disney-mini-classics-commemorative-edition-vhs-floor-sale-kids-family",
@@ -365,7 +410,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "lightnight-incident-vhs-rental-thriller",
@@ -373,7 +419,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "lightnight-incident-vhs-floor-sale-thriller",
@@ -381,7 +428,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "salems-lot-limited-edition-4k-ultra-hd-4k-floor-sale-horror",
@@ -389,7 +437,8 @@
     "vendor": "4K",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "giallo-essentials-yellow-edition-standard-edition-blu-ray-bluray-floor-sale-horror",
@@ -397,7 +446,8 @@
     "vendor": "Blu-Ray",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "jackie-chans-breakout-hits-limited-edition-4k-ultra-hd-4k-floor-sale-action",
@@ -405,7 +455,8 @@
     "vendor": "4K",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "mom-can-i-keep-him-vhs-rental-kids-family",
@@ -413,7 +464,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "space-rangers-chronicles-2-vhs-rental-sci-fi",
@@ -421,7 +473,8 @@
     "vendor": "VHS",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "leviathan-promotional-cassette-vhs-floor-sale-comedy",
@@ -429,7 +482,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "beauty-shop-leagally-blonde-dvd-rental-comedy",
@@ -437,7 +491,8 @@
     "vendor": "DVD",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "resident-evil-collection-dvd-7",
@@ -445,7 +500,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "miramax-movies-dvd-floor-sale-drama",
@@ -453,7 +509,8 @@
     "vendor": "DVD",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "star-wars-i-ii-iii-bluray-16",
@@ -461,7 +518,8 @@
     "vendor": "Blu-Ray",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "15-classic-movies-dvd-rental-drama",
@@ -469,7 +527,8 @@
     "vendor": "DVD",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "get-hard-central-intelligence-dvd-rental-comedy",
@@ -477,7 +536,8 @@
     "vendor": "DVD",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "masters-of-terror-8-horror-films-dvd-rental-horror",
@@ -485,7 +545,8 @@
     "vendor": "DVD",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "american-horror-stories-12-movie-collection-dvd-rental-horror",
@@ -493,7 +554,8 @@
     "vendor": "DVD",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "3-movie-collection-think-like-a-man-think-like-a-man-too-about-last-night-dvd-rental-romantic-comedy",
@@ -501,7 +563,8 @@
     "vendor": "DVD",
     "genre": "romantic-comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "mark-wahlberg-rockstar-perfect-storm-three-kings-corrupter-dvd-rental-action",
@@ -509,7 +572,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "missing-in-action-triple-feature-dvd-rental-action",
@@ -517,7 +581,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "action-4-movie-series-contraband-savages-traffic-miami-vice-dvd-6",
@@ -525,7 +590,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "laugh-out-loud-pineapple-express-the-interview-the-night-before-this-is-the-end-dvd-6",
@@ -533,7 +599,8 @@
     "vendor": "DVD",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "8-movie-monster-pack-dvd-5",
@@ -541,7 +608,8 @@
     "vendor": "DVD",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "double-feature-the-land-before-time-6-7-dvd-rental-kids-family",
@@ -549,7 +617,8 @@
     "vendor": "DVD",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "against-the-ropes-contrecoups-dvd-rental-drama",
@@ -557,7 +626,8 @@
     "vendor": "DVD",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-shadow-collection-8-movies-dvd-rental-horror",
@@ -565,7 +635,8 @@
     "vendor": "DVD",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "max-magician-and-the-legen-of-the-ring-dvd-rental-fantasy",
@@ -573,7 +644,8 @@
     "vendor": "DVD",
     "genre": "fantasy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-bourne-trilogy-dvd-rental-action",
@@ -581,7 +653,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "star-wars-trilogy-iv-v-vi-dvd-rental-sci-fi",
@@ -589,7 +662,8 @@
     "vendor": "DVD",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "star-wars-trilogy-bonus-meterial-dvd-floor-sale-documentary",
@@ -597,7 +671,8 @@
     "vendor": "DVD",
     "genre": "documentary",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "fast-furious-9-movie-collection-dvd-11",
@@ -605,7 +680,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "sharks-flipper-lopaka-dvd-floor-sale-kids-family",
@@ -613,7 +689,8 @@
     "vendor": "DVD",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "caged-in-triple-feature-dvd-rental-action",
@@ -621,7 +698,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "warner-bros-animation-collection-dvd-rental-kids-family",
@@ -629,7 +707,8 @@
     "vendor": "DVD",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "monster-hunter-dvd-rental-sci-fi",
@@ -637,7 +716,8 @@
     "vendor": "DVD",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "my-bloody-valentine-april-fools-day-dvd-rental-horror",
@@ -645,7 +725,8 @@
     "vendor": "DVD",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-cat-in-the-hat-sing-along-vhs-rental-kids-family",
@@ -653,7 +734,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "miami-vice-ii-vhs-rental-action",
@@ -661,7 +743,8 @@
     "vendor": "VHS",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "dracula-sucks-dvd-rental-horror",
@@ -669,7 +752,8 @@
     "vendor": "DVD",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "kino-film-noir-dvd-rental-thriller",
@@ -677,7 +761,8 @@
     "vendor": "DVD",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "horror-classics-nightmare-castle-dr-jeckyll-mr-hyde-vhs-floor-sale-horror",
@@ -685,7 +770,8 @@
     "vendor": "VHS",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "paul-mccartney-back-in-the-us-concert-film-dvd-rental-musical",
@@ -693,7 +779,8 @@
     "vendor": "DVD",
     "genre": "musical",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "incubus-volume-2-dvd-rental-musical",
@@ -701,7 +788,8 @@
     "vendor": "DVD",
     "genre": "musical",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "portaits-of-a-killer-vhs-floor-sale-thriller",
@@ -709,7 +797,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "pico-de-gallo-vhs-floor-sale-comedy",
@@ -717,7 +806,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "courage-and-fire-vhs-floor-sale-drama",
@@ -725,7 +815,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "stephen-kings-nightshift-collection-vhs-floor-sale-horror",
@@ -733,7 +824,8 @@
     "vendor": "VHS",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "in-the-army-vhs-floor-sale-comedy",
@@ -741,7 +833,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "a-house-on-the-hills-vhs-floor-sale-thriller",
@@ -749,7 +842,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "mututal-needs-vhs-floor-sale-thriller",
@@ -757,7 +851,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "wild-america-fantastic-follies-vhs-floor-sale-kids-family",
@@ -765,7 +860,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-mummy-collectors-set-dvd-floor-sale-action",
@@ -773,7 +869,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "mission-impossible-6-movie-collection-bluray-floor-sale-action",
@@ -781,7 +878,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "trilogy-commando-predator-terminator-bluray-floor-sale-action",
@@ -789,7 +887,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-bourne-trilogy-bluray-floor-sale-action",
@@ -797,7 +896,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "double-feature-first-wives-club-sliding-doors-dvd-floor-sale-comedy-drama",
@@ -805,7 +905,8 @@
     "vendor": "DVD",
     "genre": "comedy; drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "captain-america-3-movie-collection-3d-bluray-floor-sale-action",
@@ -813,7 +914,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "national-geographic-ocean-drifters-floor-sale-kids-family",
@@ -821,7 +923,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "livin-the-blues-vhs-floor-sale-thriller",
@@ -829,7 +932,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "prince-caspian-and-the-voyage-of-the-dawn-treader-vhs-floor-sale-kids-family",
@@ -837,7 +941,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "sister-act-ii-vhs-floor-sale-comedy",
@@ -845,7 +950,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "easier-said-vhs-floor-sale-comedy",
@@ -853,7 +959,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "provovateur-vhs-floor-sale-thriller",
@@ -861,7 +968,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "in-search-of-the-dragon-vhs-floor-sale-documentary",
@@ -869,7 +977,8 @@
     "vendor": "VHS",
     "genre": "documentary",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "pirates-of-the-caribbean-4-movie-collection-bluray-floor-sale-action",
@@ -877,7 +986,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "richard-pryor-triple-feature-bluray-floor-sale-comedy",
@@ -885,7 +995,8 @@
     "vendor": "Blu-Ray",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "triple-feature-v-for-vendetta-bluray-floor-sale-action",
@@ -893,7 +1004,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "star-trek-2-disc-special-edition-bluray-floor-sale-sci-fi",
@@ -901,7 +1013,8 @@
     "vendor": "Blu-Ray",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "tron-legacy-tron-the-original-classic-bluray-floor-sale-sci-fi",
@@ -909,7 +1022,8 @@
     "vendor": "Blu-Ray",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "star-wars-iv-v-vi-bluray-floor-sale-sci-fi",
@@ -917,7 +1031,8 @@
     "vendor": "Blu-Ray",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "where-the-wild-things-are-the-neverending-story-bluray-floor-sale-kids-family",
@@ -925,7 +1040,8 @@
     "vendor": "Blu-Ray",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "harry-potter-complete-8-film-collection-bluray-floor-sale-kids-family",
@@ -933,7 +1049,8 @@
     "vendor": "Blu-Ray",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-ice-house-dvd-floor-sale-drama",
@@ -941,7 +1058,8 @@
     "vendor": "DVD",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "lincon-and-lee-at-antietam-dvd-floor-sale-documentary",
@@ -949,7 +1067,8 @@
     "vendor": "DVD",
     "genre": "documentary",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-little-mermaid-3-movie-collection-bluray-floor-sale-kids-family",
@@ -957,7 +1076,8 @@
     "vendor": "Blu-Ray",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "9-to-5-vhs-floor-sale-comedy",
@@ -965,7 +1085,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-funnniest-men-of-comedy-vhs",
@@ -973,7 +1094,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "murder-in-texas-vhs",
@@ -981,7 +1103,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "fast-fortune-vhs",
@@ -989,7 +1112,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "somethingn-special-vhs",
@@ -997,7 +1121,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "4-film-favorites-batman-collection-bluray",
@@ -1005,7 +1130,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "expendables-1-2-3-bluray",
@@ -1013,7 +1139,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "bay-watch-bluray",
@@ -1021,7 +1148,8 @@
     "vendor": "Blu-Ray",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "strike-screener-vhs",
@@ -1029,7 +1157,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-cutting-ege-vhs",
@@ -1037,7 +1166,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "xmen-collection-dvd",
@@ -1045,7 +1175,8 @@
     "vendor": "DVD",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-outer-limits-the-sixth-finger-vhs",
@@ -1053,7 +1184,8 @@
     "vendor": "VHS",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-outer-limits-demon-with-a-glass-hand-vhs",
@@ -1061,7 +1193,8 @@
     "vendor": "VHS",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-outer-limits-second-chance-vhs",
@@ -1069,7 +1202,8 @@
     "vendor": "VHS",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "space-marines-ruby-jean-and-joe-vhs",
@@ -1077,7 +1211,8 @@
     "vendor": "VHS",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "mission-galactica-the-cyclone-attack-vhs",
@@ -1085,7 +1220,8 @@
     "vendor": "VHS",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "secrets-of-a-married-man-vhs",
@@ -1093,7 +1229,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "wise-cracks-vhs",
@@ -1101,7 +1238,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "living-it-up-english-dubbed-vhs",
@@ -1109,7 +1247,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "the-caged-heart-vhs",
@@ -1117,7 +1256,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "sand-diego-zoo-its-a-wild-life-vhs",
@@ -1125,7 +1265,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "huck-the-kind-of-hearts-vhs",
@@ -1133,7 +1274,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "harry-potter-and-the-deathly-hollows-bluray",
@@ -1141,7 +1283,8 @@
     "vendor": "Blu-Ray",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "almost-pregnant-a-bedtime-story",
@@ -1149,7 +1292,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "outsiders",
@@ -1157,7 +1301,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "puss-in-boots-faerie-tale-theatre",
@@ -1165,7 +1310,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "alegria-an-enchanting-fable",
@@ -1173,7 +1319,8 @@
     "vendor": "VHS",
     "genre": "musical",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "area-51-secrets-of-dreamland",
@@ -1181,7 +1328,8 @@
     "vendor": "VHS",
     "genre": "documentary",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "wide-awake-demo-tape",
@@ -1189,7 +1337,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "scavengers-vhs-academy-1988-stunts-kenneth-david-gilman-brenda-bakke",
@@ -1197,7 +1346,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "dead-poets-society-vhs-1989-robin-williams-buy-2-get-1-free",
@@ -1205,7 +1355,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "evil-judgment-vinegar-syndrome",
@@ -1213,7 +1364,8 @@
     "vendor": "Blu-Ray",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "lost-picture-show-vinegar-syndrome",
@@ -1221,7 +1373,8 @@
     "vendor": "Blu-Ray",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "hugo-mask-special-horrible-full-head-mask-with-hair",
@@ -1229,7 +1382,8 @@
     "vendor": "Blu-Ray",
     "genre": "horror",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-cardona-collection-vol-2-vinegar-syndrome",
@@ -1237,7 +1391,8 @@
     "vendor": "Blu-Ray",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "the-talented-mr-ripley-vhs-2000",
@@ -1245,7 +1400,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "backtrack-1992-directors-cut",
@@ -1253,7 +1409,8 @@
     "vendor": "VHS",
     "genre": "thriller",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "an-american-summer-vhs",
@@ -1261,7 +1418,8 @@
     "vendor": "VHS",
     "genre": "drama",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "missing-link-peter-elliot-vhs-rare-1st-edition-original-release-1989-mca",
@@ -1269,7 +1427,8 @@
     "vendor": "VHS",
     "genre": "sci-fi",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "americas-great-national-parks-yosemite-yellowstone-grand-canyon-vhs-vcr-tapes",
@@ -1277,7 +1436,8 @@
     "vendor": "VHS",
     "genre": "kids-family",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "an-evening-with-robin-williams-live-uncensored",
@@ -1285,7 +1445,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "jerry-seinfeld-comedian-demo-tape",
@@ -1293,7 +1454,8 @@
     "vendor": "VHS",
     "genre": "comedy",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "complete-kubrick-the-4k-uhd-blu-ray-floor-sale-action",
@@ -1301,7 +1463,8 @@
     "vendor": "4K",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "gaumont-treasures-vol-2-dvd-rental-special-interest",
@@ -1309,7 +1472,8 @@
     "vendor": "DVD",
     "genre": "",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Rental"
   },
   {
     "handle": "easyriders-video-magazine-15-vhs-floor-sale-special-interest",
@@ -1317,7 +1481,8 @@
     "vendor": "VHS",
     "genre": "",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "easyriders-video-magazine-12-vhs-floor-sale-special-interest",
@@ -1325,7 +1490,8 @@
     "vendor": "VHS",
     "genre": "",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "behind-the-scenes-point-break-hot-shots-vhs",
@@ -1333,7 +1499,8 @@
     "vendor": "VHS",
     "genre": "",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "philadelphia-sports-follies-vhs",
@@ -1341,7 +1508,8 @@
     "vendor": "VHS",
     "genre": "",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": "Floor Sale"
   },
   {
     "handle": "chrome-soldiers-the-secret-passion-of-robert-clayton",
@@ -1349,6 +1517,7 @@
     "vendor": "VHS",
     "genre": "action",
     "reason": "no TMDB match",
-    "candidates": []
+    "candidates": [],
+    "tag": ""
   }
 ]

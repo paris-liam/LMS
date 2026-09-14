@@ -15,7 +15,7 @@ import time
 from pathlib import Path
 from urllib.parse import quote
 
-from review_page import MAX_CANDIDATES, THUMB_BASE_URL, collect_products
+from review_page import MAX_CANDIDATES, THUMB_BASE_URL, collect_products, rental_or_floor_sale
 from review_registry import filter_unknown, mark_queued
 
 __all__ = [
@@ -60,10 +60,12 @@ def build_hosted_picker_html(products: list[dict], batch_id: str) -> str:
   header p.instructions {{ margin: 0; color: #555; font-size: .95rem; }}
   header .status-row {{ display: flex; align-items: center; gap: 1rem; margin-top: .5rem; }}
   #counter {{ color: #666; font-size: .9rem; }}
-  #hide-decided-label {{ font-size: .9rem; color: #444; display: flex; align-items: center; gap: .35rem; cursor: pointer; }}
+  #hide-decided-label, #rental-only-label {{ font-size: .9rem; color: #444; display: flex; align-items: center; gap: .35rem; cursor: pointer; }}
   .card {{ background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }}
   .card.decided {{ border-color: #5f8d7a; background: #f4faf7; }}
   body.hide-decided .card.decided {{ display: none; }}
+  body.rental-only .card:not(.tag-rental) {{ display: none; }}
+  .tag.rental {{ color: #973123; background: #fbeceb; }}
   .card h2 {{ font-size: 1.15rem; margin: 0 0 .15rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }}
   .save-state {{ font-size: .8rem; font-weight: 500; }}
   .save-state.saved {{ color: #5f8d7a; }}
@@ -96,6 +98,7 @@ def build_hosted_picker_html(products: list[dict], batch_id: str) -> str:
   <div class="status-row">
     <span id="counter"></span>
     <label id="hide-decided-label"><input type="checkbox" id="hide-decided"> Hide decided</label>
+    <label id="rental-only-label"><input type="checkbox" id="rental-only"> Rental titles only</label>
   </div>
 </header>
 <main id="cards"></main>
@@ -105,6 +108,7 @@ const BATCH_ID = {batch_id_json};
 const STORAGE_KEY = "tmdb-review-picks::" + BATCH_ID;
 const MANUAL_KEY = "tmdb-review-manual::" + BATCH_ID;
 const HIDE_DECIDED_KEY = "tmdb-review-hide-decided::" + BATCH_ID;
+const RENTAL_ONLY_KEY = "tmdb-review-rental-only::" + BATCH_ID;
 const PENDING_KEY = "tmdb-review-pending::" + BATCH_ID;
 
 const MANUAL_DEBOUNCE_MS = 1500;
@@ -286,11 +290,12 @@ function render() {{
       return optionHtml(product.handle, String(i), current === String(i), "",
         `${{poster}}<span class="info"><strong>${{esc(candidate.title)}}</strong> (${{esc(candidate.year) || "?"}})<br>${{overview}}</span>`);
     }}).join("");
-    const tags = [product.vendor, product.genre].filter(Boolean);
-    const tagsHtml = tags.length
-      ? `<span class="tags">${{tags.map(t => `<span class="tag">${{esc(t)}}</span>`).join("")}}</span>`
-      : "";
-    return `<section class="card ${{current !== undefined ? "decided" : ""}}" data-handle="${{esc(product.handle)}}">
+    const plainTags = [product.vendor, product.genre].filter(Boolean).map(t => `<span class="tag">${{esc(t)}}</span>`);
+    const scopeTag = product.tag ? [`<span class="tag ${{product.tag === "Rental" ? "rental" : ""}}">${{esc(product.tag)}}</span>`] : [];
+    const allTags = [...plainTags, ...scopeTag];
+    const tagsHtml = allTags.length ? `<span class="tags">${{allTags.join("")}}</span>` : "";
+    const cardTagClass = product.tag === "Rental" ? "tag-rental" : product.tag === "Floor Sale" ? "tag-floor-sale" : "";
+    return `<section class="card ${{current !== undefined ? "decided" : ""}} ${{cardTagClass}}" data-handle="${{esc(product.handle)}}">
       <h2>${{esc(product.title)}} ${{tagsHtml}} ${{saveStateHtml(product.handle)}}</h2>
       <div class="meta"><code>${{esc(product.handle)}}</code> — ${{esc(product.reason)}}
         · <a href="${{searchUrl}}" target="_blank">TMDB search</a>
@@ -315,9 +320,16 @@ function render() {{
   updateCounter();
 }}
 
+function visibleProducts() {{
+  return document.body.classList.contains("rental-only")
+    ? PRODUCTS.filter(p => p.tag === "Rental")
+    : PRODUCTS;
+}}
+
 function updateCounter() {{
-  const decided = Object.keys(picks).length;
-  document.getElementById("counter").textContent = `${{decided}} / ${{PRODUCTS.length}} decided`;
+  const shown = visibleProducts();
+  const decided = shown.filter(p => picks[p.handle] !== undefined).length;
+  document.getElementById("counter").textContent = `${{decided}} / ${{shown.length}} decided`;
 }}
 
 const hideDecidedBox = document.getElementById("hide-decided");
@@ -326,6 +338,15 @@ document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
 hideDecidedBox.addEventListener("change", () => {{
   document.body.classList.toggle("hide-decided", hideDecidedBox.checked);
   localStorage.setItem(HIDE_DECIDED_KEY, hideDecidedBox.checked ? "1" : "0");
+}});
+
+const rentalOnlyBox = document.getElementById("rental-only");
+rentalOnlyBox.checked = localStorage.getItem(RENTAL_ONLY_KEY) === "1";
+document.body.classList.toggle("rental-only", rentalOnlyBox.checked);
+rentalOnlyBox.addEventListener("change", () => {{
+  document.body.classList.toggle("rental-only", rentalOnlyBox.checked);
+  localStorage.setItem(RENTAL_ONLY_KEY, rentalOnlyBox.checked ? "1" : "0");
+  updateCounter();
 }});
 
 function buildPayload(handle, value) {{

@@ -88,6 +88,7 @@ def collect_products(
             merged[handle] = {
                 "handle": handle, "title": row["Title"],
                 "vendor": row.get("Vendor", ""), "genre": row.get("Genre", ""),
+                "tag": rental_or_floor_sale(row.get("Tags", "")),
                 "reasons": [],
             }
         merged[handle]["reasons"].append(row["Reason"])
@@ -108,12 +109,26 @@ def collect_products(
             "title": entry["title"],
             "vendor": entry["vendor"],
             "genre": entry["genre"],
+            "tag": entry["tag"],
             "reason": "; ".join(entry["reasons"]),
             "candidates": candidates,
         })
         progress_fn(index, total, entry["title"], message)
 
     return products
+
+
+def rental_or_floor_sale(tags: str) -> str:
+    """Pull the catalogue-scoping tag ("Rental" or "Floor Sale") out of a
+    raw Shopify Tags string, for the picker's Rental-only filter. Returns
+    "" when neither is present (e.g. Tags wasn't carried through, or the
+    row predates the Rental/Floor Sale scoping decision)."""
+    tag_list = [t.strip() for t in tags.split(",")]
+    if "Rental" in tag_list:
+        return "Rental"
+    if "Floor Sale" in tag_list:
+        return "Floor Sale"
+    return ""
 
 
 def build_picker_html(products: list[dict], batch_id: str = "default") -> str:

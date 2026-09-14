@@ -21,6 +21,17 @@ class TestBuildHostedPickerHtml(unittest.TestCase):
         html = build_hosted_picker_html([sample_product()], "out-product_export_3")
         self.assertIn('"out-product_export_3"', html)
 
+    def test_offers_a_rental_only_filter_toggle(self):
+        html = build_hosted_picker_html([sample_product()], "out-product_export_3")
+        self.assertIn('id="rental-only"', html)
+        self.assertIn("rental-only", html)
+
+    def test_rental_tagged_products_get_the_filterable_card_class(self):
+        product = sample_product()
+        product["tag"] = "Rental"
+        html = build_hosted_picker_html([product], "out-product_export_3")
+        self.assertIn("tag-rental", html)
+
     def test_embeds_product_json(self):
         html = build_hosted_picker_html([sample_product()], "batch")
         self.assertIn('"the-thing"', html)
