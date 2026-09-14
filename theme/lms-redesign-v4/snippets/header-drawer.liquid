@@ -100,36 +100,6 @@
           {{ section.settings.join_club_label | default: 'Join the Club' }}
         </a>
 
-        {% if shop.customer_accounts_enabled %}
-          <a
-            href="{{ routes.account_url }}"
-            class="menu-drawer__account"
-          >
-            {{ 'content.account_title' | t }}
-          </a>
-        {% endif %}
-
-        {% if settings.cart_type == 'drawer' and template.name != 'cart' %}
-          <button
-            type="button"
-            on:click="#cart-drawer/open"
-            class="menu-drawer__account button-unstyled"
-            aria-haspopup="dialog"
-            aria-describedby="cart-bubble-text"
-          >
-            {{ 'content.cart_title' | t }}
-            {% render 'cart-bubble' %}
-          </button>
-        {% else %}
-          <a
-            href="{{ routes.cart_url }}"
-            class="menu-drawer__account"
-            aria-describedby="cart-bubble-text"
-          >
-            {{ 'content.cart_title' | t }}
-          </a>
-        {% endif %}
-
         {% if section.settings.show_search %}
           <button
             type="button"
