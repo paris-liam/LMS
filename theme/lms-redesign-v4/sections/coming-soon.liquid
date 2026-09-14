@@ -46,6 +46,17 @@
         {{ locksmith_passcode_form }}
       </div>
 
+      {%- comment -%} Native Shopify storefront password — opens the dialog defined in layout/password.liquid {%- endcomment -%}
+      <div class="cs-store-password">
+        <button
+          class="cs-store-password-btn"
+          type="button"
+          on:click="#password-form/showDialog"
+        >
+          {{ 'actions.enter_using_password' | t }}
+        </button>
+      </div>
+
       {%- comment -%} App blocks (e.g. Instafeed Instagram feed) — added via the theme editor {%- endcomment -%}
       <div class="cs-ig">
         {% content_for 'blocks' %}
@@ -195,6 +206,24 @@
     max-width: 540px;
     text-align: center;
     font-family: var(--lms-font-mono);
+  }
+
+  .cs-store-password {
+    margin: 16px auto 0;
+    text-align: center;
+  }
+  .cs-store-password-btn {
+    background: none;
+    border: none;
+    padding: 8px;
+    font-family: var(--lms-font-mono);
+    font-size: 13px;
+    color: var(--lms-mahogany);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .cs-store-password-btn:hover {
+    text-decoration: none;
   }
 
   .cs-success {

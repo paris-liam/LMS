@@ -26,7 +26,7 @@
           "type": "category",
           "settings": {
             "title": "Memberships & Rentals",
-            "background_color": "#5f8d7a"
+            "background_color": "{{ settings.color_palette.color1 }}"
           }
         },
         "q2": {
@@ -117,7 +117,7 @@
           "type": "category",
           "settings": {
             "title": "Formats",
-            "background_color": "#8fcdcf"
+            "background_color": "{{ settings.color_palette.color3 }}"
           }
         },
         "q15": {
@@ -159,7 +159,7 @@
           "type": "category",
           "settings": {
             "title": "Location & Hours",
-            "background_color": "#973123"
+            "background_color": "{{ settings.color_palette.foreground }}"
           }
         },
         "q21": {
@@ -208,7 +208,7 @@
           "type": "category",
           "settings": {
             "title": "Who Framed Roger Rabbit?",
-            "background_color": "#3a2018"
+            "background_color": "{{ settings.color_palette.color2 }}"
           }
         },
         "q28": {
