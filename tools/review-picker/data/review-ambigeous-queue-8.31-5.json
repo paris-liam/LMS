@@ -510,5 +510,9 @@
     "choice": "tmdb",
     "poster_path": "/iFOw9bXeLM6a2WbI7T1ytF8o0Wn.jpg",
     "overview": "A high school swim champion with a troubled past enrolls in the U.S. Coast Guard's 'A' School, where legendary rescue swimmer Ben Randall teaches him some hard lessons about loss, love, and self-sacrifice."
+  },
+  {
+    "handle": "the-gun-run-dvd-rental-action",
+    "choice": "skip"
   }
 ]
