@@ -328,5 +328,11 @@
   {
     "handle": "the-blue-angel-vhs-rental-drama",
     "choice": "skip"
+  },
+  {
+    "handle": "the-boss-baby-dvd-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/9MsQJKe4cUAGxc7R2NGaFQLqOPc.jpg",
+    "overview": "A story about how a new baby's arrival impacts a family, told from the point of view of a delightfully unreliable narrator, a wildly imaginative 7 year old named Tim."
   }
 ]
