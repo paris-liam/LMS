@@ -356,5 +356,11 @@
     "choice": "tmdb",
     "poster_path": "/kXDjSAWJrudIQ7ST6wfmsiMAiKo.jpg",
     "overview": "A prospector, a trapper and their sled dog battle the Klondike elements on their journey to get to the gold country."
+  },
+  {
+    "handle": "the-candidate-vhs-rental-drama",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
