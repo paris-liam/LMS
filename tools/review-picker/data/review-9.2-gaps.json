@@ -10,5 +10,9 @@
   {
     "handle": "was-the-dog-vhs-rental-comedy",
     "choice": "skip"
+  },
+  {
+    "handle": "the-rules-of-the-game-dvd-rental-comedy",
+    "choice": "skip"
   }
 ]
