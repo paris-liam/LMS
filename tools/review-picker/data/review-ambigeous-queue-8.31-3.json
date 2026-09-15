@@ -270,5 +270,11 @@
     "choice": "tmdb",
     "poster_path": "/dmCfyzUl0Ylk8Rpi6dYyWuBrnNr.jpg",
     "overview": "The advertising director of Pacific Pharmaceuticals, frustrated with the low ratings of their sponsored TV program, seeks a more sensationalist approach. He orders his staff to Faro Island to capture King Kong for exploitation. As Godzilla re-emerges, a media frenzy generates with Pacific looking to capitalize off of the ultimate battle."
+  },
+  {
+    "handle": "kingsman-the-secret-bluray-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/17i5YPTfHOjXoieArpATWGRhLj1.jpg",
+    "overview": "The story of a super-secret spy organization that recruits an unrefined but promising street kid into the agency's ultra-competitive training program just as a global threat emerges from a twisted tech genius."
   }
 ]
