@@ -18,5 +18,9 @@
   {
     "handle": "tcm-sci-fi-collection-dvd-rental-sci-fi",
     "choice": "skip"
+  },
+  {
+    "handle": "snowboat-academy-vhs-rental-comedy",
+    "choice": "skip"
   }
 ]
