@@ -312,5 +312,9 @@
     "choice": "tmdb",
     "poster_path": "/vnFjbPnzdNAjq54WZtc8AbQPq61.jpg",
     "overview": "A young news reporter schemes to take over the job of a veteran news anchor whose ratings he's been hired to promote."
+  },
+  {
+    "handle": "los-lonely-boys-dvd-rental-musical",
+    "choice": "skip"
   }
 ]
