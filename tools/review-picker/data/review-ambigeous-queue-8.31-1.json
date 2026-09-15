@@ -745,8 +745,6 @@
   },
   {
     "handle": "crimes-of-the-future",
-    "choice": "tmdb",
-    "poster_path": "/w28rLVOO5hrmA7fe4cbZgS2993Y.jpg",
-    "overview": "In a dystopic world where a plague is killing off pubescent human females, an esoteric researcher seeks his missing mentor while trying to retain morality in the sex-obsessed society he lives in."
+    "choice": "skip"
   }
 ]
