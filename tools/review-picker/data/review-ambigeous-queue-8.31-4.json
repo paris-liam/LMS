@@ -308,5 +308,11 @@
     "choice": "tmdb",
     "poster_path": "/pKSeyN02R5khphImEIpAdBjQgEP.jpg",
     "overview": "Donna's senior prom is supposed to be the best night of her life, though a sadistic killer from her past has different plans for her and her friends."
+  },
+  {
+    "handle": "public-enemies-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/3KgtekisQBrHRsm2cD5UOB6Ce3k.jpg",
+    "overview": "Depression-era bank robber John Dillinger's charm and audacity endear him to much of America's downtrodden public, but he's also a thorn in the side of J. Edgar Hoover and the fledgling FBI. Desperate to capture the elusive outlaw, Hoover makes Dillinger his first Public Enemy Number One and assigns his top agent, Melvin Purvis, the task of bringing him in dead or alive."
   }
 ]
