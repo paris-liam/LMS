@@ -338,5 +338,9 @@
     "choice": "tmdb",
     "poster_path": "/ihN6hpMI8IUGgUvivU5HUT2M16c.jpg",
     "overview": "A pushy, narcissistic filmmaker persuades a Phoenix family to let him and his crew film their everyday lives, in the manner of the ground-breaking PBS series \"An American Family\"."
+  },
+  {
+    "handle": "rebel-run-vhs-rental-action",
+    "choice": "skip"
   }
 ]
