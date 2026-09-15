@@ -468,5 +468,11 @@
   {
     "handle": "neighbors-2",
     "choice": "skip"
+  },
+  {
+    "handle": "night-buffalo-dvd-rental-foreign",
+    "choice": "tmdb",
+    "poster_path": "/z9MCUZPV9CRPkNNJDw04hCM0ysC.jpg",
+    "overview": "Unable to cope with the fact that his girlfriend cheated on him with his best friend, a 22-year-old schizophrenic sets an elaborate revenge plan into motion before taking his own life."
   }
 ]
