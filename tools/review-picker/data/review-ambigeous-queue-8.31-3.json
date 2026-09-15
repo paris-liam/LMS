@@ -362,5 +362,11 @@
     "choice": "tmdb",
     "poster_path": "/by0Q2eNzHCqMUl4gfgvMC518IWw.jpg",
     "overview": "Two men and a woman in the deep south of the 1950s plot to kidnap a child from a wealthy black family, mistakenly believing that no one will try to stop them."
+  },
+  {
+    "handle": "men-in-black-dvd-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/uLOmOF5IzWoyrgIF5MfUnh5pa1X.jpg",
+    "overview": "After a police chase with an otherworldly being, a New York City cop is recruited as an agent in a top-secret organization established to monitor and police alien activity on Earth: the Men in Black. Agent K and new recruit Agent J find themselves in the middle of a deadly plot by an intergalactic terrorist who has arrived on Earth to assassinate two ambassadors from opposing galaxies."
   }
 ]
