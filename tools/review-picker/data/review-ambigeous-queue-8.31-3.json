@@ -252,5 +252,11 @@
     "choice": "tmdb",
     "poster_path": "/v7TaX8kXMXs5yFFGR41guUDNcnB.jpg",
     "overview": "An assassin is shot by her ruthless employer, Bill, and other members of their assassination circle – but she lives to plot her vengeance."
+  },
+  {
+    "handle": "kill-zone-vhs-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/llw8lhm35W8X3AOQaAhAYXzWtGP.jpg",
+    "overview": "An American colonel will pay any price to defeat the Viet Cong. When his unauthorized fighting force in Cambodia is discovered, he becomes a one man army, fighting a war of his own for a cause he knows is just."
   }
 ]
