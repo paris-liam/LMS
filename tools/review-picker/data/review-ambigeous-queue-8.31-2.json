@@ -510,5 +510,11 @@
     "choice": "tmdb",
     "poster_path": "/2n3FTpj2AmucfvgZ5tunZxZ2Jvf.jpg",
     "overview": "When former getaway driver Charlie Bronson jeopardises his Witness Protection Plan identity in order to help his girlfriend get to Los Angeles, the feds and Charlie's former gang chase them on the road."
+  },
+  {
+    "handle": "hitchhikers-guide-to-the-galaxy-dvd-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/4fOFbNMjq708CQ7ou71by6rI6wZ.jpg",
+    "overview": "Mere seconds before the Earth is to be demolished by an alien construction crew, Arthur Dent is swept off the planet by his friend Ford Prefect, a researcher penning a new edition of \"The Hitchhiker's Guide to the Galaxy.\""
   }
 ]
