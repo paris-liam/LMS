@@ -362,5 +362,9 @@
     "choice": "manual",
     "image_src": "",
     "overview": ""
+  },
+  {
+    "handle": "the-choice-dvd-rental-romantic-comedy",
+    "choice": "skip"
   }
 ]
