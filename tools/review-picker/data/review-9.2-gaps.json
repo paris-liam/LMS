@@ -78,5 +78,9 @@
   {
     "handle": "star-wars-trilogy-iv-v-vi-dvd-rental-sci-fi",
     "choice": "skip"
+  },
+  {
+    "handle": "the-bourne-trilogy-dvd-rental-action",
+    "choice": "skip"
   }
 ]
