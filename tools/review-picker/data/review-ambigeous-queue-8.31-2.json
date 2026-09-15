@@ -318,5 +318,11 @@
   {
     "handle": "ever-after-vhs-rental-drama",
     "choice": "skip"
+  },
+  {
+    "handle": "excision",
+    "choice": "tmdb",
+    "poster_path": "/3aLgB6FTQlNanER0RpckbKdwyh9.jpg",
+    "overview": "Pauline, a disturbed, outcast teenager, has a fascination with surgery and experiences violent, psychosexual fantasies, all while aspiring to a career in medicine."
   }
 ]
