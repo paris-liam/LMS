@@ -632,5 +632,11 @@
     "choice": "tmdb",
     "poster_path": "/AeEbHPCzGOxEk60bVehikBYqedn.jpg",
     "overview": "When his best friend dies of a heart attack, Ray Macklin becomes a man obsessed with his own mortality. Convinced that all his aches and pains are an indication of his imminent death, Ray's life turns into a slapstick farce of health-crazed anxiety and hypochondria."
+  },
+  {
+    "handle": "checkmate-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/1P92cW4ae491HqhorztCbhpFTC3.jpg",
+    "overview": "A notorious serial killer is hired to kidnap the daughter of Pittsburgh's Chief of Police when he takes up the charge against human trafficking in his city."
   }
 ]
