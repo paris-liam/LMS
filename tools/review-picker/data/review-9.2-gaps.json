@@ -22,5 +22,9 @@
   {
     "handle": "snowboat-academy-vhs-rental-comedy",
     "choice": "skip"
+  },
+  {
+    "handle": "bangkock-dangerous-dvd-rental-action",
+    "choice": "skip"
   }
 ]
