@@ -712,5 +712,11 @@
     "choice": "tmdb",
     "poster_path": "/bCpMIywuNZeWt3i5UMLEIc0VSwM.jpg",
     "overview": "A radio astronomer receives the first extraterrestrial radio signal ever picked up on Earth. As the world powers scramble to decipher the message and decide upon a course of action, she must make some difficult decisions between her beliefs, the truth, and reality."
+  },
+  {
+    "handle": "contract-killer-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/oLOFr2PGrtNmQ9rLshIKr6T41UK.jpg",
+    "overview": "Financially troubled, a newbie hitman reluctantly takes the job of finding the plotted killer of a Japanese tycoon."
   }
 ]
