@@ -352,5 +352,11 @@
   {
     "handle": "retribution-vhs",
     "choice": "skip"
+  },
+  {
+    "handle": "revenge-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/dWXjUGwpwGWWevcnpPuf5QGpKMw.jpg",
+    "overview": "Jen's romantic getaway with her wealthy married boyfriend is disrupted when his friends arrive for an impromptu hunting trip. Tension mounts at the house until the situation culminates in an unexpected way."
   }
 ]
