@@ -436,5 +436,11 @@
     "choice": "tmdb",
     "poster_path": "/wAAt2gvbkbeefzjd06GPfkdfUho.jpg",
     "overview": "A Chinese chef accidentally gets involved with a news reporter who filmed a drug bust that went awry and is now being chased by gangs who are trying to get the video tape."
+  },
+  {
+    "handle": "mud-dvd-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/o2jT5jQdKh1HAF0fMKuGwBOwOYB.jpg",
+    "overview": "Two teenage boys find a fugitive hiding out on an island in the Mississippi River and help him reunite with his lover and escape an avenging family and their armed posse."
   }
 ]
