@@ -366,5 +366,11 @@
     "choice": "tmdb",
     "poster_path": "/g9i3dfQRAyU8TPe1LrbvAdVoLfB.jpg",
     "overview": "When a motley crew of strangers find themselves trapped in an isolated tavern, they must band together in a battle for survival against a family of flesh-hungry creatures."
+  },
+  {
+    "handle": "fighting-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/xP1uogi5Gjnf6ybSN10lyDpqDlW.jpg",
+    "overview": "Small-town boy Shawn MacArthur has come to New York City with nothing. Barely earning a living selling counterfeit goods on the streets, his luck changes when scam artist Harvey Boarden sees that he has a natural talent for streetfighting. When Harvey offers Shawn help at making the real cash, the two form an uneasy partnership."
   }
 ]
