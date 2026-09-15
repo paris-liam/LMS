@@ -424,5 +424,9 @@
   {
     "handle": "gangster-world-vhs-rental-sci-fi",
     "choice": "skip"
+  },
+  {
+    "handle": "girl-vhs-rental-drama",
+    "choice": "skip"
   }
 ]
