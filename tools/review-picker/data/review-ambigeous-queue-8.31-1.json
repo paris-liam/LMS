@@ -540,5 +540,11 @@
   {
     "handle": "brass",
     "choice": "skip"
+  },
+  {
+    "handle": "brooklyn-dvd-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/cs7W8j5lI7qzRW6tKSj9p1Q0Ze7.jpg",
+    "overview": "In 1950s Ireland and New York, young Eilis Lacey has to choose between two men and two countries."
   }
 ]
