@@ -724,5 +724,11 @@
     "choice": "tmdb",
     "poster_path": "/2z2AcI1VyPnRtHrvfpk1YDItdmB.jpg",
     "overview": "When a pint-sized 8-year-old kid witnesses a murder he offers to help the police, if they make him a cop, too. Saddled with this streetwise sidekick, a hardboiled cop is forced to take his new partner seriously as they race the clock to bring the bad guys to justice."
+  },
+  {
+    "handle": "count-of-monte-cristo-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/ifMgDAUXVQLY4DeOu3VTTi55jSP.jpg",
+    "overview": "Young sailor Edmond Dantès is wrongfully imprisoned, escapes, finds treasure, and reinvents himself as the wealthy Count of Monte Cristo to exact revenge on those who betrayed him."
   }
 ]
