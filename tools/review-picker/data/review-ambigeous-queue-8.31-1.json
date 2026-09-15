@@ -664,5 +664,11 @@
     "choice": "tmdb",
     "poster_path": "/6iHYLipwEyZUPNO8MM3l1yHDaFE.jpg",
     "overview": "Born of a god but raised as a man, Perseus is helpless to save his family from Hades, vengeful god of the underworld. With nothing to lose, Perseus volunteers to lead a dangerous mission to defeat Hades before he can seize power from Zeus and unleash hell on earth. Battling unholy demons and fearsome beasts, Perseus and his warriors will only survive if Perseus accepts his power as a god, defies fate and creates his own destiny."
+  },
+  {
+    "handle": "claudia-vhs-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/oiYBhXMnQVgFY6fNJ5WTmGSBFBt.jpg",
+    "overview": "An experimental film documentary of a playful little girl exploring nature."
   }
 ]
