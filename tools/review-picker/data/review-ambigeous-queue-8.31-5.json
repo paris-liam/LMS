@@ -570,5 +570,11 @@
   {
     "handle": "the-last-winter-vhs-rental-drama",
     "choice": "skip"
+  },
+  {
+    "handle": "the-lion-in-winter-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/f6yEfCBBMNp6jdny9AD4ZTG9tgi.jpg",
+    "overview": "Christmas 1183, Angevin Empire: King Henry II plans to announce his successor to the throne. Jockeying for the crown, though, is complex. Henry has three sons and wants his boy Prince John to take over. Henry's wife, Queen Eleanor, believes their son Prince Richard should be king. As family and various schemers gather for the holiday, each tries to make the indecisive king choose their option."
   }
 ]
