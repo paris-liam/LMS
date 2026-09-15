@@ -172,5 +172,11 @@
     "choice": "tmdb",
     "poster_path": "/i1ac0OKN7ApGfN7KX55dtUWGiBL.jpg",
     "overview": "British double agent Madeleine Goddard meets and falls in love with German spy Baron Karl Von Marwitz during World War I."
+  },
+  {
+    "handle": "dead-heat-vhs-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/7jBtDMQrXpHlyuJImTAs6Oexv7H.jpg",
+    "overview": "Detective Roger Mortis is killed in action while investigating a string of mysterious robberies: until he's brought back from the dead with a chemical company's secret re-animation technology. Now he has twelve hours to solve the case of his own death before he dies: And stays dead."
   }
 ]
