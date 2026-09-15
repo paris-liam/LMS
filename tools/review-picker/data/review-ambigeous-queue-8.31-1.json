@@ -460,5 +460,11 @@
     "choice": "tmdb",
     "poster_path": "/bymJtYNIdiAiBR1LRetaJXbfryc.jpg",
     "overview": "Two feuding siblings carrying on a heroic family tradition as Chicago firefighters. But when a puzzling series of arson attacks is reported, they are forced to set aside their differences to solve the mystery surrounding these crimes."
+  },
+  {
+    "handle": "bananas-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/gK11RUXspxqty0Wq6KoV8J0crKO.jpg",
+    "overview": "When a bumbling New Yorker is dumped by his activist girlfriend, he travels to a tiny Latin American nation and becomes involved in its latest rebellion."
   }
 ]
