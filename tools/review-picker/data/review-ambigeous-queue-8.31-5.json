@@ -302,5 +302,11 @@
     "choice": "tmdb",
     "poster_path": "/xMKn6EQS7eR5ubhPJbw5pQSBZMw.jpg",
     "overview": "Outlaw Jesse James is rumored to be the 'fastest gun in the West'. An eager recruit into James' notorious gang, Robert Ford eventually grows jealous of the famed outlaw and, when Robert and his brother sense an opportunity to kill James, their murderous action elevates their target to near mythical status."
+  },
+  {
+    "handle": "the-assignment",
+    "choice": "tmdb",
+    "poster_path": "/lhuV5cvxFhUrB6F4smVZGmdSwbT.jpg",
+    "overview": "Jack Shaw has experienced the terror first-hand. He's a top CIA agent who's tracked international killer-for-hire Carlos \"The Jackal\" Sanchez for over twenty years and barely survived Carlos' devastating bombing of a Parisian cafe. Now, he finally gets a break when he discovers Carlos' dead ringer: American naval officer and dedicated family man Annibal Ramirez."
   }
 ]
