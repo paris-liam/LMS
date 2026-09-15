@@ -474,5 +474,11 @@
   {
     "handle": "half-brothers-dvd-rental-comedy",
     "choice": "skip"
+  },
+  {
+    "handle": "hard-justice-vhs-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/dP9DzNOAPKk06fsPYroA6mNfRVn.jpg",
+    "overview": "Mr Lee is after a \"golden Buddha\" but is double crossed by one of his employees. In the process a man and his son are killed, so his brother Alex goes mad and seek revenge. He follows Lee's henchmen to San Fransisco, goes to a strip club, a casino, then he's saved and healed by indians before finally raiding the bad guy's lair with his friends"
   }
 ]
