@@ -582,5 +582,11 @@
     "choice": "tmdb",
     "poster_path": "/mVivlmUdyUwqSBnQkSzX3TLduky.jpg",
     "overview": "The son of a sorceress, armed with weapons, armour and six magically summoned knights, goes on a quest to save a princess from a vengeful wizard."
+  },
+  {
+    "handle": "the-man-with-the-iron-fists-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/nHgkRj6Igx3QsHmTyF4oAfBjAE7.jpg",
+    "overview": "In feudal China, a blacksmith who makes weapons for a small village is put in the position where he must defend himself and his fellow villagers."
   }
 ]
