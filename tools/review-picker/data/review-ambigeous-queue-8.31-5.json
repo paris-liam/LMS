@@ -444,5 +444,11 @@
     "choice": "tmdb",
     "poster_path": "/gs1oI8UMzGYtuiEoAtmvl0Tc34c.jpg",
     "overview": "The biography of Dr. W.T. Morgan, a 19th century Boston dentist, during his quest to have anesthesia, in the form of ether, accepted by the public and the medical and dental establishment."
+  },
+  {
+    "handle": "the-adventures-of-buckaroo-banzai-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/jWZh2ChereoxKgTl3AmSAKNpnmO.jpg",
+    "overview": "Adventurer/surgeon/rock musician Buckaroo Banzai and his band of men, the Hong Kong Cavaliers, take on evil alien invaders from the 8th dimension."
   }
 ]
