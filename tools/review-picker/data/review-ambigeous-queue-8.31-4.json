@@ -166,5 +166,11 @@
     "choice": "tmdb",
     "poster_path": "/wHSYPs9W3AmKdzeYhNxB0mtswlv.jpg",
     "overview": "An alien arrives on Earth looking to take human blood in an attempt to preserve his dying planet."
+  },
+  {
+    "handle": "not-quite-human-vhs-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/7W9CyqfOJ06Oi5rXm8uQ4Yi9OSW.jpg",
+    "overview": "Dr. Jonas Carson, a scientist, invents Chip, an android teenager. Dr. Carson sends Chip to school with his daughter Becky to see whether an android could interact with others. But his former employer decides to try and make a profit by stealing the mechanical boy."
   }
 ]
