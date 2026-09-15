@@ -66,5 +66,9 @@
   {
     "handle": "kino-film-noir-dvd-rental-thriller",
     "choice": "skip"
+  },
+  {
+    "handle": "murder-in-texas-vhs",
+    "choice": "skip"
   }
 ]
