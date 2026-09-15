@@ -360,5 +360,11 @@
     "choice": "tmdb",
     "poster_path": "/sFhzvwgv04VUmedB7pOO4cMP9xq.jpg",
     "overview": "After surviving a plane crash that kills many others, Max Klein develops a sense of invulnerability, leading to radical, compulsive actions. Can a psychologist and a fellow guilt-ridden survivor bring him down to earth?"
+  },
+  {
+    "handle": "feast-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/g9i3dfQRAyU8TPe1LrbvAdVoLfB.jpg",
+    "overview": "When a motley crew of strangers find themselves trapped in an isolated tavern, they must band together in a battle for survival against a family of flesh-hungry creatures."
   }
 ]
