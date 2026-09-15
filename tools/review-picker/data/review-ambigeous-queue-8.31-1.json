@@ -654,5 +654,11 @@
   {
     "handle": "circle-of-fear-vhs-rental-horror",
     "choice": "skip"
+  },
+  {
+    "handle": "city-of-sin-dvd-rental-action",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
