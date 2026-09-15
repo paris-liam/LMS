@@ -282,5 +282,9 @@
   {
     "handle": "easyriders-vhs",
     "choice": "skip"
+  },
+  {
+    "handle": "electra-dvd-rental-action",
+    "choice": "skip"
   }
 ]
