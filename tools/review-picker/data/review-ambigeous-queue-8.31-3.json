@@ -234,5 +234,11 @@
     "choice": "tmdb",
     "poster_path": "/9Ka8lKCIiWjnZiMslPQeakS5UhW.jpg",
     "overview": "France, 1914, during World War I. On Christmas Eve, an extraordinary event takes place in the bloody no man's land that the French and the Scots dispute with the Germans…"
+  },
+  {
+    "handle": "kidnap-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/fwdOX3PEZlOLXr9SMpgRnSmTVFp.jpg",
+    "overview": "A mother (in her Minivan) stops at nothing to recover her kidnapped son."
   }
 ]
