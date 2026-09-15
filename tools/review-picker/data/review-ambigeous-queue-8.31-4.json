@@ -248,5 +248,11 @@
     "choice": "tmdb",
     "poster_path": "/A4zZv0Q1VKURFZFEl2vwjaE2q0g.jpg",
     "overview": "When a shopping mall is taken over by a gang of organized crooks, it's up to a mild-mannered security guard to save the day."
+  },
+  {
+    "handle": "perfect-stranger-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/i7D5QqQ0q5EXU1UuZVY9KwIxoYR.jpg",
+    "overview": "A journalist goes undercover to ferret out businessman Harrison Hill as her best friend's killer. Posing as one of his temps, she enters into a game of online cat-and-mouse."
   }
 ]
