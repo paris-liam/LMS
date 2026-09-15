@@ -638,5 +638,11 @@
     "choice": "tmdb",
     "poster_path": "/1P92cW4ae491HqhorztCbhpFTC3.jpg",
     "overview": "A notorious serial killer is hired to kidnap the daughter of Pittsburgh's Chief of Police when he takes up the charge against human trafficking in his city."
+  },
+  {
+    "handle": "chicago",
+    "choice": "tmdb",
+    "poster_path": "/3ED8cWCXY9zkx77Sd0N5qMbsdDP.jpg",
+    "overview": "Murderesses Velma Kelly and Roxie Hart find themselves on death row together and fight for the fame that will keep them from the gallows in 1920s Chicago."
   }
 ]
