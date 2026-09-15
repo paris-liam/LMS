@@ -266,5 +266,11 @@
     "choice": "tmdb",
     "poster_path": "/tKJUvemUAd0oXwyDuV4cpVzpkxh.jpg",
     "overview": "A mid-19th century mulatto slave is torn between his success as a pit-fighter and the injustices of white society."
+  },
+  {
+    "handle": "duel-to-the-death-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/a6diqDVVpvagC3KPZctCipMcmgs.jpg",
+    "overview": "In 16th century, during the Ming dynasty era, every ten years the greatest swordsman from Japan faces the greatest swordsman from China in a duel to the death for their nation's honor. As a duel approaches, Chinese champion Bo Ching-Wan and Japanese champion Miyamoto uncover a plot to rig the fight."
   }
 ]
