@@ -45,7 +45,7 @@
     "handle": "pokemon-heroes-the-movie-dvd",
     "choice": "tmdb",
     "poster_path": "/eySv5rdYLW1k6LxepxCNl8ND26R.jpg",
-    "overview": "Ash, Pikachu and the gang try and stop a pair of thieves hiding out in the canals and alleyways of Altomare, the age-old water capital. Joining the adventure are two new legendary Pok\u00e9mon, a pair of siblings named Latias and Latios, who serve as peacekeepers and protectors of the Soul Dew \u2014 a priceless treasure with a mysterious power."
+    "overview": "Ash, Pikachu and the gang try and stop a pair of thieves hiding out in the canals and alleyways of Altomare, the age-old water capital. Joining the adventure are two new legendary Pokémon, a pair of siblings named Latias and Latios, who serve as peacekeepers and protectors of the Soul Dew — a priceless treasure with a mysterious power."
   },
   {
     "handle": "police-academy-6-vhs-floor-sale-comedy",
@@ -57,13 +57,13 @@
     "handle": "prince-of-persia-dvd-rental-action",
     "choice": "tmdb",
     "poster_path": "/siNGMLdOUNYLEGtlsnmQcpO2XZX.jpg",
-    "overview": "A rogue prince reluctantly joins forces with a mysterious princess and together, they race against dark forces to safeguard an ancient dagger capable of releasing the Sands of Time \u2013 gift from the gods that can reverse time and allow its possessor to rule the world."
+    "overview": "A rogue prince reluctantly joins forces with a mysterious princess and together, they race against dark forces to safeguard an ancient dagger capable of releasing the Sands of Time – gift from the gods that can reverse time and allow its possessor to rule the world."
   },
   {
     "handle": "prince-of-persia-dvd-floor-sale-action",
     "choice": "tmdb",
     "poster_path": "/siNGMLdOUNYLEGtlsnmQcpO2XZX.jpg",
-    "overview": "A rogue prince reluctantly joins forces with a mysterious princess and together, they race against dark forces to safeguard an ancient dagger capable of releasing the Sands of Time \u2013 gift from the gods that can reverse time and allow its possessor to rule the world."
+    "overview": "A rogue prince reluctantly joins forces with a mysterious princess and together, they race against dark forces to safeguard an ancient dagger capable of releasing the Sands of Time – gift from the gods that can reverse time and allow its possessor to rule the world."
   },
   {
     "handle": "python-wolf-vhs-floor-sale-thriller",
@@ -123,7 +123,7 @@
     "handle": "sketch-artist-ii-vhs",
     "choice": "tmdb",
     "poster_path": "/jpmsv0oDgCxxy0GGpSvSxMyFu9v.jpg",
-    "overview": "Police sketch artist Jack Whitfield helps blind rape victim Emmy describe her attacker \u2013 a serial rapist and murderer who is now out to get her."
+    "overview": "Police sketch artist Jack Whitfield helps blind rape victim Emmy describe her attacker – a serial rapist and murderer who is now out to get her."
   },
   {
     "handle": "snow-snow-2-brain-freeze-dvd-rental-holiday",
@@ -160,5 +160,11 @@
   {
     "handle": "slit-second-vhs",
     "choice": "skip"
+  },
+  {
+    "handle": "not-of-this-earth-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/wHSYPs9W3AmKdzeYhNxB0mtswlv.jpg",
+    "overview": "An alien arrives on Earth looking to take human blood in an attempt to preserve his dying planet."
   }
 ]
