@@ -657,8 +657,6 @@
   },
   {
     "handle": "city-of-sin-dvd-rental-action",
-    "choice": "manual",
-    "image_src": "",
-    "overview": ""
+    "choice": "skip"
   }
 ]
