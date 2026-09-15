@@ -292,5 +292,11 @@
     "choice": "tmdb",
     "poster_path": "/qEk48VLOdibXFVIEzE9ETZUBcCs.jpg",
     "overview": "The story of the ascension to the throne and the early reign of Queen Elizabeth the First, the endless attempts by her council to marry her off, the Catholic hatred of her and her romance with Lord Robert Dudley."
+  },
+  {
+    "handle": "emma-dvd-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/fM5goQ6c3uq3hzNJj3ZAFfTFkX9.jpg",
+    "overview": "Emma Woodhouse is a congenial young lady who delights in meddling in other people’s affairs. She is perpetually trying to unite men and women who are utterly wrong for each other. Despite her interest in romance, Emma is clueless about her own feelings, and her relationship with gentle Mr. Knightley."
   }
 ]
