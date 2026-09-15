@@ -644,5 +644,11 @@
     "choice": "tmdb",
     "poster_path": "/3ED8cWCXY9zkx77Sd0N5qMbsdDP.jpg",
     "overview": "Murderesses Velma Kelly and Roxie Hart find themselves on death row together and fight for the fame that will keep them from the gallows in 1920s Chicago."
+  },
+  {
+    "handle": "chips",
+    "choice": "tmdb",
+    "poster_path": "/mIHA8Xf6WmxbS83ia4vQ5ojvxV8.jpg",
+    "overview": "The adventures of two California Highway Patrol motorcycle officers as they make their rounds on the freeways of Los Angeles."
   }
 ]
