@@ -390,5 +390,11 @@
     "choice": "tmdb",
     "poster_path": "/5P68by2Thn8wHAziyWGEw2O7hco.jpg",
     "overview": "At a high-school party, four friends find that losing their collective virginity isn't as easy as they had thought. But they still believe that they need to do so before college. To motivate themselves, they enter a pact to all \"score\" by their senior prom."
+  },
+  {
+    "handle": "amityville-horror",
+    "choice": "tmdb",
+    "poster_path": "/4D246dpe7yy2GvHI2IbpeqkUXry.jpg",
+    "overview": "George Lutz, his wife Kathy, and their three children have just moved into a beautiful, and improbably cheap, Dutch colonial mansion nestled in the sleepy coastal town of Amityville, Long Island. However, their dream home is concealing a horrific past and soon each member of the Lutz family is plagued with increasingly strange and violent visions and impulses."
   }
 ]
