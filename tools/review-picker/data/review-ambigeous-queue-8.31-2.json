@@ -304,5 +304,11 @@
     "choice": "tmdb",
     "poster_path": "/m6XxaRLltWox4C9pykjUILrlGp9.jpg",
     "overview": "Big time drug dealer Victor Rosa is looking to get out of the game and sees his chance with a big deal with a new friend who happens to be a Wall St. stockbroker. Thinking this will be his chance to go out on top, Victor soon finds out that he's been double crossed and his last option is to get revenge."
+  },
+  {
+    "handle": "escape",
+    "choice": "tmdb",
+    "poster_path": "/yN007itJZHyj6cojusGvux5WPJS.jpg",
+    "overview": "A scientist's experiment could lead to the first man-made, functioning, living organism. An elite escape artist-private investigator is working to stop him."
   }
 ]
