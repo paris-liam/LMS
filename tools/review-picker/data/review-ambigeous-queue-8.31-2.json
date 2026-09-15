@@ -214,5 +214,11 @@
     "choice": "tmdb",
     "poster_path": "/aLv5491Q11zhIZbpqz7rnRZkSLZ.jpg",
     "overview": "A scheming widow hatches a bold plan to acquire her late husband's inheritance, unaware that she is being targeted by an ax murderer who lurks in the family's estate."
+  },
+  {
+    "handle": "dennis-the-menace",
+    "choice": "tmdb",
+    "poster_path": "/t642WwGifbQ2fEuKTJRgpPzsgtX.jpg",
+    "overview": "Mr. Wilson's ever-present annoyance comes in the form of one mischievous kid named Dennis. But he'll need Dennis's tricks to uncover a collection of gold coins that go missing when a shady drifter named Switchblade Sam comes to town."
   }
 ]
