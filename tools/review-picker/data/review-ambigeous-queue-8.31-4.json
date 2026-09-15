@@ -254,5 +254,11 @@
     "choice": "tmdb",
     "poster_path": "/i7D5QqQ0q5EXU1UuZVY9KwIxoYR.jpg",
     "overview": "A journalist goes undercover to ferret out businessman Harrison Hill as her best friend's killer. Posing as one of his temps, she enters into a game of online cat-and-mouse."
+  },
+  {
+    "handle": "pinocchio-vhs-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/bnZJrLRnoQHpzEJdka1KYfsAF3N.jpg",
+    "overview": "When the gentle woodcarver Geppetto builds a marionette to be his substitute son, a benevolent fairy brings the toy to life. The puppet, named Pinocchio, is not yet a human boy. He must earn the right to be real by proving that he is brave, truthful, and unselfish."
   }
 ]
