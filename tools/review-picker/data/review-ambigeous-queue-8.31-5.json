@@ -278,5 +278,11 @@
   {
     "handle": "talk-to-me",
     "choice": "skip"
+  },
+  {
+    "handle": "teenage-mutant-ninja-turtles-2-vhs-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/Hyvvz9Z3le1is8a0EeFJQm0aSC.jpg",
+    "overview": "The Turtles and the Shredder battle once again, this time for the last cannister of the ooze that created the Turtles, which Shredder wants to create an army of new mutants. Meanwhile Splinter is coming... to a decision."
   }
 ]
