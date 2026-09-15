@@ -69,7 +69,7 @@
     "handle": "la-femme-nikita-vhs-floor-sale-action",
     "choice": "tmdb",
     "poster_path": "/1ulQDewUG4KKHOhpXdGKm3GdLFq.jpg",
-    "overview": "A beautiful felon, sentenced to life in prison for the murder of a policeman, is given a second chance \u2013 as a secret political assassin controlled by the government."
+    "overview": "A beautiful felon, sentenced to life in prison for the murder of a policeman, is given a second chance – as a secret political assassin controlled by the government."
   },
   {
     "handle": "leapin-lizards-vhs-floor-sale-kids-family",
@@ -81,7 +81,7 @@
     "handle": "leroy-and-stich-dvd-floor-sale-kids-family",
     "choice": "tmdb",
     "poster_path": "/1LCfRArffse3PnqkACooOHkWcry.jpg",
-    "overview": "Lilo, Stitch, Jumba, and Pleakley have finally caught all of Jumba's genetic experiments and found the one true place where each of them belongs. Stitch, Jumba and Pleakley are offered positions in the Galactic Alliance, turning them down so they can stay on Earth with Lilo, but Lilo realizes her alien friends have places where they belong \u2013 and it's finally time to say \"aloha\"."
+    "overview": "Lilo, Stitch, Jumba, and Pleakley have finally caught all of Jumba's genetic experiments and found the one true place where each of them belongs. Stitch, Jumba and Pleakley are offered positions in the Galactic Alliance, turning them down so they can stay on Earth with Lilo, but Lilo realizes her alien friends have places where they belong – and it's finally time to say \"aloha\"."
   },
   {
     "handle": "lion-king-1-1-2-dvd-floor-sale-kids-family",
@@ -123,7 +123,7 @@
     "handle": "michael-jackson-moonwalker-vhs",
     "choice": "tmdb",
     "poster_path": "/3GwTPQkAcgDeAirRpEuJG8HDdRz.jpg",
-    "overview": "This fantastical movie inspired by the music of Michael Jackson features imaginative interpretations of hit tracks from the iconic 1987 album \u201cBad\u201d."
+    "overview": "This fantastical movie inspired by the music of Michael Jackson features imaginative interpretations of hit tracks from the iconic 1987 album “Bad”."
   },
   {
     "handle": "miss-congeniality-2-dvd-floor-sale-comedy",
@@ -147,7 +147,7 @@
     "handle": "monsters-university-monsters-inc-bluray-floor-sale-kids-family",
     "choice": "tmdb",
     "poster_path": "/y7thwJ7z5Bplv6vwl6RI0yteaDD.jpg",
-    "overview": "A look at the relationship between Mike and Sulley during their days at Monsters University \u2014 when they weren't necessarily the best of friends."
+    "overview": "A look at the relationship between Mike and Sulley during their days at Monsters University — when they weren't necessarily the best of friends."
   },
   {
     "handle": "motives-2-dvd-rental-thriller",
@@ -188,5 +188,11 @@
   {
     "handle": "midnight-strangers",
     "choice": "skip"
+  },
+  {
+    "handle": "hush-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/tyqD4C2vVKrvP3FkFK0GS9IWbTo.jpg",
+    "overview": "A deaf woman is stalked by a psychotic killer in her secluded home."
   }
 ]
