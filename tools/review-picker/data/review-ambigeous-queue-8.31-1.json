@@ -730,5 +730,11 @@
     "choice": "tmdb",
     "poster_path": "/ifMgDAUXVQLY4DeOu3VTTi55jSP.jpg",
     "overview": "Young sailor Edmond Dantès is wrongfully imprisoned, escapes, finds treasure, and reinvents himself as the wealthy Count of Monte Cristo to exact revenge on those who betrayed him."
+  },
+  {
+    "handle": "crash-dvd-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/86BdPC6RDX88NC880pLidKn2LCj.jpg",
+    "overview": "In post-Sept. 11 Los Angeles, tensions erupt when the lives of a Brentwood housewife, her district attorney husband, a Persian shopkeeper, two cops, a pair of carjackers and a Korean couple converge during a 36-hour period."
   }
 ]
