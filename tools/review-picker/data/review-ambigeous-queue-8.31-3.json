@@ -240,5 +240,11 @@
     "choice": "tmdb",
     "poster_path": "/fwdOX3PEZlOLXr9SMpgRnSmTVFp.jpg",
     "overview": "A mother (in her Minivan) stops at nothing to recover her kidnapped son."
+  },
+  {
+    "handle": "kill-em-all-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/cWkZQqS2IxMcvH7UZSHFR8YYRfk.jpg",
+    "overview": "After a massive shootout, a mysterious stranger arrives at a local hospital on the brink of death. Then, a foreign gang brazenly comes to the hospital to hunt him down. His nurse, the sole surviving witness to the follow-up shootout, must face an FBI interrogation that unlocks a plot of international intrigue and revenge."
   }
 ]
