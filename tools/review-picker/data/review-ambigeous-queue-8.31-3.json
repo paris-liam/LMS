@@ -454,5 +454,9 @@
     "choice": "tmdb",
     "poster_path": "/ztc05ym0T3stnBpRHdxEs3Zwsmp.jpg",
     "overview": "A young Greek woman falls in love with a non-Greek and struggles to get her family to accept him while she comes to terms with her heritage and cultural identity."
+  },
+  {
+    "handle": "my-one-and-only-dvd-rental-comedy",
+    "choice": "skip"
   }
 ]
