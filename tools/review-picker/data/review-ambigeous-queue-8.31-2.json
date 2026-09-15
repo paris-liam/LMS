@@ -314,5 +314,9 @@
   {
     "handle": "europa-dvd-rental-drama",
     "choice": "skip"
+  },
+  {
+    "handle": "ever-after-vhs-rental-drama",
+    "choice": "skip"
   }
 ]
