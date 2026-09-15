@@ -226,5 +226,9 @@
     "choice": "tmdb",
     "poster_path": "/tXYWSUIUfiG06XzgSSkd4sQFOru.jpg",
     "overview": "Change comes slowly to a small New Hampshire town in the early 20th century. We see birth, life and death in this small community."
+  },
+  {
+    "handle": "outrage-vhs-rental-thriller",
+    "choice": "skip"
   }
 ]
