@@ -424,5 +424,11 @@
   {
     "handle": "morituri-vhs-rental-thriller",
     "choice": "skip"
+  },
+  {
+    "handle": "moulin-rouge-dvd-rental-musical",
+    "choice": "tmdb",
+    "poster_path": "/2kjM5CUZRIU5yOANUowrbJcRL9L.jpg",
+    "overview": "A celebration of love and creative inspiration takes place in the infamous, gaudy and glamorous Parisian nightclub, at the cusp of the 20th century. A young poet, who is plunged into the heady world of Moulin Rouge, begins a passionate affair with the club's most notorious and beautiful star."
   }
 ]
