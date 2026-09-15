@@ -2,5 +2,9 @@
   {
     "handle": "the-three-muskateers-dvd-rental-action",
     "choice": "skip"
+  },
+  {
+    "handle": "the-seeker-dvd-rental-kids-family",
+    "choice": "skip"
   }
 ]
