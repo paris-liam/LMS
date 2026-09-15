@@ -442,5 +442,11 @@
     "choice": "tmdb",
     "poster_path": "/o2jT5jQdKh1HAF0fMKuGwBOwOYB.jpg",
     "overview": "Two teenage boys find a fugitive hiding out on an island in the Mississippi River and help him reunite with his lover and escape an avenging family and their armed posse."
+  },
+  {
+    "handle": "murder-on-the-orient-express",
+    "choice": "tmdb",
+    "poster_path": "/7GtdJU6iAg6fjQu3E3zta3bIAQh.jpg",
+    "overview": "Genius Belgian detective Hercule Poirot investigates the murder of an American tycoon aboard the Orient Express train."
   }
 ]
