@@ -362,5 +362,9 @@
   {
     "handle": "bay-watch-bluray",
     "choice": "skip"
+  },
+  {
+    "handle": "ambulance-collectors-edition",
+    "choice": "skip"
   }
 ]
