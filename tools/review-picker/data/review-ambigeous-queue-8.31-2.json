@@ -310,5 +310,9 @@
     "choice": "tmdb",
     "poster_path": "/yN007itJZHyj6cojusGvux5WPJS.jpg",
     "overview": "A scientist's experiment could lead to the first man-made, functioning, living organism. An elite escape artist-private investigator is working to stop him."
+  },
+  {
+    "handle": "europa-dvd-rental-drama",
+    "choice": "skip"
   }
 ]
