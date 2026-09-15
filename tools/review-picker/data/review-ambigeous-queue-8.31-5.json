@@ -524,5 +524,11 @@
   {
     "handle": "the-highwayman-vhs-rental-action",
     "choice": "skip"
+  },
+  {
+    "handle": "the-hurricane-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/zhnxjsNnnpsBMF5V1H7Pzkec45Y.jpg",
+    "overview": "The story of Rubin \"Hurricane\" Carter, a boxer wrongly imprisoned for murder, and the people who aided in his fight to prove his innocence."
   }
 ]
