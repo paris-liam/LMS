@@ -428,5 +428,11 @@
   {
     "handle": "girl-vhs-rental-drama",
     "choice": "skip"
+  },
+  {
+    "handle": "girls-in-prison-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/42gZLRZStmVH3shTSTj3iDZ9RBf.jpg",
+    "overview": "In 1952 Hollywood, aspiring singer/songwriter Aggie O'Hanlon is sentenced to life after being found guilty of a murder she didn't commit. While incarcerated, Aggie befriends other inmates also serving life. However, Aggie soon finds herself the target of various 'hit girls'. Can Aggie survive life behind bars long enough to prove her innocence?"
   }
 ]
