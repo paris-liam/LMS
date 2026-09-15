@@ -26,5 +26,9 @@
   {
     "handle": "bangkock-dangerous-dvd-rental-action",
     "choice": "skip"
+  },
+  {
+    "handle": "lightnight-incident-vhs-rental-thriller",
+    "choice": "skip"
   }
 ]
