@@ -350,5 +350,11 @@
   {
     "handle": "the-call-of-the-wild-bluray-rental-drama-4k",
     "choice": "skip"
+  },
+  {
+    "handle": "the-call-of-the-wild-dvd-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/kXDjSAWJrudIQ7ST6wfmsiMAiKo.jpg",
+    "overview": "A prospector, a trapper and their sled dog battle the Klondike elements on their journey to get to the gold country."
   }
 ]
