@@ -21,7 +21,7 @@
     "handle": "detective-pikachu-bluray-floor-sale-4k-kids-family",
     "choice": "tmdb",
     "poster_path": "/uhWvnFgg3BNlcUz0Re1HfQqIcCD.jpg",
-    "overview": "In a world where people collect pocket-size monsters (Pok\u00e9mon) to do battle, a boy comes across an intelligent monster who seeks to be a detective."
+    "overview": "In a world where people collect pocket-size monsters (Pokémon) to do battle, a boy comes across an intelligent monster who seeks to be a detective."
   },
   {
     "handle": "downton-abbey-the-motion-picture-dvd-rental-drama",
@@ -57,7 +57,7 @@
     "handle": "federico-fellinis-8-1-2",
     "choice": "tmdb",
     "poster_path": "/23VIf7zNxAgaXwIlvzd3IvOd9sY.jpg",
-    "overview": "Guido Anselmi, a film director, finds himself creatively barren at the peak of his career. Urged by his doctors to rest, Anselmi heads for a luxurious resort, but a sorry group gathers\u2014his producer, staff, actors, wife, mistress, and relatives\u2014each one begging him to get on with the show. In retreat from their dependency, he fantasizes about past women and dreams of his childhood."
+    "overview": "Guido Anselmi, a film director, finds himself creatively barren at the peak of his career. Urged by his doctors to rest, Anselmi heads for a luxurious resort, but a sorry group gathers—his producer, staff, actors, wife, mistress, and relatives—each one begging him to get on with the show. In retreat from their dependency, he fantasizes about past women and dreams of his childhood."
   },
   {
     "handle": "federico-fellinis-amarcord",
@@ -81,19 +81,19 @@
     "handle": "harry-potter-and-the-sorcerers-stone-dvd-floor-sale-kids-family",
     "choice": "tmdb",
     "poster_path": "/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
-    "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard\u2014with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths\u2014and about the villain who's to blame."
+    "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard—with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths—and about the villain who's to blame."
   },
   {
     "handle": "harry-potter-and-the-sorcerers-stone-vhs-floor-sale-kids-family",
     "choice": "tmdb",
     "poster_path": "/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
-    "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard\u2014with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths\u2014and about the villain who's to blame."
+    "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard—with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths—and about the villain who's to blame."
   },
   {
     "handle": "harry-potter-and-the-sorcerers-stone-vhs-rental-kids-family",
     "choice": "tmdb",
     "poster_path": "/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
-    "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard\u2014with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths\u2014and about the villain who's to blame."
+    "overview": "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard—with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths—and about the villain who's to blame."
   },
   {
     "handle": "hawaiian-beach-party-vhs",
@@ -105,7 +105,7 @@
     "handle": "hearts-of-darkness-vhs",
     "choice": "tmdb",
     "poster_path": "/nVMCtL3r2nj4fySihDDvamaVkfx.jpg",
-    "overview": "A chronicle of the production problems \u2014 including bad weather, actors' health, war near the filming locations, and more \u2014 which plagued the filming of Apocalypse Now, increasing costs and nearly destroying the life and career of Francis Ford Coppola."
+    "overview": "A chronicle of the production problems — including bad weather, actors' health, war near the filming locations, and more — which plagued the filming of Apocalypse Now, increasing costs and nearly destroying the life and career of Francis Ford Coppola."
   },
   {
     "handle": "homer-eddie-vhs",
@@ -142,5 +142,11 @@
   {
     "handle": "heroes-of-the-heart-vhs-floor-sale-drama",
     "choice": "skip"
+  },
+  {
+    "handle": "crossroads-dvd-rental-romantic-comedy",
+    "choice": "tmdb",
+    "poster_path": "/prdFY9Bc28frBhhWl7mPSr7JmFp.jpg",
+    "overview": "After eight years apart, three childhood friends - Lucy, Kit, and Mimi - rediscover their friendship on a cross-country trip. With barely a plan, practically no money but plenty of dreams, the girls catch a lift with Mimi's handsome friend Ben in his convertible. Along the way they not only gather experiences that will change their lives, but they also discover how important it is to hold onto their hearts' desires."
   }
 ]
