@@ -298,5 +298,11 @@
     "choice": "tmdb",
     "poster_path": "/fM5goQ6c3uq3hzNJj3ZAFfTFkX9.jpg",
     "overview": "Emma Woodhouse is a congenial young lady who delights in meddling in other people’s affairs. She is perpetually trying to unite men and women who are utterly wrong for each other. Despite her interest in romance, Emma is clueless about her own feelings, and her relationship with gentle Mr. Knightley."
+  },
+  {
+    "handle": "empire-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/m6XxaRLltWox4C9pykjUILrlGp9.jpg",
+    "overview": "Big time drug dealer Victor Rosa is looking to get out of the game and sees his chance with a big deal with a new friend who happens to be a Wall St. stockbroker. Thinking this will be his chance to go out on top, Victor soon finds out that he's been double crossed and his last option is to get revenge."
   }
 ]
