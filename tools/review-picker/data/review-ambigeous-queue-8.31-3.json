@@ -294,5 +294,11 @@
     "choice": "tmdb",
     "poster_path": "/rgNb9nwPKwV45c5PTvFqFmpzGt0.jpg",
     "overview": "A bullied young boy befriends a young female vampire who lives in secrecy with her guardian.  A remake of the movie “Let The Right One In” which was an adaptation of a book."
+  },
+  {
+    "handle": "lifeboat",
+    "choice": "tmdb",
+    "poster_path": "/uPUSa9Gmujp8LrT5qKx5W2DoGcc.jpg",
+    "overview": "Volunteers from a German non-profit risk the waves of the Mediterranean to pluck refugees from sinking rafts pushing off from Libya in the middle of the night."
   }
 ]
