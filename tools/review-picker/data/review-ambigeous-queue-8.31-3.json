@@ -276,5 +276,11 @@
     "choice": "tmdb",
     "poster_path": "/17i5YPTfHOjXoieArpATWGRhLj1.jpg",
     "overview": "The story of a super-secret spy organization that recruits an unrefined but promising street kid into the agency's ultra-competitive training program just as a global threat emerges from a twisted tech genius."
+  },
+  {
+    "handle": "last-man-standing-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/2cWqlkXaKKdl32Waep4FwCQnyH0.jpg",
+    "overview": "John Smith is a mysterious stranger who is drawn into a vicious war between two Prohibition-era gangs. In a dangerous game, he switches allegiances from one to another, offering his services to the highest bidder. As the death toll mounts, Smith takes the law into his own hands in a deadly race to stay alive."
   }
 ]
