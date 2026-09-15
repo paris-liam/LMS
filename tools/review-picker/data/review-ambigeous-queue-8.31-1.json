@@ -676,5 +676,11 @@
     "choice": "tmdb",
     "poster_path": "/9IiSgiq4h4siTIS9H3o4nZ3h5L9.jpg",
     "overview": "Convenience and video store clerks Dante and Randal are sharp-witted, potty-mouthed and bored out of their minds. So in between needling customers, the counter jockeys play hockey on the roof, visit a funeral home and deal with their love lives."
+  },
+  {
+    "handle": "code-hunter",
+    "choice": "tmdb",
+    "poster_path": "/ikL9SG6Qv6Vni8y7WhuTjjeW6BG.jpg",
+    "overview": "America's best player is being pulled in to the ultimate cyber-terror. The game's mastermind has stolen his identity, put him on the FBI's Most Wanted List, and is blackmailing him to take a part in a real twisted plan of world destruction. With just hours left, can the code be broken to save the world from total annihilation?"
   }
 ]
