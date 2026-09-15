@@ -526,5 +526,11 @@
   {
     "handle": "homeward-bound-vhs-rental-kids-family",
     "choice": "skip"
+  },
+  {
+    "handle": "homework-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/fIgGU39q3h4n1f2GhWp1kAneAZ7.jpg",
+    "overview": "Good-looking but virginal \"rockstar\" teen Tommy tries to score with some of the local high school girls. But a classmate's mom decides to make a man out of him."
   }
 ]
