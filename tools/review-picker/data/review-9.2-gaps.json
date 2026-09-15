@@ -6,5 +6,9 @@
   {
     "handle": "the-seeker-dvd-rental-kids-family",
     "choice": "skip"
+  },
+  {
+    "handle": "was-the-dog-vhs-rental-comedy",
+    "choice": "skip"
   }
 ]
