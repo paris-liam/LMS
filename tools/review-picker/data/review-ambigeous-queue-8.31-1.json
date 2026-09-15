@@ -556,5 +556,11 @@
   {
     "handle": "bubble-dvd-rental-comedy",
     "choice": "skip"
+  },
+  {
+    "handle": "buck-rogers-in-the-25th-century-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/up1T1QGSSCfoyuCra0Qnv2yItFt.jpg",
+    "overview": "Capt. William \"Buck\" Rogers is a jovial space cowboy who is accidentally time-warped from 1987 to 2491. Earth is engaged in interplanetary war following a global holocaust, and Buck's piloting skills make him an ideal starfighter recruit for the Earth Defense Directorate."
   }
 ]
