@@ -62,5 +62,9 @@
   {
     "handle": "the-cat-in-the-hat-sing-along-vhs-rental-kids-family",
     "choice": "skip"
+  },
+  {
+    "handle": "kino-film-noir-dvd-rental-thriller",
+    "choice": "skip"
   }
 ]
