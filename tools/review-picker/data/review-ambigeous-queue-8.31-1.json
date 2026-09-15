@@ -670,5 +670,11 @@
     "choice": "tmdb",
     "poster_path": "/oiYBhXMnQVgFY6fNJ5WTmGSBFBt.jpg",
     "overview": "An experimental film documentary of a playful little girl exploring nature."
+  },
+  {
+    "handle": "clerks",
+    "choice": "tmdb",
+    "poster_path": "/9IiSgiq4h4siTIS9H3o4nZ3h5L9.jpg",
+    "overview": "Convenience and video store clerks Dante and Randal are sharp-witted, potty-mouthed and bored out of their minds. So in between needling customers, the counter jockeys play hockey on the roof, visit a funeral home and deal with their love lives."
   }
 ]
