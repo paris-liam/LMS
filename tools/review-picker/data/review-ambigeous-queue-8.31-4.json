@@ -438,5 +438,11 @@
     "choice": "tmdb",
     "poster_path": "/52ml62vClzrlqvXZq2FEW6UF6c1.jpg",
     "overview": "Framed and on the run, a former FBI agent must save his family from a blazing fire in the world's tallest building."
+  },
+  {
+    "handle": "sleeper-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/YTYSziZZP5aXt5CDvdEMwKDzme.jpg",
+    "overview": "Miles Monroe, a clarinet-playing health food store proprietor, is revived out of cryostasis 200 years into a future world in order to help rebels fight an oppressive government regime."
   }
 ]
