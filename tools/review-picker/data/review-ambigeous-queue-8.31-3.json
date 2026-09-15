@@ -458,5 +458,11 @@
   {
     "handle": "my-one-and-only-dvd-rental-comedy",
     "choice": "skip"
+  },
+  {
+    "handle": "neighbors",
+    "choice": "tmdb",
+    "poster_path": "/sN1RU08CMi8xkRIibremh3AOdgw.jpg",
+    "overview": "A couple with a newborn baby face unexpected difficulties after they are forced to live next to a fraternity house."
   }
 ]
