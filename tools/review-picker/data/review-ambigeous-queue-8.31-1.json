@@ -706,5 +706,11 @@
     "choice": "tmdb",
     "poster_path": "/xKocKpTHaKcTuNRLu0rLbZWbLnH.jpg",
     "overview": "At the Wannsee Conference on January 20, 1942, senior Nazi officials meet to determine the manner in which the so-called \"Final Solution to the Jewish Question\" can be best implemented."
+  },
+  {
+    "handle": "contact-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/bCpMIywuNZeWt3i5UMLEIc0VSwM.jpg",
+    "overview": "A radio astronomer receives the first extraterrestrial radio signal ever picked up on Earth. As the world powers scramble to decipher the message and decide upon a course of action, she must make some difficult decisions between her beliefs, the truth, and reality."
   }
 ]
