@@ -1,0 +1,21 @@
+Handle,Title,Vendor,IMDb_ID,UPC,Matched_Format,Match_Method,Editions_Found,Status
+legend-bluray-rental-fantasy,Legend,Blu-Ray,tt0089469,,,,,not_found
+spawn-4k-rental-action,Spawn,4K,tt0120177,0760137185536,UHD4K,format_match,9,ok
+rope-4k-rental-thriller,Rope,4K,tt0040746,0191329241080,UHD4K,format_match,2,ok
+super-mario-bros-movie-4k-rental-kids-family,Super Mario Bros Movie,4K,tt6718170,0191329241516,UHD4K,format_match,4,ok
+one-battle-after-another-4k-rental-drama,One Battle After Another,4K,tt30144839,0883929838813,UHD4K,format_match,6,ok
+oppenheimer-4k-rental-drama,Oppenheimer,4K,tt15398776,0191329253120,UHD4K,format_match,6,ok
+rear-window-4k-rental-thriller,Rear Window,4K,tt0047396,191329161555,4KUHD,format_match,3,ok
+civil-war-4k-rental-thriller,Civil War,4K,tt17279496,0031398343882,UHD4K,format_match,5,ok
+jaws-4k-rental-horror,Jaws,4K,tt0073195,0191329134795,UHD4K,format_match,8,ok
+lawrence-of-arabia-4k-rental-drama,Lawrence of Arabia,4K,tt0056172,043396646827,4KUHD,format_match,4,ok
+1917-4k-rental-action,1917,4K,tt8579674,191329125670,UHD4K,format_match,5,ok
+cinderella-4k-rental-kids-family,Cinderella,4K,tt0042332,,,,,not_found
+the-big-lebowski-4k-rental-comedy,The Big Lebowski,4K,tt0118715,0191329072837,UHD4K,format_match,29,ok
+alien-4k-rental-sci-fi,Alien,4K,tt0078748,024543627678,UHD4K,format_match,14,ok
+heat-4k-rental-action,Heat,4K,tt0113277,0786936889246,UHD4K,format_match,6,ok
+inglorious-basterds-4k-rental-action,Inglorious Basterds,4K,tt0361748,191329106921,UHD4K,format_match,10,ok
+zodiac-4k-rental-thriller,Zodiac,4K,tt0443706,0191329267462,UHD4K,format_match,10,ok
+weapons-4k-rental-horror,Weapons,4K,tt0497470,031398107064,DVD,fallback_first,1,ok
+prometheus-4k-rental-sci-fi,Prometheus,4K,tt1446714,024543353324,UHD4K,format_match,3,ok
+sorcerer-4k-rental-criterion-collection-thriller,Sorcerer,4K,tt0076740,715515314619,UHD4K,format_match,5,ok
