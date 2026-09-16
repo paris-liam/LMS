@@ -1,0 +1,69 @@
+Handle,Title,Vendor,Kind,Reason
+notting-hill-vhs-rental-comedy,Notting Hill,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+miss-firecracker-vhs-rental-comedy,Miss Firecracker,VHS,unmatched,no UPCMDB records for this imdb_id
+clean-slate-vhs-rental-comedy,Clean Slate,VHS,unmatched,no UPCMDB records for this imdb_id
+the-squeeze-vhs-rental-comedy,The Squeeze,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+beautiful-girls-vhs-rental-comedy,Beautiful Girls,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+almost-vhs-rental-comedy,...Almost,VHS,ambiguous,ambiguous TMDB match
+brassed-off-vhs-rental-comedy,Brassed OFF!,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+whipped-vhs-rental-comedy,Whipped,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+dangerous-orphans-vhs-rental-thriller,Dangerous Orphans,VHS,unmatched,no UPCMDB records for this imdb_id
+catherines-grove-vhs-rental-thriller,Catherine's Grove,VHS,unmatched,no UPCMDB records for this imdb_id
+the-body-vhs-rental-thriller,The Body,VHS,unmatched,no UPCMDB records for this imdb_id
+tracks-of-a-killer-vhs-rental-thriller,Tracks of a Killer,VHS,unmatched,no UPCMDB records for this imdb_id
+clean-shaven-vhs-rental-thriller,Clean Shaven,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+monsieur-hire-vhs-rental-thriller,Monsieur Hire,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+southie-vhs-rental-thriller,Southie,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+nomads-vhs-rental-thriller,Nomads,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+breach-of-conduct-vhs-rental-thriller,Breach of Conduct,VHS,unmatched,no UPCMDB records for this imdb_id
+back-in-the-ussr-vhs-rental-thriller,Back in the USSR,VHS,unmatched,no UPCMDB records for this imdb_id
+betrayed-vhs-rental-thriller,Betrayed,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+taking-lives-dvd-rental-thriller,Taking Lives,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+kidnap-dvd-rental-thriller,Kidnap,DVD,ambiguous,ambiguous TMDB match
+american-dream-dvd-rental-thriller,American Dream,DVD,ambiguous,ambiguous TMDB match
+rogue-dvd-rental-thriller,Rogue,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+the-gateway-dvd-rental-thriller,The Gateway,DVD,ambiguous,ambiguous TMDB match
+stone-cold-dvd-rental-thriller,Stone Cold,DVD,ambiguous,ambiguous TMDB match
+hitman-dvd-rental-thriller,Hitman,DVD,unmatched,no UPCMDB records for this imdb_id
+flight-plan-dvd-rental-thriller,Flightplan,DVD,unmatched,no UPCMDB records for this imdb_id
+paranoid-dvd-rental-horror,Paranoid,DVD,ambiguous,ambiguous TMDB match
+role-models-dvd-rental-comedy,Role Models,DVD,ambiguous,ambiguous TMDB match
+the-toy-dvd-rental-comedy,The Toy,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+corporate-animals-dvd-rental-comedy,Corporate Animals,DVD,unmatched,no UPCMDB records for this imdb_id
+half-brothers-dvd-rental-comedy,Half Brothers,DVD,ambiguous,ambiguous TMDB match
+send-it-dvd-rental-comedy,Send It!,DVD,unmatched,no UPCMDB records for this imdb_id
+ginger-in-the-morning-dvd-rental-drama,Ginger in the Morning,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+professor-and-the-madman-dvd-rental-drama,Professor and the Madman,DVD,unmatched,no UPCMDB records for this imdb_id
+brothers-by-blood-dvd-rental-drama,Brothers by Blood,DVD,unmatched,no UPCMDB records for this imdb_id
+against-the-ropes-contrecoups-dvd-rental-drama,Against the Ropes: Contrecoups,DVD,unmatched,no TMDB match
+thunderhead-son-of-flicka-dvd-rental-kids-family,Thunderhead: Son of Flicka,DVD,unmatched,no UPCMDB records for this imdb_id
+the-call-of-the-wild-dvd-rental-kids-family,The Call of the Wild,DVD,ambiguous,ambiguous TMDB match
+the-nut-job-nut-job-2-dvd-rental-kids-family,The Nut Job & Nut Job 2,DVD,ambiguous,ambiguous TMDB match
+invasion-of-the-tinysauruses-dvd-rental-kids-family,Invasion of the Tinysauruses,DVD,ambiguous,ambiguous TMDB match
+the-sorcerers-apprentice-dvd-rental-kids-family,The Sorcerer's Apprentice,DVD,ambiguous,ambiguous TMDB match
+this-is-christmas-dvd-rental-holiday,This is Christmas,DVD,unmatched,no UPCMDB records for this imdb_id
+santa-claus-conquers-the-martians-dvd-rental-holiday,Santa Claus Conquers the Martians,DVD,unmatched,no UPCMDB records for this imdb_id
+mother-krampus-dvd-rental-holiday,Mother Krampus,DVD,unmatched,no UPCMDB records for this imdb_id
+gone-are-the-days-dvd-rental-action,Gone are the Days,DVD,ambiguous,ambiguous TMDB match
+tears-of-the-sun-dvd-rental-action,Tears of the Sun,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+x-men-revealed-dvd-rental-action,X-Men Revealed,DVD,unmatched,no TMDB match
+archenemy-dvd-rental-action,Archenemy,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+project-a-dvd-rental-action,Project A,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+kung-fu-dunk-dvd-rental-action,Kung Fu Dunk,DVD,unmatched,no UPCMDB records for this imdb_id
+skyfire-dvd-rental-action,Skyfire,DVD,unmatched,no UPCMDB records for this imdb_id
+the-gambler-dvd-rental-action,The Gambler,DVD,ambiguous,ambiguous TMDB match
+break-even-dvd-rental-action,Break Even,DVD,unmatched,no UPCMDB records for this imdb_id
+400-bullets-dvd-rental-action,400 Bullets,DVD,unmatched,no UPCMDB records for this imdb_id
+home-of-the-brave-dvd-rental-action,Home of the Brave,DVD,ambiguous,ambiguous TMDB match
+underdog-dvd-rental-kids-family,Underdog,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+the-road-warrior-dvd-rental-sci-fi,The Road Warrior,DVD,unmatched,no UPCMDB records for this imdb_id
+apache-junction-dvd-rental-action,Apache Junction,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+catch-the-bullet-dvd-rental-action,Catch the Bullet,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+public-enemies-dvd-rental-thriller,Public Enemies,DVD,ambiguous,ambiguous TMDB match
+the-invincible-iron-man-dvd-rental-action,The Invincible Iron Man,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+water-for-elehants-dvd-rental-drama,Water for Elehants,DVD,unmatched,no TMDB match
+the-dark-dvd-rental-horror,The Dark,DVD,ambiguous,ambiguous TMDB match
+crimson-force-dvd-rental-sci-fi,Crimson Force,DVD,unmatched,no UPCMDB records for this imdb_id
+pop-me-dvd-rental-documentary,Pop & Me,DVD,unmatched,no UPCMDB records for this imdb_id
+kiss-of-the-dragon-dvd-rental-action,Kiss of the Dragon,DVD,unmatched,no UPCMDB records for this imdb_id
+the-oija-experiment-dvd-rental-horror,The Oija Experiment,DVD,unmatched,no TMDB match

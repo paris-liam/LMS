@@ -1,0 +1,83 @@
+Handle,Title,Vendor,Kind,Reason
+the-sandlot-the-sandlot-2-the-sandlot-heading-home-dvd-rental-kids-family,The Sandlot | The Sandlot 2 | The Sandlot Heading Home,DVD,ambiguous,ambiguous TMDB match
+cky-trilogy-dvd-rental-documentary,CKY Trilogy,DVD,ambiguous,ambiguous TMDB match
+nirvana-unplugged-dvd-rental-musical,Nirvana Unplugged,DVD,ambiguous,ambiguous TMDB match
+led-zeppelin-dvd-rental-musical,Led Zeppelin,DVD,unmatched,no UPCMDB records for this imdb_id
+wonderland-dvd-rental-drama,Wonderland,DVD,ambiguous,ambiguous TMDB match
+sex-and-the-city-dvd-rental-comedy,Sex and the City,DVD,unmatched,no UPCMDB records for this imdb_id
+harry-potter-and-the-sorcerers-stone-dvd-rental-kids-family,Harry Potter and the Sorcerer's Stone,DVD,ambiguous,ambiguous TMDB match
+little-nemo-dvd-rental-kids-family,Little Nemo,DVD,unmatched,no UPCMDB records for this imdb_id
+shaun-of-the-dead-dvd-rental-comedy,Shaun of the Dead,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+krakatoa-east-of-java-vhs-rental-action,Krakatoa East of Java,VHS,unmatched,no UPCMDB records for this imdb_id
+the-official-story-vhs-rental-foreign,The Official Story,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+field-of-fire-vhs-rental-action,Field of Fire,VHS,unmatched,no UPCMDB records for this imdb_id
+max-and-helen-vhs-rental-drama,Max and Helen,VHS,unmatched,no UPCMDB records for this imdb_id
+liberty-heights-vhs-rental-drama,Liberty Heights,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-perfect-bride-vhs-rental-thriller,The Perfect Bride,VHS,unmatched,no UPCMDB records for this imdb_id
+the-hi-lo-country-vhs-rental-drama,The Hi-Lo Country,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+dead-funny-vhs-rental-comedy,Dead Funny,VHS,unmatched,no UPCMDB records for this imdb_id
+passed-away-vhs-rental-comedy,Passed Away,VHS,unmatched,no UPCMDB records for this imdb_id
+walking-across-egypt-vhs-rental-drama,Walking Across Egypt,VHS,unmatched,no UPCMDB records for this imdb_id
+fearless-vhs-rental-thriller,Fearless,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+passion-flower-vhs-rental-thriller,Passion Flower,VHS,unmatched,no UPCMDB records for this imdb_id
+dream-for-an-insomniac-vhs-rental-romantic-comedy,Dream for an Insomniac,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+thunderball-vhs-rental-action,Thunderball,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+break-in-vhs-rental-action,Break In,VHS,ambiguous,ambiguous TMDB match
+homicidal-impulse-vhs-rental-thriller,Homicidal Impulse,VHS,ambiguous,ambiguous TMDB match
+bridge-to-nowhere-vhs-rental-action,Bridge to Nowhere,VHS,unmatched,no UPCMDB records for this imdb_id
+motel-blue-vhs-rental-thriller,Motel Blue,VHS,unmatched,no UPCMDB records for this imdb_id
+bloodhounds-vhs-rental-thriller,Bloodhounds,VHS,unmatched,no UPCMDB records for this imdb_id
+flirt-vhs-rental-drama,Flirt,VHS,ambiguous,ambiguous TMDB match
+undertow-vhs-rental-thriller,Undertow,VHS,ambiguous,ambiguous TMDB match
+rubdown-vhs-rental-thriller,Rubdown,VHS,unmatched,no UPCMDB records for this imdb_id
+jane-doe-vhs-rental-thriller,Jane Doe,VHS,unmatched,no UPCMDB records for this imdb_id
+instinct-vhs-rental-action,INSTINCT,VHS,ambiguous,ambiguous TMDB match
+servants-of-twilight-vhs-rental-thriller,Servants of Twilight,VHS,unmatched,no UPCMDB records for this imdb_id
+mercy-vhs-rental-thriller,Mercy,VHS,unmatched,no UPCMDB records for this imdb_id
+guilty-as-sin-vhs-rental-thriller,Guilty as Sin,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+to-catch-a-killer-vhs-rental-thriller,To Catch a Killer,VHS,unmatched,no UPCMDB records for this imdb_id
+on-the-border-vhs-rental-thriller,On the Border,VHS,unmatched,no UPCMDB records for this imdb_id
+two-moon-junction-vhs-rental-thriller,Two Moon Junction,VHS,unmatched,no UPCMDB records for this imdb_id
+ring-of-steel-vhs-rental-action,Ring of Steel,VHS,unmatched,no UPCMDB records for this imdb_id
+bed-of-roses-vhs-rental-romantic-comedy,Bed of Roses,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+chomps-vhs-rental-kids-family,C.H.O.M.P.S.,VHS,unmatched,no UPCMDB records for this imdb_id
+stanley-iris-vhs-rental-drama,Stanley & Iris,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+landslide-vhs-rental-thriller,Landslide,VHS,unmatched,no UPCMDB records for this imdb_id
+call-me-vhs-rental-drama,Call Me,VHS,unmatched,no UPCMDB records for this imdb_id
+snowboat-academy-vhs-rental-comedy,Snowboat Academy,VHS,unmatched,no TMDB match
+death-watch-vhs-rental-sci-fi,Death Watch,VHS,unmatched,no UPCMDB records for this imdb_id
+alien-vs-predator-vhs-rental-sci-fi,Alien Vs. Predator,VHS,unmatched,no UPCMDB records for this imdb_id
+chaplin-vhs-rental-drama,Chaplin,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+reckless-kelly-vhs-rental-comedy,Reckless Kelly,VHS,unmatched,no UPCMDB records for this imdb_id
+the-breed-vhs-rental-horror,The Breed,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+call-it-murder-vhs-rental-thriller,Call It Murder,VHS,ambiguous,ambiguous TMDB match
+brians-songs-vhs-rental-drama,Brian's Songs,VHS,unmatched,no TMDB match
+stargate-vhs-rental-sci-fi,Stargate,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+scary-movie-vhs-rental-comedy,Scary Movie,VHS,ambiguous,ambiguous TMDB match
+breathless-vhs-rental-drama,Breathless,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+lost-and-delerious-vhs-rental-drama,Lost and Delerious,VHS,unmatched,no TMDB match
+007-tomorrow-never-dies-vhs-rental-action,007: Tomorrow Never Dies,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+tequila-sunrise-vhs-rental-thriller,Tequila Sunrise,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+on-her-majestys-secret-service-vhs-rental-action,On Her Majesty's Secret Service,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+snow-falling-on-cedars-vhs-rental-drama,Snow Falling on Cedars,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+other-peoples-money-vhs-rental-comedy,Other People's Money,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+race-against-time-vhs-rental-action,Race Against Time,VHS,unmatched,no UPCMDB records for this imdb_id
+larks-on-a-string-vhs-rental-foreign,Larks on a String,VHS,unmatched,no UPCMDB records for this imdb_id
+the-year-of-living-dangerously-vhs-rental-thriller,The Year of Living Dangerously,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+dead-center-vhs-rental-action,Dead Center,VHS,unmatched,no UPCMDB records for this imdb_id
+the-price-of-kissing-vhs-rental-comedy,The Price of Kissing,VHS,unmatched,no UPCMDB records for this imdb_id
+sliver-vhs-rental-thriller,Sliver,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+lovers-and-liars-vhs-rental-comedy,Lovers and Liars,VHS,unmatched,no UPCMDB records for this imdb_id
+the-super-vhs-rental-comedy,The Super,VHS,unmatched,no UPCMDB records for this imdb_id
+belle-epoque-vhs-rental-foreign,Belle Epoque,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-bedroom-window-vhs-rental-thriller,The Bedroom Window,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+breakout-vhs-rental-kids-family,Breakout,VHS,ambiguous,ambiguous TMDB match
+bridge-of-dragons-vhs-rental-action,Bridge of Dragons,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+safe-house-vhs-rental-sci-fi,Safe House,VHS,ambiguous,ambiguous TMDB match
+between-the-lines-vhs-rental-comedy,Between the Lines,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-last-word-vhs-rental-thriller,The Last Word,VHS,unmatched,no UPCMDB records for this imdb_id
+saints-and-sinners-vhs-rental-drama,Saints and Sinners,VHS,ambiguous,ambiguous TMDB match
+till-death-us-do-part-vhs-rental-thriller,Till Death Us Do Part,VHS,unmatched,no UPCMDB records for this imdb_id
+when-night-is-falling-vhs-rental-thriller,When Night is Falling,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+morgans-ferry-vhs-rental-drama,Morgan's Ferry,VHS,unmatched,no UPCMDB records for this imdb_id
+one-night-stand-vhs-rental-thriller,One Night Stand,VHS,unmatched,no UPCMDB records for this imdb_id

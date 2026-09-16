@@ -149,6 +149,50 @@ class TestClassifyMatch(unittest.TestCase):
         _, kind = classify_match("Communion", None, results, genre="drama")
         self.assertEqual(kind, "ambiguous")
 
+    def test_overview_hint_breaks_a_tie_genre_and_popularity_cannot(self):
+        """Real catalogue case: "Rear Window" has several exact-title
+        remakes with no genre data and no decisive popularity gap in TMDB's
+        own numbers. Our stored description names Hitchcock/Stewart/Kelly
+        verbatim, which only the 1954 original's overview shares."""
+        results = [
+            result("Rear Window", "1954", popularity=14.9,
+                   overview="A wheelchair-bound photographer spies on his neighbors from his "
+                             "apartment window and becomes convinced one of them has committed murder."),
+            result("Rear Window", "1998", popularity=3.4,
+                   overview="A paraplegic photographer becomes convinced a neighbor has been murdered."),
+        ]
+        hint = ("A photographer confined to his apartment becomes convinced he's witnessed a "
+                "murder while spying on his neighbors. Directed by Alfred Hitchcock and "
+                "starring James Stewart and Grace Kelly.")
+        best, kind = classify_match("Rear Window", None, results, overview_hint=hint)
+        self.assertEqual(kind, "confident")
+        self.assertEqual(best["release_date"][:4], "1954")
+
+    def test_overview_hint_does_not_manufacture_a_match_when_too_close(self):
+        """Two candidates with near-identical overview overlap must still
+        go to the picker -- the margin has to be decisive, not just
+        nonzero."""
+        results = [
+            result("Communion", "1989", overview="A man has a close encounter with aliens at night."),
+            result("Communion", "2013", overview="A woman has a close encounter with aliens at night."),
+        ]
+        _, kind = classify_match(
+            "Communion", None, results,
+            overview_hint="Someone has a close encounter with aliens at night.",
+        )
+        self.assertEqual(kind, "ambiguous")
+
+    def test_no_overview_hint_leaves_existing_behavior_unchanged(self):
+        """Default (no hint passed) must behave exactly as before -- this
+        pins backward compatibility for every existing caller."""
+        results = [
+            result("Paradise Alley", "1978", popularity=25.0),
+            result("Paradise Alley", "1962", popularity=1.0),
+        ]
+        best, kind = classify_match("Paradise Alley", None, results, genre="drama")
+        self.assertEqual(kind, "confident")
+        self.assertEqual(best["release_date"][:4], "1978")
+
 
 class TestBuildOutput(unittest.TestCase):
     def test_fills_image_description_and_alt_text(self):

@@ -1,0 +1,49 @@
+Handle,Title,Vendor,Kind,Reason
+dementia-13-dvd-rental-horror,Dementia 13,DVD,ambiguous,ambiguous TMDB match
+cry-wolf-dvd-rental-horror,Cry Wolf,DVD,ambiguous,ambiguous TMDB match
+paranormal-entity-dvd-rental-horror,Paranormal Entity,DVD,unmatched,no UPCMDB records for this imdb_id
+the-first-purge-dvd-rental-horror,The First Purge,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+prom-night-dvd-rental-horror,Prom Night,DVD,ambiguous,ambiguous TMDB match
+meet-the-spartans-dvd-rental-comedy,Meet the Spartans,DVD,unmatched,no UPCMDB records for this imdb_id
+the-triangle-dvd-rental-sci-fi,The Triangle,DVD,unmatched,no UPCMDB records for this imdb_id
+legend-of-the-naga-pearls-dvd-rental-fantasy,Legend of the Naga Pearls,DVD,unmatched,no UPCMDB records for this imdb_id
+the-dwarves-of-dragon-mountain-dvd-rental-fantasy,The Dwarves of Dragon Mountain,DVD,ambiguous,ambiguous TMDB match
+max-magician-and-the-legen-of-the-ring-dvd-rental-fantasy,Max Magician and the Legen of the Ring,DVD,unmatched,no TMDB match
+clash-of-the-titans-dvd-rental-fantasy,Clash of the Titans,DVD,ambiguous,ambiguous TMDB match
+robin-hood-dvd-rental-fantasy,Robin hood,DVD,unmatched,no UPCMDB records for this imdb_id
+season-of-the-witch-dvd-rental-fantasy,Season of the Witch,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+good-charlotte-dvd-rental-music,Good Charlotte,DVD,ambiguous,ambiguous TMDB match
+casino-royale-dvd-rental-action,Casino Royale,DVD,ambiguous,ambiguous TMDB match
+the-wave-dvd-rental-action,The Wave,DVD,unmatched,no UPCMDB records for this imdb_id
+machete-dvd-rental-action,Machete,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+hitari-dvd-rental-action,Hitari,DVD,unmatched,no TMDB match
+john-wick-chapter-3-parebellum-dvd-rental-action,John Wick Chapter 3: Parebellum,DVD,unmatched,no TMDB match
+frank-and-jesse-dvd-rental-action,Frank and Jesse,DVD,ambiguous,ambiguous TMDB match
+ice-soldiers-dvd-rental-action,Ice Soldiers,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+the-emperors-sword-dvd-rental-action,The Emperor's Sword,DVD,unmatched,no UPCMDB records for this imdb_id
+john-tucker-must-die-dvd-rental-comedy,John Tucker Must Die,DVD,unmatched,no UPCMDB records for this imdb_id
+ghost-in-the-family-dvd-rental-comedy,Ghost in the Family,DVD,unmatched,no UPCMDB records for this imdb_id
+whos-your-caddy-dvd-rental-comedy,Who's Your Caddy?,DVD,unmatched,no UPCMDB records for this imdb_id
+uncle-drew-dvd-rental-comedy,Uncle Drew,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+american-pie-presends-the-book-of-love-dvd-rental-comedy,American Pie Presends: The Book of Love,DVD,unmatched,no TMDB match
+the-oath-dvd-rental-comedy,The Oath,DVD,unmatched,no UPCMDB records for this imdb_id
+oceans-8-dvd-rental-comedy,Ocean's 8,DVD,ambiguous,ambiguous TMDB match
+old-school-dvd-rental-comedy,Old School,DVD,ambiguous,ambiguous TMDB match
+get-him-to-the-greek-dvd-rental-comedy,Get Him to the Greek,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+rush-hour-3-dvd-rental-comedy,Rush Hour 3,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+star-wars-the-phantom-menace-dvd-rental-sci-fi,Star Wars: The Phantom Menace,DVD,ambiguous,ambiguous TMDB match
+moulin-rouge-dvd-rental-musical,Moulin Rouge!,DVD,ambiguous,ambiguous TMDB match
+sin-city-dvd-rental-action,Sin City,DVD,ambiguous,ambiguous TMDB match
+the-spirit-dvd-rental-action,The Spirit,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+crash-dvd-rental-drama,Crash,DVD,ambiguous,ambiguous TMDB match
+entrapment-dvd-rental-action,Entrapment,DVD,unmatched,no UPCMDB records for this imdb_id
+unfaithful-dvd-rental-thriller,Unfaithful,DVD,unmatched,no UPCMDB records for this imdb_id
+i-am-legend-dvd-rental-sci-fi,I Am Legend,DVD,ambiguous,ambiguous TMDB match
+the-bourne-trilogy-dvd-rental-action,The Bourne Trilogy,DVD,unmatched,no TMDB match
+garden-state-dvd-rental-drama,Garden State,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+friday-night-lights-dvd-rental-drama,Friday Night Lights,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+footloose-dvd-rental-musical,Footloose,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+avatar-bluray-rental-sci-fi,Avatar,Blu-Ray,unmatched,UPCMDB has edition(s) for this title but none in Blu-Ray format
+perfect-stranger-dvd-rental-thriller,Perfect Stranger,DVD,ambiguous,ambiguous TMDB match
+one-missed-call-dvd-rental-horror,One Missed Call,DVD,ambiguous,ambiguous TMDB match
+star-wars-attack-of-the-clones-dvd-rental-sci-fi,Star Wars: Attack of the Clones,DVD,ambiguous,ambiguous TMDB match

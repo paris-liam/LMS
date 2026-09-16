@@ -6,11 +6,14 @@ claudedocs/2026-09-14-libib-bulk-upload-plan.md. In short:
 - One output row per physical copy (per Shopify variant row's parent
   product), matching the existing "one product per physical copy" model —
   `copies` is always 1, never aggregated.
-- `upc_isbn10`/`ean_isbn13` are left blank. Our `Variant Barcodes` values
-  are internal serials, not check-digit-valid UPC/EAN, and Libib validates
-  the check digit on import — they would be rejected outright. The import
-  must run with Libib's Force Import Mode (Pro tier, toggled on the Field
-  Alignment step) so title-only rows are accepted.
+- `upc_isbn10`/`ean_isbn13` come from real UPC/EAN values looked up via
+  `imdb_upc_fill.py` (TMDB for the IMDb ID, then UPCMDB for the barcode),
+  when present as "UPC"/"EAN" columns on the row. Our own `Variant
+  Barcodes` values are internal serials, not check-digit-valid UPC/EAN, so
+  they never go in these fields. A row with no successful lookup leaves
+  both blank — the import must still run with Libib's Force Import Mode
+  (Pro tier, toggled on the Field Alignment step) so those title-only rows
+  are accepted too.
 - The internal serial goes in `call_number` instead, where it's just
   descriptive text.
 - Libib has no genre or format field, so both are folded into `tags`.
@@ -77,8 +80,8 @@ def map_row(row: dict) -> dict:
         "title": row.get("Title", "").strip(),
         "creators": "",
         "description": strip_html(row.get("Body (HTML)", "")),
-        "upc_isbn10": "",
-        "ean_isbn13": "",
+        "upc_isbn10": row.get("UPC", "").strip(),
+        "ean_isbn13": row.get("EAN", "").strip(),
         "number_of_discs": "",
         "ensemble": "",
         "aspect_ratio": "",

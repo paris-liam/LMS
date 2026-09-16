@@ -1,0 +1,56 @@
+Handle,Title,Vendor,Kind,Reason
+poltergeist-bluray,Poltergeist,Blu-Ray,ambiguous,ambiguous TMDB match
+the-last-broadcast-dvd,The Last Broadcast,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+the-boog-bluray,The Boog,Blu-Ray,ambiguous,ambiguous TMDB match
+horrors-of-spider-island-dvd,Horrors of Spider Island,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+slithis-vhs,Slithis,VHS,ambiguous,ambiguous TMDB match
+five-nights-at-freddys-dvd,Five Nights at Freddy's,DVD,unmatched,no UPCMDB records for this imdb_id
+back-to-the-future-trilogy-bluray,Back to the Future (Trilogy),Blu-Ray,ambiguous,ambiguous TMDB match
+spider-baby-bluray,Spider Baby,Blu-Ray,unmatched,no UPCMDB records for this imdb_id
+the-killers-bluray,The Killers,Blu-Ray,ambiguous,ambiguous TMDB match
+sweet-sweetbacks-baadasssss-song-bluray,Sweet Sweetback's Baadasssss Song,Blu-Ray,unmatched,no UPCMDB records for this imdb_id
+sukiyaki-bluray,Sukiyaki,Blu-Ray,ambiguous,ambiguous TMDB match
+close-encounters-of-the-third-kind-30th-anniversary-bluray,Close Encounters of the Third Kind (30th Anniversary),Blu-Ray,unmatched,no TMDB match
+kurt-cobain-montage-of-heck-bluray,Kurt Cobain Montage of Heck,Blu-Ray,unmatched,no UPCMDB records for this imdb_id
+mishima-a-life-in-four-chapters-box-set-dvd,Mishima: A Life in Four Chapters: Box Set,DVD,unmatched,no TMDB match
+marley-me-dvd,Marley & Me,DVD,unmatched,no UPCMDB records for this imdb_id
+boxanne-bluray,Boxanne,Blu-Ray,unmatched,no UPCMDB records for this imdb_id
+definitely-maybe-dvd,"Definitely, Maybe",DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+thank-you-for-smoking-dvd,Thank You for Smoking,DVD,unmatched,no UPCMDB records for this imdb_id
+hannah-and-her-sisters-bluray,Hannah and Her Sisters,Blu-Ray,unmatched,no UPCMDB records for this imdb_id
+sweeney-todd-dvd,Sweeney Todd,DVD,unmatched,no UPCMDB records for this imdb_id
+into-the-woods-dvd,Into the Woods,DVD,unmatched,no UPCMDB records for this imdb_id
+bakara-dvd,Bakara,DVD,unmatched,no UPCMDB records for this imdb_id
+cirque-du-soleil-dralion-dvd,Cirque Du Soleil: Dralion,DVD,unmatched,no UPCMDB records for this imdb_id
+rent-dvd,Rent,DVD,unmatched,no UPCMDB records for this imdb_id
+evita-dvd,Evita,DVD,ambiguous,ambiguous TMDB match
+spider-man-dvd,Spider-Man,DVD,ambiguous,ambiguous TMDB match
+six-days-seven-nights-dvd,Six Days Seven Nights,DVD,unmatched,no UPCMDB records for this imdb_id
+the-siege-dvd,The Siege,DVD,unmatched,no UPCMDB records for this imdb_id
+la-confidential-dvd,L.A. Confidential,DVD,ambiguous,ambiguous TMDB match
+x2-x-men-united-dvd,X2 X-Men United,DVD,ambiguous,ambiguous TMDB match
+the-transporter-dvd,The Transporter,DVD,unmatched,no UPCMDB records for this imdb_id
+the-adventures-of-indiana-jones-box-set-dvd,The Adventures of Indiana Jones Box Set,DVD,unmatched,no TMDB match
+the-lion-king-dvd,The Lion King,DVD,ambiguous,ambiguous TMDB match
+planet-of-the-apes-the-evolution-box-set-dvd,Planet of the Apes: The Evolution Box Set,DVD,unmatched,no TMDB match
+west-side-story-box-set-dvd,West Side Story Box Set,DVD,unmatched,no TMDB match
+network-dvd,Network,DVD,ambiguous,ambiguous TMDB match
+lilies-dvd,Lilies,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+maurice-dvd,Maurice,DVD,ambiguous,ambiguous TMDB match
+pleasantville-dvd,Pleasantville,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+primary-colors-vhs,Primary Colors,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+our-town-vhs,Our Town,VHS,ambiguous,ambiguous TMDB match
+final-analysis-vhs,Final Analysis,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+somewhere-in-time-vhs,Somewhere in Time,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-bodyguard-vhs,The Bodyguard,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+hoop-dreams-vhs,Hoop Dreams,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+leaving-las-vegas-vhs,Leaving Las Vegas,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+september-vhs,September,VHS,ambiguous,ambiguous TMDB match
+easyriders-vhs,Easyriders,VHS,ambiguous,ambiguous TMDB match
+the-finest-hours-vhs,The Finest Hours,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+murder-in-texas-vhs,Murder in Texas,VHS,unmatched,no TMDB match
+twice-in-a-lifetime-vhs,Twice in a Lifetime,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+retribution-vhs,Retribution,VHS,ambiguous,ambiguous TMDB match
+fighting-tommy-riley-vhs,Fighting Tommy Riley,VHS,unmatched,no UPCMDB records for this imdb_id
+mask-vhs,Mask,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+flash-of-green-vhs,Flash of Green,VHS,unmatched,no UPCMDB records for this imdb_id

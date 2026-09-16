@@ -27,3 +27,5 @@ Little Movie Store Design System-handoff.zip
 
 # Production catalogue exports (customer/product data — never commit)
 products_export*.csv
+.venv-libib/
+.playwright-mcp/

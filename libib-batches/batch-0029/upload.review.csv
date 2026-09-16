@@ -1,0 +1,11 @@
+Handle,Title,Vendor,Kind,Reason
+mr-accident,Mr. Accident,VHS,unmatched,no UPCMDB records for this imdb_id
+came-a-hot-friday,CAME A HOT FRIDAY,VHS,unmatched,no UPCMDB records for this imdb_id
+get-out-of-my-room,Get Out of My Room,VHS,unmatched,no UPCMDB records for this imdb_id
+come-see-the-paradise,Come See The Paradise,VHS,unmatched,no UPCMDB records for this imdb_id
+look-who-s-talking,Look Who’s Talking,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+out-to-sea,Out to Sea,VHS,unmatched,no UPCMDB records for this imdb_id
+pocket-money,Pocket Money,VHS,unmatched,no UPCMDB records for this imdb_id
+win-place-or-steal,"Win, Place or Steal",VHS,unmatched,no UPCMDB records for this imdb_id
+static,Static,VHS,unmatched,no UPCMDB records for this imdb_id
+mr-nice-guy,MR. NICE GUY,VHS,ambiguous,ambiguous TMDB match

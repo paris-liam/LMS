@@ -1,0 +1,46 @@
+Handle,Title,Vendor,Kind,Reason
+ambushed-dvd-rental-action,Ambushed,DVD,ambiguous,ambiguous TMDB match
+the-choice-dvd-rental-romantic-comedy,The Choice,DVD,ambiguous,ambiguous TMDB match
+caged-dvd-rental-horror,Caged,DVD,ambiguous,ambiguous TMDB match
+men-in-black-dvd-rental-sci-fi,Men in Black,DVD,ambiguous,ambiguous TMDB match
+ancient-evil-dvd-rental-horror,Ancient Evil,DVD,unmatched,TMDB has no imdb_id for this title
+hitchhikers-guide-to-the-galaxy-dvd-rental-sci-fi,Hitchhikers Guide to the Galaxy,DVD,ambiguous,ambiguous TMDB match
+speed-dvd-rental-action,Speed,DVD,ambiguous,ambiguous TMDB match
+armageddon-dvd-rental-action,Armageddon,DVD,ambiguous,ambiguous TMDB match
+life-of-brian-dvd-rental-comedy,Life of Brian,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+the-box-trolls-dvd-rental-kids-family,The Box Trolls,DVD,unmatched,no TMDB match
+tom-jerry-shiver-me-whiskers-dvd-rental-kids-family,Tom & Jerry: Shiver Me Whiskers,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+the-boss-baby-dvd-rental-kids-family,The Boss Baby,DVD,ambiguous,ambiguous TMDB match
+stuart-little-dvd-rental-kids-family,Stuart Little,DVD,ambiguous,ambiguous TMDB match
+dancing-on-ice-dvd-rental-kids-family,Dancing on Ice,DVD,unmatched,no UPCMDB records for this imdb_id
+open-season-dvd-rental-kids-family,Open Season,DVD,ambiguous,ambiguous TMDB match
+charlottes-web-dvd-rental-kids-family,Charlotte's Web,DVD,ambiguous,ambiguous TMDB match
+justice-league-starcrossed-the-movie-dvd-rental-kids-family,Justice League : Starcrossed the Movie,DVD,unmatched,no UPCMDB records for this imdb_id
+stuart-little-2-dvd-rental-kids-family,Stuart Little 2,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+danny-and-the-dinosaur-dvd-rental-kids-family,Danny and the Dinosaur,DVD,unmatched,no UPCMDB records for this imdb_id
+justin-time-dvd-rental-kids-family,Justin Time,DVD,unmatched,no UPCMDB records for this imdb_id
+despicable-me-dvd-rental-kids-family,Despicable Me,DVD,ambiguous,ambiguous TMDB match
+beverly-hills-chihuahua-3-dvd-rental-kids-family,Beverly Hills Chihuahua 3,DVD,ambiguous,ambiguous TMDB match
+true-heart-dvd-rental-kids-family,True Heart,DVD,unmatched,no UPCMDB records for this imdb_id
+the-killing-dvd-rental-thriller,The Killing,DVD,unmatched,no UPCMDB records for this imdb_id
+the-sicilian-dvd-rental-thriller,The Sicilian,DVD,unmatched,no UPCMDB records for this imdb_id
+swimfan-dvd-rental-thriller,Swimfan,DVD,unmatched,no UPCMDB records for this imdb_id
+white-noise-2-dvd-rental-thriller,White Noise 2,DVD,ambiguous,ambiguous TMDB match
+dear-mr-gacy-dvd-rental-thriller,Dear Mr. Gacy,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+fear-in-the-night-dvd-rental-thriller,Fear in the Night,DVD,ambiguous,ambiguous TMDB match
+anna-dvd-rental-thriller,Anna,DVD,ambiguous,ambiguous TMDB match
+the-awakening-dvd-rental-horror,The Awakening,DVD,ambiguous,ambiguous TMDB match
+the-remains-dvd-rental-horror,The Remains,DVD,unmatched,no UPCMDB records for this imdb_id
+the-matador-dvd-rental-action,The Matador,DVD,ambiguous,ambiguous TMDB match
+city-of-sin-dvd-rental-action,City of Sin,DVD,ambiguous,ambiguous TMDB match
+flight-93-dvd-rental-drama,Flight 93,DVD,unmatched,no UPCMDB records for this imdb_id
+get-shorty-dvd-rental-comedy,Get Shorty,DVD,unmatched,UPCMDB has edition(s) for this title but none in DVD format
+ong-bak-the-thai-warrior-dvd-rental-action,Ong-Bak the Thai Warrior,DVD,ambiguous,ambiguous TMDB match
+serena-dvd-rental-drama,Serena,DVD,ambiguous,ambiguous TMDB match
+42-the-jackie-robinson-story-dvd-rental-drama,42 The Jackie Robinson Story,DVD,ambiguous,ambiguous TMDB match
+shouthpaw-dvd-rental-drama,Shouthpaw,DVD,unmatched,no TMDB match
+dirty-dancing-dvd-rental-drama,Dirty Dancing,DVD,ambiguous,ambiguous TMDB match
+return-to-the-hiding-place-dvd-rental-drama,Return to the Hiding Place,DVD,unmatched,no UPCMDB records for this imdb_id
+fifty-shades-of-gray-dvd-rental-drama,Fifty Shades of Gray,DVD,unmatched,no TMDB match
+my-big-fat-greek-wedding-dvd-rental-romantic-comedy,My Big Fat Greek Wedding,DVD,ambiguous,ambiguous TMDB match
+mike-and-dave-need-wedding-dates-dvd-rental-romantic-comedy,Mike and Dave Need Wedding Dates,DVD,unmatched,no UPCMDB records for this imdb_id

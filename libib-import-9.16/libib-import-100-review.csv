@@ -1,0 +1,77 @@
+Handle,Title,Vendor,Kind,Reason
+legend-bluray-rental-fantasy,Legend,Blu-Ray,unmatched,no UPCMDB records for this imdb_id
+rear-window-4k-rental-thriller,Rear Window,4K,ambiguous,ambiguous TMDB match
+civil-war-4k-rental-thriller,Civil War,4K,ambiguous,ambiguous TMDB match
+cinderella-4k-rental-kids-family,Cinderella,4K,ambiguous,ambiguous TMDB match
+alien-4k-rental-sci-fi,Alien,4K,ambiguous,ambiguous TMDB match
+weapons-4k-rental-horror,Weapons,4K,unmatched,UPCMDB has edition(s) for this title but none in 4K format
+to-die-for-bluray-rental-criterion-collection-drama,To Die For,Blu-Ray,ambiguous,ambiguous TMDB match
+the-thin-blue-line-bluray-rental-criterion-collection-documentary,The Thin Blue Line,Blu-Ray,ambiguous,ambiguous TMDB match
+streetwise-bluray-rental-criterion-collection-documentary,Streetwise,Blu-Ray,ambiguous,ambiguous TMDB match
+the-last-waltz-bluray-rental-criterion-collection-musical,The Last Waltz,Blu-Ray,ambiguous,ambiguous TMDB match
+malcom-x-4k-rental-criterion-collection-drama,Malcom X,4K,unmatched,no TMDB match
+wall-e-4k-rental-criterion-collection-kids-family,Wall-E,4K,ambiguous,ambiguous TMDB match
+galaxy-quest-vhs-rental-comedy,Galaxy Quest,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-pickle-vhs-rental-comedy,The Pickle,VHS,unmatched,no UPCMDB records for this imdb_id
+tall-tales-legends-annie-oakley-vhs-rental-drama,Tall Tales & Legends: Annie Oakley,VHS,unmatched,no TMDB match
+iron-will-vhs-rental-kids-family,Iron Will,VHS,unmatched,no UPCMDB records for this imdb_id
+the-great-santini-vhs-rental-drama,The Great Santini,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-kitchen-soto-vhs-rental-drama,The Kitchen Soto,VHS,unmatched,no TMDB match
+to-catch-a-king-vhs-rental-drama,To Catch a King,VHS,unmatched,no UPCMDB records for this imdb_id
+far-from-heaven-vhs-rental-drama,Far From Heaven,VHS,ambiguous,ambiguous TMDB match
+the-prince-of-tides-vhs-rental-drama,The Prince of Tides,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+gods-and-monsters-vhs-rental-drama,Gods and Monsters,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+smokey-bites-the-dust-vhs-rental-comedy,Smokey Bites the Dust,VHS,unmatched,no UPCMDB records for this imdb_id
+isnt-she-great-vhs-rental-comedy,Isn't She Great,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-survivors-vhs-rental-comedy,The Survivors,VHS,ambiguous,ambiguous TMDB match
+eat-drink-man-woman-vhs-rental-comedy,Eat Drink Man Woman,VHS,unmatched,no UPCMDB records for this imdb_id
+god-said-ha-vhs-rental-comedy,God Said Ha!,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-man-who-knew-too-little-vhs-rental-comedy,The Man Who Knew Too Little,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+another-stakeout-vhs-rental-comedy,Another Stakeout,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+oddball-hall-vhs-rental-comedy,Oddball Hall,VHS,unmatched,no UPCMDB records for this imdb_id
+me-myself-i-vhs-rental-comedy,Me Myself I,VHS,unmatched,no UPCMDB records for this imdb_id
+legal-eagles-vhs-rental-comedy,Legal Eagles,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-incredibly-true-adventures-of-2-girls-in-love-vhs-rental-comedy,The Incredibly True Adventures of 2 Girls in Love,VHS,unmatched,no TMDB match
+me-myself-and-irene-vhs-rental-comedy,"Me, Myself and Irene",VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+quigley-down-under-vhs-rental-action,Quigley Down Under,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+short-cuts-vhs-rental-comedy,Short Cuts,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-dunera-boys-vhs-rental-drama,The Dunera Boys,VHS,unmatched,no UPCMDB records for this imdb_id
+smart-money-vhs-rental-drama,Smart Money,VHS,ambiguous,ambiguous TMDB match
+the-heart-of-me-vhs-rental-drama,The Heart of Me,VHS,unmatched,no UPCMDB records for this imdb_id
+wish-you-were-dead-vhs-rental-comedy,Wish You Were Dead,VHS,unmatched,no UPCMDB records for this imdb_id
+hope-and-glory-vhs-rental-drama,Hope and Glory,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+mussolini-and-i-vhs-rental-drama,Mussolini and I,VHS,unmatched,no TMDB match
+were-talkin-serious-money-vhs-rental-comedy,We're Talkin' Serious Money,VHS,unmatched,no UPCMDB records for this imdb_id
+easy-money-vhs-rental-comedy,Easy Money,VHS,ambiguous,ambiguous TMDB match
+year-of-the-comet-vhs-rental-action,Year of the Comet,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+for-keeps-vhs-rental-romantic-comedy,For Keeps,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+extreme-days-vhs-rental-kids-family,Extreme Days,VHS,unmatched,no UPCMDB records for this imdb_id
+working-girl-vhs-rental-comedy,Working Girl,VHS,ambiguous,ambiguous TMDB match
+a-fool-and-his-money-vhs-rental-romantic-comedy,A Fool and His Money,VHS,ambiguous,ambiguous TMDB match
+soap-dish-vhs-rental-comedy,Soap Dish,VHS,unmatched,no TMDB match
+doom-runners-vhs-rental-sci-fi,Doom Runners,VHS,unmatched,no UPCMDB records for this imdb_id
+pure-country-vhs-rental-drama,Pure Country,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+he-said-she-said-vhs-rental-romantic-comedy,"He Said, She Said",VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+the-bridges-of-medison-county-vhs-rental-drama,The Bridges of Medison County,VHS,unmatched,no TMDB match
+eight-days-a-week-vhs-rental-comedy,Eight Days a Week,VHS,unmatched,no UPCMDB records for this imdb_id
+solo-vhs-rental-action,Solo,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+redwood-curtain-vhs-rental-drama,Redwood Curtain,VHS,unmatched,no UPCMDB records for this imdb_id
+murphys-fault-vhs-rental-comedy,Murphy's Fault,VHS,ambiguous,ambiguous TMDB match
+educating-rita-vhs-rental-romantic-comedy,Educating Rita,VHS,unmatched,no UPCMDB records for this imdb_id
+eds-next-move-vhs-rental-romantic-comedy,Ed's Next Move,VHS,unmatched,no UPCMDB records for this imdb_id
+a-saintly-switch-vhs-rental-comedy,A Saintly Switch,VHS,unmatched,no UPCMDB records for this imdb_id
+soldiers-fortune-vhs-rental-action,Soldier's Fortune,VHS,ambiguous,ambiguous TMDB match
+the-edge-vhs-rental-action,The Edge,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+sleeping-beauty-1989-vhs-rental-kids-family,Sleeping Beauty (1989),VHS,ambiguous,ambiguous TMDB match
+soldier-of-fortune-inc-vhs-rental-action,Soldier of Fortune Inc.,VHS,unmatched,no UPCMDB records for this imdb_id
+dragonfight-vhs-rental-action,DragonFight,VHS,unmatched,no UPCMDB records for this imdb_id
+the-train-robbers-vhs-rental-action,The Train Robbers,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+son-of-the-pink-panther-vhs-rental-comedy,Son of the Pink Panther,VHS,unmatched,no UPCMDB records for this imdb_id
+dutch-vhs-rental-comedy,Dutch,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+fathers-day-vhs-rental-comedy,Father's Day,VHS,unmatched,TMDB has no imdb_id for this title
+the-fear-inside-vhs-rental-thriller,The Fear Inside,VHS,unmatched,no UPCMDB records for this imdb_id
+salvador-vhs-rental-drama,Salvador,VHS,ambiguous,ambiguous TMDB match
+dying-to-get-rich-vhs-rental-comedy,Dying to Get Rich,VHS,ambiguous,ambiguous TMDB match
+sleeping-with-the-enemy-vhs-rental-thriller,Sleeping with the Enemy,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+a-pyromaniacs-love-story-vhs-rental-romantic-comedy,A Pyromaniac's Love Story,VHS,unmatched,UPCMDB has edition(s) for this title but none in VHS format
+small-time-crooks-vhs-rental-comedy,Small Time Crooks,VHS,unmatched,no UPCMDB records for this imdb_id

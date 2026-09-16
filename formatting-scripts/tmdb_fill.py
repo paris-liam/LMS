@@ -212,6 +212,47 @@ def popularity_tiebreak(candidates: list[dict]) -> dict | None:
     return None
 
 
+# A word-overlap score this low is no more than noise (shared stopwords,
+# common movie-description phrasing) — not a real signal that one candidate's
+# plot matches our description better than another's.
+OVERVIEW_TIEBREAK_MIN_SCORE = 0.15
+# ...and the gap over the runner-up has to be this wide to trust it over a
+# candidate that merely shares genre-typical vocabulary.
+OVERVIEW_TIEBREAK_MARGIN = 0.10
+
+_WORD_RE = re.compile(r"[a-z']+")
+
+
+def overview_similarity(a: str, b: str) -> float:
+    """Jaccard overlap of two texts' lowercased word sets. Cheap and order-
+    insensitive — good enough to tell "photographer spies on neighbors,
+    convinced of a murder" apart from an unrelated same-titled film's plot,
+    which is all this is used for (a tiebreak, not a match on its own)."""
+    a_words = set(_WORD_RE.findall((a or "").lower()))
+    b_words = set(_WORD_RE.findall((b or "").lower()))
+    if not a_words or not b_words:
+        return 0.0
+    return len(a_words & b_words) / len(a_words | b_words)
+
+
+def overview_tiebreak(candidates: list[dict], overview_hint: str) -> dict | None:
+    """Return the candidate whose TMDB overview decisively out-overlaps the
+    field against our own product description, or None if there's no hint,
+    fewer than two candidates, or no decisive winner."""
+    if not overview_hint or len(candidates) < 2:
+        return None
+    scored = sorted(
+        ((overview_similarity(overview_hint, r.get("overview") or ""), r) for r in candidates),
+        key=lambda pair: pair[0],
+        reverse=True,
+    )
+    top_score, top = scored[0]
+    runner_score = scored[1][0]
+    if top_score >= OVERVIEW_TIEBREAK_MIN_SCORE and (top_score - runner_score) >= OVERVIEW_TIEBREAK_MARGIN:
+        return top
+    return None
+
+
 def candidate_score(clean_title: str, genre: str, result: dict) -> float:
     """Title similarity, nudged up by a genre-overlap boost, capped at 1.0.
     Used by classify_match to rank and threshold auto-match candidates.
@@ -229,6 +270,7 @@ def candidate_score(clean_title: str, genre: str, result: dict) -> float:
 
 def classify_match(
     clean_title: str, year: int | None, results: list[dict], genre: str = "",
+    overview_hint: str = "",
 ) -> tuple[dict | None, str]:
     """Return (candidate_or_None, "confident" | "ambiguous" | "none").
 
@@ -249,11 +291,15 @@ def classify_match(
     can't manufacture a false tie against the real candidate.
 
     When several fully-populated candidates are still genuinely tied on
-    title alone (e.g. three "Mandela" entries), two more signals get a shot
-    at resolving it before giving up: a genre match that narrows the tie to
-    exactly one candidate wins outright, and failing that, a 10x+
-    popularity gap (POPULARITY_TIEBREAK_FACTOR) between the top two is
-    treated as decisive. Neither can resolve a tie the title/genre data
+    title alone (e.g. three "Mandela" entries), three more signals get a
+    shot at resolving it before giving up: a genre match that narrows the
+    tie to exactly one candidate wins outright; failing that, our own
+    product description decisively out-overlapping one candidate's TMDB
+    overview over the rest (overview_hint, optional — pass our Body (HTML)
+    text stripped of tags; a caller with no description text simply passes
+    "" and this tier is skipped); and failing that too, a 10x+ popularity
+    gap (POPULARITY_TIEBREAK_FACTOR) between the top two is treated as
+    decisive. None of the three can resolve a tie the underlying data
     genuinely doesn't support — that's still routed to the picker.
     """
     if not results:
@@ -276,6 +322,10 @@ def classify_match(
                         if score >= MATCH_THRESHOLD and (r.get("release_date") or "")[:4] == str(year)]
         if len(year_matches) == 1:
             return year_matches[0], "confident"
+        if len(year_matches) > 1:
+            overview_winner = overview_tiebreak(year_matches, overview_hint)
+            if overview_winner is not None:
+                return overview_winner, "confident"
         return best, "ambiguous"
 
     if best_score < MATCH_THRESHOLD:
@@ -286,14 +336,15 @@ def classify_match(
         return best, "confident"
 
     # Multiple strong, fully-populated candidates still tied on title alone:
-    # try narrowing by genre, then by a decisive popularity gap, before
-    # giving up and sending this to the picker. A candidate newer than the
-    # catalogue could ever carry is excluded from this narrowing first —
-    # otherwise it can be the one candidate that happens to carry the right
-    # genre tag (or the most popularity) and win a tie it was never really
-    # in contention for. This mirrors GLOBAL_YEAR_CUTOFF's build_output-level
-    # filter, but scoped to just the tiebreak: `best` (and thus the
-    # ambiguous fallback) still reflects the unfiltered field.
+    # try narrowing by genre, then description overlap, then a decisive
+    # popularity gap, before giving up and sending this to the picker. A
+    # candidate newer than the catalogue could ever carry is excluded from
+    # this narrowing first — otherwise it can be the one candidate that
+    # happens to carry the right genre tag (or the most popularity) and win
+    # a tie it was never really in contention for. This mirrors
+    # GLOBAL_YEAR_CUTOFF's build_output-level filter, but scoped to just the
+    # tiebreak: `best` (and thus the ambiguous fallback) still reflects the
+    # unfiltered field.
     plausible = filter_by_year_cutoff(tied, GLOBAL_YEAR_CUTOFF)
     if plausible:
         tied = plausible
@@ -303,6 +354,10 @@ def classify_match(
         return genre_filtered[0], "confident"
     if genre_filtered:
         tied = genre_filtered
+
+    overview_winner = overview_tiebreak(tied, overview_hint)
+    if overview_winner is not None:
+        return overview_winner, "confident"
 
     pop_winner = popularity_tiebreak(tied)
     if pop_winner is not None:
