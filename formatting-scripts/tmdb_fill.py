@@ -337,8 +337,8 @@ def build_output(
     the CSV). Vendor/Genre are carried through so the picker and the
     unmatched CSV can show them without looking the row back up — Vendor
     holds the physical format (VHS/DVD/Blu-Ray/4K/Laserdisc/Betamax), not a
-    real vendor.
-    Nothing is ever written to Tags.
+    real vendor. Tags is also carried through (read-only, for the picker's
+    Rental/Floor Sale filter) — nothing is ever written to it.
     """
     output_rows: list[dict] = []
     review_rows: list[dict] = []
@@ -346,10 +346,10 @@ def build_output(
     groups = group_rows_by_handle(rows)
     total = len(groups)
 
-    def review(handle, title, vendor, genre, kind, reason):
+    def review(handle, title, vendor, genre, tags, kind, reason):
         review_rows.append({
             "Handle": handle, "Title": title, "Vendor": vendor, "Genre": genre,
-            "Kind": kind, "Reason": reason,
+            "Tags": tags, "Kind": kind, "Reason": reason,
         })
 
     for index, (handle, group) in enumerate(groups, start=1):
@@ -365,13 +365,14 @@ def build_output(
         primary = dict(group[0])
         vendor = primary.get("Vendor", "")
         genre = primary.get(GENRE_METAFIELD, "")
+        tags = primary.get("Tags", "")
         clean_title, year = clean_title_and_year(title)
 
         try:
             results = search_tmdb(fetch_fn, clean_title, year)
         except Exception as exc:
             sleep_fn(REQUEST_DELAY_SECONDS)
-            review(handle, title, vendor, genre, "unmatched", f"TMDB request failed: {exc}")
+            review(handle, title, vendor, genre, tags, "unmatched", f"TMDB request failed: {exc}")
             output_rows.extend(group)
             progress_fn(index, total, title, f"unmatched: request failed: {exc}")
             continue
@@ -398,7 +399,7 @@ def build_output(
                     best, kind = filtered_best, filtered_kind
 
         if kind == "none":
-            review(handle, title, vendor, genre, "unmatched", "no TMDB match")
+            review(handle, title, vendor, genre, tags, "unmatched", "no TMDB match")
             output_rows.extend(group)
             progress_fn(index, total, title, "unmatched: no TMDB match")
             continue
@@ -406,7 +407,7 @@ def build_output(
         if kind == "ambiguous":
             best_title = best.get("title", "?")
             best_year = (best.get("release_date") or "")[:4] or "?"
-            review(handle, title, vendor, genre, "ambiguous",
+            review(handle, title, vendor, genre, tags, "ambiguous",
                    f"ambiguous match (best candidate: '{best_title}' ({best_year}))")
             output_rows.extend(group)
             progress_fn(index, total, title, f"ambiguous: '{best_title}' ({best_year})")
@@ -424,7 +425,7 @@ def build_output(
                     primary["Image Alt Text"] = f"{clean_title}{suffix} poster"
                 filled.append("image")
             else:
-                review(handle, title, vendor, genre, "unmatched", "matched but TMDB has no poster")
+                review(handle, title, vendor, genre, tags, "unmatched", "matched but TMDB has no poster")
 
         if need_desc:
             overview = (best.get("overview") or "").strip()
@@ -432,7 +433,7 @@ def build_output(
                 primary["Body (HTML)"] = f"<p>{overview}</p>"
                 filled.append("description")
             else:
-                review(handle, title, vendor, genre, "unmatched", "matched but TMDB has no overview")
+                review(handle, title, vendor, genre, tags, "unmatched", "matched but TMDB has no overview")
 
         output_rows.append(primary)
         output_rows.extend(group[1:])

@@ -5,7 +5,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "formatting-scripts"))
 
-from review_page import MAX_CANDIDATES, build_picker_html, collect_products, fetch_candidates, write_picker
+from review_page import (
+    MAX_CANDIDATES, build_picker_html, collect_products, fetch_candidates,
+    rental_or_floor_sale, write_picker,
+)
 
 
 def result(title, year="1982", popularity=0.0, vote_count=0, genre_ids=None):
@@ -19,6 +22,20 @@ def fetcher(results):
     def fetch(query, year):
         return {"results": results}
     return fetch
+
+
+class TestRentalOrFloorSale(unittest.TestCase):
+    def test_recognizes_rental(self):
+        self.assertEqual(rental_or_floor_sale("Rental, DVD, action"), "Rental")
+
+    def test_recognizes_floor_sale(self):
+        self.assertEqual(rental_or_floor_sale("Floor Sale, VHS, comedy"), "Floor Sale")
+
+    def test_blank_when_neither_present(self):
+        self.assertEqual(rental_or_floor_sale("DVD, action"), "")
+
+    def test_blank_for_empty_tags(self):
+        self.assertEqual(rental_or_floor_sale(""), "")
 
 
 class TestFetchCandidates(unittest.TestCase):
@@ -97,6 +114,14 @@ class TestCollectProducts(unittest.TestCase):
         )
         self.assertEqual(products[0]["vendor"], "DVD")
         self.assertEqual(products[0]["genre"], "horror")
+
+    def test_carries_the_rental_or_floor_sale_tag_through_from_the_review_row(self):
+        products = collect_products(
+            [{"Handle": "x", "Title": "X", "Tags": "Rental, DVD, action",
+              "Kind": "ambiguous", "Reason": "r"}],
+            fetcher([result("X")]), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(products[0]["tag"], "Rental")
 
     def test_a_failed_request_yields_a_card_with_no_candidates(self):
         def boom(query, year):

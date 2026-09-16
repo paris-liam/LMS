@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "handle": "the-three-muskateers-dvd-rental-action",
+    "choice": "skip"
+  },
+  {
+    "handle": "the-seeker-dvd-rental-kids-family",
+    "choice": "skip"
+  },
+  {
+    "handle": "was-the-dog-vhs-rental-comedy",
+    "choice": "skip"
+  },
+  {
+    "handle": "the-rules-of-the-game-dvd-rental-comedy",
+    "choice": "skip"
+  },
+  {
+    "handle": "tcm-sci-fi-collection-dvd-rental-sci-fi",
+    "choice": "skip"
+  },
+  {
+    "handle": "snowboat-academy-vhs-rental-comedy",
+    "choice": "skip"
+  },
+  {
+    "handle": "bangkock-dangerous-dvd-rental-action",
+    "choice": "skip"
+  },
+  {
+    "handle": "lightnight-incident-vhs-rental-thriller",
+    "choice": "skip"
+  },
+  {
+    "handle": "mom-can-i-keep-him-vhs-rental-kids-family",
+    "choice": "skip"
+  },
+  {
+    "handle": "space-rangers-chronicles-2-vhs-rental-sci-fi",
+    "choice": "skip"
+  },
+  {
+    "handle": "beauty-shop-leagally-blonde-dvd-rental-comedy",
+    "choice": "skip"
+  },
+  {
+    "handle": "american-horror-stories-12-movie-collection-dvd-rental-horror",
+    "choice": "skip"
+  },
+  {
+    "handle": "mark-wahlberg-rockstar-perfect-storm-three-kings-corrupter-dvd-rental-action",
+    "choice": "skip"
+  },
+  {
+    "handle": "the-shadow-collection-8-movies-dvd-rental-horror",
+    "choice": "skip"
+  },
+  {
+    "handle": "caged-in-triple-feature-dvd-rental-action",
+    "choice": "skip"
+  },
+  {
+    "handle": "the-cat-in-the-hat-sing-along-vhs-rental-kids-family",
+    "choice": "skip"
+  },
+  {
+    "handle": "kino-film-noir-dvd-rental-thriller",
+    "choice": "skip"
+  },
+  {
+    "handle": "murder-in-texas-vhs",
+    "choice": "skip"
+  },
+  {
+    "handle": "against-the-ropes-contrecoups-dvd-rental-drama",
+    "choice": "skip"
+  },
+  {
+    "handle": "star-wars-trilogy-iv-v-vi-dvd-rental-sci-fi",
+    "choice": "skip"
+  },
+  {
+    "handle": "the-bourne-trilogy-dvd-rental-action",
+    "choice": "skip"
+  }
+]

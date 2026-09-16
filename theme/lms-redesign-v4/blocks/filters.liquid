@@ -122,10 +122,6 @@
       </div>
 
       <div class="facets-controls-wrapper__right">
-        <div class="products-count-wrapper" data-testid="products-count">
-          <span role="status">{% if products_count == 1 %}1 film{% else %}{{ products_count }} films{% endif %}</span>
-        </div>
-
         {% if block_settings.enable_sorting %}
           {% render 'sorting',
             results: results,

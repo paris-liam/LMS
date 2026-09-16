@@ -4,6 +4,11 @@
 # CLI auth/environments — holds Theme Access token + storefront password. NEVER commit.
 shopify.theme.toml
 
+# Admin API credentials for scripts/*.sh — NEVER commit.
+.env
+.env.*
+!.env.example
+
 # Python
 __pycache__/
 *.pyc

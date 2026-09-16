@@ -4,108 +4,6 @@
     "choice": "skip"
   },
   {
-    "handle": "star-wars-a-new-hope-vhs-floor-sale-sci-fi",
-    "choice": "tmdb",
-    "poster_path": "/fai0rspsNeJCS69wHNjOdWxcI7P.jpg",
-    "overview": "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire."
-  },
-  {
-    "handle": "star-wars-attack-of-the-clones-dvd-rental-sci-fi",
-    "choice": "tmdb",
-    "poster_path": "/oZNPzxqM2s5DyVWab09NTQScDQt.jpg",
-    "overview": "Following an assassination attempt on Senator Padmé Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars."
-  },
-  {
-    "handle": "star-wars-attack-of-the-clones-dvd-floor-sale-sci-fi",
-    "choice": "tmdb",
-    "poster_path": "/oZNPzxqM2s5DyVWab09NTQScDQt.jpg",
-    "overview": "Following an assassination attempt on Senator Padmé Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars."
-  },
-  {
-    "handle": "star-wars-revenge-of-the-sith-dvd-floor-sale-sci-fi",
-    "choice": "tmdb",
-    "poster_path": "/xfSAoBEm9MNBjmlNcDYLvLSMlnq.jpg",
-    "overview": "When the sinister Sith unveil a thousand-year-old plot to rule the galaxy, the Republic crumbles and from its ashes rises the evil Galactic Empire. Jedi hero Anakin Skywalker must choose a side."
-  },
-  {
-    "handle": "star-wars-the-phantom-menace-dvd-rental-sci-fi",
-    "choice": "tmdb",
-    "poster_path": "/6wkfovpn7Eq8dYNKaG5PY3q2oq6.jpg",
-    "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi."
-  },
-  {
-    "handle": "starship-troopers-2-vhs-rental-sci-fi",
-    "choice": "tmdb",
-    "poster_path": "/9iqrqOjLaFcGNnSQlJxYLfgrhqn.jpg",
-    "overview": "A group of troopers take refuge in an abandoned outpost after fighting alien bugs, failing to realize that more danger lays in wait."
-  },
-  {
-    "handle": "stealth-dvd-floor-sale-thriller",
-    "choice": "tmdb",
-    "poster_path": "/cVtQHyTwaDhYFVRFXSuDthC2bXH.jpg",
-    "overview": "Deeply ensconced in a top-secret military program, three pilots struggle to bring an artificial intelligence program under control ... before it initiates the next world war."
-  },
-  {
-    "handle": "stir-of-echoes-2-dvd-rental-thriller",
-    "choice": "tmdb",
-    "poster_path": "/cHfi643JkyJe647vtLE8SSZICI9.jpg",
-    "overview": "A soldier returns home from the Iraq war only to be haunted by visions of the dead."
-  },
-  {
-    "handle": "t2-judgement-day-bluray",
-    "choice": "tmdb",
-    "poster_path": "/jFTVD4XoWQTcg7wdyJKa8PEds5q.jpg",
-    "overview": "Ten years after the events of the original, a reprogrammed T-800 is sent back in time to protect young John Connor from the shape-shifting T-1000. Together with his mother Sarah, he fights to stop Skynet from triggering a nuclear apocalypse."
-  },
-  {
-    "handle": "thats-the-way-i-like-it-vhs-floor-sale-comedy",
-    "choice": "tmdb",
-    "poster_path": "/wZflIL6jyQ6flv5e4Payx1FrNMm.jpg",
-    "overview": "Hock, a Bruce Lee-worshipping grocery boy, falls in love with disco after a screening of his favorite kung fu film is replaced with a \"Saturday Night Fever\" clone.  Partnering up with his friend Mei, he signs up for dancing lessons to prepare for a contest, in order to make some extra cash and buy a new motorcycle."
-  },
-  {
-    "handle": "the-baby-bot-chase-rolie-polie-olie-dvd-rental-kids-family",
-    "choice": "tmdb",
-    "poster_path": "/8wlDOI4oJZYpxWmZZ2BF7DlvBG4.jpg",
-    "overview": "An ill-fated attempt to capture a wishing star as a gift for their parents leads Rolie and Zowie into a musical outer space venture that brings a pair of lost twins into their lives in the multicolored robotic family's second feature-length outing. The baby bots have inadvertently left their dwelling, a fantasy foster home more akin to amusement park than institution. When Rolie and Zowie bring the misplaced babies back to their home planet, Mom and Dad are willing to give up the Family Fun Day Parade in order to track down the \"mothership.\" The intergalactic road trip results in the discovery that the infants need a good adoptive home. The parents offer verbal agreement (no red tape or exorbitant fees here!) and it's back home in time for the parade in this sweetly unjaded 68-minute movie from the folks at Disney Playhouse. (Ages 2 to 7) --Kimberly Heinrichs"
-  },
-  {
-    "handle": "the-brothers-grimsby-dvd-rental-comedy",
-    "choice": "tmdb",
-    "poster_path": "/2jQGFmShpdflApc5oidJZ97m1d1.jpg",
-    "overview": "Wrongfully accused and on the run, a top MI6 assassin joins forces with his long-lost, football hooligan brother to save the world from a sinister plot."
-  },
-  {
-    "handle": "the-fugitive-us-marshals-dvd-floor-sale-action",
-    "choice": "tmdb",
-    "poster_path": "/5ST0BydDSXtW5AtfDDhTVS13pTt.jpg",
-    "overview": "U.S. Marshal Sam Gerard is accompanying a plane load of convicts from Chicago to New York. The plane crashes spectacularly, and Mark Sheridan escapes. But when Diplomatic Security Agent John Royce is assigned to help Gerard recapture Sheridan, it becomes clear that Sheridan is more than just another murderer."
-  },
-  {
-    "handle": "the-hudsucker-vhs-floor-sale-comedy",
-    "choice": "tmdb",
-    "poster_path": "/xBQBr6Q1OTivouBK66oFgy86n03.jpg",
-    "overview": "A naive business graduate is installed as president of a manufacturing company as part of a stock scam."
-  },
-  {
-    "handle": "the-last-of-philip-banter-vhs-floor-sale-thriller",
-    "choice": "tmdb",
-    "poster_path": "/iCGusfY637oOepBCiD80WSyt09w.jpg",
-    "overview": "An alcoholic partier becomes a paranoid maniac when a manuscript that predicts real-life horrors takes possession of his mind."
-  },
-  {
-    "handle": "the-legend-of-the-shadowless-sword-dvd-floor-sale-action",
-    "choice": "tmdb",
-    "poster_path": "/g8zYKidsjUXDjftPWo9DkrV2gcC.jpg",
-    "overview": "927 AD. The Killer-Blade Army has toppled the ruling dynasty, plunging the kingdom into chaos. The only remaining heir, Prince Jung-Hyun is living in exile, unaware of his family's dark fate. Still loyal to the dynasty, the beautiful and deadly warrior Soha sets out to find Jung-Hyun and guide him to become the great leader he was born to be. But with the Army's greatest assassins and the criminal underworld hunting them, Soha and Jung-Hyun are swept into an explosive, non-stop battle of swords, wits and bloodshed as they fight to reclaim the fallen throne."
-  },
-  {
-    "handle": "the-nut-job-nut-job-2-dvd-rental-kids-family",
-    "choice": "tmdb",
-    "poster_path": "/xOfdQHNF9TlrdujyAjiKfUhxSXy.jpg",
-    "overview": "When the evil mayor of Oakton decides to bulldoze Liberty Park and build a dangerous amusement park in its place, Surly Squirrel and his ragtag group of animal friends need to band together to save their home, defeat the mayor, and take back the park."
-  },
-  {
     "handle": "storm-of-the-century-dvd-rental-horror",
     "choice": "skip"
   },
@@ -142,121 +40,49 @@
     "choice": "skip"
   },
   {
-    "handle": "steel-vhs",
-    "choice": "tmdb",
-    "poster_path": "/ufA7d5LT2rGj58KaZErPhcMkJ4U.jpg",
-    "overview": "When a renegade military reject puts new superweapons in dangerous hands, John Henry Irons becomes Steel. Wearing body armor, wielding a fearsome electrohammer and riding a gadget-packed motorcycle, he's ready to wage war... if he can fix the untimely glitches in his untested gear."
-  },
-  {
-    "handle": "steel-magnolias-dvd-floor-sale-drama",
-    "choice": "tmdb",
-    "poster_path": "/7ExUSN9s9gX9bhVM17zDLEizano.jpg",
-    "overview": "A young beautician, newly arrived in a small Louisiana town, finds work at the local salon, where a small group of women share a close bond of friendship and welcome her into the fold."
-  },
-  {
     "handle": "stoke-vhs",
     "choice": "skip"
   },
   {
-    "handle": "stone-cold-dvd-rental-thriller",
-    "choice": "tmdb",
-    "poster_path": "/vovdfgdfXazuOZK7x8ZwFwuxtci.jpg",
-    "overview": "Jesse Stone is a former L.A. homicide detective who left behind the big city and an ex-wife to become the police chief of the quiet New England fishing town of Paradise. Stone's old habits die hard as he continues to indulge his two favorite things: Scotch whiskey and women. After a series of murders, the first ever in Paradise, and a high school girl is raped he's forced to face his own demons in order to solve the crimes."
+    "handle": "swingers-dvd-rental-comedy",
+    "choice": "skip"
   },
   {
-    "handle": "straw-dogs-dvd-5",
-    "choice": "tmdb",
-    "poster_path": "/yigkfHE1OhkxPPrjrV78Y9ibGEk.jpg",
-    "overview": "David Sumner, a mild-mannered academic from the United States, marries Amy, an Englishwoman. In order to escape a hectic stateside lifestyle, David and his wife relocate to the small town in rural Cornwall where Amy was raised. There, David is ostracized by the brutish men of the village, including Amy's old flame, Charlie. Eventually the taunts escalate."
+    "handle": "talk-to-me",
+    "choice": "skip"
   },
   {
-    "handle": "stray-dog-dvd-rental-drama",
-    "choice": "tmdb",
-    "poster_path": "/riBzUgeYawBDi2q9PjARjHrQM7Z.jpg",
-    "overview": "A bad day gets worse for young detective Murakami when a pickpocket steals his gun on a hot, crowded bus. Desperate to right the wrong, he goes undercover, scavenging Tokyo’s sweltering streets for the stray dog whose desperation has led him to a life of crime. With each step, cop and criminal’s lives become more intertwined and the investigation becomes an examination of Murakami’s own dark side."
+    "handle": "the-best-years-of-our-lives-vhs-rental-drama",
+    "choice": "skip"
   },
   {
-    "handle": "stuart-little-dvd-rental-kids-family",
-    "choice": "tmdb",
-    "poster_path": "/362lcwTJlNyAhitTlp2UraECISR.jpg",
-    "overview": "When the Littles adopt Stuart, the mouse, George is initially unwelcoming to his new brother, and the family cat, Snowbell, is even less enthusiastic. Stuart resolves to face these difficulties with as much pluck and courage as he can muster."
+    "handle": "the-blue-angel-vhs-rental-drama",
+    "choice": "skip"
   },
   {
-    "handle": "stuart-little-dvd-floor-sale-kids-family",
-    "choice": "tmdb",
-    "poster_path": "/362lcwTJlNyAhitTlp2UraECISR.jpg",
-    "overview": "When the Littles adopt Stuart, the mouse, George is initially unwelcoming to his new brother, and the family cat, Snowbell, is even less enthusiastic. Stuart resolves to face these difficulties with as much pluck and courage as he can muster."
+    "handle": "the-call-of-the-wild-bluray-rental-drama-4k",
+    "choice": "skip"
   },
   {
-    "handle": "sucker-punch-bluray-floor-sale-action",
-    "choice": "tmdb",
-    "poster_path": "/jtaUDnvIiHUd2ranDcjB5AbPx6o.jpg",
-    "overview": "A young woman, institutionalized by her abusive stepfather, retreats into a vivid fantasy world where she envisions a plan to escape. Gathering a group of fellow inmates, she embarks on a quest to collect five mystical items, blurring the lines between reality and imagination."
+    "handle": "the-candidate-vhs-rental-drama",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   },
   {
-    "handle": "summers-end-vhs-rental-drama",
-    "choice": "tmdb",
-    "poster_path": "/lKC943QXBh3ZxYK0TlIyjZYw9hH.jpg",
-    "overview": "A 12-year-old boy and his older brother have just lost their dad. At their summer cottage, the younger boy befriends a black doctor who has to deal with local prejudice and racism."
+    "handle": "the-choice-dvd-rental-romantic-comedy",
+    "choice": "skip"
   },
   {
-    "handle": "summertime-dvd-rental-drama",
-    "choice": "tmdb",
-    "poster_path": "/ugqdTcTEiIl37jv0QiSUlpplEke.jpg",
-    "overview": "In 1971, a young woman moves from the French countryside to Paris and begins a passionate love affair with a feminist leader."
+    "handle": "the-gun-run-dvd-rental-action",
+    "choice": "skip"
   },
   {
-    "handle": "sunburn",
-    "choice": "tmdb",
-    "poster_path": "/pP9qJHqqxCxX0QGIJzTCH8W3kYQ.jpg",
-    "overview": "A model and a private eye help a New York insurance investigator on a deadly case in Acapulco."
+    "handle": "the-highwayman-vhs-rental-action",
+    "choice": "skip"
   },
   {
-    "handle": "sunset-strip-vhs-floor-sale-drama",
-    "choice": "tmdb",
-    "poster_path": "/j9awEAeVvMolWIAmmqTYeRyXagM.jpg",
-    "overview": "A day in Hollywood, 1972, with young people looking for the 24 hours that will change their lives. Zach will open that night for a British rocker at Whisky a Go-Go; he lives in a canyon and plays impromptu duets with a mysterious guitarist he doesn't see. Tammy is a costume designer, open to quick sex with the various rockers she works with and loved from afar by Michael, a photographer recovering from a case of the clap. His good friend is Felix, a morose, alcoholic songwriter. On hand for comic relief is Marty Shapiro, a fast-talking record producer. Getting ready for the gig at the club, Zach's performance, and the early-morning aftermath comprise the film."
-  },
-  {
-    "handle": "super-8-bluray-floor-sale-action",
-    "choice": "tmdb",
-    "poster_path": "/pUWIjaMMYJjeBm5bJyE3mIXdQ62.jpg",
-    "overview": "In late 1970s Ohio, a group of friends filming a homemade zombie movie witness a devastating train derailment. Soon after, their quiet town is gripped by unexplained disappearances, strange phenomena, and a growing sense of fear, as they uncover that something terrifying has been set loose."
-  },
-  {
-    "handle": "super-dave-dvd-rental-comedy",
-    "choice": "tmdb",
-    "poster_path": "/AjxnGP5gsCf1Oz9D9gfoiFFpViC.jpg",
-    "overview": "Super Dave Osborne, our accident-prone stuntman hero, comes out of a self-imposed retirement to raise money for his new girlfriend's son's heart operation."
-  },
-  {
-    "handle": "super-troopers",
-    "choice": "tmdb",
-    "poster_path": "/yJyxPItcLNVfYr7idOphQTmQ9hK.jpg",
-    "overview": "Five bored, occasionally high and always ineffective Vermont state troopers must prove their worth to the governor or lose their jobs. After stumbling on a drug ring, they plan to make a bust, but a rival police force is out to steal the glory."
-  },
-  {
-    "handle": "superman-ii-vhs-floor-sale-action",
-    "choice": "tmdb",
-    "poster_path": "/3xk5cno9BHcnwc97XO9k21aI1Zi.jpg",
-    "overview": "Three Kryptonian criminals led by General Zod team up with Lex Luthor to conquer Earth, forcing a depowered Superman to regain his strength and stop them."
-  },
-  {
-    "handle": "superman-the-movie-vhs-floor-sale-action",
-    "choice": "tmdb",
-    "poster_path": "/d7px1FQxW4tngdACVRsCSaZq0Xl.jpg",
-    "overview": "Mild-mannered Clark Kent works as a reporter at the Daily Planet alongside his crush, Lois Lane. Clark must summon his superhero alter-ego when the nefarious Lex Luthor launches a plan to take over the world."
-  },
-  {
-    "handle": "supernova-vhs-floor-sale-sci-fi",
-    "choice": "tmdb",
-    "poster_path": "/AmHGUjhgXnOYRYrF2ZYMtzfwxPe.jpg",
-    "overview": "Set in the 22nd century, when a battered salvage ship sends out a distress signal, the seasoned crew of the rescue hospital ship Nova-17 responds. What they find is a black hole--that threatens to destroy both ships--and a mysterious survivor whose body quickly mutates into a monstrous and deadly form."
-  },
-  {
-    "handle": "surviving-christmas-vhs-floor-sale-holiday",
-    "choice": "tmdb",
-    "poster_path": "/8jHtvFpCOOqp2U2qwI3L3h10cUv.jpg",
-    "overview": "A wealthy executive, Drew Latham (Ben Affleck) has no close relationships and becomes nostalgic for his childhood home as Christmas approaches. When he visits the house and finds another family living there, he offers the residents, Tom Valco (James Gandolfini) and his wife, Christine (Catherine O'Hara), a large sum of money to pretend they are his parents. Soon Drew tests the couple's patience, and, when their daughter, Alicia (Christina Applegate), arrives, things get increasingly tense."
+    "handle": "the-last-winter-vhs-rental-drama",
+    "choice": "skip"
   }
 ]
