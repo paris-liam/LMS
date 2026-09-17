@@ -336,7 +336,7 @@
             "links": {
               "type": "text",
               "settings": {
-                "text": "<p><a href=\"/pages/membership\">Join the Club</a></p><p><a href=\"/collections/rental-library\">Rental Library</a><br/></p>",
+                "text": "<p><a href=\"/pages/membership\">Join the Club</a></p><p><a href=\"/collections/all-movies\" title=\"/collections/all-movies\">Rental Library</a><br/></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
