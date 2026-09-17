@@ -76,7 +76,9 @@
           {% endif %}
           rows="3"
         ></textarea>
-        {{ character_count_label }}
+        {% unless block_settings.hide_character_count %}
+          {{ character_count_label }}
+        {% endunless %}
       </div>
     {% elsif actual_input_type == 'checkbox' %}
       {% render 'checkbox',
@@ -106,7 +108,9 @@
             required aria-required="true"
           {% endif %}
         >
-        {{ character_count_label }}
+        {% unless block_settings.hide_character_count %}
+          {{ character_count_label }}
+        {% endunless %}
       </div>
     {% endif %}
   </div>
@@ -275,6 +279,13 @@
       "id": "required",
       "label": "t:settings.product_custom_property.required",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_character_count",
+      "label": "Hide character counter",
+      "default": false,
+      "visible_if": "{{ block.settings.input_type == \"text\" }}"
     },
     {
       "type": "text",
