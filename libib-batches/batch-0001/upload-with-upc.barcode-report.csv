@@ -1,0 +1,26 @@
+call_number,status,message
+92127482,skipped,barcode already matches call_number
+91963642,skipped,barcode already matches call_number
+91898106,skipped,barcode already matches call_number
+91832570,skipped,barcode already matches call_number
+91767034,error,save did not persist -- reloaded value is '2010000001332'
+91701498,skipped,barcode already matches call_number
+91504890,skipped,barcode already matches call_number
+91439354,skipped,barcode already matches call_number
+91373818,error,save did not persist -- reloaded value is '2010000001370'
+91242746,skipped,barcode already matches call_number
+91111674,skipped,barcode already matches call_number
+91046138,skipped,barcode already matches call_number
+90947834,skipped,barcode already matches call_number
+90849530,skipped,barcode already matches call_number
+90783994,skipped,barcode already matches call_number
+90718458,skipped,barcode already matches call_number
+19113466,skipped,barcode already matches call_number
+18916858,skipped,barcode already matches call_number
+18261498,skipped,barcode already matches call_number
+18032122,skipped,barcode already matches call_number
+17442298,skipped,barcode already matches call_number
+17245690,skipped,barcode already matches call_number
+17016314,skipped,barcode already matches call_number
+16852474,skipped,barcode already matches call_number
+16623098,skipped,barcode already matches call_number

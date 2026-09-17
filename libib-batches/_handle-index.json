@@ -4,11 +4,11 @@
     "status": "awaiting-upc"
   },
   "10-000-bc-dvd-rental-action": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "100-earthquake-dvd-rental-action": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "101-dalmatians-vhs-rental-kids-family": {
@@ -28,16 +28,16 @@
     "status": "awaiting-upc"
   },
   "16-blocks": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "16-blocks-dvd-rental-action": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "1917-4k-rental-action": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "needs-review"
   },
   "2-days-in-paris-dvd-rental-romantic-comedy": {
     "batch": "batch-0010",
@@ -56,35 +56,35 @@
     "status": "awaiting-upc"
   },
   "21-grams-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "21-jump-street-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "21-over-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "27-dresses-dvd-rental-romantic-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "28-days-dvd-rental-comedy": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "30-days-of-night": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "300-bluray-rental-fantasy": {
-    "batch": "batch-0003",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "300-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "300-spartans-dvd-rental-action": {
@@ -108,11 +108,11 @@
     "status": "awaiting-upc"
   },
   "54-dvd-rental-musical": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "6-souls-dvd-rental-horror": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "6th-day": {
@@ -128,7 +128,7 @@
     "status": "awaiting-upc"
   },
   "8-mile": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "84-charing-cross-road-vhs-rental-drama": {
@@ -136,19 +136,19 @@
     "status": "awaiting-upc"
   },
   "8mm-dvd-rental-thriller": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "8mm2-dvd-rental-thriller": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "9-dvd-rental-sci-fi": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "a-beautiful-mind-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "a-beautiful-mind-vhs-rental-drama": {
@@ -156,11 +156,11 @@
     "status": "awaiting-upc"
   },
   "a-bridge-too-far-dvd-rental-action": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "a-bugs-life-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "a-christmas-star-dvd-rental-holiday": {
@@ -184,7 +184,7 @@
     "status": "awaiting-upc"
   },
   "a-fool-and-his-money-dvd-rental-romantic-comedy": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "a-fool-and-his-money-vhs-rental-romantic-comedy": {
@@ -205,14 +205,14 @@
   },
   "a-history-of-violence-bluray-rental-criterion-collection-action": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "a-kid-in-king-arthurs-court-vhs": {
     "batch": "batch-0026",
     "status": "awaiting-upc"
   },
   "a-knights-tale-bluray-action": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "a-little-trip-to-heaven-dvd-rental-thriller": {
@@ -224,7 +224,7 @@
     "status": "awaiting-upc"
   },
   "a-man-apart-dvd-rental-action": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "a-mothers-prayer-vhs-rental-drama": {
@@ -232,7 +232,7 @@
     "status": "awaiting-upc"
   },
   "a-night-at-the-roxbury-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "a-night-in-old-mexico-dvd-rental-action": {
@@ -264,19 +264,19 @@
     "status": "awaiting-upc"
   },
   "a-scanner-darkly-dvd-rental-sci-fi": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "a-serious-man": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "a-serious-man-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "a-streetcar-named-desire-dvd-rental-drama": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "a-summer-place-vhs-rental-drama": {
@@ -300,15 +300,15 @@
     "status": "awaiting-upc"
   },
   "a-very-harold-kumar-christmas-dvd-rental-comedy": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "a-very-long-engagement": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "a-walk-among-the-tombstone-dvd-rental-thriller": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "a-walk-in-my-shoes-dvd-rental-drama": {
@@ -320,11 +320,11 @@
     "status": "awaiting-upc"
   },
   "abduction-dvd-rental-action": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "about-a-boy-dvd-rental-romantic-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "abraham-lincoln-vs-zombies-dvd-rental-horror": {
@@ -336,19 +336,19 @@
     "status": "awaiting-upc"
   },
   "acceleration-dvd-rental-action": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "across-the-universe-dvd-rental-musical": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "act": {
     "batch": "batch-0028",
     "status": "awaiting-upc"
   },
   "act-of-valor-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "acts-of-betrayal": {
@@ -364,7 +364,7 @@
     "status": "awaiting-upc"
   },
   "adventures-in-babysitting-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "adventures-of-the-wilderness-family": {
@@ -380,15 +380,15 @@
     "status": "awaiting-upc"
   },
   "age-of-the-dragons-dvd-rental-fantasy": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "agent-cody-banks-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "ai-artificial-intelligence-dvd-rental-sci-fi": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "airport-1975": {
@@ -404,7 +404,7 @@
     "status": "awaiting-upc"
   },
   "alex-cross-dvd-rental-thriller": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "alfie": {
@@ -412,7 +412,7 @@
     "status": "awaiting-upc"
   },
   "ali-fear-eats-the-soul-dvd-rental-drama": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "alice-and-martin-vhs-rental-drama": {
@@ -432,7 +432,7 @@
     "status": "awaiting-upc"
   },
   "alien-covenant-dvd-rental-sci-fi": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "alien-vs-predator-vhs-rental-sci-fi": {
@@ -460,7 +460,7 @@
     "status": "awaiting-upc"
   },
   "all-is-lost-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "almost-an-angel-vhs-rental-comedy": {
@@ -468,7 +468,7 @@
     "status": "awaiting-upc"
   },
   "almost-famous-dvd-rental-drama": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "almost-famous-vhs-rental-comedy": {
@@ -488,19 +488,19 @@
     "status": "awaiting-upc"
   },
   "along-came-polly-dvd-rental-comedy": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "altered-states-bluray-rental-criterion-collection-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "alvin-and-the-chipmunks-chip-wrecked-dvd-rental-kids-family": {
     "batch": "batch-0019",
     "status": "awaiting-upc"
   },
   "alvin-and-the-chipmunks-the-squeakquel-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "always-watching-dvd-rental-horror": {
@@ -512,7 +512,7 @@
     "status": "awaiting-upc"
   },
   "amazing-spider-man-2": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "ambushed-dvd-rental-action": {
@@ -520,11 +520,11 @@
     "status": "awaiting-upc"
   },
   "american-beauty-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "american-beauty-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "american-dream-dvd-rental-thriller": {
@@ -532,7 +532,7 @@
     "status": "awaiting-upc"
   },
   "american-gangster-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "american-hearth-vhs-rental-drama": {
@@ -544,15 +544,15 @@
     "status": "awaiting-upc"
   },
   "american-made": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "american-nightmares-dvd-rental-horror": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "american-pie-2-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "american-pie-dvd-rental-comedy": {
@@ -564,7 +564,7 @@
     "status": "awaiting-upc"
   },
   "american-pie-presents-beta-house-dvd-rental-comedy": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "american-quilt-vhs": {
@@ -572,7 +572,7 @@
     "status": "awaiting-upc"
   },
   "american-sniper-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "amityville-horror": {
@@ -585,7 +585,7 @@
   },
   "amores-perros-bluray-rental-criterion-collection-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "an-affair-to-remember": {
     "batch": "batch-0027",
@@ -596,7 +596,7 @@
     "status": "awaiting-upc"
   },
   "an-american-carol-dvd-rental-comedy": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "an-american-tail-vhs-rental-kids-family": {
@@ -620,7 +620,7 @@
     "status": "awaiting-upc"
   },
   "anastasia-dvd-rental-kids-family": {
-    "batch": "batch-0004",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "ancient-evil-dvd-rental-horror": {
@@ -641,7 +641,7 @@
   },
   "angels-demons-bluray-rental-thriller": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "angels-dont-sleep-here-vhs-rental-action": {
     "batch": "batch-0015",
@@ -668,7 +668,7 @@
     "status": "awaiting-upc"
   },
   "animal-house": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "anna-dvd-rental-thriller": {
@@ -684,11 +684,11 @@
     "status": "awaiting-upc"
   },
   "annie-hall-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "annie-hall-dvd-rental-romantic-comedy": {
-    "batch": "batch-0020",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "annie-hall-vhs-rental-romantic-comedy": {
@@ -697,7 +697,7 @@
   },
   "anora-4k-rental-criterion-collection-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "another-stakeout-vhs-rental-comedy": {
     "batch": "batch-0001",
@@ -708,7 +708,7 @@
     "status": "awaiting-upc"
   },
   "antwone-fisher": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "antz-vhs": {
@@ -724,7 +724,7 @@
     "status": "awaiting-upc"
   },
   "apocalypse-now-bluray": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "apocalypse-now-vhs-rental-drama": {
@@ -732,15 +732,15 @@
     "status": "awaiting-upc"
   },
   "apocalypto-dvd-rental-action": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "apollo-13-dvd-rental-drama": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "aquaman-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "arachnid-vhs-rental-sci-fi": {
@@ -772,11 +772,11 @@
     "status": "awaiting-upc"
   },
   "artificial-inteligence-dvd-rental-sci-fi": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "as-good-as-it-gets-dvd-rental-romantic-comedy": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "as-good-as-it-gets-vhs-rental-comedy": {
@@ -792,11 +792,11 @@
     "status": "awaiting-upc"
   },
   "at-war-with-the-army-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "atl-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "austin-powers-international-man-of-mystery-vhs-rental-comedy": {
@@ -804,11 +804,11 @@
     "status": "awaiting-upc"
   },
   "austin-powers-the-spy-who-shagged-me-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "autumn-blood-dvd-rental-thriller": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "autumn-in-new-york-vhs": {
@@ -836,7 +836,7 @@
     "status": "awaiting-upc"
   },
   "babel-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "babes-in-toyland-vhs-rental-kids-family": {
@@ -849,10 +849,10 @@
   },
   "baby-driver-dvd-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "baby-geniuses-and-the-space-baby-dvd-rental-kids-family": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "baby-mana-dvd-rental-comedy": {
@@ -884,11 +884,11 @@
     "status": "awaiting-upc"
   },
   "bad-boys-ii-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "bad-santa-bluray-rental-holiday": {
-    "batch": "batch-0003",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "bad-seed-vhs-rental-thriller": {
@@ -896,7 +896,7 @@
     "status": "awaiting-upc"
   },
   "bad-teacher-dvd-rental-comedy": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "bakara-dvd": {
@@ -908,7 +908,7 @@
     "status": "awaiting-upc"
   },
   "bambi": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "bambi-vhs-rental-kids-family": {
@@ -941,7 +941,7 @@
   },
   "barbie-the-pearl-princess-bluray-rental-kids-family": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "barclays-big-adventure-dvd-rental-kids-family": {
     "batch": "batch-0014",
@@ -952,7 +952,7 @@
     "status": "awaiting-upc"
   },
   "batman-begins-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "batman-robin-vhs-rental-action": {
@@ -960,7 +960,7 @@
     "status": "awaiting-upc"
   },
   "batman-v-superman-dawn-of-justice-dvd-rental-action": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "batteries-not-included-vhs-rental-kids-family": {
@@ -968,15 +968,15 @@
     "status": "awaiting-upc"
   },
   "battledogs-dvd-rental-horror": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "battlestar-galactica-razor-dvd-rental-sci-fi": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "be-kind-rewind-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "beaches-vhs": {
@@ -984,7 +984,7 @@
     "status": "awaiting-upc"
   },
   "bear-with-me-dvd-rental-kids-family": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "beautiful-dreamers-vhs-rental-drama": {
@@ -1024,7 +1024,7 @@
     "status": "awaiting-upc"
   },
   "bee-movie-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "beethoven-vhs-rental-kids-family": {
@@ -1040,11 +1040,11 @@
     "status": "awaiting-upc"
   },
   "behind-enemy-lines-2-axis-of-evil-dvd-rental-action": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "being-john-malkovich": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "being-there-vhs-rental-comedy": {
@@ -1056,7 +1056,7 @@
     "status": "awaiting-upc"
   },
   "believers-dvd-rental-horror": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "belle-epoque-vhs-rental-foreign": {
@@ -1064,11 +1064,11 @@
     "status": "awaiting-upc"
   },
   "benny-joon-dvd-rental-romantic-comedy": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "beowulf-grendel-dvd-rental-fantasy": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "best-in-show-vhs-rental-comedy": {
@@ -1092,7 +1092,7 @@
     "status": "awaiting-upc"
   },
   "beverly-hills-chihuahua-2-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "beverly-hills-chihuahua-3-dvd-rental-kids-family": {
@@ -1108,23 +1108,23 @@
     "status": "awaiting-upc"
   },
   "beyond-white-space-dvd-rental-sci-fi": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "big-daddy-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "big-fan": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "big-fat-liar-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "big-fish-dvd-rental-drama": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "big-trouble-vhs-rental-comedy": {
@@ -1140,11 +1140,11 @@
     "status": "awaiting-upc"
   },
   "billy-elliot": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "billy-elliot-dvd-rental-drama": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "billy-flynns-long-half-time-walk-dvd-rental-drama": {
@@ -1152,7 +1152,7 @@
     "status": "awaiting-upc"
   },
   "billy-madison-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "billys-hollywood-screen-kiss-vhs-rental-comedy": {
@@ -1172,11 +1172,11 @@
     "status": "awaiting-upc"
   },
   "black-mask-dvd-rental-action": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "black-narcissus-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "black-sheep": {
@@ -1196,19 +1196,19 @@
     "status": "awaiting-upc"
   },
   "blade-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "blade-ii-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "blade-runner-2049-bluray-rental-sci-fi": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "blades-of-glory-dvd-rental-comedy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "blazing-saddles-vhs-rental-comedy": {
@@ -1220,7 +1220,7 @@
     "status": "awaiting-upc"
   },
   "bless-the-child-dvd-rental-horror": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "blind-horizon-vhs-rental-action": {
@@ -1228,11 +1228,11 @@
     "status": "awaiting-upc"
   },
   "blink-dvd-rental-thriller": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "blockers-dvd-rental-comedy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "blood-alley-vhs-rental-action": {
@@ -1240,15 +1240,15 @@
     "status": "awaiting-upc"
   },
   "blood-father-dvd-rental-action": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "blood-of-redemption-dvd-rental-action": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "blood-sweat-and-terrors-dvd-rental-horror": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "blood-work-vhs-rental-thriller": {
@@ -1264,12 +1264,12 @@
     "status": "awaiting-upc"
   },
   "bloodshot-dvd-rental-sci-fi": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "blow-out-bluray-rental-criterion-collection-thriller": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "blown-away-vhs": {
     "batch": "batch-0024",
@@ -1284,15 +1284,15 @@
     "status": "awaiting-upc"
   },
   "blue-streak-dvd-rental-action": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "blue-streak-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "blue-velvet": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "bmw-films-presents-the-hire-dvd-rental-action": {
@@ -1300,11 +1300,11 @@
     "status": "awaiting-upc"
   },
   "bobs-big-break-dvd-rental-kids-family": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "boiler-room-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "boiler-room-vhs": {
@@ -1320,7 +1320,7 @@
     "status": "awaiting-upc"
   },
   "bone-daddy-dvd-rental-horror": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "bone-hill-road-dvd-rental-horror": {
@@ -1340,7 +1340,7 @@
     "status": "awaiting-upc"
   },
   "born-romantic-dvd-rental-romantic-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "born-to-be-wild-vhs-rental-kids-family": {
@@ -1352,11 +1352,11 @@
     "status": "awaiting-upc"
   },
   "bourne-supremacy": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "bowfinger-bluray-rental-comedy": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "bowfinger-vhs-rental-comedy": {
@@ -1368,7 +1368,7 @@
     "status": "awaiting-upc"
   },
   "boyz-n-the-hood-bluray": {
-    "batch": "batch-0024",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "brain-donors-vhs-rental-comedy": {
@@ -1376,11 +1376,11 @@
     "status": "awaiting-upc"
   },
   "brainstorm-dvd-rental-sci-fi": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "bram-stokers-dracula": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "brass": {
@@ -1392,7 +1392,7 @@
     "status": "awaiting-upc"
   },
   "brave-bluray-rental-kids-family": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "brazil-vhs-rental-sci-fi": {
@@ -1444,7 +1444,7 @@
     "status": "awaiting-upc"
   },
   "brideshead-revisited-dvd-rental-drama": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "bridge-of-dragons-vhs-rental-action": {
@@ -1452,7 +1452,7 @@
     "status": "awaiting-upc"
   },
   "bridge-of-spies-dvd-rental-thriller": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "bridge-to-nowhere-vhs-rental-action": {
@@ -1460,7 +1460,7 @@
     "status": "awaiting-upc"
   },
   "bridget-jones-the-edge-of-reason-dvd-rental-romantic-comedy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "bright-lights-big-city-vhs-rental-drama": {
@@ -1472,16 +1472,16 @@
     "status": "awaiting-upc"
   },
   "bringing-out-the-dead-dvd-rental-thriller": {
-    "batch": "batch-0020",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "brokeback-mountain-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "brokedown-palace-dvd-rental-thriller": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "brooklyn-babylon-vhs-rental-drama": {
     "batch": "batch-0023",
@@ -1492,7 +1492,7 @@
     "status": "awaiting-upc"
   },
   "brotherhood-of-the-wolf-dvd-rental-horror": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "brothers-by-blood-dvd-rental-drama": {
@@ -1500,7 +1500,7 @@
     "status": "awaiting-upc"
   },
   "bruce-almighty-dvd-rental-comedy": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "bruce-almighty-vhs-rental-comedy": {
@@ -1516,7 +1516,7 @@
     "status": "awaiting-upc"
   },
   "buffalo-boys-dvd-rental-action": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "bull-durham-rental-romantic-comedy": {
@@ -1536,7 +1536,7 @@
     "status": "awaiting-upc"
   },
   "cage-snake-eyes-dvd-rental-thriller": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "caged-dvd-rental-horror": {
@@ -1564,15 +1564,15 @@
     "status": "awaiting-upc"
   },
   "cant-hardly-wait": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "captain-america-the-first-avenger-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "captain-phillips-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "car-54-where-are-you-vhs-rental-comedy": {
@@ -1584,11 +1584,11 @@
     "status": "awaiting-upc"
   },
   "carlitos-way-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "cars-dvd-rental-kids-family": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "casablanca-vhs-rental-drama": {
@@ -1596,11 +1596,11 @@
     "status": "awaiting-upc"
   },
   "casino": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "casino-dvd-rental-drama": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "casino-royal-dvd-rental-action": {
@@ -1640,15 +1640,15 @@
     "status": "awaiting-upc"
   },
   "catch-a-fire-dvd-rental-thriller": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "catch-and-release-dvd-rental-romantic-comedy": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "catch-me-if-you-can": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "catch-that-kid-dvd-rental-kids-family": {
@@ -1680,11 +1680,11 @@
     "status": "awaiting-upc"
   },
   "cellular-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "cellular-dvd-rental-action": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "cement-vhs-rental-thriller": {
@@ -1708,7 +1708,7 @@
     "status": "awaiting-upc"
   },
   "charlie-st-cloud-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "charlies-angels-vhs-rental-action": {
@@ -1720,11 +1720,11 @@
     "status": "awaiting-upc"
   },
   "chasing-amy-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "chasing-amy-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "chasing-amy-vhs-rental-romantic-comedy": {
@@ -1756,7 +1756,7 @@
     "status": "awaiting-upc"
   },
   "children-of-paradise-dvd-rental-comedy": {
-    "batch": "batch-0020",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "chilly-dogs-vhs-rental-kids-family": {
@@ -1788,7 +1788,7 @@
     "status": "awaiting-upc"
   },
   "christmas-with-the-kranks-dvd-rental-holiday": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "chronicle": {
@@ -1804,7 +1804,7 @@
     "status": "awaiting-upc"
   },
   "cinderella-man": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "cinderella-vhs-rental-kids-family": {
@@ -1832,7 +1832,7 @@
     "status": "awaiting-upc"
   },
   "city-of-god-dvd-rental-drama": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "city-of-industry-vhs-rental-thriller": {
@@ -1888,15 +1888,15 @@
     "status": "awaiting-upc"
   },
   "cloudy-with-a-chance-of-meatballs-2-bluray": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "cloverfield-dvd-rental-sci-fi": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "clueless-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "cocktail-vhs": {
@@ -1924,7 +1924,7 @@
     "status": "awaiting-upc"
   },
   "cold-pursuit": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "collateral-damage-vhs-rental-action": {
@@ -1932,7 +1932,7 @@
     "status": "awaiting-upc"
   },
   "collateral-dvd-rental-action": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "come-blow-your-horn": {
@@ -1956,7 +1956,7 @@
     "status": "awaiting-upc"
   },
   "con-air-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "concrete-cowboys": {
@@ -1968,7 +1968,7 @@
     "status": "awaiting-upc"
   },
   "confessions-of-a-dangerous-mind-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "confessions-of-a-hitman": {
@@ -2004,7 +2004,7 @@
     "status": "awaiting-upc"
   },
   "cop-car-bluray": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "corporate-animals-dvd-rental-comedy": {
@@ -2032,15 +2032,15 @@
     "status": "awaiting-upc"
   },
   "cowboys-aliens": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "cowboys-and-aliens-dvd-rental-sci-fi": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "crank-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "crash-dvd-rental-drama": {
@@ -2057,7 +2057,7 @@
   },
   "crazy-stupid-love-dvd-rental-romantic-comedy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "cria-cuervos-dvd-rental-drama": {
     "batch": "batch-0008",
@@ -2100,7 +2100,7 @@
     "status": "awaiting-upc"
   },
   "crumb-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "cry-wolf-dvd-rental-horror": {
@@ -2116,7 +2116,7 @@
     "status": "awaiting-upc"
   },
   "curious-george-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "curse-of-the-starving-class-vhs-rental-drama": {
@@ -2132,7 +2132,7 @@
     "status": "awaiting-upc"
   },
   "daddys-little-girls-dvd-rental-drama": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "dan-in-real-life-dvd-rental-drama": {
@@ -2140,7 +2140,7 @@
     "status": "awaiting-upc"
   },
   "dance-flick-dvd-rental-comedy": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "dance-with-me-dvd-rental-drama": {
@@ -2176,7 +2176,7 @@
     "status": "awaiting-upc"
   },
   "dantes-peak-dvd-rental-action": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "dark-journey-vhs-rental-drama": {
@@ -2184,7 +2184,7 @@
     "status": "awaiting-upc"
   },
   "dark-ride-dvd-rental-horror": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "dark-victory-vhs-rental-romantic-comedy": {
@@ -2192,7 +2192,7 @@
     "status": "awaiting-upc"
   },
   "darkest-hour": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "daryl-vhs-rental-kids-family": {
@@ -2256,12 +2256,12 @@
     "status": "awaiting-upc"
   },
   "deadwood-the-movie-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "dear-frankie-dvd-rental-drama": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "dear-mr-gacy-dvd-rental-thriller": {
     "batch": "batch-0017",
@@ -2344,7 +2344,7 @@
     "status": "awaiting-upc"
   },
   "demolition-man-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "demon-of-paradise-vhs-rental-horror": {
@@ -2369,7 +2369,7 @@
   },
   "despicable-me-2-bluray-rental-kids-family": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "despicable-me-dvd-rental-kids-family": {
     "batch": "batch-0017",
@@ -2400,7 +2400,7 @@
     "status": "awaiting-upc"
   },
   "dirty-grandpa-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "dirty-little-secret": {
@@ -2412,7 +2412,7 @@
     "status": "awaiting-upc"
   },
   "disturbia-dvd-rental-thriller": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "divergent-dvd-rental-action": {
@@ -2425,10 +2425,10 @@
   },
   "django-unchained-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "django-unchained-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "doctor-who-deep-breath-dvd-rental-sci-fi": {
@@ -2456,11 +2456,11 @@
     "status": "awaiting-upc"
   },
   "donnie-darko": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "donnie-darko-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "dont-come-knocking-dvd-rental-drama": {
@@ -2472,7 +2472,7 @@
     "status": "awaiting-upc"
   },
   "doogal-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "doom-runners-vhs-rental-sci-fi": {
@@ -2580,7 +2580,7 @@
     "status": "awaiting-upc"
   },
   "druids-dvd-rental-action": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "druids-vhs-rental-action": {
@@ -2592,11 +2592,11 @@
     "status": "awaiting-upc"
   },
   "drumline-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "drunken-angel-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "drylongs-vhs-rental-drama": {
@@ -2612,7 +2612,7 @@
     "status": "awaiting-upc"
   },
   "duel-bluray-rental-action": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "duel-to-the-death-dvd-rental-action": {
@@ -2632,7 +2632,7 @@
     "status": "awaiting-upc"
   },
   "dune-1984-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "dune-vhs-rental-sci-fi": {
@@ -2653,7 +2653,7 @@
   },
   "eagle-vs-shark-dvd-rental-comedy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "eagles-hell-freezes-over-dvd-rental-musical": {
     "batch": "batch-0010",
@@ -2664,7 +2664,7 @@
     "status": "awaiting-upc"
   },
   "easy-a-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "easy-money-vhs-rental-comedy": {
@@ -2689,7 +2689,7 @@
   },
   "eddington-bluray-rental-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "edge-of-seventeen-vhs-rental-drama": {
     "batch": "batch-0002",
@@ -2708,7 +2708,7 @@
     "status": "awaiting-upc"
   },
   "edward-scissorhands-dvd-rental-drama": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "eight-days-a-week-vhs-rental-comedy": {
@@ -2733,10 +2733,10 @@
   },
   "elf-bluray-rental-holiday": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "elf-dvd-rental-holiday": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "elizabeth-vhs-rental-drama": {
@@ -2744,11 +2744,11 @@
     "status": "awaiting-upc"
   },
   "elizabethtown": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "elizabethtown-dvd-rental-romantic-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "elton-john-one-night-only-the-greatest-hits-dvd-rental-musical": {
@@ -2764,11 +2764,11 @@
     "status": "awaiting-upc"
   },
   "enchanted": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "enchanted-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "enemies-a-love-story-vhs-rental-drama": {
@@ -2780,7 +2780,7 @@
     "status": "awaiting-upc"
   },
   "erin-brockovich-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "erin-brockovich-vhs-rental-drama": {
@@ -2820,7 +2820,7 @@
     "status": "awaiting-upc"
   },
   "et-the-extra-terrestrial-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "et-the-extra-terrestrial-vhs": {
@@ -2836,11 +2836,11 @@
     "status": "awaiting-upc"
   },
   "eurotrip-dvd-rental-comedy": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "event-horizon-dvd-rental-sci-fi": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "ever-after-vhs-rental-drama": {
@@ -2856,7 +2856,7 @@
     "status": "awaiting-upc"
   },
   "excalibur-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "excellent-cadavers-vhs-rental-action": {
@@ -2888,12 +2888,12 @@
     "status": "awaiting-upc"
   },
   "eye-of-the-devil-dvd-rental-horror": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "eyes-wide-shut-bluray-rental-criterion-collection-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "eyewitness-shark-vhs-rental-kids-family": {
     "batch": "batch-0008",
@@ -2985,10 +2985,10 @@
   },
   "fast-furious-6-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "fast-times-at-ridgemont-high-dvd-rental-comedy": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "fast-times-at-ridgemont-high-vhs-rental-comedy": {
@@ -3004,19 +3004,19 @@
     "status": "awaiting-upc"
   },
   "fear": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "fear-and-loathing-in-las-vegas": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "fear-and-loathing-in-las-vegas-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "fear-and-loathing-in-las-vegas-dvd-rental-drama": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "fear-in-the-night-dvd-rental-thriller": {
@@ -3048,11 +3048,11 @@
     "status": "awaiting-upc"
   },
   "feel-the-noise-dvd-rental-drama": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "fences-dvd-rental-drama": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "ferris-buellers-day-off-vhs-rental-comedy": {
@@ -3088,7 +3088,7 @@
     "status": "awaiting-upc"
   },
   "fight-club-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "fighting-dvd-rental-action": {
@@ -3112,15 +3112,15 @@
     "status": "awaiting-upc"
   },
   "finding-dory-002a": {
-    "batch": "batch-0003",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "finding-nemo-dvd-rental-kids-family": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "finding-neverland-dvd-rental-kids-family": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "fire-down-below-rental-action": {
@@ -3128,11 +3128,11 @@
     "status": "awaiting-upc"
   },
   "fire-with-fire-dvd-rental-action": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "fired-up-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "fireworks-dvd-rental-drama": {
@@ -3152,7 +3152,7 @@
     "status": "awaiting-upc"
   },
   "first-knight-dvd-rental-fantasy": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "five-nights-at-freddys-dvd": {
@@ -3164,7 +3164,7 @@
     "status": "awaiting-upc"
   },
   "flags-of-our-fathers-dvd-rental-drama": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "flash-of-green-vhs": {
@@ -3200,7 +3200,7 @@
     "status": "awaiting-upc"
   },
   "fly-away-home-dvd-rental-kids-family": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "follow-the-river-dvd-rental-drama": {
@@ -3220,7 +3220,7 @@
     "status": "awaiting-upc"
   },
   "for-love-of-the-game-dvd-rental-drama": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "for-love-or-money-dvd-rental-romantic-comedy": {
@@ -3240,7 +3240,7 @@
     "status": "awaiting-upc"
   },
   "forgetting-sarah-marshall-dvd-rental-romantic-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "forrest-gump": {
@@ -3272,7 +3272,7 @@
     "status": "awaiting-upc"
   },
   "four-weddings-and-a-funeral-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "foxfire-vhs-rental-thriller": {
@@ -3284,7 +3284,7 @@
     "status": "awaiting-upc"
   },
   "frailty-dvd-rental-horror": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "frances-vhs-rental-drama": {
@@ -3296,7 +3296,7 @@
     "status": "awaiting-upc"
   },
   "frank-bluray-rental-comedy": {
-    "batch": "batch-0022",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "frankie-starlight-vhs-rental-drama": {
@@ -3312,7 +3312,7 @@
     "status": "awaiting-upc"
   },
   "fred-claus-dvd-rental-holiday": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "free-willy-vhs": {
@@ -3336,7 +3336,7 @@
     "status": "awaiting-upc"
   },
   "frida-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "friday-night-lights-dvd-rental-drama": {
@@ -3344,7 +3344,7 @@
     "status": "awaiting-upc"
   },
   "friday-the-13th-part-3-3d-dvd-rental-horror": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "friday-the-13th-part-vi-dvd-rental-horror": {
@@ -3352,11 +3352,11 @@
     "status": "awaiting-upc"
   },
   "fried-green-tomatoes-dvd-rental-drama": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "friends-with-money-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "friendship-bluray-rental-comedy": {
@@ -3369,14 +3369,14 @@
   },
   "from-paris-with-love-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "from-the-earth-to-the-moon-vhs-rental-scifi": {
     "batch": "batch-0023",
     "status": "awaiting-upc"
   },
   "frosty-the-snowman-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "frosty-the-snowman-vhs-rental-holiday": {
@@ -3384,7 +3384,7 @@
     "status": "awaiting-upc"
   },
   "frozen-bluray": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "fugitive-among-us-vhs-rental-action": {
@@ -3392,7 +3392,7 @@
     "status": "awaiting-upc"
   },
   "full-metal-jacket-dvd-rental-drama": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "full-moon-in-blue-water-vhs-rental-thriller": {
@@ -3416,15 +3416,15 @@
     "status": "awaiting-upc"
   },
   "furious-7": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "furious-7-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "fury-dvd-rental-action": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "future-shock-dvd-rental-sci-fi": {
@@ -3436,7 +3436,7 @@
     "status": "awaiting-upc"
   },
   "galaxy-quest-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "galaxy-quest-vhs-rental-comedy": {
@@ -3480,7 +3480,7 @@
     "status": "awaiting-upc"
   },
   "gemini-man-dvd-rental-action": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "genuine-risk-vhs-rental-thriller": {
@@ -3496,7 +3496,7 @@
     "status": "awaiting-upc"
   },
   "get-out": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "get-out-of-my-room": {
@@ -3520,11 +3520,11 @@
     "status": "awaiting-upc"
   },
   "gi-jane-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "gi-joe-the-rise-of-cobra-bluray-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "gift-of-love-vhs": {
@@ -3560,11 +3560,11 @@
     "status": "awaiting-upc"
   },
   "gladiator-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "glass-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "glitz-vhs-rental-action": {
@@ -3572,12 +3572,12 @@
     "status": "awaiting-upc"
   },
   "glory-road-dvd-rental-drama": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "gnomeo-juliet-bluray-rental-kids-family": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "god-said-ha-vhs-rental-comedy": {
     "batch": "batch-0001",
@@ -3588,7 +3588,7 @@
     "status": "awaiting-upc"
   },
   "golden-eye-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "gone-are-the-days-dvd-rental-action": {
@@ -3596,7 +3596,7 @@
     "status": "awaiting-upc"
   },
   "gone-with-the-wind-dvd-rental-drama": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "good-boy-vhs-rental-kids-family": {
@@ -3608,11 +3608,11 @@
     "status": "awaiting-upc"
   },
   "goodfellas": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "goodfellas-1": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "goosed-vhs-rental-comedy": {
@@ -3628,7 +3628,7 @@
     "status": "awaiting-upc"
   },
   "gosford-park-dvd-rental-drama": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "graduate": {
@@ -3636,7 +3636,7 @@
     "status": "awaiting-upc"
   },
   "gran-torino-dvd-rental-drama": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "grand-canyon-vhs-rental-drama": {
@@ -3648,7 +3648,7 @@
     "status": "awaiting-upc"
   },
   "grease-dvd-rental-musical": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "great-balls-of-fire-vhs-rental-drama": {
@@ -3684,7 +3684,7 @@
     "status": "awaiting-upc"
   },
   "guardians-of-the-galaxy-bluray-rental-action": {
-    "batch": "batch-0003",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "guarding-tess-vhs-rental-comedy": {
@@ -3692,7 +3692,7 @@
     "status": "awaiting-upc"
   },
   "guess-who-dvd-rental-romantic-comedy": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "guilty-as-sin-vhs-rental-thriller": {
@@ -3716,7 +3716,7 @@
     "status": "awaiting-upc"
   },
   "hacksaw-ridge-dvd-rental-action": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "hair-vhs-rental-musical": {
@@ -3724,7 +3724,7 @@
     "status": "awaiting-upc"
   },
   "half-baked-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "half-brothers-dvd-rental-comedy": {
@@ -3736,11 +3736,11 @@
     "status": "awaiting-upc"
   },
   "hall-pass-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "halloween-iii-the-season-of-the-witch-dvd-rental-horror": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "halo-legends-dvd-rental-sci-fi": {
@@ -3748,11 +3748,11 @@
     "status": "awaiting-upc"
   },
   "hamburger-hill-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "hamlet-2-dvd-rental-comedy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "hank-and-mike-dvd-rental-comedy": {
@@ -3764,16 +3764,16 @@
     "status": "awaiting-upc"
   },
   "hannibal-rising-dvd-rental-thriller": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "happy-endings": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "happy-feet-two-bluray-rental-kids-family": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "happy-gilmore-vhs": {
     "batch": "batch-0024",
@@ -3792,7 +3792,7 @@
     "status": "awaiting-upc"
   },
   "hardball-dvd-rental-drama": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "harriet-the-spy-vhs-rental-kids-family": {
@@ -3800,23 +3800,23 @@
     "status": "awaiting-upc"
   },
   "harry-potter-and-the-chamber-of-secrets-dvd-rental-kids-family": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "harry-potter-and-the-goblet-of-fire-bluray-rental-fantasy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "harry-potter-and-the-goblet-of-fire-dvd-rental-fantasy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "harry-potter-and-the-half-blood-prince-bluray-rental-fantasy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "harry-potter-and-the-prisoner-of-azkaban-dvd-rental-kids-family": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "harry-potter-and-the-sorcerers-stone-dvd-rental-kids-family": {
@@ -3856,7 +3856,7 @@
     "status": "awaiting-upc"
   },
   "head-in-the-clouds-dvd-rental-drama": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "heartburn-vhs-rental-romantic-comedy": {
@@ -3869,10 +3869,10 @@
   },
   "heat-4k-rental-action": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "heat-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "heavyweights-vhs": {
@@ -3900,7 +3900,7 @@
     "status": "awaiting-upc"
   },
   "herbie-fully-loaded": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "herculese-against-th-moonmen-vhs-rental-sci-fi": {
@@ -3908,11 +3908,11 @@
     "status": "awaiting-upc"
   },
   "hero-dog-the-journey-home-dvd-rental-kids-family": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "hidalgo-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "hideous-kinky-vhs-rental-drama": {
@@ -3936,7 +3936,7 @@
     "status": "awaiting-upc"
   },
   "hiroshima-mon-amour-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "hitari-dvd-rental-action": {
@@ -3945,7 +3945,7 @@
   },
   "hitch-bluray-rental-comedy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "hitchhikers-guide-to-the-galaxy-dvd-rental-sci-fi": {
     "batch": "batch-0017",
@@ -3960,7 +3960,7 @@
     "status": "awaiting-upc"
   },
   "hold-me-thrill-me-kiss-me-dvd-rental-comedy": {
-    "batch": "batch-0020",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "hold-that-ghost-vhs-rental-comedy": {
@@ -3968,7 +3968,7 @@
     "status": "awaiting-upc"
   },
   "holiday-inn-bluray-rental-romantic-comedy": {
-    "batch": "batch-0022",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "hollywood-homicide-vhs-rental-comedy": {
@@ -3980,7 +3980,7 @@
     "status": "awaiting-upc"
   },
   "home-alone-2-lost-in-new-york-dvd-rental-kids-family": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "home-alone-2-vhs-rental-kids-family": {
@@ -4016,7 +4016,7 @@
     "status": "awaiting-upc"
   },
   "honey-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "honey-i-blew-up-the-kid-copy": {
@@ -4048,7 +4048,7 @@
     "status": "awaiting-upc"
   },
   "hoot-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "hope-and-glory-vhs-rental-drama": {
@@ -4064,7 +4064,7 @@
     "status": "awaiting-upc"
   },
   "horizon-line-dvd-rental-thriller": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "horrors-of-spider-island-dvd": {
@@ -4088,7 +4088,7 @@
     "status": "awaiting-upc"
   },
   "how-high-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "how-stella-got-her-groove-back-vhs-rental-romantic-comedy": {
@@ -4104,15 +4104,15 @@
     "status": "awaiting-upc"
   },
   "how-to-train-your-dragon-2-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "how-to-train-your-dragon-the-hidden-world-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "howard-the-duck-bluray-rental-comedy": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "howards-end-vhs": {
@@ -4120,7 +4120,7 @@
     "status": "awaiting-upc"
   },
   "hugo": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "hugo-dvd-rental-kids-family": {
@@ -4128,7 +4128,7 @@
     "status": "awaiting-upc"
   },
   "hulk-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "hunchback-of-notre-dame-vhs": {
@@ -4144,7 +4144,7 @@
     "status": "awaiting-upc"
   },
   "i-am-wrath-dvd-rental-action": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "i-could-never-be-your-woman-dvd-rental-romantic-comedy": {
@@ -4152,11 +4152,11 @@
     "status": "awaiting-upc"
   },
   "i-love-you-man-dvd-rental-comedy": {
-    "batch": "batch-0004",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "i-now-pronounce-you-chuck-larry-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "i-robot-dvd": {
@@ -4164,7 +4164,7 @@
     "status": "awaiting-upc"
   },
   "i-spy-dvd-rental-comedy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "i-still-know-what-you-did-last-summer-dvd-rental-horror": {
@@ -4184,11 +4184,11 @@
     "status": "awaiting-upc"
   },
   "ice-age-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "ice-age-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "ice-castles-vhs-rental-drama": {
@@ -4204,11 +4204,11 @@
     "status": "awaiting-upc"
   },
   "ides-of-march-bluray-rental-drama": {
-    "batch": "batch-0022",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "idiocracy": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "imaginary-heroes-dvd-rental-drama": {
@@ -4241,7 +4241,7 @@
   },
   "inception-dvd-rental-sci-fi": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "incubus-the-morning-view-sessions-dvd-rental-musical": {
     "batch": "batch-0020",
@@ -4264,7 +4264,7 @@
     "status": "awaiting-upc"
   },
   "infamous-dvd-rental-drama": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "inferno": {
@@ -4273,18 +4273,18 @@
   },
   "inglorious-basterds-4k-rental-action": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "inglorious-basterds-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "inside-out-bluray-rental-kids-family": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "instant-family-dvd-rental-comedy": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "instant-justice-vhs-rental-action": {
@@ -4296,7 +4296,7 @@
     "status": "awaiting-upc"
   },
   "interstellar-dvd-rental-sci-fi": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "into-the-woods-dvd": {
@@ -4332,11 +4332,11 @@
     "status": "awaiting-upc"
   },
   "iron-man-2-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "iron-man-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "iron-man-trilogy-bluray-rental-action": {
@@ -4344,7 +4344,7 @@
     "status": "awaiting-upc"
   },
   "iron-monkey-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "iron-thunder-vhs-rental-action": {
@@ -4368,7 +4368,7 @@
     "status": "awaiting-upc"
   },
   "it-dvd-rental-horror": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "its-a-pleasure-vhs-rental-drama": {
@@ -4376,7 +4376,7 @@
     "status": "awaiting-upc"
   },
   "its-a-wonderful-life-dvd-rental-holiday": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "its-a-wonderful-life-vhs-rental-holiday": {
@@ -4384,11 +4384,11 @@
     "status": "awaiting-upc"
   },
   "its-the-great-pumpkin-charlie-brown-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "j-edgar-dvd-rental-drama": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "j-lo-lets-get-loud-dvd-rental-musical": {
@@ -4401,18 +4401,18 @@
   },
   "jack-reacher-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "jackass-3-unrated-dvd-rental-comedy": {
     "batch": "batch-0013",
     "status": "awaiting-upc"
   },
   "jackass-number-two-unrated-dvd-rental-comedy": {
-    "batch": "batch-0004",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "jackass-the-movie": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "jackpot-vhs": {
@@ -4444,7 +4444,7 @@
     "status": "awaiting-upc"
   },
   "jason-bourne-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "jasons-lyric-dvd-rental-drama": {
@@ -4453,10 +4453,10 @@
   },
   "jaws-4k-rental-horror": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "jay-and-silent-bob-strike-back-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "jeepers-creepers-2-dvd-rental-horror": {
@@ -4468,7 +4468,7 @@
     "status": "awaiting-upc"
   },
   "jesse-stone-lost-in-paradise-dvd-rental-thriller": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "jesus-christ-superstar-vhs-rental-musical": {
@@ -4484,7 +4484,7 @@
     "status": "awaiting-upc"
   },
   "jindabyne-dvd-rental-drama": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "jingle-all-the-way-vhs-rental-kids-family": {
@@ -4500,7 +4500,7 @@
     "status": "awaiting-upc"
   },
   "joe-dirt-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "john-cnady-is-delirious-rental-comedy": {
@@ -4512,7 +4512,7 @@
     "status": "awaiting-upc"
   },
   "john-q-dvd-rental-thriller": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "john-tucker-must-die-dvd-rental-comedy": {
@@ -4520,11 +4520,11 @@
     "status": "awaiting-upc"
   },
   "john-wick-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "john-wick-chapter-3-parabellum": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "john-wick-chapter-3-parebellum-dvd-rental-action": {
@@ -4536,7 +4536,7 @@
     "status": "awaiting-upc"
   },
   "johnny-english-reborn-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "johnny-handsome-dvd-rental-thriller": {
@@ -4548,7 +4548,7 @@
     "status": "awaiting-upc"
   },
   "joker-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "journey-to-spirit-island-vhs-rental-kids-family": {
@@ -4560,7 +4560,7 @@
     "status": "awaiting-upc"
   },
   "joyful-noise-dvd-rental-musical": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "jrr-tolkiens-the-hobbit-vhs-rental-fantasy": {
@@ -4572,11 +4572,11 @@
     "status": "awaiting-upc"
   },
   "jumanji-welcome-to-the-jungle": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "jumanji-welcome-to-the-jungle-dvd-rental-kids-family": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "jumpin-at-the-boneyard-vhs-rental-drama": {
@@ -4596,7 +4596,7 @@
     "status": "awaiting-upc"
   },
   "jupiter-ascending": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "jurassic-park-vhs": {
@@ -4604,11 +4604,11 @@
     "status": "awaiting-upc"
   },
   "jurassic-world-bluray-rental-action": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "jurassic-world-fallen-kingdom-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "just-around-the-corner-vhs-rental-musical": {
@@ -4620,7 +4620,7 @@
     "status": "awaiting-upc"
   },
   "just-like-heaven-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "justice-league-gotham-city-breakout-dvd-rental-kids-family": {
@@ -4644,15 +4644,15 @@
     "status": "awaiting-upc"
   },
   "kaena-the-prophecy-dvd-rental-fantasy": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "kangaroo-jack-gday-usa-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "keanu-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "kidnap-dvd-rental-thriller": {
@@ -4664,7 +4664,7 @@
     "status": "awaiting-upc"
   },
   "kill-bill-volume-2": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "kill-em-all-dvd-rental-action": {
@@ -4680,7 +4680,7 @@
     "status": "awaiting-upc"
   },
   "king-kong-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "king-kong-vs-godzilla-vhs-rental-action": {
@@ -4716,7 +4716,7 @@
     "status": "awaiting-upc"
   },
   "knock-off-dvd-rental-action": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "knockaround-guys-vhs-rental-action": {
@@ -4724,11 +4724,11 @@
     "status": "awaiting-upc"
   },
   "knocked-up-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "knowing-bluray-rental-thriller": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "kounterfeit-vhs-rental-action": {
@@ -4744,7 +4744,7 @@
     "status": "awaiting-upc"
   },
   "krampus-dvd-rental-horror": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "kuffs-vhs-rental-comedy": {
@@ -4760,7 +4760,7 @@
     "status": "awaiting-upc"
   },
   "kung-fu-panda-2-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "kurt-cobain-montage-of-heck-bluray": {
@@ -4772,7 +4772,7 @@
     "status": "awaiting-upc"
   },
   "la-la-land-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "la-strada": {
@@ -4796,7 +4796,7 @@
     "status": "awaiting-upc"
   },
   "lady-in-the-water-dvd-rental-horror": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "lady-sings-the-blues-vhs-rental-drama": {
@@ -4812,7 +4812,7 @@
     "status": "awaiting-upc"
   },
   "lara-croft-tomb-raider-dvd-rental-action": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "lara-croft-tomb-raider-vhs-rental-action": {
@@ -4824,7 +4824,7 @@
     "status": "awaiting-upc"
   },
   "laser-mission-dvd-rental-thriller": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "last-days-in-the-desert-dvd-rental-drama": {
@@ -4836,19 +4836,19 @@
     "status": "awaiting-upc"
   },
   "last-of-the-dogmen-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "last-vegas-dvd-rental-comedy": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "lawrence-of-arabia-4k-rental-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "le-notti-bianche-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "leap-of-faith-vhs": {
@@ -4861,10 +4861,10 @@
   },
   "leatherheads-bluray-rental-comedy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "leaving-las-vegas-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "leaving-las-vegas-vhs": {
@@ -4904,7 +4904,7 @@
     "status": "awaiting-upc"
   },
   "legionnaire-dvd-rental-action": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "lego-star-wars-the-padawan-menace-bluray-rental-thriller": {
@@ -4912,7 +4912,7 @@
     "status": "awaiting-upc"
   },
   "leon-the-professional-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "les-miserables-dvd-rental-musical": {
@@ -4956,7 +4956,7 @@
     "status": "awaiting-upc"
   },
   "lie-with-me-dvd-rental-drama": {
-    "batch": "batch-0020",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "life-aquatic": {
@@ -4964,7 +4964,7 @@
     "status": "awaiting-upc"
   },
   "life-dvd-rental-sci-fi": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "life-of-brian-dvd-rental-comedy": {
@@ -4972,7 +4972,7 @@
     "status": "awaiting-upc"
   },
   "life-of-pi-dvd-rental-fantasy": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "life-with-judy-garland-me-my-shadows-vhs-rental-drama": {
@@ -5044,7 +5044,7 @@
     "status": "awaiting-upc"
   },
   "live-and-let-die-dvd-rental-action": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "live-and-let-die-vhs-rental-action": {
@@ -5052,7 +5052,7 @@
     "status": "awaiting-upc"
   },
   "live-by-night-dvd-rental-drama": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "live-free-or-die-hard-bluray-rental-action": {
@@ -5068,15 +5068,15 @@
     "status": "awaiting-upc"
   },
   "logan-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "logan-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "lola-dvd-rental-action": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "lonely-guy-vhs-rental-romantic-comedy": {
@@ -5097,18 +5097,18 @@
   },
   "lord-of-the-rings-fellowship-of-the-ring-bluray-rental-fantasy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "lord-of-the-rings-the-fellowship-of-the-ring-bluray-rental-fantasy": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "lord-of-the-rings-the-return-of-the-king-bluray-rental-fantasy": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "lord-of-the-rings-the-two-towers-bluray-rental-fantasy": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "lord-of-war-bluray": {
@@ -5144,11 +5144,11 @@
     "status": "awaiting-upc"
   },
   "lost-in-translation": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "lost-in-translation-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "lost-voyage-dvd-rental-horror": {
@@ -5157,10 +5157,10 @@
   },
   "love-actually-bluray-rental-holiday": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "love-actually-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "love-affair-vhs-rental-comedy": {
@@ -5168,7 +5168,7 @@
     "status": "awaiting-upc"
   },
   "love-and-monsters-dvd-rental-action": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "love-has-many-faces": {
@@ -5204,7 +5204,7 @@
     "status": "awaiting-upc"
   },
   "mad-max-fury-road-bluray-rental-action": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "mad-rons-prevues-from-hell-vhs": {
@@ -5212,11 +5212,11 @@
     "status": "awaiting-upc"
   },
   "madagascar": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "madeas-family-reunion-dvd-rental-comedy": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "mafia-vhs-rental-comedy": {
@@ -5260,7 +5260,7 @@
     "status": "awaiting-upc"
   },
   "malevolence-3-killer-bluray": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "malevolence-bluray": {
@@ -5272,7 +5272,7 @@
     "status": "awaiting-upc"
   },
   "man-of-steel-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "man-on-fire-1987-vhs-rental-action": {
@@ -5356,7 +5356,7 @@
     "status": "awaiting-upc"
   },
   "mazes-and-monsters-dvd-rental-fantasy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "mcbain-vhs-rental-action": {
@@ -5408,11 +5408,11 @@
     "status": "awaiting-upc"
   },
   "meet-joe-black-dvd-rental-drama": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "meet-the-fockers-dvd-rental-comedy": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "meet-the-parents-vhs-rental-comedy": {
@@ -5432,11 +5432,11 @@
     "status": "awaiting-upc"
   },
   "memoirs-of-a-geisha": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "memoirs-of-a-geisha-dvd-rental-drama": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "memorial-day-vhs-rental-action": {
@@ -5496,7 +5496,7 @@
     "status": "awaiting-upc"
   },
   "mighty-joe-young-dvd-rental-kids-family": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "miiii-dvd-rental-action": {
@@ -5532,7 +5532,7 @@
     "status": "awaiting-upc"
   },
   "minority-report-dvd-rental-action": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "miracle-on-34th-street-vhs-rental-holiday": {
@@ -5548,7 +5548,7 @@
     "status": "awaiting-upc"
   },
   "misery-dvd-rental-horror": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "mishima-a-life-in-four-chapters-box-set-dvd": {
@@ -5576,7 +5576,7 @@
     "status": "awaiting-upc"
   },
   "mission-to-mars-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "mississippi-burning-vhs-rental-drama": {
@@ -5608,11 +5608,11 @@
     "status": "awaiting-upc"
   },
   "moneyball-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "monkey-trouble-dvd-rental-kids-family": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "monkeys-uncle": {
@@ -5636,7 +5636,7 @@
     "status": "awaiting-upc"
   },
   "monsters-ball-dvd-rental-drama": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "monsters-inc-vhs-rental-kids-family": {
@@ -5648,11 +5648,11 @@
     "status": "awaiting-upc"
   },
   "monthy-python-and-the-holy-grail-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "monty-python-and-the-holy-grail-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "monty-python-and-the-holy-grail-vhs-rental-comedy": {
@@ -5660,7 +5660,7 @@
     "status": "awaiting-upc"
   },
   "moonraker-bluray-rental-sci-fi": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "moonraker-vhs-rental-action": {
@@ -5704,7 +5704,7 @@
     "status": "awaiting-upc"
   },
   "mousehunt-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "mouth-to-mouth": {
@@ -5752,7 +5752,7 @@
     "status": "awaiting-upc"
   },
   "mulholland-dr": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "multiplicity-vhs-rental-comedy": {
@@ -5776,7 +5776,7 @@
     "status": "awaiting-upc"
   },
   "murder-my-sweet-bluray": {
-    "batch": "batch-0024",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "murder-on-the-orient-express": {
@@ -5788,7 +5788,7 @@
     "status": "awaiting-upc"
   },
   "murphys-romance-dvd-rental-romantic-comedy": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "music-of-the-heart-vhs-rental-drama": {
@@ -5800,7 +5800,7 @@
     "status": "awaiting-upc"
   },
   "must-love-dogs-dvd-rental-romantic-comedy": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "my-big-fat-greek-wedding-dvd-rental-romantic-comedy": {
@@ -5820,11 +5820,11 @@
     "status": "awaiting-upc"
   },
   "my-bosss-daughter-dvd-rental-romantic-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "my-cousin-vinny-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "my-cousin-vinny-vhs-rental-comedy": {
@@ -5856,7 +5856,7 @@
     "status": "awaiting-upc"
   },
   "my-neighbor-totoro-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "my-one-and-only-dvd-rental-comedy": {
@@ -5876,19 +5876,19 @@
     "status": "awaiting-upc"
   },
   "mystery-men": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "mystic-river-bluray-rental-drama": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "nacho-libre-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "naked-lunch-bluray": {
-    "batch": "batch-0024",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "napoleon-dynamite": {
@@ -5908,11 +5908,11 @@
     "status": "awaiting-upc"
   },
   "national-lampoons-vacation-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "national-treasure": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "national-treasure-2-book-of-secrets": {
@@ -5921,7 +5921,7 @@
   },
   "national-treasure-dvd-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "nazis-at-the-center-of-the-earth-dvd-rental-horror": {
     "batch": "batch-0015",
@@ -5984,7 +5984,7 @@
     "status": "awaiting-upc"
   },
   "night-and-fog-dvd-rental-documentary": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "night-at-the-museum-secret-of-the-tomb-dvd-rental-kids-family": {
@@ -6012,7 +6012,7 @@
     "status": "awaiting-upc"
   },
   "nights-in-rodanthe-dvd-rental-drama": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "nikita-blues-vhs-rental-comedy": {
@@ -6033,7 +6033,7 @@
   },
   "no-country-for-old-men-bluray-rental-criterion-collection-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "no-escape-vhs-rental-action": {
     "batch": "batch-0015",
@@ -6064,11 +6064,11 @@
     "status": "awaiting-upc"
   },
   "norbit-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "norbit-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "north-by-northwest-vhs-rental-thriller": {
@@ -6076,11 +6076,11 @@
     "status": "awaiting-upc"
   },
   "northmen-a-viking-saga-dvd-rental-fantasy": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "not-another-teen-movie-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "not-of-this-earth-vhs-rental-sci-fi": {
@@ -6108,12 +6108,12 @@
     "status": "awaiting-upc"
   },
   "now-you-see-me-dvd-rental-thriller": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "nowhere-boy-bluray-rental-drama": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "o-lucky-man-vhs-rental-drama": {
     "batch": "batch-0004",
@@ -6144,7 +6144,7 @@
     "status": "awaiting-upc"
   },
   "office-christmas-party-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "office-killer-vhs-rental-horror": {
@@ -6160,7 +6160,7 @@
     "status": "awaiting-upc"
   },
   "oliver-and-company-dvd-rental-kids-family": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "oliver-company-vhs-rental-kids-family": {
@@ -6196,19 +6196,19 @@
     "status": "awaiting-upc"
   },
   "once-upon-a-time-in-vietnam-dvd-rental-fantasy": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "one-battle-after-another-4k-rental-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "needs-review"
   },
   "one-crazy-summer-vhs-rental-comedy": {
     "batch": "batch-0008",
     "status": "awaiting-upc"
   },
   "one-flew-over-the-cuckoos-nest-dvd-rental-drama": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "one-missed-call-dvd-rental-horror": {
@@ -6241,7 +6241,7 @@
   },
   "oppenheimer-4k-rental-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "original-sin-dvd-rental-drama": {
     "batch": "batch-0014",
@@ -6252,7 +6252,7 @@
     "status": "awaiting-upc"
   },
   "orphan-dvd-rental-horror": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "other-peoples-money-vhs-rental-comedy": {
@@ -6268,7 +6268,7 @@
     "status": "awaiting-upc"
   },
   "out-of-africa": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "out-of-reach-vhs-rental-action": {
@@ -6312,7 +6312,7 @@
     "status": "awaiting-upc"
   },
   "pandorum-dvd-rental-sci-fi": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "pants-on-fire-dvd-rental-kids-family": {
@@ -6340,7 +6340,7 @@
     "status": "awaiting-upc"
   },
   "paranormal-activity-the-marked-ones-dvd-rental-horror": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "paranormal-entity-dvd-rental-horror": {
@@ -6349,11 +6349,11 @@
   },
   "parasite-bluray-rental-criterion-collection-thriller": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "paris-texas-bluray-rental-criterion-collection-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "paris-trout-vhs-rental-drama": {
     "batch": "batch-0009",
@@ -6364,7 +6364,7 @@
     "status": "awaiting-upc"
   },
   "passengers-dvd-rental-sci-fi": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "passion-flower-vhs-rental-thriller": {
@@ -6380,7 +6380,7 @@
     "status": "awaiting-upc"
   },
   "patriot-games-dvd-rental-action": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "patton-vhs-rental-drama": {
@@ -6412,7 +6412,7 @@
     "status": "awaiting-upc"
   },
   "penguins-of-madagascar-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "perfect-harmony-vhs-rental-kids-family": {
@@ -6456,7 +6456,7 @@
     "status": "awaiting-upc"
   },
   "phenomenon-dvd-rental-drama": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "philadelphia": {
@@ -6464,11 +6464,11 @@
     "status": "awaiting-upc"
   },
   "philadelphia-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "pi": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "picnic-at-hanging-rock-dvd-rental-horror": {
@@ -6496,7 +6496,7 @@
     "status": "awaiting-upc"
   },
   "pirates-of-the-caribbean-dead-mans-chest-dvd-rental-kids-family": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "pirates-of-the-caribbean-dvd-rental-kids-family": {
@@ -6504,11 +6504,11 @@
     "status": "awaiting-upc"
   },
   "pirates-of-the-caribbean-the-curse-of-the-black-pearl": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "pirates-of-the-caribbean-the-curse-of-the-black-pearl-dvd-rental-kids-family": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "pitch-black-vhs-rental-sci-fi": {
@@ -6516,7 +6516,7 @@
     "status": "awaiting-upc"
   },
   "pitch-perfect-2-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "planet-of-the-apes-the-evolution-box-set-dvd": {
@@ -6576,7 +6576,7 @@
     "status": "awaiting-upc"
   },
   "poms-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "poohs-grand-adventure-vhs-rental-kids-family": {
@@ -6672,19 +6672,19 @@
     "status": "awaiting-upc"
   },
   "prometheus": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "prometheus-4k-rental-sci-fi": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "promised-a-miracle-vhs-rental-drama": {
     "batch": "batch-0009",
     "status": "awaiting-upc"
   },
   "promising-young-woman-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "pros-cons-vhs-rental-comedy": {
@@ -6700,7 +6700,7 @@
     "status": "awaiting-upc"
   },
   "public-enemies": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "public-enemies-dvd-rental-thriller": {
@@ -6712,15 +6712,15 @@
     "status": "awaiting-upc"
   },
   "pulp-fiction": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "pulp-fiction-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "pulp-fiction-dvd-rental-action": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "pumpkin-vhs": {
@@ -6729,7 +6729,7 @@
   },
   "punch-drunk-love-bluray-rental-criterion-collection-drama": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "pure-country-vhs-rental-drama": {
     "batch": "batch-0001",
@@ -6737,14 +6737,14 @@
   },
   "quantum-of-solace-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "quantum-of-solace-dvd-rental-action": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "queen-tut-dvd-rental-comedy": {
-    "batch": "batch-0020",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "quicksand-no-escape-vhs-rental-action": {
@@ -6772,7 +6772,7 @@
     "status": "awaiting-upc"
   },
   "racing-stripes-dvd-rental-kids-family": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "radioland-murders-vhs-rental-comedy": {
@@ -6784,7 +6784,7 @@
     "status": "awaiting-upc"
   },
   "raging-bull": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "raiders-of-the-lost-ark-vhs": {
@@ -6812,11 +6812,11 @@
     "status": "awaiting-upc"
   },
   "rambo-last-blood-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "ran-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "random-hearts-vhs": {
@@ -6824,7 +6824,7 @@
     "status": "awaiting-upc"
   },
   "rashomon-dvd-rental-thriller": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "rat-race": {
@@ -6832,7 +6832,7 @@
     "status": "awaiting-upc"
   },
   "ratatouille": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "ratatouille-cooking-fun-for-all-ages-dvd-rental-kids-family": {
@@ -6844,11 +6844,11 @@
     "status": "awaiting-upc"
   },
   "ray-dvd-rental-musical": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "re-animator": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "real-life-vhs-rental-comedy": {
@@ -6892,11 +6892,11 @@
     "status": "awaiting-upc"
   },
   "red-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "red-heat": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "red-son-dvd-rental-kids-family": {
@@ -6924,7 +6924,7 @@
     "status": "awaiting-upc"
   },
   "reign-of-fire-dvd-rental-fantasy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "reign-of-fire-vhs-rental-fantasy": {
@@ -6936,7 +6936,7 @@
     "status": "awaiting-upc"
   },
   "remember-the-titans-dvd-rental-kids-family": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "renaissance-man-vhs-rental-comedy": {
@@ -6948,12 +6948,12 @@
     "status": "awaiting-upc"
   },
   "replicas-dvd-rental-sci-fi": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "requiem-for-a-dream-dvd-rental-drama": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "rescue-me-vhs-rental-comedy": {
     "batch": "batch-0021",
@@ -6964,7 +6964,7 @@
     "status": "awaiting-upc"
   },
   "reservoir-dogs-dvd-rental-thriller": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "resurrection-man-vhs-rental-action": {
@@ -7005,7 +7005,7 @@
   },
   "ricki-and-the-flash-bluray-rental-comedy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "ring-of-steel-vhs-rental-action": {
     "batch": "batch-0006",
@@ -7016,7 +7016,7 @@
     "status": "awaiting-upc"
   },
   "rising-sun-dvd-rental-thriller": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "rising-sun-vhs-rental-thriller": {
@@ -7024,15 +7024,15 @@
     "status": "awaiting-upc"
   },
   "road-to-perdition-bluray": {
-    "batch": "batch-0024",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "road-to-perdition-dvd-rental-drama": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "road-trip-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "robin-hood-dvd-rental-fantasy": {
@@ -7040,11 +7040,11 @@
     "status": "awaiting-upc"
   },
   "robin-hood-men-in-tights-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "rock-n-rolla-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "rockwell-a-legend-of-the-wild-west-vhs-rental-drama": {
@@ -7080,7 +7080,7 @@
     "status": "awaiting-upc"
   },
   "ronin-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "ronin-vhs-rental-action": {
@@ -7088,7 +7088,7 @@
     "status": "awaiting-upc"
   },
   "rookie-of-the-year-dvd-rental-kids-family": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "rookie-of-the-year-vhs-rental-kids-family": {
@@ -7101,7 +7101,7 @@
   },
   "rope-4k-rental-thriller": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "rough-air-vhs-rental-action": {
     "batch": "batch-0008",
@@ -7112,7 +7112,7 @@
     "status": "awaiting-upc"
   },
   "royal-tenenbaums": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "rubberface-vhs-rental-comedy": {
@@ -7136,7 +7136,7 @@
     "status": "awaiting-upc"
   },
   "runaway-jury-dvd-rental-thriller": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "running-scared-dvd": {
@@ -7148,7 +7148,7 @@
     "status": "awaiting-upc"
   },
   "rush-hour-2-dvd-rental-action": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "rush-hour-3-dvd-rental-comedy": {
@@ -7184,7 +7184,7 @@
     "status": "awaiting-upc"
   },
   "salems-lot-dvd-rental-horror": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "salvador-vhs-rental-drama": {
@@ -7193,7 +7193,7 @@
   },
   "san-andreas-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "sanctuary-of-fear-vhs-rental-thriller": {
     "batch": "batch-0009",
@@ -7216,15 +7216,15 @@
     "status": "awaiting-upc"
   },
   "saving-private-ryan": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "saving-private-ryan-dvd-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "saving-private-ryan-dvd-rental-drama": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "saving-private-ryan-vhs": {
@@ -7232,15 +7232,15 @@
     "status": "awaiting-upc"
   },
   "saw": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "saw-dvd-rental-horror": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "saw-iv-dvd-rental-horror": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "saw-the-final-chapter-dvd-rental-horror": {
@@ -7252,7 +7252,7 @@
     "status": "awaiting-upc"
   },
   "say-anything": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "say-hello-to-yesterday-dvd-rental-drama": {
@@ -7276,11 +7276,11 @@
     "status": "awaiting-upc"
   },
   "scooby-doo-curse-of-the-lake-monster-dvd-rental-kids-family": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "seabiscuit-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "searching-for-bobby-fischer-vhs-rental-drama": {
@@ -7304,7 +7304,7 @@
     "status": "awaiting-upc"
   },
   "semi-pro-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "send-it-dvd-rental-comedy": {
@@ -7372,7 +7372,7 @@
     "status": "awaiting-upc"
   },
   "shampoo-dvd-rental-comedy": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "shane-vhs-rental-action": {
@@ -7444,15 +7444,15 @@
     "status": "awaiting-upc"
   },
   "shrek-2-dvd-rental-kids-family": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "shrek-the-third-dvd-rental-kids-family": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "shutter-island-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "sid-nancy-dvd": {
@@ -7488,7 +7488,7 @@
     "status": "awaiting-upc"
   },
   "single-white-female-the-psycho-dvd-rental-thriller": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "six-days-seven-nights-dvd": {
@@ -7505,7 +7505,7 @@
   },
   "skyfall-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "skyfire-dvd-rental-action": {
     "batch": "batch-0016",
@@ -7520,7 +7520,7 @@
     "status": "awaiting-upc"
   },
   "sleeper-dvd-rental-comedy": {
-    "batch": "batch-0020",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "sleeping-beauty-1989-vhs-rental-kids-family": {
@@ -7536,7 +7536,7 @@
     "status": "awaiting-upc"
   },
   "sleepless-in-seattle": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "sleepless-in-seattle-vhs-rental-romantic-comedy": {
@@ -7548,7 +7548,7 @@
     "status": "awaiting-upc"
   },
   "sleepy-hollow-dvd-rental-horror": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "sliding-doors-dvd-rental-romantic-comedy": {
@@ -7564,7 +7564,7 @@
     "status": "awaiting-upc"
   },
   "small-soldiers-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "small-time-crooks-vhs-rental-comedy": {
@@ -7588,27 +7588,27 @@
     "status": "awaiting-upc"
   },
   "smokin-aces-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "snakes-on-a-plane-dvd-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "snakes-on-a-plane-dvd-rental-comedy": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "snatch-special-edition": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "snatchers-dvd-rental-horror": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "sniper-2-dvd-rental-action": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "sniper-vhs-rental-action": {
@@ -7628,7 +7628,7 @@
     "status": "awaiting-upc"
   },
   "snow-white-the-huntsman-dvd-rental-fantasy": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "snowboat-academy-vhs-rental-comedy": {
@@ -7636,11 +7636,11 @@
     "status": "awaiting-upc"
   },
   "snowmageddon-dvd-rental-thriller": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "snowpiercer": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "so-i-married-an-axe-murderer-vhs": {
@@ -7664,7 +7664,7 @@
     "status": "awaiting-upc"
   },
   "solo-a-star-wars-story": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "solo-con-tu-pareja-dvd-rental-romantic-comedy": {
@@ -7688,11 +7688,11 @@
     "status": "awaiting-upc"
   },
   "someone-like-you-dvd-rental-romantic-comedy": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "something-borrowed-bluray-rental-romantic-comedy": {
-    "batch": "batch-0009",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "something-wild-dvd-rental-drama": {
@@ -7721,14 +7721,14 @@
   },
   "sorcerer-4k-rental-criterion-collection-thriller": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "soul-surfer-dvd-rental-drama": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "soul-survivors-dvd-rental-horror": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "south-bronx-heroes-vhs-rental-action": {
@@ -7736,7 +7736,7 @@
     "status": "awaiting-upc"
   },
   "south-park-bigger-longer-uncut-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "southie-vhs-rental-thriller": {
@@ -7748,7 +7748,7 @@
     "status": "awaiting-upc"
   },
   "spanglish-dvd-rental-romantic-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "spanish-judges-vhs-rental-thriller": {
@@ -7756,12 +7756,12 @@
     "status": "awaiting-upc"
   },
   "spartan-dvd-rental-thriller": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "spawn-4k-rental-action": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "special-forces": {
     "batch": "batch-0027",
@@ -7780,19 +7780,19 @@
     "status": "awaiting-upc"
   },
   "spider-man-2-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "spider-man-2-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "spider-man-3": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "spider-man-3-bluray-rental-action": {
-    "batch": "batch-0003",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "spider-man-dvd": {
@@ -7800,15 +7800,15 @@
     "status": "awaiting-upc"
   },
   "spider-man-far-from-home-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "spider-man-homecoming-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "spider-man-no-way-home-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "spirit-of-the-eagle-dvd-rental-drama": {
@@ -7816,7 +7816,7 @@
     "status": "awaiting-upc"
   },
   "spirited-away": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "split-decisions-vhs-rental-drama": {
@@ -7824,7 +7824,7 @@
     "status": "awaiting-upc"
   },
   "spy-dvd-rental-comedy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "spy-kids-2-dvd-rental-kids-family": {
@@ -7833,7 +7833,7 @@
   },
   "spy-kids-3-game-over-bluray-rental-kids-family": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "st-agatha-dvd-rental-horror": {
     "batch": "batch-0012",
@@ -7849,10 +7849,10 @@
   },
   "star-trek-dvd-rental-sci-fi": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "star-trek-into-darkness-dvd-rental-sci-fi": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "star-trek-nemesis": {
@@ -7876,11 +7876,11 @@
     "status": "awaiting-upc"
   },
   "star-wars-ii-attack-of-the-clones-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "star-wars-iii-revenge-of-the-sith-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "star-wars-the-phantom-menace-dvd-rental-sci-fi": {
@@ -7892,7 +7892,7 @@
     "status": "awaiting-upc"
   },
   "stargate-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "stargate-vhs-rental-sci-fi": {
@@ -7908,7 +7908,7 @@
     "status": "awaiting-upc"
   },
   "starsky-hutch-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "state-of-grace-vhs-rental-action": {
@@ -7928,7 +7928,7 @@
     "status": "awaiting-upc"
   },
   "stepmom-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "stepmom-vhs-rental-drama": {
@@ -7948,7 +7948,7 @@
     "status": "awaiting-upc"
   },
   "stigmata-dvd-rental-horror": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "still-breathing-vhs-rental-romantic-comedy": {
@@ -7956,7 +7956,7 @@
     "status": "awaiting-upc"
   },
   "still-crazy-dvd-rental-comedy": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "stir-of-echoes-2-dvd-rental-thriller": {
@@ -7964,7 +7964,7 @@
     "status": "awaiting-upc"
   },
   "stir-of-echoes-dvd-rental-horror": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "stoked-the-rise-and-fall-of-gator-dvd-rental-documentary": {
@@ -8028,7 +8028,7 @@
     "status": "awaiting-upc"
   },
   "sublime-dvd-rental-drama": {
-    "batch": "batch-0020",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "suburban-commando-vhs-rental-comedy": {
@@ -8052,11 +8052,11 @@
     "status": "awaiting-upc"
   },
   "sully-dvd-rental-drama": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "summer-interlude-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "summer-lovers-vhs-rental-romantic-comedy": {
@@ -8085,18 +8085,18 @@
   },
   "super-mario-bros-movie-4k-rental-kids-family": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "super-miss-dvd-rental-kids-family": {
     "batch": "batch-0014",
     "status": "awaiting-upc"
   },
   "superbad-dvd-rental-comedy": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "superman-returns-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "superstar-dare-to-dream-dvd-rental-comedy": {
@@ -8108,7 +8108,7 @@
     "status": "awaiting-upc"
   },
   "swat-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "sweeney-todd-dvd": {
@@ -8144,7 +8144,7 @@
     "status": "awaiting-upc"
   },
   "syriana": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "taffin-vhs": {
@@ -8160,7 +8160,7 @@
     "status": "awaiting-upc"
   },
   "taken-dvd-rental-action": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "taking-lives-dvd-rental-thriller": {
@@ -8176,11 +8176,11 @@
     "status": "awaiting-upc"
   },
   "talladega-nights-the-ballad-of-ricky-bobby-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "tango-cash": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "tango-cash-vhs-rental-action": {
@@ -8188,7 +8188,7 @@
     "status": "awaiting-upc"
   },
   "tarzan-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "tarzan-vhs-rental-kids-family": {
@@ -8200,7 +8200,7 @@
     "status": "awaiting-upc"
   },
   "team-america-world-police-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "tears-of-the-sun-dvd-rental-action": {
@@ -8212,11 +8212,11 @@
     "status": "awaiting-upc"
   },
   "teenage-mutant-ninja-turtles-iii-bluray-rental-kids-family": {
-    "batch": "batch-0022",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "temple-grandin-dvd-rental-drama": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "tender-mercies-vhs-rental-drama": {
@@ -8228,7 +8228,7 @@
     "status": "awaiting-upc"
   },
   "terminator-2-judgement-day-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "terminator-3-rise-of-the-machines-dvd": {
@@ -8236,11 +8236,11 @@
     "status": "awaiting-upc"
   },
   "terminator-judgement-day-dvd-rental-sci-fi": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "terms-of-endearment-dvd-rental-drama": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "terms-of-endearment-vhs-rental-drama": {
@@ -8252,11 +8252,11 @@
     "status": "awaiting-upc"
   },
   "texas-chain-saw-massacre": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "texas-chainsaw-dvd-rental-horror": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "texas-chainsaw-massacre": {
@@ -8272,7 +8272,7 @@
     "status": "awaiting-upc"
   },
   "that-old-feeling-dvd-rental-romantic-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "that-thing-you-do-vhs-rental-drama": {
@@ -8284,19 +8284,19 @@
     "status": "awaiting-upc"
   },
   "the-40-year-old-virgin-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-40-year-old-virgin-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-a-team-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-abyss-dvd-rental-sci-fi": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-adventures-of-buckaroo-banzai-dvd-rental-action": {
@@ -8312,7 +8312,7 @@
     "status": "awaiting-upc"
   },
   "the-adventures-of-milo-and-otis-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-age-of-innocence-vhs-rental-drama": {
@@ -8348,16 +8348,16 @@
     "status": "awaiting-upc"
   },
   "the-aristocrats-dvd-rental-documentary": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-art-of-getting-by-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-avengers-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-aviator": {
     "batch": "batch-0027",
@@ -8388,7 +8388,7 @@
     "status": "awaiting-upc"
   },
   "the-bad-sleep-well-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-banger-sisters-vhs-rental-comedy": {
@@ -8396,7 +8396,7 @@
     "status": "awaiting-upc"
   },
   "the-beales-of-grey-gardens": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-beautitian-and-the-beast-vhs-rental-kids-family": {
@@ -8412,7 +8412,7 @@
     "status": "awaiting-upc"
   },
   "the-best-exotic-marigold-hotel-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-best-years-of-our-lives-vhs-rental-drama": {
@@ -8424,19 +8424,19 @@
     "status": "awaiting-upc"
   },
   "the-big-lebowski": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-big-lebowski-4k-rental-comedy": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-big-lebowski-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-big-sleep-dvd-rental-thriller": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-black-cauldron-vhs-rental-kids-family": {
@@ -8448,11 +8448,11 @@
     "status": "awaiting-upc"
   },
   "the-black-dahlia-dvd-rental-thriller": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-blind-side-dvd-rental-drama": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-blue-angel-vhs-rental-drama": {
@@ -8480,11 +8480,11 @@
     "status": "awaiting-upc"
   },
   "the-book-thief-dvd-rental-drama": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-boondock-saints-dvd-rental-action": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-boss-baby-dvd-rental-kids-family": {
@@ -8496,11 +8496,11 @@
     "status": "awaiting-upc"
   },
   "the-bourne-identity-dvd-rental-action": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-bourne-supremacy-dvd-rental-action": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-bourne-trilogy-dvd-rental-action": {
@@ -8508,7 +8508,7 @@
     "status": "awaiting-upc"
   },
   "the-bourne-ultimatum-dvd-rental-action": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-box-trolls-dvd-rental-kids-family": {
@@ -8552,11 +8552,11 @@
     "status": "awaiting-upc"
   },
   "the-brotherhood-iii-young-demons-dvd-rental-horror": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-brothers-grimm-dvd-rental-fantasy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-brothers-grimsby-dvd-rental-comedy": {
@@ -8564,11 +8564,11 @@
     "status": "awaiting-upc"
   },
   "the-brothers-solomon-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-burbs-bluray-rental-comedy": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "the-butterlfy-effect": {
@@ -8576,7 +8576,7 @@
     "status": "awaiting-upc"
   },
   "the-cabin-in-the-woods": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-call-of-the-wild-bluray-rental-drama-4k": {
@@ -8604,7 +8604,7 @@
     "status": "awaiting-upc"
   },
   "the-cat-o-nine-tails-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-catamount-killing-vhs-rental-thriller": {
@@ -8632,11 +8632,11 @@
     "status": "awaiting-upc"
   },
   "the-chronicles-of-narnia-prince-caspian-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-chronicles-of-riddick-dvd-rental-sci-fi": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-client-vhs": {
@@ -8652,11 +8652,11 @@
     "status": "awaiting-upc"
   },
   "the-company-dvd-rental-drama": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-conjuring-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-conman-dvd-rental-foreign": {
@@ -8664,7 +8664,7 @@
     "status": "awaiting-upc"
   },
   "the-constant-gardener-dvd-rental-thriller": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-cookout-dvd-rental-comedy": {
@@ -8676,7 +8676,7 @@
     "status": "awaiting-upc"
   },
   "the-cowboy-way-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-cowboy-way-vhs-rental-comedy": {
@@ -8684,19 +8684,19 @@
     "status": "awaiting-upc"
   },
   "the-crime-of-padre-amaro-dvd-rental-drama": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-croods-bluray-rental-kids-family": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-crow-vhs-rental-action": {
     "batch": "batch-0020",
     "status": "awaiting-upc"
   },
   "the-curious-case-of-benjamin-button-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-dark-dvd-rental-horror": {
@@ -8705,22 +8705,22 @@
   },
   "the-dark-knight-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-dark-knight-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-dark-knight-rises-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-darkness-dvd-rental-horror": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-davinci-code-dvd-rental-thriller": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-day-after-dvd-rental-drama": {
@@ -8745,10 +8745,10 @@
   },
   "the-departed-dvd-rental-drama": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-descent": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-devils-own-vhs-rental-thriller": {
@@ -8768,7 +8768,7 @@
     "status": "awaiting-upc"
   },
   "the-dukes-of-hazzard-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-dunera-boys-vhs-rental-drama": {
@@ -8780,7 +8780,7 @@
     "status": "awaiting-upc"
   },
   "the-earrings-of-madame-dvd-rental-thriller": {
-    "batch": "batch-0020",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-edge-dvd-rental-thriller": {
@@ -8808,7 +8808,7 @@
     "status": "awaiting-upc"
   },
   "the-english-patient-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-executioner-vhs-rental-thriller": {
@@ -8825,14 +8825,14 @@
   },
   "the-fault-in-our-stars-bluray-rental-drama": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-fear-inside-vhs-rental-thriller": {
     "batch": "batch-0001",
     "status": "awaiting-upc"
   },
   "the-fifth-element-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-fighter-bluray-rental-drama": {
@@ -8840,7 +8840,7 @@
     "status": "awaiting-upc"
   },
   "the-fighting-temptations-dvd-rental-musical": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-final-alliance-vhs-rental-action": {
@@ -8848,7 +8848,7 @@
     "status": "awaiting-upc"
   },
   "the-final-countdown-dvd-rental-drama": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-finest-hours-vhs": {
@@ -8880,7 +8880,7 @@
     "status": "awaiting-upc"
   },
   "the-forgotten": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-fourth-war-vhs-rental-drama": {
@@ -8900,7 +8900,7 @@
     "status": "awaiting-upc"
   },
   "the-fugitive-kind-dvd-rental-drama": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-fury-of-hercules-vhs-rental-action": {
@@ -8912,7 +8912,7 @@
     "status": "awaiting-upc"
   },
   "the-game-dvd-rental-thriller": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-gateway-dvd-rental-thriller": {
@@ -8928,11 +8928,11 @@
     "status": "awaiting-upc"
   },
   "the-ghost-and-the-darkness-dvd-rental-action": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-ghost-writer-dvd-rental-thriller": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-girl-from-petrovka-vhs-rental-drama": {
@@ -8968,7 +8968,7 @@
     "status": "awaiting-upc"
   },
   "the-graduate-dvd-rental-drama": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-graduate-vhs-rental-drama": {
@@ -8976,7 +8976,7 @@
     "status": "awaiting-upc"
   },
   "the-gravedancers-dvd-rental-horror": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-great-escape-rental-action": {
@@ -8988,7 +8988,7 @@
     "status": "awaiting-upc"
   },
   "the-great-mouse-detective-bluray": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-great-santini-vhs-rental-drama": {
@@ -8996,11 +8996,11 @@
     "status": "awaiting-upc"
   },
   "the-green-mile-bluray": {
-    "batch": "batch-0024",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "the-grey-dvd-rental-thriller": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-groundstar-conspiracy-vhs-rental-sci-fi": {
@@ -9017,7 +9017,7 @@
   },
   "the-guilt-trip-bluray-rental-comedy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-gun-run-dvd-rental-action": {
     "batch": "batch-0010",
@@ -9028,11 +9028,11 @@
     "status": "awaiting-upc"
   },
   "the-hangover": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-hangover-bluray-rental-comedy": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-heart-of-me-vhs-rental-drama": {
@@ -9040,7 +9040,7 @@
     "status": "awaiting-upc"
   },
   "the-help-dvd-rental-drama": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-hi-lo-country-vhs-rental-drama": {
@@ -9048,7 +9048,7 @@
     "status": "awaiting-upc"
   },
   "the-hidden-fortress-dvd-rental-action": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-highwayman-vhs-rental-action": {
@@ -9056,19 +9056,19 @@
     "status": "awaiting-upc"
   },
   "the-history-of-everything-bluray-rental-drama": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-hobbit-an-unexpected-journey-dvd-rental-fantasy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-hobbit-the-desolation-of-smaug-bluray-rental-fantasy": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-holiday-dvd-rental-romantic-comedy": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-hollywood-knights-vhs": {
@@ -9076,31 +9076,31 @@
     "status": "awaiting-upc"
   },
   "the-homesman-dvd-rental-drama": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-host-dvd-rental-horror": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-house-with-a-clock-in-its-walls-dvd-rental-kids-family": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-hunger-games-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-hunger-games-catching-fire-dvd-rental-action": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-hunger-games-dvd-rental-fantasy": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-hunt-for-red-october-dvd-rental-action": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-hurricane-vhs-rental-drama": {
@@ -9109,7 +9109,7 @@
   },
   "the-hurt-locker-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-hustle-vhs-rental-action": {
     "batch": "batch-0003",
@@ -9124,7 +9124,7 @@
     "status": "awaiting-upc"
   },
   "the-incredible-hulk-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-incredibly-true-adventures-of-2-girls-in-love-vhs-rental-comedy": {
@@ -9136,11 +9136,11 @@
     "status": "awaiting-upc"
   },
   "the-internship-unrated-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-invasion-bluray-rental-sci-fi": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-invention-of-lying-dvd-rental-comedy": {
@@ -9156,11 +9156,11 @@
     "status": "awaiting-upc"
   },
   "the-island-dvd-rental-sci-fi": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-italian-job-dvd-rental-action": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-italian-straw-hat-dvd-rental-comedy": {
@@ -9172,7 +9172,7 @@
     "status": "awaiting-upc"
   },
   "the-jackal": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-jensen-project-dvd-rental-sci-fi": {
@@ -9212,7 +9212,7 @@
     "status": "awaiting-upc"
   },
   "the-lady-eve-dvd-rental-romantic-comedy": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-land-girls-vhs-rental-drama": {
@@ -9228,11 +9228,11 @@
     "status": "awaiting-upc"
   },
   "the-last-castle-dvd-rental-action": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-last-emperor-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-last-house-of-the-left-dvd-rental-horror": {
@@ -9252,11 +9252,11 @@
     "status": "awaiting-upc"
   },
   "the-last-samurai-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-last-stand-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-last-stop-vhs-rental-thriller": {
@@ -9264,11 +9264,11 @@
     "status": "awaiting-upc"
   },
   "the-last-temptation-of-christ-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-last-temptation-of-christ-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "the-last-waltz": {
@@ -9288,7 +9288,7 @@
     "status": "awaiting-upc"
   },
   "the-lazarus-project-dvd-rental-sci-fi": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-legend-of-hercules-dvd-rental-fantasy": {
@@ -9300,11 +9300,11 @@
     "status": "awaiting-upc"
   },
   "the-lego-movie-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-leopard-dvd-rental-drama": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-librarian-quest-for-the-spear-dvd-rental-action": {
@@ -9312,7 +9312,7 @@
     "status": "awaiting-upc"
   },
   "the-lighthouse-bluray": {
-    "batch": "batch-0024",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "the-lion-in-winter-vhs-rental-drama": {
@@ -9340,35 +9340,35 @@
     "status": "awaiting-upc"
   },
   "the-lives-of-others-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-lord-of-the-rings-return-of-the-king-dvd-extended": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-lord-of-the-rings-the-fellowship-of-the-ring-dvd-extended": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-lord-of-the-rings-the-return-of-the-king": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-lord-of-the-rings-the-two-towers": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-lord-of-the-rings-the-two-towers-dvd-extended": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-losers-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-lost-boys-dvd-rental-horror": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-lost-capone-vhs-rental-drama": {
@@ -9384,11 +9384,11 @@
     "status": "awaiting-upc"
   },
   "the-love-guru-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-machinist": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-magic-sword-dvd-rental-fantasy": {
@@ -9400,7 +9400,7 @@
     "status": "awaiting-upc"
   },
   "the-man-who-killed-hitler-and-then-the-bigfoot-dvd-rental-action": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-man-who-knew-too-little-vhs-rental-comedy": {
@@ -9424,7 +9424,7 @@
     "status": "awaiting-upc"
   },
   "the-mask-of-zorro-dvd-rental-action": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-mask-of-zorro-vhs": {
@@ -9440,7 +9440,7 @@
     "status": "awaiting-upc"
   },
   "the-matrix-reloaded": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-merry-widow-dvd-rental-comedy": {
@@ -9448,7 +9448,7 @@
     "status": "awaiting-upc"
   },
   "the-mexican-dvd-rental-comedy": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-miracle-worker-vhs-rental-kids-family": {
@@ -9464,7 +9464,7 @@
     "status": "awaiting-upc"
   },
   "the-motorcycle-diaries-dvd-rental-drama": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-mummy-returns-vhs-rental-action": {
@@ -9473,7 +9473,7 @@
   },
   "the-mummy-tomb-of-the-dragon-emperor-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-muppet-christmas-carol-vhs-rental-kids-family": {
     "batch": "batch-0004",
@@ -9488,7 +9488,7 @@
     "status": "awaiting-upc"
   },
   "the-myth-dvd-rental-fantasy": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-never-endng-story-i-ii-vhs-rental-kids-family": {
@@ -9496,7 +9496,7 @@
     "status": "awaiting-upc"
   },
   "the-new-barbarians-dvd-rental-sci-fi": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-newton-boys-dvd-rental-drama": {
@@ -9504,7 +9504,7 @@
     "status": "awaiting-upc"
   },
   "the-nice-guys-dvd-rental-comedy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-night-and-the-moment-vhs-rental-drama": {
@@ -9544,7 +9544,7 @@
     "status": "awaiting-upc"
   },
   "the-other-side-of-midnight-dvd-rental-drama": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-other-sister-vhs-rental-drama": {
@@ -9552,7 +9552,7 @@
     "status": "awaiting-upc"
   },
   "the-outlaw-josey-wales-bluray": {
-    "batch": "batch-0025",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-outsider-dvd-rental-action": {
@@ -9572,7 +9572,7 @@
     "status": "awaiting-upc"
   },
   "the-patriot-dvd-rental-drama": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-patriot-vhs-rental-action": {
@@ -9580,11 +9580,11 @@
     "status": "awaiting-upc"
   },
   "the-peacemaker-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-peanuts-movie-dvd-rental-kids-family": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-pelican-brief-vhs-rental": {
@@ -9600,11 +9600,11 @@
     "status": "awaiting-upc"
   },
   "the-perfect-man-dvd-rental-kids-family": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-perfect-man-dvd-rental-romantic-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-phantom-of-the-opera-dvd-rental-musical": {
@@ -9624,11 +9624,11 @@
     "status": "awaiting-upc"
   },
   "the-polar-express-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-prestige-dvd-rental-drama": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-price-of-kissing-vhs-rental-comedy": {
@@ -9640,7 +9640,7 @@
     "status": "awaiting-upc"
   },
   "the-princess-bride-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-princess-bride-vhs": {
@@ -9672,7 +9672,7 @@
     "status": "awaiting-upc"
   },
   "the-queen-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-quiet-man-vhs": {
@@ -9696,7 +9696,7 @@
     "status": "awaiting-upc"
   },
   "the-reef-dvd-rental-kids-family": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-remains-dvd-rental-horror": {
@@ -9704,7 +9704,7 @@
     "status": "awaiting-upc"
   },
   "the-replacement-killers-dvd-rental-action": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-rescuers-down-under-vhs-rental-kids-family": {
@@ -9716,11 +9716,11 @@
     "status": "awaiting-upc"
   },
   "the-ring-two-dvd-rental-horror": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-river-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-road-dvd-rental-sci-fi": {
@@ -9740,7 +9740,7 @@
     "status": "awaiting-upc"
   },
   "the-saint-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "the-sandlot-the-sandlot-2-the-sandlot-heading-home-dvd-rental-kids-family": {
@@ -9772,7 +9772,7 @@
     "status": "awaiting-upc"
   },
   "the-sea-chase-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-seat-filler-dvd-rental-comedy": {
@@ -9788,7 +9788,7 @@
     "status": "awaiting-upc"
   },
   "the-secret-life-of-pets-2-dvd-rental-kids-family": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-secret-life-of-pets-bluray-rental-kids-family": {
@@ -9796,11 +9796,11 @@
     "status": "awaiting-upc"
   },
   "the-secret-life-of-pets-dvd-rental-kids-family": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-secret-of-my-success-dvd-rental-comedy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-secret-of-roan-inish-island-of-the-seals-dvd-rental-kids-family": {
@@ -9820,19 +9820,19 @@
     "status": "awaiting-upc"
   },
   "the-shallows-dvd-rental-thriller": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-shawshank-redemption-bluray": {
-    "batch": "batch-0024",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "the-shawshank-redemption-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-shawshank-redemption-dvd-rental-drama": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-sicilian-dvd-rental-thriller": {
@@ -9848,7 +9848,7 @@
     "status": "awaiting-upc"
   },
   "the-skeleton-key-dvd-rental-horror": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-smokers-vhs-rental-comedy": {
@@ -9856,15 +9856,15 @@
     "status": "awaiting-upc"
   },
   "the-smurfs-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-soft-skin-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-sons-of-katie-elder-dvd-rental-action": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-sorcerers-apprentice": {
@@ -9896,7 +9896,7 @@
     "status": "awaiting-upc"
   },
   "the-sum-of-all-fears-dvd-rental-action": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-super-vhs-rental-comedy": {
@@ -9912,7 +9912,7 @@
     "status": "awaiting-upc"
   },
   "the-sweetest-thing-dvd-rental-romantic-comedy": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-sword-in-the-stone-vhs-rental-kids-family": {
@@ -9921,10 +9921,10 @@
   },
   "the-tale-of-the-princess-kaguya-bluray-rental-kids-family": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-tattooist-dvd-rental-horror": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-ten-dvd-rental-comedy": {
@@ -9932,7 +9932,7 @@
     "status": "awaiting-upc"
   },
   "the-terminal-dvd-rental-comedy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-terminal-vhs": {
@@ -9940,7 +9940,7 @@
     "status": "awaiting-upc"
   },
   "the-terminator-dvd": {
-    "batch": "batch-0026",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-terrorists-vhs-rental-thriller": {
@@ -9948,11 +9948,11 @@
     "status": "awaiting-upc"
   },
   "the-texas-chainsaw-massacre-dvd-rental-horror": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-thief-of-bagdad-dvd-rental-drama": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-thin-blue-line-bluray-rental-criterion-collection-documentary": {
@@ -9984,7 +9984,7 @@
     "status": "awaiting-upc"
   },
   "the-tourist-dvd-rental-thriller": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-toy-dvd-rental-comedy": {
@@ -10008,7 +10008,7 @@
     "status": "awaiting-upc"
   },
   "the-trouble-with-angels-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "the-twiligh-saga-breaking-dawn-part-1-dvd-rental-fantasy": {
@@ -10016,19 +10016,19 @@
     "status": "awaiting-upc"
   },
   "the-twilight-saga-breaking-dawn-part-1-dvd-rental-fantasy": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-underneath-dvd-rental-thriller": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-usual-suspects-bluray": {
-    "batch": "batch-0024",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "the-usual-suspects-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "the-usual-suspects-vhs-rental-thriller": {
@@ -10049,10 +10049,10 @@
   },
   "the-vow-bluray-rental-romantic-comedy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "the-wages-of-fear-bluray": {
-    "batch": "batch-0024",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "the-war-vhs-rental-drama": {
@@ -10060,11 +10060,11 @@
     "status": "awaiting-upc"
   },
   "the-watch-dvd-rental-comedy": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-water-diviner-dvd-rental-drama": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "the-water-horse-bluray-rental-kids-family": {
@@ -10080,15 +10080,15 @@
     "status": "awaiting-upc"
   },
   "the-wedding-banquet-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "the-wedding-date-dvd-rental-romantic-comedy": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-wedding-planner-dvd-rental-romantic-comedy": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "the-wedding-planner-vhs-rental-romantic-comedy": {
@@ -10112,7 +10112,7 @@
     "status": "awaiting-upc"
   },
   "the-wolfman-dvd-rental-horror": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "the-wonderful-ice-cream-suit-vhs-rental-comedy": {
@@ -10180,7 +10180,7 @@
     "status": "awaiting-upc"
   },
   "think-like-a-man-dvd-rental-romantic-comedy": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "this-is-christmas-dvd-rental-holiday": {
@@ -10192,11 +10192,11 @@
     "status": "awaiting-upc"
   },
   "this-is-the-end-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "thor-dvd-rental-action": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "thr3e-dvd-rental-horror": {
@@ -10212,7 +10212,7 @@
     "status": "awaiting-upc"
   },
   "three-kings": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "three-men-and-a-baby-vhs-rental-kids-family": {
@@ -10228,11 +10228,11 @@
     "status": "awaiting-upc"
   },
   "throne-of-blood-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "thumbsucker-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "thunderball-vhs-rental-action": {
@@ -10264,7 +10264,7 @@
     "status": "awaiting-upc"
   },
   "time-bandits-dvd-rental-fantasy": {
-    "batch": "batch-0013",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "time-served-vhs-rental-thriller": {
@@ -10284,7 +10284,7 @@
     "status": "awaiting-upc"
   },
   "titanic-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "to-catch-a-killer-vhs-rental-thriller": {
@@ -10320,11 +10320,11 @@
     "status": "awaiting-upc"
   },
   "tombstone-bluray-rental-action": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "tombstone-dvd-rental-drama": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "tomcat-vhs-rental-thriller": {
@@ -10340,11 +10340,11 @@
     "status": "awaiting-upc"
   },
   "total-recall-bluray-rental-sci-fi": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "total-recall-dvd-rental-sci-fi": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "touch-and-go-vhs": {
@@ -10352,11 +10352,11 @@
     "status": "awaiting-upc"
   },
   "touch-of-evil-dvd-rental-thriller": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "tower-heist-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "toy-story-10th-anniversary-edition-dvd-rental-kids-family": {
@@ -10364,7 +10364,7 @@
     "status": "awaiting-upc"
   },
   "toy-story-2-dvd-rental-kids-family": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "toy-story-2-vhs-rental-kids-family": {
@@ -10388,7 +10388,7 @@
     "status": "awaiting-upc"
   },
   "trading-places-dvd-rental-comedy": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "tragedy-of-flight-103": {
@@ -10397,14 +10397,14 @@
   },
   "transformers-dark-of-the-moon-bluray-rental-sci-fi": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "transformers-dvd-rental-sci-fi": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "transformers-revenge-of-the-fallen-bluray-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "transformers-two-disc-special-edition": {
@@ -10412,11 +10412,11 @@
     "status": "awaiting-upc"
   },
   "trapped-dvd-rental-thriller": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "trespass-dvd-rental-thriller": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "trial": {
@@ -10440,15 +10440,15 @@
     "status": "awaiting-upc"
   },
   "troy-dvd-rental-action": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "true-grit": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "true-grit-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "true-heart-dvd-rental-kids-family": {
@@ -10500,7 +10500,7 @@
     "status": "awaiting-upc"
   },
   "twisted-dvd-rental-thriller": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "twisted-justice-dvd-rental-thriller": {
@@ -10520,7 +10520,7 @@
     "status": "awaiting-upc"
   },
   "two-brothers-dvd-rental-kids-family": {
-    "batch": "batch-0017",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "two-moon-junction-dvd-rental-drama": {
@@ -10540,7 +10540,7 @@
     "status": "awaiting-upc"
   },
   "u-571-dvd-rental-action": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "ulees-gold-vhs-rental-drama": {
@@ -10564,7 +10564,7 @@
     "status": "awaiting-upc"
   },
   "under-suspicion-dvd-rental-thriller": {
-    "batch": "batch-0004",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "under-the-hulu-moon-vhs-rental-comedy": {
@@ -10584,7 +10584,7 @@
     "status": "awaiting-upc"
   },
   "undercover-brother-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "undercurrent-vhs-rental-action": {
@@ -10600,11 +10600,11 @@
     "status": "awaiting-upc"
   },
   "underworld-blood-wars-dvd-rental-horror": {
-    "batch": "batch-0014",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "underworld-evolution": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "undisputed-vhs-rental-drama": {
@@ -10624,7 +10624,7 @@
     "status": "awaiting-upc"
   },
   "universal-soldier-dvd-rental-action": {
-    "batch": "batch-0007",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "universal-soldier-regeneration-dvd-rental-action": {
@@ -10632,7 +10632,7 @@
     "status": "awaiting-upc"
   },
   "unknown-dvd-rental-thriller": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "unknows-origins-vhs-rental-thriller": {
@@ -10640,15 +10640,15 @@
     "status": "awaiting-upc"
   },
   "unrest-dvd-rental-horror": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "unsane-bluray-rental-thriller": {
-    "batch": "batch-0022",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "unstoppable-dvd-rental-action": {
-    "batch": "batch-0017",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "untraceable-dvd-rental-thriller": {
@@ -10656,7 +10656,7 @@
     "status": "awaiting-upc"
   },
   "up-dvd-rental-kids-family": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "up-your-alley": {
@@ -10676,31 +10676,31 @@
     "status": "awaiting-upc"
   },
   "v-for-vendetta-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "valkyrie-dvd-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "vampires-vhs-rental-action": {
     "batch": "batch-0020",
     "status": "awaiting-upc"
   },
   "van-helsing": {
-    "batch": "batch-0027",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "van-helsing-dvd-rental-action": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "vanilla-sky-dvd-rental-drama": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "vanishing-on-7th-street-dvd-rental-thriller": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "vanishing-point-vhs": {
@@ -10712,11 +10712,11 @@
     "status": "awaiting-upc"
   },
   "varsity-blues-dvd-rental-drama": {
-    "batch": "batch-0014",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "vertical-limit-dvd-rental-action": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "vice-versa-vhs-rental-comedy": {
@@ -10724,11 +10724,11 @@
     "status": "awaiting-upc"
   },
   "village-of-the-damned": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "viridiana-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "vivah-bluray-rental-foreign": {
@@ -10752,11 +10752,11 @@
     "status": "awaiting-upc"
   },
   "walk-the-line-dvd-rental-drama": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "walkabout-dvd-rental-drama": {
-    "batch": "batch-0008",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "walking-across-egypt-vhs-rental-drama": {
@@ -10780,11 +10780,11 @@
     "status": "awaiting-upc"
   },
   "war-dvd-rental-action": {
-    "batch": "batch-0015",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "war-of-the-worlds-dvd-rental-sci-fi": {
-    "batch": "batch-0004",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "warning-shot-dvd-rental-thriller": {
@@ -10800,7 +10800,7 @@
     "status": "awaiting-upc"
   },
   "watchmen-bluray-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "water-for-elehants-dvd-rental-drama": {
@@ -10812,11 +10812,11 @@
     "status": "awaiting-upc"
   },
   "way-of-the-gun-dvd-rental-action": {
-    "batch": "batch-0006",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "waynes-world-dvd-rental-comedy": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "weapons-4k-rental-horror": {
@@ -10856,7 +10856,7 @@
     "status": "awaiting-upc"
   },
   "what-about-bob-dvd-rental-comedy": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "what-just-happened-dvd-rental-comedy": {
@@ -10864,7 +10864,7 @@
     "status": "awaiting-upc"
   },
   "what-lies-beneath-dvd-rental-thriller": {
-    "batch": "batch-0005",
+    "batch": "batch-0031",
     "status": "exported"
   },
   "whatever-it-takes-vhs-rental-romantic-comedy": {
@@ -10916,7 +10916,7 @@
     "status": "awaiting-upc"
   },
   "where-the-wild-things-are-dvd-rental-kids-family": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "where-we-disappear-bluray-rental-action": {
@@ -10940,7 +10940,7 @@
     "status": "awaiting-upc"
   },
   "white-noise": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "white-noise-2-dvd-rental-thriller": {
@@ -10964,7 +10964,7 @@
     "status": "awaiting-upc"
   },
   "who-framed-roger-rabbit-bluray-rental-kids-family": {
-    "batch": "batch-0023",
+    "batch": "batch-0037",
     "status": "exported"
   },
   "who-framed-roger-rabbit-vhs-rental-kids-family": {
@@ -11000,7 +11000,7 @@
     "status": "awaiting-upc"
   },
   "wild-things-dvd-rental-drama": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "wildcats-vhs-rental-comedy": {
@@ -11040,7 +11040,7 @@
     "status": "awaiting-upc"
   },
   "wish-for-christmas-dvd-rental-holiday": {
-    "batch": "batch-0016",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "wish-upon-dvd-rental-horror": {
@@ -11084,7 +11084,7 @@
     "status": "awaiting-upc"
   },
   "woodlawn-dvd-rental-drama": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "working-girl-vhs-rental-comedy": {
@@ -11092,23 +11092,23 @@
     "status": "awaiting-upc"
   },
   "world-trade-center-dvd-rental-drama": {
-    "batch": "batch-0010",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "world-war-z-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "wrath-of-the-titans-dvd-rental-fantasy": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "wrestlemaniac-dvd-rental-horror": {
-    "batch": "batch-0011",
+    "batch": "batch-0034",
     "status": "exported"
   },
   "wrong-turn-at-tahoe-dvd-rental-action": {
-    "batch": "batch-0019",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "wrongfully-accused-vhs-rental-comedy": {
@@ -11125,10 +11125,10 @@
   },
   "x-men-first-class-bluray-rental-action": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "x-men-origins-wolverine-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "x-men-revealed-dvd-rental-action": {
@@ -11148,11 +11148,11 @@
     "status": "awaiting-upc"
   },
   "xxx-dvd-rental-action": {
-    "batch": "batch-0005",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "xxx-state-of-the-union-dvd-rental-action": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "yankee-zulu-vhs-rental-kids-family": {
@@ -11165,7 +11165,7 @@
   },
   "year-one-bluray-rental-comedy": {
     "batch": "batch-0002",
-    "status": "exported"
+    "status": "barcoded"
   },
   "yellow-submarine-dvd-rental-musical": {
     "batch": "batch-0002",
@@ -11176,11 +11176,11 @@
     "status": "awaiting-upc"
   },
   "you-again-bluray-rental-romantic-comedy": {
-    "batch": "batch-0003",
+    "batch": "batch-0032",
     "status": "exported"
   },
   "young-frankenstein-dvd": {
-    "batch": "batch-0025",
+    "batch": "batch-0036",
     "status": "exported"
   },
   "young-girls-of-rochefort": {
@@ -11200,7 +11200,7 @@
     "status": "awaiting-upc"
   },
   "youve-got-mail": {
-    "batch": "batch-0028",
+    "batch": "batch-0030",
     "status": "exported"
   },
   "youve-got-mail-vhs-rental-romatic-comedy": {
@@ -11225,18 +11225,18 @@
   },
   "zodiac-4k-rental-thriller": {
     "batch": "batch-0001",
-    "status": "exported"
+    "status": "barcoded"
   },
   "zodiac-dvd-rental-thriller": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   },
   "zookeeper-dvd-rental-comedy": {
-    "batch": "batch-0018",
+    "batch": "batch-0033",
     "status": "exported"
   },
   "zookeeper-dvd-rental-kids-family": {
-    "batch": "batch-0012",
+    "batch": "batch-0035",
     "status": "exported"
   }
 }

@@ -57,6 +57,11 @@ def login(page: Page, email: str, password: str) -> None:
 
 def update_barcode(page: Page, call_number: str):
     """Returns (status, message). status is one of updated/skipped/error."""
+    # A previously opened item's detail panel (#item-details-view) doesn't
+    # unmount when a new search runs, and it renders its own stray
+    # .item-title -- inflating the next row's match count and making it
+    # look falsely ambiguous. Force a clean page for every row.
+    page.goto("https://www.libib.com/library")
     search = page.locator("#search")
     search.fill(f"call:{call_number}")
     search.press("Enter")
@@ -104,12 +109,30 @@ def update_barcode(page: Page, call_number: str):
 
     barcode_input.fill(call_number)
     row.locator(".save-copy-button").click()
-    page.wait_for_timeout(400)
+    page.wait_for_timeout(600)
 
-    new_value = barcode_input.input_value()
-    if new_value != call_number:
-        return "error", f"save did not persist, field shows '{new_value}'"
+    # The input's in-memory value proves nothing -- it still shows what we
+    # just typed regardless of whether the save actually persisted (seen in
+    # practice: ~8% of rows report success this way but the server keeps
+    # the old value). Reload the item from scratch and re-read.
+    verified_value = _read_barcode_fresh(page, call_number)
+    if verified_value != call_number:
+        return "error", f"save did not persist -- reloaded value is '{verified_value}'"
     return "updated", "ok"
+
+
+def _read_barcode_fresh(page: Page, call_number: str) -> str:
+    """Re-fetches the item from a clean page load and returns its current
+    barcode value, bypassing any client-side state we may have just set."""
+    page.goto("https://www.libib.com/library")
+    page.locator("#search").fill(f"call:{call_number}")
+    page.locator("#search").press("Enter")
+    page.locator(".item-title").first.wait_for(state="visible", timeout=8000)
+    page.locator(".item-title").first.click()
+    page.locator(".li-copies a").first.wait_for(state="visible", timeout=8000)
+    page.locator(".li-copies a").first.click()
+    page.locator("table tbody tr").first.wait_for(state="visible", timeout=8000)
+    return page.locator("table tbody tr").first.locator(".copy-barcode-value input").input_value()
 
 
 def main():

@@ -35,6 +35,14 @@ Workflow:
            marked "barcoded" (updated/skipped) or "needs-review" (error --
            see batch-0001/upload-with-upc.barcode-report.csv for why)
 
+    python3 formatting-scripts/libib_batch.py regroup-upc --size 100
+        -> pulls every not-yet-uploaded with-upc row out of its original
+           (mixed) batch and regroups them into fresh, fully-populated
+           batches, so you can keep importing 100 real rows at a time
+           instead of whatever fraction of a batch happened to have a UPC.
+           Only touches 'exported' handles -- batches already uploaded or
+           mid-barcoding, and all still-awaiting-upc rows, are untouched.
+
     python3 formatting-scripts/libib_batch.py status
         -> counts per state across every batch
 
@@ -178,6 +186,66 @@ def cmd_barcodes(args):
     print(f"\n{len(resolved_handles)} handles barcoded, {len(review_handles)} need manual review (see {report_path}).")
 
 
+def cmd_regroup_upc(args):
+    """Pull every handle that's still 'exported' (has a UPC, not yet
+    imported) out of its original batch and regroup them into fresh,
+    fully-populated batches of --size. Leaves 'uploaded'/'barcoded'/
+    'needs-review' handles and every 'awaiting-upc' row exactly where they
+    are -- this only ever touches not-yet-imported with-upc rows, so it
+    can't disturb a batch already mid-flow."""
+    batches_dir = Path(args.batches_dir)
+    registry = state.load_registry(batches_dir)
+
+    target_handles = [h for h, info in registry.items() if info["status"] == "exported"]
+    if not target_handles:
+        print("Nothing to regroup -- no handles are currently 'exported' (has a UPC, not yet uploaded).")
+        return
+
+    old_batches: dict = {}
+    for h in target_handles:
+        old_batches.setdefault(registry[h]["batch"], []).append(h)
+
+    moving_rows = []  # (handle, row) pairs, pulled out of their old batch
+    for old_batch_id, handles in old_batches.items():
+        old_dir = batches_dir / old_batch_id
+        old_upload_path = old_dir / "upload-with-upc.csv"
+        old_calls_path = old_dir / "call-numbers.json"
+        with old_upload_path.open(newline="", encoding="utf-8") as f:
+            old_rows = list(csv.DictReader(f))
+        old_call_map = json.loads(old_calls_path.read_text(encoding="utf-8"))
+        handle_set = set(handles)
+
+        keep_rows = []
+        for row in old_rows:
+            handle = old_call_map.get(row["call_number"])
+            if handle in handle_set:
+                moving_rows.append((handle, row))
+            else:
+                keep_rows.append(row)
+
+        write_csv(old_upload_path, LIBIB_MOVIE_COLUMNS, keep_rows)
+        keep_call_map = {cn: h for cn, h in old_call_map.items() if h not in handle_set}
+        old_calls_path.write_text(json.dumps(keep_call_map, indent=2), encoding="utf-8")
+
+    print(f"Pulled {len(moving_rows)} with-upc handles out of {len(old_batches)} batches, regrouping by {args.size}:")
+
+    for i in range(0, len(moving_rows), args.size):
+        chunk = moving_rows[i : i + args.size]
+        new_batch_id = next_batch_id(batches_dir)
+        new_dir = batches_dir / new_batch_id
+        new_dir.mkdir(parents=True, exist_ok=True)
+
+        write_csv(new_dir / "upload-with-upc.csv", LIBIB_MOVIE_COLUMNS, [row for _, row in chunk])
+        call_map = {row["call_number"]: handle for handle, row in chunk}
+        (new_dir / "call-numbers.json").write_text(json.dumps(call_map, indent=2), encoding="utf-8")
+
+        for handle, _ in chunk:
+            registry[handle] = {"batch": new_batch_id, "status": "exported"}
+        print(f"  {new_batch_id}: {len(chunk)} rows")
+
+    state.save_registry(batches_dir, registry)
+
+
 def cmd_status(args):
     batches_dir = Path(args.batches_dir)
     registry = state.load_registry(batches_dir)
@@ -210,6 +278,12 @@ def main():
     p_barcodes.add_argument("--headless", action="store_true")
     p_barcodes.add_argument("--limit", type=int, default=None)
     p_barcodes.set_defaults(func=cmd_barcodes)
+
+    p_regroup = sub.add_parser(
+        "regroup-upc", help="Pull all not-yet-uploaded with-upc handles into fresh, fully-populated batches"
+    )
+    p_regroup.add_argument("--size", type=int, default=100)
+    p_regroup.set_defaults(func=cmd_regroup_upc)
 
     p_status = sub.add_parser("status", help="Show handle counts per state")
     p_status.set_defaults(func=cmd_status)
