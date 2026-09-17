@@ -227,21 +227,12 @@
             add_to_cart_text: add_to_cart_text
           %}
 
-          {% unless block_settings.hide_dynamic_checkout %}
-            {% content_for 'block',
-              type: 'accelerated-checkout',
-              id: 'accelerated-checkout',
-              can_add_to_cart: can_add_to_cart,
-              form_obj: form
-            %}
-          {% endunless %}
-
-          {% if block_settings.enable_checkout_redirect %}
-            {% content_for 'block',
-              type: 'membership-checkout-redirect',
-              id: 'membership-checkout-redirect'
-            %}
-          {% endif %}
+          {% content_for 'block',
+            type: 'accelerated-checkout',
+            id: 'accelerated-checkout',
+            can_add_to_cart: can_add_to_cart,
+            form_obj: form
+          %}
         </div>
         {%- if block_settings.gift_card_form and product.gift_card? -%}
           </span>
@@ -400,20 +391,6 @@
       "type": "checkbox",
       "id": "stacking",
       "label": "t:settings.always_stack_buttons",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "hide_dynamic_checkout",
-      "label": "Hide dynamic checkout button (Shop Pay / Buy it now)",
-      "info": "Dynamic checkout buttons bypass required line-item properties (e.g. custom-property checkboxes). Enable this on any product where those fields must be enforced.",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_checkout_redirect",
-      "label": "Redirect straight to checkout after Add to Cart",
-      "info": "Skips the cart drawer/page entirely and sends the customer to /checkout as soon as the item is added. Intended for single-item, no-browsing-continuation products like memberships.",
       "default": false
     },
     {
