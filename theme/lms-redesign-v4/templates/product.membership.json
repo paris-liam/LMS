@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -45,11 +54,13 @@
             "gap": 28,
             "sticky_details_desktop": true,
             "background_media": "none",
+            "background_color": "",
             "video_position": "cover",
             "background_image_position": "cover",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
+            "border_color": "",
             "border_radius": 0,
             "padding-block-start": 24,
             "padding-block-end": 24,
@@ -57,6 +68,20 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "subscriptions_app_block_LNRgGD": {
+              "type": "shopify://apps/subscriptions/blocks/app-block/a3bfe9ec-96f8-4508-a003-df608a36d2ad",
+              "settings": {
+                "widget_style": "button",
+                "widget_style_card_selector": "radio_button",
+                "subscription_policy_url": "shopify://pages/membership-terms",
+                "color_text_body": "#6D7175",
+                "dividers_color": "#8F8D8D",
+                "background_color": "#FFFFFF",
+                "border_thickness": 1,
+                "border_radius": 0,
+                "product": "{{closest.product}}"
+              }
+            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -76,16 +101,18 @@
                 "height": "fit",
                 "custom_height": 100,
                 "background_media": "none",
+                "background_color": "",
                 "video_position": "cover",
                 "background_image_position": "cover",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
                 "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_color": "",
+                "border_radius": 0,
                 "link": "",
                 "open_in_new_tab": false,
                 "placeholder": "",
@@ -135,6 +162,7 @@
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
+                    "text_color": "",
                     "padding-block-start": 4,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -154,6 +182,7 @@
               "settings": {
                 "thickness": 1,
                 "corner_radius": "square",
+                "divider_color": "",
                 "width_percent": 100,
                 "padding-block-start": 0,
                 "padding-block-end": 0
@@ -165,55 +194,17 @@
               "settings": {
                 "variant_style": "buttons",
                 "show_swatches": false,
+                "option_label_text_color": "",
+                "variant_style_class": "default",
+                "custom_variant_background": "{{ settings.color_palette.background }}",
+                "custom_variant_text": "{{ settings.color_palette.foreground }}",
+                "custom_variant_border": "{{ settings.color_palette.foreground }}",
+                "selected_variant_style_class": "default",
+                "custom_selected_variant_background": "{{ settings.color_palette.foreground }}",
+                "custom_selected_variant_text": "{{ settings.color_palette.background }}",
+                "custom_selected_variant_border": "{{ settings.color_palette.foreground }}",
                 "alignment": "left",
                 "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "membership_terms_dialog": {
-              "type": "membership-terms-dialog",
-              "name": "Membership terms dialog",
-              "settings": {},
-              "blocks": {}
-            },
-            "custom_property_terms_checkbox": {
-              "type": "product-custom-property",
-              "name": "Terms acceptance checkbox",
-              "settings": {
-                "property_heading": "",
-                "property_description": "",
-                "property_key": "Terms Accepted",
-                "input_type": "checkbox",
-                "max_length": 100,
-                "checkbox_label": "I have read and agree to the Membership Agreement",
-                "required": true,
-                "placeholder": "",
-                "placeholder_textarea": "",
-                "padding-block-start": 12,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "custom_property_birthday": {
-              "type": "product-custom-property",
-              "name": "Birthday capture",
-              "settings": {
-                "property_heading": "Birthday",
-                "property_description": "So we can give you a free movie every year, on us.",
-                "property_key": "Birthday (MM/DD/YYYY)",
-                "input_type": "text",
-                "max_length": 25,
-                "checkbox_label": "",
-                "required": false,
-                "hide_character_count": true,
-                "placeholder": "MM/DD/YYYY",
-                "placeholder_textarea": "",
-                "padding-block-start": 12,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -224,11 +215,24 @@
               "type": "buy-buttons",
               "settings": {
                 "stacking": true,
+                "text_color": "",
                 "show_pickup_availability": false,
-                "gift_card_form": false,
-                "hide_dynamic_checkout": true,
-                "enable_checkout_redirect": true,
-                "padding-block-start": 12,
+                "gift_card_form": true,
+                "recipient_button_style": "default",
+                "recipient_button_background": "{{ settings.color_palette.background }}",
+                "recipient_button_text": "{{ settings.color_palette.foreground }}",
+                "recipient_button_border": "{{ settings.color_palette.foreground }}",
+                "selected_recipient_button_style": "default",
+                "selected_recipient_button_background": "{{ settings.color_palette.foreground }}",
+                "selected_recipient_button_text": "{{ settings.color_palette.background }}",
+                "selected_recipient_button_border": "{{ settings.color_palette.foreground }}",
+                "input_style": "default",
+                "input_background_color": "{{ settings.color_palette.background }}",
+                "input_text_color": "{{ settings.color_palette.foreground }}",
+                "input_border_color": "{{ settings.color_palette.foreground }}",
+                "border_width": 1,
+                "border_radius": 0,
+                "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
@@ -237,15 +241,31 @@
                 "quantity": {
                   "type": "quantity",
                   "static": true,
-                  "settings": {},
+                  "settings": {
+                    "input_style": "default",
+                    "input_background_color": "{{ settings.color_palette.background }}",
+                    "input_text_color": "{{ settings.color_palette.foreground }}",
+                    "input_border_color": "{{ settings.color_palette.foreground }}",
+                    "border_width": 1,
+                    "border_radius": 0
+                  },
                   "blocks": {}
                 },
                 "add-to-cart": {
                   "type": "add-to-cart",
                   "static": true,
                   "settings": {
-                    "style_class": "button"
+                    "style_class": "button",
+                    "custom_button_background": "{{ settings.color_palette.foreground }}",
+                    "custom_button_text": "{{ settings.color_palette.background }}",
+                    "custom_button_border": "{{ settings.color_palette.background }}"
                   },
+                  "blocks": {}
+                },
+                "accelerated-checkout": {
+                  "type": "accelerated-checkout",
+                  "static": true,
+                  "settings": {},
                   "blocks": {}
                 }
               },
@@ -276,17 +296,81 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "terms_checkbox_8fQ2mK": {
+              "type": "product-custom-property",
+              "settings": {
+                "property_heading": "",
+                "property_description": "",
+                "property_key": "Agrees to Membership Terms",
+                "input_type": "checkbox",
+                "checkbox_label": "I agree to the Membership Terms",
+                "required": true,
+                "padding-block-start": 12,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "terms_link_4tRb7L": {
+              "type": "popup-link",
+              "settings": {
+                "behavior": "default",
+                "heading": "View the Membership Terms",
+                "type_preset": "",
+                "padding-block-start": 4,
+                "padding-block-end": 12,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "terms_text_9wYp2Q": {
+                  "type": "custom-liquid",
+                  "settings": {
+                    "custom_liquid": "<div class=\"rte\">{{ pages['membership-terms'].content }}</div>"
+                  }
+                }
+              },
+              "block_order": [
+                "terms_text_9wYp2Q"
+              ]
+            },
+            "birthday_field_2xVn5C": {
+              "type": "product-custom-property",
+              "settings": {
+                "property_heading": "Birthday (optional)",
+                "property_description": "Get a little something from us on your day.",
+                "property_key": "Birthday",
+                "input_type": "text",
+                "max_length": 30,
+                "required": false,
+                "placeholder": "MM/DD",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "membership_page_scripts_7kLp3W": {
+              "type": "custom-liquid",
+              "settings": {
+                "custom_liquid": "{% liquid\n  assign membership_variant = closest.product.selected_or_first_available_variant\n  assign already_in_cart_qty = cart | item_count_for_variant: membership_variant.id\n  assign product_form_id = 'BuyButtons-ProductForm-' | append: section.id\n%}\n<style>\n  .shopify_subscriptions_app_container {\n    display: none !important;\n  }\n  .product-details .quantity-selector-wrapper {\n    display: none !important;\n  }\n  .lms-already-in-cart-note {\n    font-size: var(--font-size--sm);\n    margin: 0 0 var(--padding-sm);\n  }\n</style>\n<script>\n  (function () {\n    var alreadyInCart = {{ already_in_cart_qty | default: 0 }} > 0;\n\n    function forceAnnualSellingPlan() {\n      var container = document.querySelector('.shopify_subscriptions_app_container');\n      if (!container) return;\n      var annualRadio = container.querySelector('input[data-radio-type=\"selling_plan\"]');\n      if (!annualRadio || annualRadio.checked) return;\n      var oneTimeRadio = container.querySelector('input[data-radio-type=\"one_time_purchase\"]');\n      if (oneTimeRadio) oneTimeRadio.checked = false;\n      annualRadio.checked = true;\n      annualRadio.dispatchEvent(new Event('change', { bubbles: true }));\n      annualRadio.dispatchEvent(new Event('click', { bubbles: true }));\n    }\n    if (document.readyState === 'complete') {\n      forceAnnualSellingPlan();\n    } else {\n      window.addEventListener('load', forceAnnualSellingPlan);\n    }\n\n    // The Add to cart button already refuses to submit an invalid form, but\n    // silently - no native validation bubble is shown. Surface one on click.\n    function reportTermsValidity(form) {\n      if (form && !form.checkValidity()) {\n        form.reportValidity();\n      }\n    }\n\n    // Dynamic checkout / \"More payment options\" is a separate web component\n    // that does NOT consult the product form's validity (verified empirically:\n    // it navigates straight to Shopify checkout even with the terms checkbox\n    // unchecked). Hide it until the checkbox is checked instead of relying on\n    // native form validation to cover it.\n    function updateAcceleratedCheckoutVisibility(checkbox) {\n      var accelerated = document.querySelector('.accelerated-checkout-block');\n      if (!accelerated) return;\n      var shouldShow = !alreadyInCart && !!(checkbox && checkbox.checked);\n      accelerated.toggleAttribute('hidden', !shouldShow);\n    }\n\n    document.addEventListener('DOMContentLoaded', function () {\n      var form = document.getElementById('{{ product_form_id }}');\n      var checkbox = document.querySelector('input[name=\"properties[Agrees to Membership Terms]\"]');\n\n      updateAcceleratedCheckoutVisibility(checkbox);\n      if (checkbox) {\n        checkbox.addEventListener('change', function () {\n          updateAcceleratedCheckoutVisibility(checkbox);\n        });\n      }\n\n      document.querySelectorAll('.add-to-cart-button').forEach(function (button) {\n        button.addEventListener('click', function () {\n          reportTermsValidity(form);\n        });\n      });\n\n      if (alreadyInCart) {\n        document.querySelectorAll('.add-to-cart-button').forEach(function (button) {\n          button.disabled = true;\n        });\n        var buyButtons = document.querySelector('.buy-buttons-block');\n        if (buyButtons && buyButtons.parentNode) {\n          var note = document.createElement('p');\n          note.className = 'lms-already-in-cart-note';\n          note.innerHTML = 'You already have a membership in your cart - <a href=\"/cart\">view cart</a>.';\n          buyButtons.parentNode.insertBefore(note, buyButtons);\n        }\n      }\n    });\n  })();\n</script>"
+              }
             }
           },
           "block_order": [
+            "subscriptions_app_block_LNRgGD",
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
-            "membership_terms_dialog",
-            "custom_property_terms_checkbox",
-            "custom_property_birthday",
+            "terms_checkbox_8fQ2mK",
+            "terms_link_4tRb7L",
+            "birthday_field_2xVn5C",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "text_aEtTtq",
+            "membership_page_scripts_7kLp3W"
           ]
         }
       },
@@ -297,6 +381,7 @@
         "limit_details_width": false,
         "gap": 48,
         "enable_sticky_add_to_cart": true,
+        "background_color": "",
         "padding-block-start": 64,
         "padding-block-end": 64
       }
