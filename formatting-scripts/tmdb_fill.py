@@ -4,6 +4,7 @@ See docs/superpowers/specs/2026-08-11-catalogue-format-script-design.md.
 """
 
 import difflib
+import html
 import json
 import re
 import time
@@ -367,7 +368,7 @@ def classify_match(
 
 
 def strip_html(text: str | None) -> str:
-    return re.sub(r"<[^>]+>", "", text or "").strip()
+    return html.unescape(re.sub(r"<[^>]+>", "", text or "")).strip()
 
 
 def needs_image(group: list[dict]) -> bool:

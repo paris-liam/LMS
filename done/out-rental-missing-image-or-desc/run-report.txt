@@ -1,7 +1,0 @@
-input:      rental-missing-image-or-desc.csv
-shape:      export
-upload.csv: 80 rows written (products + extra-image rows)
-issues.csv: 0 rows need a fix
-ambiguous:  64 products seen this run, 0 newly queued in ambiguous-queue
-unmatched:  16 products seen this run, 0 newly queued in unmatched-queue
-cache:      0 hits, 81 fetches
