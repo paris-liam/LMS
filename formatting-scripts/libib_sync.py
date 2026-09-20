@@ -40,6 +40,13 @@ human-in-the-loop loop:
               correct; promotes it to "done", or drops it back into the
               eligible pool (or "needs-review" for a real problem) if not.
 
+reverify-posters is a separate one-off track: "done" handles whose poster
+was never actually confirmed by our own script (e.g. items that went
+through Libib's old, unreliable UPC-based auto-lookup before this pipeline
+existed) get a fresh ready.csv + freshly-downloaded poster and a `sync`
+pass, same as any other batch -- it's already-live items, so there's no
+import.csv/manual-import step, just prepare-equivalent + sync + verify.
+
 Usage:
     python3 formatting-scripts/libib_sync.py audit --shopify <csv> --libib-barcode <csv> --libib-collection <csv>
     python3 formatting-scripts/libib_sync.py queue --shopify <csv> --size 200
@@ -47,6 +54,7 @@ Usage:
     python3 formatting-scripts/libib_sync.py mark-imported <batch>
     python3 formatting-scripts/libib_sync.py sync <batch> [--headless]
     python3 formatting-scripts/libib_sync.py verify --shopify <csv> --libib-barcode <csv> --libib-collection <csv>
+    python3 formatting-scripts/libib_sync.py reverify-posters --shopify <csv>
     python3 formatting-scripts/libib_sync.py status
 """
 
@@ -171,7 +179,9 @@ def cmd_prepare(args):
 
     import_rows = []
     ready_rows = []
-    for h in queued:
+    total = len(queued)
+    print(f"{batch_id}: preparing {total} handles...", flush=True)
+    for i, h in enumerate(queued, 1):
         srow = by_handle[h]
         call_number = srow.get("Variant Barcode", "").strip()
         title = fields.expected_title(srow)
@@ -216,8 +226,9 @@ def cmd_prepare(args):
         image_path = batch_dir / f"{call_number}.{ext}"
         try:
             urllib.request.urlretrieve(img_url, image_path)
+            print(f"  [{i}/{total}] {call_number} {title}: image ok", flush=True)
         except Exception as exc:
-            print(f"  WARNING: image download failed for {h} ({call_number}): {exc}")
+            print(f"  [{i}/{total}] {call_number} {title}: WARNING image download failed: {exc}", flush=True)
             image_path = ""
 
         ready_rows.append(
@@ -240,6 +251,70 @@ def cmd_prepare(args):
     print(f"  {batch_dir / 'ready.csv'} -- input for `sync` once imported")
     print(f"Next: manually import {batch_dir / 'import.csv'}, then:")
     print(f"  python3 formatting-scripts/libib_sync.py mark-imported {batch_id}")
+
+
+# ------------------------------------------------------ reverify-posters --
+
+
+def cmd_reverify_posters(args):
+    by_handle = load_shopify_by_handle(args.shopify)
+    state = state_mod.load_state(SYNC_DIR)
+
+    targets = [
+        h for h, info in state.items()
+        if info["status"] == "done" and not info.get("poster_confirmed") and h in by_handle
+    ]
+    if not targets:
+        print("Nothing to reverify -- every 'done' handle already has a confirmed poster.")
+        return
+
+    batch_id = next_batch_id(SYNC_DIR)
+    batch_dir = SYNC_DIR / batch_id
+    batch_dir.mkdir(parents=True, exist_ok=True)
+
+    total = len(targets)
+    print(f"{batch_id}: reverifying posters for {total} handles...", flush=True)
+
+    ready_rows = []
+    ok_count, fail_count = 0, 0
+    for i, h in enumerate(targets, 1):
+        srow = by_handle[h]
+        call_number = srow.get("Variant Barcode", "").strip()
+        title = fields.expected_title(srow)
+        description = fields.expected_description(srow)
+        tags = fields.expected_tags_string(srow)
+
+        img_url = srow.get("Image Src", "").strip()
+        ext = img_url.split("?")[0].split(".")[-1]
+        if ext not in ("jpg", "jpeg", "png", "webp", "gif"):
+            ext = "jpg"
+        image_path = batch_dir / f"{call_number}.{ext}"
+        try:
+            urllib.request.urlretrieve(img_url, image_path)
+            ok_count += 1
+            print(f"  [{i}/{total}] {call_number} {title}: image ok", flush=True)
+        except Exception as exc:
+            fail_count += 1
+            print(f"  [{i}/{total}] {call_number} {title}: WARNING image download failed: {exc}", flush=True)
+            image_path = ""
+
+        ready_rows.append(
+            {
+                "call_number": call_number,
+                "title": title,
+                "description": description,
+                "tags": tags,
+                "image_path": str(image_path) if image_path else "",
+            }
+        )
+        state_mod.set_status(state, h, "done", batch=batch_id, call_number=call_number)
+
+    write_csv(batch_dir / "ready.csv", ["call_number", "title", "description", "tags", "image_path"], ready_rows)
+    state_mod.save_state(SYNC_DIR, state)
+
+    print(f"\n{batch_id}: {ok_count} images downloaded, {fail_count} failed.")
+    print(f"  {batch_dir / 'ready.csv'} -- input for `sync`")
+    print(f"Next: python3 formatting-scripts/libib_sync.py sync {batch_id}")
 
 
 # ---------------------------------------------------------- mark-imported --
@@ -398,6 +473,10 @@ def main():
     p_verify.add_argument("--libib-barcode", required=True)
     p_verify.add_argument("--libib-collection", required=True)
     p_verify.set_defaults(func=cmd_verify)
+
+    p_reverify = sub.add_parser("reverify-posters", help="Re-download + re-sync posters for 'done' handles never confirmed by our own script")
+    p_reverify.add_argument("--shopify", required=True)
+    p_reverify.set_defaults(func=cmd_reverify_posters)
 
     p_status = sub.add_parser("status", help="Show handle counts per state")
     p_status.set_defaults(func=cmd_status)
