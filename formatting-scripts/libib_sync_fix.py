@@ -56,10 +56,34 @@ def login(page: Page, email: str, password: str) -> None:
     page.wait_for_url("**/library", timeout=15000)
 
 
+def ensure_rental_library_scope(page: Page) -> None:
+    """Libib persists "last viewed collection" server-side, and it silently
+    flips between sessions (observed 2026-09-20) -- if the active scope is
+    some other collection, every search on this page silently searches
+    that (usually near-empty) collection instead and returns nothing,
+    which looks exactly like "item not found" errors. Never trust the
+    default; force it back to Rental Library on every fresh page load.
+    The underlying <select> is a hidden "chosen.js" widget -- a raw JS
+    value/change-event hack does NOT reliably register with it (observed
+    causing a stuck/wrong scope), so this must be a real UI click."""
+    current = page.locator(".chosen-container").first
+    try:
+        current.wait_for(state="visible", timeout=5000)
+    except PlaywrightTimeoutError:
+        return  # no collection switcher on this page, nothing to do
+    if current.inner_text().strip().startswith("Rental Library"):
+        return
+    current.click()
+    page.wait_for_timeout(400)
+    page.locator(".chosen-results li", has_text="Rental Library").click()
+    page.wait_for_timeout(800)
+
+
 def open_item(page: Page, call_number: str):
     """Searches and opens the item detail page. Returns None on success,
     or a (status, message) error tuple."""
     page.goto("https://www.libib.com/library")
+    ensure_rental_library_scope(page)
     search = page.locator("#search")
     search.fill(f"call:{call_number}")
     search.press("Enter")

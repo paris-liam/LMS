@@ -1,0 +1,42 @@
+call_number,barcode_status,content_status,message
+35832826,updated,updated,barcode: ok | content: changed: poster
+19653370,updated,updated,barcode: ok | content: changed: poster
+95241210,updated,updated,barcode: ok | content: changed: poster
+35439610,updated,updated,barcode: ok | content: changed: poster
+19751674,updated,updated,barcode: ok | content: changed: poster
+35865594,updated,updated,barcode: ok | content: changed: poster
+35931130,updated,updated,barcode: ok | content: changed: poster
+95077370,updated,updated,barcode: ok | content: changed: poster
+95372282,updated,updated,barcode: ok | content: changed: poster
+42902010,error,error,no item found for this call number
+35406842,updated,updated,barcode: ok | content: changed: poster
+95437818,updated,updated,barcode: ok | content: changed: poster
+56477434,updated,updated,barcode: ok | content: changed: poster
+19718906,updated,updated,barcode: ok | content: changed: poster
+19882746,updated,updated,barcode: ok | content: changed: poster
+95175674,updated,updated,barcode: ok | content: changed: poster
+95634426,updated,updated,barcode: ok | content: changed: poster
+19817210,updated,updated,barcode: ok | content: changed: poster
+19489530,updated,updated,barcode: ok | content: changed: poster
+19423994,updated,updated,barcode: ok | content: changed: poster
+19522298,updated,updated,barcode: ok | content: changed: poster
+19587834,updated,updated,barcode: ok | content: changed: poster
+95208442,updated,updated,barcode: ok | content: changed: poster
+96093178,updated,updated,barcode: ok | content: changed: poster
+95011834,updated,updated,barcode: ok | content: changed: poster
+96060410,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+35243002,updated,updated,barcode: ok | content: changed: poster
+35636218,updated,updated,barcode: ok | content: changed: poster
+95044602,updated,updated,barcode: ok | content: changed: poster
+35472378,updated,updated,barcode: ok | content: changed: poster
+96027642,updated,updated,barcode: ok | content: changed: poster
+35734522,updated,updated,barcode: ok | content: changed: poster
+35341306,updated,updated,barcode: ok | content: changed: poster
+20046586,updated,updated,barcode: ok | content: changed: poster
+95962106,updated,updated,barcode: ok | content: changed: poster
+19686138,updated,updated,barcode: ok | content: changed: poster
+19915514,updated,updated,barcode: ok | content: changed: poster
+35537914,updated,updated,barcode: ok | content: changed: poster
+95568890,updated,updated,barcode: ok | content: changed: poster
+95667194,updated,updated,barcode: ok | content: changed: poster
+95470586,updated,updated,barcode: ok | content: changed: poster

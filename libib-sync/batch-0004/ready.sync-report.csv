@@ -79,54 +79,18 @@ call_number,barcode_status,content_status,message
 93622522,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 85618170,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 93950202,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
-93458682,error,error,"Error: Page.goto: net::ERR_NETWORK_IO_SUSPENDED at https://www.libib.com/library
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-16304122,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-55280890,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-83302394,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-94114042,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-17033722,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-37043706,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-68959226,error,error,"TimeoutError: Page.goto: Timeout 30000ms exceeded.
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-78958330,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-49414394,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-93786362,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-78827258,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
+93458682,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+16304122,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+55280890,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+83302394,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+94114042,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17033722,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+37043706,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+68959226,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+78958330,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+49414394,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+93786362,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+78827258,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 69507066,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 17426938,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 17582074,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
@@ -138,80 +102,43 @@ Call log:
 03186426,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 69221370,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 93229306,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
-78466810,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
-93524218,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+78466810,error,error,"Error: Page.goto: net::ERR_NETWORK_IO_SUSPENDED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-93884666,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+93524218,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-00210682,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+93884666,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-17361402,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+00210682,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17361402,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+86076922,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+83105786,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+93819130,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+83269626,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+85978618,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+65185786,error,error,item page did not load
+17590778,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-86076922,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
+82679802,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-83105786,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+83367930,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-93819130,error,error,"Error: Page.goto: net::ERR_NETWORK_IO_SUSPENDED at https://www.libib.com/library
+29384954,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-83269626,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-85978618,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-65185786,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-17590778,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator(""#search"")
-    - locator resolved to <input value="""" class="""" disabled id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" placeholder=""Start Searching...""/>
-    - fill(""call:17590778"")
-  - attempting fill action
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-    - waiting 20ms
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-      - waiting 100ms
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-      - waiting 500ms
-    - waiting for element to be visible, enabled and editable
-"
-82679802,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-83367930,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-29384954,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-28795130,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+28795130,error,error,"TimeoutError: Page.goto: Timeout 30000ms exceeded.
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
@@ -231,15 +158,31 @@ Call log:
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-93917434,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+93917434,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""#search"")
+    - locator resolved to <input value="""" class="""" disabled id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" placeholder=""Start Searching...""/>
+    - fill(""call:93917434"")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+      - waiting 100ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+      - waiting 500ms
+    - waiting for element to be visible, enabled and editable
+"
+37600762,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-37600762,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-37567994,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+37567994,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
@@ -247,47 +190,32 @@ Call log:
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-85421562,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+85421562,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+03350266,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+69286906,error,error,"TimeoutError: Page.goto: Timeout 30000ms exceeded.
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-03350266,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+29352186,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-69286906,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+78860026,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-29352186,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+17459706,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-78860026,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+69254138,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+68893690,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+69090298,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: item page did not load
+17689082,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-17459706,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-69254138,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-68893690,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-69090298,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-17689082,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-75717370,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+75717370,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
@@ -295,27 +223,18 @@ Call log:
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-84733434,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+84733434,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+50364666,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+49185018,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: no item found for this call number
+49611002,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-50364666,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+83335162,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-49185018,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-49611002,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-83335162,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
-82712570,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+82712570,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
@@ -327,22 +246,19 @@ Call log:
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-49873146,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+49873146,error,error,"Error: Page.goto: net::ERR_NETWORK_IO_SUSPENDED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-85814778,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+85814778,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-48693498,error,error,"TimeoutError: Page.goto: Timeout 30000ms exceeded.
+48693498,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-85683706,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
-Call log:
-  - navigating to ""https://www.libib.com/library"", waiting until ""load""
-"
+85683706,error,error,no item found for this call number
 15943674,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
@@ -351,5 +267,149 @@ Call log:
 Call log:
   - navigating to ""https://www.libib.com/library"", waiting until ""load""
 "
-79220474,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
-03284730,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+79220474,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+03284730,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+17394170,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17492474,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+02924282,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: item page did not load
+78532346,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+85290490,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48824570,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17623546,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+93753594,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48243962,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+69113850,skipped,error,barcode: barcode already matches call_number | content: Edit form did not load
+03219194,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+85028346,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+82647034,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+03251962,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+78597882,error,error,no item found for this call number
+83073018,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+16336890,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+61810682,error,error,item page did not load
+16140282,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+03448570,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+94015738,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+16828410,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+17549306,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+16467962,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+93851898,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+93262074,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+84864506,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+94048506,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+55346426,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+29417722,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+85192186,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+37240314,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+49807610,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+49053946,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+93196538,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+16795642,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+93163770,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+16500730,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+50397434,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+78565114,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+55510266,error,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+65382394,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+37273082,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+17263098,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+66234362,error,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"

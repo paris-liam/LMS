@@ -1,64 +1,201 @@
 call_number,barcode_status,content_status,message
-85405434,updated,updated,barcode: ok | content: changed: poster
-72387066,updated,updated,barcode: ok | content: changed: poster
-39535354,updated,updated,barcode: ok | content: changed: poster
-57722362,updated,updated,barcode: ok | content: changed: poster
-66916090,updated,updated,barcode: ok | content: changed: poster
-54463482,updated,updated,barcode: ok | content: changed: poster
+85405434,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72387066,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+39535354,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+57722362,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+66916090,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54463482,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 48189690,error,error,2 items matched this call number -- ambiguous
-85438202,updated,updated,barcode: ok | content: changed: poster
-00230906,updated,updated,barcode: ok | content: changed: poster
-39109370,updated,updated,barcode: ok | content: changed: poster
-00165370,updated,updated,barcode: ok | content: changed: poster
-00099834,updated,updated,barcode: ok | content: changed: poster
-92268282,updated,updated,barcode: ok | content: changed: poster
-17222138,updated,updated,barcode: ok | content: changed: poster
-23856122,updated,updated,barcode: ok | content: changed: poster
-12364794,updated,updated,barcode: ok | content: changed: poster
-99706618,updated,updated,barcode: ok | content: changed: poster
-12659706,updated,updated,barcode: ok | content: changed: poster
-92661498,updated,updated,barcode: ok | content: changed: poster
-19598330,updated,updated,barcode: ok | content: changed: poster
-19383802,updated,updated,barcode: ok | content: changed: poster
-24019962,updated,updated,barcode: ok | content: changed: poster
-24216570,updated,updated,barcode: ok | content: changed: poster
-12200954,updated,updated,barcode: ok | content: changed: poster
-00296442,updated,updated,barcode: ok | content: changed: poster
-48287994,updated,updated,barcode: ok | content: changed: poster
-12725242,updated,updated,barcode: ok | content: changed: poster
-00198138,updated,updated,barcode: ok | content: changed: poster
-53939194,updated,updated,barcode: ok | content: changed: poster
-99772154,updated,updated,barcode: ok | content: changed: poster
-72157690,updated,updated,barcode: ok | content: changed: poster
-47730938,updated,updated,barcode: ok | content: changed: poster
-00034298,updated,updated,barcode: ok | content: changed: poster
-71895546,updated,updated,barcode: ok | content: changed: poster
-47960314,updated,updated,barcode: ok | content: changed: poster
-47894778,updated,updated,barcode: ok | content: changed: poster
-92301050,updated,updated,barcode: ok | content: changed: poster
-18302458,updated,updated,barcode: ok | content: changed: poster
-16959994,updated,updated,barcode: ok | content: changed: poster
-99804922,updated,updated,barcode: ok | content: changed: poster
-72124922,updated,updated,barcode: ok | content: changed: poster
-16730618,updated,updated,barcode: ok | content: changed: poster
-54529018,updated,updated,barcode: ok | content: changed: poster
-40944378,updated,updated,barcode: ok | content: changed: poster
-53349370,updated,updated,barcode: ok | content: changed: poster
-83832570,updated,updated,barcode: ok | content: changed: poster
-18859514,updated,updated,barcode: ok | content: changed: poster
-18728442,updated,updated,barcode: ok | content: changed: poster
-47763706,updated,updated,barcode: ok | content: changed: poster
-17156602,updated,updated,barcode: ok | content: changed: poster
-08447738,updated,updated,barcode: ok | content: changed: poster
-18400762,updated,updated,barcode: ok | content: changed: poster
-39961338,updated,updated,barcode: ok | content: changed: poster
-53906426,updated,updated,barcode: ok | content: changed: poster
-66883322,updated,updated,barcode: ok | content: changed: poster
-47796474,updated,updated,barcode: ok | content: changed: poster
-18433530,updated,updated,barcode: ok | content: changed: poster
-08709882,updated,updated,barcode: ok | content: changed: poster
-48353530,updated,updated,barcode: ok | content: changed: poster
-19088890,updated,updated,barcode: ok | content: changed: poster
-19056122,updated,updated,barcode: ok | content: changed: poster
-38945530,updated,updated,barcode: ok | content: changed: poster
-54430714,updated,updated,barcode: ok | content: changed: poster
+85438202,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+00230906,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+39109370,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+00165370,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+00099834,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92268282,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17222138,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+23856122,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+12364794,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+99706618,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+12659706,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92661498,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19598330,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19383802,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+24019962,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+24216570,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+12200954,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+00296442,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48287994,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+12725242,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+00198138,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53939194,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+99772154,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72157690,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+47730938,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+00034298,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+71895546,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+47960314,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+47894778,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92301050,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18302458,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+16959994,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+99804922,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72124922,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+16730618,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54529018,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+40944378,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53349370,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+83832570,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18859514,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18728442,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+47763706,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17156602,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+08447738,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18400762,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+39961338,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53906426,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+66883322,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+47796474,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18433530,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+08709882,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48353530,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19088890,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19056122,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+38945530,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54430714,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+85372666,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48025850,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48091386,error,error,2 items matched this call number -- ambiguous
+54332410,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48386298,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+47632634,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+39568122,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54561786,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+05408762,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72321530,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+38978298,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72288762,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48058618,error,error,2 items matched this call number -- ambiguous
+48451834,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17058298,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+08414970,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53251066,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+39076602,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+66785018,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53054458,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+47829242,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+08644346,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48419066,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18990586,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48156922,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+66817786,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+71961082,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53185530,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53840890,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53873658,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+12987386,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72518138,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18236922,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18925050,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+47993082,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54234106,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92497658,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17287674,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+05375994,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17091066,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+57689594,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54365178,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+99837690,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+39633658,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72092154,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72452602,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92727034,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54299642,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+47927546,error,error,2 items matched this call number -- ambiguous
+48124154,error,error,2 items matched this call number -- ambiguous
+84258554,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54594554,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+66850554,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+85110522,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53775354,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+16370170,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18793978,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18826746,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19023354,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+99870458,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+08611578,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+57656826,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+08742650,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+05244922,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92563194,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54201338,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54397946,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54266874,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17320442,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+08775418,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+52988922,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92006138,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72419834,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18957818,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19449338,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+40551162,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+84291322,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18761210,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+85143290,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+71993850,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+40420090,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+12758010,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17466874,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48320762,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+05310458,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92595962,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+85339898,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+12168186,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+39404282,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92104442,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+52726778,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+16632314,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+99935994,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19532794,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+71928314,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19416570,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53021690,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72354298,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+85241594,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18171386,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92399354,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+08578810,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54856698,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+85077754,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+40780538,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18466298,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+99968762,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+23593978,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72059386,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+00001530,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+00263674,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+54496250,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18367994,updated,updated,barcode: ok | content: changed: poster
+11906042,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+99739386,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72485370,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19482106,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+00132602,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+99903226,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48222458,error,error,2 items matched this call number -- ambiguous
+72255994,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+16992762,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+16665082,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+23725050,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72026618,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+39338746,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+18892282,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92759802,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+17254906,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+92202746,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+39895802,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+00067066,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+16697850,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+40321786,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+47698170,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+48255226,error,error,2 items matched this call number -- ambiguous
+85044986,skipped,updated,barcode: barcode already matches call_number | content: changed: poster

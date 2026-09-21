@@ -1,0 +1,201 @@
+call_number,barcode_status,content_status,message
+191-DVD6TH-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020142' | content: changed: poster
+191-BLRATI-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020159' | content: changed: poster
+191-DVDAVE-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020166' | content: changed: poster
+191-VHSACT-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020173' | content: changed: poster
+191-VHSCTS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020180' | content: changed: poster
+191-VHSADV-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020197' | content: changed: poster
+191-VHSAIR-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020203' | content: changed: poster
+191-VHSALF-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020210' | content: changed: poster
+38044666,updated,updated,barcode: ok | content: changed: poster
+191-BLRAMA-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020234' | content: changed: poster
+191-BLRAME-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020241' | content: changed: poster
+191-BLRAMI-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020258' | content: changed: poster
+191-VHSNFF-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020265' | content: changed: poster
+191-VHSAN2-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020272' | content: changed: poster
+191-VHSBBP-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020289' | content: changed: poster
+191-VHSBAD-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020296' | content: changed: poster
+191-BLRBAS-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020302' | content: changed: poster
+191-VHSBAS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020319' | content: changed: poster
+191-BLRBEC-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020326' | content: changed: poster
+191-VHSBES-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020333' | content: changed: poster
+191-THFBES-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020340' | content: changed: poster
+191-DVDBEV-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020357' | content: changed: poster
+27600378,updated,updated,barcode: ok | content: changed: poster
+191-BLRBLA-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020371' | content: changed: poster
+191-BLRBLU-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020388' | content: changed: poster
+191-BLRBOD-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020395' | content: changed: poster
+191-VHSBON-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020401' | content: changed: poster
+191-VHSBOR-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020418' | content: changed: poster
+191-DVDBOT-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020425' | content: changed: poster
+191-BLRBOU-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020432' | content: changed: poster
+191-BLRBRM-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020449' | content: changed: poster
+191-VHSBRA-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020456' | content: changed: poster
+191-VHSBRY-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020463' | content: changed: poster
+191-VHSCAM-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020470' | content: changed: poster
+191-BLRCEL-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020487' | content: changed: poster
+191-VHSCEN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020494' | content: changed: poster
+191-DVDCHE-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020500' | content: changed: poster
+191-DVDCHI-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020517' | content: changed: poster
+191-DVDCIN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020524' | content: changed: poster
+191-VHSCMS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020531' | content: changed: poster
+191-VHSCOS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020548' | content: changed: poster
+191-VHSCON-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020555' | content: changed: poster
+191-VHSCO3-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020562' | content: changed: poster
+191-VHSCNS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020579' | content: changed: poster
+191-BLRCRE-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020586' | content: changed: poster
+191-BLRCRT-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020593' | content: changed: poster
+191-BLRCRO-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020609' | content: changed: poster
+191-VHSCRU-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020616' | content: changed: poster
+191-BLRDAR-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020623' | content: changed: poster
+191-BLRDAW-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020630' | content: changed: poster
+191-VHSDDL-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020647' | content: changed: poster
+191-VHSDES-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020654' | content: changed: poster
+191-VHSDEA-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020661' | content: changed: poster
+191-BLRDEN-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020678' | content: changed: poster
+191-DVDDEN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020685' | content: changed: poster
+191-VHSDIA-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020692' | content: changed: poster
+191-VHSDIR-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020708' | content: changed: poster
+26813946,updated,updated,barcode: ok | content: changed: poster
+191-BLRDNT-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020722' | content: changed: poster
+191-BLRDMT-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020739' | content: changed: poster
+191-BLRDOO-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020746' | content: changed: poster
+191-DVDDRS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020753' | content: changed: poster
+191-BLRDRI-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020760' | content: changed: poster
+191-BLRDRV-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020777' | content: changed: poster
+191-VHSECH-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020784' | content: changed: poster
+191-VHSESC-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020791' | content: changed: poster
+191-VHSSCP-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020807' | content: changed: poster
+191-BLREXT-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020814' | content: changed: poster
+191-DVDFAH-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020821' | content: changed: poster
+191-DVDFAN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020838' | content: changed: poster
+191-VHSFAR-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020845' | content: changed: poster
+191-DVDFED-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020852' | content: changed: poster
+191-DVDFDR-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020869' | content: changed: poster
+27403770,updated,updated,barcode: ok | content: changed: poster
+191-VHSFOR-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020883' | content: changed: poster
+191-DVDFRE-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020890' | content: changed: poster
+191-BLRFUR-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020906' | content: changed: poster
+191-VHSGTT-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020913' | content: changed: poster
+191-BLRGOD-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020920' | content: changed: poster
+191-DVDGRA-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020937' | content: changed: poster
+191-BLRGRE-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020944' | content: changed: poster
+191-BLRGRU-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020951' | content: changed: poster
+191-BLRHAN-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020968' | content: changed: poster
+27043322,updated,updated,barcode: ok | content: changed: poster
+191-VHSHOM-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020982' | content: changed: poster
+191-BLRHUO-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000020999' | content: changed: poster
+191-BLRINF-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021002' | content: changed: poster
+191-BLRJEE-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021019' | content: changed: poster
+191-BLRJOH-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021026' | content: changed: poster
+191-DVDJUN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021033' | content: changed: poster
+191-BLRJUP-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021040' | content: changed: poster
+191-BLRKI2-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021057' | content: changed: poster
+27174394,updated,updated,barcode: ok | content: changed: poster
+191-DVDLFB-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021071' | content: changed: poster
+191-VHSLVH-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021088' | content: changed: poster
+191-BLRMCH-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021095' | content: changed: poster
+191-VHSMNF-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021101' | content: changed: poster
+191-DVDMAN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021118' | content: changed: poster
+191-DVDMED-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021125' | content: changed: poster
+191-DVDMEM-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021132' | content: changed: poster
+191-DVDMMR-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021149' | content: changed: poster
+191-VHSMEM-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021156' | content: changed: poster
+191-VHSMEX-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021163' | content: changed: poster
+191-VHSMIA-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021170' | content: changed: poster
+191-VHSMID-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021187' | content: changed: poster
+191-VHSMIL-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021194' | content: changed: poster
+191-VHSMLK-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021200' | content: changed: poster
+27076090,updated,updated,barcode: ok | content: changed: poster
+191-VHSMSS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021224' | content: changed: poster
+191-BLRMIS-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021231' | content: changed: poster
+191-VHSMST-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021248' | content: changed: poster
+191-VHSMOD-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021255' | content: changed: poster
+191-VHSMON-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021262' | content: changed: poster
+191-VHSMNS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021279' | content: changed: poster
+191-4K2MOR-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021286' | content: changed: poster
+191-VHSMOU-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021293' | content: changed: poster
+191-VHSMRA-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021309' | content: changed: poster
+191-VHSMRM-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021316' | content: changed: poster
+191-DVDMUN-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021323' | content: changed: poster
+191-BLRMUR-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021330' | content: changed: poster
+191-VHSMYF-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021347' | content: changed: poster
+191-BLRMYS-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021354' | content: changed: poster
+191-BLRNEV-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021361' | content: changed: poster
+27141626,updated,updated,barcode: ok | content: changed: poster
+191-VHSNIC-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021385' | content: changed: poster
+191-VHSNOS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021392' | content: changed: poster
+191-VHSNOT-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021408' | content: changed: poster
+191-DVDOUT-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021415' | content: changed: poster
+191-BLRPEN-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021422' | content: changed: poster
+191-VHSPHI-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021439' | content: changed: poster
+191-DVDPIN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021446' | content: changed: poster
+26781178,updated,updated,barcode: ok | content: changed: poster
+191-DVDPIX-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021460' | content: changed: poster
+191-BLRPOS-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021477' | content: changed: poster
+191-BLRPOW-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021484' | content: changed: poster
+191-BLRPRM-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021491' | content: changed: poster
+191-DVDPUL-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021507' | content: changed: poster
+26977786,updated,updated,barcode: ok | content: changed: poster
+191-DVDRAG-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021521' | content: changed: poster
+191-VHSRAT-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021538' | content: changed: poster
+191-BLRRED-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021545' | content: changed: poster
+191-BLRRIS-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021552' | content: changed: poster
+191-DVDROY-002A,error,error,2 items matched this call number -- ambiguous
+26912250,updated,updated,barcode: ok | content: changed: poster
+191-VHSSER-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021583' | content: changed: poster
+27239930,updated,updated,barcode: ok | content: changed: poster
+191-BLRSHA-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021606' | content: changed: poster
+191-BLRSHI-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021613' | content: changed: poster
+191-VHSSHI-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021620' | content: changed: poster
+191-BLRSHO-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021637' | content: changed: poster
+191-VHSSHO-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021644' | content: changed: poster
+191-VHSSMN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021651' | content: changed: poster
+191-BLRSKY-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021668' | content: changed: poster
+191-BLRSOL-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021675' | content: changed: poster
+191-VHSSPC-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021682' | content: changed: poster
+191-BLRSPC-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021699' | content: changed: poster
+191-VHSSTN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021705' | content: changed: poster
+191-VHSST3-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021712' | content: changed: poster
+191-VHSSTL-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021729' | content: changed: poster
+191-VHSSTM-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021736' | content: changed: poster
+191-VHSTLN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021743' | content: changed: poster
+191-BLRTRM-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021750' | content: changed: poster
+191-BLRTEX-001A,error,error,2 items matched this call number -- ambiguous
+191-DVDTHV-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021774' | content: changed: poster
+27502074,updated,updated,barcode: ok | content: changed: poster
+191-DVDTHP-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021798' | content: changed: poster
+27633146,updated,updated,barcode: ok | content: changed: poster
+191-BLRTHY-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021811' | content: changed: poster
+191-DVDTHG-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021828' | content: changed: poster
+26945018,updated,updated,barcode: ok | content: changed: poster
+191-BLRTHM-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021842' | content: changed: poster
+27207162,updated,updated,barcode: ok | content: changed: poster
+191-UNKTHE-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021866' | content: changed: poster
+191-VHSTHI-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021873' | content: changed: poster
+191-VHSTIL-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021880' | content: changed: poster
+191-DVDTOM-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021897' | content: changed: poster
+191-BLRTOP-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021903' | content: changed: poster
+191-VHSTR3-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021910' | content: changed: poster
+191-BLRTRD-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021927' | content: changed: poster
+191-VHSTRL-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021934' | content: changed: poster
+191-VHSTRI-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021941' | content: changed: poster
+191-BLRTRU-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021958' | content: changed: poster
+191-DVDTUP-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021965' | content: changed: poster
+191-VHSTWI-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021972' | content: changed: poster
+191-BLRUNB-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021989' | content: changed: poster
+191-BLRUNC-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000021996' | content: changed: poster
+191-DVDUND-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022009' | content: changed: poster
+191-BLRUNL-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022016' | content: changed: poster
+191-VHSUPY-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022023' | content: changed: poster
+191-DVDVAN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022030' | content: changed: poster
+191-BLRVEN-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022047' | content: changed: poster
+191-VHSWHN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022054' | content: changed: poster
+191-DVDWHI-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022061' | content: changed: poster
+191-VHSWHT-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022078' | content: changed: poster
+191-VHSWHE-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022085' | content: changed: poster
+191-VHSWHS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022092' | content: changed: poster
+191-BLYWIN-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022108' | content: changed: poster
+191-BLRWRT-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022115' | content: changed: poster
+191-DVDX2X-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022122' | content: changed: poster
+191-DVDYNG-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000022139' | content: changed: poster

@@ -1,0 +1,13 @@
+call_number,barcode_status,content_status,message
+191-NKNALE-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024140' | content: changed: poster
+191-VHSMRN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024157' | content: changed: poster
+191-VHSNEV-F-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024164' | content: changed: poster
+191-VHSOPE-G-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024171' | content: changed: poster
+191-VHSTTS-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024188' | content: changed: poster
+191-VHSPOC-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024195' | content: changed: poster
+191-VHSSTA-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024201' | content: changed: poster
+191-VHSSUP-50-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024218' | content: changed: poster
+191-VHSTHE-F-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024225' | content: changed: poster
+191-VHSTHG-F-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024232' | content: changed: poster
+191-VHSWHO-F-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024249' | content: changed: poster
+191-VHSWIN-001A,error,updated,barcode: save did not persist -- reloaded value is '2010000024256' | content: changed: poster
