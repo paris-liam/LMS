@@ -154,7 +154,7 @@
                 "text_3jDrCP": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2><strong>LAUNCHING MEMBERSHIPS 9/20 AT </strong><a href=\"https://www.instagram.com/p/Dbs_p98jjoR/?img_index=1\" title=\"https://www.instagram.com/p/Dbs_p98jjoR/?img_index=1\"><strong>CORE MEMORIES</strong></a><strong>. SEE INSTAGRAM FOR DETAILS.</strong></h2><p>Remember wandering the aisles of a video store - alone, with friends, with the family, or trying to impress a date? It's back. Join the <strong>Little Movie Club </strong>for a full year of access to our rental library. </p><p>Our shelves are built with the community and filled with what streaming and Redbox never offered: Criterion Collection titles with all the special features, wild box sets, hard-to-find films, and the comfort classics you love. </p><p><strong>Full details below.</strong></p>",
+                    "text": "<p>Remember wandering the aisles of a video store - alone, with friends, with the family, or trying to impress a date? It's back. Join the <strong>Little Movie Club </strong>for a full year of access to our rental library. </p><p>Our shelves are built with the community and filled with what streaming and Redbox never offered: Criterion Collection titles with all the special features, wild box sets, hard-to-find films, and the comfort classics you love. </p><p><strong>Full details below.</strong></p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
@@ -248,12 +248,31 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "button_join": {
+              "type": "button",
+              "settings": {
+                "label": "Become a member →",
+                "link": "shopify://products/little-movie-club-annual-membership",
+                "open_in_new_tab": false,
+                "style_class": "button",
+                "custom_button_background": "{{ settings.color_palette.foreground }}",
+                "custom_button_text": "{{ settings.color_palette.background }}",
+                "custom_button_border": "{{ settings.color_palette.background }}",
+                "link_text_color": "",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "eyebrow",
             "heading",
             "group_4acCgE",
+            "button_join",
             "button_secondary",
             "fine_print"
           ]
