@@ -68,6 +68,13 @@ been released back into the pipeline and run through `reverify-posters` +
 `sync` (batch-0015) as of 2026-09-21 — no manual Libib action was needed
 for them.
 
+**Update 2026-09-22**: the `issue:held_for_libib_cleanup` tag has been
+**removed from those 41 products on production** (`p0wkgv-wy.myshopify.com`)
+via `tagsRemove`. 50 products still carry the tag — the 19 in §2a plus the
+31 in §2b — and should keep it until the actions below are done. (One of
+the 41, `far-from-heaven-dvd-rental-drama`, is still `needs-review` in
+`libib-sync/_state.json` for an unrelated sync_fix error, not for this hold.)
+
 Only the **19 items below are a genuine collision**: each one's title
 matches a product still sitting live in Libib under a *different*,
 old/legacy call number (from the September 2026 accidental mass-restore
