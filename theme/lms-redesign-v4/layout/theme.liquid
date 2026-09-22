@@ -6,6 +6,27 @@
   lang="{{ request.locale.iso_code }}"
 >
   <head>
+    {%- comment -%}
+      The all-products collection and the collections index expose non-movie
+      products and Horizon's stock cards; send shoppers to All Movies instead.
+      Skipped in the theme editor so those templates stay editable.
+    {%- endcomment -%}
+    {%- liquid
+      assign lms_redirect_to_movies = false
+      if template.name == 'list-collections'
+        assign lms_redirect_to_movies = true
+      elsif template.name == 'collection' and collection.handle == 'all'
+        assign lms_redirect_to_movies = true
+      endif
+    -%}
+    {%- unless request.design_mode -%}
+      {%- if lms_redirect_to_movies -%}
+        <meta http-equiv="refresh" content="0; url=/collections/all-movies">
+        <script>
+          location.replace('/collections/all-movies' + location.search);
+        </script>
+      {%- endif -%}
+    {%- endunless -%}
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"
