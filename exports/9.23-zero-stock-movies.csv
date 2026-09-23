@@ -1,0 +1,125 @@
+scope,title,handle,vendor,status,barcode,available,on_hand,committed,tracked,reprint
+Floor Sale,AMERICA,america,VHS,ACTIVE,191-AMEAME-50-001A,0,0,0,True,False
+Floor Sale,American Women,american-women,VHS,ACTIVE,191-VHSAM3-001A,0,0,0,True,False
+Floor Sale,Angel of Death,angel-of-death,VHS,ACTIVE,20400890,0,0,0,True,False
+Floor Sale,Anna Karenina,anna-karenina,VHS,DRAFT,191-VHSANN-50-001A,0,0,0,True,False
+Floor Sale,Anne of Green Gables,anne-of-green-gables,VHS,ACTIVE,191-VHSNNF-50-001A,0,0,0,True,False
+Floor Sale,Assassination,assassination,VHS,DRAFT,191-VHSSSS-001A,0,0,0,True,False
+Floor Sale,B.A.D. Cats,b-a-d-cats,VHS,ACTIVE,191-BDCBAD-50-001A,0,0,0,True,False
+Floor Sale,Before and After,before-and-after,VHS,DRAFT,191-VHSBEF-001A,0,0,0,True,False
+Floor Sale,Cherish,cherish-vhs-floor-sale,VHS,ACTIVE,81478138,0,0,0,True,False
+Floor Sale,Dancing in the Dark,dancing-in-the-dark,VHS,ACTIVE,191-VHSDAN-50-001A,0,0,0,True,False
+Floor Sale,Deja Vu,deja-vu,VHS,ACTIVE,17288954,0,0,0,True,False
+Floor Sale,Jennifer's Body (Cult Cave),jennifers-body-cultcave-vhs-floor-sale-horror,VHS,ACTIVE,50184954,0,0,0,True,False
+Floor Sale,Joker,joker-bluray-floor-sale-4k-action,4K,ACTIVE,74946042,0,0,0,True,False
+Floor Sale,Les Miserables,les-miserables-dvd-floor-sale-muscal,DVD,ACTIVE,65820666,0,0,0,True,False
+Floor Sale,LIES,lies,VHS,ACTIVE,191-VHSLIE-001A,0,0,0,True,False
+Floor Sale,Life Is Beautiful,life-is-beautiful,VHS,DRAFT,191-VHSLIF-001A,0,0,0,True,False
+Floor Sale,Little Women,little-women,VHS,ACTIVE,191-VHSLTT-001A,0,0,0,True,False
+Floor Sale,Love Kills,love-kills-vhs-floor-sale-thriler,VHS,ACTIVE,00208890,0,0,0,True,False
+Floor Sale,Mind Lies,mind-lies,VHS,ACTIVE,25095674,0,0,0,True,False
+Floor Sale,My Big Fat Greek Wedding,my-big-fat-greek-wedding-dvd,DVD,ACTIVE,55187706,0,0,0,True,False
+Floor Sale,My Boyfriend's Back,my-boyfriends-back,VHS,ACTIVE,191-VHSMYB-F-001A,0,0,0,True,False
+Floor Sale,Off the Wall,off-the-wall,VHS,DRAFT,191-VHSOFF-50-001A,0,0,0,True,False
+Floor Sale,Only You,only-you,VHS,DRAFT,191-VHSNLY-002A,0,0,0,True,False
+Floor Sale,Out Cold,out-cold,VHS,ACTIVE,191-VHSOUT-F-001A,0,0,0,True,False
+Floor Sale,Out on a Limb,out-on-a-limb,VHS,ACTIVE,191-VHSTNL-001A,0,0,0,True,False
+Floor Sale,Pirates of the Caribbean,pirates-of-the-caribbean-dvd-floor-sale-4k-kids-family,4K,ACTIVE,99727610,0,0,0,True,False
+Floor Sale,Revelation,revelation-vhs-floor-sale-horor,VHS,ACTIVE,37142778,0,0,0,True,False
+Floor Sale,Skyscraper,skyscraper-bluray-floor-sale-4k-action,4K,ACTIVE,73855738,0,0,0,True,False
+Floor Sale,Sunburn,sunburn,VHS,ACTIVE,191-VHSSUN-002A,0,0,0,True,False
+Floor Sale,The Ascent,the-ascent,VHS,ACTIVE,191-VHSTH5-50-001A,0,0,0,True,False
+Floor Sale,The Jerk,the-jerk,VHS,ACTIVE,191-VHSTHK-001A,0,0,0,True,False
+Floor Sale,The Legend Of Sleepy Hollow,the-legend-of-sleepy-hollow,VHS,DRAFT,191-VHSTHW-001A,0,0,0,True,False
+Floor Sale,The Lion King,the-lion-king-bluray-floor-sale-4k-kids-family,4K,ACTIVE,65689594,0,0,0,True,False
+Floor Sale,The Little Mermaid,the-little-mermaid-bluray-floor-sale-4k-kids-family,4K,ACTIVE,99334394,0,0,0,True,False
+Rental,A History of Violence,a-history-of-violence-bluray-rental-criterion-collection-action,Blu-Ray,ACTIVE,19113466,0,0,0,True,False
+Rental,Altered States,altered-states-bluray-rental-criterion-collection-drama,Blu-Ray,ACTIVE,17442298,0,0,0,True,False
+Rental,Ambulance (Collector's Edition),ambulance-collectors-edition,Blu-Ray,ACTIVE,90000025,0,0,0,True,True
+Rental,AMERICAN PIE SPECIAL EDITION,american-pie-special-edition,VHS,ACTIVE,90000027,0,0,0,True,True
+Rental,Amityville Horror,amityville-horror,Blu-Ray,ACTIVE,90000029,0,0,0,True,True
+Rental,Amores Perros,amores-perros-bluray-rental-criterion-collection-drama,Blu-Ray,ACTIVE,16852474,0,0,0,True,False
+Rental,Amy's O,amys-o,VHS,ACTIVE,90000030,0,0,0,True,True
+Rental,Angels in the Outfield,angels-in-the-outfield,VHS,ACTIVE,90000037,0,0,0,True,True
+Rental,Anora,anora-4k-rental-criterion-collection-drama,4K,ACTIVE,16623098,0,0,0,True,False
+Rental,Arsenic and Old Lace,arsenic-and-old-lace,DVD,ACTIVE,90000042,0,0,0,True,True
+Rental,Babylon,babylon,Blu-Ray,ACTIVE,90000048,0,0,0,True,True
+Rental,Becky,becky,Blu-Ray,ACTIVE,90000054,0,0,0,True,True
+Rental,Beverly Hills Chihuahua,beverly-hills-chihuahua,DVD,ACTIVE,90000061,0,0,0,True,True
+Rental,Black Christmas,black-christmas,Blu-Ray,ACTIVE,90000062,0,0,0,True,True
+Rental,Blow Out,blow-out-bluray-rental-criterion-collection-thriller,Blu-Ray,ACTIVE,18916858,0,0,0,True,False
+Rental,Born Innocent,born-innocent,VHS,ACTIVE,90000068,0,0,0,True,True
+Rental,Bottle Rocket,bottle-rocket,DVD,ACTIVE,90000069,0,0,0,True,True
+Rental,Brass,brass,VHS,ACTIVE,90000072,0,0,0,True,True
+Rental,Brothers,brothers,Blu-Ray,ACTIVE,90000078,0,0,0,True,True
+Rental,Carrie,carrie,Blu-Ray,ACTIVE,90000083,0,0,0,True,True
+Rental,Center Stage,center-stage,VHS,ACTIVE,90000087,0,0,0,True,True
+Rental,Chicago,chicago,DVD,ACTIVE,90000090,0,0,0,True,True
+Rental,CHIPS,chips,Blu-Ray,ACTIVE,90000091,0,0,0,True,True
+Rental,Clerks,clerks,Blu-Ray,ACTIVE,90000094,0,0,0,True,True
+Rental,Code Hunter,code-hunter,VHS,ACTIVE,90000098,0,0,0,True,True
+Rental,Confession,confession,VHS,ACTIVE,90000103,0,0,0,True,True
+Rental,Conspiracy,conspiracy,VHS,ACTIVE,90000106,0,0,0,True,True
+Rental,Crash,crash,Blu-Ray,ACTIVE,90000110,0,0,0,True,True
+Rental,Crimes of the Future,crimes-of-the-future,Blu-Ray,ACTIVE,90000112,0,0,0,True,True
+Rental,Crow,crow,Blu-Ray,ACTIVE,90000114,0,0,0,True,True
+Rental,Death Wish,death-wish,Blu-Ray,ACTIVE,90000124,0,0,0,True,True
+Rental,Dennis the Menace,dennis-the-menace,DVD,ACTIVE,90000127,0,0,0,True,True
+Rental,Escape,escape,VHS,ACTIVE,90000145,0,0,0,True,True
+Rental,Excision,excision,Blu-Ray,ACTIVE,90000149,0,0,0,True,True
+Rental,Eyes Wide Shut,eyes-wide-shut-bluray-rental-criterion-collection-drama,Blu-Ray,ACTIVE,17016314,0,0,0,True,False
+Rental,Flesh + Blood,flesh-blood,Blu-Ray,ACTIVE,90000161,0,0,0,True,True
+Rental,Francesca,francesca,Blu-Ray,ACTIVE,90000164,0,0,0,True,True
+Rental,Freaky Friday,freaky-friday,DVD,ACTIVE,90000165,0,0,0,True,True
+Rental,Great Gatsby,great-gatsby,Blu-Ray,ACTIVE,90000175,0,0,0,True,True
+Rental,Hit & Run,hit-run,Blu-Ray,ACTIVE,90000182,0,0,0,True,True
+Rental,Inferno,inferno,Blu-Ray,ACTIVE,90000198,0,0,0,True,True
+Rental,Kill Bill,kill-bill,4K,ACTIVE,90000209,0,0,0,True,True
+Rental,Let Me In,let-me-in,Blu-Ray,ACTIVE,90000214,0,0,0,True,True
+Rental,Lifeboat,lifeboat,DVD,ACTIVE,90000216,0,0,0,True,True
+Rental,Malcom X,malcom-x-4k-rental-criterion-collection-drama,4K,ACTIVE,16492026,0,0,0,True,False
+Rental,Manhattan,manhattan,DVD,ACTIVE,90000227,0,0,0,True,True
+Rental,Memphis,memphis,VHS,ACTIVE,90000232,0,0,0,True,True
+Rental,Midnight Strangers,midnight-strangers,VHS,ACTIVE,90000236,0,0,0,True,True
+Rental,Miles From Home,miles-from-home,VHS,ACTIVE,90000237,0,0,0,True,True
+Rental,Mirrors (Unrated Special Edition),mirrors-unrated-special-edition,Blu-Ray,ACTIVE,90000239,0,0,0,True,True
+Rental,MONSIGNOR,monsignor,VHS,ACTIVE,90000246,0,0,0,True,True
+Rental,Mother's Day (Vinegar Syndrome),mothers-day-vinegar-syndrome,4K,ACTIVE,90000249,0,1,1,True,True
+Rental,MR. NICE GUY,mr-nice-guy,VHS,ACTIVE,90000255,0,0,0,True,True
+Rental,Murder on the Orient Express,murder-on-the-orient-express,Blu-Ray,ACTIVE,90000257,0,0,0,True,True
+Rental,Neighbors,neighbors,Blu-Ray,ACTIVE,90000260,0,0,0,True,True
+Rental,Neighbors 2,neighbors-2,Blu-Ray,ACTIVE,90000261,0,0,0,True,True
+Rental,No Country for Old Men,no-country-for-old-men-bluray-rental-criterion-collection-drama,Blu-Ray,ACTIVE,18032122,0,0,0,True,False
+Rental,Nothing to Lose,nothing-to-lose,VHS,ACTIVE,90000273,0,0,0,True,True
+Rental,Parasite,parasite-bluray-rental-criterion-collection-thriller,Blu-Ray,ACTIVE,90718458,0,0,0,True,False
+Rental,"Paris, Texas",paris-texas-bluray-rental-criterion-collection-drama,Blu-Ray,ACTIVE,18261498,0,0,0,True,False
+Rental,Point Break,point-break,Blu-Ray,ACTIVE,90000291,0,0,0,True,True
+Rental,Prom Night,prom-night,Blu-Ray,ACTIVE,90000295,0,0,0,True,True
+Rental,Punch Drunk Love,punch-drunk-love-bluray-rental-criterion-collection-drama,Blu-Ray,ACTIVE,17245690,0,0,0,True,False
+Rental,Rampage,rampage,4K,ACTIVE,90000300,0,0,0,True,True
+Rental,Rat Race,rat-race,VHS,ACTIVE,90000301,0,0,0,True,True
+Rental,Rear Window,rear-window-4k-rental-thriller,4K,ACTIVE,91635962,0,0,0,True,False
+Rental,Robin Hood (Unrated Director's Cut),robin-hood-unrated-directors-cut,Blu-Ray,ACTIVE,90000309,0,0,0,True,True
+Rental,"Scala!!! Or, the Incredibly Strange Rise and Fall of the World's Wildest Cinema and How It Influenced a Mixed-up Generation of Weirdos and Misfits",scala-or-the-incredibly-strange-rise-and-fall-of-the-worlds-wildest-cinema-and-how-it-influenced-a-mixed-up-generation-of-weirdos-and-misfits,Blu-Ray,ACTIVE,90000314,0,0,0,True,True
+Rental,Skyscraper,skyscraper,4K,ACTIVE,90000325,0,0,0,True,True
+Rental,Sorcerer,sorcerer-4k-rental-criterion-collection-thriller,4K,ACTIVE,90783994,0,0,0,True,False
+Rental,Speed,speed,Blu-Ray,ACTIVE,90000332,0,0,0,True,True
+Rental,Streetkill,streetkill,VHS,ACTIVE,90000339,0,0,0,True,True
+Rental,Streetwise,streetwise-bluray-rental-criterion-collection-documentary,Blu-Ray,ACTIVE,18392570,0,0,0,True,False
+Rental,Super Troopers,super-troopers,Blu-Ray,ACTIVE,90000343,0,0,0,True,True
+Rental,Talk to Me,talk-to-me,4K,ACTIVE,90000347,0,0,0,True,True
+Rental,The Assassination of Jesse James,the-assassination-of-jesse-james,Blu-Ray,ACTIVE,90000355,0,0,0,True,True
+Rental,The Assignment,the-assignment,VHS,DRAFT,90000356,0,0,0,True,True
+Rental,The Aviator,the-aviator,DVD,ACTIVE,90000357,0,0,0,True,True
+Rental,The Boogeyman (Vinegar Syndrome),the-boogeyman-vinegar-syndrome,4K,ACTIVE,90000360,0,1,1,True,True
+Rental,The Break-Up,the-break-up,DVD,ACTIVE,90000361,0,0,0,True,True
+Rental,The Call of the Wild,the-call-of-the-wild-bluray-rental-drama-4k,4K,ACTIVE,65874938,0,0,0,True,False
+Rental,The Fly,the-fly,Blu-Ray,ACTIVE,90000367,0,0,0,True,True
+Rental,The Forest,the-forest,Blu-Ray,ACTIVE,90000368,0,0,0,True,True
+Rental,The Grudge,the-grudge,DVD,ACTIVE,90000371,0,0,0,True,True
+Rental,The Last Waltz,the-last-waltz-bluray-rental-criterion-collection-musical,Blu-Ray,ACTIVE,17704442,0,0,0,True,False
+Rental,The Last Waltz,the-last-waltz,Blu-Ray,ACTIVE,90000375,0,0,0,True,True
+Rental,The Puppet Masters,the-puppet-masters-vhs-rental-thriller,VHS,ACTIVE,34980858,0,0,0,True,False
+Rental,The Thin Blue Line,the-thin-blue-line-bluray-rental-criterion-collection-documentary,Blu-Ray,ACTIVE,18621946,0,0,0,True,False
+Rental,To Die For,to-die-for-bluray-rental-criterion-collection-drama,Blu-Ray,ACTIVE,18818554,0,0,0,True,False
+no scope,Look Who’s Talking,look-who-s-talking,VHS,DRAFT,191-VHSLKW-001A,0,0,0,True,False

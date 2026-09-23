@@ -1,0 +1,24 @@
+product_id,variant_id,handle,title,status,old_barcode,new_barcode
+gid://shopify/Product/9355123163386,gid://shopify/ProductVariant/50003841024250,100-earthquake-dvd-rental-action,10.0 Earthquake,ACTIVE,41024250,90000459
+gid://shopify/Product/9355123261690,gid://shopify/ProductVariant/50003841712378,400-bullets-dvd-rental-action,400 Bullets,ACTIVE,41712378,90000460
+gid://shopify/Product/9368060166394,gid://shopify/ProductVariant/50056917614842,a-summer-place-vhs-rental-drama,A Summer Place,ACTIVE,17614842,90000461
+gid://shopify/Product/9355149115642,gid://shopify/ProductVariant/50004098711802,against-the-ropes-contrecoups-dvd-rental-drama,Against the Ropes: Contrecoups,ACTIVE,98711802,90000462
+gid://shopify/Product/9331569164538,gid://shopify/ProductVariant/49755319468282,alvin-and-the-chipmunks-chip-wrecked-dvd-rental-kids-family,Alvin and the Chipmunks: Chip Wrecked,ACTIVE,19468282,90000463
+gid://shopify/Product/9355123294458,gid://shopify/ProductVariant/50003841745146,break-even-dvd-rental-action,Break Even,ACTIVE,41745146,90000464
+gid://shopify/Product/9355149181178,gid://shopify/ProductVariant/50004098777338,brothers-by-blood-dvd-rental-drama,Brothers by Blood,ACTIVE,98777338,90000465
+gid://shopify/Product/9331569000698,gid://shopify/ProductVariant/49755319173370,catch-that-kid-dvd-rental-kids-family,Catch That Kid,ACTIVE,19173370,90000466
+gid://shopify/Product/9355148591354,gid://shopify/ProductVariant/50004095893754,christmas-with-the-kranks-dvd-rental-holiday,Christmas with the Kranks,ACTIVE,95893754,90000467
+gid://shopify/Product/9304039325946,gid://shopify/ProductVariant/49676551749882,double-take-vhs,Double Take,ACTIVE,51749882,90000468
+gid://shopify/Product/9355148624122,gid://shopify/ProductVariant/50004095926522,guess-who-dvd-rental-romantic-comedy,Guess Who,ACTIVE,95926522,90000469
+gid://shopify/Product/9331569262842,gid://shopify/ProductVariant/49755319599354,hamburger-hill-dvd-rental-action,Hamburger Hill,ACTIVE,19599354,90000470
+gid://shopify/Product/9304039424250,gid://shopify/ProductVariant/49676551848186,happy-gilmore-vhs,Happy Gilmore,ACTIVE,51848186,90000471
+gid://shopify/Product/9331568967930,gid://shopify/ProductVariant/49755319140602,home-alone-2-lost-in-new-york-dvd-rental-kids-family,Home Alone 2: Lost in New York,ACTIVE,19140602,90000472
+gid://shopify/Product/9368060133626,gid://shopify/ProductVariant/50056917582074,multiplicity-vhs-rental-comedy,Multiplicity,ACTIVE,17582074,90000473
+gid://shopify/Product/9331568902394,gid://shopify/ProductVariant/49755319075066,nims-island-dvd-rental-kids-family,Nim's Island,ACTIVE,19075066,90000474
+gid://shopify/Product/9355149246714,gid://shopify/ProductVariant/50004098973946,professor-and-the-madman-dvd-rental-drama,Professor and the Madman,ACTIVE,98973946,90000475
+gid://shopify/Product/9331569295610,gid://shopify/ProductVariant/49755319632122,the-outsider-dvd-rental-action,The Outsider,ACTIVE,19632122,90000476
+gid://shopify/Product/9331568935162,gid://shopify/ProductVariant/49755319107834,the-seeker-dvd-rental-kids-family,The Seeker,ACTIVE,19107834,90000477
+gid://shopify/Product/9355148689658,gid://shopify/ProductVariant/50004095992058,the-sorcerers-apprentice-dvd-rental-kids-family,The Sorcerer's Apprentice,ACTIVE,95992058,90000478
+gid://shopify/Product/9367068246266,gid://shopify/ProductVariant/50050186019066,the-trouble-with-angels-dvd-rental-comedy,The Trouble with Angels,ACTIVE,86019066,90000479
+gid://shopify/Product/9331569361146,gid://shopify/ProductVariant/49755319697658,true-grit-dvd-rental-action,True Grit,ACTIVE,19697658,90000480
+gid://shopify/Product/9331569393914,gid://shopify/ProductVariant/49755319730426,wrong-turn-at-tahoe-dvd-rental-action,Wrong Turn at Tahoe,ACTIVE,19730426,90000481

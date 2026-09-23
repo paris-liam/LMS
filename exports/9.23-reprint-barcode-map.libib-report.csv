@@ -1,0 +1,218 @@
+handle,old_barcode,new_barcode,status,message
+13-assassins,191-BLR13A-50-001A,90000000,skipped,already moved
+16-blocks,191-BLR16B-001A,90000001,moved,ok
+21-jump-street,191-BLR21J-50-001A,90000002,moved,ok
+22-jump-street,191-UNK22J-50-001A,90000003,moved,ok
+3-strikes,191-VHS3ST-50-001A,90000004,moved,ok
+6th-day,191-DVD6TH-001A,90000005,moved,ok
+a-blade-in-the-dark-vinegar-syndrome,191-BLRABL-50-001A,90000006,moved,ok
+a-guy-thing,191-BLRAGU-50-001A,90000007,moved,ok
+a-league-of-their-own-madonna-tom-hanks-geena-davis-vhs,191-NKNALE-50-001A,90000008,moved,ok
+a-million-ways-to-die-in-the-west,191-UNIAMI-50-001A,90000009,moved,ok
+a-serious-man,191-DVDASE-001A,90000010,moved,ok
+a-star-is-born,191-BLRAST-50-001A,90000011,moved,ok
+a-time-to-kill-the-pelican-brief-the-client,191-BLRATI-001A,90000012,moved,ok
+a-very-long-engagement,191-DVDAVE-001A,90000013,moved,ok
+a-world-apart-vhs-rental-thriller,48189690,90000014,error,"2 items share this call number, 0 match the title"
+act,191-VHSACT-001A,90000015,moved,ok
+acts-of-betrayal,191-VHSCTS-001A,90000016,moved,ok
+adams-rib,191-DVDADA-50-001A,90000017,moved,ok
+adventures-of-the-wilderness-family,191-VHSADV-001A,90000018,moved,ok
+age-isnt-everything,191-VHSAGE-50-001A,90000019,moved,ok
+airport-1975,191-VHSAIR-001A,90000020,moved,ok
+alfie,191-VHSALF-001A,90000021,moved,ok
+all-i-want,191-VHSALL-50-001A,90000022,moved,ok
+almost-pregnant-a-bedtime-story,191-VHSALM-001A,90000023,not-in-libib,not found
+amazing-spider-man-2,191-BLRAMA-001A,90000024,moved,ok
+ambulance-collectors-edition,191-BLRAMB-50-001A,90000025,moved,ok
+american-made,191-BLRAME-001A,90000026,moved,ok
+american-pie-special-edition,191-VHSMRC-50-001A,90000027,moved,ok
+american-splendor,191-VHSAMR-50-001A,90000028,moved,ok
+amityville-horror,191-BLRAMI-001A,90000029,moved,ok
+amys-o,191-VHSAMY-50-001A,90000030,moved,ok
+an-affair-to-remember,191-VHSNFF-001A,90000031,moved,ok
+an-african-dream,191-VHSNFR-50-001A,90000032,moved,ok
+an-american-summer-vhs,191-VHSNMR-50-001A,90000033,not-in-libib,not found
+an-angel-at-my-table,191-VHSANA-50-001A,90000034,moved,ok
+andre,191-VHSAND-50-001A,90000035,moved,ok
+angel-baby,191-UNKANG-50-001A,90000036,moved,ok
+angels-in-the-outfield,191-VHSAN2-001A,90000037,moved,ok
+anna-and-the-king-of-siam,191-DVDANN-50-001A,90000038,moved,ok
+any-given-sunday-directors-cut,191-BLRANY-50-001A,90000039,moved,ok
+apt-pupil,191-VHSAPT-50-001A,90000040,moved,ok
+armstrong,191-TRIARM-50-001A,90000041,moved,ok
+arsenic-and-old-lace,191-DVDARS-50-001A,90000042,moved,ok
+assassination-nation,191-BLRASS-50-001A,90000043,moved,ok
+assassination-tango,191-UNKASS-50-001A,90000044,moved,ok
+at-first-sight,191-UNKATF-50-001A,90000045,moved,ok
+avalanche,191-VHSAVA-50-001A,90000046,moved,ok
+babe-pig-in-the-city,191-VHSBBP-001A,90000047,moved,ok
+babylon,191-BLRBAB-50-001A,90000048,moved,ok
+bad-behavior,191-VHSBAD-001A,90000049,moved,ok
+bad-boys-for-life,191-BLRBAD-50-001A,90000050,moved,ok
+basic-instinct-2-collectors-edition,191-BLRBAS-50-001A,90000051,moved,ok
+basil,191-VHSBAS-001A,90000052,moved,ok
+baywatch-the-movie-vhs-rental-action,00276218,90000053,moved,ok
+becky,191-BLRBEC-50-001A,90000054,moved,ok
+beerfest,191-BLRBEE-50-001A,90000055,moved,ok
+beethoven,191-VHSBEE-50-001A,90000056,moved,ok
+beetlejuice,191-BLRBTL-50-001A,90000057,moved,ok
+being-john-malkovich,191-BLRBEI-001A,90000058,moved,ok
+best-little-whorehouse-in-texas,191-VHSBES-001A,90000059,moved,ok
+best-of-abbott-and-costello-volume-4,191-THFBES-001A,90000060,moved,ok
+beverly-hills-chihuahua,191-DVDBEV-50-001A,90000061,moved,ok
+black-christmas,191-BLRBLA-50-001A,90000062,moved,ok
+bloodsucking-freaks-vinegar-syndrome,191-BLRBLO-50-001A,90000063,moved,ok
+blue-steel,191-BLRBLU-50-001A,90000064,moved,ok
+blue-velvet,191-BLRBLV-001A,90000065,moved,ok
+body-of-lies-edge-of-darkness-pride-and-glory,191-BLRBOD-001A,90000066,moved,ok
+bone-collector,191-VHSBON-001A,90000067,moved,ok
+born-innocent,191-VHSBOR-001A,90000068,moved,ok
+bottle-rocket,191-DVDBOT-001A,90000069,moved,ok
+bourne-supremacy,191-BLRBOU-001A,90000070,moved,ok
+bram-stokers-dracula,191-BLRBRM-001A,90000071,moved,ok
+brass,191-VHSBRA-001A,90000072,moved,ok
+braveheart,191-BLRBRA-50-001A,90000073,moved,ok
+breaking-away,191-VHSBRY-001A,90000074,moved,ok
+bridesmaids,191-BLRBRI-50-001A,90000075,moved,ok
+bring-it-on,191-VHSBRN-50-001A,90000076,moved,ok
+bring-it-on-again,191-VHSBRI-50-001A,90000077,moved,ok
+brothers,191-BLRBRO-50-001A,90000078,moved,ok
+bruce-lee-his-greatest-hits-criterion-collection,191-BLRBRU-50-001A,90000079,moved,ok
+bumblebee,191-BLRBUM-50-001A,90000080,moved,ok
+came-a-hot-friday,191-VHSCAM-001A,90000081,moved,ok
+cant-hardly-wait,191-DVDCAN-001A,90000082,moved,ok
+carrie,191-BLRCAR-50-001A,90000083,moved,ok
+case-39,191-BLRCAS-50-001A,90000084,moved,ok
+castle-freak,191-UNKCAS-70-001A,90000085,moved,ok
+catch-me-if-you-can,191-DVDCAT-001A,90000086,moved,ok
+center-stage,191-VHSCEN-001A,90000087,moved,ok
+century-vhs-rental-drama,00112378,90000088,skipped,already moved
+cheaters,191-DVDCHE-001A,90000089,moved,ok
+chicago,191-DVDCHI-001A,90000090,moved,ok
+chips,191-BLRCHI-50-001A,90000091,moved,ok
+chuck-buck,191-UNKCHU-50-001A,90000092,moved,ok
+cinderella-man,191-DVDCIN-001A,90000093,moved,ok
+clerks,191-BLRCLR-50-001A,90000094,moved,ok
+clerks-ii,191-BLRCLE-50-001A,90000095,moved,ok
+cliffhanger,191-BLRCLI-50-001A,90000096,moved,ok
+cloud-atlas,191-BLRCLO-50-001A,90000097,moved,ok
+code-hunter,191-VHSCOD-50-001A,90000098,moved,ok
+come-blow-your-horn,191-VHSCMB-001A,90000099,not-in-libib,not found
+come-see-the-paradise,191-VHSCMS-001A,90000100,moved,ok
+conan-the-barbarian,191-BLRCON-50-001A,90000101,not-in-libib,not found
+concrete-cowboys,191-VHSCOS-001A,90000102,moved,ok
+confession,191-VHSCON-001A,90000103,moved,ok
+confessions-of-a-hitman,191-VHSCO3-001A,90000104,moved,ok
+confessions-of-a-police-captain,191-VHSCNF-001A,90000105,not-in-libib,not found
+conspiracy,191-VHSCNS-001A,90000106,moved,ok
+copshop,191-BLRCOP-50-001A,90000107,moved,ok
+cowboys-aliens,191-BLRCWB-001A,90000108,moved,ok
+cowboys-aliens-extended-edition,191-BLRCOW-50-001A,90000109,moved,ok
+crash,191-BLRCRA-50-001A,90000110,moved,ok
+creepshow-2,191-BLRCRE-50-001A,90000111,moved,ok
+crimes-of-the-future,191-BLRCRI-50-001A,90000112,not-in-libib,not found
+critters-attack,191-BLRCRT-50-001A,90000113,moved,ok
+crow,191-BLRCRO-001A,90000114,moved,ok
+crucible,191-VHSCRU-001A,90000115,moved,ok
+cutthroat-island-vhs-rental-action,00341754,90000116,moved,ok
+dark-waters,191-DVDDAR-50-001A,90000117,moved,ok
+darkest-hour,191-BLRDAR-001A,90000118,moved,ok
+dawn-of-the-planet-of-the-apes,191-BLRDAW-50-001A,90000119,moved,ok
+deadlocked,191-VHSDDL-001A,90000120,moved,ok
+deadly-little-secrets,191-VHSDES-001A,90000121,moved,ok
+death-of-adolf-hitler,191-VHSDEA-001A,90000123,moved,ok
+death-wish,191-BLRDEA-50-001A,90000124,moved,ok
+delirium-vinegar-syndrome,191-BLRDEL-50-001A,90000125,moved,ok
+den-of-thieves,191-BLRDEN-50-001A,90000126,moved,ok
+dennis-the-menace,191-DVDDEN-001A,90000127,moved,ok
+departed,191-BLRDEP-001A,90000128,not-in-libib,not found
+diary-of-a-hitman,191-VHSDIA-001A,90000129,moved,ok
+dirty-little-secret,191-VHSDIR-001A,90000130,moved,ok
+dont-breathe,191-BLRDON-50-001A,90000131,moved,ok
+dont-breathe-2,191-BLRDNT-50-001A,90000132,moved,ok
+doom-the-scorpion-king-the-rundown-triple-feature,191-BLRDMT-50-001A,90000133,moved,ok
+doomsday,191-BLRDOO-50-001A,90000134,moved,ok
+double-salvation-2-pack-priest-legion,191-BLRDOU-50-001A,90000135,moved,ok
+dr-strangelove-or-how-i-learned-to-stop-worrying-and-love-the-bomb-special-edition,191-DVDDRS-001A,90000136,moved,ok
+dredd,191-BLRDRE-50-001A,90000137,moved,ok
+drive-angry,191-BLRDRI-50-001A,90000138,moved,ok
+driven,191-BLRDRV-50-001A,90000139,moved,ok
+due-date,191-BLRDUE-50-001A,90000140,moved,ok
+echo-park,191-VHSECH-001A,90000141,moved,ok
+elizabethtown,191-DVDELI-001A,90000142,moved,ok
+enchanted,191-DVDENC-001A,90000143,moved,ok
+enter-the-void-full-length-directors-cut,191-BLRENT-50-001A,90000144,moved,ok
+escape,191-VHSESC-001A,90000145,moved,ok
+escape-clause,191-VHSSCP-001A,90000146,moved,ok
+everything-everywhere-all-at-once,191-BLREVE-50-001A,90000147,moved,ok
+evil-judgment-vinegar-syndrome,191-BLREVI-50-001A,90000148,not-in-libib,not found
+excision,191-BLREXC-50-001A,90000149,moved,ok
+executive-decision,191-BLREXE-50-001A,90000150,moved,ok
+extreme-prejudice,191-BLREXT-50-001A,90000151,moved,ok
+faceless-after-dark,191-BLRFAC-50-001A,90000152,moved,ok
+fahrenheit-9-11,191-DVDFAH-001A,90000153,moved,ok
+fantasia-2000,191-DVDFAN-001A,90000154,moved,ok
+far-from-home-the-adventures-of-yellow-dog,191-VHSFAR-001A,90000155,moved,ok
+fear-and-loathing-in-las-vegas,191-DVDFEA-001A,90000156,moved,ok
+federico-fellinis-8-1-2,191-DVDFED-001A,90000157,moved,ok
+federico-fellinis-amarcord,191-DVDFDR-001A,90000158,moved,ok
+finding-dory,191-BLRFND-50-001A,90000159,moved,ok
+finding-nemo,191-BLRFIN-50-001A,90000160,moved,ok
+flesh-blood,191-BLRFLE-50-001A,90000161,moved,ok
+forgetting-sarah-marshall,191-BLRFOR-50-001A,90000162,moved,ok
+forrest-gump,191-VHSFOR-001A,90000163,moved,ok
+francesca,191-BLRFRA-50-001A,90000164,moved,ok
+freaky-friday,191-DVDFRE-001A,90000165,moved,ok
+furious-7,191-BLRFUR-001A,90000166,moved,ok
+game-night,191-BLRGMN-50-001A,90000167,moved,ok
+gangster-squad,191-BLRGAN-50-001A,90000168,moved,ok
+get-out,191-BLRGET-001A,90000169,moved,ok
+get-out-of-my-room,191-VHSGTT-001A,90000170,moved,ok
+god-is-a-bullet,191-BLRGOD-50-001A,90000171,moved,ok
+goosebumps,191-BLRGOO-50-001A,90000172,moved,ok
+graduate,191-DVDGRA-001A,90000173,moved,ok
+grease,191-VHSGRE-50-001A,90000174,moved,ok
+great-gatsby,191-BLRGRE-001A,90000175,moved,ok
+gridiron-gang,191-BLRGRI-50-001A,90000176,moved,ok
+grudge,191-BLRGRU-001A,90000177,error,"barcode set, but could not reopen by old call number: not found"
+gwen-and-the-book-of-sand,191-BLRGWE-50-001A,90000178,error,"Error: Page.goto: net::ERR_NETWORK_CHANGED at https://www.libib.com/library
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+hansel-gretel-witch-hunters-unrated-cut,191-BLRHAN-50-001A,90000179,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""chrome-error://chromewebdata/""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+hearts-of-fire-vhs-rental-musical,48091386,90000180,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+herbie-fully-loaded,191-WALHER-001A,90000181,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+hit-run,191-BLRHIT-50-001A,90000182,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+hobo-with-a-shotgun-collectors-edition,191-BLRHOB-50-001A,90000183,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+homeward-bound-ii-lost-in-san-francisco,191-VHSHOM-001A,90000184,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+horrible-bosses-2-extended-cut,191-BLRHOR-50-001A,90000185,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+horrible-bosses-totally-inappropriate-edition,191-BLRHRR-50-001A,90000186,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"
+hostel,191-BLCHOS-50-001A,90000187,error,"Error: Page.goto: Navigation to ""https://www.libib.com/library"" is interrupted by another navigation to ""https://www.libib.com/library""
+Call log:
+  - navigating to ""https://www.libib.com/library"", waiting until ""load""
+"

@@ -1,0 +1,4 @@
+handle,old_barcode,new_barcode,status,message
+finding-dory-002a,2010000002704,191-BLRFND-002A,error,verify: call_number='191-BLRFND-002A' barcode='2010000002704'
+reversal-of-fortune-vhs-rental-drama,2010000007402,00177914,moved,ok
+october-sky-vhs-rental-kids-family,2010000017265,48124154,error,Barcode already exists on another Libib item
