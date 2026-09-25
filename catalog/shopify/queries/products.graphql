@@ -1,0 +1,52 @@
+query CatalogProducts($cursor: String) {
+  products(first: 50, after: $cursor, sortKey: ID) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      handle
+      title
+      descriptionHtml
+      vendor
+      tags
+      status
+      templateSuffix
+      variantsCount {
+        count
+      }
+      variants(first: 1) {
+        nodes {
+          price
+          barcode
+          selectedOptions {
+            name
+            value
+          }
+          inventoryItem {
+            tracked
+          }
+        }
+      }
+      media(first: 1) {
+        nodes {
+          ... on MediaImage {
+            image {
+              url
+              altText
+            }
+          }
+        }
+      }
+      genre: metafield(namespace: "shopify", key: "genre") {
+        references(first: 5) {
+          nodes {
+            ... on Metaobject {
+              handle
+            }
+          }
+        }
+      }
+    }
+  }
+}
