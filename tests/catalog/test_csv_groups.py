@@ -88,12 +88,19 @@ class TestBuildImportFiles(unittest.TestCase):
 
 class TestWarnings(unittest.TestCase):
     def test_warns_about_option1_and_image_restating(self):
-        text = " ".join(warnings_for(build_import_files(CHANGES, ROWS)))
+        text = " ".join(warnings_for(build_import_files(CHANGES, ROWS), CHANGES))
         self.assertIn("genre.csv", text)
         self.assertIn("alt-text.csv", text)
 
     def test_no_warnings_for_safe_files(self):
-        self.assertEqual(warnings_for(build_import_files([Change("desc", "Body (HTML)", "", "<p>d</p>", "a")], ROWS)), [])
+        changes = [Change("desc", "Body (HTML)", "", "<p>d</p>", "a")]
+        self.assertEqual(warnings_for(build_import_files(changes, ROWS), changes), [])
+
+    def test_metafield_only_genre_file_has_no_option1_warning(self):
+        changes = [Change("desc", GENRE_METAFIELD, "", "comedy", "auto-fix")]
+        files = build_import_files(changes, ROWS)
+        self.assertIn("genre.csv", files)
+        self.assertEqual(warnings_for(files, changes), [])
 
 
 class TestWriteImportFiles(unittest.TestCase):

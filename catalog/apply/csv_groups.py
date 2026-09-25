@@ -62,9 +62,11 @@ def build_import_files(changes, rows_by_handle: dict) -> dict[str, tuple[list[st
     return files
 
 
-def warnings_for(files: dict) -> list[str]:
+def warnings_for(files: dict, changes) -> list[str]:
+    """Only warn about what is actually risky: an Option1 change (not a
+    metafield-only genre fix) and restating an existing Image Src."""
     warnings = []
-    if "genre.csv" in files:
+    if any(c.field in ("Option1 Name", "Option1 Value") for c in changes):
         warnings.append("genre.csv changes Option1 Name/Value — import it only after the dev-store check "
                         "(plan 2, Task 12) confirmed barcodes and inventory survive an Option1 change.")
     if "alt-text.csv" in files:

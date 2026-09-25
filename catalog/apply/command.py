@@ -82,7 +82,7 @@ def run_command(args, read_text=None, stdin=None) -> int:
            f"{len(result.resolved)} -> resolved (already in Shopify)",
            f"ignored: {len(result.ignored)} (see apply.log with -v)"],
         samples=[f"{c.handle} {c.field}: {c.before[:40]!r} -> {c.after[:60]!r} ({c.source})" for c in result.changes],
-        warnings=warnings_for(files),
+        warnings=warnings_for(files, result.changes),
         details_path=details,
     )
     import_dir = run_dir / "import"
