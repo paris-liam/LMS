@@ -10,9 +10,9 @@ from dataclasses import dataclass
 
 from catalog.audit.findings import AUTO_FIX, MANUAL, Finding
 from catalog.audit.resolvers import (
-    dedupe, extra_tags, resolve_format, resolve_genres, resolve_price, resolve_type, split_list,
+    dedupe, resolve_format, resolve_genres, resolve_price, resolve_type, split_list,
 )
-from catalog.core.columns import FORMATTED_TAG, GENRE_METAFIELD
+from catalog.core.columns import GENRE_METAFIELD
 from catalog.core.taxonomy import canonical_format, canonical_genre, canonical_type, genre_handle
 from catalog.core.text import strip_html
 
@@ -39,13 +39,13 @@ def resolve_row(row: dict) -> Resolved:
     return Resolved(tags, product_type, type_reason, media_format, genres)
 
 
-def canonical_tags(r: Resolved) -> str:
-    """Type, format, genres, then curation tags, spelled canonically. Keeps
-    Formatted (last) if present; never adds it."""
-    parts = ([r.type] if r.type else []) + ([r.format] if r.format else []) + r.genres + extra_tags(r.tags)
-    if FORMATTED_TAG in r.tags:
-        parts.append(FORMATTED_TAG)
-    return ", ".join(dedupe(parts))
+def respelled_tags(r: Resolved) -> str:
+    """The product's own tags, in order, with each misspelt type/format/genre
+    tag replaced by its canonical spelling. Nothing is added or dropped (apart
+    from exact duplicates the respelling creates), so a tag fix can never
+    remove a type or format tag — even on a product tagged with both types."""
+    respelled = [canonical_type(t) or canonical_format(t) or canonical_genre(t) or t for t in r.tags]
+    return ", ".join(dedupe(respelled))
 
 
 def needs_poster(row: dict) -> bool:
@@ -107,7 +107,7 @@ def _rental_barcode_findings(row, r, make) -> list[Finding]:
 def _autofix_findings(row, r, make) -> list[Finding]:
     out: list[Finding] = []
     current_tags = row.get("Tags", "")
-    proposed_tags = canonical_tags(r)
+    proposed_tags = respelled_tags(r)
     for tag in r.tags:
         for rule, resolver in _TAG_ALIAS_RULES:
             canonical = resolver(tag)

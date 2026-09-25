@@ -1,7 +1,7 @@
 import unittest
 
 from catalog.audit.findings import AUTO_FIX, MANUAL
-from catalog.audit.rules import canonical_tags, check_catalogue, check_row, resolve_row
+from catalog.audit.rules import check_catalogue, check_row, resolve_row, respelled_tags
 from catalog.core.columns import GENRE_METAFIELD
 from catalog.shopify.snapshot import blank_row
 
@@ -56,13 +56,24 @@ class TestAutoFixRules(unittest.TestCase):
         f = by_rule(check_row(movie(Vendor="bluray", Tags="Rental, Blu-Ray, Comedy")))
         self.assertEqual(f[("format-alias", "Vendor")].proposed_value, "Blu-Ray")
 
-    def test_format_tag_alias_keeps_formatted_last_and_curation_tags(self):
+    def test_format_tag_alias_respells_in_place(self):
         f = by_rule(check_row(movie(Tags="Rental, vhs, Comedy, Formatted, Staff Picks")))
         self.assertEqual(f[("format-alias", "Tags")].proposed_value,
-                         "Rental, VHS, Comedy, Staff Picks, Formatted")
+                         "Rental, VHS, Comedy, Formatted, Staff Picks")
+
+    def test_tag_fix_on_type_conflict_keeps_both_type_tags(self):
+        f = by_rule(check_row(movie(Tags="Rental, Floor Sale, VHS, horror", **{"Option1 Value": "Horror",
+                                                                              GENRE_METAFIELD: "horror"})))
+        proposed = f[("genre-alias", "Tags")].proposed_value
+        self.assertIn("Rental", proposed)
+        self.assertIn("Floor Sale", proposed)
+
+    def test_tag_fix_keeps_a_second_format_tag(self):
+        f = by_rule(check_row(movie(Tags="VHS, DVD, Comedy, rental")))
+        self.assertEqual(f[("type-alias", "Tags")].proposed_value, "VHS, DVD, Comedy, Rental")
 
     def test_formatted_is_never_added(self):
-        self.assertNotIn("Formatted", canonical_tags(resolve_row(movie(Tags="Rental, vhs, Comedy"))))
+        self.assertNotIn("Formatted", respelled_tags(resolve_row(movie(Tags="Rental, vhs, Comedy"))))
 
     def test_metafield_order_does_not_matter(self):
         self.assertEqual(check_row(movie(Tags="Rental, VHS, Comedy, Drama", **{GENRE_METAFIELD: "drama; comedy"})), [])

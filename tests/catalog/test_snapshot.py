@@ -26,6 +26,11 @@ class TestSnapshot(unittest.TestCase):
     def test_retail_template_excluded(self):
         self.assertEqual(exclusion_reason(row(**{"Template Suffix": "retail"})), "retail template")
 
+    def test_any_template_suffix_is_excluded(self):
+        # Production's annual membership uses template "membership", not "retail".
+        self.assertEqual(exclusion_reason(row(**{"Template Suffix": "membership", "Vendor": "Little Movie Store",
+                                                 "Tags": ""})), "membership template")
+
     def test_archived_excluded(self):
         self.assertEqual(exclusion_reason(row(Status="archived")), "archived")
 

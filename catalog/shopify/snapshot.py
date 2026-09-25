@@ -16,8 +16,11 @@ def blank_row() -> dict:
 
 def exclusion_reason(row: dict) -> str | None:
     """Why this product is not audited, or None for a catalogue movie."""
-    if (row.get("Template Suffix") or "").strip().lower() == "retail":
-        return "retail template"
+    # Movies carry no template suffix (templates/product.json is the movie
+    # layout); every non-movie product (retail, membership, …) carries one.
+    suffix = (row.get("Template Suffix") or "").strip().lower()
+    if suffix:
+        return f"{suffix} template"
     if (row.get("Status") or "").strip().lower() == "archived":
         return "archived"
     # Export-path fallbacks: an export CSV carries no template suffix.

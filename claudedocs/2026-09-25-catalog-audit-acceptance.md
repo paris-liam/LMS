@@ -20,6 +20,8 @@ tmdb:      2 cache hits, 136 fetches
 
 Catalogue shape: 7,149 movies — 3,258 Rental, 3,852 Floor Sale (39 have neither tag); 7,055 active, 94 draft, 0 archived.
 
+**Correction after final review:** one of those 7,149 was not a movie — `little-movie-club-annual-membership` (template suffix `membership`, not `retail`), which picked up 5 findings (`type-missing`, `format-missing`, `genre-missing`, `inventory-untracked`, and an `alt-text-missing` auto-fix). The snapshot filter now excludes **any** template suffix (production has only `retail` ×6 and `membership` ×1; no movie carries one). Recomputed from this run's findings without it: **7,148 movies; 2,197 findings across 1,091 products; auto-fix 142 · picker 906 · manual 121; type-missing 38, format-missing 6, genre-missing 41, inventory-untracked 29, alt-text-missing 3** (all other rules unchanged). "38 movies have neither type tag" replaces the 39 above.
+
 ## Against the reference counts (each on its own scope)
 
 | measure | reference | this run | explanation |
@@ -38,12 +40,12 @@ The picker registry already holds 1,073 queued handles (904 `ambiguous-queue`, 1
 All correct. Examples:
 - `genre-metafield-sync` — `300-bluray-rental-action`, `a-christmas-story-bluray-rental-holiday`: metafield empty, tag carries the genre → proposes `action` / `holiday`. **136 live products are missing from the genre filter for this reason.**
 - `poster-missing` / `description-missing` auto-fix — `300` → *300 (2007)*, `A Fistful of Dollars` → *(1964)*.
-- `type-missing` — `30-days-of-night`, `4400-the-complete-first-season`: no Rental/Floor Sale tag (carry legacy `Issue_*` tags).
+- `type-missing` — `30-days-of-night`, `4400-the-complete-first-season`: no Rental/Floor Sale tag (both carry legacy `Issue_*` tags; not every type-missing product does).
 - `format-missing` — `antz`, `blind-side`: Vendor is `Little Movie Store`.
 - `rental-price-nonzero` — `easyriders-vhs` 5.00, `our-town-vhs` 4.00.
 - `floor-sale-price` — `earth-girls-are-easy`, `the-call-dvd-floor-sale-thriller` at 0.00.
 
-No rule looked wrong; no fix-up task needed before Plan 2.
+The membership product was the one wrong result (fixed, above); no other rule looked wrong.
 
 ## Notes for Plan 2
 
