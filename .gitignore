@@ -29,3 +29,6 @@ Little Movie Store Design System-handoff.zip
 products_export*.csv
 .venv-libib/
 .playwright-mcp/
+
+# Catalog pipeline run folders (local working data)
+runs/
