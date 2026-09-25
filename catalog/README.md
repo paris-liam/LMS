@@ -31,6 +31,39 @@ Flags: `--skip-tmdb` (no lookups), `--no-cache` (bypass `runs/.tmdb-cache.json`)
 The audit changes nothing outside its run folder except the shared TMDB cache and
 promoting picker registry entries from `applied` to `resolved` once Shopify shows the fix.
 
+## Approval
+
+Every command that changes anything outside its run folder shows a plan first and asks
+`Proceed? [y/N]`. `--dry-run` shows the plan and changes nothing; `--yes` approves without
+asking. Outside a terminal (scripts, agents) the command refuses unless `--yes` is given.
+
+## Stage 2 — picker push
+
+    python3 -m catalog picker push            # uses the latest complete audit run
+    python3 -m catalog picker push --dry-run
+
+Adds the run's `review.json` products the registry doesn't know yet to the hosted
+picker's `ambiguous-queue` / `unmatched-queue` (fetching TMDB candidates — needs
+`TMDB_API_KEY`), marks them `queued`, then commits and pushes `tools/review-picker/`.
+It only pushes from `main` (Vercel deploys `main`); on another branch it writes the files
+and tells you to publish them. `--no-git-sync` never commits.
+
+## Stage 3 — apply
+
+    python3 -m catalog apply --dry-run        # see what would change
+    python3 -m catalog apply                  # write runs/<id>/import/*.csv
+
+Combines the run's `autofix.json` with the client's picks (read from `origin/main` — the
+branch the picker saves to; `--local-picks` reads the working tree) and writes one CSV per
+field group — `image`, `alt-text`, `description`, `genre`, `tags`, `vendor`, `price` —
+each with only the columns it changes plus `Handle, Title, Option1 Name, Option1 Value`.
+Import each in Shopify admin. `apply-plan.csv` lists every change (handle, field, before,
+after, source). Picks become `applied` in the registry; the next audit promotes them to
+`resolved` once Shopify shows them, or reports `applied-but-missing`.
+
+Hold `genre.csv` and `alt-text.csv` until the dev-store check in
+`claudedocs/2026-09-25-apply-import-verification.md` passes.
+
 ## Tests
 
     python3 -m unittest discover -s tests/catalog -p "test_*.py"
