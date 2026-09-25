@@ -26,3 +26,9 @@ def require_env(name: str, environ=None) -> str:
     if not value:
         raise MissingEnvError(f"{name} is not set. Export it first: export {name}=...")
     return value
+
+# The hosted review picker (Vercel) deploys tools/review-picker from this
+# branch, and /api/save-pick commits the client's picks to it.
+PICKER_REL = "tools/review-picker"
+PICKER_REMOTE = "origin"
+PICKER_BRANCH = "main"
