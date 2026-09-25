@@ -101,5 +101,21 @@ class TestLifecycle(unittest.TestCase):
         self.assertEqual(registry["queued"]["status"], "queued")
 
 
+class TestFixVisibleTolerance(unittest.TestCase):
+    def test_tags_compare_as_sets_ignoring_order_and_case(self):
+        self.assertTrue(fix_visible({"Tags": "Comedy, Rental, VHS"}, "Tags", "Rental, VHS, comedy"))
+        self.assertFalse(fix_visible({"Tags": "Rental, VHS"}, "Tags", "Rental, VHS, Comedy"))
+
+    def test_genre_metafield_compares_as_sets(self):
+        field = "Genre (product.metafields.shopify.genre)"
+        self.assertTrue(fix_visible({field: "drama; comedy"}, field, "comedy; drama"))
+        self.assertFalse(fix_visible({field: "drama"}, field, "comedy; drama"))
+
+    def test_price_compares_numerically(self):
+        self.assertTrue(fix_visible({"Variant Price": "0.00"}, "Variant Price", "0"))
+        self.assertFalse(fix_visible({"Variant Price": "4.00"}, "Variant Price", "0"))
+        self.assertFalse(fix_visible({"Variant Price": "abc"}, "Variant Price", "0"))
+
+
 if __name__ == "__main__":
     unittest.main()

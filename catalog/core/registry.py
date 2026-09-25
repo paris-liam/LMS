@@ -16,6 +16,7 @@ push and apply all read it.
 import json
 from pathlib import Path
 
+from catalog.core.columns import GENRE_METAFIELD
 from catalog.core.text import norm_ws, strip_html
 
 REGISTRY_FILENAME = "_handle-index.json"
@@ -65,15 +66,38 @@ def mark_resolved(registry: dict, handles) -> None:
         registry.setdefault(handle, {})["status"] = "resolved"
 
 
+def _tag_set(value: str) -> set[str]:
+    return {t.strip().lower() for t in (value or "").split(",") if t.strip()}
+
+
+def _handle_set(value: str) -> set[str]:
+    return {h.strip() for h in (value or "").split(";") if h.strip()}
+
+
+def _same_number(a: str, b: str) -> bool:
+    try:
+        return float(a) == float(b)
+    except ValueError:
+        return a.strip() == b.strip()
+
+
 def fix_visible(row: dict, field: str, value: str) -> bool:
-    """Does the snapshot row show a value we applied?"""
+    """Does the snapshot row show a value we applied? Shopify normalises what
+    it stores (re-hosts images, sorts tags, prints prices as "0.00"), so each
+    field is compared the way Shopify can change it."""
     current = row.get(field) or ""
+    value = value or ""
     if field == "Image Src":
-        # Shopify re-hosts an imported image on its own CDN, so the URL changes.
         return bool(current.strip())
     if field == "Body (HTML)":
         return norm_ws(strip_html(current)) == norm_ws(strip_html(value))
-    return current.strip() == (value or "").strip()
+    if field == "Tags":
+        return _tag_set(current) == _tag_set(value)
+    if field == GENRE_METAFIELD:
+        return _handle_set(current) == _handle_set(value)
+    if field == "Variant Price":
+        return _same_number(current, value)
+    return current.strip() == value.strip()
 
 
 def promote_applied(registry: dict, rows_by_handle: dict) -> tuple[list[str], list[str]]:
