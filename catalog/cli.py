@@ -9,7 +9,9 @@ import sys
 
 from catalog.errors import CatalogError
 
-COMMANDS: list = []  # modules with register(subparsers); stages append themselves here
+from catalog.audit import command as audit_command
+
+COMMANDS: list = [audit_command]  # modules with register(subparsers), in help order
 
 
 def build_parser() -> argparse.ArgumentParser:
