@@ -5,18 +5,17 @@ whole catalogue (rental barcode uniqueness). Content (poster/description)
 and registry rules live in audit/run.py because they need TMDB and state.
 """
 
-import re
 from dataclasses import dataclass
 
 from catalog.audit.findings import AUTO_FIX, MANUAL, Finding
 from catalog.audit.resolvers import (
     dedupe, resolve_format, resolve_genres, resolve_price, resolve_type, split_list,
 )
+from catalog.core.barcodes import RENTAL_BARCODE, barcode_owners
 from catalog.core.columns import GENRE_METAFIELD
 from catalog.core.taxonomy import canonical_format, canonical_genre, canonical_type, genre_handle
 from catalog.core.text import strip_html
 
-RENTAL_BARCODE = re.compile(r"^[0-9]{8}$")
 _TAG_ALIAS_RULES = (("type-alias", canonical_type), ("format-alias", canonical_format),
                     ("genre-alias", canonical_genre))
 
@@ -172,11 +171,7 @@ def check_row(row: dict) -> list[Finding]:
 
 def check_catalogue(rows: list[dict]) -> list[Finding]:
     """rental-barcode-duplicate: a Rental's barcode on any other movie."""
-    by_barcode: dict[str, list[str]] = {}
-    for row in rows:
-        barcode = (row.get("Variant Barcode") or "").strip()
-        if barcode:
-            by_barcode.setdefault(barcode, []).append(row.get("Handle", ""))
+    by_barcode = barcode_owners(rows)
 
     findings: list[Finding] = []
     for row in rows:
