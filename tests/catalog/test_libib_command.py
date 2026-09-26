@@ -5,6 +5,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from catalog.cli import build_parser
 from catalog.core import log
@@ -153,6 +154,60 @@ class TestMarkImportedCommand(LibibCase):
         state = self.state()
         self.assertEqual((state["a"]["status"], state["b"]["status"], state["c"]["status"]),
                          ("imported", "queued", "done"))
+
+
+class TestFixCommand(LibibCase):
+    def fake_fixer(self, calls):
+        def fixer(rows, report_path, email, password, headless):
+            calls.append({"rows": rows, "report": report_path, "email": email, "headless": headless})
+            return [{"call_number": r["call_number"], "barcode_status": "skipped", "content_status": "updated",
+                     "message": "barcode: ok | content: changed: title"} for r in rows]
+        return fixer
+
+    def env(self):
+        return mock.patch.dict("os.environ", {"LIBIB_EMAIL": "e@x", "LIBIB_PASSWORD": "pw"})
+
+    def test_drift_fix_runs_the_fixer_on_fixable_drift(self):
+        self.diff()
+        calls = []
+        with self.env(), contextlib.redirect_stdout(io.StringIO()):
+            command.run_fix_command(self.parse("fix", "--drift", "--yes", "--headless"),
+                                    fixer=self.fake_fixer(calls), download=fake_download)
+        self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["02222222"])
+        self.assertEqual(calls[0]["rows"][0]["image_path"], "")  # title drift: no poster upload
+        self.assertEqual(calls[0]["email"], "e@x")
+        self.assertTrue(calls[0]["headless"])
+        self.assertTrue((self.sync / "drift-2026-09-25" / "ready.csv").exists())
+        self.assertEqual(self.state()["heat"]["status"], "imported")
+
+    def test_batch_fix_reads_the_batch_ready_csv(self):
+        self.diff()
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+        calls = []
+        with self.env(), contextlib.redirect_stdout(io.StringIO()):
+            command.run_fix_command(self.parse("fix", "batch-0001", "--yes", "--limit", "5"),
+                                    fixer=self.fake_fixer(calls))
+        self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["03333333"])
+        self.assertEqual(calls[0]["report"], self.sync / "batch-0001" / "ready.sync-report.csv")
+
+    def test_dry_run_never_runs_the_fixer_or_needs_credentials(self):
+        self.diff()
+        calls = []
+        with mock.patch.dict("os.environ", {}, clear=True), contextlib.redirect_stdout(io.StringIO()):
+            command.run_fix_command(self.parse("fix", "--drift", "--dry-run"), fixer=self.fake_fixer(calls))
+        self.assertEqual(calls, [])
+
+    def test_missing_credentials_fail_before_asking(self):
+        from catalog.errors import MissingEnvError
+        self.diff()
+        with mock.patch.dict("os.environ", {}, clear=True), contextlib.redirect_stdout(io.StringIO()):
+            with self.assertRaises(MissingEnvError):
+                command.run_fix_command(self.parse("fix", "--drift", "--yes"), fixer=self.fake_fixer([]))
+
+    def test_needs_a_batch_or_drift(self):
+        with self.assertRaises(SystemExit), contextlib.redirect_stderr(io.StringIO()):
+            self.parse("fix")
 
 
 if __name__ == "__main__":

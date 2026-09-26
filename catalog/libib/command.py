@@ -18,8 +18,11 @@ from catalog.core.csv_io import write_csv
 from catalog.core.plan import Plan, add_approval_args, confirm
 from catalog.core.runs import resolve_run
 from catalog.errors import NoRunError
+from catalog.libib.columns import READY_COLUMNS
 from catalog.libib.diff import BLOCKED_COLUMNS, DRIFT_COLUMNS, ELIGIBLE_COLUMNS, ORPHAN_COLUMNS, diff
 from catalog.libib.exports import DEFAULT_COLLECTION, load_libib
+from catalog.libib.fields import is_rental
+from catalog.libib.fix import apply_report, drift_ready_rows, drift_targets, read_ready, run_fixer
 from catalog.libib.prepare import download_posters, next_batch_id, write_batch
 from catalog.libib.state import (
     IN_FLIGHT, counts_by_status, load_state, migrate_poster_src, save_state, set_status, state_path,
@@ -57,6 +60,16 @@ def register(subparsers) -> None:
     _common(p, needs_run=False)
     add_approval_args(p)
     p.set_defaults(func=run_mark_imported_command)
+
+    p = sub.add_parser("fix", help="fix Libib items in the browser (run with .venv-libib/bin/python)")
+    target = p.add_mutually_exclusive_group(required=True)
+    target.add_argument("batch", nargs="?", help="a prepared batch id, e.g. batch-0017")
+    target.add_argument("--drift", action="store_true", help="fix the latest diff's drift instead of a batch")
+    p.add_argument("--limit", type=int, default=None, help="only the first N items")
+    p.add_argument("--headless", action="store_true", help="no visible browser window")
+    _common(p)
+    add_approval_args(p)
+    p.set_defaults(func=run_fix_command)
 
     p = sub.add_parser("status", help="count tracked handles per state")
     _common(p, needs_run=False)
@@ -182,4 +195,68 @@ def run_mark_imported_command(args, stdin=None) -> int:
         set_status(state, handle, "imported")
     save_state(sync_dir, state)
     log.summary(f"Next: .venv-libib/bin/python -m catalog libib fix {args.batch}")
+    return 0
+
+
+def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
+    run_dir = resolve_run(args.runs_dir, args.run)
+    (run_dir / "libib").mkdir(exist_ok=True)
+    log.setup_logging(run_dir / "libib" / "fix.log", log.verbosity(args))
+    sync_dir = Path(args.sync_dir)
+    rows = load_snapshot(run_dir / "snapshot.json")
+    rows_by_handle = {r["Handle"]: r for r in rows}
+    handle_by_call = {(r.get("Variant Barcode") or "").strip(): r["Handle"] for r in rows if is_rental(r)}
+
+    manual: list[str] = []
+    if args.drift:
+        drift_path = run_dir / "libib" / "drift.csv"
+        if not drift_path.exists():
+            raise NoRunError(f"no libib diff for run {run_dir.name} — run `python3 -m catalog libib diff …` first")
+        fields_by_handle, manual = drift_targets(_read_csv(drift_path))
+        handles = sorted(fields_by_handle)[: args.limit] if args.limit else sorted(fields_by_handle)
+        fields_by_handle = {h: fields_by_handle[h] for h in handles}
+        work_dir = sync_dir / f"drift-{run_dir.name}"
+        ready_path = work_dir / "ready.csv"
+        label = f"drift from run {run_dir.name}"
+        samples = [f"{rows_by_handle[h]['Variant Barcode']} {rows_by_handle[h]['Title'].strip()}: "
+                   f"{', '.join(sorted(fields_by_handle[h]))}" for h in handles]
+        count = len(handles)
+    else:
+        ready_path = sync_dir / args.batch / "ready.csv"
+        if not ready_path.exists():
+            raise NoRunError(f"{ready_path} does not exist — run `python3 -m catalog libib prepare` first")
+        ready = read_ready(ready_path)
+        ready = ready[: args.limit] if args.limit else ready
+        label = args.batch
+        samples = [f"{r['call_number']} {r['title']}" for r in ready]
+        count = len(ready)
+
+    log.header(f"libib fix — {label}")
+    credentials = None
+    if count and not args.dry_run:  # fail fast, before asking
+        credentials = (config.require_env(config.ENV_LIBIB_EMAIL), config.require_env(config.ENV_LIBIB_PASSWORD))
+    plan = Plan(
+        title="libib fix",
+        count=count,
+        summary=[f"{label}: edits {count} Libib items in the browser (barcode, title, description, tags, poster)",
+                 f"report: {ready_path.with_suffix('.sync-report.csv')}"]
+        + ([f"manual fix needed (no call number in Libib): {len(manual)} — {', '.join(manual[:10])}"] if manual else []),
+        samples=samples,
+    )
+    if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
+        return 0
+
+    if args.drift:
+        poster_rows = [rows_by_handle[h] for h, f in fields_by_handle.items() if "poster" in f]
+        posters, _ = download_posters(poster_rows, work_dir, download or urllib.request.urlretrieve)
+        ready = drift_ready_rows(fields_by_handle, rows_by_handle, posters)
+        write_csv(ready_path, READY_COLUMNS, ready)
+
+    results = fixer(ready, ready_path.with_suffix(".sync-report.csv"), credentials[0], credentials[1], args.headless)
+    state = load_state(sync_dir)
+    counts = apply_report(state, results, handle_by_call, rows_by_handle)
+    save_state(sync_dir, state)
+    log.summary(f"{counts['ok']} fixed, {counts['needs_review']} need review, {counts['posters']} posters recorded"
+                + (f", {counts['untracked']} not rentals in the snapshot" if counts["untracked"] else ""))
+    log.summary("Next: fresh Libib exports, then `python3 -m catalog libib diff …` to confirm.")
     return 0
