@@ -92,5 +92,68 @@ class TestStatusCommand(LibibCase):
         self.assertIn("imported: 1", out.getvalue())
 
 
+class FakeStdin(io.StringIO):
+    def __init__(self, text="", tty=True):
+        super().__init__(text)
+        self._tty = tty
+
+    def isatty(self):
+        return self._tty
+
+
+def fake_download(url, path):
+    Path(path).write_bytes(b"img")
+
+
+class TestPrepareCommand(LibibCase):
+    def test_needs_a_diff_first(self):
+        from catalog.errors import NoRunError
+        with self.assertRaises(NoRunError):
+            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+
+    def test_dry_run_writes_nothing(self):
+        self.diff()
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_prepare_command(self.parse("prepare", "--dry-run"), download=fake_download)
+        self.assertFalse((self.sync / "batch-0001").exists())
+
+    def test_yes_builds_the_batch_and_queues(self):
+        self.diff()
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+        batch = self.sync / "batch-0001"
+        self.assertEqual(sorted(p.name for p in batch.iterdir()), ["03333333.jpg", "import.csv", "ready.csv"])
+        self.assertEqual(self.state()["alien"],
+                         {"status": "queued", "batch": "batch-0001", "call_number": "03333333"})
+
+    def test_prepare_skips_handles_queued_since_the_diff(self):
+        self.diff()
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+        self.assertFalse((self.sync / "batch-0002").exists())
+
+    def test_refuses_without_a_terminal(self):
+        from catalog.core.plan import ApprovalRefused
+        self.diff()
+        with self.assertRaises(ApprovalRefused), contextlib.redirect_stdout(io.StringIO()):
+            command.run_prepare_command(self.parse("prepare"), download=fake_download, stdin=FakeStdin(tty=False))
+        self.assertFalse((self.sync / "batch-0001").exists())
+
+
+class TestMarkImportedCommand(LibibCase):
+    def test_marks_only_that_batchs_queued_handles(self):
+        (self.sync / "_state.json").write_text(json.dumps({
+            "a": {"status": "queued", "batch": "batch-0002"}, "b": {"status": "queued", "batch": "batch-0003"},
+            "c": {"status": "done", "batch": "batch-0002"}}), encoding="utf-8")
+        args = build_parser().parse_args(["libib", "mark-imported", "batch-0002", "--sync-dir", str(self.sync),
+                                          "-q", "--yes"])
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_mark_imported_command(args)
+        state = self.state()
+        self.assertEqual((state["a"]["status"], state["b"]["status"], state["c"]["status"]),
+                         ("imported", "queued", "done"))
+
+
 if __name__ == "__main__":
     unittest.main()

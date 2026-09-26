@@ -9,16 +9,21 @@ nothing. prepare / mark-imported / fix show a plan and ask first.
 import argparse
 import csv
 import shutil
+import urllib.request
 from pathlib import Path
 
 from catalog import config
 from catalog.core import log
 from catalog.core.csv_io import write_csv
+from catalog.core.plan import Plan, add_approval_args, confirm
 from catalog.core.runs import resolve_run
 from catalog.errors import NoRunError
 from catalog.libib.diff import BLOCKED_COLUMNS, DRIFT_COLUMNS, ELIGIBLE_COLUMNS, ORPHAN_COLUMNS, diff
 from catalog.libib.exports import DEFAULT_COLLECTION, load_libib
-from catalog.libib.state import counts_by_status, load_state, migrate_poster_src, save_state, state_path
+from catalog.libib.prepare import download_posters, next_batch_id, write_batch
+from catalog.libib.state import (
+    IN_FLIGHT, counts_by_status, load_state, migrate_poster_src, save_state, set_status, state_path,
+)
 from catalog.shopify.snapshot import load_snapshot
 
 
@@ -40,6 +45,18 @@ def register(subparsers) -> None:
     p.add_argument("--collection", default=DEFAULT_COLLECTION, help=f"Libib collection (default {DEFAULT_COLLECTION!r})")
     _common(p)
     p.set_defaults(func=run_diff_command)
+
+    p = sub.add_parser("prepare", help="build the next Libib import batch from the diff's eligible rentals")
+    p.add_argument("--size", type=int, default=200, help="rentals per batch (default 200)")
+    _common(p)
+    add_approval_args(p)
+    p.set_defaults(func=run_prepare_command)
+
+    p = sub.add_parser("mark-imported", help="record that a batch's import.csv was force-imported into Libib")
+    p.add_argument("batch", help="batch id, e.g. batch-0017")
+    _common(p, needs_run=False)
+    add_approval_args(p)
+    p.set_defaults(func=run_mark_imported_command)
 
     p = sub.add_parser("status", help="count tracked handles per state")
     _common(p, needs_run=False)
@@ -102,4 +119,67 @@ def run_status_command(args) -> int:
         return 0
     for status, count in sorted(counts_by_status(state).items()):
         log.summary(f"{status}: {count}")
+    return 0
+
+
+def _read_csv(path) -> list[dict]:
+    with open(path, newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def run_prepare_command(args, download=None, stdin=None) -> int:
+    run_dir = resolve_run(args.runs_dir, args.run)
+    eligible_path = run_dir / "libib" / "eligible.csv"
+    if not eligible_path.exists():
+        raise NoRunError(f"no libib diff for run {run_dir.name} — run `python3 -m catalog libib diff …` first")
+    log.setup_logging(run_dir / "libib" / "prepare.log", log.verbosity(args))
+    log.header(f"libib prepare — audit run {run_dir.name}")
+
+    sync_dir = Path(args.sync_dir)
+    state = load_state(sync_dir)
+    rows_by_handle = {r["Handle"]: r for r in load_snapshot(run_dir / "snapshot.json")}
+    eligible = _read_csv(eligible_path)
+    chosen = [e for e in eligible if (state.get(e["handle"]) or {}).get("status") not in IN_FLIGHT][: args.size]
+    batch_id = next_batch_id(sync_dir)
+    batch_dir = sync_dir / batch_id
+
+    plan = Plan(
+        title="libib prepare",
+        count=len(chosen),
+        summary=[f"{batch_id}: {len(chosen)} rentals (of {len(eligible)} eligible)",
+                 f"downloads {len(chosen)} posters and writes {batch_dir}/import.csv + ready.csv",
+                 f"state: {len(chosen)} -> queued"],
+        samples=[f"{e['call_number']} {e['title']}" for e in chosen],
+    )
+    if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
+        return 0
+
+    rows = [rows_by_handle[e["handle"]] for e in chosen]
+    posters, failed = download_posters(rows, batch_dir, download or urllib.request.urlretrieve)
+    write_batch(batch_dir, rows, posters)
+    for e in chosen:
+        set_status(state, e["handle"], "queued", batch=batch_id, call_number=e["call_number"])
+    save_state(sync_dir, state)
+
+    if failed:
+        log.summary(f"{len(failed)} poster(s) failed to download (ready.csv leaves image_path blank): {', '.join(failed)}")
+    log.summary(f"Next: in Libib, Add Items -> CSV -> {batch_dir / 'import.csv'} with Force Import Mode on, then")
+    log.summary(f"  python3 -m catalog libib mark-imported {batch_id}")
+    log.summary(f"  .venv-libib/bin/python -m catalog libib fix {batch_id}")
+    return 0
+
+
+def run_mark_imported_command(args, stdin=None) -> int:
+    log.setup_logging(None, log.verbosity(args))
+    sync_dir = Path(args.sync_dir)
+    state = load_state(sync_dir)
+    handles = sorted(h for h, e in state.items() if e.get("batch") == args.batch and e.get("status") == "queued")
+    plan = Plan(title="libib mark-imported", count=len(handles),
+                summary=[f"{args.batch}: {len(handles)} handles queued -> imported"], samples=handles)
+    if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
+        return 0
+    for handle in handles:
+        set_status(state, handle, "imported")
+    save_state(sync_dir, state)
+    log.summary(f"Next: .venv-libib/bin/python -m catalog libib fix {args.batch}")
     return 0
