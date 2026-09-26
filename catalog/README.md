@@ -64,6 +64,28 @@ after, source). Picks become `applied` in the registry; the next audit promotes 
 Hold `genre.csv` and `alt-text.csv` until the dev-store check in
 `claudedocs/2026-09-25-apply-import-verification.md` passes.
 
+## Stage 4 — Libib
+
+Libib has no API: its exports and CSV imports are manual; only fixing items runs in a browser.
+
+    # 1. Export from Libib: the item/barcode export and the collection export (both needed).
+    python3 -m catalog libib diff --barcode-export libib_barcodes.csv --collection-export libib_collections.csv
+    # -> runs/<id>/libib/: drift.csv, eligible.csv, orphans.csv, blocked.csv, libib-report.txt
+
+    python3 -m catalog libib prepare --size 200     # -> libib-sync/batch-NNNN/{import.csv, posters, ready.csv}
+    # 2. In Libib: Add Items -> CSV -> import.csv with Force Import Mode on.
+    python3 -m catalog libib mark-imported batch-NNNN
+    .venv-libib/bin/python -m catalog libib fix batch-NNNN      # barcode + title/description/tags/poster
+    .venv-libib/bin/python -m catalog libib fix --drift         # fix what the diff found drifted
+    python3 -m catalog libib status
+
+`fix` needs `LIBIB_EMAIL` / `LIBIB_PASSWORD` and the Playwright venv. Items are matched by
+Shopify barcode = Libib call number (items without a call number fall back to their copy
+barcode; that drift needs a manual fix). Rentals with a bad or shared barcode are `blocked`
+until the audit's barcode findings are fixed. Orphans are listed, never deleted.
+`diff` promotes in-sync handles to `done` in `libib-sync/_state.json` and keeps the previous
+state as `runs/<id>/libib/state-before.json`.
+
 ## Tests
 
     python3 -m unittest discover -s tests/catalog -p "test_*.py"
