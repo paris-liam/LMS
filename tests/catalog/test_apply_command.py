@@ -98,15 +98,53 @@ class TestApplyCommand(unittest.TestCase):
         self.assertFalse((self.run / "import").exists())
         self.assertEqual(self.registry()["jaws"]["status"], "queued")
 
-    def test_second_apply_replaces_import_files_and_skips_applied(self):
+    def test_second_apply_on_the_same_run_rewrites_the_full_set(self):
         with contextlib.redirect_stdout(io.StringIO()):
             command.run_command(self.args("--yes"))
+            first = {p.name: p.read_text(encoding="utf-8") for p in (self.run / "import").iterdir()}
             first_values = self.registry()["jaws"]["values"]
-            # Nothing left: jaws is applied, rocky skipped, and the auto-fix is gone.
+            command.run_command(self.args("--yes"))
+        second = {p.name: p.read_text(encoding="utf-8") for p in (self.run / "import").iterdir()}
+        self.assertEqual(second, first)  # the applied pick rows are rebuilt, not lost
+        self.assertEqual(self.registry()["jaws"]["values"], first_values)
+
+    def test_dry_run_after_apply_keeps_the_import_files(self):
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_command(self.args("--yes"))
+            before = sorted(p.name for p in (self.run / "import").iterdir())
+            command.run_command(self.args("--dry-run"))
+        self.assertEqual(sorted(p.name for p in (self.run / "import").iterdir()), before)
+
+    def test_a_dropped_autofix_leaves_its_file_out_on_the_next_apply(self):
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_command(self.args("--yes"))
             (self.run / "autofix.json").write_text("{}", encoding="utf-8")
             command.run_command(self.args("--yes"))
-        self.assertEqual(list((self.run / "import").glob("*.csv")), [])  # stale files cleared
-        self.assertEqual(self.registry()["jaws"]["values"], first_values)  # not re-applied
+        self.assertEqual(sorted(p.name for p in (self.run / "import").iterdir()), ["description.csv", "image.csv"])
+
+    def test_closing_message_says_to_commit_the_registry(self):
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_command(self.args("--yes"))
+        self.assertIn("commit", (self.run / "apply.log").read_text(encoding="utf-8"))
+        self.assertNotIn("published with the next", (self.run / "apply.log").read_text(encoding="utf-8"))
+
+    def test_remote_registry_marks_cards_queued_on_main(self):
+        snapshot = json.loads((self.run / "snapshot.json").read_text(encoding="utf-8"))
+        for r in snapshot:
+            if r["Handle"] == "heat":
+                r["Image Src"] = "https://cdn/old.jpg"
+        (self.run / "snapshot.json").write_text(json.dumps(snapshot), encoding="utf-8")
+        files = {"batches.json": json.dumps([{"batch_id": "ambiguous-queue", "total": 1}]),
+                 "data/ambiguous-queue.json": json.dumps([{"handle": "heat", "choice": "manual",
+                                                           "image_src": "https://new.jpg", "overview": ""}]),
+                 "data/_handle-index.json": json.dumps({"heat": {"batch": "ambiguous-queue", "status": "queued"}})}
+        args = build_parser().parse_args(["apply", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker),
+                                          "-q", "--yes"])
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_command(args, read_text=files.get)
+        with open(self.run / "import" / "image.csv", newline="", encoding="utf-8") as f:
+            self.assertEqual([r["Image Src"] for r in csv.DictReader(f)], ["https://new.jpg"])  # overwrote: current cycle
+        self.assertIn("differs", (self.run / "apply.log").read_text(encoding="utf-8"))
 
     def test_apply_reads_picks_through_the_injected_reader(self):
         files = {"batches.json": json.dumps([{"batch_id": "ambiguous-queue", "total": 1}]),

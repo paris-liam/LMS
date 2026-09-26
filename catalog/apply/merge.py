@@ -60,7 +60,9 @@ def _pick_values(pick: Pick, row: dict, current_cycle: bool) -> dict | None:
     return values
 
 
-def merge(rows: list[dict], autofix: dict, picks: list[Pick], registry: dict) -> MergeResult:
+def merge(rows: list[dict], autofix: dict, picks: list[Pick], registry: dict, run_id: str | None = None) -> MergeResult:
+    """`run_id`: picks already applied in this same run are re-emitted, so
+    re-running apply on a run always rewrites the complete set of files."""
     by_handle = {r["Handle"]: r for r in rows}
     result = MergeResult()
     planned: dict[tuple[str, str], Change] = {}
@@ -75,23 +77,38 @@ def merge(rows: list[dict], autofix: dict, picks: list[Pick], registry: dict) ->
             if before != after:
                 planned[(handle, field_name)] = Change(handle, field_name, before, after, AUTO_FIX_SOURCE)
 
+    if run_id is not None:
+        for handle, entry in registry.items():
+            if entry.get("status") != "applied" or entry.get("run") != run_id or handle not in by_handle:
+                continue
+            for field_name, after in (entry.get("values") or {}).items():
+                before = by_handle[handle].get(field_name, "") or ""
+                if before != after:
+                    planned[(handle, field_name)] = Change(handle, field_name, before, after, f"applied:{run_id}")
+
     latest: dict[str, Pick] = {}
     for pick in picks:  # manifest order: a later batch wins
         latest[pick.handle] = pick
 
     for handle, pick in latest.items():
-        status = (registry.get(handle) or {}).get("status")
+        entry = registry.get(handle) or {}
+        status = entry.get("status")
         if status in ("applied", "resolved"):
             continue
+        # A handle queued in a current queue belongs to that queue's card: a
+        # pick from an older batch may fill gaps but never overwrite or skip it.
+        current_cycle = status == "queued" and pick.batch == entry.get("batch")
         if pick.choice == "skip":
-            if status != "skipped":
+            if status == "queued" and not current_cycle:
+                result.ignored.append((handle, f"skip in {pick.batch} superseded by the card in {entry.get('batch')}"))
+            elif status != "skipped":
                 result.skipped.append(handle)
             continue
         row = by_handle.get(handle)
         if row is None:
             result.ignored.append((handle, f"pick in {pick.batch} for a product not in the snapshot"))
             continue
-        values = _pick_values(pick, row, current_cycle=(status == "queued"))
+        values = _pick_values(pick, row, current_cycle=current_cycle)
         if values is None:
             result.ignored.append((handle, f"empty manual pick in {pick.batch}"))
             continue

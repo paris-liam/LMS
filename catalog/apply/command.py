@@ -63,8 +63,22 @@ def run_command(args, read_text=None, stdin=None) -> int:
     picks = load_picks(read_text)
     log.summary(f"{len(picks)} picks read from {source}")
 
+    # The working-tree registry is the one we update; the deploy branch's
+    # registry (when reading picks from it) also knows cards queued on main
+    # since this branch forked. Merge sees both; local entries win.
     registry = load_registry(picker_dir)
-    result = merge(rows, autofix, picks, registry)
+    view, registry_warning = registry, None
+    if not args.local_picks:
+        remote_text = read_text("data/_handle-index.json")
+        if remote_text is not None:
+            remote = json.loads(remote_text)
+            view = {**remote, **registry}
+            differing = [h for h in set(remote) | set(registry) if remote.get(h) != registry.get(h)]
+            if differing:
+                registry_warning = (f"the working-tree registry differs from {source} for {len(differing)} handles — "
+                                    f"commit {config.PICKER_REL}/data/_handle-index.json and merge it into "
+                                    f"{config.PICKER_BRANCH} so both agree")
+    result = merge(rows, autofix, picks, view, run_id=run_dir.name)
     files = build_import_files(result.changes, {r["Handle"]: r for r in rows})
 
     details = run_dir / "apply-plan.csv"
@@ -82,14 +96,12 @@ def run_command(args, read_text=None, stdin=None) -> int:
            f"{len(result.resolved)} -> resolved (already in Shopify)",
            f"ignored: {len(result.ignored)} (see apply.log with -v)"],
         samples=[f"{c.handle} {c.field}: {c.before[:40]!r} -> {c.after[:60]!r} ({c.source})" for c in result.changes],
-        warnings=warnings_for(files, result.changes),
+        warnings=warnings_for(files, result.changes) + ([registry_warning] if registry_warning else []),
         details_path=details,
     )
     import_dir = run_dir / "import"
     if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
-        if plan.count == 0 and import_dir.exists():
-            write_import_files(import_dir, {})  # nothing left to import: clear stale files
-        return 0
+        return 0  # never touch import/ without approval
 
     paths = write_import_files(import_dir, files)
     for handle, values in result.applied.items():
@@ -104,6 +116,7 @@ def run_command(args, read_text=None, stdin=None) -> int:
         log.summary(f"  {path.name}")
     log.summary("Import each in Shopify admin → Products → Import, with 'Overwrite products with matching handles' on.")
     log.summary("The next audit confirms each applied pick landed (applied -> resolved).")
-    log.summary(f"The registry changed locally ({config.PICKER_REL}/data/_handle-index.json) — "
-                "it is published with the next `picker push`, or commit it yourself.")
+    log.summary(f"The registry changed in the working tree ({config.PICKER_REL}/data/_handle-index.json) — "
+                f"commit it and merge it into {config.PICKER_BRANCH}; if it is lost, the next apply "
+                "won't know these handles were already applied.")
     return 0

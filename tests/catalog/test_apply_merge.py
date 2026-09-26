@@ -73,7 +73,7 @@ class TestPicks(unittest.TestCase):
         self.assertIn("empty manual pick", result.ignored[0][1])
 
     def test_skip_pick(self):
-        result = merge([row()], {}, [Pick("q", "the-thing", "skip")], QUEUED)
+        result = merge([row()], {}, [Pick("ambiguous-queue", "the-thing", "skip")], QUEUED)
         self.assertEqual(result.skipped, ["the-thing"])
         self.assertEqual(result.changes, [])
 
@@ -106,6 +106,32 @@ class TestPicks(unittest.TestCase):
         result = merge([row("b"), row("a")], {"b": {"changes": {"Vendor": "DVD"}, "rules": []},
                                               "a": {"changes": {"Vendor": "DVD"}, "rules": []}}, [], {})
         self.assertEqual([c.handle for c in result.changes], ["a", "b"])
+
+
+class TestReviewFixes(unittest.TestCase):
+    def test_old_batch_manual_pick_for_a_queued_handle_only_fills_gaps(self):
+        result = merge([row(**{"Image Src": "https://cdn/current.jpg"})], {},
+                       [Pick("review-ambigeous-queue-8.31-1", "the-thing", "manual",
+                             image_src="https://old.jpg", overview="Old.")], QUEUED)
+        c = changes_of(result)
+        self.assertNotIn(("the-thing", "Image Src"), c)
+        self.assertEqual(c[("the-thing", "Body (HTML)")][0], "<p>Old.</p>")
+
+    def test_old_batch_skip_for_a_queued_handle_is_ignored(self):
+        result = merge([row()], {}, [Pick("review-9.2-gaps", "the-thing", "skip")], QUEUED)
+        self.assertEqual(result.skipped, [])
+        self.assertIn("superseded", result.ignored[0][1])
+
+    def test_this_runs_applied_picks_are_reemitted(self):
+        registry = {"the-thing": {"batch": "ambiguous-queue", "status": "applied", "run": "r1",
+                                  "values": {"Image Src": "https://img/x.jpg"}}}
+        result = merge([row()], {}, [], registry, run_id="r1")
+        self.assertEqual(changes_of(result), {("the-thing", "Image Src"): ("https://img/x.jpg", "applied:r1")})
+        self.assertEqual(result.applied, {})  # already recorded; not re-marked
+
+    def test_another_runs_applied_picks_are_not_reemitted(self):
+        registry = {"the-thing": {"status": "applied", "run": "r0", "values": {"Image Src": "https://img/x.jpg"}}}
+        self.assertEqual(merge([row()], {}, [], registry, run_id="r1").changes, [])
 
 
 if __name__ == "__main__":
