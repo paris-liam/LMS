@@ -1,0 +1,235 @@
+"""Libib page operations (Playwright). Moved verbatim from
+formatting-scripts/libib_sync_fix.py minus its hardcoded credentials and CLI.
+For each item: search `call:<call_number>` (exactly one hit), fix the copy
+barcode, then title/description/tags/poster in the Edit form, and reload to
+verify what persisted. Imported only by catalog.libib.fix.run_fixer.
+"""
+
+from pathlib import Path
+
+from playwright.sync_api import Page, TimeoutError as PlaywrightTimeoutError
+
+LIBIB_LOGIN_URL = "https://www.libib.com/login"
+
+
+def login(page: Page, email: str, password: str) -> None:
+    page.goto(LIBIB_LOGIN_URL)
+    page.get_by_role("textbox", name="Email").fill(email)
+    page.get_by_role("button", name="Next").click()
+    page.get_by_role("textbox", name="Password").fill(password)
+    page.get_by_role("button", name="Sign In").click()
+    page.wait_for_url("**/library", timeout=15000)
+
+
+def ensure_rental_library_scope(page: Page) -> None:
+    """Libib persists "last viewed collection" server-side, and it silently
+    flips between sessions (observed 2026-09-20) -- if the active scope is
+    some other collection, every search on this page silently searches
+    that (usually near-empty) collection instead and returns nothing,
+    which looks exactly like "item not found" errors. Never trust the
+    default; force it back to Rental Library on every fresh page load.
+    The underlying <select> is a hidden "chosen.js" widget -- a raw JS
+    value/change-event hack does NOT reliably register with it (observed
+    causing a stuck/wrong scope), so this must be a real UI click."""
+    current = page.locator(".chosen-container").first
+    try:
+        current.wait_for(state="visible", timeout=5000)
+    except PlaywrightTimeoutError:
+        return  # no collection switcher on this page, nothing to do
+    if current.inner_text().strip().startswith("Rental Library"):
+        return
+    current.click()
+    page.wait_for_timeout(400)
+    page.locator(".chosen-results li", has_text="Rental Library").click()
+    page.wait_for_timeout(800)
+
+
+def open_item(page: Page, call_number: str):
+    """Searches and opens the item detail page. Returns None on success,
+    or a (status, message) error tuple."""
+    page.goto("https://www.libib.com/library")
+    ensure_rental_library_scope(page)
+    search = page.locator("#search")
+    search.fill(f"call:{call_number}")
+    search.press("Enter")
+
+    items = page.locator(".item-title")
+    try:
+        items.first.wait_for(state="visible", timeout=8000)
+    except PlaywrightTimeoutError:
+        return "error", "no item found for this call number"
+    page.wait_for_timeout(400)
+    count = items.count()
+    if count > 1:
+        return "error", f"{count} items matched this call number -- ambiguous"
+
+    items.first.click()
+    try:
+        page.locator(".item-edit-button").first.wait_for(state="visible", timeout=8000)
+    except PlaywrightTimeoutError:
+        return "error", "item page did not load"
+    return None
+
+
+def fix_barcode(page: Page, call_number: str):
+    """Returns (status, message). status is one of updated/skipped/error."""
+    try:
+        page.locator(".li-copies a").first.wait_for(state="visible", timeout=8000)
+    except PlaywrightTimeoutError:
+        return "error", "no Copies link on item page"
+    page.locator(".li-copies a").first.click()
+
+    rows = page.locator("table tbody tr")
+    try:
+        rows.first.wait_for(state="visible", timeout=5000)
+    except PlaywrightTimeoutError:
+        return "error", "no copy rows found after expanding Copies"
+    if rows.count() > 1:
+        return "error", f"{rows.count()} copies on this item -- needs manual review"
+
+    row = rows.first
+    barcode_input = row.locator(".copy-barcode-value input")
+    if barcode_input.input_value() == call_number:
+        return "skipped", "barcode already matches call_number"
+
+    row.locator(".copy-lock-icon .lock-icon").click()
+    try:
+        page.locator(".modal-delete").wait_for(state="visible", timeout=3000)
+        page.locator(".modal-delete").click()
+    except PlaywrightTimeoutError:
+        pass  # field may already be unlocked from a prior run
+
+    barcode_input.fill(call_number)
+    row.locator(".save-copy-button").click()
+    page.wait_for_timeout(600)
+
+    # Libib surfaces a genuine collision as a toast, not a silent failure --
+    # distinguish "another item already owns this barcode" from "the save
+    # just didn't persist" so the report tells a human what to actually do.
+    collision = page.locator(".notification-error", has_text="Barcode already exists")
+    if collision.count():
+        return "error", "Barcode already exists -- another item already owns this call number as its barcode"
+
+    # The input's in-memory value proves nothing -- it still shows what we
+    # just typed regardless of whether the save actually persisted (a known
+    # ~8% flake). Reload the item from scratch and re-read.
+    verified_value = _read_barcode_fresh(page, call_number)
+    if verified_value != call_number:
+        return "error", f"save did not persist -- reloaded value is '{verified_value}'"
+    return "updated", "ok"
+
+
+def _read_barcode_fresh(page: Page, call_number: str) -> str:
+    """Re-fetches the item from a clean page load and returns its current
+    barcode value, bypassing any client-side state we may have just set."""
+    err = open_item(page, call_number)
+    if err:
+        return f"<reload failed: {err[1]}>"
+    page.locator(".li-copies a").first.wait_for(state="visible", timeout=8000)
+    page.locator(".li-copies a").first.click()
+    page.locator("table tbody tr").first.wait_for(state="visible", timeout=8000)
+    return page.locator("table tbody tr").first.locator(".copy-barcode-value input").input_value()
+
+
+def fix_content(page: Page, title: str, description: str, tags: str, image_path: str):
+    """Returns (status, message). status is one of updated/skipped/error."""
+    page.locator(".item-edit-button").first.click()
+    page.wait_for_timeout(400)
+    try:
+        page.get_by_text("Edit", exact=True).first.click()
+    except Exception:
+        return "error", "could not open Edit form from the item menu"
+    try:
+        page.locator("input[name='title']").first.wait_for(state="visible", timeout=8000)
+    except PlaywrightTimeoutError:
+        return "error", "Edit form did not load"
+
+    title_input = page.locator("input[name='title']").first
+    desc_input = page.locator("textarea[name='description']").first
+    tags_input = page.locator("input.tags-autocomplete[name='tags']").first
+
+    changed = []
+    if title_input.input_value().strip() != title.strip():
+        title_input.fill(title.strip())
+        changed.append("title")
+    if desc_input.input_value().strip() != description.strip():
+        desc_input.fill(description.strip())
+        changed.append("description")
+
+    from catalog.libib.fields import normalized_tag_set
+
+    if normalized_tag_set(tags_input.input_value()) != normalized_tag_set(tags):
+        tags_input.fill(tags.strip())
+        changed.append("tags")
+
+    if image_path.strip():
+        image_file = Path(image_path.strip())
+        if not image_file.exists():
+            return "error", f"image file not found: {image_path}"
+        page.locator("input#cover-image").set_input_files(str(image_file))
+        changed.append("poster")
+
+    if not changed:
+        return "skipped", "title/description/tags/poster already correct"
+
+    page.locator("input#edit-item-submit").click()
+    page.wait_for_timeout(1000)
+    return "updated", f"changed: {', '.join(changed)}"
+
+
+def verify_content(page: Page, call_number: str, title: str, description: str, tags: str):
+    """Re-opens the item fresh and confirms title/description/tags
+    persisted. Returns None if all good, or an error message string."""
+    err = open_item(page, call_number)
+    if err:
+        return f"could not reload item after save: {err[1]}"
+    page.locator(".item-edit-button").first.click()
+    page.wait_for_timeout(400)
+    page.get_by_text("Edit", exact=True).first.click()
+    try:
+        page.locator("input[name='title']").first.wait_for(state="visible", timeout=8000)
+    except PlaywrightTimeoutError:
+        return "Edit form did not reload"
+
+    from catalog.libib.fields import normalized_tag_set
+
+    verified_title = page.locator("input[name='title']").first.input_value().strip()
+    verified_desc = page.locator("textarea[name='description']").first.input_value().strip()
+    verified_tags = page.locator("input.tags-autocomplete[name='tags']").first.input_value()
+
+    if verified_title != title.strip():
+        return f"title did not persist -- reloaded value is {verified_title!r}"
+    if verified_desc != description.strip():
+        return f"description did not persist -- reloaded value is {verified_desc!r}"
+    if normalized_tag_set(verified_tags) != normalized_tag_set(tags):
+        return f"tags did not persist -- reloaded value is {verified_tags!r}"
+    return None
+
+
+def sync_item(page: Page, row: dict):
+    """Returns (barcode_status, content_status, message)."""
+    call_number = row["call_number"].strip()
+
+    err = open_item(page, call_number)
+    if err:
+        return "error", "error", err[1]
+
+    barcode_status, barcode_message = fix_barcode(page, call_number)
+
+    # Re-open cleanly before the content fix -- the Copies-tab interaction
+    # can leave the page in a state the Edit button doesn't reliably act on.
+    err = open_item(page, call_number)
+    if err:
+        return barcode_status, "error", f"barcode: {barcode_message} | content: could not reopen item: {err[1]}"
+
+    content_status, content_message = fix_content(
+        page, row["title"], row["description"], row.get("tags", ""), row.get("image_path", "")
+    )
+
+    if content_status == "updated":
+        verify_err = verify_content(page, call_number, row["title"], row["description"], row.get("tags", ""))
+        if verify_err:
+            content_status, content_message = "error", verify_err
+
+    message = f"barcode: {barcode_message} | content: {content_message}"
+    return barcode_status, content_status, message
