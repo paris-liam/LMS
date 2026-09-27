@@ -11,10 +11,11 @@ from catalog.errors import CatalogError
 
 from catalog.apply import command as apply_command
 from catalog.audit import command as audit_command
+from catalog.client_sheet import command as client_sheet_command
 from catalog.libib import command as libib_command
 from catalog.picker import command as picker_command
 
-COMMANDS: list = [audit_command, picker_command, apply_command, libib_command]  # modules with register(subparsers), in help order
+COMMANDS: list = [audit_command, picker_command, apply_command, libib_command, client_sheet_command]  # modules with register(subparsers), in help order
 
 
 def build_parser() -> argparse.ArgumentParser:
