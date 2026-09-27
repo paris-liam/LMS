@@ -126,5 +126,17 @@ class TestCollectProducts(unittest.TestCase):
 
 
 
+class TestInvalidKey(unittest.TestCase):
+    def test_an_invalid_key_stops_collection_instead_of_empty_cards(self):
+        from catalog.errors import CatalogError
+
+        def bad_key(query, year):
+            raise CatalogError("TMDB rejected TMDB_API_KEY (HTTP 401)")
+
+        with self.assertRaises(CatalogError):
+            collect_products([{"Handle": "x", "Title": "X", "Kind": "ambiguous", "Reason": "r"}],
+                             bad_key, sleep_fn=lambda s: None)
+
+
 if __name__ == "__main__":
     unittest.main()

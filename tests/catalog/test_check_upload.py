@@ -177,6 +177,15 @@ class TestCli(unittest.TestCase):
         self.assertEqual(self.run_cli(_write(bad, TEMPLATE_COLUMNS)), 1)
         self.assertEqual(self.run_cli(os.path.join(TEMPLATE_DIR, "no-such-file.csv")), 2)
 
+    def test_a_google_sheets_bom_download_is_accepted(self):
+        with open(GOOD_IMPORT, encoding="utf-8") as handle:
+            body = handle.read()
+        path = tempfile.NamedTemporaryFile("w", suffix=".csv", delete=False, encoding="utf-8")
+        path.write("\ufeff" + body)
+        path.close()
+        self.addCleanup(os.unlink, path.name)
+        self.assertEqual(self.run_cli(path.name), 0)
+
 
 if __name__ == "__main__":
     unittest.main()

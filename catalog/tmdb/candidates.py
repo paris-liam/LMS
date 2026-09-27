@@ -6,6 +6,8 @@ page generator is gone — the hosted picker replaced it.
 
 import time
 
+from catalog.errors import CatalogError
+
 from catalog.tmdb.match import (
     GLOBAL_YEAR_CUTOFF,
     REQUEST_DELAY_SECONDS,
@@ -92,6 +94,8 @@ def collect_products(
         try:
             candidates = fetch_candidates(fetch_fn, clean_title, year, genre=entry["genre"])
             message = f"{len(candidates)} candidate(s)"
+        except CatalogError:
+            raise  # a bad key: stop before any card is published or registered
         except Exception as exc:
             candidates = []
             message = f"TMDB request failed: {exc}"
