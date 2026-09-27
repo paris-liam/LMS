@@ -99,6 +99,9 @@
     "batch": "unmatched-queue",
     "status": "queued"
   },
+  "ambulance-collectors-edition": {
+    "status": "skipped"
+  },
   "ambushed-dvd-rental-action": {
     "batch": "ambiguous-queue",
     "status": "queued"
@@ -239,6 +242,9 @@
     "batch": "ambiguous-queue",
     "status": "queued"
   },
+  "babylon": {
+    "status": "skipped"
+  },
   "backdraft-dvd-rental-action": {
     "batch": "ambiguous-queue",
     "status": "queued"
@@ -323,6 +329,9 @@
     "batch": "unmatched-queue",
     "status": "queued"
   },
+  "becky": {
+    "status": "skipped"
+  },
   "before-and-after": {
     "batch": "ambiguous-queue",
     "status": "queued"
@@ -402,6 +411,9 @@
   "boys-dont-cry-vhs-floor-sale-drama": {
     "batch": "ambiguous-queue",
     "status": "queued"
+  },
+  "brass": {
+    "status": "skipped"
   },
   "breakfast-club-the-4k-uhd-blu-ray-floor-sale-comedy": {
     "batch": "ambiguous-queue",
@@ -2007,6 +2019,9 @@
     "batch": "ambiguous-queue",
     "status": "queued"
   },
+  "love-and-monsters-dvd-rental-action": {
+    "status": "skipped"
+  },
   "love-kills-vhs-floor-sale-thriler": {
     "batch": "ambiguous-queue",
     "status": "queued"
@@ -2138,6 +2153,9 @@
   "mickeys-once-upon-a-christmas-dvd-floor-sale-kids-family": {
     "batch": "ambiguous-queue",
     "status": "queued"
+  },
+  "midnight-strangers": {
+    "status": "skipped"
   },
   "miiii-dvd-5": {
     "batch": "ambiguous-queue",
@@ -2354,6 +2372,9 @@
   "nature-of-the-beast-vhs-floor-sale-thriller": {
     "batch": "ambiguous-queue",
     "status": "queued"
+  },
+  "neighbors-2": {
+    "status": "skipped"
   },
   "neighbors-bluray-rental-comedy": {
     "batch": "ambiguous-queue",
@@ -2959,6 +2980,9 @@
     "batch": "unmatched-queue",
     "status": "queued"
   },
+  "scala-or-the-incredibly-strange-rise-and-fall-of-the-worlds-wildest-cinema-and-how-it-influenced-a-mixed-up-generation-of-weirdos-and-misfits": {
+    "status": "skipped"
+  },
   "scandalous-vhs-floor-sale-thriller": {
     "batch": "ambiguous-queue",
     "status": "queued"
@@ -3311,6 +3335,9 @@
     "batch": "ambiguous-queue",
     "status": "queued"
   },
+  "streetkill": {
+    "status": "skipped"
+  },
   "streetwise-bluray-rental-criterion-collection-documentary": {
     "batch": "ambiguous-queue",
     "status": "queued"
@@ -3394,6 +3421,9 @@
   "taking-chance-dvd-floor-sale-drama": {
     "batch": "ambiguous-queue",
     "status": "queued"
+  },
+  "talk-to-me": {
+    "status": "skipped"
   },
   "tall-tales-legends-annie-oakley-vhs-rental-drama": {
     "batch": "unmatched-queue",
