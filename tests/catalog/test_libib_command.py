@@ -128,6 +128,15 @@ class TestPrepareCommand(LibibCase):
         self.assertEqual(self.state()["alien"],
                          {"status": "queued", "batch": "batch-0001", "call_number": "03333333"})
 
+    def test_prepare_never_offers_a_needs_review_rental(self):
+        self.diff()
+        state = self.state()
+        state["alien"] = {"status": "needs-review", "note": "sync error"}
+        (self.sync / "_state.json").write_text(json.dumps(state), encoding="utf-8")
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+        self.assertFalse((self.sync / "batch-0001").exists())
+
     def test_prepare_skips_handles_queued_since_the_diff(self):
         self.diff()
         with contextlib.redirect_stdout(io.StringIO()):

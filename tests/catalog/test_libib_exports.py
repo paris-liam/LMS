@@ -52,6 +52,12 @@ class TestLoadLibib(unittest.TestCase):
         self.assertIn("barcodes.csv", str(ctx.exception))
         self.assertIn("call_number", str(ctx.exception))
 
+    def test_unknown_collection_lists_the_real_ones(self):
+        with self.assertRaises(InputShapeError) as ctx:
+            load_libib(self.barcodes, self.collection, collection="Rental library")
+        self.assertIn("Rental Library", str(ctx.exception))
+        self.assertIn("Untracked", str(ctx.exception))
+
     def test_missing_file_is_an_input_error(self):
         with self.assertRaises(InputShapeError):
             load_libib(self.dir / "nope.csv", self.collection)

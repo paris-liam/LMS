@@ -37,10 +37,21 @@ class TestDiff(unittest.TestCase):
         result = diff([rental()], [item(title=" Jaws ", description="A  shark.", tags="VHS, Horror")], {})
         self.assertEqual(result.in_sync, ["jaws"])
 
-    def test_poster_drift_only_when_a_poster_src_is_recorded(self):
+    def test_poster_drift_when_the_uploaded_poster_differs(self):
         self.assertEqual(fields(diff([rental()], [item()], {"jaws": {"status": "done", "poster_src": "https://cdn/old.jpg"}})),
                          {"poster"})
-        self.assertEqual(diff([rental()], [item()], {"jaws": {"status": "done"}}).in_sync, ["jaws"])
+
+    def test_tracked_rental_with_an_unconfirmed_poster_is_poster_drift(self):
+        result = diff([rental()], [item()], {"jaws": {"status": "done"}})
+        self.assertEqual(fields(result), {"poster"})
+        self.assertEqual(result.drift[0]["libib"], "unconfirmed")
+
+    def test_untracked_rental_is_in_sync_without_poster_evidence(self):
+        self.assertEqual(diff([rental()], [item()], {}).in_sync, ["jaws"])
+
+    def test_no_poster_drift_when_shopify_has_no_image(self):
+        result = diff([rental(**{"Image Src": ""})], [item()], {"jaws": {"status": "done"}})
+        self.assertEqual(result.in_sync, ["jaws"])
 
     def test_missing_and_complete_is_eligible(self):
         result = diff([rental()], [], {})
@@ -94,15 +105,34 @@ class TestDiff(unittest.TestCase):
     def test_in_sync_in_flight_or_needs_review_is_promoted(self):
         for status in ("queued", "imported", "needs-review"):
             with self.subTest(status=status):
-                state = {"jaws": {"status": status, "batch": "batch-0001"}}
+                state = {"jaws": {"status": status, "batch": "batch-0001", "poster_src": "https://cdn/j.jpg"}}
                 result = diff([rental()], [item()], state)
                 self.assertEqual(result.promoted, ["jaws"])
-                self.assertEqual(state["jaws"], {"status": "done", "batch": "batch-0001"})
+                self.assertEqual(state["jaws"]["status"], "done")
 
     def test_drifting_item_is_not_promoted(self):
         state = {"jaws": {"status": "imported"}}
         diff([rental()], [item(title="Wrong")], state)
         self.assertEqual(state["jaws"]["status"], "imported")
+
+
+class TestReviewFixes(unittest.TestCase):
+    def test_needs_review_missing_rental_is_held_not_eligible(self):
+        result = diff([rental()], [], {"jaws": {"status": "needs-review", "note": "do not import yet"}})
+        self.assertEqual(result.eligible, [])
+        self.assertEqual(result.held, [{"handle": "jaws", "call_number": "01577790", "note": "do not import yet"}])
+
+    def test_rental_found_under_its_old_call_number_is_matched_not_eligible(self):
+        state = {"jaws": {"status": "needs-review", "call_number": "191-VHSJAW-001A"}}
+        result = diff([rental()], [item("i9", "191-VHSJAW-001A", barcode="2010000000001")], state)
+        self.assertEqual((result.eligible, result.held, result.orphans), ([], [], []))
+        drift = {d["field"]: d for d in result.drift}
+        self.assertEqual(drift["call_number"]["libib"], "191-VHSJAW-001A")
+
+    def test_old_call_number_shared_by_two_items_is_not_used(self):
+        state = {"jaws": {"status": "done", "call_number": "191-X"}}
+        result = diff([rental()], [item("i1", "191-X"), item("i2", "191-X")], state)
+        self.assertEqual(len(result.eligible), 1)
 
 
 if __name__ == "__main__":

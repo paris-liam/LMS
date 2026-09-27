@@ -55,3 +55,28 @@ First attempt stopped before any edit: the venv's Playwright had no Chromium for
 Result: `95306746,updated,skipped,barcode: ok | content: title/description/tags/poster already correct` — "A Fool and His Money"'s copy barcode set to its call number and verified after a fresh reload; state `imported` (the next diff promotes it to `done`).
 
 No rule looked wrong apart from the tag-split bug above.
+
+## Correction after the final review (2026-09-26)
+
+The final review found that `needs-review` rentals were offered for import. On the real data **293 of the 302 "eligible" rentals were `needs-review`**, and 255 of them are already in Libib under their **pre-reprint call numbers** (the `191-…` "orphans" above are the same copies). The `batch-0017: 200 of 302` preview above was therefore mostly duplicates — it was only a dry run; nothing was imported.
+
+Fixed (tests `test_needs_review_missing_rental_is_held_not_eligible`, `test_rental_found_under_its_old_call_number_is_matched_not_eligible`, `test_prepare_never_offers_a_needs_review_rental`):
+- a rental missing by barcode is also looked up under the call number recorded in its state entry; a match is reported as `call_number` drift (manual fix), not as missing;
+- `needs-review` rentals are never eligible and never prepared — they go to `held.csv` for a person;
+- a tracked rental whose poster was never confirmed is poster drift (`fix --drift` uploads it); no poster drift when Shopify has no image;
+- `--collection` naming a collection the export doesn't have now stops with the list of real collection names.
+
+Re-run on the same exports:
+
+```
+in sync:      2511 rentals
+drift:        440 rentals, 935 fields  (poster 411 · barcode 269 · call_number 246 · tags 5 · description 3 · title 1)
+eligible:     9 rentals missing from Libib
+incomplete:   242
+orphans:      45 (31 no Shopify rental · 14 duplicate call numbers)
+blocked:      2
+held:         47 needs-review rentals not found in Libib
+```
+
+- `libib prepare --dry-run` → `batch-0017: 9 rentals (of 9 eligible)`.
+- `libib fix --drift --dry-run` → 194 items the fixer can edit; **246 need a manual call-number fix** in Libib (their call number is still the old `191-…` value; the fixer finds items by call number, so it can't reach them).

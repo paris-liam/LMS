@@ -41,4 +41,7 @@ def load_libib(barcode_export, collection_export, collection: str | None = DEFAU
             "description": descriptions.get(r["id"], ""),
             "collection": item_collection,
         })
+    if collection and items_rows and not items:
+        present = sorted({(r.get("collection") or "").strip() for r in items_rows})
+        raise InputShapeError(f"no items in collection {collection!r} — the export has: {', '.join(present)}")
     return items

@@ -19,13 +19,13 @@ from catalog.core.plan import Plan, add_approval_args, confirm
 from catalog.core.runs import resolve_run
 from catalog.errors import NoRunError
 from catalog.libib.columns import READY_COLUMNS
-from catalog.libib.diff import BLOCKED_COLUMNS, DRIFT_COLUMNS, ELIGIBLE_COLUMNS, ORPHAN_COLUMNS, diff
+from catalog.libib.diff import BLOCKED_COLUMNS, DRIFT_COLUMNS, ELIGIBLE_COLUMNS, HELD_COLUMNS, ORPHAN_COLUMNS, diff
 from catalog.libib.exports import DEFAULT_COLLECTION, load_libib
 from catalog.libib.fields import is_rental
 from catalog.libib.fix import apply_report, drift_ready_rows, drift_targets, read_ready, run_fixer
 from catalog.libib.prepare import download_posters, next_batch_id, write_batch
 from catalog.libib.state import (
-    IN_FLIGHT, counts_by_status, load_state, migrate_poster_src, save_state, set_status, state_path,
+    HELD, counts_by_status, load_state, migrate_poster_src, save_state, set_status, state_path,
 )
 from catalog.shopify.snapshot import load_snapshot
 
@@ -100,6 +100,7 @@ def run_diff_command(args) -> int:
     write_csv(out / "eligible.csv", ELIGIBLE_COLUMNS, result.eligible)
     write_csv(out / "orphans.csv", ORPHAN_COLUMNS, result.orphans)
     write_csv(out / "blocked.csv", BLOCKED_COLUMNS, result.blocked)
+    write_csv(out / "held.csv", HELD_COLUMNS, result.held)
 
     if migrated or result.promoted:
         if state_path(sync_dir).exists():
@@ -115,6 +116,7 @@ def run_diff_command(args) -> int:
         f"incomplete:   {len(result.incomplete)} rentals missing from Libib but not complete in Shopify",
         f"orphans:      {len(result.orphans)} Libib items (no rental / duplicates) -> orphans.csv",
         f"blocked:      {len(result.blocked)} rentals with a bad or shared barcode -> blocked.csv",
+        f"held:         {len(result.held)} needs-review rentals not found in Libib (a person decides) -> held.csv",
         f"state:        {len(result.promoted)} promoted to done, {migrated} poster_src migrated",
     ]
     (out / "libib-report.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -152,7 +154,7 @@ def run_prepare_command(args, download=None, stdin=None) -> int:
     state = load_state(sync_dir)
     rows_by_handle = {r["Handle"]: r for r in load_snapshot(run_dir / "snapshot.json")}
     eligible = _read_csv(eligible_path)
-    chosen = [e for e in eligible if (state.get(e["handle"]) or {}).get("status") not in IN_FLIGHT][: args.size]
+    chosen = [e for e in eligible if (state.get(e["handle"]) or {}).get("status") not in HELD][: args.size]
     batch_id = next_batch_id(sync_dir)
     batch_dir = sync_dir / batch_id
 
@@ -240,7 +242,7 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
         count=count,
         summary=[f"{label}: edits {count} Libib items in the browser (barcode, title, description, tags, poster)",
                  f"report: {ready_path.with_suffix('.sync-report.csv')}"]
-        + ([f"manual fix needed (no call number in Libib): {len(manual)} — {', '.join(manual[:10])}"] if manual else []),
+        + ([f"manual fix needed (Libib call number differs from the Shopify barcode — the fixer finds items by call number): {len(manual)} — {', '.join(manual[:10])}"] if manual else []),
         samples=samples,
     )
     if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):

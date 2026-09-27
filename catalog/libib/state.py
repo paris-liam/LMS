@@ -17,6 +17,8 @@ from catalog.errors import InputShapeError
 
 STATE_FILENAME = "_state.json"
 IN_FLIGHT = ("queued", "imported")
+# Never offered for import again: in flight, or waiting on a person.
+HELD = IN_FLIGHT + ("needs-review",)
 
 
 def state_path(sync_dir) -> Path:
