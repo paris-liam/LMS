@@ -1519,5 +1519,86 @@
     "reason": "no TMDB match",
     "candidates": [],
     "tag": ""
+  },
+  {
+    "handle": "at-worlds-end-hot-fuzz-shaun-of-the-dead-bluray-rental-comedy",
+    "title": "Three Flavours Cornetto",
+    "vendor": "Blu-Ray",
+    "genre": "comedy",
+    "tag": "Rental",
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "harry-potter-8-film-collection-bluray-rental-fantasy",
+    "title": "Harry Potter - 8 Film Collection",
+    "vendor": "Blu-Ray",
+    "genre": "fantasy",
+    "tag": "Rental",
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "lord-of-the-rings-the-motion-picture-trilogy-bluray-rental-fantasy",
+    "title": "Lord of the Rings Trilogy",
+    "vendor": "Blu-Ray",
+    "genre": "fantasy",
+    "tag": "Rental",
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "poos-heffalump-movie-dvd-rental-kids-family",
+    "title": "Poo's Heffalump Movie",
+    "vendor": "DVD",
+    "genre": "kids-family",
+    "tag": "Rental",
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "last-temptation-of-christ-criterion-collection-dvd-floor-sale-drama",
+    "title": "Last Temptation of Christ (Criterion Collection)",
+    "vendor": "DVD",
+    "genre": "drama",
+    "tag": "Floor Sale",
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "in-china-they-eay-dogs-dvd-floor-sale-foreign",
+    "title": "In China They Eay Dogs",
+    "vendor": "DVD",
+    "genre": "foreign",
+    "tag": "Floor Sale",
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "rumble-in-the-brox-dvd-floor-sale-action",
+    "title": "Rumble in the Brox",
+    "vendor": "DVD",
+    "genre": "action",
+    "tag": "Floor Sale",
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "momento-box-set-dvd-floor-sale-thriller",
+    "title": "Momento (Box Set)",
+    "vendor": "DVD",
+    "genre": "thriller",
+    "tag": "Floor Sale",
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "dune-steelbook-dvd-floor-sale-sci-fi",
+    "title": "Dune (Steelbook)",
+    "vendor": "DVD",
+    "genre": "sci-fi",
+    "tag": "Floor Sale",
+    "reason": "no TMDB match",
+    "candidates": []
   }
 ]

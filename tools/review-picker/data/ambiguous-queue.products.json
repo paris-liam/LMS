@@ -36271,5 +36271,1570 @@
       }
     ],
     "tag": "Rental"
+  },
+  {
+    "handle": "out-of-sight-bluray-rental-action",
+    "title": "Out of Sight",
+    "vendor": "Blu-Ray",
+    "genre": "action",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Out of Sight' (1998))",
+    "candidates": [
+      {
+        "id": 1389,
+        "title": "Out of Sight",
+        "year": "1998",
+        "overview": "Meet Jack Foley, a smooth criminal who bends the law and is determined to make one last heist. Karen Sisco is a federal marshal who chooses all the right moves \u2026 and all the wrong guys. Now they're willing to risk it all to find out if there's more between them than just the law.",
+        "poster_path": "/v49q7AMR3pB4M762woWB1NYMCLF.jpg"
+      },
+      {
+        "id": 208130,
+        "title": "Out of Sight",
+        "year": "1966",
+        "overview": "Teenage beach party/spy spoof/musical comedy about a plot to bomb a music fair. As his boss is on vacation, a superspy's butler must come to the rescue, while being pursued by a trio of gorgeous assassins who're agents of F.L.U.S.H. Features George Barris hotrods, along with the musical talents of Gary Lewis and the Playboys, The Astronauts, The Knickerbockers, Freddy and the Dreamers, and the only film appearance of The Turtles.",
+        "poster_path": "/mq8Z6RTYqT59phzWNvIUZvImb44.jpg"
+      },
+      {
+        "id": 144152,
+        "title": "Out of Sight",
+        "year": "2006",
+        "overview": "Ya'ara, a blind PhD candidate in Mathematics at Princeton University, hears of her cousin Talia's suicide. Ya'ara rushes back to Israel. They were best of friends and twin spirits. Talia saw for both of them, and was always the one who believed and led Ya'ara to believe, that in spite of her blindness, Ya'ara could see everything. Ya'ara joins Talia's family for the traditional 7-day mourning period and there, she discovers the secrets of Talia's life and embarks on an investigation trying to discover the reason that led Talia to commit suicide.",
+        "poster_path": "/7gmbJHvWB7BVumS2xtTrJaKKEhV.jpg"
+      },
+      {
+        "id": 1264585,
+        "title": "Out of Sight",
+        "year": "",
+        "overview": "Amidst challenges and uncertainties, Maya's exhibition preparation is disrupted by an unforeseen event involving her longing Nana, unraveling the significance of cherishing moments and imparting a timeless lesson.",
+        "poster_path": "/iPdhvnBwgukMZHRKmycD4izecK9.jpg"
+      },
+      {
+        "id": 221407,
+        "title": "Out of sight",
+        "year": "2013",
+        "overview": "Fontainebleau is one of the most popular climbing destination on the planet, with thousands of boulders spread over hundreds of areas. From the classic areas of the Franchard and Cuvier to the less known areas of Buthiers and JA Martin Come follow a group of the worlds best climbers as they explore the most hidden beautiful boulders of this enchanted forest. They will take you on a journey to parts of the forest you have never heard of and boulders you have never seen, Not only that but boulders just off the paths in the main areas that are so beautiful but seldom climbed.",
+        "poster_path": "/3ukohJJCwamlpIaEdO3XobPdQha.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "a-christmas-story-bluray-rental-holiday",
+    "title": "A Christmas Story",
+    "vendor": "Blu-Ray",
+    "genre": "holiday",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'A Christmas Story' (1983))",
+    "candidates": [
+      {
+        "id": 850,
+        "title": "A Christmas Story",
+        "year": "1983",
+        "overview": "The comic mishaps and adventures of a young boy named Ralph, trying to convince his parents, teachers, and Santa that a Red Ryder B.B. gun really is the perfect Christmas gift for the 1940s.",
+        "poster_path": "/34nSHYqmb7222tiqiuKqKJmZiQa.jpg"
+      },
+      {
+        "id": 50064,
+        "title": "A Christmas Story",
+        "year": "1972",
+        "overview": "On Christmas Eve, a little boy named Timmy was read a Christmas story and tucked into bed. The resident mouse Gumdrop , while admiring the house all decorated for Christmas, noticed Timmy's letter to Santa on the floor. The letter must of have fallen off the table and never got mailed. So he and the family dog Gobber set outside to deliver the letter to Santa and save Christmas for Timmy.",
+        "poster_path": "/jUvhbEBbATQvShGvQec2BabOC3c.jpg"
+      },
+      {
+        "id": 984855,
+        "title": "A Christmas Story",
+        "year": "1913",
+        "overview": "Though her father forbids her to marry Jack Harvey, a poor young artist, Molly Wilson becomes his wife and goes away with him to another town. Bessie, the eldest daughter, an attractive widow with two baby boys and a baby girl, pleads with her father in Molly's behalf, but he is obdurate.",
+        "poster_path": "/bKp0q8DTjS9qvNiwfq4IUPTRodi.jpg"
+      },
+      {
+        "id": 125504,
+        "title": "A Christmas Story 2",
+        "year": "2012",
+        "overview": "The original traditional one-hundred-percent red-blooded two-fisted all-American Christmas continues five years later with Ralphie, Randy, mom and the old man. This time Ralphie has his eyes fixed on a car. But trouble is sure to follow.",
+        "poster_path": "/eBm9Yi8YRxdcIg7mbOiKTdX0G28.jpg"
+      },
+      {
+        "id": 485517,
+        "title": "A Christmas Story Live!",
+        "year": "2017",
+        "overview": "A live broadcast of the Broadway hit \"A Christmas Story: The Musical\" in which Ralphie wishes for nothing more than a Red Rider BB Gun for Christmas.",
+        "poster_path": "/du010f2eoKOXqZ8Uo1h5zlke6Sf.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "home-alone-bluray-rental-holiday",
+    "title": "Home Alone",
+    "vendor": "Blu-Ray",
+    "genre": "holiday",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Home Alone' (1990))",
+    "candidates": [
+      {
+        "id": 889850,
+        "title": "Home Alone",
+        "year": "1969",
+        "overview": "Bad dreams may come true...",
+        "poster_path": "/bZnR6hqhJJZReMt6Pw5aF8IEq2t.jpg"
+      },
+      {
+        "id": 1394614,
+        "title": "Home, Alone",
+        "year": "",
+        "overview": "hello? who's there?",
+        "poster_path": ""
+      },
+      {
+        "id": 771,
+        "title": "Home Alone",
+        "year": "1990",
+        "overview": "Eight-year-old Kevin McCallister makes the most of the situation after his family unwittingly leaves him behind when they go on Christmas vacation. When thieves try to break into his home, he puts up a fight like no other.",
+        "poster_path": "/onTSipZ8R3bliBdKfPtsDuHTdlL.jpg"
+      },
+      {
+        "id": 361393,
+        "title": "Home/Alone",
+        "year": "2015",
+        "overview": "A girl spends a night home alone for the very first time.",
+        "poster_path": ""
+      },
+      {
+        "id": 1174314,
+        "title": "Home Alone",
+        "year": "2018",
+        "overview": "Solitude allows us to explore imaginary worlds.",
+        "poster_path": "/lAYUjJUN032qJ2xWQh0RAAd9zaF.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "elysium-bluray-rental-sci-fi",
+    "title": "Elysium",
+    "vendor": "Blu-Ray",
+    "genre": "sci-fi",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Elysium' (2013))",
+    "candidates": [
+      {
+        "id": 68724,
+        "title": "Elysium",
+        "year": "2013",
+        "overview": "In the year 2159, two classes of people exist: the very wealthy who live on a pristine man-made space station called Elysium, and the rest, who live on an overpopulated, ruined Earth. Secretary Rhodes, a hard line government official, will stop at nothing to enforce anti-immigration laws and preserve the luxurious lifestyle of the citizens of Elysium. That doesn\u2019t stop the people of Earth from trying to get in, by any means they can. When unlucky Max is backed into a corner, he agrees to take on a daunting mission that, if successful, will not only save his life, but could bring equality to these polarized worlds.",
+        "poster_path": "/aRjuJuPXHtVs6YegfeeQWXGRs1E.jpg"
+      },
+      {
+        "id": 1379281,
+        "title": "Elysium",
+        "year": "2009",
+        "overview": "",
+        "poster_path": "/A5VsaV8ROI0B6uzhC7YgFZMw8UO.jpg"
+      },
+      {
+        "id": 52541,
+        "title": "Elysium",
+        "year": "2003",
+        "overview": "In the year 2113, the earth is attacked by the inhabitants of Elysium, a planet located at the end of the Galaxy. Four men join in the final battle to save the planet.",
+        "poster_path": "/clHr9olMUVW2jBQecYYpfUGxaza.jpg"
+      },
+      {
+        "id": 421273,
+        "title": "Elysium",
+        "year": "1986",
+        "overview": "Film about the Holocaust. A Jewish family is allowed to keep the flat they have always lived in and to live a relatively normal life. One day their 10-year old son disappears. He has been sent to a deportation camp which seems like paradise except that the inmates are being used for medical experiments.",
+        "poster_path": "/dOi11WFE1cywqO0pRbnYqYtd3Uh.jpg"
+      },
+      {
+        "id": 1159811,
+        "title": "The Road to Elysium",
+        "year": "",
+        "overview": "Srey Na, a female immigrant from Cambodia, who killed her Korean husband in self-defense, is released on a special pardon for being a model prisoner. On the day she is supposed to be extradited to her home country, she escapes from the airport and heads to a temple in Haenam to meet someone hiding there.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "the-expendables-bluray-rental-action",
+    "title": "The Expendables",
+    "vendor": "Blu-Ray",
+    "genre": "action",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'The Expendables' (2010))",
+    "candidates": [
+      {
+        "id": 27578,
+        "title": "The Expendables",
+        "year": "2010",
+        "overview": "Barney Ross leads a band of highly skilled mercenaries including knife enthusiast Lee Christmas, a martial arts expert Yin Yang, heavy weapons specialist Hale Caesar, demolitionist Toll Road, and a loose-cannon sniper Gunner Jensen. When the group is commissioned by the mysterious Mr. Church to assassinate the dictator of a small South American island, Barney and Lee visit the remote locale to scout out their opposition and discover the true nature of the conflict engulfing the city.",
+        "poster_path": "/j09ZkH6R4JWVylBcDai1laCmGw7.jpg"
+      },
+      {
+        "id": 199949,
+        "title": "The Expendables",
+        "year": "1988",
+        "overview": "Captain Baronski, assigned a squad of misfit soldiers, trains them into a fighting powerhouse \"The Expendables.\" Breaking every rule, they must risk their lives crossing into Cambodia to save the American hostages.",
+        "poster_path": "/e3QNCdGOc1KrdKJOBeuxndhLytH.jpg"
+      },
+      {
+        "id": 182002,
+        "title": "The Expendables",
+        "year": "2000",
+        "overview": "A group of female convicts volunteers for a mission to rescue a woman from a Cuban prison.",
+        "poster_path": "/pW9UrCjuZ9UcLMXk6wUiEINrqud.jpg"
+      },
+      {
+        "id": 138103,
+        "title": "The Expendables 3",
+        "year": "2014",
+        "overview": "Barney, Christmas and the rest of the team comes face-to-face with Conrad Stonebanks, who years ago co-founded The Expendables with Barney. Stonebanks subsequently became a ruthless arms trader and someone who Barney was forced to kill\u2026 or so he thought. Stonebanks, who eluded death once before, now is making it his mission to end The Expendables -- but Barney has other plans. Barney decides that he has to fight old blood with new blood, and brings in a new era of Expendables team members, recruiting individuals who are younger, faster and more tech-savvy. The latest mission becomes a clash of classic old-school style versus high-tech expertise in the Expendables\u2019 most personal battle yet.",
+        "poster_path": "/utS5euWHlEdKBNnEFwjpZ2oGuhF.jpg"
+      },
+      {
+        "id": 76163,
+        "title": "The Expendables 2",
+        "year": "2012",
+        "overview": "Mr. Church reunites the Expendables for what should be an easy paycheck, but when one of their men is murdered on the job, their quest for revenge puts them deep in enemy territory and up against an unexpected threat.",
+        "poster_path": "/74rTIGyGoIu5KSxDVMdr8H3MtMo.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "alice-in-wonderland-bluray-rental-kids-family",
+    "title": "Alice in Wonderland",
+    "vendor": "Blu-Ray",
+    "genre": "kids-family",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Alice in Wonderland' (2010))",
+    "candidates": [
+      {
+        "id": 12155,
+        "title": "Alice in Wonderland",
+        "year": "2010",
+        "overview": "Alice, now 19 years old, returns to the whimsical world she first entered as a child and embarks on a journey to discover her true destiny.",
+        "poster_path": "/o0kre9wRCZz3jjSjaru7QU0UtFz.jpg"
+      },
+      {
+        "id": 12092,
+        "title": "Alice in Wonderland",
+        "year": "1951",
+        "overview": "On a golden afternoon, wildly curious young Alice tumbles into the burrow and enters the merry, madcap world of Wonderland full of whimsical escapades.",
+        "poster_path": "/20cvfwfaFqNbe9Fc3VEHJuPRxmn.jpg"
+      },
+      {
+        "id": 30923,
+        "title": "Alice in Wonderland",
+        "year": "1999",
+        "overview": "Alice follows a white rabbit down a rabbit-hole into a whimsical Wonderland, where she meets characters like the delightful Cheshire Cat, the clumsy White Knight, a rude caterpillar, and the hot-tempered Queen of Hearts and can grow ten feet tall or shrink to three inches. But will she ever be able to return home?",
+        "poster_path": "/kpXmXjqeyuSYCtNuGMytWQLdKX.jpg"
+      },
+      {
+        "id": 25694,
+        "title": "Alice in Wonderland",
+        "year": "1933",
+        "overview": "In Victorian England, a bored young girl dreams that she has entered a fantasy world called Wonderland, populated by even more fantastic characters.",
+        "poster_path": "/k4hlsqfhEtTrEtiDE647qxTR6PI.jpg"
+      },
+      {
+        "id": 41278,
+        "title": "Alice in Wonderland",
+        "year": "1903",
+        "overview": "This is the first movie version of the famous story. Alice dozes in a garden, awakened by a dithering white rabbit in waistcoat with pocket watch. She follows him down a hole and finds herself in a hall of many doors.",
+        "poster_path": "/gEgsAWaOC1Emw8eCd2ckKS23uZg.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-adventures-of-ichabod-and-mr-toad-bluray-rental-kids-family",
+    "title": "Ichabod and Mr. Toad",
+    "vendor": "Blu-Ray",
+    "genre": "kids-family",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'The Adventures of Ichabod and Mr. Toad' (1949))",
+    "candidates": [
+      {
+        "id": 13465,
+        "title": "The Adventures of Ichabod and Mr. Toad",
+        "year": "1949",
+        "overview": "The Wind in the Willows: Concise version of Kenneth Grahame's story of the same name. J. Thaddeus Toad, owner of Toad Hall, is prone to fads, such as the newfangled motor car. This desire for the very latest lands him in much trouble with the wrong crowd, and it is up to his friends, Mole, Rat and Badger to save him from himself. - The Legend of Sleepy Hollow: Retelling of Washington Irving's story set in a tiny New England town. Ichabod Crane, the new schoolmaster, falls for the town beauty, Katrina Van Tassel, and the town Bully Brom Bones decides that he is a little too successful and needs \"convincing\" that Katrina is not for him.",
+        "poster_path": "/o6GfVkgPaaHJnXNywDLpHJII2tW.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "sherlock-holmes-bluray-rental-action",
+    "title": "Sherlock Holmes",
+    "vendor": "Blu-Ray",
+    "genre": "action",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Sherlock Holmes' (2009))",
+    "candidates": [
+      {
+        "id": 10528,
+        "title": "Sherlock Holmes",
+        "year": "2009",
+        "overview": "Eccentric consulting detective Sherlock Holmes and Doctor John Watson battle to bring down a new nemesis and unravel a deadly plot that could destroy England.",
+        "poster_path": "/momkKuWburNTqKBF6ez7rvhYVhE.jpg"
+      },
+      {
+        "id": 33555,
+        "title": "Sherlock Holmes",
+        "year": "2010",
+        "overview": "Sherlock Holmes and Watson are on the trail of a criminal and scientific mastermind who seems to control monsters and creations which defy belief.",
+        "poster_path": "/wsJkEzktZV83DXlQItsO1ooGGq0.jpg"
+      },
+      {
+        "id": 336567,
+        "title": "Sherlock Holmes",
+        "year": "2011",
+        "overview": "Sherlock Holmes is called upon to deal with a serial killer.",
+        "poster_path": "/gbSbhgI0nvkt7h0h5gdfL2MPih6.jpg"
+      },
+      {
+        "id": 163171,
+        "title": "Sherlock Holmes",
+        "year": "1932",
+        "overview": "Moriarty is sentenced to death, and Sherlock Holmes prepares to retire to the country and marry his girl. But Moriarty has sworn that Holmes, Lt. Col. Gore-King of Scotland Yard, and his trial judge shall all be hanged too. When Moriarty escapes and proceeds to put his threat into operation, Holmes has to postpone his retirement.",
+        "poster_path": "/vxJIIZHhhKFtFDgofD2kxe97GDz.jpg"
+      },
+      {
+        "id": 342831,
+        "title": "Sherlock Holmes",
+        "year": "1916",
+        "overview": "When a couple of scammers hold young Alice Faulkner against her will to discover the whereabouts of letters whose dissemination could cause a scandal affecting the royal family, Sherlock Holmes decides to take over the case. (Considered lost, a copy was found in 2014, in the vaults of the Cin\u00e9math\u00e8que Fran\u00e7aise.)",
+        "poster_path": "/qxbSnrfaPbfM2jYuS7OGOfExtOK.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "lady-and-the-tramp-bluray-rental-kids-family",
+    "title": "Lady and the Tramp",
+    "vendor": "Blu-Ray",
+    "genre": "kids-family",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Lady and the Tramp' (2019))",
+    "candidates": [
+      {
+        "id": 10340,
+        "title": "Lady and the Tramp",
+        "year": "1955",
+        "overview": "Lady, a golden cocker spaniel, meets up with a mongrel dog who calls himself the Tramp. He is obviously from the wrong side of town, but happenings at Lady's home make her decide to travel with him for a while.",
+        "poster_path": "/340NcWz9SQXWQyf4oicMxjbrLOb.jpg"
+      },
+      {
+        "id": 512895,
+        "title": "Lady and the Tramp",
+        "year": "2019",
+        "overview": "The love story between a pampered Cocker Spaniel named Lady and a streetwise mongrel named Tramp. Lady finds herself out on the street after her owners have a baby and is saved from a pack by Tramp, who tries to show her to live her life footloose and collar-free.",
+        "poster_path": "/8wBEye516IKul9sW7JKGcFXVGfV.jpg"
+      },
+      {
+        "id": 1280088,
+        "title": "Lady and the Tramp",
+        "year": "",
+        "overview": "A young woman invites a homeless man into her flat to take a shower\u2026",
+        "poster_path": ""
+      },
+      {
+        "id": 301494,
+        "title": "The Lady and the Tramp",
+        "year": "1968",
+        "overview": "Rena\u2019s father insists on marrying her off to the son of a shipowner. Rena, however, doesn\u2019t even want to hear about it, so she runs away and disguises herself as a boy named Pipis. As such, she meets a poor fisherman, Lefteris, and helps him on his way to Ioannina.",
+        "poster_path": "/jGDkBD2ucutmUnubpdA7Uvdg7Oi.jpg"
+      },
+      {
+        "id": 18269,
+        "title": "Lady and the Tramp II: Scamp's Adventure",
+        "year": "2001",
+        "overview": "Lady and Tramp's mischievous pup, Scamp, gets fed up with rules and restrictions imposed on him by life in a family, and longs for a wild and free lifestyle. He runs away from home and into the streets where he joins a pack of stray dogs known as the \"Junkyard Dogs.\" Buster, the pack's leader, takes an instant disliking to the \"house-dog\" and considers him a rival. Angel, a junkyard pup Scamp's age, longs for the safety and comfort of life in a family and the two become instant companions. Will Scamp choose the wild and free life of a stray or the unconditional love of his family?",
+        "poster_path": "/nS3nhUZUSY8dWEsRmKILfiOC3F0.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "les-miserables-bluray-rental-musical",
+    "title": "Les Miserables",
+    "vendor": "Blu-Ray",
+    "genre": "musical",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Les Miserables' (1995))",
+    "candidates": [
+      {
+        "id": 48750,
+        "title": "Les Miserables",
+        "year": "1995",
+        "overview": "In WWII France, poor and illiterate Henri Fortin is introduced to Victor Hugo's classic novel Les Mis\u00e9rables and begins to see parallels between the book and his own life.",
+        "poster_path": "/toQ6BJCiKVSnklpsma2GnJ6KKah.jpg"
+      },
+      {
+        "id": 132654,
+        "title": "Les Miserables",
+        "year": "1952",
+        "overview": "In 19th century France, Jean Valjean, a man imprisoned for stealing bread, must flee a relentless policeman named Javert. The pursuit consumes both men's lives, and soon Valjean finds himself in the midst of the student revolutions in France.",
+        "poster_path": "/vNjUYTCqMHAeRUOcTKHCoFtvl7M.jpg"
+      },
+      {
+        "id": 82695,
+        "title": "Les Mis\u00e9rables",
+        "year": "2012",
+        "overview": "An adaptation of the successful stage musical based on Victor Hugo's classic novel set in 19th-century France. Jean Valjean, a man imprisoned for stealing bread, must flee a relentless policeman named Javert. The pursuit consumes both men's lives, and soon Valjean finds himself in the midst of the student revolutions in France.",
+        "poster_path": "/6CuzBs2Lb8At7qQr64mLXg2RYRb.jpg"
+      },
+      {
+        "id": 586863,
+        "title": "Les Mis\u00e9rables",
+        "year": "2019",
+        "overview": "St\u00e9phane has recently joined the Anti-Crime Squad in Montfermeil, in the suburbs of Paris, France, where Victor Hugo set his famed novel \u201cLes Miserables\u201d. Alongside his new colleagues Chris and Gwada \u2013 both experienced members of the team \u2013 he quickly discovers tensions running high between local gangs. When the trio finds themselves overrun during the course of an arrest, a drone captures the encounter, threatening to expose the reality of everyday life.",
+        "poster_path": "/2ZQV9rPFXF0iFfKbsAvVIweQ1yM.jpg"
+      },
+      {
+        "id": 4415,
+        "title": "Les Mis\u00e9rables",
+        "year": "1998",
+        "overview": "In 19th century France, Jean Valjean, a man imprisoned for stealing bread, must flee a relentless policeman named Javert. The pursuit consumes both men's lives, and soon Valjean finds himself in the midst of the student revolutions in France.",
+        "poster_path": "/3TOgmlIY8X3WjIjvU7Z0jqeNkyU.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "aladdin-bluray-rental-kids-family",
+    "title": "Aladdin",
+    "vendor": "Blu-Ray",
+    "genre": "kids-family",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Aladdin' (2019))",
+    "candidates": [
+      {
+        "id": 812,
+        "title": "Aladdin",
+        "year": "1992",
+        "overview": "In the boorish city of Agrabah, kind-hearted street urchin Aladdin and Princess Jasmine fall in love, although she can only marry a prince. He and power-hungry Grand Vizier Jafar vie for a magic lamp that can fulfill their wishes.",
+        "poster_path": "/eLFfl7vS8dkeG1hKp5mwbm37V83.jpg"
+      },
+      {
+        "id": 420817,
+        "title": "Aladdin",
+        "year": "2019",
+        "overview": "A kindhearted street urchin named Aladdin embarks on a magical adventure after finding a lamp that releases a wisecracking genie while a power-hungry Grand Vizier vies for the same lamp that has the power to make their deepest wishes come true.",
+        "poster_path": "/ykUEbfpkf8d0w49pHh0AD2KrT52.jpg"
+      },
+      {
+        "id": 343693,
+        "title": "Aladdin",
+        "year": "1992",
+        "overview": "A young man's life is turned around with the help of a genie inside a lamp.",
+        "poster_path": "/6NGjDdErVOmnoqLnjh0ouRfxerS.jpg"
+      },
+      {
+        "id": 357528,
+        "title": "Aladdin",
+        "year": "1992",
+        "overview": "A young man's life is turned around with the help of a genie inside a lamp.",
+        "poster_path": "/iYSvcS94KrI3I0GxXdPWUaUmQvw.jpg"
+      },
+      {
+        "id": 482063,
+        "title": "Aladdin",
+        "year": "1990",
+        "overview": "In ancient China, an aimless young man falls in love with the Emperor's beautiful daughter, and goes on a journey with his supposedly long-lost uncle in search of riches.",
+        "poster_path": "/dEkcpRPZrO1VipH1L56et3J1Pvr.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-girl-with-the-dragon-tattoo-bluray-rental-thriller",
+    "title": "The Girl With the Dragon Tattoo",
+    "vendor": "Blu-Ray",
+    "genre": "thriller",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'The Girl with the Dragon Tattoo' (2011))",
+    "candidates": [
+      {
+        "id": 65754,
+        "title": "The Girl with the Dragon Tattoo",
+        "year": "2011",
+        "overview": "Disgraced journalist Mikael Blomkvist investigates the disappearance of a weary patriarch's niece from 40 years ago. He is aided by the pierced, tattooed, punk computer hacker named Lisbeth Salander. As they work together in the investigation, Blomkvist and Salander uncover immense corruption beyond anything they have ever imagined.",
+        "poster_path": "/8bokS83zGdhaXgN9tjidUKmAftW.jpg"
+      },
+      {
+        "id": 15472,
+        "title": "The Girl with the Dragon Tattoo",
+        "year": "2009",
+        "overview": "Swedish thriller based on Stieg Larsson's novel about a male journalist and a young female hacker. In the opening of the movie, Mikael Blomkvist, a middle-aged publisher for the magazine Millennium, loses a libel case brought by corrupt Swedish industrialist Hans-Erik Wennerstr\u00f6m. Nevertheless, he is hired by Henrik Vanger in order to solve a cold case, the disappearance of Vanger's niece",
+        "poster_path": "/r2pFUXKK20KD9RE3yybpQsNynRE.jpg"
+      },
+      {
+        "id": 1199213,
+        "title": "The Girl with the Dragon Tattoo: Hard Copy",
+        "year": "2012",
+        "overview": "This is a mock episode of the 80's-90's era tabloid show created as part of the film's Internet promotion.",
+        "poster_path": "/txNAidKbPo56HgK5BHsiLQaw44D.jpg"
+      },
+      {
+        "id": 1199212,
+        "title": "The Girl with the Dragon Tattoo: Post-Production",
+        "year": "2012",
+        "overview": "Divided into several segments: A detailed examination of the editing process, centered around Fincher screening scenes from the film; in the recording studio for post-production dialogue recording; comparing the final title sequence to its earliest stages of development in a three-way composite. - viewers may also watch any off the three variations in a full-screen mode and a supplement that showcases various scenes in different stages of completion.",
+        "poster_path": ""
+      },
+      {
+        "id": 1199215,
+        "title": "The Girl with the Dragon Tattoo: Metal One Sheet",
+        "year": "2012",
+        "overview": "A look at the process of creating a metallic poster.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "godzilla-2000-bluray-rental-sci-fi",
+    "title": "Godzilla (2000)",
+    "vendor": "Blu-Ray",
+    "genre": "sci-fi",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Godzilla vs. Megaguirus' (2000))",
+    "candidates": [
+      {
+        "id": 39468,
+        "title": "Godzilla vs. Megaguirus",
+        "year": "2000",
+        "overview": "In an alternate timeline the original Godzilla is never defeated and repeatedly reemerges to feed on Japan's energy sources. A new inter-dimensional weapon called the Dimension Tide is created with the intent of eliminating Godzilla. However, the new weapon might also serve as a gateway to something far more sinister.",
+        "poster_path": "/jWOLrfoVmYCogt0FUsQuXSThi1s.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-gift-bluray-rental-thriller",
+    "title": "The Gift",
+    "vendor": "Blu-Ray",
+    "genre": "thriller",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'The Gift' (2015))",
+    "candidates": [
+      {
+        "id": 328425,
+        "title": "The Gift",
+        "year": "2015",
+        "overview": "Simon and Robyn are a young married couple whose life is going as planned until a chance run-in with Simon's high school acquaintance sends their world into a tailspin.",
+        "poster_path": "/kH3qLP8pn68Xq5XwvmPkCyaAU7W.jpg"
+      },
+      {
+        "id": 2046,
+        "title": "The Gift",
+        "year": "2000",
+        "overview": "Annie Wilson, young widow and mother of three, makes her living foretelling others' futures\u2060\u2014though her own has become cloudier than even she can see. Threatened by a client's violent husband and plagued by visions of a missing local woman, Annie finds herself pulled into a thicket of lies and deception in which her extraordinary gift may ultimately get her killed.",
+        "poster_path": "/nQdBE1P0r4ZrgGqy5EX8sL2kXG6.jpg"
+      },
+      {
+        "id": 1161557,
+        "title": "The Gift",
+        "year": "2010",
+        "overview": "In a dystopian Russia, a messenger delivers a gift to an old man.",
+        "poster_path": "/6W47hjww0ZTlSwPriPQ5b4Sq8ON.jpg"
+      },
+      {
+        "id": 462318,
+        "title": "The Gift",
+        "year": "1979",
+        "overview": "A sailor on Christmas leave visits his boozing, one-legged father and dreamer mother in 1950s Brooklyn.",
+        "poster_path": "/502ZwST844nBH3Jn0aINbkl87LR.jpg"
+      },
+      {
+        "id": 911513,
+        "title": "The Gift",
+        "year": "2014",
+        "overview": "In a beautiful mansion, the inhabitants have everything they could ever want; food, wealth, and comfort. The catch is, iron shackles are fastened on their wrists, and they are not allowed to leave the mansion. One day packages arrive for each of them with a way out of the chains, but they must leave all the comforts they\u2019ve grown accustomed to behind. Will they choose their chains or this new freedom?",
+        "poster_path": "/yqwRaO5KIaqydoTtliH64IVTtma.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "john-wick-3-4k-rental-action",
+    "title": "John Wick 3",
+    "vendor": "4K",
+    "genre": "action",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'John Wick: Chapter 3 - Parabellum' (2019))",
+    "candidates": [
+      {
+        "id": 458156,
+        "title": "John Wick: Chapter 3 - Parabellum",
+        "year": "2019",
+        "overview": "Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin\u2019s guild, the High Table, John Wick is excommunicado, but the world\u2019s most ruthless hit men and women await his every turn.",
+        "poster_path": "/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "christmas-vacation-dvd-rental-holiday",
+    "title": "Christmas Vacation",
+    "vendor": "DVD",
+    "genre": "holiday",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Christmas Vacation '91' (1991))",
+    "candidates": [
+      {
+        "id": 42444,
+        "title": "Christmas Vacation '91",
+        "year": "1991",
+        "overview": "This coarse bedroom farce takes place at the St. Moritz ski resort over a Christmas vacation. Among the couples whose lives intersect are a widowed artist honeymooning with his second wife, a gay man traveling with his son and his lover (and hiding each from the other), a snobbish couple from Milan who have been forced to share a suite with a pair of crass Romans, etc.",
+        "poster_path": "/6ebdWxVHgU1SzBriebeXb2tB9Mr.jpg"
+      },
+      {
+        "id": 42445,
+        "title": "Christmas Vacation '95",
+        "year": "1995",
+        "overview": "Two Italians are on holiday in Aspen in Colorado. The first one is Lorenzo whose daughter is crazy about Luke Perry (Beverly Hills 90210 actor) and wants to meet him at all costs. The second one wants to win back his wife who has left him because of his gambling problem.",
+        "poster_path": "/nO6xSa7GUJp6pFI1alFuqTCRhIW.jpg"
+      },
+      {
+        "id": 42443,
+        "title": "Christmas Vacation '90",
+        "year": "1990",
+        "overview": "Several characters coincide during the Christmas holidays in the winter season of Saint Moritz.",
+        "poster_path": "/q50poFetDr92a2HdQ4TIia0IIFh.jpg"
+      },
+      {
+        "id": 42446,
+        "title": "Christmas Vacation 2000",
+        "year": "1999",
+        "overview": "Superenalotto winner Pasquale Esposito with his family, two penniless students from Emilia and the Colombo and Covelli families, who accidentally rent the same chalet, will spend the Christmas holidays in Cortina d'Ampezzo.",
+        "poster_path": "/kmbJ3894zEHEYKVygDLKMZj35gK.jpg"
+      },
+      {
+        "id": 1101842,
+        "title": "Merry Liddle Christmas Vacation",
+        "year": "",
+        "overview": "This holiday season, the Liddle family is back together again, and ready to spend the holidays at a beautiful resort. Hoping to create new Christmas traditions, the Liddles are gathered to celebrate Jacquie and Tyler\u2019s wedding anniversary and the twins\u2019 birthday. But their holiday vacation is far from paradise with tensions mounting with Jacquie feeling Tyler is prioritizing his work over their family.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "a-christmas-story-dvd-rental-holiday",
+    "title": "A Christmas Story",
+    "vendor": "DVD",
+    "genre": "holiday",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'A Christmas Story' (1983))",
+    "candidates": [
+      {
+        "id": 850,
+        "title": "A Christmas Story",
+        "year": "1983",
+        "overview": "The comic mishaps and adventures of a young boy named Ralph, trying to convince his parents, teachers, and Santa that a Red Ryder B.B. gun really is the perfect Christmas gift for the 1940s.",
+        "poster_path": "/34nSHYqmb7222tiqiuKqKJmZiQa.jpg"
+      },
+      {
+        "id": 50064,
+        "title": "A Christmas Story",
+        "year": "1972",
+        "overview": "On Christmas Eve, a little boy named Timmy was read a Christmas story and tucked into bed. The resident mouse Gumdrop , while admiring the house all decorated for Christmas, noticed Timmy's letter to Santa on the floor. The letter must of have fallen off the table and never got mailed. So he and the family dog Gobber set outside to deliver the letter to Santa and save Christmas for Timmy.",
+        "poster_path": "/jUvhbEBbATQvShGvQec2BabOC3c.jpg"
+      },
+      {
+        "id": 984855,
+        "title": "A Christmas Story",
+        "year": "1913",
+        "overview": "Though her father forbids her to marry Jack Harvey, a poor young artist, Molly Wilson becomes his wife and goes away with him to another town. Bessie, the eldest daughter, an attractive widow with two baby boys and a baby girl, pleads with her father in Molly's behalf, but he is obdurate.",
+        "poster_path": "/bKp0q8DTjS9qvNiwfq4IUPTRodi.jpg"
+      },
+      {
+        "id": 125504,
+        "title": "A Christmas Story 2",
+        "year": "2012",
+        "overview": "The original traditional one-hundred-percent red-blooded two-fisted all-American Christmas continues five years later with Ralphie, Randy, mom and the old man. This time Ralphie has his eyes fixed on a car. But trouble is sure to follow.",
+        "poster_path": "/eBm9Yi8YRxdcIg7mbOiKTdX0G28.jpg"
+      },
+      {
+        "id": 485517,
+        "title": "A Christmas Story Live!",
+        "year": "2017",
+        "overview": "A live broadcast of the Broadway hit \"A Christmas Story: The Musical\" in which Ralphie wishes for nothing more than a Red Rider BB Gun for Christmas.",
+        "poster_path": "/du010f2eoKOXqZ8Uo1h5zlke6Sf.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-book-of-pooh-dvd-rental-kids-family",
+    "title": "The Book of Pooh",
+    "vendor": "DVD",
+    "genre": "kids-family",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'The Book of Pooh: Fun with Manners' (2004))",
+    "candidates": [
+      {
+        "id": 373058,
+        "title": "The Book of Pooh: Fun with Manners",
+        "year": "2004",
+        "overview": "This wonderful series of fun and educational videos comes to us from the depths of The Forest of Blue Dreams. These charming, funny and imaginative stories are specially designed for children from 2 years old to familiarize them with language learning, a first approach to communication and relational connections.",
+        "poster_path": "/wuvIUvW8WhFC4tyusYyHUwhiHfe.jpg"
+      },
+      {
+        "id": 496890,
+        "title": "The Book of Pooh: Fun with Friends",
+        "year": "2001",
+        "overview": "From the heart of Hundred Acre Wood comes this magical learning video series. It's honey-packed with fun-filled, imaginative stories that explore language appreciation, communication and relationships.",
+        "poster_path": "/rSPRfKJRIHSo4E3XeTgQP1aUogy.jpg"
+      },
+      {
+        "id": 679666,
+        "title": "The Book of Pooh: Fun with Make Believe",
+        "year": "2002",
+        "overview": "",
+        "poster_path": "/8fPVJPjg07f7FvoyUvrbGQZt9uJ.jpg"
+      },
+      {
+        "id": 278644,
+        "title": "The Book of Pooh: Stories from the Heart",
+        "year": "2001",
+        "overview": "Part of The Book of Pooh series, which offers preschool kids simple life lessons and scholastic pointers, The Book of Pooh: Stories From the Heart uses puppetry and computer animation to tell Christopher Robin's imaginative tales. Kids join Christopher Robin, Winnie the Pooh, Piglet, and Tigger for an afternoon of storytelling and lesson learning.",
+        "poster_path": "/cPGmqu3WhJuGDPIqOiPOZ35us2f.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "winnie-the-pooh-springtime-dvd-rental-kids-family",
+    "title": "Winnie the Pooh Springtime",
+    "vendor": "DVD",
+    "genre": "kids-family",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Winnie the Pooh: Springtime with Roo' (2004))",
+    "candidates": [
+      {
+        "id": 16394,
+        "title": "Winnie the Pooh: Springtime with Roo",
+        "year": "2004",
+        "overview": "Spring has sprung, and baby Roo is excited to get out and explore and make new friends. But Rabbit seems preoccupied with spring cleaning, instead of embracing his usual role of playing Easter Bunny. Leave it to Roo to show Rabbit -- through love -- that it's more important who you love and not who's in charge.",
+        "poster_path": "/yAgVcU1BdPqvnyYnOkb1QtVNd5V.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-little-mermaid-dvd-rental-kids-family",
+    "title": "The Little Mermaid",
+    "vendor": "Blu-Ray",
+    "genre": "kids-family",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'The Little Mermaid' (2023))",
+    "candidates": [
+      {
+        "id": 10144,
+        "title": "The Little Mermaid",
+        "year": "1989",
+        "overview": "This colorful adventure tells the story of an impetuous mermaid princess named Ariel who falls in love with the very human Prince Eric and puts everything on the line for the chance to be with him. Memorable songs and characters -- including the villainous sea witch Ursula.",
+        "poster_path": "/plcZXvI310FkbwIptvd6rqk63LP.jpg"
+      },
+      {
+        "id": 385448,
+        "title": "The Little Mermaid",
+        "year": "2018",
+        "overview": "A young reporter and his niece discover a beautiful and enchanting creature they believe to be the real little mermaid.",
+        "poster_path": "/qEM80vqREgfjk7YhIbl4AgfZ47S.jpg"
+      },
+      {
+        "id": 90277,
+        "title": "The Little Mermaid",
+        "year": "1968",
+        "overview": "Rusalochka opens in modern day Copenhagen, Denmark. Several tourists gather around the capital's famous mermaid statue, as a tour guide explains its significance. A fish in the water below the tourists scoffs at their foolishness, and then, proceeds to tell about the doomed love of the mermaid. Upon reaching her 15th birthday, the Little Mermaid is allowed to swim up to the surface above. As soon as she does, however, the Mermaid spots a young prince caught up in a dreadful storm. She admires the man's bravery and decides to save him, declaring that, \"The beautiful and the brave should not perish.\" After the mermaid returns to the ocean, she decides that she wants to become human.",
+        "poster_path": "/uG7wWSmdEssgYZxXB0L7mFJE929.jpg"
+      },
+      {
+        "id": 116866,
+        "title": "The Little Mermaid",
+        "year": "1998",
+        "overview": "The Princess Miranda lives with her father, King of the Sea, and two sisters in a magical underwater palace. Miranda has the most beautiful voice of all the underwater kingdom, to the delight of all its inhabitants. The princess feels a great curiosity about the world above and why humans do not treat sea creatures with the same respect it. To celebrate its fifteenth birthday her father allows Miranda to see the human world with her faithful friend Acme, an otter. On the way to the coast the princess saves the life of a drowning man, a handsome young prince who falls in love.",
+        "poster_path": "/qr25HC7LtnTHi3L4aWhpSHy05S4.jpg"
+      },
+      {
+        "id": 215478,
+        "title": "The Little Mermaid",
+        "year": "1976",
+        "overview": "A little Mermaid falls in love with a Prince whom she saves during a storm. Using all kinds of magical incantations in exchange for the Mermaid\u2019s beautiful blue hair, a witch replaces her fish tail with human legs, making it possible for the Mermaid to walk and live on earth at the cost of great pain with every step she takes. The Little Mermaid willingly suffers through these trials only to be near her beloved. But the Prince, not realizing how lucky he is, becomes enamored with a beautiful but vain princess.",
+        "poster_path": "/ePjh9sY0eN2W7c1YYsVR3wDkA3B.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "peter-pan-dvd-rental-kids-family",
+    "title": "Peter Pan",
+    "vendor": "DVD",
+    "genre": "kids-family",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Peter Pan' (2003))",
+    "candidates": [
+      {
+        "id": 10693,
+        "title": "Peter Pan",
+        "year": "1953",
+        "overview": "Leaving the safety of their nursery behind, Wendy, Michael and John follow Peter Pan to a magical world where childhood lasts forever. But while in Neverland, the kids must face Captain Hook and foil his attempts to get rid of Peter for good.",
+        "poster_path": "/fJJOs1iyrhKfZceANxoPxPwNGF1.jpg"
+      },
+      {
+        "id": 10601,
+        "title": "Peter Pan",
+        "year": "2003",
+        "overview": "In stifling Edwardian London, Wendy Darling mesmerizes her brothers every night with bedtime tales of swordplay, swashbuckling and the fearsome Captain Hook. But the children become the heroes of an even greater story, when Peter Pan flies into their nursery one night and leads them over moonlit rooftops through a galaxy of stars and to the lush jungles of Neverland.",
+        "poster_path": "/6QdU3TZZrIvXFzoHOwafZAynFjB.jpg"
+      },
+      {
+        "id": 535321,
+        "title": "Peter Pan",
+        "year": "1976",
+        "overview": "Peter Pan is a 1976 musical adaptation of J. M. Barrie's Peter Pan, or the Boy Who Wouldn't Grow Up, produced for television as part of the Hallmark Hall of Fame, starring Mia Farrow as Peter Pan and Danny Kaye as Captain Hook, and with Sir John Gielgud narrating. Julie Andrews sang one of the songs, \"Once Upon a Bedtime\", off-camera over the opening credits. It aired on NBC at 7:30pm on Sunday, December 12, 1976, capping off the program's 25th year on the air. The program did not use the score written for the highly successful Mary Martin version which had previously been televised many times on NBC. Instead, it featured 14 new and now forgotten songs, written for the production by Anthony Newley and Leslie Bricusse.",
+        "poster_path": "/SjW4Y4DcmmmgdxlvFw7RGIVkZr.jpg"
+      },
+      {
+        "id": 51120,
+        "title": "Peter Pan",
+        "year": "1960",
+        "overview": "In this magical tale about the boy who refuses to grow up, Peter Pan and his mischievous fairy sidekick Tinkerbell visit the nursery of Wendy, Michael and John Darling. With a sprinkling of pixie dust, Peter and his new friends fly out the nursery window and over London to Never-Never Land. The children experience many wonderful and exciting adventures with the Lost Boys, Tiger Lily's Indian tribe, and Peter's arch enemy the dastardly pirate Captain Hook.",
+        "poster_path": "/qCQ42aTmU4cuHwzfu8rCvYQuCyx.jpg"
+      },
+      {
+        "id": 273106,
+        "title": "Peter Pan",
+        "year": "2000",
+        "overview": "The stage musical Peter Pan starring Cathy Rigby has toured the world to great acclaim. An adaptation of the famous 1954 musical directed by Jerome Robbins and starring Mary Martin, this new version is lasting proof that J.M. Barrie's tale of the boy who would never grow up is one of the kingpins of family entertainment. All the elements are in good form for this video production shot at the Mirada Theater in 2000 for the A&E Network. Some new songs have been added to the fabulous Moose Charlap-Carolyn Leigh score (which includes \"Tender Shepherd,\" \"I Gotta Crow,\" \"I'm Flying,\" and \"I Won't Grow Up\"). But the biggest asset to this production are the spectacular flying sequences: Peter even soars over the audience at times. Martin was a stronger actress in a close-up, but Rigby is magical with her athleticism and spark, most notably in a percussion-filled song and dance number \"Ugh-a-Wug.\".",
+        "poster_path": "/x1Zuf4pYgw6olXa0zghF67MhlAq.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "robin-hood-dvd-rental-kids-family",
+    "title": "Robin Hood",
+    "vendor": "DVD",
+    "genre": "kids-family",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Robin Hood' (2010))",
+    "candidates": [
+      {
+        "id": 11886,
+        "title": "Robin Hood",
+        "year": "1973",
+        "overview": "With King Richard off to the Crusades, Prince John and his slithering minion, Sir Hiss, set about taxing Nottingham's citizens with support from the corrupt sheriff - and staunch opposition by the wily Robin Hood and his band of merry men.",
+        "poster_path": "/x9AvkYek0bGdxQSZ8W3lAjGrREm.jpg"
+      },
+      {
+        "id": 114612,
+        "title": "Robin Hood",
+        "year": "1985",
+        "overview": "With good King Richard away at war, the greedy Sheriff has forced the residents of Nottingham to pay all their money to him. But Robin Hood, with the help of his friend Maid Marion, a spy in the Sheriff's castle, is out to thwart the evil Sheriff and return the Kind to his rightful throne.",
+        "poster_path": "/rVdzBRqJsBbZWJ0hIN1DbatxVtD.jpg"
+      },
+      {
+        "id": 417160,
+        "title": "Robin Hood",
+        "year": "1991",
+        "overview": "Watch the transformation of young Robert Huntington as he becomes the heroic outlaw Robin Hood in this high quality entertaining animated feature for your kids and family. Join Robin Hood and his trusted companions as they dash from one adventure to the next. Robin won\u2019t rest until he saves Maid Marian and restores King Richard to the throne.",
+        "poster_path": "/n0EHFWn0t3VwhJqGCl6us1zxOy1.jpg"
+      },
+      {
+        "id": 20662,
+        "title": "Robin Hood",
+        "year": "2010",
+        "overview": "When soldier Robin happens upon the dying Robert of Loxley, he promises to return the man's sword to his family in Nottingham. There, he assumes Robert's identity; romances his widow, Marion; and draws the ire of the town's sheriff and King John's henchman, Godfrey.",
+        "poster_path": "/9NS5QGOfck24yL3bZqWeW06PgPC.jpg"
+      },
+      {
+        "id": 375588,
+        "title": "Robin Hood",
+        "year": "2018",
+        "overview": "A war-hardened Crusader and his Moorish commander mount an audacious revolt against the corrupt English crown.",
+        "poster_path": "/AiRfixFcfTkNbn2A73qVJPlpkUo.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "ghostbusters-dvd-rental-comedy",
+    "title": "Ghostbusters",
+    "vendor": "DVD",
+    "genre": "comedy",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Ghostbusters' (1984))",
+    "candidates": [
+      {
+        "id": 620,
+        "title": "Ghostbusters",
+        "year": "1984",
+        "overview": "After losing their university jobs, three parapsychologists start a ghost-catching business in New York City and uncover a supernatural threat that could destroy the world.",
+        "poster_path": "/7E8nLijS9AwwUEPu2oFYOVKhdFA.jpg"
+      },
+      {
+        "id": 43074,
+        "title": "Ghostbusters",
+        "year": "2016",
+        "overview": "Following a ghost invasion of Manhattan, paranormal enthusiasts Erin Gilbert and Abby Yates, nuclear engineer Jillian Holtzmann, and subway worker Patty Tolan band together to stop the otherworldly threat.",
+        "poster_path": "/wJmWliwXIgZOCCVOcGRBhce7xPS.jpg"
+      },
+      {
+        "id": 2978,
+        "title": "Ghostbusters II",
+        "year": "1989",
+        "overview": "The discovery of a massive river of ectoplasm and a resurgence of spectral activity allows the staff of Ghostbusters to revive the business.",
+        "poster_path": "/iUZPi31KDP0n5ycpycEsvl51BdV.jpg"
+      },
+      {
+        "id": 1225314,
+        "title": "Ghostbusters 1999",
+        "year": "1999",
+        "overview": "Documentary Interviews of the director and cast of the original Ghostbusters film",
+        "poster_path": "/pfqGiAfBFkehVRMCwQoDuzde76q.jpg"
+      },
+      {
+        "id": 1388011,
+        "title": "Ghostbusters Return",
+        "year": "2017",
+        "overview": "A high school student short film project. Sequel to Ghostbusters: The Beginning.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "the-mask-dvd-rental-comedy",
+    "title": "The Mask",
+    "vendor": "DVD",
+    "genre": "comedy",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'The Mask' (1994))",
+    "candidates": [
+      {
+        "id": 854,
+        "title": "The Mask",
+        "year": "1994",
+        "overview": "Timid bank clerk Stanley Ipkiss discovers a magical mask infused with the spirit of the Norse god Loki. Donning it transforms him into an unrestrained, green-faced, cartoon-like wild man. While the mask grants him the confidence to woo a local singer, it also makes him the target of a ruthless mobster.",
+        "poster_path": "/jPC2eYub74zwf2tPGVtzSlBW6Oy.jpg"
+      },
+      {
+        "id": 131334,
+        "title": "The Mask",
+        "year": "1988",
+        "overview": "A debauched nobleman offers himself to a beautiful woman, but she is repelled by his advances. He dons a mask and tries again, and this time is more successful. But the mask cannot conceal the evil in his soul.",
+        "poster_path": "/vLtHdORkm9txs48yCdsEI3R5h2U.jpg"
+      },
+      {
+        "id": 897845,
+        "title": "The Mask",
+        "year": "1921",
+        "overview": "The Mask 1921 film",
+        "poster_path": "/fWTzpRP72P4aOxaiBSTg0F2iNcD.jpg"
+      },
+      {
+        "id": 57665,
+        "title": "The Mask",
+        "year": "1961",
+        "overview": "A young archaeologist believes he is cursed by a mask that causes him to have weird nightmares and possibly to murder. Before committing suicide, he mails the mask to his psychiatrist, Dr. Barnes, who is soon plunged into the nightmare world of the mask.",
+        "poster_path": "/i0TzUtwGt1oz4nmraLwIwaJ64FO.jpg"
+      },
+      {
+        "id": 1020280,
+        "title": "The Mask",
+        "year": "1953",
+        "overview": "In 1909 Cornwall, the affair between a disfigured miller's wife and his estranged cousin leads to a tragic case of mistaken identity.",
+        "poster_path": "/zuahPIpRgHnCvpTnWcMvYgtUh6Z.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "live-die-repeat-bluray-rental-action",
+    "title": "Live Die Repeat",
+    "vendor": "Blu-Ray",
+    "genre": "action",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Edge of Tomorrow' (2014))",
+    "candidates": [
+      {
+        "id": 137113,
+        "title": "Edge of Tomorrow",
+        "year": "2014",
+        "overview": "Major Bill Cage is an officer who has never seen a day of combat when he is unceremoniously demoted and dropped into combat. Cage is killed within minutes, managing to take an alpha alien down with him. He awakens back at the beginning of the same day and is forced to fight and die again... and again - as physical contact with the alien has thrown him into a time loop.",
+        "poster_path": "/nBM9MMa2WCwvMG4IJ3eiGUdbPe6.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "dumb-and-dumberer-dvd-rental-comedy",
+    "title": "Dumb And Dumberer",
+    "vendor": "DVD",
+    "genre": "comedy",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Dumb and Dumber To' (2014))",
+    "candidates": [
+      {
+        "id": 100042,
+        "title": "Dumb and Dumber To",
+        "year": "2014",
+        "overview": "20 years since their first adventure, Lloyd and Harry go on a road trip to find Harry's newly discovered daughter, who was given up for adoption.",
+        "poster_path": "/cvEi0xV7TUkabJGuzulhvbMjrHi.jpg"
+      },
+      {
+        "id": 10152,
+        "title": "Dumb and Dumberer: When Harry Met Lloyd",
+        "year": "2003",
+        "overview": "This wacky prequel to the 1994 blockbuster goes back to the lame-brained Harry and Lloyd's days as classmates at a Rhode Island high school, where the unprincipled principal puts the pair in remedial courses as part of a scheme to fleece the school.",
+        "poster_path": "/qxD6P3UXASFCdbrVavceZzgOfI9.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-best-years-of-our-lives-dvd-rental-drama",
+    "title": "The Best Years of Our Lives",
+    "vendor": "DVD",
+    "genre": "drama",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'The Best Years of Our Lives' (1946))",
+    "candidates": [
+      {
+        "id": 887,
+        "title": "The Best Years of Our Lives",
+        "year": "1946",
+        "overview": "It's the hope that sustains the spirit of every GI: the dream of the day when he will finally return home. For three WWII veterans, the day has arrived. But for each man, the dream is about to become a nightmare.",
+        "poster_path": "/gd5EoAU4MM57sW3vlWxJ0NMM8cV.jpg"
+      },
+      {
+        "id": 473395,
+        "title": "The Best Years of Our Lives",
+        "year": "1972",
+        "overview": "Four inseparable friends from childhood struggle in the best years of their lives when one grows up to become a prize fighter, second a police detective, third a nightclub runner and the fourth sets them all at loggerheads.",
+        "poster_path": "/fupcTxod2KXTFbSK9hlP3KuPVO.jpg"
+      },
+      {
+        "id": 461794,
+        "title": "The Best Years of our lives (Los mejores a\u00f1os de nuestra vida)",
+        "year": "",
+        "overview": "",
+        "poster_path": "/3hcorDZx8HDQ36fWkcPBJRLUSnr.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "this-is-it-dvd-rental-documentary",
+    "title": "This Is It",
+    "vendor": "DVD",
+    "genre": "documentary",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'This Is It' (2009))",
+    "candidates": [
+      {
+        "id": 13576,
+        "title": "This Is It",
+        "year": "2009",
+        "overview": "A compilation of interviews, rehearsals and backstage footage of Michael Jackson as he prepared for his series of sold-out shows in London.",
+        "poster_path": "/8GvQzHFSqr9KhyVxLEpB5dXPOWG.jpg"
+      },
+      {
+        "id": 155126,
+        "title": "This Is It",
+        "year": "2001",
+        "overview": "Once a major wealthy town, Sulina is a victim of post-communist decline and disarray. Ten years after the fall of Ceausescu inhabitants still live in poverty. Despite their despair, there is room for dreams and humor. The Romanian town Sulina lies right in the no-man's-land of the Danube-delta, cut off from the rest of the world. Ten years after the fall of the communist regime the people here are worse off than ever. Sulina used to be a wealthy trade town. But with the decline of communism the economic connections petered out. The film portrays four of the region's inhabitants from three generations who just manage to get by.",
+        "poster_path": "/s0CjkYuCjkpE8Hs1dNRulCsC5c0.jpg"
+      },
+      {
+        "id": 147990,
+        "title": "This is It",
+        "year": "1971",
+        "overview": "James Broughton's creation myth, THIS IS IT, places a 2-year-old Adam and a bright apple-red balloon in a backyard garden of Eden, and works a small miracle of the ordinary. And since that miracle is what his film is about, he achieves a kind of casual perfection in matching means and ends.",
+        "poster_path": "/nXzOVqTz39juvCtQoBQReJ3znPM.jpg"
+      },
+      {
+        "id": 347077,
+        "title": "This Is It",
+        "year": "2013",
+        "overview": "Two college kids. First apartment. Lots of responsibility.",
+        "poster_path": "/5L7Jw2hfpkzqrCi0jeV4ZRcFJxw.jpg"
+      },
+      {
+        "id": 256965,
+        "title": "This Is What It Is",
+        "year": "2007",
+        "overview": "Full of funny and acute observations This Is What It Is, is a candid and very personal account of love as seen from the male perspective.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "the-last-emperor-dvd-floor-sale-drama",
+    "title": "The Last Emperor",
+    "vendor": "DVD",
+    "genre": "drama",
+    "tag": "Floor Sale",
+    "reason": "ambiguous match (best candidate: 'The Last Emperor' (1987))",
+    "candidates": [
+      {
+        "id": 746,
+        "title": "The Last Emperor",
+        "year": "1987",
+        "overview": "A dramatic history of Pu Yi, the last of the Emperors of China, from his lofty birth and brief reign in the Forbidden City, the object of worship by half a billion people; through his abdication, his decline and dissolute lifestyle; his exploitation by the invading Japanese, and finally to his obscure existence as just another peasant worker in the People's Republic.",
+        "poster_path": "/7TILJhdeJAaEyDiwvJZMo9SQBoe.jpg"
+      },
+      {
+        "id": 213169,
+        "title": "The Last Emperor",
+        "year": "1986",
+        "overview": "A 1986 film directed by Li Han-Hsiang. Nominated for Best Film in the 6th annual Hong Kong Film Awards.",
+        "poster_path": "/cjQw5NpPKYAOyNdVomrBEw3UkMF.jpg"
+      },
+      {
+        "id": 556237,
+        "title": "The Last Gypsy Emperor",
+        "year": "1986",
+        "overview": "Tamtakos decides to save his own kind from turpitude.",
+        "poster_path": "/rqO7IyRG6MHm5g1daT4gIyJ4CRl.jpg"
+      },
+      {
+        "id": 117659,
+        "title": "Kurosawa: The Last Emperor",
+        "year": "1999",
+        "overview": "A profile and history of film director Akira Kurosawa.",
+        "poster_path": "/pDRRiVn8yO1w9Qk1bxMBTXhi6xL.jpg"
+      },
+      {
+        "id": 22774,
+        "title": "Valentino: The Last Emperor",
+        "year": "2008",
+        "overview": "Film which travels inside the singular world of one of Italy's most famous fashion designers, Valentino Garavani, documenting the colourful and dramatic closing act of his celebrated career and capturing the end of an era in global fashion.  However, at the heart of the film is a love story - the unique relationship between Valentino and his business partner and companion of 50 years, Giancarlo Giammetti. Capturing intimate moments in the lives of two of Italy's richest and most famous men, the film lifts the curtain on the final act of a nearly 50-year reign at the top of the glamorous and fiercely competitive world of fashion. (Storyville)",
+        "poster_path": "/aQP33BMBuRrDQwOTSdTVHvmOVnv.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "hedwig-and-the-angry-inch-dvd-floor-sale-musical",
+    "title": "Hedwig and the Angry Inch",
+    "vendor": "DVD",
+    "genre": "musical",
+    "tag": "Floor Sale",
+    "reason": "ambiguous match (best candidate: 'Hedwig and the Angry Inch' (2001))",
+    "candidates": [
+      {
+        "id": 13403,
+        "title": "Hedwig and the Angry Inch",
+        "year": "2001",
+        "overview": "Raised a boy in East Berlin, Hedwig undergoes a personal transformation in order to emigrate to the U.S., where she reinvents herself as an 'internationally ignored' but divinely talented rock diva, inhabiting a 'beautiful gender of one'.",
+        "poster_path": "/jafIFAW8sHQkzWPGoMDR4892dFI.jpg"
+      },
+      {
+        "id": 1154848,
+        "title": "Hedwig and the Angry Inch",
+        "year": "1998",
+        "overview": "The audience is watching genderqueer rock singer Hedwig Robinson's musical act as she follows rockstar Tommy Gnosis' (much more successful) tour around the country. Occasionally Hedwig opens a door onstage to listen to Gnosis's concert, which is playing in an adjoining venue. Gnosis is recovering from an incident that nearly ruined his career, having crashed his car into a school bus while high and receiving oral sex from none other than Hedwig. Capitalizing on her notoriety from the incident, Hedwig determines to tell the audience her story.",
+        "poster_path": "/cOS0HxrJe1ACM3Ocuc8oVLbHKnQ.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "old-men-in-new-cars-dvd-floor-sale-foreign",
+    "title": "Old Men in New Cars",
+    "vendor": "DVD",
+    "genre": "foreign",
+    "tag": "Floor Sale",
+    "reason": "ambiguous match (best candidate: 'Old Men in New Cars: In China They Eat Dogs II' (2002))",
+    "candidates": [
+      {
+        "id": 10751,
+        "title": "Old Men in New Cars: In China They Eat Dogs II",
+        "year": "2002",
+        "overview": "The last wish of the dying \"Monk\" is for his foster child, Harald, to find his real son, Ludvig. But the latter is currently in a Swedish prison cell...",
+        "poster_path": "/n2KH5TlEcYPvinmwsJj4ULc1xDO.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "legend-dvd-floor-sale-fantasy",
+    "title": "Legend",
+    "vendor": "DVD",
+    "genre": "fantasy",
+    "tag": "Floor Sale",
+    "reason": "ambiguous match (best candidate: 'Legend' (1985))",
+    "candidates": [
+      {
+        "id": 11976,
+        "title": "Legend",
+        "year": "1985",
+        "overview": "Set in a timeless mythical forest inhabited by fairies, goblins, unicorns and mortals, this fantastic story follows a mystical forest dweller, chosen by fate, to undertake a heroic quest. He must save the beautiful Princess  Lili and defeat the demonic Lord of Darkness, or the world will be plunged into a never-ending ice age.",
+        "poster_path": "/6n3PQSYpZRK5YPk2w8JEwED7AZk.jpg"
+      },
+      {
+        "id": 276907,
+        "title": "Legend",
+        "year": "2015",
+        "overview": "Suave, charming and volatile, Reggie Kray and his unstable twin brother Ronnie start to leave their mark on the London underworld in the 1960s. Using violence to get what they want, the siblings orchestrate robberies and murders while running nightclubs and protection rackets. With police Detective Leonard \"Nipper\" Read hot on their heels, the brothers continue their rapid rise to power and achieve tabloid notoriety.",
+        "poster_path": "/4shf5Alq4KWCKqrAAQe0JGJHYp5.jpg"
+      },
+      {
+        "id": 6479,
+        "title": "I Am Legend",
+        "year": "2007",
+        "overview": "Robert Neville is a scientist who was unable to stop the spread of the terrible virus that was incurable and man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world. For three years, Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there. But he is not alone.",
+        "poster_path": "/iPDkaSdKk2jRLTM65UOEoKtsIZ8.jpg"
+      },
+      {
+        "id": 9877,
+        "title": "Urban Legend",
+        "year": "1998",
+        "overview": "A college campus is plagued by a vicious serial killer murdering students in ways that correspond to various urban legends.",
+        "poster_path": "/dUvZDNU9G0njhM628NA5phASntq.jpg"
+      },
+      {
+        "id": 620249,
+        "title": "The Legend of Hei",
+        "year": "2019",
+        "overview": "When cat spirit Luo Xiaohei's home is deforested by humans, he must find a new one. He runs into a group of other spirit creatures who take him under their wing with dreams of reconquering the land they say is rightfully theirs. However, they run into a human known as Wuxian who separates Luo Xiaohei from the other spirits and the two go on a journey, with the cat spirit learning to control his abilities as well as forming his own thoughts on whether or not he should ally with the spirits or the humans.",
+        "poster_path": "/nWdES36hGwADWWBGzvgT1Z3Xn86.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "hero-dvd-rental-action",
+    "title": "Hero",
+    "vendor": "DVD",
+    "genre": "action",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Hero' (2002))",
+    "candidates": [
+      {
+        "id": 79,
+        "title": "Hero",
+        "year": "2002",
+        "overview": "During China's Warring States period, a district prefect arrives at the palace of Qin Shi Huang, claiming to have killed the three assassins who had made an attempt on the king's life three years ago.",
+        "poster_path": "/vxgZto2Cz7ILHAlmRXt50I2brB2.jpg"
+      },
+      {
+        "id": 32982,
+        "title": "Hero",
+        "year": "1997",
+        "overview": "Ma Wing Jing and his older brother Ma Tai Chueng arrive in Shanghai to make their fortune at the end of the Qin Dynasty. Be-friending a powerful mobster Wing Jing is given his nightclub in return for saving Tam Sei's life. Unfortunately, another Gangster wants the territory a well. Corruption and violence rule the streets as Wing Jing and Tam Sei must battle not only the rival gangs but the corrupt police officials as well.",
+        "poster_path": "/r9rQsbD6UJccmulxw2MwpOZq9ED.jpg"
+      },
+      {
+        "id": 78079,
+        "title": "Hero",
+        "year": "1982",
+        "overview": "Medieval fable of sorcery and witchcraft in a remote corner of the Scottish highlands.",
+        "poster_path": "/gRzReMW6wX5MbpiUQn0ntpCyOD5.jpg"
+      },
+      {
+        "id": 358996,
+        "title": "Hero",
+        "year": "2015",
+        "overview": "After meeting the chief of police's pretty daughter, a gangster kidnaps the girl. During the journey they fall in love and the gangster decides to set her free.",
+        "poster_path": "/esBeEnXx8tSCcGF4DKwwESxsAp8.jpg"
+      },
+      {
+        "id": 10699,
+        "title": "Hero",
+        "year": "1992",
+        "overview": "Bernie Laplante is having a rough time. He's divorced, his ex-wife hates him and has custody of their son, the cops are setting a trap for him, then to top it all, he loses a shoe whilst rescuing passengers of a crashed jet. Being a thief who is down on his luck, Bernie takes advantage of the crash, but then someone else claims credit for the rescue.",
+        "poster_path": "/wD7D0B9U9ooanxyhtgLKaqM7www.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "oldboy-dvd-rental-thriller",
+    "title": "Oldboy",
+    "vendor": "DVD",
+    "genre": "thriller",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Oldboy' (2013))",
+    "candidates": [
+      {
+        "id": 670,
+        "title": "Oldboy",
+        "year": "2003",
+        "overview": "With no clue how he came to be imprisoned, drugged and tortured for 15 years, a desperate man seeks revenge on his captors.",
+        "poster_path": "/pWDtjs568ZfOTMbURQBYuT4Qxka.jpg"
+      },
+      {
+        "id": 87516,
+        "title": "Oldboy",
+        "year": "2013",
+        "overview": "A man has only three and a half days and limited resources to discover why he was imprisoned in a nondescript room for 20 years without any explanation.",
+        "poster_path": "/iX93YdBrZA1EpGbphmjf4ARj1Za.jpg"
+      },
+      {
+        "id": 41454,
+        "title": "Oldboys",
+        "year": "2009",
+        "overview": "Now in his fifties, Vagn leads a solitary life and plays football with a group of similarly aged men, some even older. After being left behind at a petrol station by his teammates on their way to a match in Sweden, he encounters a young habitual offender and together they set off in hot pursuit of Vagn's buddies. A Nordic road movie taking in a whole series of comic, serious and, above all, well-written scenarios.",
+        "poster_path": "/wjJgTgxPjkVutOXSnWxKGD63mTR.jpg"
+      },
+      {
+        "id": 667251,
+        "title": "Super Oldboy",
+        "year": "2016",
+        "overview": "Bil is an elderly man who works as an office boy for a firm in S\u00e3o Paulo, as he does not pay for a bus ticket and takes a preferential line at the bank. One day he gets involved in an unusual bank robbery.",
+        "poster_path": "/slTEyNSLNN1tTaL5PUpzeCG60wA.jpg"
+      },
+      {
+        "id": 1603268,
+        "title": "Autobiography of Oldboy",
+        "year": "2004",
+        "overview": "3 and a half hour making of documentary on Oldboy, covering nearly every scene",
+        "poster_path": "/fxEFkru8j4jJUUScuVttpCKrMK9.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "beowulf-dvd-rental-fantasy",
+    "title": "Beowulf",
+    "vendor": "DVD",
+    "genre": "fantasy",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Beowulf' (2007))",
+    "candidates": [
+      {
+        "id": 5470,
+        "title": "Beowulf",
+        "year": "1999",
+        "overview": "Beowulf is a wanderer who learns about a man-eating creature called Grendel, which comes in the night to devour warriors trapped at the Outpost. The Outpost is ruled by Hrothgar. He has a daughter, whose husband may have been murdered by the Outpost's master of arms.",
+        "poster_path": "/ktX5naCHfERaoDVaCUOITPIFrFd.jpg"
+      },
+      {
+        "id": 2310,
+        "title": "Beowulf",
+        "year": "2007",
+        "overview": "A 6th-century Scandinavian warrior named Beowulf embarks on a mission to slay the man-like ogre, Grendel.",
+        "poster_path": "/7QsWYyJAV97N9jOh21pdRIqJeJq.jpg"
+      },
+      {
+        "id": 606386,
+        "title": "Beowulf",
+        "year": "2007",
+        "overview": "Since 1990, Benjamin Bagby has been performing the great epic Beowulf at major festivals and venues around the world. This remarkable performance is presented on DVD, beautifully filmed by the award-winning Swedish director Stellan Olsson. While Beowulf has come down to us through literature as a written poem, the epic's pre-literate medieval audience would have known it through the performance of a scop, a bardic storyteller, as Bagby presents himself here. In this one-man tour de force, Bagby accompanies himself on an Anglo-Saxon harp. Using the entire range of his voice, he delivers this gripping tale in Old English, as it could have been experienced more than one thousand years ago. This performance speaks to the lovers of Beowulf and the oral epic, early music enthusiasts, Tolkien fans, medievalists, and anyone searching for virtuoso storytelling or a glimpse into the fascinating beginnings of the English language.",
+        "poster_path": "/6xUZ5k3bQugnnGuihIyIRFmfIMd.jpg"
+      },
+      {
+        "id": 283222,
+        "title": "Beowulf",
+        "year": "1976",
+        "overview": "Film adaptation of the earliest known poem in the English language (written in the 8th century) which examines the ancient and heroic tradition from which the feudal system started to grow. The film, as in the poem, is an elegy lamenting the not only the reality of a lost heroic tradition, but also the loss of innocence which made possible its unquestioning acceptance.",
+        "poster_path": ""
+      },
+      {
+        "id": 1296219,
+        "title": "Beowulf",
+        "year": "",
+        "overview": "A 2008 musical retelling of the Beowulf story, with music created by the most prominent Dave Malloy. A story of horror, courage and history.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "mulholland-dr-dvd-rental-thriller",
+    "title": "Mulholland Dr.",
+    "vendor": "DVD",
+    "genre": "thriller",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Mulholland Drive' (2001))",
+    "candidates": [
+      {
+        "id": 1018,
+        "title": "Mulholland Drive",
+        "year": "2001",
+        "overview": "Blonde Betty Elms has only just arrived in Hollywood to become a movie star when she meets an enigmatic brunette with amnesia. Meanwhile, as the two set off to solve the second woman's identity, filmmaker Adam Kesher runs into ominous trouble while casting his latest project.",
+        "poster_path": "/x7A59t6ySylr1L7aubOQEA480vM.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "butterfly-sword-dvd-rental-action",
+    "title": "Butterfly Sword",
+    "vendor": "DVD",
+    "genre": "action",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Butterfly and Sword' (1993))",
+    "candidates": [
+      {
+        "id": 40166,
+        "title": "Butterfly and Sword",
+        "year": "1993",
+        "overview": "A loyalist attempts to keep the King's empire from being overthrown by a revolutionary group.",
+        "poster_path": "/i1s86wKq0FTWJ5xQtYW8b7n7g79.jpg"
+      },
+      {
+        "id": 19464,
+        "title": "Butterfly Lovers",
+        "year": "2008",
+        "overview": "Zhu Yanzhi, disguised as a man, seeks to learn martial arts with an elite clan. Once she begins her intense training, Zhu finds herself at odds with her trainer and superior, Liang.",
+        "poster_path": "/aSoS89eTUVhe6p0RTbV7x2exMFS.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "police-story-2-dvd-rental-action",
+    "title": "Police Story 2",
+    "vendor": "DVD",
+    "genre": "action",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Police Story 2' (1988))",
+    "candidates": [
+      {
+        "id": 10753,
+        "title": "Police Story 2",
+        "year": "1988",
+        "overview": "The Hong Kong super-cop must stop a group of blackmailing bombers at the same time that the villains of the first Police Story are out for revenge.",
+        "poster_path": "/kjq1FXtHh9i2sIuM0JaoYf43FDU.jpg"
+      },
+      {
+        "id": 1585407,
+        "title": "Police Story 2",
+        "year": "2007",
+        "overview": "Agni and Vijay, loyal cops, kill Thimmakka\u2019s son for rape and murder, sparking her revenge. She allies with two dons and manipulates politics to discredit the police. Agni, backed by the honest CM, fights back, killing one don inside the CM\u2019s residence. Thimmakka unleashes Black Tiger, a criminal thought executed, who escaped via corruption. Agni tracks three officials tied to the escape, but Black Tiger kills them, staining Agni\u2019s record. Vijay dies, leaving Agni alone. Black Tiger bombs the city, killing Agni\u2019s mother. Agni chases him to Hong Kong for a final showdown.",
+        "poster_path": "/pA5nuHyH2l4JzF8M0cYlG2OVhFI.jpg"
+      },
+      {
+        "id": 9056,
+        "title": "Police Story",
+        "year": "1985",
+        "overview": "Officer Chan Ka Kui manages to put a major Hong Kong drug dealer behind the bars practically alone, after a shooting and an impressive chase inside a slum. Now, he must protect the boss' secretary, Selina, who will testify against the gangster in court.",
+        "poster_path": "/1eFB0Iy1TMU4VO5hMcoCE064JAT.jpg"
+      },
+      {
+        "id": 1100119,
+        "title": "New Police Story 2",
+        "year": "",
+        "overview": "After his release from prison, Joe Kwan wants retribution and uses the media to degrade the police, which hurts the reputation of Inspector Cheng Siu-Fung and Chief Superintendent Chan Kwok-Wing.",
+        "poster_path": ""
+      },
+      {
+        "id": 281486,
+        "title": "Thai Police Story",
+        "year": "1986",
+        "overview": "Explosive action film starring Panna Rittikrai as a man caught between corrupt police officers and vicious drug gangs.  The film features non-stop action and crazy stunts including a fight with Panna taking on four guys on top of a moving truck.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "water-world-dvd-rental-action",
+    "title": "Water World",
+    "vendor": "DVD",
+    "genre": "action",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'The Water Slide' (2018))",
+    "candidates": [
+      {
+        "id": 509405,
+        "title": "The Water Slide",
+        "year": "2018",
+        "overview": "At nearly 169 feet tall, Verr\u00fcckt was taller than Niagara Falls. Riders flew down the world's tallest water slide at 70 miles per hour, challenging the laws of physics. Then, on August 7, 2016, 10-year-old Caleb Schwab was decapitated on the ride. What went wrong to cause such a horrific tragedy?",
+        "poster_path": "/tYh33QFHWw2fOjU3AQKpM7NCAk9.jpg"
+      },
+      {
+        "id": 744616,
+        "title": "Wonders of the Water Worlds",
+        "year": "1961",
+        "overview": "This tracks the course of a body of water (from brook to lake to sea, etc.) and features the lives of animals that inhabit in or near it.",
+        "poster_path": "/jvHulbXbUhhH2nBV7q2MhvmEL97.jpg"
+      },
+      {
+        "id": 180548,
+        "title": "Water Life A World of Water",
+        "year": "2009",
+        "overview": "A World of Water - Dive into the Blue Planet and discover amazing and diverse worlds brimming with color and life. From tropical rainforests to coral reefs, miraculous and mysterious water holds the secrets to life on Earth. Also includes the programs: The Wandering Water, Where Water is Born, Liquid Roads and The Quiet Flow.",
+        "poster_path": "/jRsf8CR1Qgb8jRA9VS4kzbrS0V1.jpg"
+      },
+      {
+        "id": 1613733,
+        "title": "What in the World Is Water?",
+        "year": "1967",
+        "overview": "Water functions as a willing worker, shaping the land, shifting earth or rock, carrying the food by which plants survive, and so supporting other forms of life. This film is designed primarily to show the astonishing utility of this common substance, but it also shows the beauty of water in movement, from raindrops pelting the earth to the mighty cataract of Niagara.",
+        "poster_path": ""
+      },
+      {
+        "id": 1395430,
+        "title": "A World Without Water",
+        "year": "2006",
+        "overview": "Every day 3900 children die as a result of insufficient or unclean water supplies. 'A World Without Water' tells of the personal tragedies behind the mounting privatization of water supplies.",
+        "poster_path": "/3VKvs9QxeyAxQ00Uu7Jr1dhb5c3.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "magnolia-dvd-rental-drama",
+    "title": "Magnolia",
+    "vendor": "DVD",
+    "genre": "drama",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Magnolia' (1999))",
+    "candidates": [
+      {
+        "id": 334,
+        "title": "Magnolia",
+        "year": "1999",
+        "overview": "On one random day in the San Fernando Valley, a dying father, a young wife, a male caretaker, a famous lost son, a police officer in love, a boy genius, an ex-boy genius, a game show host and an estranged daughter will each become part of a dazzling multiplicity of plots, but one story.",
+        "poster_path": "/tpfC325Jk6S38VTe5dDWjWtoyxr.jpg"
+      },
+      {
+        "id": 489173,
+        "title": "Magnolia",
+        "year": "2016",
+        "overview": "The story is about husband and wife who have a cold relationship. The wife is pregnant and the husband does not like to have a child and he is in doubt whether to tell her or not.  In the meantime, the girl who is a photographer gets a project in a studio which is owned by a famous model. During her job, she finds out that the model (owner) has cancer and is depressed and waiting for his death. The girl gives him the hope and affection and tries to make friendly relationship with him. The husband got to know the relationship and thinks that she is cheating on him. He commits to killing her but if he could not succeed and during the police investigation, he tells his story but finds out that it was all misunderstanding.",
+        "poster_path": "/pj65uZzlYKbGJQHA0loGN1pJWlO.jpg"
+      },
+      {
+        "id": 1362463,
+        "title": "Magnolia",
+        "year": "2006",
+        "overview": "Ex-cons Paul, Dino and Terry are very good at being friends, but aren't so good at making money. Their decorating business is on the ropes and with Paul under pressure to abandon a sinking ship, will their firm - and their friendship - be able to survive?",
+        "poster_path": "/mzQTEcyrqtx4C407l9fE0Isex37.jpg"
+      },
+      {
+        "id": 748054,
+        "title": "Magnolia",
+        "year": "2018",
+        "overview": "Named symbolically after an ornamental flowering tree, Magnolia follows a middle-aged literature professor over the course of a late summer afternoon. Torn between the past and a present in which she has not yet found a place for herself, she has been leading a stagnant life overburdened with everyday work. A single phone-call proves enough to interrupt her vegetative state - opening up a world of memories that disconcert and haunt her.",
+        "poster_path": "/rswQwIa1lVHvVd4ELGfo8wrhSUY.jpg"
+      },
+      {
+        "id": 1174067,
+        "title": "Magnolia",
+        "year": "1972",
+        "overview": "A beautiful story about a magnolia tree that, instead of shedding its leaves and flowers on the ground as nature intended, decided to go straight to heaven.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "spartacus-dvd-rental-action",
+    "title": "Spartacus",
+    "vendor": "DVD",
+    "genre": "action",
+    "tag": "Rental",
+    "reason": "ambiguous match (best candidate: 'Spartacus' (1960))",
+    "candidates": [
+      {
+        "id": 32528,
+        "title": "Spartacus",
+        "year": "2004",
+        "overview": "Sentenced to spend out the rest of his adult life laboring in the harsh deserts of Egypt, the Thracian slave Spartacus gets a new lease on life when he is purchased by the obese owner of a Roman gladiator school. Moved by the defiance of an Ethiopian warrior, Draba, Spartacus leads a slave uprising which threatens Rome's status quo. As Spartacus gains sympathy within the Roman Senate, he also makes a powerful enemy in form of Marcus Lucinius Crassus, who makes it a matter of personal honor to crush the rebellion.",
+        "poster_path": "/4qDIb9K9qLxCVT8cKGt5YrF54Xb.jpg"
+      },
+      {
+        "id": 967,
+        "title": "Spartacus",
+        "year": "1960",
+        "overview": "The rebellious Thracian Spartacus, born and raised a slave, is sold to Gladiator trainer Batiatus. After weeks of being trained to kill for the arena, Spartacus turns on his owners and leads the other slaves in rebellion. As the rebels move from town to town, their numbers swell as escaped slaves join their ranks. Under the leadership of Spartacus, they make their way to southern Italy, where they will cross the sea and return to their homes.",
+        "poster_path": "/nqU4xAn3ygWA4fvXSBufRwdGhpr.jpg"
+      },
+      {
+        "id": 570539,
+        "title": "Spartacus",
+        "year": "1977",
+        "overview": "A 1975 recording of the Bolshoi Ballet's performance of Yuri Grigorovich's production of \"Spartacus\".",
+        "poster_path": "/1IL3VDyn4jjTQVtiZUkOGgpNVKO.jpg"
+      },
+      {
+        "id": 1143992,
+        "title": "Spartacus",
+        "year": "1926",
+        "overview": "The owner of the gladiator school buys two slaves, the Thracian Spartacus and the Gaul Artorix. During the first fight in the arena, Spartacus wins over the Colloseum audience and his freedom. When freed from gladiator slavery, Spartacus calls slaves and Rome plebs for a rebel. The dictator Sulla dies. Spartacus and rebellious slaves lay out a camp near Vesuvius. The Roman commander Crassus is unable to take Spartacus\u2019s camp by storm, so he lays siege to it. Spartacus is betrayed; he dies with his friend Artorix in a battle.  The film is based on Raffaello Giovagnoli\u2019s novel of the same name.",
+        "poster_path": "/5hQ6NbgxDcl9mPjudSqHupX0VzR.jpg"
+      },
+      {
+        "id": 1132765,
+        "title": "Spartacus",
+        "year": "1992",
+        "overview": "Spartacus, a prisoner of war from Tracia, was made a slave at a Roman stone quarry. A rich merchant, Alvinius, is attracted to Spartacus' combination of fighting spirit and tactfulness. He sends Spartacus to a martial arts academy. Spartacus becomes a formidable gladiator. One day, Savinius, the Roman Governor, visits the school. To entertain the important guest, a bout is held which puts Spartacus up against a renowned swordsman, Gaza. Gaza is defeated. It is then discovered that Spartacus is no ordinary prisoner of war but the best warrior in the whole Tracian Army.",
+        "poster_path": "/hUwiOlzRZYetMAosnJDaKXKWnhu.jpg"
+      }
+    ]
   }
 ]
