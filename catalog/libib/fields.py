@@ -52,4 +52,4 @@ def expected_tags_string(row: dict) -> str:
 def normalized_tag_set(tags: str) -> set[str]:
     """Libib lowercases and reorders tags on save ("VHS, Comedy" -> "comedy,vhs"),
     so tags compare as a normalised set."""
-    return {t.strip().lower() for t in re.split(r"[,\n]", tags or "") if t.strip()}
+    return {t.strip().lower() for t in re.split(r"[,;\n]", tags or "") if t.strip()}

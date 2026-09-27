@@ -37,6 +37,10 @@ class TestFields(unittest.TestCase):
         self.assertEqual(normalized_tag_set("VHS, Horror"), normalized_tag_set("horror,vhs"))
         self.assertEqual(normalized_tag_set(""), set())
 
+    def test_multi_genre_semicolons_split_like_libib_does(self):
+        # Libib splits the genre metafield's "comedy; sci-fi" into two tags on import.
+        self.assertEqual(normalized_tag_set("VHS, comedy; sci-fi"), normalized_tag_set("comedy, sci-fi, vhs"))
+
 
 class TestColumns(unittest.TestCase):
     def test_import_row(self):
