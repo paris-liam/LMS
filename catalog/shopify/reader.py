@@ -14,7 +14,7 @@ from catalog.errors import ShopifyError
 from catalog.shopify.snapshot import blank_row
 
 QUERY_PATH = Path(__file__).parent / "queries" / "products.graphql"
-_AUTH_HINTS = ("auth", "log in", "logged in", "login", "unauthorized", "401", "403")
+_AUTH_HINTS = ("not logged in", "log in", "login", "authenticat", "unauthorized", "401", "403")
 
 
 def _parse_json_output(text: str) -> dict:
@@ -49,7 +49,7 @@ def node_to_row(node: dict) -> dict:
     options = variant.get("selectedOptions") or []
     option = options[0] if options else {}
     media = (node.get("media") or {}).get("nodes") or []
-    image = (media[0].get("image") if media and media[0] else None) or {}
+    image = next((m["image"] for m in media if m and m.get("image")), None) or {}
     references = (((node.get("genre") or {}).get("references")) or {}).get("nodes") or []
 
     row = blank_row()

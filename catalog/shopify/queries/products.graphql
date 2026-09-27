@@ -28,7 +28,7 @@ query CatalogProducts($cursor: String) {
           }
         }
       }
-      media(first: 1) {
+      media(first: 5) {
         nodes {
           ... on MediaImage {
             image {

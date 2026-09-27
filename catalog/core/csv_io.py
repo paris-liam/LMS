@@ -1,14 +1,11 @@
-"""Shared helpers for the catalogue formatting scripts: CSV I/O and
-handle grouping.
-
-See docs/superpowers/specs/2026-08-11-catalogue-format-script-design.md.
-"""
+"""CSV I/O shared by every stage: read a Shopify export (either barcode header
+spelling), write CSVs, group rows by handle."""
 
 import csv
 
 
 def load_export(path) -> tuple[list[str], list[dict]]:
-    with open(path, newline="", encoding="utf-8") as f:
+    with open(path, newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         fieldnames, rows = list(reader.fieldnames), list(reader)
 

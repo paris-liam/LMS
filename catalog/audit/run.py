@@ -5,6 +5,7 @@ place (applied -> resolved promotion); the caller saves the registry and
 writes outputs.
 """
 
+import html
 import json
 from dataclasses import dataclass
 from pathlib import Path
@@ -60,7 +61,7 @@ def _content(row: dict, registry: dict, fetch_fn) -> tuple[list[Finding], dict |
             return ([make(f, MANUAL, "client skipped this in the picker", rule="client-skipped") for f in missing],
                     None, "client skipped")
         if status == "resolved":
-            return ([make(f, MANUAL, "marked resolved by the old pipeline but still missing in Shopify",
+            return ([make(f, MANUAL, "marked resolved in the registry but still missing in Shopify",
                           rule="applied-but-missing") for f in missing], None, "resolved but still missing")
         return [], None, "applied, awaiting import"  # reported by the registry step
 
@@ -91,7 +92,7 @@ def _content(row: dict, registry: dict, fetch_fn) -> tuple[list[Finding], dict |
     if "Body (HTML)" in missing:
         overview = ((result.best or {}).get("overview") or "").strip()
         if overview:
-            findings.append(make("Body (HTML)", AUTO_FIX, result.reason, f"<p>{overview}</p>"))
+            findings.append(make("Body (HTML)", AUTO_FIX, result.reason, f"<p>{html.escape(overview, quote=False)}</p>"))
         else:
             unfilled.append(("Body (HTML)", "matched but TMDB has no overview"))
 
@@ -151,6 +152,15 @@ def run_audit(rows: list[dict], registry: dict, fetch_fn=None) -> AuditResult:
         if entry:
             review.append(entry)
         log.progress(index, len(content_rows), (row.get("Title") or row["Handle"]).strip(), message)
+
+    for row in rows:
+        if not is_multi_variant(row):
+            continue
+        for field_name, needed in (("Image Src", needs_poster(row)), ("Body (HTML)", needs_description(row))):
+            if needed:
+                findings.append(Finding(row["Handle"], (row.get("Title") or "").strip(), resolve_row(row).type or "",
+                                        _CONTENT_RULE[field_name], field_name, "", "", MANUAL,
+                                        "multi-variant product — fill by hand"))
 
     for f in findings:
         log.detail(f"{f.handle}: {f.rule} [{f.bucket}] {f.field} {f.current_value!r} -> {f.proposed_value!r} {f.detail}")

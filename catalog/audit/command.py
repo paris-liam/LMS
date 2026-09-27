@@ -13,6 +13,7 @@ from catalog.audit.run import build_report, run_audit, write_outputs
 from catalog.core import log
 from catalog.core.registry import load_registry, save_registry
 from catalog.core.runs import new_run
+from catalog.errors import InputShapeError
 from catalog.shopify.export_reader import read_export
 from catalog.shopify.reader import read_products
 from catalog.shopify.snapshot import filter_catalogue
@@ -38,6 +39,9 @@ def run_command(args, fetch_fn=None, read_api=read_products, today: date | None 
     raw_fetch = None
     if not args.skip_tmdb:
         raw_fetch = fetch_fn or make_fetcher(config.require_env(config.ENV_TMDB_API_KEY))
+
+    if args.from_export and not Path(args.from_export).is_file():
+        raise InputShapeError(f"export file not found: {args.from_export}")
 
     run_dir = new_run(runs_dir, today or date.today())
     log.setup_logging(run_dir / "audit.log", log.verbosity(args))

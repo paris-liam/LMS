@@ -1,7 +1,7 @@
 """Resolve one product's format, type, genres and price from raw fields.
 
 Every resolver returns (value, reason): a value with reason None, or None
-with a human-readable reason that lands in issues.csv. Nothing is guessed —
+with a human-readable reason that becomes an audit finding. Nothing is guessed —
 a genre is never inferred from a title and a type is never inferred from a
 price, because both would silently mislabel physical shelf stock.
 """

@@ -8,6 +8,7 @@ current picker cycle (registry "queued"); a manual pick from an older batch
 since. Handles already applied/resolved are left alone.
 """
 
+import html
 from dataclasses import dataclass, field
 
 from catalog.core.picks import Pick
@@ -56,7 +57,7 @@ def _pick_values(pick: Pick, row: dict, current_cycle: bool) -> dict | None:
         if not has_alt:
             values["Image Alt Text"] = f"{title} poster"
     if body and (overwrite or not has_body):
-        values["Body (HTML)"] = f"<p>{body}</p>"
+        values["Body (HTML)"] = f"<p>{html.escape(body, quote=False)}</p>"
     return values
 
 

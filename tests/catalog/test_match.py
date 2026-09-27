@@ -241,6 +241,14 @@ class TestMatchProduct(unittest.TestCase):
         self.assertEqual(poster_url({"poster_path": ""}), "")
         self.assertEqual(poster_url(None), "")
 
+    def test_invalid_key_stops_the_audit(self):
+        from catalog.errors import CatalogError
+
+        def bad_key(query, year):
+            raise CatalogError("TMDB rejected TMDB_API_KEY (401)")
+        with self.assertRaises(CatalogError):
+            match_product(row(), bad_key)
+
 
 if __name__ == "__main__":
     unittest.main()

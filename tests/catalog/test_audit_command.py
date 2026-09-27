@@ -138,6 +138,21 @@ class TestAuditCommand(unittest.TestCase):
         self.assertEqual(seen, ["dev.myshopify.com"])
         self.assertIn("api dev.myshopify.com", (resolve_run(self.runs) / COMPLETE_MARKER).read_text(encoding="utf-8"))
 
+    def test_missing_export_fails_before_creating_a_run(self):
+        err = io.StringIO()
+        argv = ["audit", "--from-export", str(self.export) + ".nope", "--runs-dir", str(self.runs),
+                "--picker-dir", str(self.picker), "--skip-tmdb"]
+        with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(main(argv), 2)
+        self.assertEqual(list_runs(self.runs), [])
+
+    def test_from_export_reads_a_bom_file(self):
+        self.export.write_text("\ufeff" + self.export.read_text(encoding="utf-8"), encoding="utf-8")
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(command.run_command(self.args("--skip-tmdb"), today=date(2026, 9, 25)), 0)
+        snapshot = json.loads((resolve_run(self.runs) / "snapshot.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(snapshot), 4)
+
 
 if __name__ == "__main__":
     unittest.main()

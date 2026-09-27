@@ -101,7 +101,7 @@ class TestContentStep(unittest.TestCase):
         registry = {"rushmore-vhs-rental": {"batch": "q", "status": "resolved"}}
         result = run_audit([movie(**{"Image Src": "", "Image Alt Text": ""})], registry, fetcher({}))
         finding = [f for f in result.findings if f.rule == "applied-but-missing"][0]
-        self.assertIn("old pipeline", finding.detail)
+        self.assertIn("marked resolved", finding.detail)
 
     def test_multi_variant_skips_tmdb(self):
         calls = []
@@ -113,6 +113,15 @@ class TestContentStep(unittest.TestCase):
         finding = [f for f in result.findings if f.rule == "poster-missing"][0]
         self.assertEqual((finding.bucket, finding.detail), (PICKER, "not matched (--skip-tmdb)"))
         self.assertEqual(result.review, [])
+
+    def test_multi_variant_missing_content_is_a_manual_finding(self):
+        result = run_audit([movie(**{"Image Src": "", "Image Alt Text": "", "Variant Count": "2"})], {}, None)
+        self.assertIn(("poster-missing", "Image Src", MANUAL), rules_for(result, "rushmore-vhs-rental"))
+
+    def test_overview_html_is_escaped(self):
+        row = movie(**{"Body (HTML)": ""})
+        result = run_audit([row], {}, fetcher({"Rushmore": [tmdb("Rushmore", 1998, overview="Tom & Jerry <3")]}))
+        self.assertEqual(result.autofix["rushmore-vhs-rental"]["changes"]["Body (HTML)"], "<p>Tom &amp; Jerry &lt;3</p>")
 
 
 class TestRegistryStep(unittest.TestCase):

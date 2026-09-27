@@ -65,6 +65,10 @@ class TestNodeToRow(unittest.TestCase):
         self.assertEqual(r["Variant Barcode"], "")
         self.assertEqual(r["Variant Inventory Tracker"], "")
 
+    def test_first_image_is_used_when_a_video_comes_first(self):
+        r = node_to_row(node(media={"nodes": [{}, {"image": {"url": "https://cdn/2.jpg", "altText": "B"}}]}))
+        self.assertEqual((r["Image Src"], r["Image Alt Text"]), ("https://cdn/2.jpg", "B"))
+
 
 class TestReadProducts(unittest.TestCase):
     def test_paginates_until_done(self):
@@ -116,6 +120,12 @@ class TestRunCliQuery(unittest.TestCase):
         for field in ("handle", "descriptionHtml", "templateSuffix", "variantsCount", "barcode",
                       "tracked", "altText", 'namespace: "shopify", key: "genre"', "endCursor"):
             self.assertIn(field, text)
+
+    def test_a_non_auth_failure_mentioning_author_is_not_called_auth(self):
+        with self.fake_run(1, stderr="Field 'author' doesn't exist on type 'Product'"):
+            with self.assertRaises(ShopifyError) as ctx:
+                reader.run_cli_query("s", reader.QUERY_PATH, {"cursor": None})
+        self.assertNotIn("not authenticated", str(ctx.exception))
 
 
 if __name__ == "__main__":

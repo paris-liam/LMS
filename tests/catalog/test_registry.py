@@ -117,5 +117,15 @@ class TestFixVisibleTolerance(unittest.TestCase):
         self.assertFalse(fix_visible({"Variant Price": "abc"}, "Variant Price", "0"))
 
 
+class TestMalformedRegistry(unittest.TestCase):
+    def test_bad_json_is_an_input_error(self):
+        from catalog.errors import InputShapeError
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "data").mkdir()
+            (Path(tmp) / "data" / "_handle-index.json").write_text("{oops", encoding="utf-8")
+            with self.assertRaises(InputShapeError):
+                load_registry(tmp)
+
+
 if __name__ == "__main__":
     unittest.main()

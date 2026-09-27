@@ -18,6 +18,7 @@ from pathlib import Path
 
 from catalog.core.columns import GENRE_METAFIELD
 from catalog.core.text import norm_ws, strip_html
+from catalog.errors import InputShapeError
 
 REGISTRY_FILENAME = "_handle-index.json"
 
@@ -30,7 +31,10 @@ def load_registry(picker_dir) -> dict:
     path = registry_path(picker_dir)
     if not path.exists():
         return {}
-    return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise InputShapeError(f"{path} is not valid JSON ({exc})") from None
 
 
 def save_registry(picker_dir, registry: dict) -> None:

@@ -107,6 +107,10 @@ class TestPicks(unittest.TestCase):
                                               "a": {"changes": {"Vendor": "DVD"}, "rules": []}}, [], {})
         self.assertEqual([c.handle for c in result.changes], ["a", "b"])
 
+    def test_pick_overview_is_escaped(self):
+        c = changes_of(merge([row()], {}, [Pick("q", "the-thing", "tmdb", "", "A & B")], QUEUED))
+        self.assertEqual(c[("the-thing", "Body (HTML)")][0], "<p>A &amp; B</p>")
+
 
 class TestReviewFixes(unittest.TestCase):
     def test_old_batch_manual_pick_for_a_queued_handle_only_fills_gaps(self):

@@ -10,6 +10,7 @@ from dataclasses import dataclass
 
 from catalog.core.columns import GENRE_METAFIELD
 from catalog.core.text import strip_html
+from catalog.errors import CatalogError
 
 POSTER_BASE_URL = "https://image.tmdb.org/t/p/w1280"
 
@@ -382,6 +383,8 @@ def match_product(row: dict, fetch_fn) -> MatchResult:
 
     try:
         results = search_tmdb(fetch_fn, clean_title, year)
+    except CatalogError:
+        raise  # a bad key or similar: stop the whole run, don't mark every product failed
     except Exception as exc:  # network, HTTP or JSON failure: never cached, retried next audit
         return MatchResult("error", None, f"TMDB request failed: {exc}")
 

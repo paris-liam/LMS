@@ -48,6 +48,18 @@ class TestClient(unittest.TestCase):
             fetch("Rushmore", None)
         self.assertEqual(len(sleeps), 1)
 
+    def test_401_raises_an_auth_error(self):
+        import urllib.error
+        from catalog.errors import CatalogError
+
+        def urlopen(url, timeout):
+            raise urllib.error.HTTPError(url, 401, "Unauthorized", {}, None)
+
+        fetch = make_fetcher("BAD", sleep_fn=lambda s: None, urlopen=urlopen)
+        with self.assertRaises(CatalogError) as ctx:
+            fetch("Rushmore", None)
+        self.assertIn("TMDB_API_KEY", str(ctx.exception))
+
 
 if __name__ == "__main__":
     unittest.main()
