@@ -14,7 +14,7 @@ def movie(**overrides):
         "Image Src": "https://cdn/r.jpg", "Image Alt Text": "Rushmore poster",
         "Option1 Name": "Genre", "Option1 Value": "Comedy", "Variant Price": "0.00",
         "Variant Barcode": "01577790", "Variant Inventory Tracker": "shopify",
-        "Variant Count": "1", GENRE_METAFIELD: "comedy",
+        "Variant Count": "1", GENRE_METAFIELD: "comedy", "Product Category": "Media > Videos",
     })
     base.update(overrides)
     return base
@@ -41,6 +41,22 @@ class TestCleanProduct(unittest.TestCase):
 
 
 class TestAutoFixRules(unittest.TestCase):
+    def test_movie_without_a_category_gets_media_videos(self):
+        # shopify.genre is a category metafield: Shopify drops it on import
+        # unless the product's category is Media > Videos.
+        for category in ("", "Uncategorized", "Media > Music & Sound Recordings"):
+            with self.subTest(category=category):
+                f = by_rule(check_row(movie(**{"Product Category": category, GENRE_METAFIELD: ""})))
+                finding = f[("category-missing", "Product Category")]
+                self.assertEqual((finding.current_value, finding.proposed_value), (category, "Media > Videos"))
+                self.assertEqual(finding.bucket, AUTO_FIX)
+                self.assertIn(("genre-metafield-sync", GENRE_METAFIELD), f)
+
+    def test_category_is_left_alone_when_there_is_no_genre_to_set(self):
+        f = by_rule(check_row(movie(Tags="Rental, VHS", **{"Option1 Value": "", GENRE_METAFIELD: "",
+                                                           "Product Category": ""})))
+        self.assertNotIn(("category-missing", "Product Category"), f)
+
     def test_misspelt_genre_everywhere(self):
         f = by_rule(check_row(movie(Tags="Rental, VHS, Horor", **{"Option1 Value": "Horor", GENRE_METAFIELD: ""})))
         self.assertEqual(f[("genre-alias", "Tags")].proposed_value, "Rental, VHS, Horror")

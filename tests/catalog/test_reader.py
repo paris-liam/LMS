@@ -19,6 +19,7 @@ def node(**overrides):
                                 "inventoryItem": {"tracked": True}}]},
         "media": {"nodes": [{"image": {"url": "https://cdn.shopify.com/r.jpg", "altText": "Rushmore poster"}}]},
         "genre": {"references": {"nodes": [{"handle": "comedy"}, {"handle": "drama"}]}},
+        "category": {"fullName": "Media > Videos"},
     }
     base.update(overrides)
     return base
@@ -29,6 +30,10 @@ def page(nodes, has_next, cursor=None):
 
 
 class TestNodeToRow(unittest.TestCase):
+    def test_query_reads_the_product_category(self):
+        query = (Path(reader.__file__).parent / "queries" / "products.graphql").read_text()
+        self.assertRegex(query, r"category\s*\{\s*fullName\s*\}")
+
     def test_full_node(self):
         r = node_to_row(node())
         self.assertEqual(r["Handle"], "rushmore-vhs-rental")
@@ -44,12 +49,13 @@ class TestNodeToRow(unittest.TestCase):
         self.assertEqual(r["Image Src"], "https://cdn.shopify.com/r.jpg")
         self.assertEqual(r["Image Alt Text"], "Rushmore poster")
         self.assertEqual(r[GENRE_METAFIELD], "comedy; drama")
+        self.assertEqual(r["Product Category"], "Media > Videos")
 
     def test_node_with_nothing_optional(self):
         r = node_to_row(node(descriptionHtml=None, vendor=None, tags=[], templateSuffix="retail",
                              variantsCount={"count": 0}, variants={"nodes": []},
                              media={"nodes": [{}]},  # first media is a video: fragment yields {}
-                             genre=None))
+                             genre=None, category=None))
         self.assertEqual(r["Body (HTML)"], "")
         self.assertEqual(r["Template Suffix"], "retail")
         self.assertEqual(r["Variant Barcode"], "")
@@ -57,6 +63,7 @@ class TestNodeToRow(unittest.TestCase):
         self.assertEqual(r["Image Src"], "")
         self.assertEqual(r[GENRE_METAFIELD], "")
         self.assertEqual(r["Variant Count"], "0")
+        self.assertEqual(r["Product Category"], "")
 
     def test_untracked_and_null_barcode(self):
         n = node()

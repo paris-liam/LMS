@@ -12,7 +12,7 @@ from catalog.audit.resolvers import (
     dedupe, resolve_format, resolve_genres, resolve_price, resolve_type, split_list,
 )
 from catalog.core.barcodes import RENTAL_BARCODE, barcode_owners
-from catalog.core.columns import GENRE_METAFIELD
+from catalog.core.columns import GENRE_METAFIELD, MOVIE_CATEGORY
 from catalog.core.taxonomy import canonical_format, canonical_genre, canonical_type, genre_handle
 from catalog.core.text import strip_html
 
@@ -126,6 +126,10 @@ def _autofix_findings(row, r, make) -> list[Finding]:
             if option1_name != "Genre":
                 out.append(make("option1-genre", "Option1 Name", option1_name, "Genre", AUTO_FIX,
                                 "Option1 is the Genre option"))
+        category = (row.get("Product Category") or "").strip()
+        if category != MOVIE_CATEGORY:
+            out.append(make("category-missing", "Product Category", category, MOVIE_CATEGORY, AUTO_FIX,
+                            "the genre field only exists on Media > Videos products"))
         expected = [genre_handle(g) for g in r.genres]
         current = [h.strip() for h in (row.get(GENRE_METAFIELD) or "").split(";") if h.strip()]
         if set(current) != set(expected):

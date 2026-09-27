@@ -12,6 +12,9 @@ query CatalogProducts($cursor: String) {
       tags
       status
       templateSuffix
+      category {
+        fullName
+      }
       variantsCount {
         count
       }

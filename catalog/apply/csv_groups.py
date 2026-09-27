@@ -18,7 +18,7 @@ GROUP_COLUMNS = {
     "image.csv": ["Image Src", "Image Alt Text"],
     "alt-text.csv": ["Image Src", "Image Alt Text"],
     "description.csv": ["Body (HTML)"],
-    "genre.csv": [GENRE_METAFIELD],
+    "genre.csv": ["Product Category", GENRE_METAFIELD],
     "tags.csv": ["Tags"],
     "vendor.csv": ["Vendor"],
     "price.csv": ["Variant Price"],
@@ -30,6 +30,7 @@ _FIELD_GROUP = {
     "Option1 Name": "genre.csv",
     "Option1 Value": "genre.csv",
     GENRE_METAFIELD: "genre.csv",
+    "Product Category": "genre.csv",
     "Tags": "tags.csv",
     "Vendor": "vendor.csv",
     "Variant Price": "price.csv",
@@ -56,6 +57,9 @@ def build_import_files(changes, rows_by_handle: dict) -> dict[str, tuple[list[st
     for group, extra in GROUP_COLUMNS.items():
         if group not in members:
             continue
+        # Product Category only rides along when a row in the file sets it.
+        extra = [c for c in extra if c != "Product Category"
+                 or any(c in changed_fields[h] for h in members[group])]
         columns = REQUIRED_COLUMNS + [c for c in extra if c not in REQUIRED_COLUMNS]
         rows = [{c: final[h].get(c, "") for c in columns} for h in sorted(members[group])]
         files[group] = (columns, rows)

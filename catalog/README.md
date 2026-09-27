@@ -61,8 +61,10 @@ Import each in Shopify admin. `apply-plan.csv` lists every change (handle, field
 after, source). Picks become `applied` in the registry; the next audit promotes them to
 `resolved` once Shopify shows them, or reports `applied-but-missing`.
 
-Hold `genre.csv` and `alt-text.csv` until the dev-store check in
-`claudedocs/2026-09-25-apply-import-verification.md` passes.
+`genre.csv` also sets `Product Category` to `Media > Videos` on any movie that lacks it:
+`shopify.genre` is a category metafield, and Shopify silently drops it on products in
+any other category (or none). Import `image.csv` before `alt-text.csv`. Hold `genre.csv`
+only when it changes Option1 — `apply` warns when it does.
 
 ## Stage 4 — Libib
 

@@ -11,7 +11,8 @@ from catalog.core.columns import GENRE_METAFIELD
 def row(handle, **overrides):
     base = {"Handle": handle, "Title": f"Title {handle}", "Option1 Name": "Genre", "Option1 Value": "Comedy",
             "Image Src": "", "Image Alt Text": "", "Body (HTML)": "", "Tags": "Rental, VHS, Comedy",
-            "Vendor": "VHS", "Variant Price": "0.00", GENRE_METAFIELD: "comedy"}
+            "Vendor": "VHS", "Variant Price": "0.00", GENRE_METAFIELD: "comedy",
+            "Product Category": "Media > Videos"}
     base.update(overrides)
     return base
 
@@ -84,6 +85,21 @@ class TestBuildImportFiles(unittest.TestCase):
     def test_empty_groups_are_not_produced(self):
         files = build_import_files([Change("desc", "Body (HTML)", "", "<p>d</p>", "auto-fix")], ROWS)
         self.assertEqual(list(files), ["description.csv"])
+
+
+class TestCategoryInGenreFile(unittest.TestCase):
+    def test_category_fix_rides_in_the_genre_file_before_the_genre(self):
+        rows = {"nocat": row("nocat", **{"Product Category": "", GENRE_METAFIELD: ""}), "ok": row("ok")}
+        changes = [Change("nocat", "Product Category", "", "Media > Videos", "auto-fix"),
+                   Change("nocat", GENRE_METAFIELD, "", "comedy", "auto-fix"),
+                   Change("ok", GENRE_METAFIELD, "drama", "comedy", "auto-fix")]
+        files = build_import_files(changes, rows)
+        self.assertEqual(list(files), ["genre.csv"])
+        columns, out = files["genre.csv"]
+        self.assertEqual(columns, REQUIRED_COLUMNS + ["Product Category", GENRE_METAFIELD])
+        self.assertEqual([(r["Handle"], r["Product Category"]) for r in out],
+                         [("nocat", "Media > Videos"), ("ok", "Media > Videos")])
+        self.assertEqual(warnings_for(files, changes), [])
 
 
 class TestWarnings(unittest.TestCase):

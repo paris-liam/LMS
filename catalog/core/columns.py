@@ -62,8 +62,12 @@ EXPORT_COLUMNS = [
     GENRE_METAFIELD,
 ]
 
+# shopify.genre is a category metafield: Shopify only keeps it on products in
+# this category and silently drops it on import everywhere else.
+MOVIE_CATEGORY = "Media > Videos"
+
 FIXED_VALUES = {
-    "Product Category": "Media > Videos",
+    "Product Category": MOVIE_CATEGORY,
     "Option1 Name": "Genre",
     "Variant Inventory Tracker": "shopify",
     "Variant Inventory Qty": "1",
@@ -91,5 +95,6 @@ SNAPSHOT_COLUMNS = [
     "Variant Barcode",
     "Variant Inventory Tracker",
     "Variant Count",
+    "Product Category",
     GENRE_METAFIELD,
 ]

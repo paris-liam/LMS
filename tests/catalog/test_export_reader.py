@@ -9,7 +9,7 @@ from catalog.shopify.export_reader import read_export
 
 HEADER = ["Handle", "Title", "Body (HTML)", "Vendor", "Tags", "Status", "Option1 Name",
           "Option1 Value", "Variant Price", "Variant Barcode", "Variant Inventory Tracker",
-          "Image Src", "Image Alt Text", GENRE_METAFIELD]
+          "Image Src", "Image Alt Text", "Product Category", GENRE_METAFIELD]
 
 
 def write(path: Path, rows, header=HEADER):
@@ -25,7 +25,7 @@ def product(**overrides):
             "Vendor": "VHS", "Tags": "Rental, VHS, Comedy", "Status": "active",
             "Option1 Name": "Genre", "Option1 Value": "Comedy", "Variant Price": "0",
             "Variant Barcode": "01577790", "Variant Inventory Tracker": "shopify",
-            "Image Src": "https://cdn/x.jpg", "Image Alt Text": "", GENRE_METAFIELD: "comedy"}
+            "Image Src": "https://cdn/x.jpg", "Image Alt Text": "", "Product Category": "Media > Videos", GENRE_METAFIELD: "comedy"}
     base.update(overrides)
     return base
 
@@ -44,6 +44,7 @@ class TestReadExport(unittest.TestCase):
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0]["Image Src"], "https://cdn/x.jpg")
         self.assertEqual(rows[0]["Variant Count"], "1")
+        self.assertEqual(rows[0]["Product Category"], "Media > Videos")
 
     def test_counts_real_variant_rows(self):
         write(self.path, [product(), {"Handle": "rushmore-vhs-rental", "Option1 Value": "Drama",

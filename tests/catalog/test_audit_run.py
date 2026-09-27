@@ -20,7 +20,7 @@ def movie(**overrides):
         "Image Src": "https://cdn/r.jpg", "Image Alt Text": "Rushmore poster",
         "Option1 Name": "Genre", "Option1 Value": "Comedy", "Variant Price": "0.00",
         "Variant Barcode": "01577790", "Variant Inventory Tracker": "shopify",
-        "Variant Count": "1", GENRE_METAFIELD: "comedy",
+        "Variant Count": "1", GENRE_METAFIELD: "comedy", "Product Category": "Media > Videos",
     })
     base.update(overrides)
     return base
