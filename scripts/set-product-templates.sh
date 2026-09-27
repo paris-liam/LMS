@@ -4,7 +4,7 @@
 #
 # WHY: Shopify's product-CSV import cannot set a template suffix. With the
 # retail layout as the theme default, every imported movie landed on a page
-# with a $0.00 "Buy now" button until someone ran set-movie-template.sh.
+# with a $0.00 "Buy now" button until someone ran the old set-movie-template.sh (since removed).
 # Movies are 7,004 of 7,014 products, so the default is backwards. After this
 # migration templates/product.json IS the movie layout and only the handful
 # of non-movie products carry a suffix.
