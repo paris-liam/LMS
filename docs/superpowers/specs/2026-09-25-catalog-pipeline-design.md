@@ -448,7 +448,7 @@ history; rotating them is the owner's decision and is outside this work.
 
 - **Baseline first:** run the current suite before moving any code and record the result in
   the plan.
-- Standard-library `unittest`: `python3 -m unittest discover -s tests/catalog -t .`
+- Standard-library `unittest`: `python3 -m unittest discover -s tests/catalog -p "test_*.py"`
 - Tests move with their code; tests for deleted modules are deleted.
 - New coverage:
   - `shopify/reader`: recorded GraphQL response fixtures → snapshot rows (CLI invocation is

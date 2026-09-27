@@ -86,6 +86,19 @@ until the audit's barcode findings are fixed. Orphans are listed, never deleted.
 `diff` promotes in-sync handles to `done` in `libib-sync/_state.json` and keeps the previous
 state as `runs/<id>/libib/state-before.json`.
 
+## Client upload sheet (not a pipeline stage)
+
+`catalog/client_sheet/template/` holds the client's Google Sheet scaffold, the tab-2
+formula, `genre-mappings.csv` and the client guide.
+
+    python3 -m catalog check-upload <sheet.csv>     # exit 0 clean, 1 problems, 2 unreadable
+    python3 -m catalog.client_sheet.generate_expected   # after a taxonomy change
+
+## Secrets
+
+`TMDB_API_KEY`, `LIBIB_EMAIL` and `LIBIB_PASSWORD` are read from the gitignored `.env` at the
+repo root (see `.env.example`); an exported variable wins over the file.
+
 ## Tests
 
     python3 -m unittest discover -s tests/catalog -p "test_*.py"

@@ -20,33 +20,23 @@ the full design.
    - `GITHUB_BRANCH` — the branch this Vercel project deploys from (optional; defaults to `main`)
 5. Deploy. Every push to the connected branch redeploys automatically.
 
-## Generating a new batch
+## Adding products to the picker
 
-After running `formatting-scripts/run.py` on a catalogue batch and getting
-its ambiguous review rows:
-
-```python
-import sys
-sys.path.insert(0, "formatting-scripts")
-from hosted_review_page import write_hosted_picker
-import tmdb_fill
-from pathlib import Path
-
-fetch_fn = tmdb_fill.make_tmdb_fetcher(API_KEY)
-write_hosted_picker(review_rows, Path("tools/review-picker"), "out-my-batch", fetch_fn)
-```
-
-Commit and push `tools/review-picker/` — Vercel redeploys, and the new
-batch appears on the launcher page automatically.
-
-## When the client finishes a batch
+The audit decides which products need the client; `picker push` publishes them:
 
 ```bash
-git pull
-python3 formatting-scripts/apply_picks.py \
-  tools/review-picker/data/out-my-batch.json \
-  catalogue-batches/out-my-batch/upload.csv
+python3 -m catalog audit                 # writes runs/<date>/review.json
+python3 -m catalog picker push           # appends to ambiguous-queue / unmatched-queue, commits + pushes (on main)
 ```
 
-This is unchanged from the pre-hosted workflow — `apply_picks.py` reads
-the exact same pick shape either way.
+New cards land in the two evergreen queues; `data/_handle-index.json` records every
+handle ever queued so nothing is asked twice.
+
+## Applying the client's picks
+
+```bash
+python3 -m catalog apply --dry-run       # reads picks from origin/main, shows the plan
+python3 -m catalog apply                 # writes runs/<date>/import/*.csv to import in Shopify admin
+```
+
+See `catalog/README.md`.

@@ -1,4 +1,4 @@
-// KEEP IN SYNC with BATCH_ID_PATTERN in formatting-scripts/hosted_review_page.py,
+// KEEP IN SYNC with BATCH_ID_PATTERN in catalog/picker/queues.py,
 // which validates the same pattern at page-generation time so a bad batch id
 // fails for the operator rather than for the client on the deployed page.
 const BATCH_ID_PATTERN = /^[a-z0-9][a-z0-9._-]*$/;

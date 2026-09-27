@@ -1,5 +1,7 @@
 # Libib Migration — Progress
 
+> **2026-09-25:** the Libib scripts this doc names now live in `catalog/libib/` (`python3 -m catalog libib diff | prepare | mark-imported | fix | status`); `formatting-scripts/` was removed. The history below is unchanged.
+
 Status as of 2026-09-18.
 
 ## Current strategy (supersedes the UPC-matching approach below)

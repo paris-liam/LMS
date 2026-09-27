@@ -1,5 +1,7 @@
 # Libib/Shopify Automation Roadmap
 
+> **2026-09-25:** the Libib scripts this doc names now live in `catalog/libib/` (`python3 -m catalog libib diff | prepare | mark-imported | fix | status`); `formatting-scripts/` was removed. The history below is unchanged.
+
 Captured 2026-09-19. This is a planning doc, not a build plan — nothing
 here is implemented yet. See `LIBIB_MIGRATION_PROGRESS.md` for the actual
 migration's current status.

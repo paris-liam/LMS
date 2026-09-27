@@ -14,7 +14,7 @@
 #   clear-movie  clear the `movie` suffix wherever it is still set
 #
 # PREDICATE for `retail` — Vendor "Supercycle" OR tag "online-store". This is
-# the same predicate as formatting-scripts/normalize.py:is_non_catalogue_product
+# the same predicate as catalog/shopify/snapshot.py:exclusion_reason (its export-path fallback)
 # and it selects exactly the membership plans, the shirt and the bumper
 # sticker. Do NOT use "vendor is not a format": six real movies carry Vendor
 # "Little Movie Store" and would be misfiled onto the retail template.
