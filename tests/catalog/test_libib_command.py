@@ -7,6 +7,7 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
+from catalog import config
 from catalog.cli import build_parser
 from catalog.core import log
 from catalog.core.columns import GENRE_METAFIELD
@@ -201,7 +202,8 @@ class TestFixCommand(LibibCase):
     def test_missing_credentials_fail_before_asking(self):
         from catalog.errors import MissingEnvError
         self.diff()
-        with mock.patch.dict("os.environ", {}, clear=True), contextlib.redirect_stdout(io.StringIO()):
+        with mock.patch.dict("os.environ", {}, clear=True), mock.patch.object(config, "ENV_FILE", Path("/nonexistent/.env")), \
+                contextlib.redirect_stdout(io.StringIO()):
             with self.assertRaises(MissingEnvError):
                 command.run_fix_command(self.parse("fix", "--drift", "--yes"), fixer=self.fake_fixer([]))
 

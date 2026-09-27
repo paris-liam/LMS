@@ -9,6 +9,7 @@ from datetime import date
 from pathlib import Path
 from unittest import mock
 
+from catalog import config
 from catalog.audit import command
 from catalog.cli import build_parser, main
 from catalog.core.columns import GENRE_METAFIELD
@@ -96,8 +97,8 @@ class TestAuditCommand(unittest.TestCase):
         err = io.StringIO()
         argv = ["audit", "--from-export", str(self.export), "--runs-dir", str(self.runs),
                 "--picker-dir", str(self.picker)]
-        with mock.patch.dict(os.environ, {}, clear=True), contextlib.redirect_stderr(err), \
-                contextlib.redirect_stdout(io.StringIO()):
+        with mock.patch.dict(os.environ, {}, clear=True), mock.patch.object(config, "ENV_FILE", Path("/nonexistent/.env")), \
+                contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
             code = main(argv)
         self.assertEqual(code, 2)
         self.assertIn("TMDB_API_KEY", err.getvalue())

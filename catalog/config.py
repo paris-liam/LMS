@@ -20,11 +20,33 @@ ENV_LIBIB_EMAIL = "LIBIB_EMAIL"
 ENV_LIBIB_PASSWORD = "LIBIB_PASSWORD"
 
 
-def require_env(name: str, environ=None) -> str:
+# Local secrets file (gitignored — see .env.example). An exported variable
+# always wins over the file. Tests point ENV_FILE elsewhere so a developer's
+# real .env never leaks into them.
+ENV_FILE = REPO_ROOT / ".env"
+
+
+def _read_env_file(path) -> dict:
+    values = {}
+    path = Path(path)
+    if not path.is_file():
+        return values
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.removeprefix("export ").partition("=")
+        values[key.strip()] = value.strip().strip("'\"")
+    return values
+
+
+def require_env(name: str, environ=None, env_file=None) -> str:
     environ = os.environ if environ is None else environ
     value = (environ.get(name) or "").strip()
     if not value:
-        raise MissingEnvError(f"{name} is not set. Export it first: export {name}=...")
+        value = (_read_env_file(ENV_FILE if env_file is None else env_file).get(name) or "").strip()
+    if not value:
+        raise MissingEnvError(f"{name} is not set. Add {name}=... to {ENV_FILE} or export it.")
     return value
 
 # The hosted review picker (Vercel) deploys tools/review-picker from this

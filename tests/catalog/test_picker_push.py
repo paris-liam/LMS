@@ -6,6 +6,7 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
+from catalog import config
 from catalog.cli import build_parser, main
 from catalog.core import log
 from catalog.picker import command
@@ -106,8 +107,8 @@ class TestPushCommand(unittest.TestCase):
     def test_missing_key_fails_before_writing(self):
         err = io.StringIO()
         argv = ["picker", "push", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker), "-q", "--yes"]
-        with mock.patch.dict("os.environ", {}, clear=True), contextlib.redirect_stderr(err), \
-                contextlib.redirect_stdout(io.StringIO()):
+        with mock.patch.dict("os.environ", {}, clear=True), mock.patch.object(config, "ENV_FILE", Path("/nonexistent/.env")), \
+                contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
             code = main(argv)
         self.assertEqual(code, 2)
         self.assertIn("TMDB_API_KEY", err.getvalue())
