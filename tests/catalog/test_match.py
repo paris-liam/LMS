@@ -136,6 +136,57 @@ class TestClassifyMatch(unittest.TestCase):
         self.assertEqual(kind, "ambiguous")
         self.assertEqual(best["release_date"][:4], "2003")
 
+    def test_genre_boost_does_not_lift_a_near_miss_title_over_the_threshold(self):
+        """Real case (2026-09-26): "Dumb And Dumberer" scored 0.86 against
+        "Dumb and Dumber To" (2014); the comedy boost lifted it to 0.91 and
+        auto-accepted the wrong sequel. Sequels share a genre, so genre can't
+        tell them apart — the threshold must be met on the title alone."""
+        results = [
+            result("Dumb and Dumber To", "2014", genre_ids=[35], popularity=14.1),
+            result("Dumb and Dumberer: When Harry Met Lloyd", "2003", genre_ids=[35], popularity=7.9),
+        ]
+        _, kind = classify_match("Dumb And Dumberer", None, results, genre="comedy")
+        self.assertEqual(kind, "ambiguous")
+
+    def test_genre_boost_does_not_make_a_lone_near_miss_confident(self):
+        results = [result("Winnie the Pooh: Springtime with Roo", "2004", genre_ids=[10751], popularity=6.4)]
+        _, kind = classify_match("Winnie the Pooh Springtime", None, results, genre="kids-family")
+        self.assertEqual(kind, "ambiguous")
+
+    def test_genre_boost_does_not_open_a_margin_between_equal_titles(self):
+        """Two candidates with the same near-exact title: the 0.05 genre
+        boost must not count as the margin that makes one of them a clear
+        winner (that would skip the popularity check below)."""
+        results = [
+            result("Big Sleeps", "1946", genre_ids=[80], popularity=1.0),
+            result("Big Sleeps", "1978", genre_ids=[18], popularity=9.0),
+        ]
+        _, kind = classify_match("Big Sleep", None, results, genre="drama")
+        self.assertEqual(kind, "confident")  # the drama one is also the popular one
+        _, kind = classify_match("Big Sleep", None, results, genre="crime")
+        self.assertEqual(kind, "ambiguous")  # crime one is the obscure one
+
+    def test_genre_tiebreak_yields_to_a_more_popular_candidate(self):
+        """Real case: "Beowulf" (fantasy). Only the obscure 1999 film is
+        tagged fantasy on TMDB; the far better-known 2007 film is not. Genre
+        alone isn't enough to overrule that — send it to the picker."""
+        results = [
+            result("Beowulf", "2007", genre_ids=[12, 28, 16], popularity=10.5),
+            result("Beowulf", "1999", genre_ids=[14, 28], popularity=3.6),
+        ]
+        _, kind = classify_match("Beowulf", None, results, genre="fantasy")
+        self.assertEqual(kind, "ambiguous")
+
+    def test_genre_tiebreak_stands_when_the_genre_pick_is_also_the_most_popular(self):
+        results = [
+            result("Spectre", "2015", genre_ids=[28, 12], popularity=14.5),
+            result("Spectre", "1977", genre_ids=[27], popularity=1.8),
+            result("Spectre", "2006", genre_ids=[18], popularity=1.4),
+        ]
+        best, kind = classify_match("Spectre", None, results, genre="action")
+        self.assertEqual(kind, "confident")
+        self.assertEqual(best["release_date"][:4], "2015")
+
     def test_small_popularity_gap_is_not_decisive(self):
         """A small gap isn't a reliable enough signal to auto-accept — this
         should still go to the picker."""

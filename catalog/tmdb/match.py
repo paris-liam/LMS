@@ -253,7 +253,7 @@ def overview_tiebreak(candidates: list[dict], overview_hint: str) -> dict | None
 
 def candidate_score(clean_title: str, genre: str, result: dict) -> float:
     """Title similarity, nudged up by a genre-overlap boost, capped at 1.0.
-    Used by classify_match to rank and threshold auto-match candidates.
+    Used by classify_match only to order candidates — never to threshold them.
 
     Not used for the review picker's candidate ordering — the 1.0 cap makes
     the genre boost a no-op whenever two candidates already have a perfect
@@ -278,11 +278,9 @@ def classify_match(
     thousands of rows that difference is hundreds of wrong posters.
 
     When our Genre metafield is known, a candidate whose TMDB genres overlap
-    it gets a small score boost (GENRE_SCORE_BOOST) before ranking — nudging
-    a genre-matching candidate ahead of a same-titled one in the wrong genre,
-    or tipping a close call over MATCH_THRESHOLD/MATCH_MARGIN. It cannot
-    manufacture a match on its own: title similarity still has to be in the
-    right neighborhood first.
+    it is ordered first among equals (GENRE_SCORE_BOOST), but MATCH_THRESHOLD
+    and MATCH_MARGIN are applied to title similarity alone — genre never
+    tips a close call into a confident match.
 
     Sparse/duplicate TMDB entries (same title, missing year and/or poster)
     are dropped before scoring — see drop_incomplete_duplicates — so they
@@ -291,7 +289,8 @@ def classify_match(
     When several fully-populated candidates are still genuinely tied on
     title alone (e.g. three "Mandela" entries), three more signals get a
     shot at resolving it before giving up: a genre match that narrows the
-    tie to exactly one candidate wins outright; failing that, our own
+    tie to exactly one candidate wins, provided no other tied candidate is
+    more popular (otherwise the tie goes to the picker); failing that, our own
     product description decisively out-overlapping one candidate's TMDB
     overview over the rest (overview_hint, optional — pass our Body (HTML)
     text stripped of tags; a caller with no description text simply passes
@@ -305,15 +304,22 @@ def classify_match(
 
     results = drop_incomplete_duplicates(results)
 
-    def score(r: dict) -> float:
-        return candidate_score(clean_title, genre, r)
+    # The genre boost only orders candidates (which one the picker shows
+    # first); every accept/reject decision below runs on title similarity
+    # alone. Sequels and remakes share a genre, so a boost that could lift a
+    # near-miss title over MATCH_THRESHOLD — or open MATCH_MARGIN between two
+    # equally-titled candidates — auto-accepts the wrong film ("Dumb And
+    # Dumberer" -> "Dumb and Dumber To", 2026-09-26).
+    def title_score(r: dict) -> float:
+        return title_similarity(clean_title, r.get("title", ""))
 
     scored = sorted(
-        ((score(r), r) for r in results),
-        key=lambda pair: pair[0],
+        ((title_score(r), r) for r in results),
+        key=lambda pair: (candidate_score(clean_title, genre, pair[1]), pair[0]),
         reverse=True,
     )
-    best_score, best = scored[0]
+    best = scored[0][1]
+    best_score = max(s for s, _ in scored)
 
     if year is not None:
         year_matches = [r for score, r in scored
@@ -331,7 +337,7 @@ def classify_match(
 
     tied = [r for s, r in scored if best_score - s < MATCH_MARGIN]
     if len(tied) == 1:
-        return best, "confident"
+        return tied[0], "confident"
 
     # Multiple strong, fully-populated candidates still tied on title alone:
     # try narrowing by genre, then description overlap, then a decisive
@@ -349,7 +355,13 @@ def classify_match(
 
     genre_filtered = [r for r in tied if genre_matches(genre, r)]
     if len(genre_filtered) == 1:
-        return genre_filtered[0], "confident"
+        # Genre alone doesn't overrule a better-known film: TMDB's genre tags
+        # are uneven ("Beowulf" 2007 isn't tagged fantasy, the obscure 1999
+        # one is), so the genre pick must also be the most popular of the tie.
+        pick = genre_filtered[0]
+        if any((r.get("popularity") or 0) > (pick.get("popularity") or 0) for r in tied):
+            return best, "ambiguous"
+        return pick, "confident"
     if genre_filtered:
         tied = genre_filtered
 
