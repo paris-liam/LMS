@@ -15446,9 +15446,8 @@
   "spider-man-3": {
     "batch": "batch-0017",
     "call_number": "90000491",
-    "note": "item page did not load",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782251130457.jpg?v=1788286130",
-    "status": "needs-review"
+    "status": "imported"
   },
   "spider-man-3-bluray-rental-action": {
     "batch": "batch-0014",
