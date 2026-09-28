@@ -79,3 +79,23 @@ call_number,barcode_status,content_status,message
 90000300,updated,updated,call number: renumbered from 191-BLRRAM-50-001A | barcode: ok | content: changed: poster
 90000301,updated,updated,call number: renumbered from 191-VHSRAT-001A | barcode: ok | content: changed: poster
 40715002,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000304,updated,updated,call number: renumbered from 191-BLRRED-001A | barcode: ok | content: changed: poster
+90000305,updated,updated,call number: renumbered from 191-BLRREN-50-001A | barcode: ok | content: changed: poster
+90000306,updated,updated,call number: renumbered from 191-BLRREQ-50-001A | barcode: ok | content: changed: poster
+90000308,updated,updated,call number: renumbered from 191-BLRRIS-50-001A | barcode: ok | content: changed: poster
+90000309,updated,updated,call number: renumbered from 191-BLRROB-70-001A | barcode: ok | content: changed: poster
+90000310,updated,updated,call number: renumbered from 191-DVDROY-002A | barcode: ok | content: changed: poster
+90000311,updated,updated,call number: renumbered from 191-BLRSAL-50-001A | barcode: ok | content: changed: poster
+90000314,updated,updated,call number: renumbered from 191-BLRSCA-50-001A | barcode: ok | content: changed: poster
+90000315,updated,updated,call number: renumbered from 191-VHSSER-001A | barcode: ok | content: changed: poster
+90000316,updated,updated,call number: renumbered from 191-BLRSHA-001A | barcode: ok | content: changed: poster
+90000317,updated,updated,"call number: renumbered from 191-BLRSHI-001A | barcode: ok | content: changed: description, poster"
+90000318,updated,updated,call number: renumbered from 191-VHSSHI-001A | barcode: ok | content: changed: poster
+90000319,updated,updated,call number: renumbered from 191-BLRSHO-50-001A | barcode: ok | content: changed: poster
+90000320,updated,updated,call number: renumbered from 191-VHSSHO-001A | barcode: ok | content: changed: poster
+90000321,updated,updated,call number: renumbered from 191-BLRSIC-70-001A | barcode: ok | content: changed: poster
+90000322,updated,updated,call number: renumbered from 191-BLRSCR-50-001A | barcode: ok | content: changed: poster
+90000486,updated,updated,call number: renumbered from 00112378 | barcode: ok | content: changed: poster
+90000323,updated,updated,call number: renumbered from 191-VHSSMN-001A | barcode: ok | content: changed: poster
+90000324,updated,updated,call number: renumbered from 191-BLRSIN-50-001A | barcode: ok | content: changed: poster
+90000325,updated,updated,call number: renumbered from 191-BLRSKY-50-001A | barcode: ok | content: changed: poster
