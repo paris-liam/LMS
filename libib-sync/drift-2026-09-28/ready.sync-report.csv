@@ -1,2 +1,26 @@
 call_number,barcode_status,content_status,message
 50641914,updated,updated,call number: renumbered from 191-BLRFND-002A | barcode: ok | content: changed: poster
+90000485,updated,updated,call number: renumbered from 00341754 | barcode: ok | content: changed: poster
+90000220,skipped,updated,call number: already renumbered | barcode: barcode already matches call_number | content: changed: poster
+90000221,updated,updated,call number: renumbered from 191-BLRLOV-70-001A | barcode: ok | content: changed: poster
+90000222,updated,updated,call number: renumbered from 191-BLRM3G-50-001A | barcode: ok | content: changed: poster
+90000223,updated,updated,call number: renumbered from 191-BLRMAC-50-001A | barcode: ok | content: changed: poster
+90000224,updated,updated,call number: renumbered from 191-BLRMCH-50-001A | barcode: ok | content: changed: poster
+90000225,updated,updated,call number: renumbered from 191-UNIMAM-50-001A | barcode: ok | content: changed: poster
+90000226,updated,updated,call number: renumbered from 191-VHSMNF-001A | barcode: ok | content: changed: poster
+90000227,updated,updated,call number: renumbered from 191-DVDMAN-001A | barcode: ok | content: changed: poster
+90000229,updated,updated,call number: renumbered from 191-DVDMED-001A | barcode: ok | content: changed: poster
+90000230,updated,updated,call number: renumbered from 191-DVDMEM-001A | barcode: ok | content: changed: poster
+90000231,updated,updated,call number: renumbered from 191-DVDMMR-001A | barcode: ok | content: changed: poster
+90000232,updated,updated,call number: renumbered from 191-VHSMEM-001A | barcode: ok | content: changed: poster
+90000233,updated,updated,call number: renumbered from 191-VHSMEX-001A | barcode: ok | content: changed: poster
+90000234,updated,updated,call number: renumbered from 191-VHSMIA-001A | barcode: ok | content: changed: poster
+90000235,updated,updated,call number: renumbered from 191-BLRMID-50-002A | barcode: ok | content: changed: poster
+90000236,updated,updated,call number: renumbered from 191-VHSMID-001A | barcode: ok | content: changed: poster
+90000237,updated,updated,call number: renumbered from 191-VHSMIL-001A | barcode: ok | content: changed: poster
+90000238,updated,updated,call number: renumbered from 191-VHSMLK-001A | barcode: ok | content: changed: poster
+90000240,updated,updated,call number: renumbered from 191-BLRMIR-50-001A | barcode: ok | content: changed: poster
+90000239,updated,updated,call number: renumbered from 191-BLRMRR-50-001A | barcode: ok | content: changed: poster
+90000241,updated,updated,call number: renumbered from 191-VHSMSS-001A | barcode: ok | content: changed: poster
+90000242,updated,updated,call number: renumbered from 191-BLRMIS-50-001A | barcode: ok | content: changed: poster
+90000243,updated,updated,call number: renumbered from 191-VHSMST-001A | barcode: ok | content: changed: poster
