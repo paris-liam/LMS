@@ -3489,8 +3489,8 @@
   "cell": {
     "batch": "batch-0011",
     "call_number": "191-BLRCEL-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781750543892_6e0f5b7b-87e5-439a-a387-6c1b25371e0a.jpg?v=1788285142",
+    "status": "imported"
   },
   "cellular-dvd": {
     "batch": "batch-0010",
@@ -7414,8 +7414,8 @@
   "grudge": {
     "batch": "batch-0011",
     "call_number": "191-BLRGRU-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782251897746_dd6697da-fbff-48bd-b875-c0f7d39e4322.jpg?v=1788286163",
+    "status": "imported"
   },
   "guardians-of-the-galaxy-bluray-rental-action": {
     "batch": "batch-0014",
@@ -7479,8 +7479,8 @@
   "gwen-and-the-book-of-sand": {
     "batch": "batch-0012",
     "call_number": "191-BLRGWE-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781396148230.jpg?v=1788285015",
+    "status": "imported"
   },
   "hacksaw-ridge-dvd-rental-action": {
     "batch": "batch-0014",
@@ -7586,8 +7586,8 @@
   "hansel-gretel-witch-hunters-unrated-cut": {
     "batch": "batch-0011",
     "call_number": "191-BLRHAN-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/Hansel_and_Gretel_Witch_Hunters.jpg?v=1788285127",
+    "status": "imported"
   },
   "happy-endings": {
     "batch": "batch-0014",
@@ -7937,8 +7937,8 @@
   "hit-run": {
     "batch": "batch-0012",
     "call_number": "191-BLRHIT-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781404847357.jpg?v=1781405024",
+    "status": "imported"
   },
   "hitari-dvd-rental-action": {
     "batch": "batch-0007",
@@ -7973,8 +7973,8 @@
   "hobo-with-a-shotgun-collectors-edition": {
     "batch": "batch-0012",
     "call_number": "191-BLRHOB-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781288016033.jpg?v=1788284952",
+    "status": "imported"
   },
   "hocus-pocus-dvd-rental-kids-family": {
     "batch": "batch-0017",
@@ -8067,8 +8067,8 @@
   "homeward-bound-ii-lost-in-san-francisco": {
     "batch": "batch-0011",
     "call_number": "191-VHSHOM-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782255005297_6e3c42e1-a3e6-405e-94e5-6f5395aff9c4.jpg?v=1788286234",
+    "status": "imported"
   },
   "homework-dvd-rental-comedy": {
     "batch": "batch-0003",
@@ -8186,14 +8186,14 @@
   "horrible-bosses-2-extended-cut": {
     "batch": "batch-0012",
     "call_number": "191-BLRHOR-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781292476450.jpg?v=1788284966",
+    "status": "imported"
   },
   "horrible-bosses-totally-inappropriate-edition": {
     "batch": "batch-0012",
     "call_number": "191-BLRHRR-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/Horrible_Bosses.jpg?v=1788284968",
+    "status": "imported"
   },
   "horrors-of-spider-island-dvd": {
     "batch": "batch-0010",
@@ -8206,8 +8206,8 @@
   "hostel": {
     "batch": "batch-0012",
     "call_number": "191-BLCHOS-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781295030817.jpg?v=1788284985",
+    "status": "imported"
   },
   "hostel-dvd": {
     "batch": "batch-0010",
@@ -8243,8 +8243,8 @@
   "hostel-part-ii-unseen-edition": {
     "batch": "batch-0012",
     "call_number": "191-BLRHOS-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/Hostelpart2finalposter.jpg?v=1788284980",
+    "status": "imported"
   },
   "hot-war-dvd-rental-foreign": {
     "batch": "batch-0003",
@@ -8269,8 +8269,8 @@
   "housesitter": {
     "batch": "batch-0012",
     "call_number": "191-VHSHOU-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/A9Ojij6kEwe8LSnMieiPyPCXShx.jpg?v=1788284898",
+    "status": "imported"
   },
   "how-high-dvd-rental-comedy": {
     "batch": "batch-0014",
@@ -8304,8 +8304,8 @@
   "how-to-kill-your-neighbors-dog": {
     "batch": "batch-0012",
     "call_number": "191-VHSHOW-50-002A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/6SnhJrYar2gedIdyIqlLwagBmCr_5b256a76-3aae-4961-989a-3a79b12cd115.jpg?v=1788284896",
+    "status": "imported"
   },
   "how-to-train-your-dragon-2-dvd-rental-kids-family": {
     "batch": "batch-0014",
@@ -8342,8 +8342,8 @@
   "hugo": {
     "batch": "batch-0011",
     "call_number": "191-BLRHUO-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782252744509.jpg?v=1788286189",
+    "status": "imported"
   },
   "hugo-dvd-rental-kids-family": {
     "batch": "batch-0005",
@@ -8380,8 +8380,8 @@
   "i-am-legend": {
     "batch": "batch-0012",
     "call_number": "191-BLRIAM-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781286043259_cf3e4613-7fa8-4dee-9382-6292905b1463.jpg?v=1788284936",
+    "status": "imported"
   },
   "i-am-legend-dvd-rental-sci-fi": {
     "batch": "batch-0007",
@@ -8408,8 +8408,8 @@
   "i-love-you-man": {
     "batch": "batch-0012",
     "call_number": "191-BLRILO-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781292778881_a4cda31a-90ce-4719-af6c-520a374bc083.jpg?v=1788284973",
+    "status": "imported"
   },
   "i-love-you-man-dvd-rental-comedy": {
     "batch": "batch-0014",
@@ -8590,14 +8590,14 @@
   "in-the-line-of-duty-i-iv": {
     "batch": "batch-0012",
     "call_number": "191-BLRINT-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/This_is_the_box_artwork_for_the_In_The_Line_of_Duty_film_series_on_blu-ray._The_cover_artwork_copyright_belongs_to_88_Films.jpg?v=1788285011",
+    "status": "imported"
   },
   "in-the-mouth-of-madness-collectors-edition": {
     "batch": "batch-0012",
     "call_number": "191-BLRNTH-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/msh4tEUzbnEqlHcFOUH4O0Zti8r.jpg?v=1788285021",
+    "status": "imported"
   },
   "in-time-dvd-rental-sci-fi": {
     "batch": "batch-0002",
@@ -8653,8 +8653,8 @@
   "inferno": {
     "batch": "batch-0011",
     "call_number": "191-BLRINF-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782251166841.jpg?v=1782253751",
+    "status": "imported"
   },
   "inglorious-basterds-4k-rental-action": {
     "batch": "batch-0014",
@@ -8831,8 +8831,8 @@
   "it": {
     "batch": "batch-0012",
     "call_number": "191-BLRIT2-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781395772354.jpg?v=1788285010",
+    "status": "imported"
   },
   "it-could-happen-to-you-vhs-rental-romantic-comedy": {
     "batch": "batch-0009",
@@ -9028,8 +9028,8 @@
   "jay-silent-bob-reboot": {
     "batch": "batch-0012",
     "call_number": "191-BLCJAY-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781378412032_de8ee6cb-a73c-4a22-b524-7897ae1e842a.jpg?v=1788285008",
+    "status": "imported"
   },
   "jeepers-creepers-2-dvd-rental-horror": {
     "batch": "batch-0003",
@@ -9041,8 +9041,8 @@
   "jeepers-creepers-reborn": {
     "batch": "batch-0011",
     "call_number": "191-BLRJEE-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781748050370_dc1fc6cf-ecd3-44f4-8adc-2f36100c5995.jpg?v=1788285122",
+    "status": "imported"
   },
   "jerry-maguire-vhs": {
     "batch": "batch-0010",
@@ -9159,8 +9159,8 @@
   "john-wick-chapter-3-parabellum": {
     "batch": "batch-0011",
     "call_number": "191-BLRJOH-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782253223597.jpg?v=1788286213",
+    "status": "imported"
   },
   "john-wick-chapter-3-parebellum-dvd-rental-action": {
     "batch": "batch-0007",
@@ -9195,8 +9195,8 @@
   "johnny-suede-1991": {
     "batch": "batch-0012",
     "call_number": "191-VHSJOH-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/Johnny-Suede-1991_imagelarge.jpg?v=1788284893",
+    "status": "imported"
   },
   "johns-vhs-rental-drama": {
     "batch": "batch-0009",
@@ -9280,8 +9280,8 @@
   "juno": {
     "batch": "batch-0011",
     "call_number": "191-DVDJUN-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782251001590.jpg?v=1788286125",
+    "status": "imported"
   },
   "juno-dvd-rental-comedy": {
     "batch": "batch-0003",
@@ -9293,8 +9293,8 @@
   "jupiter-ascending": {
     "batch": "batch-0011",
     "call_number": "191-BLRJUP-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782253610822_c1c4723b-3475-4129-901e-ca61452303e3.jpg?v=1788286208",
+    "status": "imported"
   },
   "jurassic-park-vhs": {
     "batch": "batch-0010",
@@ -9367,8 +9367,8 @@
   "k-9-pi": {
     "batch": "batch-0012",
     "call_number": "191-VHSK9P-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/2RdyzWbN3zTF1559GRnLbamy3V4.jpg?v=1788284895",
+    "status": "imported"
   },
   "k-pax-vhs-rental-drama": {
     "batch": "batch-0007",
@@ -9403,14 +9403,14 @@
   "kick-ass": {
     "batch": "batch-0012",
     "call_number": "191-BLRKIC-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781285198594_30a7c614-175e-4a82-9c05-7d5abf4639ad.jpg?v=1788284921",
+    "status": "imported"
   },
   "kick-ass-2": {
     "batch": "batch-0012",
     "call_number": "191-BLRKCK-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781746274160.jpg?v=1788285099",
+    "status": "imported"
   },
   "kidnap-dvd-rental-thriller": {
     "batch": "batch-0006",
@@ -9430,14 +9430,14 @@
   "kill-bill": {
     "batch": "batch-0011",
     "call_number": "191-BLRKI2-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781749609133.jpg?v=1781749672",
+    "status": "imported"
   },
   "kill-bill-vol-2": {
     "batch": "batch-0012",
     "call_number": "191-BLRKLL-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781745986575_aa9b8a47-1eb9-4318-8127-e4fdb1f8bc0b.jpg?v=1788285094",
+    "status": "imported"
   },
   "kill-bill-volume-2": {
     "batch": "batch-0017",
@@ -9463,8 +9463,8 @@
   "killing-them-softly": {
     "batch": "batch-0012",
     "call_number": "191-BLRKIL-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781287093469_20357a72-9e22-4a10-8732-29861c4a703d.jpg?v=1788284941",
+    "status": "imported"
   },
   "killing-time-vhs-rental-drama": {
     "batch": "batch-0008",
@@ -9507,8 +9507,8 @@
   "kinji-fukasakus-battles-without-honor-and-humanity-the-complete-trilogy-arrow": {
     "batch": "batch-0012",
     "call_number": "191-BLRKIN-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/BattlesWithoutHonorandHumanityTitle.jpg?v=1788285056",
+    "status": "imported"
   },
   "kiss-of-the-dragon-dvd-rental-action": {
     "batch": "batch-0007",
@@ -9570,8 +9570,8 @@
   "knocked-up-unrated": {
     "batch": "batch-0012",
     "call_number": "191-BLRKNO-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781378351529.jpg?v=1788285003",
+    "status": "imported"
   },
   "knowing-bluray-rental-thriller": {
     "batch": "batch-0014",
@@ -9938,8 +9938,8 @@
   "let-me-in": {
     "batch": "batch-0012",
     "call_number": "191-BLRLET-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781288930179.jpg?v=1781289552",
+    "status": "imported"
   },
   "lethal-weapon-3-vhs-rental-action": {
     "batch": "batch-0002",
@@ -9972,8 +9972,8 @@
   "liar-liar-vhs-video-tape": {
     "batch": "batch-0012",
     "call_number": "191-NKNLIA-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/p1habYSdC7oD3WygQ5lynU5G5rV.jpg?v=1788284909",
+    "status": "imported"
   },
   "liars-poker-vhs-rental-thriller": {
     "batch": "batch-0002",
@@ -10046,8 +10046,8 @@
   "lifeboat": {
     "batch": "batch-0011",
     "call_number": "191-DVDLFB-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782252436906.jpg?v=1782253823",
+    "status": "imported"
   },
   "lifeform-dvd-rental-sci-fi": {
     "batch": "batch-0006",
@@ -10369,8 +10369,8 @@
   "love-and-monsters": {
     "batch": "batch-0012",
     "call_number": "191-UNKLOV-50-001A",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781404684172_4fec6b8a-bbe4-453c-b5f8-02cd19fc4d23.jpg?v=1788285067",
+    "status": "imported"
   },
   "love-and-monsters-dvd-rental-action": {
     "batch": "batch-0014",
