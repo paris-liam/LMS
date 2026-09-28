@@ -149,3 +149,14 @@ call_number,barcode_status,content_status,message
 90000386,updated,updated,call number: renumbered from 191-DVDTHE-50-001A | barcode: ok | content: changed: poster
 90000387,updated,updated,call number: renumbered from 191-BLRTH6-50-001A | barcode: ok | content: changed: poster
 90000388,updated,updated,call number: renumbered from 191-BLRTHS-50-001A | barcode: ok | content: changed: poster
+90000391,updated,updated,call number: renumbered from 191-BLRTHG-50-001A | barcode: ok | content: changed: poster
+78086650,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000392,updated,updated,call number: renumbered from 191-BLRTHR-50-001A | barcode: ok | content: changed: poster
+90000393,updated,updated,call number: renumbered from 191-BLRTH3-50-001A | barcode: ok | content: changed: poster
+90000395,updated,updated,call number: renumbered from 191-UNKTHE-50-001A | barcode: ok | content: changed: poster
+90000396,updated,updated,call number: renumbered from 191-BLRTHW-50-001A | barcode: ok | content: changed: poster
+90000398,updated,updated,call number: renumbered from 191-VHSTH2-50-001A | barcode: ok | content: changed: poster
+90000399,updated,updated,call number: renumbered from 191-BLRTH8-50-001A | barcode: ok | content: changed: poster
+90000400,updated,updated,call number: renumbered from 191-VHSTHI-001A | barcode: ok | content: changed: poster
+90000401,updated,updated,call number: renumbered from 191-BLRTHI-50-001A | barcode: ok | content: changed: poster
+90000402,updated,updated,"call number: renumbered from 191-BLRTH5-50-001A | barcode: ok | content: changed: description, poster"
