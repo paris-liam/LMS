@@ -12,7 +12,6 @@ reading each product back.
 - 29 untracked products → inventory tracked (CSV import).
 - 6 format-missing floor-sale items → Vendor `VHS`, `Issue_Needs_Format`
   removed (Antz, Blind Side, Blind Trust, Meteor, Star 80, Tie Me Up Tie Me Down).
-
 - 9 priced VHS with no type → `Floor Sale`, `Issue_Rental_Or_Sale` removed.
 - New genre **Special Interest** — `shopify--genre` metaobject
   `special-interest` (base genre: Other), pipeline taxonomy, client sheet
