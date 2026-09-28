@@ -1,9 +1,10 @@
 """Read Shopify through the Admin GraphQL API with a custom app's credentials.
 
-The app (Dev Dashboard, installed on the store, read-only scopes) exchanges
-its client ID + secret for a 24-hour access token (client credentials grant).
-A fresh token is requested for every run and only ever held in memory.
-Only queries are sent — the token has no write scopes anyway.
+The app (Dev Dashboard, installed on the store) exchanges its client ID +
+secret for a 24-hour access token (client credentials grant). A fresh token
+is requested for every run and only ever held in memory. The pipeline only
+sends queries, but since 2026-09-28 the token CAN write (write_products and
+more) — anything using it with a mutation changes the live store.
 """
 
 import json

@@ -18,8 +18,11 @@ pipeline; `CLAUDE.md` for the project.
 ## Shopify reads (cloud step 2 — done 2026-09-28)
 
 - `audit` reads Shopify through the Admin API when `SHOPIFY_CLIENT_ID` and
-  `SHOPIFY_CLIENT_SECRET` are set (Dev Dashboard app "read-only", installed on
-  production; scopes read_products, read_inventory, read_metaobjects). A fresh
+  `SHOPIFY_CLIENT_SECRET` are set (Dev Dashboard app, installed on
+  production; the audit needs read_products, read_inventory, read_metaobjects).
+  **Since 2026-09-28 the app also has write scopes** (`write_products` and many
+  others) — the pipeline still only reads, but a mutation with its token changes
+  the live store. A fresh
   24-hour token is requested per run. Verified: a full production read through
   the API matched the Shopify CLI read exactly (7,155 products, 0 differences).
   The app is not installed on the dev store.

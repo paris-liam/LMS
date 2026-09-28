@@ -11,8 +11,10 @@ Run everything from the repo root. Standard library only (Libib `fix` will need 
     python3 -m catalog audit --store lms-sandbox-lutsfahz.myshopify.com
 
 Shopify is read through the Admin API when `SHOPIFY_CLIENT_ID` and `SHOPIFY_CLIENT_SECRET`
-are set: a Dev Dashboard custom app with read-only scopes (`read_products`,
-`read_inventory`, `read_metaobjects`), installed on the store. Each run trades them for a
+are set: a Dev Dashboard custom app installed on the store. The pipeline needs only
+`read_products`, `read_inventory` and `read_metaobjects`, and only sends queries — but since
+2026-09-28 the app also has write scopes (`write_products` and more), so a mutation sent
+with its token changes the live store. Each run trades them for a
 fresh 24-hour token (client credentials grant) held only in memory. The app is installed
 on production only — for another store, install it there too or unset the two variables.
 Without them the audit falls back to the Shopify CLI; if that is not authenticated:
