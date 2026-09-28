@@ -184,3 +184,18 @@ call_number,barcode_status,content_status,message
 90000425,updated,updated,call number: renumbered from 191-BLRVH2-50-001A | barcode: ok | content: changed: poster
 90000426,updated,updated,call number: renumbered from 191-BLRVHS-50-001A | barcode: ok | content: changed: poster
 90000427,updated,updated,call number: renumbered from 191-BLRVHD-50-001A | barcode: ok | content: changed: poster
+90000428,updated,updated,call number: renumbered from 191-BLRVHL-50-001A | barcode: ok | content: changed: poster
+90000429,updated,updated,call number: renumbered from 191-BLRVAC-50-001A | barcode: ok | content: changed: poster
+90000430,updated,updated,call number: renumbered from 191-DVDVAN-001A | barcode: ok | content: changed: poster
+90000431,updated,updated,call number: renumbered from 191-BLRVEN-50-001A | barcode: ok | content: changed: poster
+90000432,updated,updated,"call number: renumbered from 191-ALFVER-50-001A | barcode: ok | content: changed: description, poster"
+90000435,updated,updated,call number: renumbered from 191-BLRWAR-50-001A | barcode: ok | content: changed: poster
+90000436,updated,updated,call number: renumbered from 191-BLRWRL-50-001A | barcode: ok | content: changed: poster
+90000437,updated,updated,call number: renumbered from 191-BLRWAT-50-001A | barcode: ok | content: changed: poster
+90000438,updated,updated,call number: renumbered from 191-BLRWEW-50-001A | barcode: ok | content: changed: poster
+90000439,updated,updated,call number: renumbered from 191-BLRWER-50-001A | barcode: ok | content: changed: poster
+90000440,updated,updated,call number: renumbered from 191-VHSWHN-001A | barcode: ok | content: changed: poster
+90000441,updated,updated,call number: renumbered from 191-BLRWHE-50-001A | barcode: ok | content: changed: poster
+90000442,updated,updated,call number: renumbered from 191-BLRWHR-50-001A | barcode: ok | content: changed: poster
+90000443,updated,updated,call number: renumbered from 191-BLRWHI-50-001A | barcode: ok | content: changed: poster
+90000444,updated,updated,call number: renumbered from 191-DVDWHI-001A | barcode: ok | content: changed: poster
