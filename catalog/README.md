@@ -6,11 +6,17 @@ Run everything from the repo root. Standard library only (Libib `fix` will need 
 ## Stage 1 — audit (read-only)
 
     export TMDB_API_KEY=...            # not needed with --skip-tmdb
-    python3 -m catalog audit           # production, via the Shopify CLI
+    python3 -m catalog audit           # production
     python3 -m catalog audit --from-export products_export.csv
     python3 -m catalog audit --store lms-sandbox-lutsfahz.myshopify.com
 
-If the CLI is not authenticated: `shopify store auth --store <domain> --scopes read_products`.
+Shopify is read through the Admin API when `SHOPIFY_CLIENT_ID` and `SHOPIFY_CLIENT_SECRET`
+are set: a Dev Dashboard custom app with read-only scopes (`read_products`,
+`read_inventory`, `read_metaobjects`), installed on the store. Each run trades them for a
+fresh 24-hour token (client credentials grant) held only in memory. The app is installed
+on production only — for another store, install it there too or unset the two variables.
+Without them the audit falls back to the Shopify CLI; if that is not authenticated:
+`shopify store auth --store <domain> --scopes read_products`.
 
 Writes `runs/<date>/` (a second run the same day gets `-2`, `-3`, …):
 
@@ -45,13 +51,15 @@ asking. Outside a terminal (scripts, agents) the command refuses unless `--yes` 
 Adds the run's `review.json` products the registry doesn't know yet to the hosted
 picker's `ambiguous-queue` / `unmatched-queue` (fetching TMDB candidates — needs
 `TMDB_API_KEY`), marks them `queued`, then commits and pushes `tools/review-picker/`.
-It only pushes from `main` (Vercel deploys `main`); on another branch it writes the files
-and tells you to publish them. `--no-git-sync` never commits.
+It publishes to `main` (Vercel deploys `main`) from whatever branch is checked out — a
+cloud session works on its own branch: it merges `origin/main` in, commits, and pushes
+`HEAD:main` (a fast-forward, never a force). If the push is refused, the commit stays on
+the branch. `--no-git-sync` never commits.
 
 ## Stage 3 — apply
 
     python3 -m catalog apply --dry-run        # see what would change
-    python3 -m catalog apply                  # write runs/<id>/import/*.csv
+    python3 -m catalog apply                  # write runs/<id>/import/*.csv, publish imports/<id>/
 
 Combines the run's `autofix.json` with the client's picks (read from `origin/main` — the
 branch the picker saves to; `--local-picks` reads the working tree) and writes one CSV per
@@ -60,6 +68,10 @@ each with only the columns it changes plus `Handle, Title, Option1 Name, Option1
 Import each in Shopify admin. `apply-plan.csv` lists every change (handle, field, before,
 after, source). Picks become `applied` in the registry; the next audit promotes them to
 `resolved` once Shopify shows them, or reports `applied-but-missing`.
+
+The CSVs are also copied to `imports/<run id>/` (tracked), and the registry and that folder
+are committed and published to `main` the same way `picker push` publishes — so CSVs made
+in a cloud session can be downloaded from GitHub. `--no-git-sync` skips the publish.
 
 `genre.csv` also sets `Product Category` to `Media > Videos` on any movie that lacks it:
 `shopify.genre` is a category metafield, and Shopify silently drops it on products in
@@ -97,7 +109,8 @@ Set `TMDB_API_KEY`, `LIBIB_EMAIL` and `LIBIB_PASSWORD` in the environment's secr
 settings (never in the repo — it is public). On a cloud box use `python3`, not
 `.venv-libib/bin/python`, and pass `--headless` to `libib fix`. `check-login` exits 1
 and saves `libib-login-check.png` when Libib challenges or blocks the machine.
-Still local-only for now: Shopify reads go through the Shopify CLI's stored login.
+Add `SHOPIFY_CLIENT_ID` and `SHOPIFY_CLIENT_SECRET` too, and `audit` reads Shopify from
+the cloud through the Admin API (no Shopify CLI needed).
 
 ## TMDB lookup by tag (not a pipeline stage)
 

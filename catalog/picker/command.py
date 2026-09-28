@@ -75,7 +75,8 @@ def run_push_command(args, fetch_fn=None, sync_fn=sync_review_picker, stdin=None
     except ValueError:
         log.summary(f"{picker_dir} is outside the repo — git sync skipped.")
         return 0
-    outcome = sync_fn(config.REPO_ROOT, rel, message, log_fn=log.summary, deploy_branch=config.PICKER_BRANCH)
+    outcome = sync_fn(config.REPO_ROOT, rel, message, log_fn=log.summary, deploy_branch=config.PICKER_BRANCH,
+                      remote=config.PICKER_REMOTE)
     if not outcome.get("synced") and outcome.get("reason") != "nothing to commit":
         log.summary(f"Note: {rel} was updated locally but not published ({outcome.get('reason')}).")
     return 0

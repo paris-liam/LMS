@@ -1,4 +1,5 @@
-"""Read every product through `shopify store execute` (read-only).
+"""Read every product (read-only), through the Admin API when a custom app's
+credentials are set (see catalog/shopify/api.py), else `shopify store execute`.
 
 Only query operations are ever sent — never --allow-mutations — so the
 pipeline cannot write to Shopify from here.
@@ -8,6 +9,7 @@ import json
 import subprocess
 from pathlib import Path
 
+from catalog import config
 from catalog.core import log
 from catalog.core.columns import GENRE_METAFIELD
 from catalog.errors import ShopifyError
@@ -75,7 +77,21 @@ def node_to_row(node: dict) -> dict:
     return row
 
 
-def read_products(store: str, execute=run_cli_query) -> list[dict]:
+def default_executor(store: str):
+    """(execute, source name): the Admin API when the app credentials are set,
+    else the Shopify CLI's stored login."""
+    client_id = config.get_env(config.ENV_SHOPIFY_CLIENT_ID)
+    client_secret = config.get_env(config.ENV_SHOPIFY_CLIENT_SECRET)
+    if client_id and client_secret:
+        from catalog.shopify import api
+        return api.make_executor(store, api.request_token(store, client_id, client_secret)), "Admin API"
+    return run_cli_query, "Shopify CLI"
+
+
+def read_products(store: str, execute=None) -> list[dict]:
+    if execute is None:
+        execute, source = default_executor(store)
+        log.get_logger().info(f"reading {store} through the {source}")
     rows: list[dict] = []
     cursor = None
     page_number = 0

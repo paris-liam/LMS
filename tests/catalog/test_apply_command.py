@@ -60,7 +60,11 @@ class TestApplyCommand(unittest.TestCase):
 
     def args(self, *extra):
         return build_parser().parse_args(["apply", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker),
-                                          "--local-picks", "-q", *extra])
+                                          "--imports-dir", str(self.imports), "--local-picks", "-q", *extra])
+
+    @property
+    def imports(self):
+        return Path(self.tmp.name) / "imports"
 
     def registry(self):
         return json.loads((self.picker / "data" / "_handle-index.json").read_text(encoding="utf-8"))
@@ -127,6 +131,35 @@ class TestApplyCommand(unittest.TestCase):
             command.run_command(self.args("--yes"))
         self.assertIn("commit", (self.run / "apply.log").read_text(encoding="utf-8"))
         self.assertNotIn("published with the next", (self.run / "apply.log").read_text(encoding="utf-8"))
+
+    def test_import_files_are_copied_to_the_imports_folder(self):
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_command(self.args("--yes"))
+            (self.run / "autofix.json").write_text("{}", encoding="utf-8")
+            command.run_command(self.args("--yes"))  # vendor fix gone: its copy must go too
+        self.assertEqual(sorted(p.name for p in (self.imports / "2026-09-25").iterdir()),
+                         ["description.csv", "image.csv"])
+
+    def test_publishes_the_registry_and_imports_to_main(self):
+        calls = []
+
+        def sync(repo_root, paths, message, log_fn=None, deploy_branch=None, remote=None):
+            calls.append((paths, deploy_branch, remote, message))
+            return {"synced": True}
+
+        with mock.patch.object(command.config, "REPO_ROOT", Path(self.tmp.name)), \
+                contextlib.redirect_stdout(io.StringIO()):
+            command.run_command(self.args("--yes"), sync_fn=sync)
+        self.assertEqual(calls[0][:3], (["picker", "imports"], "main", "origin"))
+        self.assertIn("2026-09-25", calls[0][3])
+
+    def test_no_git_sync_publishes_nothing(self):
+        calls = []
+        with mock.patch.object(command.config, "REPO_ROOT", Path(self.tmp.name)), \
+                contextlib.redirect_stdout(io.StringIO()):
+            command.run_command(self.args("--yes", "--no-git-sync"), sync_fn=lambda *a, **k: calls.append(a))
+        self.assertEqual(calls, [])
+        self.assertTrue((self.imports / "2026-09-25" / "image.csv").exists())
 
     def test_remote_registry_marks_cards_queued_on_main(self):
         snapshot = json.loads((self.run / "snapshot.json").read_text(encoding="utf-8"))

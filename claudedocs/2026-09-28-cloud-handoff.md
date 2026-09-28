@@ -15,16 +15,30 @@ pipeline; `CLAUDE.md` for the project.
 - Secrets come from the environment: `TMDB_API_KEY`, `LIBIB_EMAIL`,
   `LIBIB_PASSWORD`. The repo is **public** — never write a secret into it.
 
-## What does NOT work in the cloud yet
+## Shopify reads (cloud step 2 — done 2026-09-28)
 
-- Anything that reads Shopify: `audit`, `picker push`, `apply`. They call
-  `shopify store execute`, which relies on the Shopify CLI login on the Mac.
-  Cloud step 2 (next) replaces that with an Admin API token (a custom app with
-  read-only product scope, token as an env var). Until then, new audit runs
-  happen locally.
-- `runs/` is gitignored. The one run the cloud needs, `runs/2026-09-28/`
-  (snapshot, drift, findings), was force-added to git for this handoff. It is
-  the latest complete run, so every `libib` command resolves to it.
+- `audit` reads Shopify through the Admin API when `SHOPIFY_CLIENT_ID` and
+  `SHOPIFY_CLIENT_SECRET` are set (Dev Dashboard app "read-only", installed on
+  production; scopes read_products, read_inventory, read_metaobjects). A fresh
+  24-hour token is requested per run. Verified: a full production read through
+  the API matched the Shopify CLI read exactly (7,155 products, 0 differences).
+  The app is not installed on the dev store.
+
+## Cloud working rules (decided 2026-09-28)
+
+- **Start every cloud session with `python3 -m catalog audit`.** `runs/` is
+  gitignored and not carried between sessions; a fresh audit (about 2½ min
+  through the Admin API, plus TMDB lookups) rebuilds the snapshot every other
+  command reads. The TMDB cache is not carried either — it re-fetches.
+  Exception: the renumber run below still uses the force-added
+  `runs/2026-09-28/`, because its drift list and resume report belong to it —
+  don't start a new audit/diff until that run is finished.
+- **Cloud sessions may push to `main`.** `picker push` and `apply` publish
+  from the session's branch straight to `main` (merge `origin/main` in, push
+  `HEAD:main`, never a force). If the environment refuses the push, the commit
+  stays on the session branch and the command says so.
+- **`apply` publishes its CSVs** to `imports/<run id>/` on `main`; the user
+  downloads them from GitHub and imports them in Shopify admin.
 
 ## Immediate task: finish the Libib renumber run
 
