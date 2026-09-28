@@ -1,0 +1,21 @@
+source:    api p0wkgv-wy.myshopify.com
+audited:   7148 movies (excluded — membership template: 1, retail template: 6)
+findings:  1799 across 1004 products
+by bucket (products):
+  auto-fix   0
+  picker     900
+  manual     121
+by rule (products):
+  description-missing        801
+  floor-sale-price           2
+  format-missing             6
+  genre-missing              41
+  inventory-untracked        29
+  poster-missing             876
+  rental-barcode-duplicate   2
+  rental-price-nonzero       4
+  type-missing               38
+auto-fix:  0 products in autofix.json
+picker:    0 new products in review.json
+registry:  0 applied -> resolved
+tmdb:      0 cache hits, 0 fetches
