@@ -18,8 +18,11 @@ __pycache__/
 Thumbs.db
 *.swp
 
-# Claude Code local state (worktrees, local settings)
-.claude/
+# Claude Code local state (worktrees, local settings) — but track the shared
+# SessionStart hook and the settings.json that registers it
+.claude/*
+!.claude/settings.json
+!.claude/hooks/
 .worktrees/
 
 # Design handoff archive (large; extracted contents tracked separately if needed)
