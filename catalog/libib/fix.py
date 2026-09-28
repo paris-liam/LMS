@@ -21,6 +21,30 @@ def read_ready(path) -> list[dict]:
         return [row for row in csv.DictReader(f) if (row.get("call_number") or "").strip()]
 
 
+def completed_calls(report_path) -> set[str]:
+    """Call numbers a previous (possibly stopped) fixer run finished without
+    an error — its report is written row by row, so it survives a stop."""
+    path = Path(report_path)
+    if not path.exists():
+        return set()
+    with path.open(newline="", encoding="utf-8") as f:
+        return {r["call_number"].strip() for r in csv.DictReader(f)
+                if r.get("call_number") and "error" not in (r.get("barcode_status"), r.get("content_status"))}
+
+
+def archive_report(report_path) -> Path | None:
+    """Move an earlier report aside (ready.sync-report.N.csv) so a resumed
+    run doesn't overwrite the record of what the stopped run did."""
+    path = Path(report_path)
+    if not path.exists():
+        return None
+    n = 1
+    while (target := path.with_name(f"{path.stem}.{n}{path.suffix}")).exists():
+        n += 1
+    path.rename(target)
+    return target
+
+
 def confirmed_remaps(drift_rows: list[dict], map_rows: list[dict]) -> dict[str, str]:
     """handle -> old Libib call number, for call_number drift that a reprint
     map confirms exactly: same handle, Libib still carries the map's old

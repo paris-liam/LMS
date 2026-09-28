@@ -22,7 +22,10 @@ from catalog.libib.columns import READY_COLUMNS
 from catalog.libib.diff import BLOCKED_COLUMNS, DRIFT_COLUMNS, ELIGIBLE_COLUMNS, HELD_COLUMNS, ORPHAN_COLUMNS, diff
 from catalog.libib.exports import DEFAULT_COLLECTION, load_libib
 from catalog.libib.fields import is_rental
-from catalog.libib.fix import apply_report, confirmed_remaps, drift_ready_rows, drift_targets, read_ready, run_fixer
+from catalog.libib.fix import (
+    apply_report, archive_report, completed_calls, confirmed_remaps, drift_ready_rows, drift_targets, read_ready,
+    run_fixer,
+)
 from catalog.libib.prepare import download_posters, next_batch_id, write_batch
 from catalog.libib.state import (
     HELD, counts_by_status, load_state, migrate_poster_src, save_state, set_status, state_path,
@@ -235,9 +238,13 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
         drift_rows = _read_csv(drift_path)
         remaps = confirmed_remaps(drift_rows, _read_call_number_maps(args.call_number_map))
         fields_by_handle, manual = drift_targets(drift_rows, remaps)
+        work_dir = sync_dir / f"drift-{run_dir.name}"
+        # Resume: skip what an earlier (e.g. stopped) run on this same diff already fixed.
+        finished = completed_calls(work_dir / "ready.sync-report.csv")
+        resumed = [h for h in fields_by_handle if (rows_by_handle[h].get("Variant Barcode") or "").strip() in finished]
+        fields_by_handle = {h: f for h, f in fields_by_handle.items() if h not in resumed}
         handles = sorted(fields_by_handle)[: args.limit] if args.limit else sorted(fields_by_handle)
         fields_by_handle = {h: fields_by_handle[h] for h in handles}
-        work_dir = sync_dir / f"drift-{run_dir.name}"
         ready_path = work_dir / "ready.csv"
         label = f"drift from run {run_dir.name}"
         samples = [f"{rows_by_handle[h]['Variant Barcode']} {rows_by_handle[h]['Title'].strip()}: "
@@ -262,6 +269,7 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
         count=count,
         summary=[f"{label}: edits {count} Libib items in the browser (barcode, title, description, tags, poster)",
                  f"report: {ready_path.with_suffix('.sync-report.csv')}"]
+        + ([f"resuming: {len(resumed)} already fixed by an earlier run on this diff are skipped"] if args.drift and resumed else [])
         + ([f"renumbers {sum(1 for h in fields_by_handle if h in remaps)} Libib call numbers the reprint map confirms "
              f"(old -> Shopify barcode) before fixing them"] if remaps else [])
         + ([f"manual fix needed (Libib call number differs from the Shopify barcode — the fixer finds items by call number): {len(manual)} — {', '.join(manual[:10])}"] if manual else []),
@@ -271,6 +279,7 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
         return 0
 
     if args.drift:
+        archive_report(ready_path.with_suffix(".sync-report.csv"))
         poster_rows = [rows_by_handle[h] for h, f in fields_by_handle.items() if "poster" in f]
         posters, _ = download_posters(poster_rows, work_dir, download or urllib.request.urlretrieve)
         ready = drift_ready_rows(fields_by_handle, rows_by_handle, posters, remaps)

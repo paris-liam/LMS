@@ -244,6 +244,35 @@ class TestFixCommand(LibibCase):
                                     download=fake_download)
         self.assertEqual(calls, [])  # nothing fixable: both handles need a person
 
+    def test_drift_fix_resumes_after_a_stopped_run(self):
+        map_path = self.write_call_number_drift()
+        work = self.sync / "drift-2026-09-25"
+        work.mkdir()
+        (work / "ready.sync-report.csv").write_text(
+            "call_number,barcode_status,content_status,message\n"
+            "03333333,updated,updated,call number: renumbered from 191-ALN-001A | barcode: ok\n", encoding="utf-8")
+        with (self.run / "libib" / "drift.csv").open("a", encoding="utf-8") as f:
+            f.write("heat,02222222,title,Heat,Heat (old)\n")
+        calls = []
+        with self.env(), contextlib.redirect_stdout(io.StringIO()):
+            command.run_fix_command(self.parse("fix", "--drift", "--yes", "--call-number-map", str(map_path)),
+                                    fixer=self.fake_fixer(calls), download=fake_download)
+        self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["02222222"])  # alien already done
+        self.assertIn("03333333", (work / "ready.sync-report.1.csv").read_text(encoding="utf-8"))
+
+    def test_drift_fix_retries_what_failed_last_time(self):
+        map_path = self.write_call_number_drift()
+        work = self.sync / "drift-2026-09-25"
+        work.mkdir()
+        (work / "ready.sync-report.csv").write_text(
+            "call_number,barcode_status,content_status,message\n03333333,error,error,TimeoutError\n",
+            encoding="utf-8")
+        calls = []
+        with self.env(), contextlib.redirect_stdout(io.StringIO()):
+            command.run_fix_command(self.parse("fix", "--drift", "--yes", "--call-number-map", str(map_path)),
+                                    fixer=self.fake_fixer(calls), download=fake_download)
+        self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["03333333"])
+
     def test_needs_a_batch_or_drift(self):
         with self.assertRaises(SystemExit), contextlib.redirect_stderr(io.StringIO()):
             self.parse("fix")
