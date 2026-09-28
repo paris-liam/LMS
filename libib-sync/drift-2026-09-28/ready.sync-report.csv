@@ -99,3 +99,10 @@ call_number,barcode_status,content_status,message
 90000323,updated,updated,call number: renumbered from 191-VHSSMN-001A | barcode: ok | content: changed: poster
 90000324,updated,updated,call number: renumbered from 191-BLRSIN-50-001A | barcode: ok | content: changed: poster
 90000325,updated,updated,call number: renumbered from 191-BLRSKY-50-001A | barcode: ok | content: changed: poster
+90000328,updated,updated,call number: renumbered from 191-UNKSNI-50-001A | barcode: ok | content: changed: poster
+90000329,updated,updated,call number: renumbered from 191-BLRSOL-001A | barcode: ok | content: changed: poster
+90000330,updated,updated,call number: renumbered from 191-VHSSPC-001A | barcode: ok | content: changed: poster
+90000331,updated,updated,call number: renumbered from 191-BLRSPC-50-001A | barcode: ok | content: changed: poster
+90000332,updated,updated,call number: renumbered from 191-BLRSPD-50-001A | barcode: ok | content: changed: poster
+90000333,updated,updated,"call number: renumbered from 191-BLRSPE-50-001A | barcode: ok | content: changed: description, poster"
+90000491,error,error,item page did not load
