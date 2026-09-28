@@ -106,3 +106,16 @@ call_number,barcode_status,content_status,message
 90000332,updated,updated,call number: renumbered from 191-BLRSPD-50-001A | barcode: ok | content: changed: poster
 90000333,updated,updated,"call number: renumbered from 191-BLRSPE-50-001A | barcode: ok | content: changed: description, poster"
 90000491,error,error,item page did not load
+90000335,updated,updated,call number: renumbered from 191-VHSSTN-001A | barcode: ok | content: changed: poster
+90000336,updated,updated,call number: renumbered from 191-VHSSTA-001A | barcode: ok | content: changed: poster
+90000337,updated,updated,call number: renumbered from 191-BLRSTE-50-001A | barcode: ok | content: changed: poster
+90000338,updated,updated,call number: renumbered from 191-VHSST3-001A | barcode: ok | content: changed: poster
+90000339,updated,updated,call number: renumbered from 191-VHSSTL-001A | barcode: ok | content: changed: poster
+90000340,updated,updated,call number: renumbered from 191-VHSSTM-001A | barcode: ok | content: changed: poster
+90000341,updated,updated,call number: renumbered from 191-BLRSUI-50-001A | barcode: ok | content: changed: poster
+90000342,updated,updated,call number: renumbered from 191-BLRSUN-50-001A | barcode: ok | content: changed: poster
+90000343,updated,updated,call number: renumbered from 191-BLRSUP-50-001A | barcode: ok | content: changed: poster
+90000344,updated,updated,call number: renumbered from 191-VHSSUP-50-001A | barcode: ok | content: changed: poster
+90000346,updated,updated,call number: renumbered from 191-VHSTLN-001A | barcode: ok | content: changed: poster
+90000347,updated,updated,call number: renumbered from 191-BLRTLK-50-001A | barcode: ok | content: changed: poster
+90000348,updated,updated,call number: renumbered from 191-BLRTAL-50-001A | barcode: ok | content: changed: poster
