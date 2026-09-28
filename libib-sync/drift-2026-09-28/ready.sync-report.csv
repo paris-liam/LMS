@@ -74,3 +74,8 @@ call_number,barcode_status,content_status,message
 90000295,updated,updated,call number: renumbered from 191-BLRPRO-50-001A | barcode: ok | content: changed: poster
 90000296,updated,updated,call number: renumbered from 191-BLRPRM-001A | barcode: ok | content: changed: poster
 90000297,updated,updated,"call number: renumbered from 191-UNKPSY-50-001A | barcode: ok | content: changed: description, poster"
+90000298,updated,updated,call number: renumbered from 191-DVDPUL-001A | barcode: ok | content: changed: poster
+90000299,updated,updated,call number: renumbered from 191-DVDRAG-001A | barcode: ok | content: changed: poster
+90000300,updated,updated,call number: renumbered from 191-BLRRAM-50-001A | barcode: ok | content: changed: poster
+90000301,updated,updated,call number: renumbered from 191-VHSRAT-001A | barcode: ok | content: changed: poster
+40715002,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
