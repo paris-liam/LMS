@@ -13,16 +13,23 @@ reading each product back.
 - 6 format-missing floor-sale items → Vendor `VHS`, `Issue_Needs_Format`
   removed (Antz, Blind Side, Blind Trust, Meteor, Star 80, Tie Me Up Tie Me Down).
 
-## Decided (in progress)
-
-- 9 priced VHS with no type → `Floor Sale`, remove `Issue_Rental_Or_Sale`.
-- New genre **Special Interest** (Shopify genre value + pipeline taxonomy +
-  client upload sheet). Applied to the 9 products tagged `Special Interest`.
+- 9 priced VHS with no type → `Floor Sale`, `Issue_Rental_Or_Sale` removed.
+- New genre **Special Interest** — `shopify--genre` metaobject
+  `special-interest` (base genre: Other), pipeline taxonomy, client sheet
+  mappings + guide. Applied to 9 products. The client's live Google Sheet
+  still needs the row `Special Interest,special-interest` in its `mappings`
+  tab and the option in its Genre dropdowns.
 - Western → Action (The Hateful Eight, The Searchers); Music → Musical
-  (Good Charlotte); title-as-tag → Chicago: Musical, Ivory Hunters: Action,
-  Zoolander: Comedy. The replaced tags are removed.
-- The remaining genre-missing products: TMDB genre lookup, applied only
-  after the user approves each proposal.
+  (Good Charlotte); Chicago → Musical, Ivory Hunters → Action, Zoolander →
+  Comedy. Replaced tags removed.
+- 26 genre-missing products: genre from a TMDB lookup, approved by the user
+  (`runs/2026-09-28-4/genre-approved.json`, not tracked). Each genre is set
+  as Option1 value + tag + `shopify.genre` metafield + category
+  `Media > Videos`; `Issue_Genre_Needed` removed.
+- Decision: **Floor Sale items don't need new barcodes.** Removed
+  `Issue_Needs_New_Barcode` from the 7 floor-sale items that had it.
+- Audit after all of the above (`runs/2026-09-28-5`): manual bucket 33
+  products — only the deferred items below.
 
 ## Deferred
 
