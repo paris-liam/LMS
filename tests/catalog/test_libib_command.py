@@ -278,5 +278,35 @@ class TestFixCommand(LibibCase):
             self.parse("fix")
 
 
+class TestCheckLoginCommand(LibibCase):
+    def args(self, *extra):
+        return build_parser().parse_args(["libib", "check-login", "--sync-dir", str(self.sync), "-q", *extra])
+
+    def test_uses_a_done_call_number_and_reports_success(self):
+        calls = []
+
+        def checker(email, password, call_number, headless, screenshot):
+            calls.append((email, call_number, headless))
+            return None
+
+        (self.sync / "_state.json").write_text(json.dumps({
+            "jaws": {"status": "done", "call_number": "01111111"}, "heat": {"status": "queued", "call_number": "0"}}),
+            encoding="utf-8")
+        with mock.patch.dict("os.environ", {"LIBIB_EMAIL": "e@x", "LIBIB_PASSWORD": "pw"}), \
+                contextlib.redirect_stdout(io.StringIO()):
+            code = command.run_check_login_command(self.args(), checker=checker)
+        self.assertEqual(code, 0)
+        self.assertEqual(calls, [("e@x", "01111111", True)])  # always headless: that's what a cloud box runs
+
+    def test_failure_exits_nonzero_with_the_reason(self):
+        out = io.StringIO()
+        with mock.patch.dict("os.environ", {"LIBIB_EMAIL": "e@x", "LIBIB_PASSWORD": "pw"}), \
+                contextlib.redirect_stdout(out):
+            code = command.run_check_login_command(self.args("--call-number", "01111111"),
+                                                   checker=lambda *a: "login: Timeout waiting for **/library")
+        self.assertEqual(code, 1)
+        self.assertIn("login: Timeout", out.getvalue())
+
+
 if __name__ == "__main__":
     unittest.main()

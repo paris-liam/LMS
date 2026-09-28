@@ -9,6 +9,7 @@ nothing. prepare / mark-imported / fix show a plan and ask first.
 import argparse
 import csv
 import shutil
+import time
 import urllib.request
 from pathlib import Path
 
@@ -24,7 +25,7 @@ from catalog.libib.exports import DEFAULT_COLLECTION, load_libib
 from catalog.libib.fields import is_rental
 from catalog.libib.fix import (
     apply_report, archive_report, completed_calls, confirmed_remaps, drift_ready_rows, drift_targets, read_ready,
-    run_fixer,
+    run_fixer, run_login_check,
 )
 from catalog.libib.prepare import download_posters, next_batch_id, write_batch
 from catalog.libib.state import (
@@ -76,6 +77,12 @@ def register(subparsers) -> None:
     _common(p)
     add_approval_args(p)
     p.set_defaults(func=run_fix_command)
+
+    p = sub.add_parser("check-login", help="read-only: log in headless and open one item (checks a new machine)")
+    p.add_argument("--call-number", help="item to open (default: one already synced)")
+    p.add_argument("--screenshot", default="libib-login-check.png", help="where to save a screenshot on failure")
+    _common(p, needs_run=False)
+    p.set_defaults(func=run_check_login_command)
 
     p = sub.add_parser("status", help="count tracked handles per state")
     _common(p, needs_run=False)
@@ -129,6 +136,25 @@ def run_diff_command(args) -> int:
     for line in lines:
         log.summary(line)
     log.summary(f"-> {out}")
+    return 0
+
+
+def run_check_login_command(args, checker=run_login_check) -> int:
+    log.setup_logging(None, log.verbosity(args))
+    call_number = args.call_number or next(
+        (e["call_number"] for e in load_state(args.sync_dir).values()
+         if e.get("status") == "done" and e.get("call_number")), None)
+    if not call_number:
+        raise InputShapeError("no synced item to open — pass --call-number")
+    email, password = config.require_env(config.ENV_LIBIB_EMAIL), config.require_env(config.ENV_LIBIB_PASSWORD)
+    log.header(f"libib check-login — open {call_number} (read-only, headless)")
+    started = time.monotonic()
+    error = checker(email, password, call_number, True, args.screenshot)
+    if error:
+        log.summary(f"FAILED at {error}")
+        log.summary(f"screenshot: {args.screenshot}")
+        return 1
+    log.summary(f"OK: logged in and opened {call_number} in {time.monotonic() - started:.1f}s")
     return 0
 
 

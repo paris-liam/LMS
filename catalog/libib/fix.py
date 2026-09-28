@@ -108,6 +108,42 @@ def apply_report(state: dict, results: list[dict], handle_by_call: dict, rows_by
     return counts
 
 
+def run_login_check(email: str, password: str, call_number: str, headless: bool, screenshot) -> str | None:
+    """Read-only: log in, force the Rental Library scope, open one item by call
+    number. Returns None when all of it works, else the failing step and error
+    (a screenshot of the page is saved). For checking a new machine — e.g. a
+    cloud box whose address Libib might challenge — before running the fixer."""
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return "Playwright is not installed for this Python (pip install playwright; python -m playwright install chromium)"
+    from catalog.libib import browser
+
+    step = "launch browser"
+    with sync_playwright() as p:
+        try:
+            chromium = p.chromium.launch(headless=headless)
+            page = chromium.new_page()
+            step = "login"
+            browser.login(page, email, password)
+            step = f"open item {call_number}"
+            err = browser.open_item(page, call_number)
+            if err:
+                raise RuntimeError(err[1])
+            return None
+        except Exception as exc:
+            try:
+                page.screenshot(path=str(screenshot), full_page=True)
+            except Exception:
+                pass
+            return f"{step}: {type(exc).__name__}: {str(exc).splitlines()[0] if str(exc) else ''}"
+        finally:
+            try:
+                chromium.close()
+            except Exception:
+                pass
+
+
 def run_fixer(rows: list[dict], report_path, email: str, password: str, headless: bool) -> list[dict]:
     try:
         from playwright.sync_api import sync_playwright

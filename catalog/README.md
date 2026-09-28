@@ -88,6 +88,17 @@ until the audit's barcode findings are fixed. Orphans are listed, never deleted.
 `diff` promotes in-sync handles to `done` in `libib-sync/_state.json` and keeps the previous
 state as `runs/<id>/libib/state-before.json`.
 
+## Running in the cloud
+
+    bash scripts/cloud-setup.sh                 # Python check, Playwright + Chromium
+    python3 -m catalog libib check-login        # read-only: log in headless, open one synced item
+
+Set `TMDB_API_KEY`, `LIBIB_EMAIL` and `LIBIB_PASSWORD` in the environment's secret
+settings (never in the repo — it is public). On a cloud box use `python3`, not
+`.venv-libib/bin/python`, and pass `--headless` to `libib fix`. `check-login` exits 1
+and saves `libib-login-check.png` when Libib challenges or blocks the machine.
+Still local-only for now: Shopify reads go through the Shopify CLI's stored login.
+
 ## TMDB lookup by tag (not a pipeline stage)
 
     python3 -m catalog tmdb-lookup --tag "Criterion Collection"
