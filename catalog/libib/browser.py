@@ -161,6 +161,15 @@ def fix_content(page: Page, title: str, description: str, tags: str, image_path:
     from catalog.libib.fields import normalized_tag_set
 
     if normalized_tag_set(tags_input.input_value()) != normalized_tag_set(tags):
+        # Tags live in the form's collapsed "Tags / Notes / Group" section
+        # (seen 2026-09-28); open it first. Title/description are already
+        # filled, so switching sections away from them is safe.
+        if not tags_input.is_visible():
+            page.locator(".anchor[data-section='tng-section']").first.click()
+            try:
+                tags_input.wait_for(state="visible", timeout=5000)
+            except PlaywrightTimeoutError:
+                return "error", "could not open the Tags section of the Edit form"
         tags_input.fill(tags.strip())
         changed.append("tags")
 
