@@ -119,3 +119,8 @@ call_number,barcode_status,content_status,message
 90000346,updated,updated,call number: renumbered from 191-VHSTLN-001A | barcode: ok | content: changed: poster
 90000347,updated,updated,call number: renumbered from 191-BLRTLK-50-001A | barcode: ok | content: changed: poster
 90000348,updated,updated,call number: renumbered from 191-BLRTAL-50-001A | barcode: ok | content: changed: poster
+90000351,updated,updated,call number: renumbered from 191-BLRTER-50-001A | barcode: ok | content: changed: poster
+90000350,updated,updated,call number: renumbered from 191-BLRTRM-50-001A | barcode: ok | content: changed: poster
+90000352,updated,updated,call number: renumbered from 191-BLRTEX-001A | barcode: ok | content: changed: poster
+90000353,updated,updated,call number: renumbered from 191-BLRTH4-50-001A | barcode: ok | content: changed: poster
+90000354,updated,updated,call number: renumbered from 191-VHSTHE-F-001A | barcode: ok | content: changed: poster
