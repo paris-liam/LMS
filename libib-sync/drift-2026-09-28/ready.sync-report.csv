@@ -51,3 +51,26 @@ call_number,barcode_status,content_status,message
 90000269,updated,updated,call number: renumbered from 191-BLRNIG-50-001A | barcode: ok | content: changed: poster
 90000271,updated,updated,call number: renumbered from 191-BLRNOC-50-001A | barcode: ok | content: changed: poster
 90000272,updated,updated,call number: renumbered from 191-VHSNOS-001A | barcode: ok | content: changed: poster
+90000273,updated,updated,call number: renumbered from 191-VHSNOT-001A | barcode: ok | content: changed: poster
+90000274,updated,updated,call number: renumbered from 191-BLROBS-50-001A | barcode: ok | content: changed: poster
+90000276,updated,updated,call number: renumbered from 191-BLROFF-50-001A | barcode: ok | content: changed: poster
+90000277,updated,updated,call number: renumbered from 191-UNKONT-50-001A | barcode: ok | content: changed: poster
+90000278,updated,updated,call number: renumbered from 191-DVDONE-50-001A | barcode: ok | content: changed: poster
+90000279,skipped,updated,call number: already renumbered | barcode: barcode already matches call_number | content: changed: poster
+90000280,updated,updated,call number: renumbered from 191-DVDOUT-001A | barcode: ok | content: changed: poster
+90000281,updated,updated,call number: renumbered from 191-BLROUT-50-001A | barcode: ok | content: changed: poster
+90000282,updated,updated,call number: renumbered from 191-VHSTTS-001A | barcode: ok | content: changed: poster
+90000284,updated,updated,call number: renumbered from 191-BLROVE-50-001A | barcode: ok | content: changed: poster
+90000285,updated,updated,call number: renumbered from 191-VHSOVE-50-001A | barcode: ok | content: changed: poster
+90000286,updated,updated,call number: renumbered from 191-BLRPEN-50-001A | barcode: ok | content: changed: poster
+90000287,updated,updated,call number: renumbered from 191-VHSPHI-001A | barcode: ok | content: changed: poster
+90000288,updated,updated,call number: renumbered from 191-DVDPIN-001A | barcode: ok | content: changed: poster
+90000289,updated,updated,call number: renumbered from 191-DVDPIX-001A | barcode: ok | content: changed: poster
+90000290,updated,updated,call number: renumbered from 191-VHSPOC-001A | barcode: ok | content: changed: poster
+90000291,updated,updated,call number: renumbered from 191-BLRPOI-50-001A | barcode: ok | content: changed: poster
+90000292,updated,updated,call number: renumbered from 191-UNKPOL-50-001A | barcode: ok | content: changed: poster
+90000293,updated,updated,call number: renumbered from 191-BLRPOS-50-001A | barcode: ok | content: changed: poster
+90000294,updated,updated,call number: renumbered from 191-BLRPOW-50-001A | barcode: ok | content: changed: poster
+90000295,updated,updated,call number: renumbered from 191-BLRPRO-50-001A | barcode: ok | content: changed: poster
+90000296,updated,updated,call number: renumbered from 191-BLRPRM-001A | barcode: ok | content: changed: poster
+90000297,updated,updated,"call number: renumbered from 191-UNKPSY-50-001A | barcode: ok | content: changed: description, poster"
