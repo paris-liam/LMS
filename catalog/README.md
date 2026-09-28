@@ -88,6 +88,15 @@ until the audit's barcode findings are fixed. Orphans are listed, never deleted.
 `diff` promotes in-sync handles to `done` in `libib-sync/_state.json` and keeps the previous
 state as `runs/<id>/libib/state-before.json`.
 
+## TMDB lookup by tag (not a pipeline stage)
+
+    python3 -m catalog tmdb-lookup --tag "Criterion Collection"
+
+Runs only the audit's TMDB matcher over the latest run's snapshot, for every movie
+carrying that tag — including ones that already have a poster — and writes
+`runs/<id>/tmdb-lookup-<tag>.csv` (match, TMDB title/year/id, poster URL, overview).
+Read-only: nothing is applied or queued. Re-run `audit` first for fresh Shopify data.
+
 ## Client upload sheet (not a pipeline stage)
 
 `catalog/client_sheet/template/` holds the client's Google Sheet scaffold, the tab-2
