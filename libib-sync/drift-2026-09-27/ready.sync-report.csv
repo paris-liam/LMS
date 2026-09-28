@@ -1,0 +1,283 @@
+call_number,barcode_status,content_status,message
+90000000,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000001,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000002,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000003,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000004,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000005,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000006,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+95306746,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000007,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000008,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000009,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000010,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000011,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000012,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000013,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000015,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000016,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000017,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000018,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000019,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000020,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000021,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+91177210,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+90000022,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000024,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000025,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000026,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000027,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000028,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000029,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000030,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000031,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000032,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000034,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000035,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000036,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000037,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000038,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000039,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000040,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000041,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000042,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000043,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000044,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000045,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000046,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000047,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000048,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000049,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000050,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000051,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000052,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000053,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""input.tags-autocomplete[name='tags']"").first
+    - locator resolved to <input value="""" type=""text"" name=""tags"" placeholder="""" autocomplete=""off"" class=""tags-autocomplete"" aria-describedby=""edit-entry-tags-help""/>
+    - fill(""VHS, action"")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+      - waiting 100ms
+    59 × waiting for element to be visible, enabled and editable
+       - element is not visible
+     - retrying fill action
+       - waiting 500ms
+"
+90000054,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000055,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000056,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000057,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000059,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000060,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000061,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000062,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000063,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000064,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000065,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000066,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000067,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000068,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000069,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000070,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000071,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000072,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000073,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000074,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000075,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000076,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000077,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000078,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000079,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000080,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000081,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000082,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000083,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000084,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000085,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000086,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000087,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000088,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000089,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000090,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000091,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000092,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000093,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+85307130,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""input.tags-autocomplete[name='tags']"").first
+    - locator resolved to <input type=""text"" name=""tags"" placeholder="""" autocomplete=""off"" value=""4k,kids-family"" class=""tags-autocomplete"" aria-describedby=""edit-entry-tags-help""/>
+    - fill(""VHS, kids-family"")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+      - waiting 100ms
+    - waiting for element to be visible, enabled and editable
+    - element is not visible
+  - retrying fill action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and editable
+  - element was detached from the DOM, retrying
+    - locator resolved to <input type=""text"" name=""tags"" placeholder="""" autocomplete=""off"" value=""4k,kids-family"" class=""tags-autocomplete"" aria-describedby=""edit-entry-tags-help""/>
+    - fill(""VHS, kids-family"")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+      - waiting 100ms
+    58 × waiting for element to be visible, enabled and editable
+       - element is not visible
+     - retrying fill action
+       - waiting 500ms
+"
+91570426,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+90000094,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000095,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000096,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000097,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000098,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000100,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000102,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000103,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000104,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000106,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000107,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000108,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000109,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000110,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000111,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000113,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000114,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000115,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000116,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000117,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000118,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000119,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000120,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000121,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000123,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000124,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000125,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000126,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000127,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000129,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000130,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000131,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000132,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000133,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000134,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000135,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000136,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+35570682,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+90000137,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000138,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000139,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000140,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+35275770,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+95536122,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+90000141,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000142,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000143,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000144,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000145,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000146,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000147,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000149,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000150,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000151,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000152,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000153,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000154,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19948282,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+90000155,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000156,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000157,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000158,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000159,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000160,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000161,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000162,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000163,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000164,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000165,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000166,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000167,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000168,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000169,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000170,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000171,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000172,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000173,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000174,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000175,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000176,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+16492026,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+94979066,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+95601658,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+40715002,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""input.tags-autocomplete[name='tags']"").first
+    - locator resolved to <input type=""text"" name=""tags"" placeholder="""" autocomplete=""off"" value=""4k,thriller"" class=""tags-autocomplete"" aria-describedby=""edit-entry-tags-help""/>
+    - fill(""VHS, thriller"")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+      - waiting 100ms
+    59 × waiting for element to be visible, enabled and editable
+       - element is not visible
+     - retrying fill action
+       - waiting 500ms
+"
+35308538,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+35701754,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+95994874,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+95273978,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+35800058,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+18392570,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+20144890,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+95110138,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+19456762,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+20013818,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+17704442,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+19784442,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+78086650,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""input.tags-autocomplete[name='tags']"").first
+    - locator resolved to <input type=""text"" name=""tags"" placeholder="""" autocomplete=""off"" class=""tags-autocomplete"" value=""blu-ray,documentary"" aria-describedby=""edit-entry-tags-help""/>
+    - fill(""VHS, documentary"")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not visible
+    - retrying fill action
+      - waiting 100ms
+    59 × waiting for element to be visible, enabled and editable
+       - element is not visible
+     - retrying fill action
+       - waiting 500ms
+"
+18818554,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+95339514,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
