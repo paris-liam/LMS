@@ -22,14 +22,19 @@ def read_ready(path) -> list[dict]:
 
 
 def completed_calls(report_path) -> set[str]:
-    """Call numbers a previous (possibly stopped) fixer run finished without
-    an error — its report is written row by row, so it survives a stop."""
+    """Call numbers earlier (possibly stopped) fixer runs finished without an
+    error — each report is written row by row, so it survives a stop. Reads
+    the report and every archived one (ready.sync-report.N.csv), so a second
+    resume still skips what the first stopped run did."""
     path = Path(report_path)
-    if not path.exists():
-        return set()
-    with path.open(newline="", encoding="utf-8") as f:
-        return {r["call_number"].strip() for r in csv.DictReader(f)
-                if r.get("call_number") and "error" not in (r.get("barcode_status"), r.get("content_status"))}
+    done: set[str] = set()
+    for report in [path, *path.parent.glob(f"{path.stem}.*{path.suffix}")]:
+        if not report.exists():
+            continue
+        with report.open(newline="", encoding="utf-8") as f:
+            done |= {r["call_number"].strip() for r in csv.DictReader(f)
+                     if r.get("call_number") and "error" not in (r.get("barcode_status"), r.get("content_status"))}
+    return done
 
 
 def archive_report(report_path) -> Path | None:

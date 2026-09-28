@@ -260,6 +260,23 @@ class TestFixCommand(LibibCase):
         self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["02222222"])  # alien already done
         self.assertIn("03333333", (work / "ready.sync-report.1.csv").read_text(encoding="utf-8"))
 
+    def test_drift_fix_second_resume_still_skips_the_first_runs_work(self):
+        map_path = self.write_call_number_drift()
+        work = self.sync / "drift-2026-09-25"
+        work.mkdir()
+        header = "call_number,barcode_status,content_status,message\n"
+        (work / "ready.sync-report.1.csv").write_text(
+            header + "03333333,updated,updated,call number: renumbered from 191-ALN-001A\n", encoding="utf-8")
+        (work / "ready.sync-report.csv").write_text(header + "02222222,error,error,TimeoutError\n", encoding="utf-8")
+        with (self.run / "libib" / "drift.csv").open("a", encoding="utf-8") as f:
+            f.write("heat,02222222,title,Heat,Heat (old)\n")
+        calls = []
+        with self.env(), contextlib.redirect_stdout(io.StringIO()):
+            command.run_fix_command(self.parse("fix", "--drift", "--yes", "--call-number-map", str(map_path)),
+                                    fixer=self.fake_fixer(calls), download=fake_download)
+        self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["02222222"])  # only the failure retried
+        self.assertTrue((work / "ready.sync-report.2.csv").exists())
+
     def test_drift_fix_retries_what_failed_last_time(self):
         map_path = self.write_call_number_drift()
         work = self.sync / "drift-2026-09-25"
