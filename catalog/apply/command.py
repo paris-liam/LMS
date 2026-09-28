@@ -8,6 +8,7 @@ working tree instead. Nothing is written to Shopify: you import the CSVs.
 
 import argparse
 import json
+import shutil
 from dataclasses import asdict
 from pathlib import Path
 
@@ -16,7 +17,7 @@ from catalog.apply.csv_groups import build_import_files, warnings_for, write_imp
 from catalog.apply.merge import AUTO_FIX_SOURCE, CHANGE_COLUMNS, merge
 from catalog.core import log
 from catalog.core.csv_io import write_csv
-from catalog.core.git_sync import fetch_branch
+from catalog.core.git_sync import fetch_branch, sync_review_picker
 from catalog.core.picks import load_picks, local_reader, remote_reader
 from catalog.core.plan import Plan, add_approval_args, confirm
 from catalog.core.registry import load_registry, mark_applied, mark_resolved, mark_skipped, save_registry
@@ -31,7 +32,10 @@ def register(subparsers) -> None:
     p.add_argument("--local-picks", action="store_true",
                    help=f"read picks from the working tree instead of {config.PICKER_REMOTE}/{config.PICKER_BRANCH}")
     p.add_argument("--runs-dir", default=str(config.RUNS_DIR), help=argparse.SUPPRESS)
+    p.add_argument("--no-git-sync", action="store_true",
+                   help=f"don't commit/publish the registry and imports/ to {config.PICKER_BRANCH}")
     p.add_argument("--picker-dir", default=str(config.PICKER_DIR), help=argparse.SUPPRESS)
+    p.add_argument("--imports-dir", default=str(config.IMPORTS_DIR), help=argparse.SUPPRESS)
     add_approval_args(p)
     log.add_verbosity_args(p)
     p.set_defaults(func=run_command)
@@ -48,7 +52,39 @@ def _pick_reader(args, picker_dir: Path):
     return remote_reader(config.REPO_ROOT, ref, config.PICKER_REL), ref
 
 
-def run_command(args, read_text=None, stdin=None) -> int:
+def _mirror(files: list[Path], target: Path) -> None:
+    """Make `target` hold exactly `files` (a re-apply rewrites the whole set)."""
+    target.mkdir(parents=True, exist_ok=True)
+    names = {f.name for f in files}
+    for old in target.glob("*.csv"):
+        if old.name not in names:
+            old.unlink()
+    for f in files:
+        shutil.copy2(f, target / f.name)
+
+
+def _publish(args, sync_fn, picker_dir: Path, run_id: str) -> bool:
+    """Commit + push the registry and this run's imports to the deploy branch.
+    True when published."""
+    if args.no_git_sync:
+        return False
+    try:
+        rels = [str(Path(p).resolve().relative_to(config.REPO_ROOT.resolve()))
+                for p in (picker_dir, Path(args.imports_dir))]
+    except ValueError:
+        log.summary("picker or imports folder is outside the repo — git sync skipped.")
+        return False
+    outcome = sync_fn(config.REPO_ROOT, rels, f"apply: import CSVs + registry (audit {run_id})",
+                      log_fn=log.summary, deploy_branch=config.PICKER_BRANCH, remote=config.PICKER_REMOTE)
+    if outcome.get("synced"):
+        log.summary(f"Published to {config.PICKER_BRANCH}: download the CSVs from {rels[1]}/{run_id}/ on GitHub.")
+        return True
+    if outcome.get("reason") != "nothing to commit":
+        log.summary(f"Note: not published ({outcome.get('reason')}).")
+    return False
+
+
+def run_command(args, read_text=None, stdin=None, sync_fn=sync_review_picker) -> int:
     run_dir = resolve_run(args.runs_dir, args.run)
     log.setup_logging(run_dir / "apply.log", log.verbosity(args))
     log.header(f"apply — audit run {run_dir.name}")
@@ -111,12 +147,15 @@ def run_command(args, read_text=None, stdin=None) -> int:
     mark_resolved(registry, result.resolved)
     save_registry(picker_dir, registry)
 
-    log.summary(f"wrote {len(paths)} file(s) to {import_dir}:")
+    published = Path(args.imports_dir).resolve() / run_dir.name
+    _mirror(paths, published)
+    log.summary(f"wrote {len(paths)} file(s) to {import_dir} (copy in {published}):")
     for path in paths:
         log.summary(f"  {path.name}")
     log.summary("Import each in Shopify admin → Products → Import, with 'Overwrite products with matching handles' on.")
     log.summary("The next audit confirms each applied pick landed (applied -> resolved).")
-    log.summary(f"The registry changed in the working tree ({config.PICKER_REL}/data/_handle-index.json) — "
-                f"commit it and merge it into {config.PICKER_BRANCH}; if it is lost, the next apply "
-                "won't know these handles were already applied.")
+    if not _publish(args, sync_fn, picker_dir, run_dir.name):
+        log.summary(f"The registry changed in the working tree ({config.PICKER_REL}/data/_handle-index.json) — "
+                    f"commit it and merge it into {config.PICKER_BRANCH}; if it is lost, the next apply "
+                    "won't know these handles were already applied.")
     return 0

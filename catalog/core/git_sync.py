@@ -19,14 +19,16 @@ def _run(args, cwd) -> subprocess.CompletedProcess:
     return subprocess.run(args, cwd=cwd, capture_output=True, text=True)
 
 
-def dirty_paths_outside(repo_root, allowed_prefix: str) -> list[str]:
+def dirty_paths_outside(repo_root, allowed_prefix) -> list[str]:
     """Paths (relative to repo_root) with uncommitted changes that are NOT
-    under allowed_prefix. Empty list means the tree is clean enough to pull."""
+    under allowed_prefix (a path, or a list of them). Empty list means the
+    tree is clean enough to pull."""
     result = _run(["git", "status", "--porcelain"], cwd=repo_root)
     if result.returncode != 0:
         raise RuntimeError(f"git status failed: {result.stderr.strip()}")
 
-    prefix = allowed_prefix.rstrip("/") + "/"
+    prefixes = [allowed_prefix] if isinstance(allowed_prefix, str) else list(allowed_prefix)
+    prefixes = tuple(p.rstrip("/") + "/" for p in prefixes)
     outside = []
     for line in result.stdout.splitlines():
         if not line.strip():
@@ -35,51 +37,49 @@ def dirty_paths_outside(repo_root, allowed_prefix: str) -> list[str]:
         path = line[3:].strip()
         for part in path.split(" -> "):
             part = part.strip().strip('"')
-            if not part.startswith(prefix):
+            if not part.startswith(prefixes):
                 outside.append(path)
                 break
     return outside
 
 
-def sync_review_picker(repo_root, tools_dir_rel: str, commit_message: str, log_fn=lambda m: None,
-                       deploy_branch: str | None = None) -> dict:
-    """Pull, then commit + push tools_dir_rel if it has changes. Returns
-    {"synced": bool, "reason": str, ...} — never raises for an expected
-    failure (wrong branch, dirty tree, pull/commit/push failure); those are
-    reported, not thrown. With deploy_branch set, refuses unless the checkout
-    is on that branch (pushing any other branch never reaches the host)."""
-    repo_root = Path(repo_root)
+def sync_review_picker(repo_root, tools_dir_rel, commit_message: str, log_fn=lambda m: None,
+                       deploy_branch: str | None = None, remote: str = "origin") -> dict:
+    """Pull, then commit + push tools_dir_rel (a path, or a list of them) if
+    it has changes. Returns {"synced": bool, "reason": str, ...} — never
+    raises for an expected failure (dirty tree, pull/commit/push failure);
+    those are reported, not thrown.
 
-    if deploy_branch is not None:
-        try:
-            branch = current_branch(repo_root)
-        except RuntimeError as exc:
-            return {"synced": False, "reason": "git rev-parse failed", "detail": str(exc)}
-        if branch != deploy_branch:
-            reason = f"on branch {branch}; the picker deploys from {deploy_branch}"
-            log_fn(f"git sync skipped: {reason} — publish {tools_dir_rel} from {deploy_branch}.")
-            return {"synced": False, "reason": reason}
+    With deploy_branch set, the result is published to that branch from
+    whatever branch is checked out (a cloud session works on its own
+    branch): merge remote/deploy_branch in, commit, then push HEAD to
+    remote/deploy_branch — always a fast-forward, never a force. If the push
+    is refused, the commit stays on the current branch."""
+    repo_root = Path(repo_root)
+    paths = [tools_dir_rel] if isinstance(tools_dir_rel, str) else list(tools_dir_rel)
+    label = ", ".join(paths)
 
     try:
-        outside = dirty_paths_outside(repo_root, tools_dir_rel)
+        outside = dirty_paths_outside(repo_root, paths)
     except RuntimeError as exc:
         log_fn(f"git sync skipped: {exc}")
         return {"synced": False, "reason": "git status failed", "detail": str(exc)}
 
     if outside:
         log_fn(
-            f"git sync skipped: uncommitted changes outside {tools_dir_rel} "
-            f"({len(outside)} path(s)) — resolve those first, {tools_dir_rel} "
+            f"git sync skipped: uncommitted changes outside {label} "
+            f"({len(outside)} path(s)) — resolve those first, {label} "
             "changes are left uncommitted for you to sync by hand."
         )
         return {"synced": False, "reason": "dirty tree outside review-picker", "paths": outside}
 
-    pull = _run(["git", "pull", "--no-rebase"], cwd=repo_root)
+    pull_args = ["git", "pull", "--no-rebase"] + ([remote, deploy_branch] if deploy_branch else [])
+    pull = _run(pull_args, cwd=repo_root)
     if pull.returncode != 0:
         log_fn(f"git sync skipped: git pull failed:\n{pull.stderr.strip()}")
         return {"synced": False, "reason": "pull failed", "detail": pull.stderr.strip()}
 
-    add = _run(["git", "add", tools_dir_rel], cwd=repo_root)
+    add = _run(["git", "add", "--", *paths], cwd=repo_root)
     if add.returncode != 0:
         log_fn(f"git sync skipped: git add failed:\n{add.stderr.strip()}")
         return {"synced": False, "reason": "add failed", "detail": add.stderr.strip()}
@@ -95,7 +95,8 @@ def sync_review_picker(repo_root, tools_dir_rel: str, commit_message: str, log_f
         log_fn(f"git sync: commit failed (changes remain staged):\n{commit.stderr.strip()}")
         return {"synced": False, "reason": "commit failed", "detail": commit.stderr.strip()}
 
-    push = _run(["git", "push"], cwd=repo_root)
+    push_args = ["git", "push"] + ([remote, f"HEAD:{deploy_branch}"] if deploy_branch else [])
+    push = _run(push_args, cwd=repo_root)
     if push.returncode != 0:
         log_fn(
             "git sync: push failed (commit was made locally, not pushed):\n"
@@ -103,7 +104,7 @@ def sync_review_picker(repo_root, tools_dir_rel: str, commit_message: str, log_f
         )
         return {"synced": False, "reason": "push failed", "detail": push.stderr.strip()}
 
-    log_fn(f"git sync: pulled, committed, and pushed {tools_dir_rel}")
+    log_fn(f"git sync: pulled, committed, and pushed {label}" + (f" to {deploy_branch}" if deploy_branch else ""))
     return {"synced": True}
 
 

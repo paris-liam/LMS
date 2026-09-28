@@ -24,14 +24,21 @@ pipeline; `CLAUDE.md` for the project.
   the API matched the Shopify CLI read exactly (7,155 products, 0 differences).
   The app is not installed on the dev store.
 
-## Not settled yet
+## Cloud working rules (decided 2026-09-28)
 
-- `picker push` pushes to `main` (the picker and Vercel read `main`; `apply`
-  reads picks from `origin/main`). Confirm the cloud session may push to
-  `main`; if not, the flow becomes a PR the user merges.
-- `runs/` is gitignored. The one run the cloud needs, `runs/2026-09-28/`
-  (snapshot, drift, findings), was force-added to git for this handoff. It is
-  the latest complete run, so every `libib` command resolves to it.
+- **Start every cloud session with `python3 -m catalog audit`.** `runs/` is
+  gitignored and not carried between sessions; a fresh audit (about 2½ min
+  through the Admin API, plus TMDB lookups) rebuilds the snapshot every other
+  command reads. The TMDB cache is not carried either — it re-fetches.
+  Exception: the renumber run below still uses the force-added
+  `runs/2026-09-28/`, because its drift list and resume report belong to it —
+  don't start a new audit/diff until that run is finished.
+- **Cloud sessions may push to `main`.** `picker push` and `apply` publish
+  from the session's branch straight to `main` (merge `origin/main` in, push
+  `HEAD:main`, never a force). If the environment refuses the push, the commit
+  stays on the session branch and the command says so.
+- **`apply` publishes its CSVs** to `imports/<run id>/` on `main`; the user
+  downloads them from GitHub and imports them in Shopify admin.
 
 ## Immediate task: finish the Libib renumber run
 

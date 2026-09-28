@@ -14,6 +14,9 @@ RUNS_DIR = REPO_ROOT / "runs"
 TMDB_CACHE_FILENAME = ".tmdb-cache.json"
 PICKER_DIR = REPO_ROOT / "tools" / "review-picker"
 LIBIB_SYNC_DIR = REPO_ROOT / "libib-sync"
+# apply copies each run's import CSVs here (tracked) and publishes them, so a
+# cloud session's CSVs reach the user through GitHub.
+IMPORTS_DIR = REPO_ROOT / "imports"
 
 ENV_TMDB_API_KEY = "TMDB_API_KEY"
 ENV_LIBIB_EMAIL = "LIBIB_EMAIL"

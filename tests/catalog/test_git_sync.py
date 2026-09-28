@@ -165,25 +165,74 @@ class TestBranchHelpers(unittest.TestCase):
             git_sync.fetch_branch(self.repo, "no-such-remote", "main")
 
 
-class TestDeployBranchGuard(unittest.TestCase):
-    def test_sync_refuses_off_the_deploy_branch(self):
-        with patch.object(git_sync, "current_branch", return_value="fix/something"), \
-             patch.object(git_sync, "_run") as run_mock:
-            result = git_sync.sync_review_picker("/repo", "tools/review-picker", "msg", deploy_branch="main")
+class TestPublishToDeployBranch(unittest.TestCase):
+    """Real git: a bare "origin", and a clone working on a cloud-style branch."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        root = Path(self.tmp.name)
+        self.origin, self.seed, self.work = root / "origin.git", root / "seed", root / "work"
+        git(root, "init", "-q", "--bare", "-b", "main", str(self.origin))
+        git(root, "clone", "-q", str(self.origin), str(self.seed))
+        for repo in (self.seed,):
+            git(repo, "config", "user.email", "t@example.com")
+            git(repo, "config", "user.name", "t")
+        (self.seed / "tools").mkdir()
+        (self.seed / "tools" / "a.json").write_text("[]", encoding="utf-8")
+        git(self.seed, "add", ".")
+        git(self.seed, "commit", "-q", "-m", "init")
+        git(self.seed, "push", "-q", "origin", "main")
+        git(root, "clone", "-q", str(self.origin), str(self.work))
+        git(self.work, "config", "user.email", "t@example.com")
+        git(self.work, "config", "user.name", "t")
+        git(self.work, "checkout", "-q", "-b", "claude/session-1")
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def origin_main_file(self, path):
+        return git(self.origin, "show", f"main:{path}")
+
+    def test_publishes_from_a_session_branch_to_main(self):
+        # main moved on since the session branched (e.g. the client saved a pick)
+        (self.seed / "tools" / "pick.json").write_text("{}", encoding="utf-8")
+        git(self.seed, "add", ".")
+        git(self.seed, "commit", "-q", "-m", "pick")
+        git(self.seed, "push", "-q", "origin", "main")
+
+        (self.work / "tools" / "a.json").write_text('["new"]', encoding="utf-8")
+        result = git_sync.sync_review_picker(self.work, "tools", "picker update", deploy_branch="main")
+        self.assertTrue(result["synced"], result)
+        self.assertEqual(self.origin_main_file("tools/a.json"), '["new"]')
+        self.assertEqual(self.origin_main_file("tools/pick.json"), "{}")  # nothing on main was lost
+        self.assertEqual(git_sync.current_branch(self.work), "claude/session-1")
+
+    def test_publishes_several_paths_together(self):
+        (self.work / "tools" / "a.json").write_text('["new"]', encoding="utf-8")
+        (self.work / "imports").mkdir()
+        (self.work / "imports" / "x.csv").write_text("Handle\nh\n", encoding="utf-8")
+        result = git_sync.sync_review_picker(self.work, ["tools", "imports"], "apply", deploy_branch="main")
+        self.assertTrue(result["synced"], result)
+        self.assertEqual(self.origin_main_file("imports/x.csv"), "Handle\nh\n")
+
+    def test_a_rejected_push_keeps_the_commit_on_the_branch(self):
+        git(self.origin, "config", "receive.denyCurrentBranch", "refuse")
+        hook = self.origin / "hooks" / "pre-receive"
+        hook.write_text("#!/bin/sh\necho 'pushes to main are not allowed' >&2\nexit 1\n", encoding="utf-8")
+        hook.chmod(0o755)
+        (self.work / "tools" / "a.json").write_text('["new"]', encoding="utf-8")
+        result = git_sync.sync_review_picker(self.work, "tools", "picker update", deploy_branch="main")
         self.assertFalse(result["synced"])
-        self.assertIn("fix/something", result["reason"])
-        self.assertIn("main", result["reason"])
-        run_mock.assert_not_called()
+        self.assertEqual(result["reason"], "push failed")
+        self.assertIn("picker update", git(self.work, "log", "-1", "--format=%s"))
 
-    def test_sync_proceeds_on_the_deploy_branch(self):
-        def fake_run(args, cwd):
-            return FakeResult(returncode=1 if args[1] == "diff" else 0)
 
-        with patch.object(git_sync, "current_branch", return_value="main"), \
-             patch.object(git_sync, "dirty_paths_outside", return_value=[]), \
-             patch.object(git_sync, "_run", side_effect=fake_run):
-            result = git_sync.sync_review_picker("/repo", "tools/review-picker", "msg", deploy_branch="main")
-        self.assertTrue(result["synced"])
+class TestDirtyPathsOutsideSeveral(unittest.TestCase):
+    def test_changes_under_any_allowed_prefix_are_clean(self):
+        status = " M tools/review-picker/x.json\n?? imports/2026-09-28/genre.csv\n M catalog/x.py\n"
+        with patch.object(git_sync, "_run", return_value=FakeResult(stdout=status)):
+            outside = git_sync.dirty_paths_outside("/repo", ["tools/review-picker", "imports"])
+        self.assertEqual(outside, ["catalog/x.py"])
 
 
 if __name__ == "__main__":
