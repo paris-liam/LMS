@@ -27,8 +27,8 @@ class TestCanonicalGenre(unittest.TestCase):
         for label in GENRES:
             self.assertEqual(canonical_genre(label), label)
 
-    def test_thirteen_genres(self):
-        self.assertEqual(len(GENRES), 13)
+    def test_fourteen_genres(self):
+        self.assertEqual(len(GENRES), 14)
 
     def test_case_and_punctuation_insensitive(self):
         self.assertEqual(canonical_genre("sci-fi"), "Sci-Fi")
@@ -46,7 +46,7 @@ class TestCanonicalGenre(unittest.TestCase):
         self.assertEqual(canonical_genre("Thriler"), "Thriller")
 
     def test_unknown_values_return_none(self):
-        for value in ("Special Interest", "Chicago", "#REF!", "#VALUE!", "", "   "):
+        for value in ("Western", "Chicago", "#REF!", "#VALUE!", "", "   "):
             self.assertIsNone(canonical_genre(value), value)
 
 
@@ -57,7 +57,7 @@ class TestGenreHandle(unittest.TestCase):
         self.assertEqual(genre_handle("Foreign"), "foreign")
 
     def test_unknown_label_returns_none(self):
-        self.assertIsNone(genre_handle("Special Interest"))
+        self.assertIsNone(genre_handle("Western"))
 
 
 class TestCanonicalFormat(unittest.TestCase):

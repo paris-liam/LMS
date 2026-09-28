@@ -24,6 +24,7 @@ Tab 3 is named `mappings` and holds ONLY this table, starting in A1:
   Documentary       documentary
   Foreign           foreign
   Holiday           holiday
+  Special Interest  special-interest
 
 ------------------------------------------------------------------
 PASTE INTO TAB 2, CELL A1:

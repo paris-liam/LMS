@@ -66,7 +66,7 @@ class TestResolveGenres(unittest.TestCase):
         self.assertEqual(resolve_genres("Comedy", ["Comedy", "comedy"], [])[0], ["Comedy"])
 
     def test_no_usable_genre_is_flagged(self):
-        for option1, tags in (("Special Interest", ["Rental"]), ("#REF!", []),
+        for option1, tags in (("Western", ["Rental"]), ("#REF!", []),
                               ("Chicago", []), ("", ["Rental", "VHS"])):
             genres, reason = resolve_genres(option1, tags, [])
             self.assertEqual(genres, [])
@@ -104,7 +104,7 @@ class TestResolveGenres(unittest.TestCase):
         )
 
     def test_union_table_unusable_option1_and_tags_is_flagged(self):
-        genres, reason = resolve_genres("Special Interest", ["Rental"], [])
+        genres, reason = resolve_genres("Western", ["Rental"], [])
         self.assertEqual(genres, [])
         self.assertIn("no usable genre", reason)
 

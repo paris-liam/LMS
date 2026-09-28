@@ -25,7 +25,7 @@ Do this once, on your master copy.
    `genre-mappings.csv` → **Insert new sheet**. Rename the new tab to exactly
    `mappings`.
 
-   You should end up with 13 rows: genre names in column A, and a matching
+   You should end up with 14 rows: genre names in column A, and a matching
    code in column B (`Comedy` / `comedy`, `Kids & Family` / `kids-family`,
    and so on). Check that **A4 reads `Kids & Family`** and **A11 reads
    `Documentary`** — if either is missing or split across two cells, the
@@ -164,7 +164,10 @@ Two steps, and the second one needs your developer:
 
 ## Adding a new genre
 
-You can't, and you don't need to. The thirteen genres in the dropdown are
-Shopify's own standard film-genre list — it's fixed, and it's complete. If a
-film doesn't fit any of them, use the closest one and put the more specific
-label in **Extra tags**.
+Ask first — it's a developer step, not a sheet edit. A genre has to exist in
+Shopify (as a genre value) and in the pipeline's genre list before a sheet row
+can use it; a genre typed only into the sheet is silently left empty on the
+product. The fourteen genres in the dropdown are the complete list today
+(Special Interest was added this way on 2026-09-28). If a film doesn't fit
+any of them, use the closest one and put the more specific label in
+**Extra tags**.
