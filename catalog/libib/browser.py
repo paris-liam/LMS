@@ -92,7 +92,9 @@ def fix_barcode(page: Page, call_number: str):
     if barcode_input.input_value() == call_number:
         return "skipped", "barcode already matches call_number"
 
-    row.locator(".copy-lock-icon .lock-icon").click()
+    # Libib moved the lock icon into the barcode cell (seen 2026-09-28);
+    # accept both layouts.
+    row.locator(".copy-barcode-value .lock-icon, .copy-lock-icon .lock-icon").first.click()
     try:
         page.locator(".modal-delete").wait_for(state="visible", timeout=3000)
         page.locator(".modal-delete").click()
