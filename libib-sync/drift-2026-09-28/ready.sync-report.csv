@@ -1,0 +1,22 @@
+call_number,barcode_status,content_status,message
+90000489,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000009,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000022,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000045,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000483,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000053,skipped,updated,"barcode: barcode already matches call_number | content: changed: title, tags, poster"
+90000057,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000058,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000482,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000085,skipped,updated,barcode: barcode already matches call_number | content: changed: description
+90000092,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+85307130,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, tags"
+90000490,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000488,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000159,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000493,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000492,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+40715002,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, tags"
+90000491,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+90000487,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+78086650,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, tags"

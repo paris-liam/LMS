@@ -187,7 +187,7 @@
     "batch": "batch-0017",
     "call_number": "98337274",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/h7Lcio0c9ohxPhSZg42eTlKIVVY_d9098e4d-5114-4e2c-b1d2-b7f3619a71e5.jpg?v=1790476511",
-    "status": "imported"
+    "status": "done"
   },
   "300-bluray-rental-fantasy": {
     "batch": "batch-0002",
@@ -387,7 +387,7 @@
     "batch": "batch-0017",
     "call_number": "07235322",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/lBwOEpwVeUAmrmglcstnaGcJq3Y.jpg?v=1790476511",
-    "status": "imported"
+    "status": "done"
   },
   "a-fistful-of-dollars-vhs-rental-action": {
     "batch": "batch-0002",
@@ -406,7 +406,7 @@
   },
   "a-fool-and-his-money-vhs-rental-romantic-comedy": {
     "call_number": "95306746",
-    "status": "imported"
+    "status": "done"
   },
   "a-friend-of-the-deceased-vhs-rental-foreign": {
     "batch": "batch-0008",
@@ -701,13 +701,13 @@
     "batch": "batch-0018",
     "call_number": "00467194",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/20djTLqppfBx5WYA67Y300S6aPD_77767556-6f8a-4f94-bd36-0db8c531aaf8.jpg?v=1790533869",
-    "status": "imported"
+    "status": "done"
   },
   "about-a-boy-dvd-rental-comedy": {
     "batch": "batch-0017",
     "call_number": "43152122",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/qoZ1bD0q9EFqcNiEYbEigsRcNCt_5349d83b-5286-493d-910c-397e7338227a.jpg?v=1790476512",
-    "status": "imported"
+    "status": "done"
   },
   "about-a-boy-dvd-rental-romantic-comedy": {
     "batch": "batch-0005",
@@ -905,7 +905,7 @@
   },
   "alien-4k-rental-sci-fi": {
     "call_number": "91177210",
-    "status": "imported"
+    "status": "done"
   },
   "alien-covenant-dvd-rental-sci-fi": {
     "batch": "batch-0014",
@@ -934,7 +934,7 @@
     "batch": "batch-0017",
     "call_number": "00401658",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/r1x5JGpyqZU8PYhbs4UcrO1Xb6x.jpg?v=1790476512",
-    "status": "imported"
+    "status": "done"
   },
   "alive-vhs-rental-action": {
     "batch": "batch-0002",
@@ -1223,7 +1223,7 @@
     "batch": "batch-0017",
     "call_number": "08251130",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/1lX74fPZsBoOyyE5fWL5xT7k9sV_98adc282-8e20-4f73-9360-df331b696e02.jpg?v=1790476512",
-    "status": "imported"
+    "status": "done"
   },
   "amys-o": {
     "batch": "batch-0012",
@@ -1812,7 +1812,7 @@
     "batch": "batch-0017",
     "call_number": "00827642",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/tYzFuYXmT8LOYASlFCkaPiAFAl0_20b26dc2-812f-449c-b692-cb80497a4257.jpg?v=1790476513",
-    "status": "imported"
+    "status": "done"
   },
   "baby-driver-dvd-rental-action": {
     "batch": "batch-0014",
@@ -2004,7 +2004,7 @@
     "batch": "batch-0017",
     "call_number": "00794874",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/sPX89Td70IDDjVr85jdSBb4rWGr.jpg?v=1790476513",
-    "status": "imported"
+    "status": "done"
   },
   "batman-begins-dvd-rental-action": {
     "batch": "batch-0014",
@@ -2054,8 +2054,8 @@
   },
   "baywatch-the-movie-vhs-rental-action": {
     "call_number": "90000053",
-    "note": "TimeoutError: Locator.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"input.tags-autocomplete[name='tags']\").first\n    - locator resolved to <input value=\"\" type=\"text\" name=\"tags\" placeholder=\"\" autocomplete=\"off\" class=\"tags-autocomplete\" aria-describedby=\"edit-entry-tags-help\"/",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/Baywatch_poster.jpg?v=1790190456",
+    "status": "imported"
   },
   "be-kind-rewind-dvd-rental-comedy": {
     "batch": "batch-0014",
@@ -2211,6 +2211,10 @@
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/7sbLeFbRxSNXHc1ZO4zxFy3sIgc.jpg?v=1788380812",
     "status": "done"
   },
+  "being-john-malkovich": {
+    "call_number": "90000058",
+    "status": "imported"
+  },
   "being-there-vhs-rental-comedy": {
     "batch": "batch-0002",
     "call_number": "79200762",
@@ -2330,7 +2334,7 @@
     "batch": "batch-0017",
     "call_number": "44462842",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/wAD7nnWh4e6wweffwmkLbf35uf0.jpg?v=1790476513",
-    "status": "imported"
+    "status": "done"
   },
   "beyond-white-space-dvd-rental-sci-fi": {
     "batch": "batch-0014",
@@ -2376,13 +2380,13 @@
     "batch": "batch-0017",
     "call_number": "00368890",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/gI2Qs1yTTj3NcESJyttCkbmJ4k9.jpg?v=1790476514",
-    "status": "imported"
+    "status": "done"
   },
   "big-trouble-in-little-china-dvd-rental-action": {
     "batch": "batch-0017",
     "call_number": "07071482",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/gI2Qs1yTTj3NcESJyttCkbmJ4k9_78739f61-8802-4301-b9bc-4d5c3b409351.jpg?v=1790476514",
-    "status": "imported"
+    "status": "done"
   },
   "big-trouble-vhs-rental-comedy": {
     "batch": "batch-0006",
@@ -2495,7 +2499,7 @@
     "batch": "batch-0017",
     "call_number": "06121210",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/8Yv7kxsqXSe4ZHl8uJEhmsPjhAP.jpg?v=1790476514",
-    "status": "imported"
+    "status": "done"
   },
   "black-society-trilogy-dvd-rental-action": {
     "batch": "batch-0008",
@@ -2524,7 +2528,7 @@
     "batch": "batch-0017",
     "call_number": "00663802",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/7zu6HPnKPjNA7NuR4DGRdaH0PdX.jpg?v=1790476514",
-    "status": "imported"
+    "status": "done"
   },
   "blade-dvd-rental-action": {
     "batch": "batch-0014",
@@ -2554,7 +2558,7 @@
     "batch": "batch-0017",
     "call_number": "06612730",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/63N9uy8nd9j7Eog2axPQ8lbr3Wj_2b7aea33-d472-409b-baa4-16e7df444853.jpg?v=1790476514",
-    "status": "imported"
+    "status": "done"
   },
   "blades-of-glory-dvd-rental-comedy": {
     "batch": "batch-0006",
@@ -3380,7 +3384,7 @@
     "batch": "batch-0017",
     "call_number": "28029178",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/7lLJgKnAicAcR5UEuo8xhSMj18w_1f54c38e-34b2-4890-81da-8cb5163336ba.jpg?v=1790476515",
-    "status": "imported"
+    "status": "done"
   },
   "cast-away-dvd-rental-drama": {
     "batch": "batch-0003",
@@ -3400,7 +3404,7 @@
     "batch": "batch-0012",
     "call_number": "191-UNKCAS-70-001A",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1781396030620.jpg?v=1788285013",
-    "status": "done"
+    "status": "imported"
   },
   "cat-chaser-vhs-rental-thriller": {
     "batch": "batch-0003",
@@ -3745,10 +3749,9 @@
   "cinderella-vhs-rental-kids-family": {
     "batch": "batch-0016",
     "call_number": "85307130",
-    "note": "TimeoutError: Locator.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"input.tags-autocomplete[name='tags']\").first\n    - locator resolved to <input type=\"text\" name=\"tags\" placeholder=\"\" autocomplete=\"off\" value=\"4k,kids-family\" class=\"tags-autocomplete\" aria-describedby=\"edit-ent",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/images_9b26d263-9550-4716-8d25-961cdde080de.jpg?v=1788290436",
-    "status": "needs-review"
+    "status": "imported"
   },
   "circumstances-unknown-vhs-rental-thriller": {
     "batch": "batch-0004",
@@ -3815,7 +3818,7 @@
   },
   "civil-war-4k-rental-thriller": {
     "call_number": "91570426",
-    "status": "imported"
+    "status": "done"
   },
   "cky-trilogy-dvd-rental-documentary": {
     "batch": "batch-0003",
@@ -5263,7 +5266,7 @@
   },
   "dragonfight-vhs-rental-action": {
     "call_number": "35570682",
-    "status": "imported"
+    "status": "done"
   },
   "dream-for-an-insomniac-vhs-rental-romantic-comedy": {
     "batch": "batch-0003",
@@ -5440,7 +5443,7 @@
     "batch": "batch-0017",
     "call_number": "24457466",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/4kJmUCE7mkVJjXa7A0g2rY4IGTm_d0bae5fd-b6fa-4447-b2b0-cc1cc1430a87.jpg?v=1790476515",
-    "status": "imported"
+    "status": "done"
   },
   "dune-vhs-rental-sci-fi": {
     "batch": "batch-0009",
@@ -5465,13 +5468,13 @@
   },
   "dying-to-get-rich-vhs-rental-comedy": {
     "call_number": "35275770",
-    "status": "imported"
+    "status": "done"
   },
   "eagle-eye-bluray-rental-action": {
     "batch": "batch-0017",
     "call_number": "98796026",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/9KCOv0hL37IN3tWG3j86eZg3xDH.jpg?v=1790476515",
-    "status": "imported"
+    "status": "done"
   },
   "eagle-vs-shark-dvd-rental-comedy": {
     "batch": "batch-0014",
@@ -5507,7 +5510,7 @@
   },
   "easy-money-vhs-rental-comedy": {
     "call_number": "95536122",
-    "status": "imported"
+    "status": "done"
   },
   "eat-drink-man-woman-vhs-rental-comedy": {
     "batch": "batch-0015",
@@ -5548,7 +5551,7 @@
     "batch": "batch-0017",
     "call_number": "98763258",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/nBM9MMa2WCwvMG4IJ3eiGUdbPe6.jpg?v=1790476516",
-    "status": "imported"
+    "status": "done"
   },
   "edie-pen-vhs-rental-romantic-comedy": {
     "batch": "batch-0002",
@@ -6058,7 +6061,7 @@
   },
   "far-from-heaven-vhs-rental-drama": {
     "call_number": "19948282",
-    "status": "imported"
+    "status": "done"
   },
   "far-from-home-the-adventures-of-yellow-dog": {
     "batch": "batch-0011",
@@ -6270,7 +6273,7 @@
     "batch": "batch-0017",
     "call_number": "01515770",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/jSziioSwPVrOy9Yow3XhWIBDjq1_ee63f58d-a180-4dfc-a36d-6b9e83178d50.jpg?v=1790476516",
-    "status": "imported"
+    "status": "done"
   },
   "fight-club-dvd": {
     "batch": "batch-0014",
@@ -6364,7 +6367,7 @@
     "batch": "batch-0017",
     "call_number": "43315962",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/l8WQ4VCb7kZTRZeRMBJpykCVRKd.jpg?v=1790476516",
-    "status": "imported"
+    "status": "done"
   },
   "fire-with-fire-dvd-rental-action": {
     "batch": "batch-0014",
@@ -6531,7 +6534,7 @@
     "batch": "batch-0017",
     "call_number": "07399162",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/ooqASvA7qxlTVKL3KwOzBwy57Dh_df53481f-35e4-4ca1-abf2-454e6867dc88.jpg?v=1790476516",
-    "status": "imported"
+    "status": "done"
   },
   "for-a-few-dollars-more-vhs-rental-action": {
     "batch": "batch-0002",
@@ -6991,7 +6994,7 @@
     "batch": "batch-0018",
     "call_number": "97452538",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/lemqKtcCuAano5aqrzxYiKC8kkn.jpg?v=1790533870",
-    "status": "imported"
+    "status": "done"
   },
   "gangs-of-the-dead-dvd-rental-horror": {
     "batch": "batch-0005",
@@ -7977,7 +7980,7 @@
     "batch": "batch-0017",
     "call_number": "10769402",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/by4D4Q9NlUjFSEUA1yrxq6ksXmk_1a7e06dd-06fb-4d3f-8897-44d4ef62432d.jpg?v=1790476517",
-    "status": "imported"
+    "status": "done"
   },
   "hoffa-vhs-rental-drama": {
     "batch": "batch-0008",
@@ -8254,7 +8257,7 @@
     "batch": "batch-0017",
     "call_number": "43414266",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/p3pHw85UMZPegfMZBA6dZ06yarm.jpg?v=1790476517",
-    "status": "imported"
+    "status": "done"
   },
   "house-party-4-vhs-rental-comedy": {
     "batch": "batch-0009",
@@ -8607,7 +8610,7 @@
     "batch": "batch-0017",
     "call_number": "98566650",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/xlaY2zyzMfkhk0HSC5VUwzoZPU1_5a6ab363-2838-4217-a8d4-adef608e3d5c.jpg?v=1790476517",
-    "status": "imported"
+    "status": "done"
   },
   "inception-dvd-rental-sci-fi": {
     "batch": "batch-0014",
@@ -8756,7 +8759,7 @@
     "batch": "batch-0017",
     "call_number": "98599418",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/9bUIrDKnesNbBL1nAl1nt7gtocE_f81ec874-ed56-4901-ada1-51edc365df3a.jpg?v=1790476518",
-    "status": "imported"
+    "status": "done"
   },
   "iq-vhs": {
     "batch": "batch-0009",
@@ -8850,7 +8853,7 @@
     "batch": "batch-0017",
     "call_number": "98632186",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/iwnQ1JH1wdWrGYkgWySptJ5284A_b5f52531-239b-4e0f-9ced-5ff9e392a6d9.jpg?v=1790476518",
-    "status": "imported"
+    "status": "done"
   },
   "its-a-pleasure-vhs-rental-drama": {
     "batch": "batch-0004",
@@ -9539,7 +9542,7 @@
     "batch": "batch-0017",
     "call_number": "99844602",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/pThyQovXQrw2m0s9x82twj48Jq4.jpg?v=1790476518",
-    "status": "imported"
+    "status": "done"
   },
   "knock-off-dvd-rental-action": {
     "batch": "batch-0014",
@@ -10545,7 +10548,7 @@
   },
   "malcom-x-4k-rental-criterion-collection-drama": {
     "call_number": "16492026",
-    "status": "imported"
+    "status": "done"
   },
   "malevolence-2-berevement-bluray": {
     "batch": "batch-0010",
@@ -10670,7 +10673,7 @@
     "batch": "batch-0017",
     "call_number": "43348730",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/o4Wsby4ydIXhWmtmfvb451D5Np1_d8f7e6dd-8c22-419c-9c7a-1f370df40314.jpg?v=1790476519",
-    "status": "imported"
+    "status": "done"
   },
   "maryam-vhs-rental-drama": {
     "batch": "batch-0004",
@@ -10972,7 +10975,7 @@
     "batch": "batch-0017",
     "call_number": "26947834",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/hgDRq1l4ATxwufWjILKsYtglbI6.jpg?v=1790476519",
-    "status": "imported"
+    "status": "done"
   },
   "midnight-strangers": {
     "batch": "batch-0011",
@@ -11041,7 +11044,7 @@
     "batch": "batch-0017",
     "call_number": "00336122",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/6mPNdmjdbVKPITv3LLCmQoKs9Zw.jpg?v=1790476520",
-    "status": "imported"
+    "status": "done"
   },
   "minding-the-gap-vhs": {
     "batch": "batch-0010",
@@ -11291,7 +11294,7 @@
     "batch": "batch-0017",
     "call_number": "06088442",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/9yavZ9WgEZIpWi2EbVW8At9RPdo.jpg?v=1790476520",
-    "status": "imported"
+    "status": "done"
   },
   "moonraker-bluray-rental-sci-fi": {
     "batch": "batch-0014",
@@ -11537,7 +11540,7 @@
   },
   "murphys-fault-vhs-rental-comedy": {
     "call_number": "94979066",
-    "status": "imported"
+    "status": "done"
   },
   "murphys-romance-dvd-rental-romantic-comedy": {
     "batch": "batch-0014",
@@ -11557,7 +11560,7 @@
   },
   "mussolini-and-i-vhs-rental-drama": {
     "call_number": "95601658",
-    "status": "imported"
+    "status": "done"
   },
   "must-love-dogs-dvd-rental-romantic-comedy": {
     "batch": "batch-0014",
@@ -12050,7 +12053,7 @@
     "batch": "batch-0017",
     "call_number": "00532730",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/aXII9Lz9dKlnNWv1bGumGbnUv5i.jpg?v=1790476521",
-    "status": "imported"
+    "status": "done"
   },
   "no-way-home-vhs-rental-thriller": {
     "batch": "batch-0003",
@@ -12186,7 +12189,7 @@
     "batch": "batch-0017",
     "call_number": "06153978",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/2YztYilviFCYcEtDAnrOstUWGie_a52791a2-aea9-4af8-ac0b-04b64025f1d4.jpg?v=1790476521",
-    "status": "imported"
+    "status": "done"
   },
   "o-lucky-man-vhs-rental-drama": {
     "batch": "batch-0002",
@@ -12751,7 +12754,7 @@
     "batch": "batch-0017",
     "call_number": "23441658",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/414IUXc54mrhX88ZUQiRDLXn01i_0e67eeea-baa6-49fb-afb4-6fb609117668.jpg?v=1790476521",
-    "status": "imported"
+    "status": "done"
   },
   "penguins-of-madagascar-dvd-rental-kids-family": {
     "batch": "batch-0014",
@@ -12914,7 +12917,7 @@
     "batch": "batch-0017",
     "call_number": "44397306",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/jGWpG4YhpQwVmjyHEGkxEkeRf0S.jpg?v=1790476522",
-    "status": "imported"
+    "status": "done"
   },
   "pirates-of-the-caribbean-dead-mans-chest-dvd-rental-kids-family": {
     "batch": "batch-0014",
@@ -12977,7 +12980,7 @@
     "batch": "batch-0017",
     "call_number": "44331770",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/m3mmFkPQKvPZq5exmh0bDuXlD9T.jpg?v=1790476522",
-    "status": "imported"
+    "status": "done"
   },
   "platoon-vhs-rental-drama": {
     "batch": "batch-0009",
@@ -13157,7 +13160,7 @@
     "batch": "batch-0017",
     "call_number": "44561146",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/gHotfsC55DoT3Bl299GEfJV6sQc.jpg?v=1790476523",
-    "status": "imported"
+    "status": "done"
   },
   "premonition-dvd-rental-thriller": {
     "batch": "batch-0005",
@@ -13569,7 +13572,7 @@
     "batch": "batch-0017",
     "call_number": "06055674",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/dGgiXMWDcS5aJTBEFu7bmaQPNox_029f5853-0a76-4512-aea4-ede3f32379f4.jpg?v=1790476523",
-    "status": "imported"
+    "status": "done"
   },
   "ran-dvd-rental-drama": {
     "batch": "batch-0014",
@@ -13643,10 +13646,9 @@
   "rear-window-vhs-rental-thriller": {
     "batch": "batch-0016",
     "call_number": "40715002",
-    "note": "TimeoutError: Locator.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"input.tags-autocomplete[name='tags']\").first\n    - locator resolved to <input type=\"text\" name=\"tags\" placeholder=\"\" autocomplete=\"off\" value=\"4k,thriller\" class=\"tags-autocomplete\" aria-describedby=\"edit-entry-",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/images_58f9664a-3f80-40b8-aafc-60910887bc35.jpg?v=1788290603",
-    "status": "needs-review"
+    "status": "imported"
   },
   "rebound-vhs-rental-comedy": {
     "batch": "batch-0004",
@@ -14283,7 +14285,7 @@
   },
   "salvador-vhs-rental-drama": {
     "call_number": "35308538",
-    "status": "imported"
+    "status": "done"
   },
   "sam-elliott-i-will-fight-no-more-forever-dog-watch-dvd-rental-drama": {
     "batch": "batch-0005",
@@ -14313,7 +14315,7 @@
     "batch": "batch-0017",
     "call_number": "07890682",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/zW47oIH3bc3ggmmmzTvKqM4Fqjk.jpg?v=1790476523",
-    "status": "imported"
+    "status": "done"
   },
   "santa-claus-conquers-the-martians-dvd-rental-holiday": {
     "batch": "batch-0007",
@@ -14562,7 +14564,7 @@
     "batch": "batch-0017",
     "call_number": "05957370",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/lOMGc8bnSwQhS4XyE1S99uH8NXf.jpg?v=1790476523",
-    "status": "imported"
+    "status": "done"
   },
   "seven-swords-dvd-rental-action": {
     "batch": "batch-0005",
@@ -14765,7 +14767,7 @@
     "batch": "batch-0017",
     "call_number": "43184890",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/iB64vpL3dIObOtMZgX3RqdVdQDc.jpg?v=1790476524",
-    "status": "imported"
+    "status": "done"
   },
   "shrek-the-third-dvd-rental-kids-family": {
     "batch": "batch-0014",
@@ -14948,7 +14950,7 @@
   },
   "sleeping-beauty-1989-vhs-rental-kids-family": {
     "call_number": "35701754",
-    "status": "imported"
+    "status": "done"
   },
   "sleeping-beauty-vhs-rental-kids-family": {
     "batch": "batch-0009",
@@ -15026,7 +15028,7 @@
   },
   "smart-money-vhs-rental-drama": {
     "call_number": "95994874",
-    "status": "imported"
+    "status": "done"
   },
   "smiles-of-a-summer-night-dvd-rental-comedy": {
     "batch": "batch-0004",
@@ -15160,7 +15162,7 @@
   },
   "soap-dish-vhs-rental-comedy": {
     "call_number": "95273978",
-    "status": "imported"
+    "status": "done"
   },
   "soft-fruit-vhs-rental-drama": {
     "batch": "batch-0008",
@@ -15178,7 +15180,7 @@
   },
   "soldiers-fortune-vhs-rental-action": {
     "call_number": "35800058",
-    "status": "imported"
+    "status": "done"
   },
   "solo-a-star-wars-story": {
     "batch": "batch-0011",
@@ -15384,7 +15386,7 @@
     "batch": "batch-0018",
     "call_number": "00598266",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/zj8ongFhtWNsVlfjOGo8pSr7PQg.jpg?v=1790533870",
-    "status": "imported"
+    "status": "done"
   },
   "speed": {
     "batch": "batch-0012",
@@ -15416,7 +15418,7 @@
     "batch": "batch-0017",
     "call_number": "00008442",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/rVNpkV6ksY1hqjkun1WCTxqyK9v_85d2928d-049d-4497-946d-a1efed3cd44e.jpg?v=1790476525",
-    "status": "imported"
+    "status": "done"
   },
   "spider-baby-bluray": {
     "batch": "batch-0010",
@@ -15554,7 +15556,7 @@
     "batch": "batch-0017",
     "call_number": "99975674",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/lV5OpzAss1z06YNagOVap1I35mH_660088d8-5786-4055-ad3b-ddf3fc21cc68.jpg?v=1790476525",
-    "status": "imported"
+    "status": "done"
   },
   "star-trek-dvd-rental-sci-fi": {
     "batch": "batch-0014",
@@ -15568,13 +15570,13 @@
     "batch": "batch-0017",
     "call_number": "44364538",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/iqhHe893Vcf07jNkNQ31tu85dKG_3dce720b-c873-4b49-85e2-421d18b599bb.jpg?v=1790476525",
-    "status": "imported"
+    "status": "done"
   },
   "star-trek-generations-dvd-rental-sci-fi": {
     "batch": "batch-0017",
     "call_number": "44528378",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/gh0ZZRwSmlzEZTIZee3ZCN9Jssx_3ca072cc-fba9-44d7-8ef7-cd0b58b52b38.jpg?v=1790476525",
-    "status": "imported"
+    "status": "done"
   },
   "star-trek-into-darkness-dvd-rental-sci-fi": {
     "batch": "batch-0014",
@@ -15633,7 +15635,7 @@
     "batch": "batch-0017",
     "call_number": "99615226",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/wqnLdwVXoBjKibFRR5U3y0aDUhs.jpg?v=1790476526",
-    "status": "imported"
+    "status": "done"
   },
   "star-wars-the-phantom-menace-dvd-rental-sci-fi": {
     "batch": "batch-0007",
@@ -15865,7 +15867,7 @@
   },
   "streetwise-bluray-rental-criterion-collection-documentary": {
     "call_number": "18392570",
-    "status": "imported"
+    "status": "done"
   },
   "strictly-ballroom": {
     "batch": "batch-0011",
@@ -16047,7 +16049,7 @@
     "batch": "batch-0017",
     "call_number": "07792378",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/kyhJ6wVPP1ZUXA4TM1ntIE2IpAL.jpg?v=1790476526",
-    "status": "imported"
+    "status": "done"
   },
   "superman-returns-dvd-rental-action": {
     "batch": "batch-0014",
@@ -16205,7 +16207,7 @@
   },
   "tall-tales-legends-annie-oakley-vhs-rental-drama": {
     "call_number": "20144890",
-    "status": "imported"
+    "status": "done"
   },
   "talladega-nights-the-ballad-of-ricky-bobby": {
     "batch": "batch-0012",
@@ -16270,7 +16272,7 @@
     "batch": "batch-0017",
     "call_number": "02072826",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/1QVZXQQHCEIj8lyUhdBYd2qOYtq_e1bb81da-94e1-42f7-b085-07f607dacd82.jpg?v=1790476527",
-    "status": "imported"
+    "status": "done"
   },
   "teenage-mutant-ninja-turtles-2-vhs-rental-kids-family": {
     "batch": "batch-0007",
@@ -16829,7 +16831,7 @@
     "batch": "batch-0017",
     "call_number": "01024250",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/aP8swke3gmowbkfZ6lmNidu0y9p_d89a7241-6a13-4125-9405-6487dc3f34ed.jpg?v=1790476527",
-    "status": "imported"
+    "status": "done"
   },
   "the-bourne-identity-dvd-rental-action": {
     "batch": "batch-0014",
@@ -16843,7 +16845,7 @@
     "batch": "batch-0017",
     "call_number": "00958714",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/jupG9sFT64YwM8PSkwkUD2wHcYD.jpg?v=1790476527",
-    "status": "imported"
+    "status": "done"
   },
   "the-bourne-supremacy-dvd-rental-action": {
     "batch": "batch-0014",
@@ -16920,7 +16922,7 @@
   },
   "the-bridges-of-medison-county-vhs-rental-drama": {
     "call_number": "95110138",
-    "status": "imported"
+    "status": "done"
   },
   "the-broken-hearts-club-dvd": {
     "batch": "batch-0010",
@@ -17281,7 +17283,7 @@
     "batch": "batch-0017",
     "call_number": "99549690",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/nT97ifVT2J1yMQmeq20Qblg61T_b40bb16d-2138-42cf-ac67-ac4106bc09ee.jpg?v=1790476527",
-    "status": "imported"
+    "status": "done"
   },
   "the-departed-dvd-rental-drama": {
     "batch": "batch-0014",
@@ -17704,7 +17706,7 @@
     "batch": "batch-0017",
     "call_number": "08939258",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/6RJOyNGeIwwekCiEJ5JvtqI45Rg.jpg?v=1790476529",
-    "status": "imported"
+    "status": "done"
   },
   "the-graduate-dvd-rental-drama": {
     "batch": "batch-0014",
@@ -18011,7 +18013,7 @@
   },
   "the-incredibly-true-adventures-of-2-girls-in-love-vhs-rental-comedy": {
     "call_number": "19456762",
-    "status": "imported"
+    "status": "done"
   },
   "the-innkeepers": {
     "batch": "batch-0012",
@@ -18162,7 +18164,7 @@
   },
   "the-kitchen-soto-vhs-rental-drama": {
     "call_number": "20013818",
-    "status": "imported"
+    "status": "done"
   },
   "the-lady-eve-dvd-rental-romantic-comedy": {
     "batch": "batch-0014",
@@ -18285,7 +18287,7 @@
   },
   "the-last-waltz-bluray-rental-criterion-collection-musical": {
     "call_number": "17704442",
-    "status": "imported"
+    "status": "done"
   },
   "the-last-word-vhs-rental-thriller": {
     "batch": "batch-0003",
@@ -18352,7 +18354,7 @@
     "batch": "batch-0017",
     "call_number": "06907642",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/efAnFInZYrenNvBlLIXN2oLYyNc.jpg?v=1790476528",
-    "status": "imported"
+    "status": "done"
   },
   "the-lion-in-winter-vhs-rental-drama": {
     "batch": "batch-0008",
@@ -18561,7 +18563,7 @@
     "batch": "batch-0017",
     "call_number": "00237818",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/5BHuvQ6p9kfc091Z8RiFNhCwL4b.jpg?v=1790476529",
-    "status": "imported"
+    "status": "done"
   },
   "the-mask-of-zorro-dvd-rental-action": {
     "batch": "batch-0014",
@@ -18678,7 +18680,7 @@
     "batch": "batch-0017",
     "call_number": "10736634",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/ssrV29QSVVJuemBHho0Qx7pFYak_93d83f72-44a0-4461-8658-c7564d7ec80e.jpg?v=1790476529",
-    "status": "imported"
+    "status": "done"
   },
   "the-music-man-vhs-rental-musical": {
     "batch": "batch-0009",
@@ -18869,7 +18871,7 @@
     "batch": "batch-0017",
     "call_number": "44724986",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/rBM5o2HpmCfDejuIPybI09tkY3V_e4806133-d5a5-43fd-9a22-e92089ff9e26.jpg?v=1790476529",
-    "status": "imported"
+    "status": "done"
   },
   "the-patriot-dvd-rental-drama": {
     "batch": "batch-0014",
@@ -18982,7 +18984,7 @@
     "batch": "batch-0017",
     "call_number": "00205050",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/Ag2B2KHKQPukjH7WutmgnnSNurZ_6143b942-9303-4c70-a390-5c66433eabb2.jpg?v=1790476529",
-    "status": "imported"
+    "status": "done"
   },
   "the-prestige-dvd-rental-drama": {
     "batch": "batch-0014",
@@ -19166,7 +19168,7 @@
     "batch": "batch-0018",
     "call_number": "44626682",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/AeRpUynJKDpJveklBJipOYrVxCS_cf53cfde-6d2c-4402-a53a-e64ee9dbc028.jpg?v=1790533871",
-    "status": "imported"
+    "status": "done"
   },
   "the-ring-two-dvd-rental-horror": {
     "batch": "batch-0014",
@@ -19470,7 +19472,7 @@
     "batch": "batch-0017",
     "call_number": "02302202",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/c6CrUZypAsBCaRWX0M3RVRDbhNS_1198d399-b43c-4114-a9a3-88c20358b10f.jpg?v=1790476530",
-    "status": "imported"
+    "status": "done"
   },
   "the-spirit-dvd-rental-action": {
     "batch": "batch-0007",
@@ -19539,7 +19541,7 @@
   },
   "the-survivors-vhs-rental-comedy": {
     "call_number": "19784442",
-    "status": "imported"
+    "status": "done"
   },
   "the-swan-princess-vhs-rental-kids-family": {
     "batch": "batch-0002",
@@ -19647,10 +19649,9 @@
   "the-thin-blue-line-vhs-rental-documentary": {
     "batch": "batch-0016",
     "call_number": "78086650",
-    "note": "TimeoutError: Locator.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"input.tags-autocomplete[name='tags']\").first\n    - locator resolved to <input type=\"text\" name=\"tags\" placeholder=\"\" autocomplete=\"off\" class=\"tags-autocomplete\" value=\"blu-ray,documentary\" aria-describedby=\"edi",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/4w4BJk3l8y9gYwPPLRs6uPHOmGL.jpg?v=1788381772",
-    "status": "needs-review"
+    "status": "imported"
   },
   "the-thin-red-line-dvd-rental-drama": {
     "batch": "batch-0005",
@@ -19927,7 +19928,7 @@
     "batch": "batch-0017",
     "call_number": "01908986",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/zap5hpFCWSvdWSuPGAQyjUv2wAC.jpg?v=1790476530",
-    "status": "imported"
+    "status": "done"
   },
   "the-witches-hammer-dvd-rental-horror": {
     "batch": "batch-0005",
@@ -20349,7 +20350,7 @@
   },
   "to-die-for-bluray-rental-criterion-collection-drama": {
     "call_number": "18818554",
-    "status": "imported"
+    "status": "done"
   },
   "to-kill-a-priest-vhs-rental-action": {
     "batch": "batch-0008",
@@ -20642,13 +20643,13 @@
     "batch": "batch-0017",
     "call_number": "02007290",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/xcO8Uun0mfmE3N9CaiCy0tvjpiu.jpg?v=1790476530",
-    "status": "imported"
+    "status": "done"
   },
   "tropic-thunder-bluray-rental-comedy": {
     "batch": "batch-0017",
     "call_number": "02171130",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/zAurB9mNxfYRoVrVjAJJwGV3sPg.jpg?v=1790476530",
-    "status": "imported"
+    "status": "done"
   },
   "troy-dvd-rental-action": {
     "batch": "batch-0014",
@@ -20710,7 +20711,7 @@
     "batch": "batch-0017",
     "call_number": "27209978",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/qsdjk9oAKSQMWs0Vt5Pyfh6O4GZ.jpg?v=1790476531",
-    "status": "imported"
+    "status": "done"
   },
   "twenty-bucks-vhs-rental-comedy": {
     "batch": "batch-0009",
@@ -20981,7 +20982,7 @@
     "batch": "batch-0017",
     "call_number": "43447034",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/oJaQG353uOzOqffQ5K2hg03k4Vp.jpg?v=1790476531",
-    "status": "imported"
+    "status": "done"
   },
   "undisputed-vhs-rental-drama": {
     "batch": "batch-0008",
@@ -21529,7 +21530,7 @@
     "batch": "batch-0017",
     "call_number": "01843450",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/78wCdphUzeb528wLZw2W0fn7yGB_ecd8edd0-412a-4db9-a059-483e418cfc99.jpg?v=1790476531",
-    "status": "imported"
+    "status": "done"
   },
   "what-just-happened-dvd-rental-comedy": {
     "batch": "batch-0006",
@@ -21621,7 +21622,7 @@
     "batch": "batch-0018",
     "call_number": "09299706",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/8XgXvVmb5SdxWu4Enxh9ntbyate.jpg?v=1790533872",
-    "status": "imported"
+    "status": "done"
   },
   "where-the-is-santa": {
     "batch": "batch-0012",
@@ -21816,7 +21817,7 @@
     "batch": "batch-0017",
     "call_number": "44299002",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/qYyPCZcpNGZwbyBo1gwdCiW5hHC.jpg?v=1790476532",
-    "status": "imported"
+    "status": "done"
   },
   "wild-strawberries-dvd-rental-drama": {
     "batch": "batch-0004",
@@ -21886,7 +21887,7 @@
     "batch": "batch-0017",
     "call_number": "06219514",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/zL8fYCzy3qPTvbp1Vf9bbvw0Yx6.jpg?v=1790476532",
-    "status": "imported"
+    "status": "done"
   },
   "wing-commander-vhs-rental-sci-fi": {
     "batch": "batch-0004",
@@ -21900,7 +21901,7 @@
     "batch": "batch-0017",
     "call_number": "06776570",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/iZQs2vUeCzvS1KfZJ6uYNCGJBBV.jpg?v=1790476532",
-    "status": "imported"
+    "status": "done"
   },
   "wisdom-vhs-rental-action": {
     "batch": "batch-0002",
@@ -22005,7 +22006,7 @@
   },
   "working-girl-vhs-rental-comedy": {
     "call_number": "95339514",
-    "status": "imported"
+    "status": "done"
   },
   "world-trade-center-dvd-rental-drama": {
     "batch": "batch-0014",
@@ -22252,7 +22253,7 @@
     "batch": "batch-0017",
     "call_number": "09004794",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/6qvQhJhvM7wWPB2LjVpivSNraIv.jpg?v=1790476532",
-    "status": "imported"
+    "status": "done"
   },
   "zathura-dvd-rental-kids-family": {
     "batch": "batch-0003",
@@ -22311,6 +22312,6 @@
     "batch": "batch-0017",
     "call_number": "01614074",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/hlK0e0wAQ3VLuJcsfIYPvb4JVud_e4bd50cc-4bc5-4657-9f05-ca540a0730c3.jpg?v=1790476533",
-    "status": "imported"
+    "status": "done"
   }
 }
