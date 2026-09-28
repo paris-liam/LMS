@@ -15,13 +15,20 @@ pipeline; `CLAUDE.md` for the project.
 - Secrets come from the environment: `TMDB_API_KEY`, `LIBIB_EMAIL`,
   `LIBIB_PASSWORD`. The repo is **public** — never write a secret into it.
 
-## What does NOT work in the cloud yet
+## Shopify reads (cloud step 2 — done 2026-09-28)
 
-- Anything that reads Shopify: `audit`, `picker push`, `apply`. They call
-  `shopify store execute`, which relies on the Shopify CLI login on the Mac.
-  Cloud step 2 (next) replaces that with an Admin API token (a custom app with
-  read-only product scope, token as an env var). Until then, new audit runs
-  happen locally.
+- `audit` reads Shopify through the Admin API when `SHOPIFY_CLIENT_ID` and
+  `SHOPIFY_CLIENT_SECRET` are set (Dev Dashboard app "read-only", installed on
+  production; scopes read_products, read_inventory, read_metaobjects). A fresh
+  24-hour token is requested per run. Verified: a full production read through
+  the API matched the Shopify CLI read exactly (7,155 products, 0 differences).
+  The app is not installed on the dev store.
+
+## Not settled yet
+
+- `picker push` pushes to `main` (the picker and Vercel read `main`; `apply`
+  reads picks from `origin/main`). Confirm the cloud session may push to
+  `main`; if not, the flow becomes a PR the user merges.
 - `runs/` is gitignored. The one run the cloud needs, `runs/2026-09-28/`
   (snapshot, drift, findings), was force-added to git for this handoff. It is
   the latest complete run, so every `libib` command resolves to it.

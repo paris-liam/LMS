@@ -6,11 +6,17 @@ Run everything from the repo root. Standard library only (Libib `fix` will need 
 ## Stage 1 — audit (read-only)
 
     export TMDB_API_KEY=...            # not needed with --skip-tmdb
-    python3 -m catalog audit           # production, via the Shopify CLI
+    python3 -m catalog audit           # production
     python3 -m catalog audit --from-export products_export.csv
     python3 -m catalog audit --store lms-sandbox-lutsfahz.myshopify.com
 
-If the CLI is not authenticated: `shopify store auth --store <domain> --scopes read_products`.
+Shopify is read through the Admin API when `SHOPIFY_CLIENT_ID` and `SHOPIFY_CLIENT_SECRET`
+are set: a Dev Dashboard custom app with read-only scopes (`read_products`,
+`read_inventory`, `read_metaobjects`), installed on the store. Each run trades them for a
+fresh 24-hour token (client credentials grant) held only in memory. The app is installed
+on production only — for another store, install it there too or unset the two variables.
+Without them the audit falls back to the Shopify CLI; if that is not authenticated:
+`shopify store auth --store <domain> --scopes read_products`.
 
 Writes `runs/<date>/` (a second run the same day gets `-2`, `-3`, …):
 
@@ -97,7 +103,8 @@ Set `TMDB_API_KEY`, `LIBIB_EMAIL` and `LIBIB_PASSWORD` in the environment's secr
 settings (never in the repo — it is public). On a cloud box use `python3`, not
 `.venv-libib/bin/python`, and pass `--headless` to `libib fix`. `check-login` exits 1
 and saves `libib-login-check.png` when Libib challenges or blocks the machine.
-Still local-only for now: Shopify reads go through the Shopify CLI's stored login.
+Add `SHOPIFY_CLIENT_ID` and `SHOPIFY_CLIENT_SECRET` too, and `audit` reads Shopify from
+the cloud through the Admin API (no Shopify CLI needed).
 
 ## TMDB lookup by tag (not a pipeline stage)
 

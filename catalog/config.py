@@ -18,6 +18,12 @@ LIBIB_SYNC_DIR = REPO_ROOT / "libib-sync"
 ENV_TMDB_API_KEY = "TMDB_API_KEY"
 ENV_LIBIB_EMAIL = "LIBIB_EMAIL"
 ENV_LIBIB_PASSWORD = "LIBIB_PASSWORD"
+# Dev Dashboard custom app (read-only scopes) installed on the store; the
+# reader trades these for a 24-hour Admin API token. Without them it falls
+# back to the Shopify CLI's stored login.
+ENV_SHOPIFY_CLIENT_ID = "SHOPIFY_CLIENT_ID"
+ENV_SHOPIFY_CLIENT_SECRET = "SHOPIFY_CLIENT_SECRET"
+SHOPIFY_API_VERSION = "2026-07"
 
 
 # Local secrets file (gitignored — see .env.example). An exported variable
@@ -38,6 +44,14 @@ def _read_env_file(path) -> dict:
         key, _, value = line.removeprefix("export ").partition("=")
         values[key.strip()] = value.strip().strip("'\"")
     return values
+
+
+def get_env(name: str, environ=None, env_file=None) -> str | None:
+    """Like require_env, but None when the variable isn't set anywhere."""
+    try:
+        return require_env(name, environ, env_file)
+    except MissingEnvError:
+        return None
 
 
 def require_env(name: str, environ=None, env_file=None) -> str:
