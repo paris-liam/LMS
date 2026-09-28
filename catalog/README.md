@@ -90,7 +90,7 @@ state as `runs/<id>/libib/state-before.json`.
 
 ## Running in the cloud
 
-    bash scripts/cloud-setup.sh                 # Python check, Playwright + Chromium
+    bash scripts/cloud-setup.sh                 # Python check, Playwright + Chromium, proxy CA for Chromium
     python3 -m catalog libib check-login        # read-only: log in headless, open one synced item
 
 Set `TMDB_API_KEY`, `LIBIB_EMAIL` and `LIBIB_PASSWORD` in the environment's secret

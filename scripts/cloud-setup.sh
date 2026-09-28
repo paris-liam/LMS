@@ -36,4 +36,31 @@ if ! $SUDO "$PY" -m playwright install-deps chromium; then
   done
   $SUDO "$PY" -m playwright install-deps chromium
 fi
+# Behind the sandbox's HTTPS proxy, headless Chromium rejects every site
+# (ERR_CERT_AUTHORITY_INVALID): it trusts only its own NSS store
+# (~/.pki/nssdb), which doesn't exist yet and so lacks the proxy's CA.
+# Import the CA bundle the environment points tools at into that store.
+CA_FILE=""
+for var in NODE_EXTRA_CA_CERTS REQUESTS_CA_BUNDLE SSL_CERT_FILE CURL_CA_BUNDLE; do
+  candidate="${!var:-}"
+  if [ -n "$candidate" ] && [ -f "$candidate" ]; then CA_FILE="$candidate"; echo "proxy CA from \$$var: $CA_FILE"; break; fi
+done
+if [ -n "$CA_FILE" ]; then
+  command -v certutil >/dev/null || $SUDO apt-get install -y -q libnss3-tools
+  NSSDB="$HOME/.pki/nssdb"
+  mkdir -p "$NSSDB"
+  [ -f "$NSSDB/cert9.db" ] || certutil -d "sql:$NSSDB" -N --empty-password
+  split_dir="$(mktemp -d)"
+  awk -v dir="$split_dir" '/BEGIN CERTIFICATE/{n++} n{print > (dir "/cert-" n ".pem")}' "$CA_FILE"
+  count=0
+  for pem in "$split_dir"/cert-*.pem; do
+    [ -f "$pem" ] || continue
+    certutil -d "sql:$NSSDB" -A -t "C,," -n "cloud-ca-$(basename "$pem" .pem)" -i "$pem" && count=$((count + 1))
+  done
+  rm -rf "$split_dir"
+  echo "imported $count CA certificate(s) into $NSSDB"
+else
+  echo "no CA bundle variable set — skipping browser trust store setup"
+fi
+
 echo "cloud setup done — next: python3 -m catalog libib check-login"
