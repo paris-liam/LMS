@@ -8,7 +8,7 @@ from unittest import mock
 from catalog.core.columns import GENRE_METAFIELD
 from catalog.errors import CatalogError
 from catalog.libib import fix
-from catalog.libib.fix import apply_report, drift_ready_rows, drift_targets, read_ready
+from catalog.libib.fix import apply_report, confirmed_remaps, drift_ready_rows, drift_targets, read_ready
 
 BROWSER = Path(__file__).resolve().parents[2] / "catalog" / "libib" / "browser.py"
 
@@ -30,7 +30,8 @@ class TestBrowserModule(unittest.TestCase):
         self.assertNotIn("@littlemoviestore.com", source)
         self.assertNotIn("from libib_fields", source)
         self.assertIn("from catalog.libib.fields import normalized_tag_set", source)
-        for name in ("def login(", "def sync_item(", "def ensure_rental_library_scope("):
+        for name in ("def login(", "def sync_item(", "def ensure_rental_library_scope(", "def set_call_number(",
+                     'row.get("old_call_number")'):
             self.assertIn(name, source)
 
 
@@ -46,6 +47,30 @@ class TestDrift(unittest.TestCase):
         rows_by_handle = {"a": rental("a", "01111111"), "b": rental("b", "02222222")}
         ready = drift_ready_rows({"a": {"poster"}, "b": {"title"}}, rows_by_handle, {"01111111": "/tmp/a.jpg"})
         self.assertEqual({r["call_number"]: r["image_path"] for r in ready}, {"01111111": "/tmp/a.jpg", "02222222": ""})
+
+
+class TestCallNumberRemap(unittest.TestCase):
+    DRIFT = [{"handle": "a", "field": "call_number", "shopify": "90000001", "libib": "191-AAA-001A"},
+             {"handle": "a", "field": "poster", "shopify": "https://x", "libib": "unconfirmed"},
+             {"handle": "b", "field": "call_number", "shopify": "90000002", "libib": "191-BBB-001A"},
+             {"handle": "c", "field": "call_number", "shopify": "90000003", "libib": "00112378"}]
+    MAP = [{"handle": "a", "old_barcode": "191-AAA-001A", "new_barcode": "90000001"},
+           {"handle": "b", "old_barcode": "191-BBB-001A", "new_barcode": "90000999"},  # new number disagrees
+           {"handle": "z", "old_barcode": "00112378", "new_barcode": "90000003"}]      # someone else's pair
+
+    def test_only_an_exact_handle_old_new_pair_is_confirmed(self):
+        self.assertEqual(confirmed_remaps(self.DRIFT, self.MAP), {"a": "191-AAA-001A"})
+
+    def test_confirmed_remaps_become_fixable(self):
+        fields, manual = drift_targets(self.DRIFT, {"a": "191-AAA-001A"})
+        self.assertEqual(fields, {"a": {"call_number", "poster"}})
+        self.assertEqual(manual, ["b", "c"])
+
+    def test_ready_rows_carry_the_old_call_number(self):
+        rows_by_handle = {"a": rental("a", "90000001"), "d": rental("d", "04444444")}
+        ready = drift_ready_rows({"a": {"call_number"}, "d": {"title"}}, rows_by_handle, {}, {"a": "191-AAA-001A"})
+        self.assertEqual({r["call_number"]: r["old_call_number"] for r in ready},
+                         {"90000001": "191-AAA-001A", "04444444": ""})
 
 
 class TestApplyReport(unittest.TestCase):

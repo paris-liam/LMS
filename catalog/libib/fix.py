@@ -21,23 +21,42 @@ def read_ready(path) -> list[dict]:
         return [row for row in csv.DictReader(f) if (row.get("call_number") or "").strip()]
 
 
-def drift_targets(drift_rows: list[dict]) -> tuple[dict[str, set], list[str]]:
+def confirmed_remaps(drift_rows: list[dict], map_rows: list[dict]) -> dict[str, str]:
+    """handle -> old Libib call number, for call_number drift that a reprint
+    map confirms exactly: same handle, Libib still carries the map's old
+    number, and Shopify carries the map's new one. Anything less exact stays
+    a manual fix — renumbering the wrong Libib item is hard to notice."""
+    pairs = {((m.get("handle") or "").strip(), (m.get("old_barcode") or "").strip(),
+              (m.get("new_barcode") or "").strip()) for m in map_rows}
+    return {d["handle"]: d["libib"].strip() for d in drift_rows
+            if d["field"] == "call_number" and (d["handle"], d["libib"].strip(), d["shopify"].strip()) in pairs}
+
+
+def drift_targets(drift_rows: list[dict], remaps: dict[str, str] | None = None) -> tuple[dict[str, set], list[str]]:
     """Handles whose drift the fixer can repair, and handles that need a
-    person (a call_number drift: the fixer finds items by call number)."""
+    person. A call_number drift needs a person (the fixer finds items by call
+    number) unless `remaps` confirms the old number to renumber from."""
+    remaps = remaps or {}
     fields: dict[str, set] = {}
     for d in drift_rows:
         fields.setdefault(d["handle"], set()).add(d["field"])
-    manual = sorted(h for h, f in fields.items() if not f <= set(FIXABLE_FIELDS))
+    fixable = set(FIXABLE_FIELDS)
+    manual = sorted(h for h, f in fields.items() if not f <= (fixable | {"call_number"} if h in remaps else fixable))
     return {h: f for h, f in fields.items() if h not in manual}, manual
 
 
-def drift_ready_rows(fields_by_handle: dict, rows_by_handle: dict, poster_paths: dict[str, str]) -> list[dict]:
+def drift_ready_rows(fields_by_handle: dict, rows_by_handle: dict, poster_paths: dict[str, str],
+                     remaps: dict[str, str] | None = None) -> list[dict]:
+    remaps = remaps or {}
     ready = []
     for handle in sorted(fields_by_handle):
         row = rows_by_handle[handle]
         call = (row.get("Variant Barcode") or "").strip()
         image = poster_paths.get(call, "") if "poster" in fields_by_handle[handle] else ""
-        ready.append(ready_row(row, image))
+        out = ready_row(row, image)
+        if "call_number" in fields_by_handle[handle]:
+            out["old_call_number"] = remaps.get(handle, "")
+        ready.append(out)
     return ready
 
 

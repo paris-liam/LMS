@@ -17,12 +17,12 @@ from catalog.core import log
 from catalog.core.csv_io import write_csv
 from catalog.core.plan import Plan, add_approval_args, confirm
 from catalog.core.runs import resolve_run
-from catalog.errors import NoRunError
+from catalog.errors import InputShapeError, NoRunError
 from catalog.libib.columns import READY_COLUMNS
 from catalog.libib.diff import BLOCKED_COLUMNS, DRIFT_COLUMNS, ELIGIBLE_COLUMNS, HELD_COLUMNS, ORPHAN_COLUMNS, diff
 from catalog.libib.exports import DEFAULT_COLLECTION, load_libib
 from catalog.libib.fields import is_rental
-from catalog.libib.fix import apply_report, drift_ready_rows, drift_targets, read_ready, run_fixer
+from catalog.libib.fix import apply_report, confirmed_remaps, drift_ready_rows, drift_targets, read_ready, run_fixer
 from catalog.libib.prepare import download_posters, next_batch_id, write_batch
 from catalog.libib.state import (
     HELD, counts_by_status, load_state, migrate_poster_src, save_state, set_status, state_path,
@@ -65,6 +65,9 @@ def register(subparsers) -> None:
     target = p.add_mutually_exclusive_group(required=True)
     target.add_argument("batch", nargs="?", help="a prepared batch id, e.g. batch-0017")
     target.add_argument("--drift", action="store_true", help="fix the latest diff's drift instead of a batch")
+    p.add_argument("--call-number-map", action="append", default=[], metavar="CSV",
+                   help="with --drift: reprint map (handle, old_barcode, new_barcode); renumbers Libib items "
+                        "whose old call number it confirms (repeatable)")
     p.add_argument("--limit", type=int, default=None, help="only the first N items")
     p.add_argument("--headless", action="store_true", help="no visible browser window")
     _common(p)
@@ -200,6 +203,18 @@ def run_mark_imported_command(args, stdin=None) -> int:
     return 0
 
 
+def _read_call_number_maps(paths: list[str]) -> list[dict]:
+    rows: list[dict] = []
+    for path in paths:
+        if not Path(path).is_file():
+            raise InputShapeError(f"call number map not found: {path}")
+        found = _read_csv(path)
+        if found and not {"handle", "old_barcode", "new_barcode"} <= set(found[0]):
+            raise InputShapeError(f"{path} needs handle, old_barcode and new_barcode columns")
+        rows += found
+    return rows
+
+
 def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
     run_dir = resolve_run(args.runs_dir, args.run)
     (run_dir / "libib").mkdir(exist_ok=True)
@@ -210,11 +225,16 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
     handle_by_call = {(r.get("Variant Barcode") or "").strip(): r["Handle"] for r in rows if is_rental(r)}
 
     manual: list[str] = []
+    remaps: dict[str, str] = {}
+    if args.call_number_map and not args.drift:
+        raise InputShapeError("--call-number-map only applies with --drift")
     if args.drift:
         drift_path = run_dir / "libib" / "drift.csv"
         if not drift_path.exists():
             raise NoRunError(f"no libib diff for run {run_dir.name} — run `python3 -m catalog libib diff …` first")
-        fields_by_handle, manual = drift_targets(_read_csv(drift_path))
+        drift_rows = _read_csv(drift_path)
+        remaps = confirmed_remaps(drift_rows, _read_call_number_maps(args.call_number_map))
+        fields_by_handle, manual = drift_targets(drift_rows, remaps)
         handles = sorted(fields_by_handle)[: args.limit] if args.limit else sorted(fields_by_handle)
         fields_by_handle = {h: fields_by_handle[h] for h in handles}
         work_dir = sync_dir / f"drift-{run_dir.name}"
@@ -242,6 +262,8 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
         count=count,
         summary=[f"{label}: edits {count} Libib items in the browser (barcode, title, description, tags, poster)",
                  f"report: {ready_path.with_suffix('.sync-report.csv')}"]
+        + ([f"renumbers {sum(1 for h in fields_by_handle if h in remaps)} Libib call numbers the reprint map confirms "
+             f"(old -> Shopify barcode) before fixing them"] if remaps else [])
         + ([f"manual fix needed (Libib call number differs from the Shopify barcode — the fixer finds items by call number): {len(manual)} — {', '.join(manual[:10])}"] if manual else []),
         samples=samples,
     )
@@ -251,7 +273,7 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
     if args.drift:
         poster_rows = [rows_by_handle[h] for h, f in fields_by_handle.items() if "poster" in f]
         posters, _ = download_posters(poster_rows, work_dir, download or urllib.request.urlretrieve)
-        ready = drift_ready_rows(fields_by_handle, rows_by_handle, posters)
+        ready = drift_ready_rows(fields_by_handle, rows_by_handle, posters, remaps)
         write_csv(ready_path, READY_COLUMNS, ready)
 
     results = fixer(ready, ready_path.with_suffix(".sync-report.csv"), credentials[0], credentials[1], args.headless)

@@ -217,13 +217,73 @@ def verify_content(page: Page, call_number: str, title: str, description: str, t
     return None
 
 
+def _open_edit_section(page: Page, field_selector: str, section: str):
+    """Open the item's Edit form and reveal `section` so `field_selector` is
+    editable. Returns the field locator, or an error message string."""
+    page.locator(".item-edit-button").first.click()
+    page.wait_for_timeout(400)
+    try:
+        page.get_by_text("Edit", exact=True).first.click()
+    except Exception:
+        return "could not open Edit form from the item menu"
+    try:
+        page.locator("input[name='title']").first.wait_for(state="visible", timeout=8000)
+    except PlaywrightTimeoutError:
+        return "Edit form did not load"
+    field = page.locator(field_selector).first
+    if not field.is_visible():
+        page.locator(f".anchor[data-section='{section}']").first.click()
+        try:
+            field.wait_for(state="visible", timeout=5000)
+        except PlaywrightTimeoutError:
+            return f"could not open the {section} of the Edit form"
+    return field
+
+
+def set_call_number(page: Page, old: str, new: str):
+    """Renumber a Libib item from its old call number to `new` (the Shopify
+    barcode). Refuses when `new` already belongs to another item. Returns
+    (status, message); status is updated/skipped/error."""
+    new_err = open_item(page, new)
+    new_in_use = new_err is None or "ambiguous" in new_err[1]
+    old_err = open_item(page, old)
+    if old_err:
+        if new_err is None:
+            return "skipped", "already renumbered"
+        return "error", f"old call number {old}: {old_err[1]}"
+    if new_in_use:
+        return "error", f"{new} already belongs to another Libib item -- not renumbering {old}"
+
+    field = _open_edit_section(page, "input[name='call_number']", "catalog-section")
+    if isinstance(field, str):
+        return "error", field
+    if field.input_value().strip() != old:
+        return "error", f"call number field shows {field.input_value()!r}, expected {old!r}"
+    field.fill(new)
+    page.locator("input#edit-item-submit").click()
+    page.wait_for_timeout(1000)
+
+    err = open_item(page, new)
+    if err:
+        return "error", f"renumber to {new} did not persist: {err[1]}"
+    return "updated", f"renumbered from {old}"
+
+
 def sync_item(page: Page, row: dict):
     """Returns (barcode_status, content_status, message)."""
     call_number = row["call_number"].strip()
 
+    prefix = ""
+    old_call_number = (row.get("old_call_number") or "").strip()
+    if old_call_number:
+        status, message = set_call_number(page, old_call_number, call_number)
+        if status == "error":
+            return "error", "error", f"call number: {message}"
+        prefix = f"call number: {message} | "
+
     err = open_item(page, call_number)
     if err:
-        return "error", "error", err[1]
+        return "error", "error", prefix + err[1]
 
     barcode_status, barcode_message = fix_barcode(page, call_number)
 
@@ -242,5 +302,5 @@ def sync_item(page: Page, row: dict):
         if verify_err:
             content_status, content_message = "error", verify_err
 
-    message = f"barcode: {barcode_message} | content: {content_message}"
+    message = f"{prefix}barcode: {barcode_message} | content: {content_message}"
     return barcode_status, content_status, message

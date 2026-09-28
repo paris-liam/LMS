@@ -216,6 +216,34 @@ class TestFixCommand(LibibCase):
             with self.assertRaises(MissingEnvError):
                 command.run_fix_command(self.parse("fix", "--drift", "--yes"), fixer=self.fake_fixer([]))
 
+    def write_call_number_drift(self):
+        (self.run / "libib").mkdir(exist_ok=True)
+        (self.run / "libib" / "drift.csv").write_text(
+            "handle,call_number,field,shopify,libib\n"
+            "alien,03333333,call_number,03333333,191-ALN-001A\n"
+            "alien,03333333,title,Alien,Alien (old)\n"
+            "jaws,01111111,call_number,01111111,191-JWS-001A\n", encoding="utf-8")
+        map_path = Path(self.tmp.name) / "map.csv"
+        map_path.write_text("handle,old_barcode,new_barcode\nalien,191-ALN-001A,03333333\n", encoding="utf-8")
+        return map_path
+
+    def test_call_number_map_makes_confirmed_renumbers_fixable(self):
+        map_path = self.write_call_number_drift()
+        calls = []
+        with self.env(), contextlib.redirect_stdout(io.StringIO()):
+            command.run_fix_command(self.parse("fix", "--drift", "--yes", "--call-number-map", str(map_path)),
+                                    fixer=self.fake_fixer(calls), download=fake_download)
+        self.assertEqual([(r["call_number"], r["old_call_number"]) for r in calls[0]["rows"]],
+                         [("03333333", "191-ALN-001A")])
+
+    def test_without_a_map_call_number_drift_stays_manual(self):
+        self.write_call_number_drift()
+        calls = []
+        with self.env(), contextlib.redirect_stdout(io.StringIO()):
+            command.run_fix_command(self.parse("fix", "--drift", "--yes"), fixer=self.fake_fixer(calls),
+                                    download=fake_download)
+        self.assertEqual(calls, [])  # nothing fixable: both handles need a person
+
     def test_needs_a_batch_or_drift(self):
         with self.assertRaises(SystemExit), contextlib.redirect_stderr(io.StringIO()):
             self.parse("fix")

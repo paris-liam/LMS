@@ -8,7 +8,7 @@ LIBIB_MOVIE_COLUMNS = [
     "copies", "call_number", "ddc", "lcc", "rating", "review", "review_created", "status", "began_date",
     "completed_date",
 ]
-READY_COLUMNS = ["call_number", "title", "description", "tags", "image_path"]
+READY_COLUMNS = ["call_number", "title", "description", "tags", "image_path", "old_call_number"]
 
 
 def import_row(row: dict) -> dict:
@@ -33,4 +33,5 @@ def ready_row(row: dict, image_path: str) -> dict:
         "description": expected_description(row),
         "tags": expected_tags_string(row),
         "image_path": image_path,
+        "old_call_number": "",  # set only when the fixer must renumber the item first
     }
