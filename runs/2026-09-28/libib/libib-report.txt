@@ -1,9 +1,9 @@
 libib items:  3078 (Rental Library)
-in sync:      2766 rentals
-drift:        267 rentals, 770 fields -> drift.csv
+in sync:      3032 rentals
+drift:        1 rentals, 1 fields -> drift.csv
 eligible:     0 rentals missing from Libib -> eligible.csv
 incomplete:   169 rentals missing from Libib but not complete in Shopify
 orphans:      45 Libib items (no rental / duplicates) -> orphans.csv
 blocked:      2 rentals with a bad or shared barcode -> blocked.csv
 held:         47 needs-review rentals not found in Libib (a person decides) -> held.csv
-state:        97 promoted to done, 0 poster_src migrated
+state:        260 promoted to done, 0 poster_src migrated
