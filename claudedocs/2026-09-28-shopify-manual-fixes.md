@@ -46,3 +46,13 @@ reading each product back.
   if it reads `08873722`, print it a new label.
 - **Floor Sale at $0** — Earth Girls Are Easy, The Call (`Issue_No_Price`):
   need prices.
+
+## Follow-ups
+
+- **Remove the 2019 cut-off from the TMDB tie-break** (decided 2026-09-29, do
+  after the 2026-09-29 apply run). `classify_match` in `catalog/tmdb/match.py`
+  drops candidates newer than `GLOBAL_YEAR_CUTOFF` (2019) before breaking a
+  tie between same-titled films, so a new release can never win its own tie:
+  it matched *Weapons* (2025 Blu-Ray) to the 2007 film. The store carries new
+  releases, so the cut-off is wrong for ties. (The VHS cut-off,
+  `VHS_YEAR_CUTOFF`, is a separate format check and stays.)
