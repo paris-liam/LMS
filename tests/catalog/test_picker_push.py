@@ -3,6 +3,7 @@ import io
 import json
 import tempfile
 import unittest
+import unittest.mock
 from pathlib import Path
 from unittest import mock
 
@@ -11,6 +12,19 @@ from catalog.cli import build_parser, main
 from catalog.core import log
 from catalog.picker import command
 from catalog.picker.push import new_entries_by_queue
+
+
+# Approval codes are fingerprints of the exact change list (tested in
+# test_plan); here every plan is approved with the fixed code "ok".
+_approval = unittest.mock.patch("catalog.core.plan.fingerprint", return_value="ok")
+
+
+def setUpModule():
+    _approval.start()
+
+
+def tearDownModule():
+    _approval.stop()
 
 
 def entry(handle, kind="ambiguous", title="The Thing"):
@@ -71,12 +85,12 @@ class TestPushCommand(unittest.TestCase):
                 contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
             code = main(argv)
         self.assertEqual(code, 2)
-        self.assertIn("--yes", err.getvalue())
+        self.assertIn("--approve", err.getvalue())
         self.assertFalse(self.picker.exists())
 
     def test_yes_appends_to_both_queues_and_registers(self):
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_push_command(self.args("--yes", "--no-git-sync"), fetch_fn=fetch)
+            command.run_push_command(self.args("--approve", "ok", "--no-git-sync"), fetch_fn=fetch)
         registry = json.loads((self.picker / "data" / "_handle-index.json").read_text(encoding="utf-8"))
         self.assertEqual(registry["a"], {"batch": "ambiguous-queue", "status": "queued"})
         self.assertEqual(registry["b"], {"batch": "unmatched-queue", "status": "queued"})
@@ -92,7 +106,7 @@ class TestPushCommand(unittest.TestCase):
 
     def test_second_push_has_nothing_to_do_and_needs_no_key(self):
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_push_command(self.args("--yes", "--no-git-sync"), fetch_fn=fetch)
+            command.run_push_command(self.args("--approve", "ok", "--no-git-sync"), fetch_fn=fetch)
         with mock.patch.dict("os.environ", {}, clear=True), contextlib.redirect_stdout(io.StringIO()):
             code = command.run_push_command(self.args("--no-git-sync"), stdin=FakeStdin(tty=False))
         self.assertEqual(code, 0)
@@ -100,13 +114,13 @@ class TestPushCommand(unittest.TestCase):
     def test_picker_dir_outside_the_repo_skips_git_sync(self):
         calls = []
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_push_command(self.args("--yes"), fetch_fn=fetch,
+            command.run_push_command(self.args("--approve", "ok"), fetch_fn=fetch,
                                      sync_fn=lambda *a, **k: calls.append(a) or {"synced": True})
         self.assertEqual(calls, [])
 
     def test_missing_key_fails_before_writing(self):
         err = io.StringIO()
-        argv = ["picker", "push", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker), "-q", "--yes"]
+        argv = ["picker", "push", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker), "-q", "--approve", "ok"]
         with mock.patch.dict("os.environ", {}, clear=True), mock.patch.object(config, "ENV_FILE", Path("/nonexistent/.env")), \
                 contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
             code = main(argv)

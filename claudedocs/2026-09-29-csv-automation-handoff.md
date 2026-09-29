@@ -3,6 +3,21 @@
 Written 2026-09-29 for a new cloud session. Read `claudedocs/2026-09-28-cloud-handoff.md`
 and `CLAUDE.md` first for the working rules and project context.
 
+## Status (2026-09-29, end of day)
+
+Done — see `catalog/README.md` (Approval, Stage 3, Stage 4):
+
+- **Libib exports**: `libib export` (Playwright, Settings → Export).
+- **Libib imports**: `libib import <batch>` (CSV Import, Force Import Mode,
+  waits for Libib's background import, never uploads a batch twice).
+- **One command for the Libib round trip**: `libib sync`.
+- **Shopify writes**: `apply` writes through the Admin API by default
+  (`--via csv` keeps the old import files), skipping fields changed since the
+  audit and verifying every write by reading it back.
+- **Approval**: every mutating command lists every change; outside a terminal
+  it needs `--approve <code>` from a `--dry-run` of the same list (no `--yes`).
+- **Health check**: `libib selftest` (read-only) — run it periodically.
+
 ## Goal
 
 Find every place the catalogue pipeline relies on a person moving a CSV by hand

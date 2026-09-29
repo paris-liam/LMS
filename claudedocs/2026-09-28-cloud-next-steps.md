@@ -48,7 +48,7 @@ Start of session rule: always audit first.
 - Expect the old-call-number drift (~246 items) to be gone and drift overall
   to be small. Report the diff summary.
 - If fixable drift remains: `libib fix --drift --headless --dry-run`, show the
-  plan, and wait for approval before `--yes`. It resumes if stopped.
+  plan, and wait for approval before `--approve <code>`. It resumes if stopped.
 - Commit `libib-sync/` and push to `main`.
 
 ## Step 4 — prove the publish path

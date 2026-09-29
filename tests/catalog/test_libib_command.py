@@ -4,6 +4,7 @@ import io
 import json
 import tempfile
 import unittest
+import unittest.mock
 from pathlib import Path
 from unittest import mock
 
@@ -12,6 +13,19 @@ from catalog.cli import build_parser
 from catalog.core import log
 from catalog.core.columns import GENRE_METAFIELD
 from catalog.libib import command
+
+
+# Approval codes are fingerprints of the exact change list (tested in
+# test_plan); here every plan is approved with the fixed code "ok".
+_approval = unittest.mock.patch("catalog.core.plan.fingerprint", return_value="ok")
+
+
+def setUpModule():
+    _approval.start()
+
+
+def tearDownModule():
+    _approval.stop()
 
 
 def rental(handle, barcode, **overrides):
@@ -111,7 +125,7 @@ class TestPrepareCommand(LibibCase):
     def test_needs_a_diff_first(self):
         from catalog.errors import NoRunError
         with self.assertRaises(NoRunError):
-            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+            command.run_prepare_command(self.parse("prepare", "--approve", "ok"), download=fake_download)
 
     def test_dry_run_writes_nothing(self):
         self.diff()
@@ -122,7 +136,7 @@ class TestPrepareCommand(LibibCase):
     def test_yes_builds_the_batch_and_queues(self):
         self.diff()
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+            command.run_prepare_command(self.parse("prepare", "--approve", "ok"), download=fake_download)
         batch = self.sync / "batch-0001"
         self.assertEqual(sorted(p.name for p in batch.iterdir()), ["03333333.jpg", "import.csv", "ready.csv"])
         self.assertEqual(self.state()["alien"],
@@ -134,14 +148,14 @@ class TestPrepareCommand(LibibCase):
         state["alien"] = {"status": "needs-review", "note": "sync error"}
         (self.sync / "_state.json").write_text(json.dumps(state), encoding="utf-8")
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+            command.run_prepare_command(self.parse("prepare", "--approve", "ok"), download=fake_download)
         self.assertFalse((self.sync / "batch-0001").exists())
 
     def test_prepare_skips_handles_queued_since_the_diff(self):
         self.diff()
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
-            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+            command.run_prepare_command(self.parse("prepare", "--approve", "ok"), download=fake_download)
+            command.run_prepare_command(self.parse("prepare", "--approve", "ok"), download=fake_download)
         self.assertFalse((self.sync / "batch-0002").exists())
 
     def test_refuses_without_a_terminal(self):
@@ -158,7 +172,7 @@ class TestMarkImportedCommand(LibibCase):
             "a": {"status": "queued", "batch": "batch-0002"}, "b": {"status": "queued", "batch": "batch-0003"},
             "c": {"status": "done", "batch": "batch-0002"}}), encoding="utf-8")
         args = build_parser().parse_args(["libib", "mark-imported", "batch-0002", "--sync-dir", str(self.sync),
-                                          "-q", "--yes"])
+                                          "-q", "--approve", "ok"])
         with contextlib.redirect_stdout(io.StringIO()):
             command.run_mark_imported_command(args)
         state = self.state()
@@ -181,7 +195,7 @@ class TestFixCommand(LibibCase):
         self.diff()
         calls = []
         with self.env(), contextlib.redirect_stdout(io.StringIO()):
-            command.run_fix_command(self.parse("fix", "--drift", "--yes", "--headless"),
+            command.run_fix_command(self.parse("fix", "--drift", "--approve", "ok", "--headless"),
                                     fixer=self.fake_fixer(calls), download=fake_download)
         self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["02222222"])
         self.assertEqual(calls[0]["rows"][0]["image_path"], "")  # title drift: no poster upload
@@ -193,10 +207,10 @@ class TestFixCommand(LibibCase):
     def test_batch_fix_reads_the_batch_ready_csv(self):
         self.diff()
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_prepare_command(self.parse("prepare", "--yes"), download=fake_download)
+            command.run_prepare_command(self.parse("prepare", "--approve", "ok"), download=fake_download)
         calls = []
         with self.env(), contextlib.redirect_stdout(io.StringIO()):
-            command.run_fix_command(self.parse("fix", "batch-0001", "--yes", "--limit", "5"),
+            command.run_fix_command(self.parse("fix", "batch-0001", "--approve", "ok", "--limit", "5"),
                                     fixer=self.fake_fixer(calls))
         self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["03333333"])
         self.assertEqual(calls[0]["report"], self.sync / "batch-0001" / "ready.sync-report.csv")
@@ -214,7 +228,7 @@ class TestFixCommand(LibibCase):
         with mock.patch.dict("os.environ", {}, clear=True), mock.patch.object(config, "ENV_FILE", Path("/nonexistent/.env")), \
                 contextlib.redirect_stdout(io.StringIO()):
             with self.assertRaises(MissingEnvError):
-                command.run_fix_command(self.parse("fix", "--drift", "--yes"), fixer=self.fake_fixer([]))
+                command.run_fix_command(self.parse("fix", "--drift", "--approve", "ok"), fixer=self.fake_fixer([]))
 
     def write_call_number_drift(self):
         (self.run / "libib").mkdir(exist_ok=True)
@@ -231,7 +245,7 @@ class TestFixCommand(LibibCase):
         map_path = self.write_call_number_drift()
         calls = []
         with self.env(), contextlib.redirect_stdout(io.StringIO()):
-            command.run_fix_command(self.parse("fix", "--drift", "--yes", "--call-number-map", str(map_path)),
+            command.run_fix_command(self.parse("fix", "--drift", "--approve", "ok", "--call-number-map", str(map_path)),
                                     fixer=self.fake_fixer(calls), download=fake_download)
         self.assertEqual([(r["call_number"], r["old_call_number"]) for r in calls[0]["rows"]],
                          [("03333333", "191-ALN-001A")])
@@ -240,7 +254,7 @@ class TestFixCommand(LibibCase):
         self.write_call_number_drift()
         calls = []
         with self.env(), contextlib.redirect_stdout(io.StringIO()):
-            command.run_fix_command(self.parse("fix", "--drift", "--yes"), fixer=self.fake_fixer(calls),
+            command.run_fix_command(self.parse("fix", "--drift", "--approve", "ok"), fixer=self.fake_fixer(calls),
                                     download=fake_download)
         self.assertEqual(calls, [])  # nothing fixable: both handles need a person
 
@@ -255,7 +269,7 @@ class TestFixCommand(LibibCase):
             f.write("heat,02222222,title,Heat,Heat (old)\n")
         calls = []
         with self.env(), contextlib.redirect_stdout(io.StringIO()):
-            command.run_fix_command(self.parse("fix", "--drift", "--yes", "--call-number-map", str(map_path)),
+            command.run_fix_command(self.parse("fix", "--drift", "--approve", "ok", "--call-number-map", str(map_path)),
                                     fixer=self.fake_fixer(calls), download=fake_download)
         self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["02222222"])  # alien already done
         self.assertIn("03333333", (work / "ready.sync-report.1.csv").read_text(encoding="utf-8"))
@@ -272,7 +286,7 @@ class TestFixCommand(LibibCase):
             f.write("heat,02222222,title,Heat,Heat (old)\n")
         calls = []
         with self.env(), contextlib.redirect_stdout(io.StringIO()):
-            command.run_fix_command(self.parse("fix", "--drift", "--yes", "--call-number-map", str(map_path)),
+            command.run_fix_command(self.parse("fix", "--drift", "--approve", "ok", "--call-number-map", str(map_path)),
                                     fixer=self.fake_fixer(calls), download=fake_download)
         self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["02222222"])  # only the failure retried
         self.assertTrue((work / "ready.sync-report.2.csv").exists())
@@ -286,7 +300,7 @@ class TestFixCommand(LibibCase):
             encoding="utf-8")
         calls = []
         with self.env(), contextlib.redirect_stdout(io.StringIO()):
-            command.run_fix_command(self.parse("fix", "--drift", "--yes", "--call-number-map", str(map_path)),
+            command.run_fix_command(self.parse("fix", "--drift", "--approve", "ok", "--call-number-map", str(map_path)),
                                     fixer=self.fake_fixer(calls), download=fake_download)
         self.assertEqual([r["call_number"] for r in calls[0]["rows"]], ["03333333"])
 

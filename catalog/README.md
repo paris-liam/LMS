@@ -41,9 +41,16 @@ promoting picker registry entries from `applied` to `resolved` once Shopify show
 
 ## Approval
 
-Every command that changes anything outside its run folder shows a plan first and asks
-`Proceed? [y/N]`. `--dry-run` shows the plan and changes nothing; `--yes` approves without
-asking. Outside a terminal (scripts, agents) the command refuses unless `--yes` is given.
+Every command that changes Libib, Shopify, the picker or shared state lists **every** change
+first (item, field, current value -> new value — nothing is summarised as "+N more") and
+needs approval for exactly that list:
+
+- In a terminal it asks `Make these N changes? [y/N]`.
+- Elsewhere (scripts, agents): run `--dry-run`, review the list, then re-run with
+  `--approve <code>` using the code the dry run printed. The code is a fingerprint of the
+  list; if anything differs when the command runs for real, it refuses and changes nothing.
+
+There is no blanket `--yes`.
 
 ## Stage 2 — picker push
 
@@ -60,11 +67,23 @@ the branch. `--no-git-sync` never commits.
 
 ## Stage 3 — apply
 
-    python3 -m catalog apply --dry-run        # see what would change
-    python3 -m catalog apply                  # write runs/<id>/import/*.csv, publish imports/<id>/
+    python3 -m catalog apply --dry-run          # every change + an approval code
+    python3 -m catalog apply --approve <code>   # write them to Shopify through the Admin API
+    python3 -m catalog apply --via csv ...      # instead: import CSVs to import by hand
 
 Combines the run's `autofix.json` with the client's picks (read from `origin/main` — the
-branch the picker saves to; `--local-picks` reads the working tree) and writes one CSV per
+branch the picker saves to; `--local-picks` reads the working tree).
+
+**`--via api` (default)** writes each change straight to Shopify (`SHOPIFY_CLIENT_ID` /
+`SHOPIFY_CLIENT_SECRET`, app with `write_products`), product by product
+(`catalog/shopify/writer.py`): it re-reads the product first and **skips** any field whose
+value changed since the audit (never overwrites newer edits with a stale plan), writes the
+rest, then reads the product back and marks each change written / skipped / failed in
+`runs/<id>/apply-report.csv`. A new poster becomes the product's first image (older
+images are kept). Only products whose changes all landed become `applied` in the registry;
+the command exits 1 if any change failed.
+
+**`--via csv`** writes one CSV per
 field group — `image`, `alt-text`, `description`, `genre`, `tags`, `vendor`, `price` —
 each with only the columns it changes plus `Handle, Title, Option1 Name, Option1 Value`.
 Import each in Shopify admin. `apply-plan.csv` lists every change (handle, field, before,
@@ -93,6 +112,23 @@ Libib has no API, so exports and CSV imports are driven in a browser (Playwright
     .venv-libib/bin/python -m catalog libib fix batch-NNNN      # barcode + title/description/tags/poster
     .venv-libib/bin/python -m catalog libib fix --drift         # fix what the diff found drifted
     python3 -m catalog libib status
+
+    python3 -m catalog libib sync --dry-run         # all of the above, one plan: every Libib change listed
+    python3 -m catalog libib sync --approve <code>  # export, diff, fix drift, prepare+import+fix new, export, diff
+    python3 -m catalog libib selftest               # read-only: does every Libib page step still work?
+
+`sync` is the whole round trip under one approval: it exports and diffs, then lists each
+drifted field (current Libib value -> Shopify value) and each new item with the content it
+will get; after approval it runs `fix --drift`, `prepare`, `import` and `fix <batch>`, and
+exports + diffs again to confirm. Orphans, blocked and held rentals are listed as warnings,
+never touched. It needs a current audit run (run `audit` first).
+
+`selftest` walks every selector the fixer, export and import use — log in, search, item
+page, Copies panel and barcode lock, Edit form fields and its collapsed sections, both
+exports (columns checked), CSV import page, and the import column-matching page (reached by
+uploading a one-row sample that is never processed). It never saves or imports. Exit 1 and
+screenshots in `libib-selftest/` name the step that broke. Run it on a schedule and before
+any big Libib run; `--skip-import-matching` leaves out the sample upload.
 
 `export`, `import` and `fix` need `LIBIB_EMAIL` / `LIBIB_PASSWORD` and Playwright. `import` exports
 Libib first and skips any call number already there (a re-run never imports a copy twice), refuses

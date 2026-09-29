@@ -19,7 +19,7 @@ from catalog.core.csv_io import write_csv
 from catalog.core.plan import Plan, add_approval_args, confirm
 from catalog.core.runs import resolve_run
 from catalog.errors import InputShapeError, NoRunError
-from catalog.libib.columns import READY_COLUMNS
+from catalog.libib.columns import READY_COLUMNS, ready_row
 from catalog.libib.diff import BLOCKED_COLUMNS, DRIFT_COLUMNS, ELIGIBLE_COLUMNS, HELD_COLUMNS, ORPHAN_COLUMNS, diff
 from catalog.libib.exports import DEFAULT_COLLECTION, load_libib
 from catalog.libib.fields import is_rental
@@ -97,6 +97,23 @@ def register(subparsers) -> None:
     add_approval_args(p)
     p.set_defaults(func=run_import_command)
 
+    p = sub.add_parser("sync", help="export -> diff -> ONE approval -> fix drift, import + fix new rentals -> "
+                                    "export -> diff (browser)")
+    p.add_argument("--size", type=int, default=200, help="new rentals to import this run (default 200)")
+    p.add_argument("--exports-dir", default="exports", help="where the dated export folders go (default exports/)")
+    _common(p)
+    add_approval_args(p)
+    p.set_defaults(func=run_sync_command)
+
+    p = sub.add_parser("selftest", help="read-only: check every Libib page step the pipeline uses still works")
+    p.add_argument("--call-number", help="item to exercise (default: one already synced)")
+    p.add_argument("--skip-import-matching", action="store_true",
+                   help="don't upload a sample file to reach the import column-matching page")
+    p.add_argument("--evidence-dir", default="libib-selftest",
+                   help="where screenshots of failing steps go (default libib-selftest/)")
+    _common(p, needs_run=False)
+    p.set_defaults(func=run_selftest_command)
+
     p = sub.add_parser("status", help="count tracked handles per state")
     _common(p, needs_run=False)
     p.set_defaults(func=run_status_command)
@@ -171,6 +188,37 @@ def run_check_login_command(args, checker=run_login_check) -> int:
     return 0
 
 
+def _short(value: str, width: int = 70) -> str:
+    value = " ".join((value or "").split())
+    return repr(value if len(value) <= width else value[: width - 1] + "…")
+
+
+def drift_change_lines(drift_rows: list[dict], fields_by_handle: dict, rows_by_handle: dict,
+                       remaps: dict[str, str]) -> list[str]:
+    """One line per field the fixer will change: current Libib value -> Shopify value."""
+    lines = []
+    for handle in sorted(fields_by_handle):
+        row = rows_by_handle[handle]
+        who = f"{row['Variant Barcode']} {row['Title'].strip()}"
+        if handle in remaps:
+            lines.append(f"{who} — call number: {remaps[handle]!r} -> {row['Variant Barcode']!r}")
+        for d in drift_rows:
+            if d["handle"] == handle and d["field"] in fields_by_handle[handle] and d["field"] != "call_number":
+                lines.append(f"{who} — {d['field']}: {_short(d['libib'])} -> {_short(d['shopify'])}")
+    return lines
+
+
+def ready_change_lines(r: dict) -> list[str]:
+    """What the fixer sets on one (newly imported) item."""
+    who = f"{r['call_number']} {r['title']}"
+    lines = [f"{who} — barcode: set to {r['call_number']!r}",
+             f"{who} — title/tags: {r['title']!r} / {r['tags']!r}",
+             f"{who} — description: {_short(r['description'])}"]
+    if r.get("image_path"):
+        lines.append(f"{who} — poster: upload {Path(r['image_path']).name}")
+    return lines
+
+
 def _libib_credentials() -> tuple[str, str]:
     return config.require_env(config.ENV_LIBIB_EMAIL), config.require_env(config.ENV_LIBIB_PASSWORD)
 
@@ -222,7 +270,8 @@ def run_import_command(args, exporter=None, importer=None, stdin=None, sleep=tim
            "state: rows found exactly once -> imported"],
         samples=[f"{r['call_number']} {r['title']}" for r in rows],
     )
-    if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
+    if not confirm(plan, dry_run=args.dry_run, approve=args.approve, stdin=stdin,
+                   preapproved=getattr(args, "preapproved", False)):
         return 0
 
     email, password = _libib_credentials()
@@ -261,6 +310,99 @@ def run_import_command(args, exporter=None, importer=None, stdin=None, sleep=tim
     log.summary(f"fresh export: {after_dir}")
     log.summary(f"Next: python3 -m catalog libib fix {args.batch} --headless")
     return 0 if not (result["missing"] or result["duplicated"]) else 1
+
+
+def _step_args(args, **overrides) -> argparse.Namespace:
+    """Arguments for one step of `libib sync`, pre-approved by sync's own plan."""
+    base = dict(runs_dir=args.runs_dir, run=args.run, sync_dir=args.sync_dir, exports_dir=args.exports_dir,
+                verbose=getattr(args, "verbose", 0), quiet=getattr(args, "quiet", False),
+                dry_run=False, approve=None, preapproved=True, headless=True, limit=None,
+                call_number_map=[], drift=False, batch=None, size=args.size, collection=DEFAULT_COLLECTION)
+    base.update(overrides)
+    return argparse.Namespace(**base)
+
+
+def run_sync_command(args, exporter=None, importer=None, fixer=run_fixer, download=None, stdin=None,
+                     sleep=time.sleep) -> int:
+    """The whole Libib round trip under one approval. Everything it will change
+    in Libib — each drifted field (current -> Shopify value) and each new item
+    with the content it will get — is listed in one plan first."""
+    exporter = exporter or transfer.run_browser_export
+    run_dir = resolve_run(args.runs_dir, args.run)
+    email, password = _libib_credentials()
+
+    before_dir = transfer.export_dir(args.exports_dir)
+    barcodes, library = exporter(email, password, before_dir)
+    diff_args = _step_args(args, barcode_export=str(barcodes), collection_export=str(library))
+    run_diff_command(diff_args)
+
+    out = run_dir / "libib"
+    rows_by_handle = {r["Handle"]: r for r in load_snapshot(run_dir / "snapshot.json")}
+    drift_rows = _read_csv(out / "drift.csv")
+    fields_by_handle, manual = drift_targets(drift_rows, {})
+    state = load_state(args.sync_dir)
+    eligible = [e for e in _read_csv(out / "eligible.csv")
+                if (state.get(e["handle"]) or {}).get("status") not in HELD][: args.size]
+    new_lines = [line for e in eligible
+                 for line in [f"{e['call_number']} {e['title']} — NEW Libib item (CSV import)"]
+                 + ready_change_lines(ready_row(rows_by_handle[e["handle"]], f"{e['call_number']}.jpg"))]
+    people = {name: len(_read_csv(out / f"{name}.csv")) for name in ("orphans", "blocked", "held")}
+
+    log.setup_logging(out / "sync.log", log.verbosity(args))
+    log.header(f"libib sync — audit run {run_dir.name}")
+    plan = Plan(
+        title="libib sync",
+        count=len(fields_by_handle) + len(eligible),
+        summary=[f"fix {len(fields_by_handle)} existing Libib items ({len(drift_rows)} fields) to match Shopify",
+                 f"import {len(eligible)} new rentals (CSV import, Force Import Mode), then set their barcode, "
+                 "description, tags and poster",
+                 "then export Libib again and diff to confirm"],
+        samples=drift_change_lines(drift_rows, fields_by_handle, rows_by_handle, {}) + new_lines,
+        warnings=([f"{len(manual)} drifted call numbers need a person (not touched): {', '.join(manual[:10])}"]
+                  if manual else [])
+        + [f"{n} {name} — a person decides (not touched; see {out / (name + '.csv')})"
+           for name, n in people.items() if n],
+    )
+    if not confirm(plan, dry_run=args.dry_run, approve=args.approve, stdin=stdin):
+        return 0
+
+    code = 0
+    if fields_by_handle:
+        code |= run_fix_command(_step_args(args, drift=True), fixer=fixer, download=download)
+    if eligible:
+        run_prepare_command(_step_args(args), download=download)
+        batch = max(h["batch"] for h in load_state(args.sync_dir).values()
+                    if h.get("status") == "queued" and h.get("batch"))
+        code |= run_import_command(_step_args(args, batch=batch), exporter=exporter, importer=importer, sleep=sleep)
+        code |= run_fix_command(_step_args(args, batch=batch), fixer=fixer, download=download)
+
+    after_dir = transfer.export_dir(args.exports_dir)
+    barcodes, library = exporter(email, password, after_dir)
+    run_diff_command(_step_args(args, barcode_export=str(barcodes), collection_export=str(library)))
+    return code
+
+
+def run_selftest_command(args, runner=None) -> int:
+    from catalog.libib import selftest
+
+    log.setup_logging(None, log.verbosity(args))
+    runner = runner or selftest.run_selftest
+    call_number = args.call_number or next(
+        (e["call_number"] for e in load_state(args.sync_dir).values()
+         if e.get("status") == "done" and e.get("call_number")), None)
+    if not call_number:
+        raise InputShapeError("no synced item to exercise — pass --call-number")
+    log.header(f"libib selftest — item {call_number} (read-only)")
+    results = runner(*_libib_credentials(), call_number, args.evidence_dir, True, not args.skip_import_matching)
+    for r in results:
+        log.summary(f"  {'PASS' if r.ok else 'FAIL'}  {r.name:<28} {r.seconds:5.1f}s  {r.detail}")
+    failed = [r for r in results if not r.ok]
+    if failed:
+        log.summary(f"FAILED: {len(failed)} step(s) — Libib's pages may have changed. Screenshots: {args.evidence_dir}/")
+        log.summary("Don't run fix/import/sync until the failing step is fixed in catalog/libib/browser.py.")
+        return 1
+    log.summary(f"OK: all {len(results)} steps work.")
+    return 0
 
 
 def run_status_command(args) -> int:
@@ -303,7 +445,8 @@ def run_prepare_command(args, download=None, stdin=None) -> int:
                  f"state: {len(chosen)} -> queued"],
         samples=[f"{e['call_number']} {e['title']}" for e in chosen],
     )
-    if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
+    if not confirm(plan, dry_run=args.dry_run, approve=args.approve, stdin=stdin,
+                   preapproved=getattr(args, "preapproved", False)):
         return 0
 
     rows = [rows_by_handle[e["handle"]] for e in chosen]
@@ -328,7 +471,8 @@ def run_mark_imported_command(args, stdin=None) -> int:
     handles = sorted(h for h, e in state.items() if e.get("batch") == args.batch and e.get("status") == "queued")
     plan = Plan(title="libib mark-imported", count=len(handles),
                 summary=[f"{args.batch}: {len(handles)} handles queued -> imported"], samples=handles)
-    if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
+    if not confirm(plan, dry_run=args.dry_run, approve=args.approve, stdin=stdin,
+                   preapproved=getattr(args, "preapproved", False)):
         return 0
     for handle in handles:
         set_status(state, handle, "imported")
@@ -378,8 +522,7 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
         fields_by_handle = {h: fields_by_handle[h] for h in handles}
         ready_path = work_dir / "ready.csv"
         label = f"drift from run {run_dir.name}"
-        samples = [f"{rows_by_handle[h]['Variant Barcode']} {rows_by_handle[h]['Title'].strip()}: "
-                   f"{', '.join(sorted(fields_by_handle[h]))}" for h in handles]
+        samples = drift_change_lines(drift_rows, fields_by_handle, rows_by_handle, remaps)
         count = len(handles)
     else:
         ready_path = sync_dir / args.batch / "ready.csv"
@@ -388,7 +531,7 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
         ready = read_ready(ready_path)
         ready = ready[: args.limit] if args.limit else ready
         label = args.batch
-        samples = [f"{r['call_number']} {r['title']}" for r in ready]
+        samples = [line for r in ready for line in ready_change_lines(r)]
         count = len(ready)
 
     log.header(f"libib fix — {label}")
@@ -406,7 +549,8 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
         + ([f"manual fix needed (Libib call number differs from the Shopify barcode — the fixer finds items by call number): {len(manual)} — {', '.join(manual[:10])}"] if manual else []),
         samples=samples,
     )
-    if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
+    if not confirm(plan, dry_run=args.dry_run, approve=args.approve, stdin=stdin,
+                   preapproved=getattr(args, "preapproved", False)):
         return 0
 
     if args.drift:

@@ -55,7 +55,7 @@ def run_push_command(args, fetch_fn=None, sync_fn=sync_review_picker, stdin=None
                       else f'commit + push {config.PICKER_REL} on {config.PICKER_BRANCH}: "{message}"')],
         samples=[f"{e['Handle']} [{e['Kind']}] {e['Reason']}" for v in entries.values() for e in v],
     )
-    if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
+    if not confirm(plan, dry_run=args.dry_run, approve=args.approve, stdin=stdin):
         return 0
 
     cache = TmdbCache(Path(args.runs_dir) / config.TMDB_CACHE_FILENAME)

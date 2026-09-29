@@ -58,7 +58,7 @@ report in `libib-sync/drift-2026-09-28/`. Preview first:
       --dry-run
 
 Expect: 212 items, "resuming: 55 … skipped", 208 renumbers, no manual items.
-Then run it with `--yes` instead of `--dry-run`. It takes ~2 items/minute
+Then run it with `--approve <code>` (the code the dry run printed). It takes ~2 items/minute
 (~1¾ h) — run it in the background and watch the log. Every change is
 verified by reloading the item; failures are reported, not retried.
 
@@ -77,8 +77,10 @@ After that the user takes fresh Libib exports (item/barcode + collection) into
   the run and inspect the page read-only before changing selectors.
 - The call number field is in the Edit form's collapsed "Catalog Information"
   section (`.anchor[data-section='catalog-section']`).
-- Commands that change things ask for approval; with no terminal they need
-  `--yes`. Always `--dry-run` first.
+- Commands that change things list every change and need approval: in a
+  terminal they ask; otherwise `--dry-run`, show the user the full list, and
+  re-run with `--approve <code>` only after they approve. There is no `--yes`
+  (removed 2026-09-29).
 - Production (`p0wkgv-wy.myshopify.com`) is the working store. Direct
   production mutations are blocked by the auto-mode permission classifier —
   the user runs those; the pipeline itself only writes CSVs for the user to

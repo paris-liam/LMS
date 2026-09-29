@@ -4,6 +4,7 @@ import io
 import json
 import tempfile
 import unittest
+import unittest.mock
 from pathlib import Path
 from unittest import mock
 
@@ -11,6 +12,19 @@ from catalog.apply import command
 from catalog.cli import build_parser, main
 from catalog.core import log
 from catalog.core.columns import GENRE_METAFIELD
+
+
+# Approval codes are fingerprints of the exact change list (tested in
+# test_plan); here every plan is approved with the fixed code "ok".
+_approval = unittest.mock.patch("catalog.core.plan.fingerprint", return_value="ok")
+
+
+def setUpModule():
+    _approval.start()
+
+
+def tearDownModule():
+    _approval.stop()
 
 
 def row(handle, **overrides):
@@ -60,7 +74,7 @@ class TestApplyCommand(unittest.TestCase):
 
     def args(self, *extra):
         return build_parser().parse_args(["apply", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker),
-                                          "--imports-dir", str(self.imports), "--local-picks", "-q", *extra])
+                                          "--imports-dir", str(self.imports), "--local-picks", "-q", "--via", "csv", *extra])
 
     @property
     def imports(self):
@@ -78,7 +92,7 @@ class TestApplyCommand(unittest.TestCase):
 
     def test_yes_writes_import_files_and_updates_registry(self):
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_command(self.args("--yes"))
+            command.run_command(self.args("--approve", "ok"))
         names = sorted(p.name for p in (self.run / "import").iterdir())
         self.assertEqual(names, ["description.csv", "image.csv", "vendor.csv"])
         registry = self.registry()
@@ -94,7 +108,7 @@ class TestApplyCommand(unittest.TestCase):
 
     def test_apply_refuses_without_a_terminal(self):
         err = io.StringIO()
-        argv = ["apply", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker), "--local-picks", "-q"]
+        argv = ["apply", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker), "--local-picks", "-q", "--via", "csv"]
         with mock.patch("sys.stdin", FakeStdin(tty=False)), contextlib.redirect_stderr(err), \
                 contextlib.redirect_stdout(io.StringIO()):
             code = main(argv)
@@ -104,39 +118,39 @@ class TestApplyCommand(unittest.TestCase):
 
     def test_second_apply_on_the_same_run_rewrites_the_full_set(self):
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_command(self.args("--yes"))
+            command.run_command(self.args("--approve", "ok"))
             first = {p.name: p.read_text(encoding="utf-8") for p in (self.run / "import").iterdir()}
             first_values = self.registry()["jaws"]["values"]
-            command.run_command(self.args("--yes"))
+            command.run_command(self.args("--approve", "ok"))
         second = {p.name: p.read_text(encoding="utf-8") for p in (self.run / "import").iterdir()}
         self.assertEqual(second, first)  # the applied pick rows are rebuilt, not lost
         self.assertEqual(self.registry()["jaws"]["values"], first_values)
 
     def test_dry_run_after_apply_keeps_the_import_files(self):
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_command(self.args("--yes"))
+            command.run_command(self.args("--approve", "ok"))
             before = sorted(p.name for p in (self.run / "import").iterdir())
             command.run_command(self.args("--dry-run"))
         self.assertEqual(sorted(p.name for p in (self.run / "import").iterdir()), before)
 
     def test_a_dropped_autofix_leaves_its_file_out_on_the_next_apply(self):
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_command(self.args("--yes"))
+            command.run_command(self.args("--approve", "ok"))
             (self.run / "autofix.json").write_text("{}", encoding="utf-8")
-            command.run_command(self.args("--yes"))
+            command.run_command(self.args("--approve", "ok"))
         self.assertEqual(sorted(p.name for p in (self.run / "import").iterdir()), ["description.csv", "image.csv"])
 
     def test_closing_message_says_to_commit_the_registry(self):
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_command(self.args("--yes"))
+            command.run_command(self.args("--approve", "ok"))
         self.assertIn("commit", (self.run / "apply.log").read_text(encoding="utf-8"))
         self.assertNotIn("published with the next", (self.run / "apply.log").read_text(encoding="utf-8"))
 
     def test_import_files_are_copied_to_the_imports_folder(self):
         with contextlib.redirect_stdout(io.StringIO()):
-            command.run_command(self.args("--yes"))
+            command.run_command(self.args("--approve", "ok"))
             (self.run / "autofix.json").write_text("{}", encoding="utf-8")
-            command.run_command(self.args("--yes"))  # vendor fix gone: its copy must go too
+            command.run_command(self.args("--approve", "ok"))  # vendor fix gone: its copy must go too
         self.assertEqual(sorted(p.name for p in (self.imports / "2026-09-25").iterdir()),
                          ["description.csv", "image.csv"])
 
@@ -149,7 +163,7 @@ class TestApplyCommand(unittest.TestCase):
 
         with mock.patch.object(command.config, "REPO_ROOT", Path(self.tmp.name)), \
                 contextlib.redirect_stdout(io.StringIO()):
-            command.run_command(self.args("--yes"), sync_fn=sync)
+            command.run_command(self.args("--approve", "ok"), sync_fn=sync)
         self.assertEqual(calls[0][:3], (["picker", "imports"], "main", "origin"))
         self.assertIn("2026-09-25", calls[0][3])
 
@@ -157,7 +171,7 @@ class TestApplyCommand(unittest.TestCase):
         calls = []
         with mock.patch.object(command.config, "REPO_ROOT", Path(self.tmp.name)), \
                 contextlib.redirect_stdout(io.StringIO()):
-            command.run_command(self.args("--yes", "--no-git-sync"), sync_fn=lambda *a, **k: calls.append(a))
+            command.run_command(self.args("--approve", "ok", "--no-git-sync"), sync_fn=lambda *a, **k: calls.append(a))
         self.assertEqual(calls, [])
         self.assertTrue((self.imports / "2026-09-25" / "image.csv").exists())
 
@@ -172,7 +186,7 @@ class TestApplyCommand(unittest.TestCase):
                                                            "image_src": "https://new.jpg", "overview": ""}]),
                  "data/_handle-index.json": json.dumps({"heat": {"batch": "ambiguous-queue", "status": "queued"}})}
         args = build_parser().parse_args(["apply", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker),
-                                          "-q", "--yes"])
+                                          "-q", "--via", "csv", "--approve", "ok"])
         with contextlib.redirect_stdout(io.StringIO()):
             command.run_command(args, read_text=files.get)
         with open(self.run / "import" / "image.csv", newline="", encoding="utf-8") as f:
@@ -183,7 +197,7 @@ class TestApplyCommand(unittest.TestCase):
         files = {"batches.json": json.dumps([{"batch_id": "ambiguous-queue", "total": 1}]),
                  "data/ambiguous-queue.json": json.dumps([{"handle": "rocky", "choice": "skip"}])}
         args = build_parser().parse_args(["apply", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker),
-                                          "-q", "--yes"])
+                                          "-q", "--via", "csv", "--approve", "ok"])
         with contextlib.redirect_stdout(io.StringIO()):
             command.run_command(args, read_text=files.get)
         self.assertEqual(self.registry()["rocky"]["status"], "skipped")
@@ -193,7 +207,7 @@ class TestApplyCommand(unittest.TestCase):
         (self.picker / "data" / "ambiguous-queue.json").write_text(json.dumps([
             {"handle": "jaws", "choice": "manual", "fields": {"genre": "horror"}}]), encoding="utf-8")
         err = io.StringIO()
-        argv = ["apply", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker), "--local-picks", "-q", "--yes"]
+        argv = ["apply", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker), "--local-picks", "-q", "--via", "csv", "--approve", "ok"]
         with contextlib.redirect_stderr(err), contextlib.redirect_stdout(io.StringIO()):
             code = main(argv)
         self.assertEqual(code, 2)
@@ -202,3 +216,44 @@ class TestApplyCommand(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestApplyViaApi(TestApplyCommand):
+    """apply --via api: the same plan, written through a (fake) Shopify store."""
+
+    def store(self, **kw):
+        from tests_fake_store import FakeStore, product  # noqa: E402  (sibling test module)
+        return FakeStore({"jaws": product("p1", Tags="Rental, VHS, Comedy"),
+                          "heat": product("p2", Vendor="bluray"),
+                          "rocky": product("p3")}, **kw)
+
+    def api_args(self, *extra):
+        return build_parser().parse_args(["apply", "--runs-dir", str(self.runs), "--picker-dir", str(self.picker),
+                                          "--imports-dir", str(self.imports), "--local-picks", "-q",
+                                          "--no-git-sync", *extra])
+
+    def test_writes_to_shopify_and_marks_the_registry(self):
+        store = self.store()
+        with contextlib.redirect_stdout(io.StringIO()):
+            code = command.run_command(self.api_args("--approve", "ok"), store_factory=lambda: store)
+        self.assertEqual(code, 0)
+        self.assertEqual(store.products["heat"]["fields"]["Vendor"], "Blu-Ray")
+        self.assertEqual(store.products["jaws"]["images"][0]["src"], "https://image.tmdb.org/t/p/w1280/jaws.jpg")
+        self.assertFalse((self.run / "import").exists())       # no CSVs in api mode
+        self.assertEqual(self.registry()["jaws"]["status"], "applied")
+        with open(self.run / "apply-report.csv", newline="", encoding="utf-8") as f:
+            self.assertEqual({r["status"] for r in csv.DictReader(f)}, {"written"})
+
+    def test_dry_run_writes_nothing(self):
+        store = self.store()
+        with contextlib.redirect_stdout(io.StringIO()):
+            command.run_command(self.api_args("--dry-run"), store_factory=lambda: store)
+        self.assertEqual(store.writes, [])
+
+    def test_a_failed_product_is_not_marked_applied_and_exits_1(self):
+        store = self.store(fail={"jaws"})
+        with contextlib.redirect_stdout(io.StringIO()):
+            code = command.run_command(self.api_args("--approve", "ok"), store_factory=lambda: store)
+        self.assertEqual(code, 1)
+        self.assertEqual(self.registry()["jaws"]["status"], "queued")
+        self.assertEqual(store.products["heat"]["fields"]["Vendor"], "Blu-Ray")

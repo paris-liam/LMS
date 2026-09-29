@@ -1,9 +1,12 @@
-"""`python3 -m catalog apply` — turn the latest audit's auto-fixes plus the
-client's picks into Shopify import CSVs (runs/<id>/import/*.csv).
+"""`python3 -m catalog apply` — make the latest audit's auto-fixes plus the
+client's picks in Shopify: written directly through the Admin API (the
+default, --via api), or as import CSVs the user imports by hand (--via csv,
+runs/<id>/import/*.csv).
 
 Picks are read from the branch the hosted picker commits to (origin/main)
 via git fetch + git show, so any local branch works; --local-picks reads the
-working tree instead. Nothing is written to Shopify: you import the CSVs.
+working tree instead. Either way the full change list is shown and must be
+approved first (see catalog/core/plan.py).
 """
 
 import argparse
@@ -27,7 +30,10 @@ from catalog.shopify.snapshot import load_snapshot
 
 
 def register(subparsers) -> None:
-    p = subparsers.add_parser("apply", help="turn auto-fixes and client picks into Shopify import CSVs")
+    p = subparsers.add_parser("apply", help="make auto-fixes and client picks in Shopify (Admin API, or import CSVs)")
+    p.add_argument("--via", choices=("api", "csv"), default="api",
+                   help="api: write to Shopify directly and verify (default); csv: write import CSVs to import by hand")
+    p.add_argument("--store", default=config.DEFAULT_STORE, help=argparse.SUPPRESS)
     p.add_argument("--run", help="audit run id (default: the latest complete run)")
     p.add_argument("--local-picks", action="store_true",
                    help=f"read picks from the working tree instead of {config.PICKER_REMOTE}/{config.PICKER_BRANCH}")
@@ -84,7 +90,44 @@ def _publish(args, sync_fn, picker_dir: Path, run_id: str) -> bool:
     return False
 
 
-def run_command(args, read_text=None, stdin=None, sync_fn=sync_review_picker) -> int:
+def _short(value: str, width: int = 60) -> str:
+    value = " ".join((value or "").split())
+    return repr(value if len(value) <= width else value[: width - 1] + "…")
+
+
+def _apply_via_api(args, run_dir: Path, result, registry: dict, picker_dir: Path, sync_fn, store_factory) -> int:
+    from catalog.shopify import writer
+
+    if store_factory is None:
+        def store_factory():
+            return writer.api_store(args.store, config.require_env(config.ENV_SHOPIFY_CLIENT_ID),
+                                    config.require_env(config.ENV_SHOPIFY_CLIENT_SECRET))
+    results = writer.write_changes(result.changes, store_factory(), log_fn=log.summary)
+    write_csv(run_dir / "apply-report.csv", writer.REPORT_COLUMNS, [asdict(r) for r in results])
+
+    failed = {r.handle for r in results if r.status == "failed"}
+    for handle, values in result.applied.items():
+        if handle not in failed:
+            mark_applied(registry, handle, run_dir.name, values)
+    for handle in result.skipped:
+        mark_skipped(registry, handle)
+    mark_resolved(registry, result.resolved)
+    save_registry(picker_dir, registry)
+
+    counts = {s: sum(1 for r in results if r.status == s) for s in ("written", "skipped", "failed")}
+    log.summary(f"Shopify: {counts['written']} written and verified, {counts['skipped']} skipped, "
+                f"{counts['failed']} failed — details in {run_dir / 'apply-report.csv'}")
+    for r in results:
+        if r.status != "written":
+            log.summary(f"  {r.status}: {r.handle} {r.field} — {r.message}")
+    if not _publish(args, sync_fn, picker_dir, run_dir.name):
+        log.summary(f"The registry changed in the working tree ({config.PICKER_REL}/data/_handle-index.json) — "
+                    f"commit it and merge it into {config.PICKER_BRANCH}.")
+    log.summary("Next: python3 -m catalog audit — confirms the changes (applied -> resolved).")
+    return 1 if counts["failed"] else 0
+
+
+def run_command(args, read_text=None, stdin=None, sync_fn=sync_review_picker, store_factory=None) -> int:
     run_dir = resolve_run(args.runs_dir, args.run)
     log.setup_logging(run_dir / "apply.log", log.verbosity(args))
     log.header(f"apply — audit run {run_dir.name}")
@@ -123,21 +166,28 @@ def run_command(args, read_text=None, stdin=None, sync_fn=sync_review_picker) ->
         log.detail(f"ignored {handle}: {reason}")
 
     from_picks = sum(1 for c in result.changes if c.source != AUTO_FIX_SOURCE)
+    via_api = getattr(args, "via", "csv") == "api"
+    target = ([f"writes {len(result.changes)} changes to {len({c.handle for c in result.changes})} products "
+               f"directly in Shopify ({args.store}), then reads each product back to verify"]
+              if via_api else [f"import/{name}: {len(file_rows)} products" for name, (_, file_rows) in files.items()])
     plan = Plan(
-        title="apply",
+        title="apply" + (" (Shopify Admin API)" if via_api else " (import CSVs)"),
         count=len(result.changes) + len(result.skipped) + len(result.resolved),
-        summary=[f"import/{name}: {len(file_rows)} products" for name, (_, file_rows) in files.items()]
+        summary=target
         + [f"changes: {len(result.changes)} ({len(result.changes) - from_picks} auto-fix, {from_picks} from picks)",
            f"registry: {len(result.applied)} -> applied, {len(result.skipped)} -> skipped, "
            f"{len(result.resolved)} -> resolved (already in Shopify)",
            f"ignored: {len(result.ignored)} (see apply.log with -v)"],
-        samples=[f"{c.handle} {c.field}: {c.before[:40]!r} -> {c.after[:60]!r} ({c.source})" for c in result.changes],
-        warnings=warnings_for(files, result.changes) + ([registry_warning] if registry_warning else []),
+        samples=[f"{c.handle} — {c.field}: {_short(c.before)} -> {_short(c.after)} ({c.source})" for c in result.changes],
+        warnings=([] if via_api else warnings_for(files, result.changes)) + ([registry_warning] if registry_warning else []),
         details_path=details,
     )
     import_dir = run_dir / "import"
-    if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
+    if not confirm(plan, dry_run=args.dry_run, approve=args.approve, stdin=stdin):
         return 0  # never touch import/ without approval
+
+    if via_api:
+        return _apply_via_api(args, run_dir, result, registry, picker_dir, sync_fn, store_factory)
 
     paths = write_import_files(import_dir, files)
     for handle, values in result.applied.items():

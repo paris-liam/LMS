@@ -33,3 +33,6 @@ products_export*.csv
 # Catalog pipeline run folders (local working data)
 runs/
 libib-login-check.png
+
+# libib selftest failure screenshots
+libib-selftest/
