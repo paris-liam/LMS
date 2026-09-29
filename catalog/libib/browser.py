@@ -304,3 +304,70 @@ def sync_item(page: Page, row: dict):
 
     message = f"{prefix}barcode: {barcode_message} | content: {content_message}"
     return barcode_status, content_status, message
+
+
+# --- CSV transfer (Settings exports, CSV Import) -------------------------
+
+LIBIB_SETTINGS_URL = "https://www.libib.com/settings"
+LIBIB_CSV_IMPORT_URL = "https://www.libib.com/csvimport"
+RENTAL_LIBRARY = "Rental Library"
+
+
+def export_csvs(page: Page, dest_dir) -> tuple[Path, Path]:
+    """Settings -> Export Barcode Data / Export Collection Data, both for the
+    Rental Library. Clicks only the two export buttons by id (the same page
+    holds Delete Collections). Returns (barcodes_path, library_path)."""
+    dest_dir = Path(dest_dir)
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    page.goto(LIBIB_SETTINGS_URL)
+    saved = []
+    for accordion, select, button in (
+            ("Export Barcode Data", "select[name='settings-barcode-library-export-id']", "#settings-barcode-export-submit"),
+            ("Export Collection Data", "select[name='settings-library-export-id']", "#settings-export-library-submit")):
+        page.locator("a.accordion-title", has_text=accordion).click()
+        page.locator(select).select_option(label=RENTAL_LIBRARY)
+        with page.expect_download(timeout=120000) as download:
+            page.locator(button).click()
+        target = dest_dir / download.value.suggested_filename
+        download.value.save_as(target)
+        saved.append(target)
+    return saved[0], saved[1]
+
+
+def import_csv(page: Page, csv_path, check_mappings, evidence_dir) -> None:
+    """Add Items -> CSV Import into the Rental Library as Movies, Force Import
+    Mode on. Refuses (raises, nothing imported) unless check_mappings(columns,
+    selected_fields) returns no problems. Saves screenshots of the matching
+    page and the result page in evidence_dir."""
+    import csv as _csv
+
+    evidence_dir = Path(evidence_dir)
+    evidence_dir.mkdir(parents=True, exist_ok=True)
+    with open(csv_path, newline="", encoding="utf-8") as f:
+        columns = next(_csv.reader(f))
+
+    page.goto(LIBIB_CSV_IMPORT_URL)
+    page.locator("#csv-import-library-select").select_option(label=RENTAL_LIBRARY)
+    page.locator("label[for='csv-import-select-movie']").click()
+    if not page.locator("#csv-import-select-movie").is_checked():
+        raise RuntimeError("could not select the Movie item type")
+    page.locator("#csv-import-file").set_input_files(str(csv_path))
+    page.locator("#csv-import-submit").click()
+
+    force = page.locator("#force-import")
+    force.wait_for(state="attached", timeout=30000)
+    selected = page.locator("select.csvgui-select").evaluate_all(
+        "els => els.map(s => s.options[s.selectedIndex] ? s.options[s.selectedIndex].text.trim() : '')")
+    page.screenshot(path=str(evidence_dir / "import-matching.png"), full_page=True)
+    problems = check_mappings(columns, selected)
+    if problems:
+        raise RuntimeError("column matching looks wrong, nothing imported: " + "; ".join(problems))
+    force.check()
+    if not force.is_checked():
+        raise RuntimeError("could not turn on Force Import Mode, nothing imported")
+
+    page.locator("#csv-import-preview-submit").click()
+    page.wait_for_load_state("networkidle", timeout=120000)
+    page.wait_for_timeout(2000)
+    page.screenshot(path=str(evidence_dir / "import-result.png"), full_page=True)
+    (evidence_dir / "import-result.html").write_text(page.content(), encoding="utf-8")

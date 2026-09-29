@@ -82,20 +82,23 @@ only when it changes Option1 — `apply` warns when it does.
 
 ## Stage 4 — Libib
 
-Libib has no API: its exports and CSV imports are manual; only fixing items runs in a browser.
+Libib has no API, so exports and CSV imports are driven in a browser (Playwright), like the fixer.
 
-    # 1. Export from Libib: the item/barcode export and the collection export (both needed).
-    python3 -m catalog libib diff --barcode-export libib_barcodes.csv --collection-export libib_collections.csv
+    python3 -m catalog libib export                 # -> exports/<date>/{barcodes_*.csv, library_*.csv}
+    python3 -m catalog libib diff --barcode-export exports/<date>/barcodes_*.csv --collection-export exports/<date>/library_*.csv
     # -> runs/<id>/libib/: drift.csv, eligible.csv, orphans.csv, blocked.csv, libib-report.txt
 
     python3 -m catalog libib prepare --size 200     # -> libib-sync/batch-NNNN/{import.csv, posters, ready.csv}
-    # 2. In Libib: Add Items -> CSV -> import.csv with Force Import Mode on.
-    python3 -m catalog libib mark-imported batch-NNNN
+    python3 -m catalog libib import batch-NNNN      # CSV Import, Force Import Mode; verified by a fresh export
     .venv-libib/bin/python -m catalog libib fix batch-NNNN      # barcode + title/description/tags/poster
     .venv-libib/bin/python -m catalog libib fix --drift         # fix what the diff found drifted
     python3 -m catalog libib status
 
-`fix` needs `LIBIB_EMAIL` / `LIBIB_PASSWORD` and the Playwright venv. Items are matched by
+`export`, `import` and `fix` need `LIBIB_EMAIL` / `LIBIB_PASSWORD` and Playwright. `import` exports
+Libib first and skips any call number already there (a re-run never imports a copy twice), refuses
+if Libib's column matching differs from ours, and afterwards marks only the call numbers that the
+second export shows exactly once; screenshots of the matching and result pages land in the batch
+folder. `mark-imported` remains for a batch imported by hand. Items are matched by
 Shopify barcode = Libib call number (items without a call number fall back to their copy
 barcode; that drift needs a manual fix). Rentals with a bad or shared barcode are `blocked`
 until the audit's barcode findings are fixed. Orphans are listed, never deleted.

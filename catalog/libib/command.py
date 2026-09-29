@@ -27,6 +27,7 @@ from catalog.libib.fix import (
     apply_report, archive_report, completed_calls, confirmed_remaps, drift_ready_rows, drift_targets, read_ready,
     run_fixer, run_login_check,
 )
+from catalog.libib import transfer
 from catalog.libib.prepare import download_posters, next_batch_id, write_batch
 from catalog.libib.state import (
     HELD, counts_by_status, load_state, migrate_poster_src, save_state, set_status, state_path,
@@ -83,6 +84,18 @@ def register(subparsers) -> None:
     p.add_argument("--screenshot", default="libib-login-check.png", help="where to save a screenshot on failure")
     _common(p, needs_run=False)
     p.set_defaults(func=run_check_login_command)
+
+    p = sub.add_parser("export", help="download Libib's barcode + collection exports (browser, read-only)")
+    p.add_argument("--exports-dir", default="exports", help="where the dated export folder goes (default exports/)")
+    _common(p, needs_run=False)
+    p.set_defaults(func=run_export_command)
+
+    p = sub.add_parser("import", help="CSV-import a prepared batch into Libib (browser, Force Import Mode)")
+    p.add_argument("batch", help="a prepared batch id, e.g. batch-0019")
+    p.add_argument("--exports-dir", default="exports", help="where the before/after exports go (default exports/)")
+    _common(p, needs_run=False)
+    add_approval_args(p)
+    p.set_defaults(func=run_import_command)
 
     p = sub.add_parser("status", help="count tracked handles per state")
     _common(p, needs_run=False)
@@ -156,6 +169,81 @@ def run_check_login_command(args, checker=run_login_check) -> int:
         return 1
     log.summary(f"OK: logged in and opened {call_number} in {time.monotonic() - started:.1f}s")
     return 0
+
+
+def _libib_credentials() -> tuple[str, str]:
+    return config.require_env(config.ENV_LIBIB_EMAIL), config.require_env(config.ENV_LIBIB_PASSWORD)
+
+
+def run_export_command(args, exporter=None) -> int:
+    log.setup_logging(None, log.verbosity(args))
+    exporter = exporter or transfer.run_browser_export
+    dest = transfer.export_dir(args.exports_dir)
+    log.header(f"libib export -> {dest} (read-only)")
+    barcodes, library = exporter(*_libib_credentials(), dest)
+    log.summary(f"barcodes:   {barcodes}")
+    log.summary(f"collection: {library}")
+    log.summary(f"Next: python3 -m catalog libib diff --barcode-export {barcodes} --collection-export {library}")
+    return 0
+
+
+def run_import_command(args, exporter=None, importer=None, stdin=None) -> int:
+    """Export (what is already there) -> import the rest -> export again ->
+    mark only the call numbers that now appear exactly once as imported."""
+    log.setup_logging(None, log.verbosity(args))
+    exporter = exporter or transfer.run_browser_export
+    importer = importer or transfer.run_browser_import
+    sync_dir = Path(args.sync_dir)
+    batch_dir = sync_dir / args.batch
+    import_path = batch_dir / "import.csv"
+    if not import_path.exists():
+        raise NoRunError(f"{import_path} does not exist — run `python3 -m catalog libib prepare` first")
+    state = load_state(sync_dir)
+    handle_by_call = {e.get("call_number"): h for h, e in state.items()
+                      if e.get("batch") == args.batch and e.get("status") == "queued"}
+    rows = transfer.read_import_rows(import_path)
+    not_queued = [r["call_number"] for r in rows if r["call_number"] not in handle_by_call]
+    if not_queued:
+        raise InputShapeError(f"{args.batch}: {len(not_queued)} rows are not queued in the state file "
+                              f"(already imported?): {', '.join(not_queued[:10])}")
+
+    log.header(f"libib import — {args.batch}")
+    plan = Plan(
+        title="libib import",
+        count=len(rows),
+        summary=[f"{args.batch}: CSV-imports {len(rows)} rentals into Libib's {DEFAULT_COLLECTION} (Force Import Mode)",
+                 "exports Libib first and skips any call number it already has; exports again afterwards",
+                 "state: rows found exactly once afterwards -> imported"],
+        samples=[f"{r['call_number']} {r['title']}" for r in rows],
+    )
+    if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
+        return 0
+
+    email, password = _libib_credentials()
+    before_barcodes, _ = exporter(email, password, batch_dir / "export-before")
+    todo, present = transfer.split_present(rows, transfer.call_counts(before_barcodes, DEFAULT_COLLECTION))
+    if present:
+        log.summary(f"{len(present)} already in Libib, not imported again: "
+                    + ", ".join(r["call_number"] for r in present[:10]))
+    if todo:
+        upload = import_path if not present else transfer.write_import_rows(batch_dir / "import.remaining.csv", todo)
+        importer(email, password, upload, batch_dir)
+    after_dir = transfer.export_dir(args.exports_dir)
+    after_barcodes, after_library = exporter(email, password, after_dir)
+    result = transfer.verify_imported([r["call_number"] for r in rows],
+                                      transfer.call_counts(after_barcodes, DEFAULT_COLLECTION))
+    for call in result["ok"]:
+        set_status(state, handle_by_call[call], "imported")
+    save_state(sync_dir, state)
+
+    log.summary(f"imported: {len(result['ok'])} of {len(rows)} now in Libib exactly once")
+    if result["missing"]:
+        log.summary(f"MISSING after import ({len(result['missing'])}, left queued): {', '.join(result['missing'])}")
+    if result["duplicated"]:
+        log.summary(f"DUPLICATED in Libib ({len(result['duplicated'])}, left queued): {', '.join(result['duplicated'])}")
+    log.summary(f"fresh export: {after_dir}")
+    log.summary(f"Next: python3 -m catalog libib fix {args.batch} --headless")
+    return 0 if not (result["missing"] or result["duplicated"]) else 1
 
 
 def run_status_command(args) -> int:
