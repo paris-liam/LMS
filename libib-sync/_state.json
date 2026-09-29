@@ -682,8 +682,8 @@
   "a-world-apart-vhs-rental-thriller": {
     "batch": "batch-0009",
     "call_number": "48189690",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/250px-A_world_apart_bd9084c3-3251-457b-aaba-d7dd207e0521.jpg?v=1788290466",
+    "status": "imported"
   },
   "abduction-dvd-rental-action": {
     "batch": "batch-0014",
@@ -950,8 +950,8 @@
   "all-about-the-benjamins-vhs-rental-action": {
     "batch": "batch-0002",
     "call_number": "00177914",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/sO7IpJHjZBGLevi8Ozj9EsAUw5h_3ca9fc05-ec7d-422b-b84d-7d0b7e60beee.jpg?v=1788880759",
+    "status": "imported"
   },
   "all-creatures-great-and-small": {
     "batch": "batch-0011",
@@ -7234,7 +7234,6 @@
   "goodfellas-1": {
     "batch": "batch-0014",
     "call_number": "33424378",
-    "note": "sync_fix reported an error, see sync-report.csv",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/9OkCLM73MIU2CrKZbqiT8Ln1wY2_01b3b925-d164-4511-b3cb-be256a0011fc.jpg?v=1788286238",
     "status": "done"
@@ -7748,8 +7747,8 @@
   "hearts-of-fire-vhs-rental-musical": {
     "batch": "batch-0009",
     "call_number": "48091386",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/latest_cc4403f8-40ea-4e6b-b47e-070d7814440e.webp?v=1788290463",
+    "status": "imported"
   },
   "heartsong-vhs-rental-musical": {
     "batch": "batch-0009",
@@ -8505,8 +8504,8 @@
   "igby-goes-down-vhs-rental-drama": {
     "batch": "batch-0009",
     "call_number": "48058618",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/images_f269f615-3337-4752-bd14-824f6a99850e.jpg?v=1788290462",
+    "status": "imported"
   },
   "imaginary-heroes-dvd-rental-drama": {
     "batch": "batch-0006",
@@ -11973,8 +11972,8 @@
   "no-contest-vhs-rental-thriller": {
     "batch": "batch-0009",
     "call_number": "47927546",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/MV5BZWE0N2NkMWYtM2FjYy00MmZjLTg3MGItNDAxMTU5YzQxMDg3XkEyXkFqcGc_._V1_642287c8-c405-4e97-9e22-c63e129391dd.jpg?v=1788290458",
+    "status": "imported"
   },
   "no-country-for-old-men": {
     "batch": "batch-0012",
@@ -12197,8 +12196,8 @@
   "october-sky-vhs-rental-kids-family": {
     "batch": "batch-0009",
     "call_number": "48124154",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/images_94068615-3bbe-4c44-bd95-c7f7cc7e5633.jpg?v=1788290465",
+    "status": "imported"
   },
   "octopussy-vhs-rental-action": {
     "batch": "batch-0004",
@@ -13861,8 +13860,8 @@
   "reversal-of-fortune-vhs-rental-drama": {
     "batch": "batch-0004",
     "call_number": "00177914",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/jEmFeHPsoyHk6RRZslKzC5NVFad.jpg?v=1788381058",
+    "status": "imported"
   },
   "rich-and-famous-vhs-rental-drama": {
     "batch": "batch-0004",
@@ -19922,8 +19921,8 @@
   "the-yards-vhs-rental-thriller": {
     "batch": "batch-0009",
     "call_number": "48222458",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/images_e74ad9ee-d9e2-4253-8721-026ec9bed7be.jpg?v=1788290468",
+    "status": "imported"
   },
   "the-year-of-living-dangerously-vhs-rental-thriller": {
     "batch": "batch-0003",
@@ -22115,8 +22114,8 @@
   "you-can-count-on-me-vhs-rental-drama": {
     "batch": "batch-0009",
     "call_number": "48255226",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "status": "needs-review"
+    "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/You_Can_Count_on_Me_d601d788-4c69-4dbc-bbb6-b05243de4935.png?v=1788290469",
+    "status": "imported"
   },
   "young-frankenstein-dvd": {
     "batch": "batch-0014",

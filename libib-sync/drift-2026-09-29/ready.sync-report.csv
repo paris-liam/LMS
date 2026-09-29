@@ -9,3 +9,4 @@ call_number,barcode_status,content_status,message
 90000275,updated,updated,"barcode: ok | content: changed: description, poster"
 90000307,updated,updated,barcode: ok | content: changed: poster
 90000397,updated,updated,"barcode: ok | content: changed: description, poster"
+90000455,updated,updated,"barcode: ok | content: changed: description, poster"
