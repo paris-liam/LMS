@@ -1,1 +1,3 @@
 call_number,barcode_status,content_status,message
+90000014,updated,updated,"barcode: ok | content: changed: description, poster"
+90000484,updated,updated,barcode: ok | content: changed: poster
