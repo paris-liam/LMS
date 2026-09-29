@@ -107,7 +107,7 @@
     "note": "sync_fix reported an error, see sync-report.csv",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/zaqam2RNscH5ooYFWInV6hjx6y5_9e440d2a-f2ef-4021-addc-b6562c41edd4.jpg?v=1788880687",
-    "status": "needs-review"
+    "status": "done"
   },
   "21-grams-dvd-rental-drama": {
     "batch": "batch-0005",
@@ -6033,13 +6033,6 @@
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/is80o8p0sCok3UqtnHEE2oyXyad_9aa1355f-a5e4-474e-8f0b-54c9848bc57c.jpg?v=1788286737",
     "status": "done"
   },
-  "far-from-heaven-dvd-rental-drama": {
-    "batch": "batch-0015",
-    "call_number": "42902010",
-    "note": "sync_fix reported an error, see sync-report.csv",
-    "poster_confirmed": false,
-    "status": "needs-review"
-  },
   "far-from-heaven-vhs-rental-drama": {
     "call_number": "19948282",
     "status": "done"
@@ -7576,7 +7569,7 @@
     "note": "sync_fix reported an error, see sync-report.csv",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/zP4CK9O70P8GDilfTkPm4lrmaks_ab1bb094-4752-40c4-bcc5-f57d2748788c.jpg?v=1788880690",
-    "status": "needs-review"
+    "status": "done"
   },
   "happy-feet-two-bluray-rental-kids-family": {
     "batch": "batch-0014",
@@ -7836,7 +7829,7 @@
   },
   "herbie-fully-loaded": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782249953300_40fe6630-323a-4272-a865-3a15e6fafbd8.jpg?v=1788286082",
-    "status": "imported"
+    "status": "done"
   },
   "herculese-against-th-moonmen-vhs-rental-sci-fi": {
     "batch": "batch-0009",
@@ -8406,7 +8399,7 @@
     "note": "sync_fix reported an error, see sync-report.csv",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/efwv6F2lGaghjPpBRSINHtoEiZB_c28430bf-f976-4f45-8d91-f9f3c1f7fe53.jpg?v=1788880688",
-    "status": "needs-review"
+    "status": "done"
   },
   "i-robot-dvd": {
     "batch": "batch-0010",
@@ -10301,7 +10294,7 @@
   },
   "lost-in-translation": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782250724042_6c81ef4a-54c5-49b5-acca-55deca2d830b.jpg?v=1788286118",
-    "status": "imported"
+    "status": "done"
   },
   "lost-voyage-dvd-rental-horror": {
     "batch": "batch-0006",
@@ -10598,7 +10591,7 @@
     "note": "sync_fix reported an error, see sync-report.csv",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/bBf0N1kNQGr6btlO9F66VAV1moz.jpg?v=1788880692",
-    "status": "needs-review"
+    "status": "done"
   },
   "marley-me-bluray-rental-kids-family": {
     "batch": "batch-0002",
@@ -10636,7 +10629,7 @@
     "note": "sync_fix reported an error, see sync-report.csv",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/o4Wsby4ydIXhWmtmfvb451D5Np1.jpg?v=1788880687",
-    "status": "needs-review"
+    "status": "done"
   },
   "mary-poppins-dvd-rental-kids-family": {
     "batch": "batch-0017",
@@ -13575,7 +13568,7 @@
   },
   "ratatouille": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782250915264_a8679afe-fddb-4ada-9657-faa714bc1a2a.jpg?v=1788286114",
-    "status": "imported"
+    "status": "done"
   },
   "ratatouille-cooking-fun-for-all-ages-dvd-rental-kids-family": {
     "batch": "batch-0004",
@@ -13602,7 +13595,7 @@
   },
   "re-animator": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782251708151.jpg?v=1788286160",
-    "status": "imported"
+    "status": "done"
   },
   "real-life-vhs-rental-comedy": {
     "batch": "batch-0004",
@@ -14317,7 +14310,7 @@
   },
   "saving-private-ryan": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782249865438_6688c9b7-0c37-43cc-8ebc-80a63571c6a9.jpg?v=1788286074",
-    "status": "imported"
+    "status": "done"
   },
   "saving-private-ryan-dvd-rental-action": {
     "batch": "batch-0014",
@@ -14358,7 +14351,7 @@
   },
   "say-anything": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782251215624.jpg?v=1788286133",
-    "status": "imported"
+    "status": "done"
   },
   "say-hello-to-yesterday-dvd-rental-drama": {
     "batch": "batch-0003",
@@ -14826,7 +14819,7 @@
     "note": "sync_fix reported an error, see sync-report.csv",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/rwopfpHqPCYBSgBuZwkaXXqHp14.jpg?v=1788880691",
-    "status": "needs-review"
+    "status": "done"
   },
   "singalong-songs-very-merry-christmas-songs-vhs-rental-kids-family": {
     "batch": "batch-0008",
@@ -14929,7 +14922,7 @@
   },
   "sleepless-in-seattle": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782251917330_1ef8a861-58d3-436a-9ff9-3fec8c266259.jpg?v=1788286156",
-    "status": "imported"
+    "status": "done"
   },
   "sleepover-dvd-rental-comedy": {
     "batch": "batch-0005",
@@ -15025,7 +15018,7 @@
   },
   "snatch-special-edition": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782249662182_2e93c16d-0db8-4356-8951-6e58546b5582.jpg?v=1788286069",
-    "status": "imported"
+    "status": "done"
   },
   "snatchers-dvd-rental-horror": {
     "batch": "batch-0014",
@@ -15454,7 +15447,7 @@
   },
   "spirited-away": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782250769878.jpg?v=1788286106",
-    "status": "imported"
+    "status": "done"
   },
   "split-decisions-vhs-rental-drama": {
     "batch": "batch-0004",
@@ -16101,7 +16094,7 @@
   },
   "syriana": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782251804457_5d64e863-d73e-4ee5-91a9-30e1fc7fe3a6.jpg?v=1788286150",
-    "status": "imported"
+    "status": "done"
   },
   "taffin-vhs": {
     "batch": "batch-0010",
@@ -16132,7 +16125,7 @@
     "note": "sync_fix reported an error, see sync-report.csv",
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/yzAlcuJhpnxRPjaj7AHBRbNPQCJ_5ff8287b-0fa6-410f-a79b-252e1eab36d7.jpg?v=1788880693",
-    "status": "needs-review"
+    "status": "done"
   },
   "taken-dvd-rental-action": {
     "batch": "batch-0014",
@@ -16182,7 +16175,7 @@
   },
   "tango-cash": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782251392896_df870cd0-5b5b-49c5-b3c7-08b08da5bfec.jpg?v=1788286142",
-    "status": "imported"
+    "status": "done"
   },
   "tarzan-dvd-rental-kids-family": {
     "batch": "batch-0014",
@@ -16602,7 +16595,7 @@
   },
   "the-beales-of-grey-gardens": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782250220947.jpg?v=1788286097",
-    "status": "imported"
+    "status": "done"
   },
   "the-beautitian-and-the-beast-vhs-rental-kids-family": {
     "batch": "batch-0006",
@@ -16934,7 +16927,7 @@
   },
   "the-cabin-in-the-woods": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782249926062_321451d2-6547-4405-8519-dea2dc671ac9.jpg?v=1788286080",
-    "status": "imported"
+    "status": "done"
   },
   "the-call-of-the-wild-dvd-rental-kids-family": {
     "batch": "batch-0007",
@@ -17485,7 +17478,7 @@
   },
   "the-forgotten": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782249728988.jpg?v=1788286071",
-    "status": "imported"
+    "status": "done"
   },
   "the-fourth-war-vhs-rental-drama": {
     "batch": "batch-0008",
@@ -18362,11 +18355,11 @@
   },
   "the-lord-of-the-rings-the-return-of-the-king": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782252255175_ba47b8a0-17d8-4ab7-88b8-905a4a65a1e8.jpg?v=1788286173",
-    "status": "imported"
+    "status": "done"
   },
   "the-lord-of-the-rings-the-two-towers": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782252171092.jpg?v=1788286172",
-    "status": "imported"
+    "status": "done"
   },
   "the-losers-dvd-rental-action": {
     "batch": "batch-0014",
@@ -20109,7 +20102,7 @@
   },
   "three-kings": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782250168127.jpg?v=1788286094",
-    "status": "imported"
+    "status": "done"
   },
   "three-men-and-a-baby-vhs-rental-kids-family": {
     "batch": "batch-0006",
@@ -21199,7 +21192,7 @@
   },
   "village-of-the-damned": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782252419522.jpg?v=1788381842",
-    "status": "imported"
+    "status": "done"
   },
   "viridiana-dvd-rental-drama": {
     "batch": "batch-0014",
@@ -22163,7 +22156,7 @@
   },
   "youve-got-mail": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782249789355.jpg?v=1788285322",
-    "status": "imported"
+    "status": "done"
   },
   "zack-parkers-proxy": {
     "batch": "batch-0012",
