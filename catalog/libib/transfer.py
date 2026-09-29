@@ -6,7 +6,8 @@ so they can be tested without Libib.
 An import is never trusted on its own: every run exports Libib first (so a
 re-run never imports a copy that is already there) and again afterwards, and a
 call number only counts as imported once it appears exactly once in that
-second export.
+second export. Libib processes the upload in the background, so the command
+polls; a submitted batch leaves a marker file and is never uploaded twice.
 """
 
 import csv
@@ -27,6 +28,20 @@ EXPECTED_MAPPINGS = {
     "copies": "Copies",
     "call_number": "Call #",
 }
+
+
+# Libib imports in the background ("you will receive an email once it is
+# done"); the command polls exports until every call number shows up.
+POLL_SECONDS = 20
+POLL_LIMIT_SECONDS = 600
+SUBMITTED_MARKER = "import-submitted.json"
+
+
+def write_marker(path, calls: list[str]) -> None:
+    import json
+    from datetime import datetime, timezone
+    Path(path).write_text(json.dumps({"submitted_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                                     "call_numbers": calls}, indent=2), encoding="utf-8")
 
 
 def mapping_problems(columns: list[str], selected: list[str]) -> list[str]:

@@ -187,58 +187,75 @@ def run_export_command(args, exporter=None) -> int:
     return 0
 
 
-def run_import_command(args, exporter=None, importer=None, stdin=None) -> int:
-    """Export (what is already there) -> import the rest -> export again ->
-    mark only the call numbers that now appear exactly once as imported."""
+def run_import_command(args, exporter=None, importer=None, stdin=None, sleep=time.sleep) -> int:
+    """Export (what is already there) -> import the rest -> poll exports until
+    Libib's background import shows every call number -> mark exactly-once
+    call numbers as imported. A batch submitted before (marker file present)
+    is only verified, never uploaded again: Libib may still be processing it."""
     log.setup_logging(None, log.verbosity(args))
     exporter = exporter or transfer.run_browser_export
     importer = importer or transfer.run_browser_import
     sync_dir = Path(args.sync_dir)
     batch_dir = sync_dir / args.batch
     import_path = batch_dir / "import.csv"
+    marker = batch_dir / transfer.SUBMITTED_MARKER
     if not import_path.exists():
         raise NoRunError(f"{import_path} does not exist — run `python3 -m catalog libib prepare` first")
     state = load_state(sync_dir)
     handle_by_call = {e.get("call_number"): h for h, e in state.items()
                       if e.get("batch") == args.batch and e.get("status") == "queued"}
-    rows = transfer.read_import_rows(import_path)
-    not_queued = [r["call_number"] for r in rows if r["call_number"] not in handle_by_call]
-    if not_queued:
-        raise InputShapeError(f"{args.batch}: {len(not_queued)} rows are not queued in the state file "
-                              f"(already imported?): {', '.join(not_queued[:10])}")
+    rows = [r for r in transfer.read_import_rows(import_path) if r["call_number"] in handle_by_call]
+    if not rows:
+        raise InputShapeError(f"{args.batch}: nothing queued in the state file (already imported?)")
+    submitted = marker.exists()
 
     log.header(f"libib import — {args.batch}")
     plan = Plan(
         title="libib import",
         count=len(rows),
-        summary=[f"{args.batch}: CSV-imports {len(rows)} rentals into Libib's {DEFAULT_COLLECTION} (Force Import Mode)",
-                 "exports Libib first and skips any call number it already has; exports again afterwards",
-                 "state: rows found exactly once afterwards -> imported"],
+        summary=([f"{args.batch}: already submitted to Libib ({marker.name}) — verifies only, uploads nothing"]
+                 if submitted else
+                 [f"{args.batch}: CSV-imports {len(rows)} rentals into Libib's {DEFAULT_COLLECTION} (Force Import Mode)",
+                  "exports Libib first and skips any call number it already has"])
+        + [f"then re-exports every {transfer.POLL_SECONDS}s (up to {transfer.POLL_LIMIT_SECONDS // 60} min) until "
+           "Libib's background import shows every call number",
+           "state: rows found exactly once -> imported"],
         samples=[f"{r['call_number']} {r['title']}" for r in rows],
     )
     if not confirm(plan, dry_run=args.dry_run, assume_yes=args.yes, stdin=stdin):
         return 0
 
     email, password = _libib_credentials()
-    before_barcodes, _ = exporter(email, password, batch_dir / "export-before")
-    todo, present = transfer.split_present(rows, transfer.call_counts(before_barcodes, DEFAULT_COLLECTION))
-    if present:
-        log.summary(f"{len(present)} already in Libib, not imported again: "
-                    + ", ".join(r["call_number"] for r in present[:10]))
-    if todo:
-        upload = import_path if not present else transfer.write_import_rows(batch_dir / "import.remaining.csv", todo)
-        importer(email, password, upload, batch_dir)
+    if not submitted:
+        before_barcodes, _ = exporter(email, password, batch_dir / "export-before")
+        todo, present = transfer.split_present(rows, transfer.call_counts(before_barcodes, DEFAULT_COLLECTION))
+        if present:
+            log.summary(f"{len(present)} already in Libib, not imported again: "
+                        + ", ".join(r["call_number"] for r in present[:10]))
+        if todo:
+            upload = import_path if not present else transfer.write_import_rows(batch_dir / "import.remaining.csv", todo)
+            importer(email, password, upload, batch_dir)
+            transfer.write_marker(marker, [r["call_number"] for r in todo])
+
     after_dir = transfer.export_dir(args.exports_dir)
-    after_barcodes, after_library = exporter(email, password, after_dir)
-    result = transfer.verify_imported([r["call_number"] for r in rows],
-                                      transfer.call_counts(after_barcodes, DEFAULT_COLLECTION))
+    calls = [r["call_number"] for r in rows]
+    waited = 0
+    while True:
+        after_barcodes, _ = exporter(email, password, after_dir)
+        result = transfer.verify_imported(calls, transfer.call_counts(after_barcodes, DEFAULT_COLLECTION))
+        if not result["missing"] or waited >= transfer.POLL_LIMIT_SECONDS:
+            break
+        log.summary(f"Libib is still importing: {len(result['ok'])} of {len(calls)} in so far")
+        sleep(transfer.POLL_SECONDS)
+        waited += transfer.POLL_SECONDS
     for call in result["ok"]:
         set_status(state, handle_by_call[call], "imported")
     save_state(sync_dir, state)
 
     log.summary(f"imported: {len(result['ok'])} of {len(rows)} now in Libib exactly once")
     if result["missing"]:
-        log.summary(f"MISSING after import ({len(result['missing'])}, left queued): {', '.join(result['missing'])}")
+        log.summary(f"MISSING ({len(result['missing'])}, left queued — re-run later to verify again, it won't "
+                    f"re-upload): {', '.join(result['missing'])}")
     if result["duplicated"]:
         log.summary(f"DUPLICATED in Libib ({len(result['duplicated'])}, left queued): {', '.join(result['duplicated'])}")
     log.summary(f"fresh export: {after_dir}")

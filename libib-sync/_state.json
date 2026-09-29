@@ -588,7 +588,7 @@
   "a-serious-man-dvd-rental-drama": {
     "batch": "batch-0019",
     "call_number": "72531706",
-    "status": "queued"
+    "status": "imported"
   },
   "a-star-is-born": {
     "batch": "batch-0012",
@@ -1935,7 +1935,7 @@
   "bambi-vhs-rental-kids-family": {
     "batch": "batch-0019",
     "call_number": "32781050",
-    "status": "queued"
+    "status": "imported"
   },
   "bananas-dvd-rental-comedy": {
     "batch": "batch-0008",
@@ -3360,7 +3360,7 @@
   "casino-dvd-rental-drama": {
     "batch": "batch-0019",
     "call_number": "94509818",
-    "status": "queued"
+    "status": "imported"
   },
   "casino-royal-dvd-rental-action": {
     "batch": "batch-0005",
@@ -4001,7 +4001,7 @@
   "come-blow-your-horn": {
     "batch": "batch-0019",
     "call_number": "90000099",
-    "status": "queued"
+    "status": "imported"
   },
   "come-see-the-paradise": {
     "batch": "batch-0011",
@@ -4044,7 +4044,7 @@
   "conan-the-barbarian": {
     "batch": "batch-0019",
     "call_number": "90000101",
-    "status": "queued"
+    "status": "imported"
   },
   "concrete-cowboys": {
     "batch": "batch-0011",
@@ -4074,7 +4074,7 @@
   "confessions-of-a-police-captain": {
     "batch": "batch-0019",
     "call_number": "90000105",
-    "status": "queued"
+    "status": "imported"
   },
   "congo-vhs-rental-action": {
     "batch": "batch-0002",
@@ -4839,7 +4839,7 @@
   "departed": {
     "batch": "batch-0019",
     "call_number": "90000128",
-    "status": "queued"
+    "status": "imported"
   },
   "despicable-me-2-bluray-rental-kids-family": {
     "batch": "batch-0014",
@@ -5667,7 +5667,7 @@
   "elizabethtown-dvd-rental-romantic-comedy": {
     "batch": "batch-0019",
     "call_number": "91401722",
-    "status": "queued"
+    "status": "imported"
   },
   "elton-john-one-night-only-the-greatest-hits-dvd-rental-musical": {
     "batch": "batch-0005",
@@ -5700,7 +5700,7 @@
   "enchanted-dvd-rental-kids-family": {
     "batch": "batch-0019",
     "call_number": "97133818",
-    "status": "queued"
+    "status": "imported"
   },
   "enemies-a-love-story-vhs-rental-drama": {
     "batch": "batch-0008",
@@ -6081,7 +6081,7 @@
   "far-from-heaven-dvd-rental-drama": {
     "batch": "batch-0019",
     "call_number": "42902010",
-    "status": "queued"
+    "status": "imported"
   },
   "far-from-heaven-vhs-rental-drama": {
     "call_number": "19948282",
@@ -6158,12 +6158,12 @@
   "fear-and-loathing-in-las-vegas-dvd-rental-comedy": {
     "batch": "batch-0019",
     "call_number": "94883834",
-    "status": "queued"
+    "status": "imported"
   },
   "fear-and-loathing-in-las-vegas-dvd-rental-drama": {
     "batch": "batch-0019",
     "call_number": "03956986",
-    "status": "queued"
+    "status": "imported"
   },
   "fear-in-the-night-dvd-rental-thriller": {
     "batch": "batch-0007",
@@ -7286,7 +7286,7 @@
   "good-charlotte-dvd-rental-music": {
     "batch": "batch-0019",
     "call_number": "72118010",
-    "status": "queued"
+    "status": "imported"
   },
   "goodfellas": {
     "batch": "batch-0014",
@@ -10363,7 +10363,7 @@
   "lost-in-translation-dvd-rental-drama": {
     "batch": "batch-0019",
     "call_number": "69451514",
-    "status": "queued"
+    "status": "imported"
   },
   "lost-voyage-dvd-rental-horror": {
     "batch": "batch-0006",
@@ -11443,7 +11443,7 @@
   "mr-brooks": {
     "batch": "batch-0019",
     "call_number": "90000253",
-    "status": "queued"
+    "status": "imported"
   },
   "mr-deeds-goes-to-town-vhs-rental-comedy": {
     "batch": "batch-0003",
@@ -14397,12 +14397,12 @@
   "saving-private-ryan-dvd-rental-drama": {
     "batch": "batch-0019",
     "call_number": "93723386",
-    "status": "queued"
+    "status": "imported"
   },
   "saving-private-ryan-vhs": {
     "batch": "batch-0019",
     "call_number": "17927162",
-    "status": "queued"
+    "status": "imported"
   },
   "saw": {
     "batch": "batch-0011",
@@ -15011,7 +15011,7 @@
   "sleepless-in-seattle-vhs-rental-romantic-comedy": {
     "batch": "batch-0019",
     "call_number": "53087226",
-    "status": "queued"
+    "status": "imported"
   },
   "sleepover-dvd-rental-comedy": {
     "batch": "batch-0005",
@@ -16269,7 +16269,7 @@
   "tango-cash-vhs-rental-action": {
     "batch": "batch-0019",
     "call_number": "79135226",
-    "status": "queued"
+    "status": "imported"
   },
   "tarzan-dvd-rental-kids-family": {
     "batch": "batch-0014",
@@ -16786,7 +16786,7 @@
   "the-black-room-vinegar-syndrome": {
     "batch": "batch-0019",
     "call_number": "90000359",
-    "status": "queued"
+    "status": "imported"
   },
   "the-blind-side-dvd-rental-drama": {
     "batch": "batch-0014",
@@ -17394,7 +17394,7 @@
   "the-edge-dvd-rental-thriller": {
     "batch": "batch-0019",
     "call_number": "29385210",
-    "status": "queued"
+    "status": "imported"
   },
   "the-edge-vhs-rental-action": {
     "batch": "batch-0015",
@@ -17883,7 +17883,7 @@
   "the-hateful-eight-bluray-rental-western": {
     "batch": "batch-0019",
     "call_number": "98697722",
-    "status": "queued"
+    "status": "imported"
   },
   "the-heart-of-me-vhs-rental-drama": {
     "batch": "batch-0015",
@@ -18335,7 +18335,7 @@
   "the-last-waltz": {
     "batch": "batch-0019",
     "call_number": "90000375",
-    "status": "queued"
+    "status": "imported"
   },
   "the-last-waltz-bluray-rental-criterion-collection-musical": {
     "call_number": "17704442",
@@ -18462,7 +18462,7 @@
   "the-lord-of-the-rings-return-of-the-king-dvd-extended": {
     "batch": "batch-0019",
     "call_number": "32077306",
-    "status": "queued"
+    "status": "imported"
   },
   "the-lord-of-the-rings-the-fellowship-of-the-ring-dvd-extended": {
     "batch": "batch-0014",
@@ -18483,7 +18483,7 @@
   "the-lord-of-the-rings-the-two-towers-dvd-extended": {
     "batch": "batch-0019",
     "call_number": "32404986",
-    "status": "queued"
+    "status": "imported"
   },
   "the-losers-dvd-rental-action": {
     "batch": "batch-0014",
@@ -19342,7 +19342,7 @@
   "the-searchers-bluray-rental-western": {
     "batch": "batch-0019",
     "call_number": "26128634",
-    "status": "queued"
+    "status": "imported"
   },
   "the-seat-filler-dvd-rental-comedy": {
     "batch": "batch-0005",
@@ -19682,7 +19682,7 @@
   "the-texas-chainsaw-massacre": {
     "batch": "batch-0019",
     "call_number": "90000390",
-    "status": "queued"
+    "status": "imported"
   },
   "the-texas-chainsaw-massacre-dvd-rental-horror": {
     "batch": "batch-0014",
@@ -21399,7 +21399,7 @@
   "walking-tall": {
     "batch": "batch-0019",
     "call_number": "90000434",
-    "status": "queued"
+    "status": "imported"
   },
   "walking-tall-dvd-rental-action": {
     "batch": "batch-0006",
@@ -22300,7 +22300,7 @@
   "youve-got-mail-vhs-rental-romatic-comedy": {
     "batch": "batch-0019",
     "call_number": "39437050",
-    "status": "queued"
+    "status": "imported"
   },
   "zack-parkers-proxy": {
     "batch": "batch-0012",
@@ -22377,7 +22377,7 @@
   "zoolander-dvd-rental-zoolander": {
     "batch": "batch-0019",
     "call_number": "08480506",
-    "status": "queued"
+    "status": "imported"
   },
   "zootopia-bluray-rental-kids-family": {
     "batch": "batch-0017",

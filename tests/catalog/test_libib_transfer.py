@@ -58,9 +58,17 @@ class TestHelpers(unittest.TestCase):
 class FakeLibib:
     """Stands in for the browser: holds call numbers, 'exports' them, 'imports' CSVs."""
 
-    def __init__(self, calls=()):
+    def __init__(self, calls=(), lag=0):
         self.calls = list(calls)
         self.uploads = []
+        self.lag = lag          # polls before a background import lands
+        self.pending = []
+
+    def tick(self):
+        self.lag -= 1
+        if self.lag <= 0:
+            self.calls += self.pending
+            self.pending = []
 
     def exporter(self, email, password, dest):
         dest = Path(dest)
@@ -74,7 +82,10 @@ class FakeLibib:
     def importer(self, email, password, csv_path, evidence_dir):
         rows = transfer.read_import_rows(csv_path)
         self.uploads.append([r["call_number"] for r in rows])
-        self.calls += [r["call_number"] for r in rows]
+        if self.lag:
+            self.pending += [r["call_number"] for r in rows]
+        else:
+            self.calls += [r["call_number"] for r in rows]
 
 
 class TestImportCommand(unittest.TestCase):
@@ -102,7 +113,8 @@ class TestImportCommand(unittest.TestCase):
         args = build_parser().parse_args(["libib", "import", "batch-0001", "--sync-dir", str(self.sync),
                                           "--exports-dir", str(self.exports), "-q", *extra])
         with contextlib.redirect_stdout(io.StringIO()):
-            return command.run_import_command(args, exporter=libib.exporter, importer=libib.importer)
+            return command.run_import_command(args, exporter=libib.exporter, importer=libib.importer,
+                                              sleep=lambda s: libib.tick())
 
     def state(self):
         return json.loads((self.sync / "_state.json").read_text(encoding="utf-8"))
@@ -126,15 +138,33 @@ class TestImportCommand(unittest.TestCase):
         self.assertEqual(libib.uploads, [["02222222"]])
         self.assertEqual(self.state()["jaws"]["status"], "imported")
 
+    def test_waits_for_libibs_background_import(self):
+        libib = FakeLibib(lag=2)
+        self.assertEqual(self.run_import(libib, "--yes"), 0)
+        self.assertEqual({e["status"] for e in self.state().values()}, {"imported"})
+
+    def test_a_submitted_batch_is_verified_never_uploaded_again(self):
+        libib = FakeLibib()
+        libib.importer = lambda *a: None  # Libib has not processed it yet
+        with mock.patch.object(transfer, "POLL_LIMIT_SECONDS", 0):
+            self.assertEqual(self.run_import(libib, "--yes"), 1)
+        self.assertTrue((self.sync / "batch-0001" / transfer.SUBMITTED_MARKER).exists())
+        later = FakeLibib(calls=["01111111", "02222222"])  # it landed meanwhile
+        self.assertEqual(self.run_import(later, "--yes"), 0)
+        self.assertEqual(later.uploads, [])
+        self.assertEqual({e["status"] for e in self.state().values()}, {"imported"})
+
     def test_an_import_libib_did_not_take_stays_queued_and_fails(self):
         libib = FakeLibib()
         libib.importer = lambda *a: None  # Libib accepted nothing
-        self.assertEqual(self.run_import(libib, "--yes"), 1)
+        with mock.patch.object(transfer, "POLL_LIMIT_SECONDS", 40):
+            self.assertEqual(self.run_import(libib, "--yes"), 1)
         self.assertEqual(self.state()["jaws"]["status"], "queued")
 
-    def test_refuses_a_batch_that_is_not_queued(self):
+    def test_refuses_a_batch_with_nothing_queued(self):
         state = self.state()
         state["jaws"]["status"] = "imported"
+        state["heat"]["status"] = "imported"
         (self.sync / "_state.json").write_text(json.dumps(state), encoding="utf-8")
         with self.assertRaises(Exception):
             self.run_import(FakeLibib(), "--yes")
