@@ -585,10 +585,6 @@
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/images_f3e1824f-5d2a-47aa-aba0-c234cfe9f868.jpg?v=1788280581",
     "status": "done"
   },
-  "a-serious-man-dvd-rental-drama": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
   "a-star-is-born": {
     "batch": "batch-0012",
     "call_number": "191-BLRAST-50-001A",
@@ -1930,10 +1926,6 @@
     "call_number": "90000483",
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782250065772_d332802d-3b7b-4df8-802e-6a5e8692b6f9.jpg?v=1788286090",
     "status": "done"
-  },
-  "bambi-vhs-rental-kids-family": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
   },
   "bananas-dvd-rental-comedy": {
     "batch": "batch-0008",
@@ -3354,10 +3346,6 @@
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/images_45165682-bdcf-4e11-9ea5-eccf26a66c2f.jpg?v=1788280591",
     "status": "done"
-  },
-  "casino-dvd-rental-drama": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
   },
   "casino-royal-dvd-rental-action": {
     "batch": "batch-0005",
@@ -5641,10 +5629,6 @@
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782252002836_9c9e578f-680e-4c4d-8ab9-c5721d6e0f32.jpg?v=1788286165",
     "status": "done"
   },
-  "elizabethtown-dvd-rental-romantic-comedy": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
   "elton-john-one-night-only-the-greatest-hits-dvd-rental-musical": {
     "batch": "batch-0005",
     "call_number": "59418106",
@@ -5672,10 +5656,6 @@
   "enchanted": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782251488981_3c458dab-3d8b-4f88-ad9d-a3e439e07e5a.jpg?v=1788286145",
     "status": "done"
-  },
-  "enchanted-dvd-rental-kids-family": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
   },
   "enemies-a-love-story-vhs-rental-drama": {
     "batch": "batch-0008",
@@ -6131,14 +6111,6 @@
   "fear-and-loathing-in-las-vegas": {
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/0-1782250553659.jpg?v=1788286102",
     "status": "done"
-  },
-  "fear-and-loathing-in-las-vegas-dvd-rental-comedy": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
-  "fear-and-loathing-in-las-vegas-dvd-rental-drama": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
   },
   "fear-in-the-night-dvd-rental-thriller": {
     "batch": "batch-0007",
@@ -10331,10 +10303,6 @@
     "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
     "status": "needs-review"
   },
-  "lost-in-translation-dvd-rental-drama": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
   "lost-voyage-dvd-rental-horror": {
     "batch": "batch-0006",
     "call_number": "86043130",
@@ -14359,14 +14327,6 @@
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/uqx37cS8cpHg8U35f9U5IBlrCV3.jpg?v=1788880666",
     "status": "done"
   },
-  "saving-private-ryan-dvd-rental-drama": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
-  "saving-private-ryan-vhs": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
   "saw": {
     "batch": "batch-0011",
     "call_number": "26912250",
@@ -14968,10 +14928,6 @@
     "status": "done"
   },
   "sleepless-in-seattle": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
-  "sleepless-in-seattle-vhs-rental-romantic-comedy": {
     "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
     "status": "needs-review"
   },
@@ -16228,10 +16184,6 @@
     "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
     "status": "needs-review"
   },
-  "tango-cash-vhs-rental-action": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
   "tarzan-dvd-rental-kids-family": {
     "batch": "batch-0014",
     "call_number": "82525946",
@@ -17347,10 +17299,6 @@
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/xAgA99X8BjkCUX91ukgiK10Z6La.jpg?v=1788379829",
     "status": "done"
   },
-  "the-edge-dvd-rental-thriller": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
   "the-edge-vhs-rental-action": {
     "batch": "batch-0015",
     "call_number": "35734522",
@@ -18282,10 +18230,6 @@
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/7L4qwrC1mipZXJfU5oRgQWChLv1.jpg?v=1788381157",
     "status": "done"
   },
-  "the-last-waltz": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
   "the-last-waltz-bluray-rental-criterion-collection-musical": {
     "call_number": "17704442",
     "status": "done"
@@ -18408,10 +18352,6 @@
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/The-Lives-of-Others-Blu-ray.198d0a1e70d3991198da082b7b267495_5a157215-957d-4969-8bce-bb58291d1db8.jpg?v=1788286874",
     "status": "done"
   },
-  "the-lord-of-the-rings-return-of-the-king-dvd-extended": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
   "the-lord-of-the-rings-the-fellowship-of-the-ring-dvd-extended": {
     "batch": "batch-0014",
     "call_number": "32503290",
@@ -18425,10 +18365,6 @@
     "status": "needs-review"
   },
   "the-lord-of-the-rings-the-two-towers": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
-  "the-lord-of-the-rings-the-two-towers-dvd-extended": {
     "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
     "status": "needs-review"
   },
@@ -19620,10 +19556,6 @@
     "poster_confirmed": true,
     "poster_src": "https://cdn.shopify.com/s/files/1/0826/6363/7242/files/ltP2MmsYelHcLIZj77lams8omye.jpg?v=1788379773",
     "status": "done"
-  },
-  "the-texas-chainsaw-massacre": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
   },
   "the-texas-chainsaw-massacre-dvd-rental-horror": {
     "batch": "batch-0014",
@@ -22230,10 +22162,6 @@
     "status": "done"
   },
   "youve-got-mail": {
-    "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
-    "status": "needs-review"
-  },
-  "youve-got-mail-vhs-rental-romatic-comedy": {
     "note": "title matches an untracked live Libib item (accidental-restore cleanup pending) -- do not import until that collection is sorted",
     "status": "needs-review"
   },
