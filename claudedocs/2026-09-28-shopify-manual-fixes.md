@@ -27,6 +27,13 @@ reading each product back.
   `Media > Videos`; `Issue_Genre_Needed` removed.
 - Decision: **Floor Sale items don't need new barcodes.** Removed
   `Issue_Needs_New_Barcode` from the 7 floor-sale items that had it.
+- 2026-09-29: 415+12 auto-fixes applied through the Admin API (Weapons →
+  2025, Ghost in the Shell 2 → Innocence, Nosferatu → Eggers 2024 corrected
+  by hand first). New genre **Anime** (`shopify--genre` `anime`, base genre
+  Anime) + pipeline + client sheet; applied to 8 anime DVD rentals, and added
+  as a second genre on Bubblegum Crisis. Career Opportunities Blanket and
+  Patti Lapel Hat moved to the `retail` template. The client's live sheet also
+  needs the row `Anime,anime`.
 - Audit after all of the above (`runs/2026-09-28-5`): manual bucket 33
   products — only the deferred items below.
 
