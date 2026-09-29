@@ -5,3 +5,4 @@ call_number,barcode_status,content_status,message
 33424378,skipped,updated,barcode: barcode already matches call_number | content: changed: tags
 90000180,updated,updated,"barcode: ok | content: changed: description, poster"
 90000195,updated,updated,"barcode: ok | content: changed: description, poster"
+90000270,updated,updated,"barcode: ok | content: changed: description, poster"
