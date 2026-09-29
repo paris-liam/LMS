@@ -25,6 +25,7 @@ Tab 3 is named `mappings` and holds ONLY this table, starting in A1:
   Foreign           foreign
   Holiday           holiday
   Special Interest  special-interest
+  Anime             anime
 
 ------------------------------------------------------------------
 PASTE INTO TAB 2, CELL A1:
