@@ -3,3 +3,4 @@ call_number,barcode_status,content_status,message
 90000484,updated,updated,barcode: ok | content: changed: poster
 90000058,skipped,updated,barcode: barcode already matches call_number | content: changed: tags
 33424378,skipped,updated,barcode: barcode already matches call_number | content: changed: tags
+90000180,updated,updated,"barcode: ok | content: changed: description, poster"
