@@ -30,12 +30,11 @@ REQUEST_DELAY_SECONDS = 0.25
 # per-format cutoff before they'd get the same treatment.
 VHS_YEAR_CUTOFF = 2008
 
-# The store's actual catalogue — VHS, DVD, Blu-ray, 4K, Laserdisc, and
-# Betamax alike — doesn't carry anything released in or after 2020, so a
-# candidate dated that late
-# is essentially never the right match regardless of format. Looser than
-# VHS_YEAR_CUTOFF; VHS rows still use the tighter of the two.
-GLOBAL_YEAR_CUTOFF = 2019
+# There is deliberately no catalogue-wide year cut-off: the store stocks new
+# releases (2025-2026 discs are in the catalogue), so a recent candidate is a
+# real option on every format except VHS. A 2019 cut-off used to drop them
+# from tie-breaks, the ambiguous retry and the picker; it matched "Weapons"
+# (2025 Blu-ray) to a 2007 film and was removed 2026-09-29.
 
 # Our Genre metafield holds Shopify taxonomy slugs (one or more, joined with
 # "; "). TMDB has no genre filter on /search/movie, but each result carries
@@ -341,18 +340,7 @@ def classify_match(
 
     # Multiple strong, fully-populated candidates still tied on title alone:
     # try narrowing by genre, then description overlap, then a decisive
-    # popularity gap, before giving up and sending this to the picker. A
-    # candidate newer than the catalogue could ever carry is excluded from
-    # this narrowing first — otherwise it can be the one candidate that
-    # happens to carry the right genre tag (or the most popularity) and win
-    # a tie it was never really in contention for. This mirrors
-    # GLOBAL_YEAR_CUTOFF's build_output-level filter, but scoped to just the
-    # tiebreak: `best` (and thus the ambiguous fallback) still reflects the
-    # unfiltered field.
-    plausible = filter_by_year_cutoff(tied, GLOBAL_YEAR_CUTOFF)
-    if plausible:
-        tied = plausible
-
+    # popularity gap, before giving up and sending this to the picker.
     genre_filtered = [r for r in tied if genre_matches(genre, r)]
     if len(genre_filtered) == 1:
         # Genre alone doesn't overrule a better-known film: TMDB's genre tags
@@ -401,9 +389,8 @@ def match_product(row: dict, fetch_fn) -> MatchResult:
         return MatchResult("error", None, f"TMDB request failed: {exc}")
 
     best, kind = classify_match(clean_title, year, results, genre, overview_hint)
-    if year is None and kind == "ambiguous":
-        cutoff = VHS_YEAR_CUTOFF if is_vhs(row.get("Vendor", "")) else GLOBAL_YEAR_CUTOFF
-        filtered = filter_by_year_cutoff(results, cutoff)
+    if year is None and kind == "ambiguous" and is_vhs(row.get("Vendor", "")):
+        filtered = filter_by_year_cutoff(results, VHS_YEAR_CUTOFF)
         if filtered and filtered != results:
             filtered_best, filtered_kind = classify_match(clean_title, year, filtered, genre, overview_hint)
             if filtered_kind == "confident":

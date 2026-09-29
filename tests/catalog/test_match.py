@@ -115,16 +115,11 @@ class TestClassifyMatch(unittest.TestCase):
         self.assertEqual(kind, "confident")
         self.assertEqual(best["release_date"][:4], "1978")
 
-    def test_genre_tiebreak_ignores_a_candidate_beyond_the_catalog_year_range(self):
-        """Regression: a 2025 same-titled candidate can be the *only* one
-        tagged with the catalog's genre among several exact-title ties,
-        which would otherwise win the genre tiebreak outright — but the
-        catalogue carries nothing from 2020 on, so that candidate must be
-        excluded from tiebreak consideration before genre gets to decide,
-        the same way GLOBAL_YEAR_CUTOFF already excludes it elsewhere.
-        Modeled on a real catalogue case: "Elephant" (comedy genre) had
-        2003/1993/2010/2020/2025 exact-title candidates, and only the 2025
-        one carried a comedy genre tag."""
+    def test_genre_tiebreak_does_not_crown_an_obscure_genre_match(self):
+        """Real case: "Elephant" (comedy) had 2003/1993/2010/2020/2025
+        exact-title candidates and only the obscure 2025 one carried a comedy
+        tag. Genre may only settle a tie for the tie's most popular film, so
+        this stays ambiguous for the picker."""
         results = [
             result("Elephant", "2003", genre_ids=[80, 18], popularity=5.19),
             result("Elephant", "1993", genre_ids=[10770, 80, 18], popularity=1.13),
@@ -303,3 +298,17 @@ class TestMatchProduct(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestNewReleasesCanWin(unittest.TestCase):
+    def test_a_recent_film_wins_its_own_tie(self):
+        """Real case (2026-09-29): "Weapons" on Blu-ray is the 2025 film; a
+        2019 cut-off removed it from the tie and matched the 2007 film."""
+        results = [
+            result("Weapons", "2025", genre_ids=[27, 9648], popularity=35.3),
+            result("Weapons", "2007", genre_ids=[18, 53], popularity=1.6),
+        ]
+        best, kind = classify_match("Weapons", None, results, genre="horror")
+        self.assertEqual(kind, "confident")
+        self.assertEqual(best["release_date"][:4], "2025")
+

@@ -29,14 +29,13 @@ class TestRentalOrFloorSale(unittest.TestCase):
 
 
 class TestFetchCandidates(unittest.TestCase):
-    def test_drops_candidates_released_in_or_after_2020(self):
-        """The catalogue carries nothing that new — a 2020+ candidate isn't
-        a real option and shouldn't clutter the picker."""
+    def test_keeps_recent_candidates(self):
+        """The store stocks new releases, so a 2021 film is a real option
+        for the reviewer alongside the 1982 one."""
         old = result("The Thing", "1982")
         new = result("The Thing", "2021")
         candidates = fetch_candidates(fetcher([old, new]), "The Thing", None)
-        self.assertEqual(len(candidates), 1)
-        self.assertEqual(candidates[0]["year"], "1982")
+        self.assertEqual(sorted(c["year"] for c in candidates), ["1982", "2021"])
 
     def test_keeps_a_2020_plus_candidate_when_the_title_has_an_explicit_year(self):
         """An explicit title year (passed through from clean_title_and_year)
