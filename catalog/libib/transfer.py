@@ -16,6 +16,7 @@ from datetime import date
 from pathlib import Path
 
 from catalog.core.csv_io import write_csv
+from catalog.libib import venv
 from catalog.libib.columns import LIBIB_MOVIE_COLUMNS
 
 # Libib's column-matching page auto-matches our headers; these are the ones
@@ -99,7 +100,7 @@ def verify_imported(calls: list[str], counts: Counter) -> dict[str, list[str]]:
 
 def run_browser_export(email: str, password: str, dest_dir, headless: bool = True) -> tuple[Path, Path]:
     """Log in and download both exports into dest_dir. Returns (barcodes, collection)."""
-    from playwright.sync_api import sync_playwright
+    sync_playwright = venv.sync_playwright("export")
     from catalog.libib import browser
 
     with sync_playwright() as p:
@@ -115,7 +116,7 @@ def run_browser_export(email: str, password: str, dest_dir, headless: bool = Tru
 def run_browser_import(email: str, password: str, csv_path, evidence_dir, headless: bool = True) -> None:
     """Log in, upload csv_path with Force Import Mode, check Libib's column
     matching, then Process Import. Screenshots land in evidence_dir."""
-    from playwright.sync_api import sync_playwright
+    sync_playwright = venv.sync_playwright("import")
     from catalog.libib import browser
 
     with sync_playwright() as p:

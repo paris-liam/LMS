@@ -14,6 +14,7 @@ import time
 from dataclasses import dataclass
 from pathlib import Path
 
+from catalog.libib import venv
 from catalog.libib.columns import LIBIB_MOVIE_COLUMNS
 from catalog.libib.exports import BARCODE_REQUIRED, COLLECTION_REQUIRED
 
@@ -142,7 +143,7 @@ def build_checks(call_number: str, include_import_page: bool):
 
 def run_selftest(email: str, password: str, call_number: str, evidence_dir, headless: bool = True,
                  include_import_page: bool = True) -> list[Check]:
-    from playwright.sync_api import sync_playwright
+    sync_playwright = venv.sync_playwright("selftest")
     from catalog.libib import browser
 
     evidence_dir = Path(evidence_dir)
