@@ -718,5 +718,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "A 1978 adult erotic horror parody of Dracula, directed by Philip Marshak, with Jamie Gillis as the Count, who buys an estate next to a mental institution. Also released as \"Lust at First Bite\". Adults only."
+  },
+  {
+    "handle": "civil-war-4k-rental-thriller",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg",
+    "overview": "In the near future, a group of war journalists attempt to survive while reporting the truth as the United States stands on the brink of civil war."
   }
 ]
