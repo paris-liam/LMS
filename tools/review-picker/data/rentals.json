@@ -538,5 +538,11 @@
     "choice": "tmdb",
     "poster_path": "/o0kre9wRCZz3jjSjaru7QU0UtFz.jpg",
     "overview": "Alice, now 19 years old, returns to the whimsical world she first entered as a child and embarks on a journey to discover her true destiny."
+  },
+  {
+    "handle": "american-dream-dvd-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/7H7Kjfd8ErZJdVjZ7tjWQHxBKBn.jpg",
+    "overview": ""
   }
 ]
