@@ -856,5 +856,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/xFPh9zZickYu9AWqOcfUZBCIu14.jpg",
     "overview": "When a blizzard hits an isolated island town it brings with it a mysterious stranger intent on terrorizing the people for a sinister purpose."
+  },
+  {
+    "handle": "snowboat-academy-vhs-rental-comedy",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/oTQxsQWKHlxRtd8rJPaqz0x9rj0.jpg",
+    "overview": "A wacky free-for-all comedy about the riotous rivalry between snobby skiers and knuckle-dragging snowboarders."
   }
 ]
