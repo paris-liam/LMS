@@ -850,5 +850,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/2PQGwnxcYqAdgXd8Gq0vbhCo03R.jpg",
     "overview": "World War II is about to end. Benito Mussolini, il Duce, supreme dictator of Fascist Italy, sees his totalitarian dream crumbling and his power slipping away as the terrible day of his ignominious death at the hands of those he so ruthlessly oppressed for more than two decades draws inexorably near."
+  },
+  {
+    "handle": "storm-of-the-century-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/xFPh9zZickYu9AWqOcfUZBCIu14.jpg",
+    "overview": "When a blizzard hits an isolated island town it brings with it a mysterious stranger intent on terrorizing the people for a sinister purpose."
   }
 ]
