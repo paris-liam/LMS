@@ -1,64 +1,47 @@
 call_number,barcode_status,content_status,message
 13263098,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
-13295866,error,error,no item found for this call number
-13361402,error,error,no item found for this call number
-13394170,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator(""#search"")
-    - waiting for ""https://www.libib.com/library"" navigation to finish...
-    - navigated to ""https://www.libib.com/library""
-    - locator resolved to <input value="""" id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
-    - fill(""call:13394170"")
-  - attempting fill action
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-    - waiting 20ms
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-      - waiting 100ms
-    58 × waiting for element to be visible, enabled and editable
-       - element is not enabled
-     - retrying fill action
-       - waiting 500ms
-"
-13492474,error,error,item page did not load
+13295866,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+13361402,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+13394170,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+13492474,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 35856122,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 35954426,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
-35987194,skipped,error,barcode: barcode already matches call_number | content: could not reload item after save: no item found for this call number
+35987194,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 36052730,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
-36085498,error,error,no item found for this call number
-36151034,error,error,no item found for this call number
-36282106,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: item page did not load
-36314874,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator(""#search"")
-    - waiting for ""https://www.libib.com/library"" navigation to finish...
-    - navigated to ""https://www.libib.com/library""
-    - locator resolved to <input value="""" id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
-    - fill(""call:36314874"")
-  - attempting fill action
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-    - waiting 20ms
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-      - waiting 100ms
-    58 × waiting for element to be visible, enabled and editable
-       - element is not enabled
-     - retrying fill action
-       - waiting 500ms
-"
-36609786,error,error,no item found for this call number
-36675322,error,error,no item found for this call number
-49291002,error,error,no item found for this call number
-49389306,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: item page did not load
-49487610,skipped,error,barcode: barcode already matches call_number | content: could not reload item after save: item page did not load
+36085498,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+36151034,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+36282106,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+36314874,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+36609786,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+36675322,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+49291002,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+49389306,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+49487610,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 49618682,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
-49684218,error,error,no item found for this call number
-49749754,error,error,no item found for this call number
-49782522,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: item page did not load
+49684218,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+49749754,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+49782522,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
 49946362,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+49979130,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+50044666,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+50077434,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+50110202,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+50175738,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+73670394,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+73703162,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+73735930,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+73801466,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+73867002,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+73932538,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+73965306,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+74292986,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+74391290,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+74424058,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+74489594,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+74555130,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+74882810,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+74915578,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+74948346,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+80092922,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+30158074,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+30878970,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
