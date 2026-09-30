@@ -544,5 +544,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w1280/woKiBAt9aFnkRr1HZ9Bq1FQe6gS.jpg",
     "overview": "Entrepreneurs Scott and Nicky are desperate for cash to finish their construction project. They turn to Russian mobster Yuri, but after refusing the funding he offered them, Yuri gets revenge by trying to take over their project. The partners are terrified and have nowhere to turn for help, until Nicky's tough Russian girlfriend Ana decides to step in and help them.\n"
+  },
+  {
+    "handle": "beowulf-dvd-rental-fantasy",
+    "choice": "tmdb",
+    "poster_path": "/7QsWYyJAV97N9jOh21pdRIqJeJq.jpg",
+    "overview": "A 6th-century Scandinavian warrior named Beowulf embarks on a mission to slay the man-like ogre, Grendel."
   }
 ]
