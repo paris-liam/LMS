@@ -1,0 +1,121 @@
+call_number,barcode_status,content_status,message
+13263098,error,error,item page did not load
+13295866,error,error,no item found for this call number
+13361402,error,error,no item found for this call number
+13394170,error,error,item page did not load
+13492474,error,error,no item found for this call number
+35856122,error,error,no item found for this call number
+35954426,updated,error,barcode: ok | content: could not reopen item: item page did not load
+35987194,updated,updated,barcode: ok | content: changed: poster
+36052730,error,error,no item found for this call number
+36085498,updated,error,barcode: ok | content: could not reopen item: no item found for this call number
+36151034,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""#search"")
+    - locator resolved to <input value="""" disabled id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
+    - fill(""call:36151034"")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+      - waiting 100ms
+    60 × waiting for element to be visible, enabled and editable
+       - element is not enabled
+     - retrying fill action
+       - waiting 500ms
+"
+36282106,updated,updated,barcode: ok | content: changed: poster
+36314874,updated,error,barcode: ok | content: could not reopen item: no item found for this call number
+36609786,error,error,barcode: save did not persist -- reloaded value is '<reload failed: no item found for this call number>' | content: could not reload item after save: no item found for this call number
+36675322,error,error,no item found for this call number
+49291002,error,error,no item found for this call number
+49389306,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""#search"")
+    - locator resolved to <input value="""" disabled id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
+    - fill(""call:49389306"")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+      - waiting 100ms
+    60 × waiting for element to be visible, enabled and editable
+       - element is not enabled
+     - retrying fill action
+       - waiting 500ms
+"
+49487610,error,error,no item found for this call number
+49618682,error,error,no item found for this call number
+49684218,error,error,barcode: save did not persist -- reloaded value is '<reload failed: no item found for this call number>' | content: could not reopen item: no item found for this call number
+49749754,error,error,no item found for this call number
+49782522,updated,error,barcode: ok | content: could not reopen item: no item found for this call number
+49946362,error,error,item page did not load
+49979130,error,error,barcode: save did not persist -- reloaded value is '<reload failed: no item found for this call number>' | content: could not reopen item: no item found for this call number
+50044666,error,error,barcode: save did not persist -- reloaded value is '<reload failed: no item found for this call number>' | content: could not reload item after save: item page did not load
+50077434,error,error,no item found for this call number
+50110202,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""#search"")
+    - locator resolved to <input value="""" disabled id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
+    - fill(""call:50110202"")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+      - waiting 100ms
+    60 × waiting for element to be visible, enabled and editable
+       - element is not enabled
+     - retrying fill action
+       - waiting 500ms
+"
+50175738,error,error,no item found for this call number
+73670394,error,error,item page did not load
+73703162,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(""#search"")
+    - waiting for ""https://www.libib.com/library"" navigation to finish...
+    - navigated to ""https://www.libib.com/library""
+    - locator resolved to <input value="""" id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
+    - fill(""call:73703162"")
+  - attempting fill action
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and editable
+      - element is not enabled
+    - retrying fill action
+      - waiting 100ms
+    58 × waiting for element to be visible, enabled and editable
+       - element is not enabled
+     - retrying fill action
+       - waiting 500ms
+"
+73735930,error,error,item page did not load
+73801466,error,error,item page did not load
+73867002,error,error,item page did not load
+73932538,error,error,no item found for this call number
+73965306,error,error,no item found for this call number
+74292986,error,error,no item found for this call number
+74391290,error,error,item page did not load
+74424058,error,error,no item found for this call number
+74489594,error,error,no item found for this call number
+74555130,error,error,item page did not load
+74882810,error,error,item page did not load
+74915578,error,error,no item found for this call number
+74948346,error,error,item page did not load
+80092922,error,error,item page did not load
+30158074,error,error,no item found for this call number
+30878970,updated,error,barcode: ok | content: could not reload item after save: item page did not load
