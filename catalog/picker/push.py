@@ -31,12 +31,20 @@ def existing_floor_sale_groups(picker_dir) -> dict[int, int]:
     return found
 
 
+def _poster_only(entry: dict) -> bool:
+    return entry.get("Missing") == ["Image Src"]
+
+
 def new_entries_by_queue(review: list[dict], registry: dict, picker_dir=None) -> dict[str, list[dict]]:
     """review.json entries the registry doesn't know yet, grouped by the
     picker group they belong in: every rental in `rentals`, floor sales into
     the newest floor-sale-NN until it holds 100 and then a new one, anything
     tagged neither in `untyped`. The type comes from the product's Tags, not
-    from why it needs a person. The first entry for a handle wins."""
+    from why it needs a person. The first entry for a handle wins. Within the
+    push, cards missing only a poster go last: a rental with a description is
+    already good for Libib. Entries with no `Missing` list (older review.json)
+    count as blocking."""
+    review = sorted(review, key=_poster_only)
     counts = existing_floor_sale_groups(picker_dir) if picker_dir is not None else {}
     number = max(counts, default=1)
     room = FLOOR_SALE_GROUP_SIZE - counts.get(number, 0)

@@ -28,6 +28,11 @@ class TestBuildHostedPickerHtml(unittest.TestCase):
         html = build_hosted_picker_html([product], "out-product_export_3")
         self.assertIn("tag-rental", html)
 
+    def test_marks_poster_only_cards_as_lower_priority(self):
+        html = build_hosted_picker_html([sample_product()], "batch")
+        self.assertIn("poster only", html)
+        self.assertIn("product.missing", html)
+
     def test_embeds_product_json(self):
         html = build_hosted_picker_html([sample_product()], "batch")
         self.assertIn('"the-thing"', html)

@@ -104,6 +104,18 @@ class TestCollectProducts(unittest.TestCase):
         self.assertEqual(products[0]["vendor"], "DVD")
         self.assertEqual(products[0]["genre"], "horror")
 
+    def test_carries_what_is_missing_through_from_the_review_row(self):
+        products = collect_products(
+            [{"Handle": "x", "Title": "X", "Kind": "unmatched", "Reason": "r", "Missing": ["Image Src"]}],
+            fetcher([result("X")]), sleep_fn=lambda s: None,
+        )
+        self.assertEqual(products[0]["missing"], ["Image Src"])
+
+    def test_missing_defaults_to_empty_for_older_review_rows(self):
+        products = collect_products([{"Handle": "x", "Title": "X", "Kind": "unmatched", "Reason": "r"}],
+                                    fetcher([result("X")]), sleep_fn=lambda s: None)
+        self.assertEqual(products[0]["missing"], [])
+
     def test_carries_the_rental_or_floor_sale_tag_through_from_the_review_row(self):
         products = collect_products(
             [{"Handle": "x", "Title": "X", "Tags": "Rental, DVD, action",

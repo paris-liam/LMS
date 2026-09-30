@@ -55,6 +55,13 @@ class TestNewEntries(unittest.TestCase):
         self.assertEqual([e["Handle"] for e in grouped["floor-sale-01"]], ["f"])
         self.assertEqual([e["Handle"] for e in grouped["untyped"]], ["u"])
 
+    def test_poster_only_cards_go_after_cards_that_block_libib(self):
+        poster_only = dict(entry("p1"), Missing=["Image Src"])
+        both = dict(entry("b1"), Missing=["Image Src", "Body (HTML)"])
+        legacy = entry("l1")  # review.json from before Missing existed: treated as blocking
+        grouped = new_entries_by_queue([poster_only, both, dict(entry("p2"), Missing=["Image Src"]), legacy], {})
+        self.assertEqual([e["Handle"] for e in grouped["rentals"]], ["b1", "l1", "p1", "p2"])
+
     def test_floor_sales_fill_groups_of_100_continuing_the_newest(self):
         with tempfile.TemporaryDirectory() as tmp:
             data = Path(tmp) / "data"

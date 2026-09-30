@@ -36,6 +36,17 @@ Writes `runs/<date>/` (a second run the same day gets `-2`, `-3`, …):
 Buckets: **auto-fix** (safe, goes to autofix.json), **picker** (needs the client), **manual** (fix in Shopify admin).
 Rental barcodes must be 8 digits and unique across every movie.
 
+**The poster is wanted, not required.** A rental needs a title, barcode, description, genre, tags
+and format to go to Libib; a missing poster never holds it back (the diff lists them as `no poster
+yet`, and the poster is uploaded by `fix --drift` / `sync` once Shopify has one). The audit still
+tries TMDB for every missing poster and reports `run-report.txt` "by impact on Libib": *blocks
+Libib (description missing)* apart from *poster only (not blocking Libib)*.
+
+**`Poster_Missing` tag.** The audit's `poster-tag-sync` auto-fix adds the `Poster_Missing` Shopify
+tag to every movie with no image and removes it once there is one (a poster the TMDB step fills in
+the same run never gets it). It is written by `apply` like any other tag fix, folded into the
+product's single `Tags` value with any alias respelling.
+
 Flags: `--skip-tmdb` (no lookups), `--no-cache` (bypass `runs/.tmdb-cache.json`), `-v` / `-q`.
 
 The audit changes nothing outside its run folder except the shared TMDB cache and
@@ -58,6 +69,9 @@ There is no blanket `--yes`.
 
     python3 -m catalog picker push            # uses the latest complete audit run
     python3 -m catalog picker push --dry-run
+
+Within each push, cards missing only a poster go last and carry a "poster only · lower priority"
+badge (they don't block Libib); cards already in the picker keep their place.
 
 Adds the run's `review.json` products the registry doesn't know yet to the hosted
 picker's groups by product type — every Rental into `rentals`, Floor Sales into the newest
