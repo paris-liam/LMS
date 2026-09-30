@@ -114,5 +114,32 @@ class TestRunFixer(unittest.TestCase):
         self.assertIn(".venv-libib", str(ctx.exception))
 
 
+class SyncWithRetriesTests(unittest.TestCase):
+    def run_with(self, outcomes):
+        calls, pauses = [], []
+
+        def sync(page, row):
+            calls.append(row)
+            outcome = outcomes[len(calls) - 1]
+            if isinstance(outcome, Exception):
+                raise outcome
+            return outcome
+
+        result = fix.sync_with_retries(sync, "page", {"call_number": "1"}, pause=lambda: pauses.append(1))
+        return result, len(calls), len(pauses)
+
+    def test_success_first_time_is_not_retried(self):
+        self.assertEqual(self.run_with([("updated", "updated", "ok")]), (("updated", "updated", "ok"), 1, 0))
+
+    def test_error_then_success_is_retried(self):
+        result, calls, pauses = self.run_with([("error", "error", "no item found"), ("updated", "skipped", "ok")])
+        self.assertEqual((result, calls, pauses), (("updated", "skipped", "ok"), 2, 1))
+
+    def test_exception_is_retried_and_last_error_reported(self):
+        result, calls, pauses = self.run_with([TimeoutError("slow"), ("error", "error", "page did not load"),
+                                               ("skipped", "error", "could not reopen item")])
+        self.assertEqual((result, calls, pauses), (("skipped", "error", "could not reopen item"), 3, 2))
+
+
 if __name__ == "__main__":
     unittest.main()

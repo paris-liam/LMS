@@ -149,6 +149,24 @@ def run_login_check(email: str, password: str, call_number: str, headless: bool,
                 pass
 
 
+# Libib sometimes takes longer than any page wait to show an item (2026-09-30):
+# the search comes back empty or the item page never loads. sync_item is safe
+# to repeat (it skips values that already match), so retry a failed item.
+ITEM_ATTEMPTS = 3
+RETRY_PAUSE_MS = 10000
+
+
+def sync_with_retries(sync, page, row, pause, attempts: int = ITEM_ATTEMPTS) -> tuple[str, str, str]:
+    for attempt in range(attempts):
+        try:
+            barcode_status, content_status, message = sync(page, row)
+        except Exception as exc:  # keep going across a whole batch
+            barcode_status, content_status, message = "error", "error", f"{type(exc).__name__}: {exc}"
+        if "error" not in (barcode_status, content_status) or attempt == attempts - 1:
+            return barcode_status, content_status, message
+        pause()
+
+
 def run_fixer(rows: list[dict], report_path, email: str, password: str, headless: bool) -> list[dict]:
     try:
         from playwright.sync_api import sync_playwright
@@ -168,10 +186,8 @@ def run_fixer(rows: list[dict], report_path, email: str, password: str, headless
         browser.login(page, email, password)
         for index, row in enumerate(rows, start=1):
             call = row["call_number"].strip()
-            try:
-                barcode_status, content_status, message = browser.sync_item(page, row)
-            except Exception as exc:  # keep going across a whole batch
-                barcode_status, content_status, message = "error", "error", f"{type(exc).__name__}: {exc}"
+            barcode_status, content_status, message = sync_with_retries(
+                browser.sync_item, page, row, pause=lambda: page.wait_for_timeout(RETRY_PAUSE_MS))
             outcome = {"call_number": call, "barcode_status": barcode_status,
                        "content_status": content_status, "message": message}
             results.append(outcome)

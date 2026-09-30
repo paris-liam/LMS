@@ -1,54 +1,34 @@
 call_number,barcode_status,content_status,message
-13263098,error,error,item page did not load
-13295866,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator(""#search"")
-    5 × waiting for ""https://www.libib.com/library"" navigation to finish...
-      - navigated to ""https://www.libib.com/library""
-"
-13361402,updated,updated,barcode: ok | content: changed: poster
-13394170,updated,updated,barcode: ok | content: changed: poster
-13492474,updated,error,barcode: ok | content: could not reopen item: no item found for this call number
-35856122,updated,updated,barcode: ok | content: changed: poster
-35954426,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+13263098,error,error,barcode: save did not persist -- reloaded value is '<reload failed: no item found for this call number>' | content: could not reopen item: item page did not load
+13295866,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+13361402,error,error,item page did not load
+13394170,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+13492474,error,error,item page did not load
+35856122,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: no item found for this call number
+35954426,error,error,no item found for this call number
 35987194,error,error,no item found for this call number
-36052730,updated,updated,barcode: ok | content: changed: poster
-36085498,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: item page did not load
-36151034,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator(""#search"")
-    - locator resolved to <input value="""" disabled id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
-    - fill(""call:36151034"")
-  - attempting fill action
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-    - waiting 20ms
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-      - waiting 100ms
-    60 × waiting for element to be visible, enabled and editable
-       - element is not enabled
-     - retrying fill action
-       - waiting 500ms
-"
-36282106,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
-36314874,skipped,error,barcode: barcode already matches call_number | content: could not reload item after save: item page did not load
-36609786,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: no item found for this call number
+36052730,skipped,error,barcode: barcode already matches call_number | content: could not reload item after save: no item found for this call number
+36085498,error,error,no item found for this call number
+36151034,error,error,no item found for this call number
+36282106,error,error,no item found for this call number
+36314874,error,error,no item found for this call number
+36609786,error,error,no item found for this call number
 36675322,error,error,item page did not load
 49291002,error,error,no item found for this call number
-49389306,error,error,barcode: save did not persist -- reloaded value is '<reload failed: no item found for this call number>' | content: could not reopen item: no item found for this call number
-49487610,error,error,no item found for this call number
-49618682,updated,updated,barcode: ok | content: changed: poster
-49684218,error,error,item page did not load
-49749754,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
+49389306,error,error,no item found for this call number
+49487610,error,updated,barcode: save did not persist -- reloaded value is '<reload failed: item page did not load>' | content: changed: poster
+49618682,error,error,item page did not load
+49684218,skipped,error,barcode: barcode already matches call_number | content: could not reload item after save: item page did not load
+49749754,error,error,no item found for this call number
+49782522,error,error,no item found for this call number
+49946362,error,error,no item found for this call number
+49979130,error,error,no item found for this call number
+50044666,error,error,no item found for this call number
+50077434,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
 Call log:
   - waiting for locator(""#search"")
-    2 × waiting for ""https://www.libib.com/library"" navigation to finish...
-      - navigated to ""https://www.libib.com/library""
-    - locator resolved to <input value="""" id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
-    - fill(""call:49749754"")
+    - locator resolved to <input value="""" disabled id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
+    - fill(""call:50077434"")
   - attempting fill action
     2 × waiting for element to be visible, enabled and editable
       - element is not enabled
@@ -58,109 +38,28 @@ Call log:
       - element is not enabled
     - retrying fill action
       - waiting 100ms
-    48 × waiting for element to be visible, enabled and editable
+    59 × waiting for element to be visible, enabled and editable
        - element is not enabled
      - retrying fill action
        - waiting 500ms
 "
-49782522,skipped,error,barcode: barcode already matches call_number | content: could not reload item after save: no item found for this call number
-49946362,error,error,barcode: save did not persist -- reloaded value is '<reload failed: no item found for this call number>' | content: could not reopen item: no item found for this call number
-49979130,error,error,item page did not load
-50044666,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: no item found for this call number
-50077434,error,error,barcode: save did not persist -- reloaded value is '<reload failed: item page did not load>' | content: could not reopen item: no item found for this call number
-50110202,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator(""#search"")
-    2 × waiting for ""https://www.libib.com/library"" navigation to finish...
-      - navigated to ""https://www.libib.com/library""
-    - locator resolved to <input value="""" id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
-    - fill(""call:50110202"")
-  - attempting fill action
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-    - waiting 20ms
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-      - waiting 100ms
-    48 × waiting for element to be visible, enabled and editable
-       - element is not enabled
-     - retrying fill action
-       - waiting 500ms
-"
-50175738,updated,error,barcode: ok | content: could not reopen item: no item found for this call number
+50110202,error,error,item page did not load
+50175738,error,error,no item found for this call number
 73670394,error,error,item page did not load
-73703162,error,error,no item found for this call number
-73735930,updated,error,barcode: ok | content: could not reopen item: item page did not load
-73801466,error,error,item page did not load
-73867002,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator(""#search"")
-    - waiting for ""https://www.libib.com/library"" navigation to finish...
-    - navigated to ""https://www.libib.com/library""
-    - locator resolved to <input value="""" id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
-    - fill(""call:73867002"")
-  - attempting fill action
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-    - waiting 20ms
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-      - waiting 100ms
-    58 × waiting for element to be visible, enabled and editable
-       - element is not enabled
-     - retrying fill action
-       - waiting 500ms
-"
-73932538,updated,error,barcode: ok | content: could not reload item after save: item page did not load
-73965306,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator(""#search"")
-    - locator resolved to <input value="""" disabled id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
-    - fill(""call:73965306"")
-  - attempting fill action
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-    - waiting 20ms
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-      - waiting 100ms
-    60 × waiting for element to be visible, enabled and editable
-       - element is not enabled
-     - retrying fill action
-       - waiting 500ms
-"
+73703162,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+73735930,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: no item found for this call number
+73801466,updated,error,barcode: ok | content: could not reopen item: no item found for this call number
+73867002,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: no item found for this call number
+73932538,skipped,error,barcode: barcode already matches call_number | content: could not reload item after save: item page did not load
+73965306,error,error,no item found for this call number
 74292986,error,error,no item found for this call number
-74391290,updated,error,barcode: ok | content: could not reopen item: no item found for this call number
+74391290,error,error,item page did not load
 74424058,error,error,item page did not load
-74489594,error,error,no item found for this call number
-74555130,error,error,item page did not load
-74882810,error,error,item page did not load
+74489594,error,error,item page did not load
+74555130,updated,error,barcode: ok | content: could not reopen item: no item found for this call number
+74882810,error,error,no item found for this call number
 74915578,error,error,no item found for this call number
-74948346,error,error,no item found for this call number
-80092922,error,error,"TimeoutError: Locator.fill: Timeout 30000ms exceeded.
-Call log:
-  - waiting for locator(""#search"")
-    - locator resolved to <input value="""" disabled id=""search"" tabindex=""0"" type=""search"" name=""search"" maxlength=""5000"" autocomplete=""off"" class=""search-blue"" placeholder=""Start Searching...""/>
-    - fill(""call:80092922"")
-  - attempting fill action
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-    - waiting 20ms
-    2 × waiting for element to be visible, enabled and editable
-      - element is not enabled
-    - retrying fill action
-      - waiting 100ms
-    60 × waiting for element to be visible, enabled and editable
-       - element is not enabled
-     - retrying fill action
-       - waiting 500ms
-"
-30158074,error,updated,barcode: save did not persist -- reloaded value is '<reload failed: no item found for this call number>' | content: changed: poster
-30878970,skipped,error,barcode: barcode already matches call_number | content: could not reopen item: item page did not load
+74948346,updated,error,barcode: ok | content: could not reopen item: no item found for this call number
+80092922,error,error,barcode: save did not persist -- reloaded value is '<reload failed: item page did not load>' | content: could not reopen item: item page did not load
+30158074,error,error,no item found for this call number
+30878970,error,error,no item found for this call number
