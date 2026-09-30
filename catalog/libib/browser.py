@@ -10,6 +10,9 @@ from pathlib import Path
 from playwright.sync_api import Page, TimeoutError as PlaywrightTimeoutError
 
 LIBIB_LOGIN_URL = "https://www.libib.com/login"
+# How long to wait for a Libib page element. Was 8s; raised to 30s after
+# Libib ran slow on 2026-09-30 and searches/item pages took longer to appear.
+PAGE_WAIT_MS = 30000
 
 
 def login(page: Page, email: str, password: str) -> None:
@@ -74,7 +77,7 @@ def open_item(page: Page, call_number: str):
 
     items = page.locator(".item-title")
     try:
-        items.first.wait_for(state="visible", timeout=8000)
+        items.first.wait_for(state="visible", timeout=PAGE_WAIT_MS)
     except PlaywrightTimeoutError:
         return "error", "no item found for this call number"
     # A slow Libib shows the unfiltered library for a while before the search
@@ -90,7 +93,7 @@ def open_item(page: Page, call_number: str):
 
     items.first.click()
     try:
-        page.locator(".item-edit-button").first.wait_for(state="visible", timeout=8000)
+        page.locator(".item-edit-button").first.wait_for(state="visible", timeout=PAGE_WAIT_MS)
     except PlaywrightTimeoutError:
         return "error", "item page did not load"
     return None
@@ -99,7 +102,7 @@ def open_item(page: Page, call_number: str):
 def fix_barcode(page: Page, call_number: str):
     """Returns (status, message). status is one of updated/skipped/error."""
     try:
-        page.locator(".li-copies a").first.wait_for(state="visible", timeout=8000)
+        page.locator(".li-copies a").first.wait_for(state="visible", timeout=PAGE_WAIT_MS)
     except PlaywrightTimeoutError:
         return "error", "no Copies link on item page"
     page.locator(".li-copies a").first.click()
@@ -152,9 +155,9 @@ def _read_barcode_fresh(page: Page, call_number: str) -> str:
     err = open_item(page, call_number)
     if err:
         return f"<reload failed: {err[1]}>"
-    page.locator(".li-copies a").first.wait_for(state="visible", timeout=8000)
+    page.locator(".li-copies a").first.wait_for(state="visible", timeout=PAGE_WAIT_MS)
     page.locator(".li-copies a").first.click()
-    page.locator("table tbody tr").first.wait_for(state="visible", timeout=8000)
+    page.locator("table tbody tr").first.wait_for(state="visible", timeout=PAGE_WAIT_MS)
     return page.locator("table tbody tr").first.locator(".copy-barcode-value input").input_value()
 
 
@@ -167,7 +170,7 @@ def fix_content(page: Page, title: str, description: str, tags: str, image_path:
     except Exception:
         return "error", "could not open Edit form from the item menu"
     try:
-        page.locator("input[name='title']").first.wait_for(state="visible", timeout=8000)
+        page.locator("input[name='title']").first.wait_for(state="visible", timeout=PAGE_WAIT_MS)
     except PlaywrightTimeoutError:
         return "error", "Edit form did not load"
 
@@ -223,7 +226,7 @@ def verify_content(page: Page, call_number: str, title: str, description: str, t
     page.wait_for_timeout(400)
     page.get_by_text("Edit", exact=True).first.click()
     try:
-        page.locator("input[name='title']").first.wait_for(state="visible", timeout=8000)
+        page.locator("input[name='title']").first.wait_for(state="visible", timeout=PAGE_WAIT_MS)
     except PlaywrightTimeoutError:
         return "Edit form did not reload"
 
@@ -252,7 +255,7 @@ def _open_edit_section(page: Page, field_selector: str, section: str):
     except Exception:
         return "could not open Edit form from the item menu"
     try:
-        page.locator("input[name='title']").first.wait_for(state="visible", timeout=8000)
+        page.locator("input[name='title']").first.wait_for(state="visible", timeout=PAGE_WAIT_MS)
     except PlaywrightTimeoutError:
         return "Edit form did not load"
     field = page.locator(field_selector).first
