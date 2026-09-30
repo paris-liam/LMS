@@ -75,21 +75,7 @@ reading each product back.
 - **Floor Sale at $0** — Earth Girls Are Easy, The Call (`Issue_No_Price`):
   need prices.
 
-## Remaining (as of 2026-09-30)
-
-- [ ] Print Swashbuckler's new label (`90000494`).
-- [ ] Decide: tag the 29 untyped $0 DVD/Blu-Ray products `Rental`? Then give
-      the 26 `191-` discs new 8-digit barcodes (next in sequence after
-      `90000494`) + `Reprint_These_Barcodes`, print labels, and `libib sync`.
-- [ ] Prices for the 2 $0 floor-sale items (Earth Girls Are Easy, The Call).
-- [ ] Client's live Google Sheet: add `Special Interest,special-interest` and
-      `Anime,anime` to the `mappings` tab and both to the Genre dropdowns.
-- [ ] Picker queue: 866 products with a missing description/poster (769 /
-      842); 128 rental cards left for the client
-      (`2026-09-30-picker-rentals-left-for-client.md`). `apply` when picks
-      come in — this also unblocks the 118 rentals held out of Libib.
-- [ ] Reprint labels: 493 products carry `Reprint_These_Barcodes` — confirm
-      which are already printed and clear the tag from those.
+Open items are tracked in `CHECKLIST.md` at the repo root.
 
 ## Follow-ups
 

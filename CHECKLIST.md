@@ -34,7 +34,8 @@ Standing rules:
   barcodes. The list is the `manual` bucket of the latest audit
   (`runs/<latest>/`).
 
-- [ ] **2. Swashbuckler and Frances share barcode `08873722`.**
+- [x] **2. Swashbuckler and Frances share barcode `08873722`.** *(Done
+  2026-09-30 except printing the label — see the note of that date.)*
   Two different products carry the same barcode, so the Libib sync blocks
   both (it can't tell which Libib item belongs to which). Frances was entered
   first (2026-07-24) and the Libib item under `08873722` is Frances;
@@ -91,7 +92,8 @@ Standing rules:
   (`python3 -m catalog apply`), then `picker push` the rest.
 
 - [ ] **7. Investigate the shared barcodes.**
-  21 barcodes each sit on more than one product (42 products). Every
+  20 barcodes each sit on more than one product (40 products; was 21 / 42
+  before Swashbuckler's fix on 2026-09-30). Every
   physical copy should have its own barcode, so each is either a real
   duplicate listing (same copy entered twice → merge/delete one), a second
   copy that was given the first copy's number (→ new label), or a typo.
@@ -114,7 +116,8 @@ Standing rules:
   *Do:* list them with type, barcode, price, created date and what's missing,
   group them, and propose publish / fix / delete for each group.
 
-- [ ] **10. Finish the ~226 rentals that are incomplete in Shopify.**
+- [ ] **10. Finish the rentals that are incomplete in Shopify** (118 on
+  2026-09-30 after the batch-0021/0022 sync; was ~226).
   These are rentals not yet in Libib that are missing one of the fields Libib
   needs (title, poster, barcode, description, genre, tags, format — see
   `catalog/libib/fields.py`), so `libib sync` skips them. Walkthrough and
@@ -245,6 +248,27 @@ Standing rules:
     can be fixed on another. That failed run saved nothing in Libib.
   - The approval code locally was `29db6af269`, not `16bb2b0dc3`. The 184
     changes were the same, so expect the code to differ between machines.
+- 2026-09-30 — **Libib sync batches 0021 + 0022 DONE (local), item 2 done.**
+  - batch-0021: 15 drifted posters fixed, 82 new rentals imported and filled.
+    The first `sync --approve` dropped mid-run (`ERR_INTERNET_DISCONNECTED` at
+    the import login, before anything was uploaded); it was finished by hand
+    with `libib import batch-0021` then `libib fix batch-0021`.
+  - Item 2: not a typo. Both variant IDs end in `08873722`, so Retail Barcode
+    Labels' last-8-digits rule gave both copies the same number. Frances keeps
+    it; Swashbuckler got the next reprint number **`90000494`** (sequence was
+    at `90000493`; lower gaps skipped in case a deleted product's label is
+    still printed) and the `Reprint_These_Barcodes` tag, on production.
+    batch-0022 imported it into Libib. **Still to do: print its label.**
+  - Fresh audit `runs/2026-09-30-3` + diff: **3,226 of 3,226 Libib rentals in
+    sync, 0 drift, 0 eligible, 0 orphans, 0 blocked, 0 held**; 118 incomplete
+    (item 10). Manual bucket 31 = items 1 + 3.
+  - For item 1: the next new barcode is `90000495`. A barcode collision like
+    item 2 can happen again whenever two variant IDs share their last 8
+    digits; the `blocked` line of `libib diff` is where it shows up.
+  - Fixed: `export` / `import` / `selftest` run with the system `python3` now
+    say to use `.venv-libib/bin/python` instead of a raw
+    `ModuleNotFoundError`, and the "Next:" hint after `import` names the venv
+    (`02d1cdb`).
 - 2026-09-30 — **Cloud vs local speed (evidence for item 12).** Locally (home
   connection) `libib selftest` passed all steps: login 5.3s, search 5.1s,
   edit form 4.8s, export 4.3s. The batch-0020 fix ran at about 17s per item
