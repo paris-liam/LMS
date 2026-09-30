@@ -173,3 +173,35 @@ Standing rules:
     titled discs) → corrected search title, or a hand-written description +
     cover photo.
   Once a product has all fields, the next `libib sync` imports it.
+- 2026-09-30 — **Libib sync batch-0020 IN PROGRESS — finish it locally.**
+  46 new rentals (list: `libib-sync/batch-0020/ready.csv`; the full approved
+  change list was 184 field changes, approval code `16bb2b0dc3`). All 46 are
+  **imported** into Libib (each exactly once, verified). The browser fix step
+  (barcode, title, description, tags, poster) only partly landed because Libib
+  was very slow from the cloud all day: roughly 10–15 fully fixed, the rest
+  missing some fields. The cloud run was stopped mid-batch on purpose; that's
+  safe — every fix is idempotent (already-correct values are skipped) and the
+  next run redoes the whole batch. `libib-sync/_state.json` shows 3 `imported`
+  + 43 `needs-review` for this batch; the next fix run updates them.
+  Code hardened today for slow Libib (all pushed): login waits out Libib's
+  "One moment, please…" page and retries; page waits 8s → 30s; a failed item
+  is retried twice.
+  **To finish on a local machine:**
+  1. `git pull origin main`
+  2. Playwright for Python: `pip install playwright` then
+     `python3 -m playwright install chromium` (or the `.venv-libib` from
+     `catalog/README.md`).
+  3. Environment: `LIBIB_EMAIL`, `LIBIB_PASSWORD`, `SHOPIFY_CLIENT_ID`,
+     `SHOPIFY_CLIENT_SECRET` (never commit them).
+  4. `python3 -m catalog audit --skip-tmdb` — `runs/` is not in git, and the
+     fix step needs an audit run's snapshot to record results.
+  5. `python3 -m catalog libib fix batch-0020 --dry-run` → the approval code
+     should still be `16bb2b0dc3` (same 184 changes). If it is, run
+     `python3 -m catalog libib fix batch-0020 --approve 16bb2b0dc3` (leave off
+     `--headless` to watch it). Anything still `error` in
+     `libib-sync/batch-0020/ready.sync-report.csv`: just run it again.
+  6. Confirm: `python3 -m catalog libib sync --dry-run` (exports + diffs, changes
+     nothing) should show **0 drift** for these 46. It may also list other
+     rentals that became complete since — those are a new, separate approval.
+  7. Commit `libib-sync/` and `exports/` and push.
+  Don't run it while a cloud session is in Libib (one Libib session at a time).
