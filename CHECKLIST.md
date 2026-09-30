@@ -156,6 +156,62 @@ Standing rules:
     or shop connection.
   - Don't upload screenshots/exports as public artifacts.
 
+## Picker
+
+- [ ] **13. Restructure the review picker: rentals in one group, floor sales
+  in groups of 100.** (Planned 2026-09-30; can run in a cloud session — it
+  doesn't touch Libib. Needs `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET`,
+  `TMDB_API_KEY`.) Do this before item 6, so item 6 works on the new groups.
+  **Why:** the picker is split by *why* a product needs a person
+  (`ambiguous-queue` 945, `unmatched-queue` 178), not by type. Rentals matter
+  most, because they're held out of Libib until they're filled in, so the
+  client should see them first and on their own.
+  **Target:** one `rentals` group, then `floor-sale-01`, `floor-sale-02`, …
+  of up to 100 each, plus an `untyped` group only if a flagged product is
+  tagged neither `Rental` nor `Floor Sale` (don't guess its type). Group ids
+  must match `BATCH_ID_PATTERN` (`catalog/picker/queues.py`, kept in sync
+  with `tools/review-picker/api/_github.js`).
+  **State on 2026-09-30:** no picks saved yet in either current queue (both
+  `data/*.json` empty on `main`), so nothing the client did is lost.
+  1,123 cards are queued. Against that day's audit, 900 are still flagged,
+  **223 are no longer flagged** (probably fixed since), and **64 are flagged
+  but were never queued** (they need TMDB candidates).
+  **Steps:**
+  1. `git pull`. Make sure no other session is using the picker or `apply`
+     (both push to `main`).
+  2. Run a full audit with TMDB: `python3 -m catalog audit` (no
+     `--skip-tmdb`). In the cloud the TMDB cache starts empty, so it's slower.
+  3. Change the code, with tests in `tests/catalog/`:
+     - `catalog/picker/push.py`: file new products by type from the snapshot's
+       `Tags`, not by `Kind`. Rentals go to `rentals`; floor sales go to the
+       newest `floor-sale-NN` until it holds 100, then a new one starts.
+     - Each card still shows its own reason (ambiguous / unmatched), so
+       mixed groups need no page change. Check one of each kind renders.
+  4. One-time regroup (a script under `scripts/`, with dry-run + approval
+     like every other command):
+     - Rebuild the groups from the new audit's picker products. Reuse each
+       card's stored TMDB candidates from the old
+       `data/*.products.json`, and fetch candidates only for the new ones.
+     - **Drop cards no longer flagged** (default; confirm the list with the
+       user in the dry run).
+     - **Update `data/_handle-index.json` in the same step:** every moved
+       handle's `batch` must become its new group id. `apply`
+       (`catalog/apply/merge.py`) only accepts a pick from the group the index
+       names; if the index still says `ambiguous-queue`, the client's picks
+       are skipped as "superseded".
+     - Write each group's `data/<id>.products.json`, empty `data/<id>.json`,
+       `<id>/index.html` and its `batches.json` entry (reuse
+       `append_to_queue` / `update_manifest` in `catalog/picker/queues.py`).
+     - Take `ambiguous-queue`, `unmatched-queue` and the six old 8/31 and 9/2
+       groups off the client's launcher, but **keep their `data/*.json`
+       files**. `apply` still reads old picks.
+  5. `picker push --dry-run`, then `--approve CODE`, to publish (pushes to
+     `main`; Vercel deploys it). Open the hosted launcher and check the
+     groups and counts.
+  6. Update `catalog/README.md` (Stage 2 text still says the
+     `ambiguous-queue` / `unmatched-queue` split) and add a dated note below
+     with the final group counts.
+
 ---
 
 ## Notes
