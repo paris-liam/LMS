@@ -22,8 +22,8 @@ from catalog.core.runs import COMPLETE_MARKER
 from catalog.shopify.snapshot import write_snapshot
 from catalog.tmdb.match import alt_text_for, match_product, poster_url
 
-AMBIGUOUS_QUEUE = "ambiguous-queue"
-UNMATCHED_QUEUE = "unmatched-queue"
+AMBIGUOUS_QUEUE = "picker (ambiguous)"
+UNMATCHED_QUEUE = "picker (unmatched)"
 _CONTENT_RULE = {"Image Src": "poster-missing", "Body (HTML)": "description-missing"}
 
 

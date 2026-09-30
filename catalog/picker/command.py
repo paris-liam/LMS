@@ -37,10 +37,11 @@ def run_push_command(args, fetch_fn=None, sync_fn=sync_review_picker, stdin=None
     review = json.loads((run_dir / "review.json").read_text(encoding="utf-8"))
     picker_dir = Path(args.picker_dir)
     registry = load_registry(picker_dir)
-    entries = new_entries_by_queue(review, registry)
+    entries = new_entries_by_queue(review, registry, picker_dir)
     total = sum(len(v) for v in entries.values())
-    message = (f"review-picker: +{len(entries['ambiguous-queue'])} ambiguous, "
-               f"+{len(entries['unmatched-queue'])} unmatched (audit {run_dir.name})")
+    message = (f"review-picker: +{total} cards ("
+               + ", ".join(f"{queue} +{len(v)}" for queue, v in entries.items())
+               + f") (audit {run_dir.name})")
 
     raw_fetch = None
     if total and not args.dry_run:  # fail fast on a missing key, before asking
@@ -53,7 +54,7 @@ def run_push_command(args, fetch_fn=None, sync_fn=sync_review_picker, stdin=None
         + [f"registry: {total} handles -> queued",
            "git: " + ("skipped (--no-git-sync)" if args.no_git_sync
                       else f'commit + push {config.PICKER_REL} on {config.PICKER_BRANCH}: "{message}"')],
-        samples=[f"{e['Handle']} [{e['Kind']}] {e['Reason']}" for v in entries.values() for e in v],
+        samples=[f"{e['Handle']} -> {queue} [{e['Kind']}] {e['Reason']}" for queue, v in entries.items() for e in v],
     )
     if not confirm(plan, dry_run=args.dry_run, approve=args.approve, stdin=stdin):
         return 0

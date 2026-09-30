@@ -30,6 +30,7 @@ async function loadBatches() {
   const batches = await manifestResponse.json();
   const rows = document.getElementById("rows");
   for (const batch of batches) {
+    if (batch.hidden) continue; // retired groups: kept so apply still reads their picks
     const tr = document.createElement("tr");
     tr.innerHTML = `<td>${batch.batch_id}</td>
       <td class="progress-cell">

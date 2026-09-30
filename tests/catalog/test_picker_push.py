@@ -27,9 +27,9 @@ def tearDownModule():
     _approval.stop()
 
 
-def entry(handle, kind="ambiguous", title="The Thing"):
+def entry(handle, kind="ambiguous", title="The Thing", tags="Rental, VHS, Horror"):
     return {"Handle": handle, "Title": title, "Vendor": "VHS", "Genre": "horror",
-            "Tags": "Rental, VHS, Horror", "Kind": kind, "Reason": "r"}
+            "Tags": tags, "Kind": kind, "Reason": "r"}
 
 
 def fetch(query, year):
@@ -47,11 +47,28 @@ class FakeStdin(io.StringIO):
 
 
 class TestNewEntries(unittest.TestCase):
-    def test_groups_by_queue_and_skips_known_and_repeated_handles(self):
-        review = [entry("a"), entry("b", "unmatched"), entry("a"), entry("c")]
+    def test_groups_by_type_not_by_kind_and_skips_known_and_repeated_handles(self):
+        review = [entry("a"), entry("b", "unmatched"), entry("a"), entry("c"),
+                  entry("f", tags="Floor Sale, DVD"), entry("u", tags="DVD")]
         grouped = new_entries_by_queue(review, {"c": {"status": "resolved"}})
-        self.assertEqual([e["Handle"] for e in grouped["ambiguous-queue"]], ["a"])
-        self.assertEqual([e["Handle"] for e in grouped["unmatched-queue"]], ["b"])
+        self.assertEqual([e["Handle"] for e in grouped["rentals"]], ["a", "b"])
+        self.assertEqual([e["Handle"] for e in grouped["floor-sale-01"]], ["f"])
+        self.assertEqual([e["Handle"] for e in grouped["untyped"]], ["u"])
+
+    def test_floor_sales_fill_groups_of_100_continuing_the_newest(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data = Path(tmp) / "data"
+            data.mkdir()
+            (data / "floor-sale-01.products.json").write_text(json.dumps([{"handle": "x"}] * 100))
+            (data / "floor-sale-02.products.json").write_text(json.dumps([{"handle": "y"}] * 99))
+            review = [entry(f"f{i}", tags="Floor Sale") for i in range(102)]
+            grouped = new_entries_by_queue(review, {}, tmp)
+        self.assertEqual({k: len(v) for k, v in grouped.items()}, {"floor-sale-02": 1, "floor-sale-03": 100, "floor-sale-04": 1})
+
+    def test_first_floor_sale_group_is_01(self):
+        review = [entry(f"f{i}", tags="Floor Sale") for i in range(101)]
+        grouped = new_entries_by_queue(review, {})
+        self.assertEqual({k: len(v) for k, v in grouped.items()}, {"floor-sale-01": 100, "floor-sale-02": 1})
 
 
 class TestPushCommand(unittest.TestCase):
@@ -61,7 +78,7 @@ class TestPushCommand(unittest.TestCase):
         self.runs, self.picker = root / "runs", root / "picker"
         run = self.runs / "2026-09-25"
         run.mkdir(parents=True)
-        (run / "review.json").write_text(json.dumps([entry("a"), entry("b", "unmatched")]), encoding="utf-8")
+        (run / "review.json").write_text(json.dumps([entry("a"), entry("b", "unmatched", tags="Floor Sale")]), encoding="utf-8")
         (run / "run-report.txt").write_text("done\n", encoding="utf-8")
 
     def tearDown(self):
@@ -88,14 +105,14 @@ class TestPushCommand(unittest.TestCase):
         self.assertIn("--approve", err.getvalue())
         self.assertFalse(self.picker.exists())
 
-    def test_yes_appends_to_both_queues_and_registers(self):
+    def test_yes_appends_to_rentals_and_floor_sale_and_registers(self):
         with contextlib.redirect_stdout(io.StringIO()):
             command.run_push_command(self.args("--approve", "ok", "--no-git-sync"), fetch_fn=fetch)
         registry = json.loads((self.picker / "data" / "_handle-index.json").read_text(encoding="utf-8"))
-        self.assertEqual(registry["a"], {"batch": "ambiguous-queue", "status": "queued"})
-        self.assertEqual(registry["b"], {"batch": "unmatched-queue", "status": "queued"})
-        self.assertTrue((self.picker / "ambiguous-queue" / "index.html").exists())
-        self.assertTrue((self.picker / "unmatched-queue" / "index.html").exists())
+        self.assertEqual(registry["a"], {"batch": "rentals", "status": "queued"})
+        self.assertEqual(registry["b"], {"batch": "floor-sale-01", "status": "queued"})
+        self.assertTrue((self.picker / "rentals" / "index.html").exists())
+        self.assertTrue((self.picker / "floor-sale-01" / "index.html").exists())
         self.assertTrue((self.picker / "index.html").exists())
         self.assertTrue((self.runs / ".tmdb-cache.json").exists())
 

@@ -58,12 +58,19 @@ There is no blanket `--yes`.
     python3 -m catalog picker push --dry-run
 
 Adds the run's `review.json` products the registry doesn't know yet to the hosted
-picker's `ambiguous-queue` / `unmatched-queue` (fetching TMDB candidates — needs
-`TMDB_API_KEY`), marks them `queued`, then commits and pushes `tools/review-picker/`.
+picker's groups by product type — every Rental into `rentals`, Floor Sales into the newest
+`floor-sale-NN` until it holds 100 and then a new one, anything tagged neither into
+`untyped` (fetching TMDB candidates — needs `TMDB_API_KEY`). Each card still shows its own
+reason (ambiguous / no match). Marks them `queued`, then commits and pushes `tools/review-picker/`.
 It publishes to `main` (Vercel deploys `main`) from whatever branch is checked out — a
 cloud session works on its own branch: it merges `origin/main` in, commits, and pushes
 `HEAD:main` (a fast-forward, never a force). If the push is refused, the commit stays on
 the branch. `--no-git-sync` never commits.
+
+`scripts/regroup-picker.py` is the one-time tool that moved the old `ambiguous-queue` /
+`unmatched-queue` cards into these groups (same `--dry-run` / `--approve` rule). Retired
+groups are marked `"hidden": true` in `batches.json`: off the launcher, but `apply` still
+reads their picks.
 
 ## Stage 3 — apply
 
