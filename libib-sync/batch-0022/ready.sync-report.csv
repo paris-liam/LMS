@@ -1,0 +1,2 @@
+call_number,barcode_status,content_status,message
+90000494,updated,updated,barcode: ok | content: changed: poster
