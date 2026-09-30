@@ -706,5 +706,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/iTRftxHW8i4H7ONaOiCIwEXjNDJ.jpg",
     "overview": "When carrying out a hit, assassin Joe always makes use of the knowledge of the local population. On arriving in Bangkok, Joe meets street kid Kong and he becomes his primary aide. But when Kong is nearly killed, he asks Joe to train him up in the deadly arts and unwittingly becomes a target of a band of killers."
+  },
+  {
+    "handle": "city-of-sin-dvd-rental-action",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/mM7lFpYA2IEpXluO3XB7UU5aZ7i.jpg",
+    "overview": "Los Angeles, 1958: a detective holes up in a downtown hotel awaiting killers to come get him. During the course of one night he will meet various occupants of the hotel and the truth of how he came to be in his present situation will be revealed."
   }
 ]
