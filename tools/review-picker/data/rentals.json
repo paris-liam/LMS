@@ -514,5 +514,11 @@
     "choice": "tmdb",
     "poster_path": "/pGkjEL7RkMogMI6aznsKmZOhd8I.jpg",
     "overview": "Five random strangers find themselves trapped in an elevator in the World Trade Center's North Tower on 9/11. They work together, never giving up hope, to try to escape before the unthinkable happens."
+  },
+  {
+    "handle": "15-classic-movies-dvd-rental-drama",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "15 GREAT CLASSIC MOVIES DISC #1 -- THE SNOWS OF KILIMANJARO 1952 ** ANNA KARENINA 1948 ** A CONNECTICUT YANKEE 1952 ** TALE OF 2 CITIES 1953 DISC #2 -- JANE EYRE 1971 ** LEGEND OF THE SEA WOLF 1957 ** ADVENTURES OF HUCKLEBERRY FINN 1953 ** JUNGLE BOOK 1942 DISC #3 -- CALL OF THE WILD 1972 ** MACBETH 1961 ** OF HUMAN BONDAGE 1934 ** LITTLOE MEN 1940 DISC #4 THE LAST TIME I SAW2 PARIS 1954 ** DAVID COPPERFIELD 1970 ** CYRANO DE BERGERAC 1950.\n\n"
   }
 ]
