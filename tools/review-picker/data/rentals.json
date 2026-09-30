@@ -886,5 +886,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/kAwOj7t8ZeaniTFtLWVSKO79JxX.jpg",
     "overview": "During the final weeks of a presidential race, the President is accused of sexual misconduct. To distract the public until the election, the President's adviser hires a Hollywood producer to help him stage a fake war."
+  },
+  {
+    "handle": "highlander-10th-anniversary-dvd-rental-action",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/8Z8dptJEypuLoOQro1WugD855YE.jpg",
+    "overview": "He fought his first battle on the Scottish Highlands in 1536. He will fight his greatest battle on the streets of New York City in 1986. His name is Connor MacLeod. He is immortal."
   }
 ]
