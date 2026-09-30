@@ -541,8 +541,8 @@
   },
   {
     "handle": "american-dream-dvd-rental-thriller",
-    "choice": "tmdb",
-    "poster_path": "/7H7Kjfd8ErZJdVjZ7tjWQHxBKBn.jpg",
-    "overview": ""
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Entrepreneurs Scott and Nicky are desperate for cash to finish their construction project. They turn to Russian mobster Yuri, but after refusing the funding he offered them, Yuri gets revenge by trying to take over their project. The partners are terrified and have nowhere to turn for help, until Nicky's tough Russian girlfriend Ana decides to step in and help them.\n"
   }
 ]
