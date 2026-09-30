@@ -904,5 +904,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "Music DVD from the band Incubus (2001) with live performances, including acoustic songs recorded at the Sno-Core festival, plus music videos and backstage footage."
+  },
+  {
+    "handle": "monster-hunter-dvd-rental-sci-fi",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/1UCOF11QCw8kcqvce8LKOO6pimh.jpg",
+    "overview": "A portal transports Cpt. Artemis and an elite unit of soldiers to a strange world where powerful monsters rule with deadly ferocity. Faced with relentless danger, the team encounters a mysterious hunter who may be their only hope to find a way home."
   }
 ]
