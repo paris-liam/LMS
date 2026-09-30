@@ -34,6 +34,16 @@ reading each product back.
   as a second genre on Bubblegum Crisis. Career Opportunities Blanket and
   Patti Lapel Hat moved to the `retail` template. The client's live sheet also
   needs the row `Anime,anime`.
+- 2026-09-30 tag cleanup (7,073 products, list in `runs/tag-cleanup-plan.txt`):
+  removed `Formatted` (7,010), `update-barcode-in-libib` (306),
+  `not-yet-in-libib` (200 — nothing in the pipeline reads it),
+  `issue:held_for_libib_cleanup` (9), `Batch_6` (7), `Dark City` (1);
+  removed stale `Issue_Needs_New_Barcode` from the 462 rentals that already
+  have an 8-digit barcode (kept on the 26 deferred `191-` discs) and stale
+  `Issue_Rental_Or_Sale` from 7 products already tagged Rental. Added
+  `online-store` to the non-movie products except the membership
+  (mystery-bag-dvd, mystery-bag-vhs, mystery-bag-vhs-horror, patti-lapel-hat,
+  career-opportunities-blanket). `Reprint_These_Barcodes` left as is.
 - Audit after all of the above (`runs/2026-09-28-5`): manual bucket 33
   products — only the deferred items below.
 
