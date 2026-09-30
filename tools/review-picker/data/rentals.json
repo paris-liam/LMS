@@ -868,5 +868,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/uKHm41DzzC4VoDwLZDU9PBYj6ue.jpg",
     "overview": "In a marvelously animated version of one of the most beloved of all Dr. Seuss tales, two youngsters find themselves at home with nothing to do on a rainy afternoon. But when the magical, mischievous Cat in the Hat arrives on the scene, they're all cat-apulted into a day of rousing, romping, outlandish antics they - and you - will never forget!"
+  },
+  {
+    "handle": "wildside-crimea-of-the-century-vhs-rental-action",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "An episode of the 1985 Western TV series Wildside, released on VHS."
   }
 ]
