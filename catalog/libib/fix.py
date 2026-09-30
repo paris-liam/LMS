@@ -17,8 +17,17 @@ REPORT_COLUMNS = ["call_number", "barcode_status", "content_status", "message"]
 
 
 def read_ready(path) -> list[dict]:
+    """Rows of a ready.csv. image_path is absolute on the machine that ran
+    `prepare`; when that path is missing here, use the poster of the same name
+    beside ready.csv, so a batch prepared in the cloud can be fixed locally."""
+    folder = Path(path).parent
     with open(path, newline="", encoding="utf-8") as f:
-        return [row for row in csv.DictReader(f) if (row.get("call_number") or "").strip()]
+        rows = [row for row in csv.DictReader(f) if (row.get("call_number") or "").strip()]
+    for row in rows:
+        image = (row.get("image_path") or "").strip()
+        if image and not Path(image).exists() and (folder / Path(image).name).exists():
+            row["image_path"] = str(folder / Path(image).name)
+    return rows
 
 
 def completed_calls(report_path) -> set[str]:

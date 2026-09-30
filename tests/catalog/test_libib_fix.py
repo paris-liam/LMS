@@ -98,6 +98,17 @@ class TestReadReady(unittest.TestCase):
             path.write_text("call_number,title,description,tags,image_path\n01111111,A,,,\n,B,,,\n", encoding="utf-8")
             self.assertEqual([r["title"] for r in read_ready(path)], ["A"])
 
+    def test_poster_path_from_another_machine_resolves_to_the_batch_folder(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "ready.csv"
+            (Path(tmp) / "01111111.jpg").write_bytes(b"jpg")
+            path.write_text("call_number,title,description,tags,image_path\n"
+                            "01111111,A,,,/home/user/LMS/libib-sync/batch-0001/01111111.jpg\n"
+                            "02222222,B,,,/home/user/LMS/libib-sync/batch-0001/02222222.jpg\n", encoding="utf-8")
+            rows = read_ready(path)
+            self.assertEqual(rows[0]["image_path"], str(Path(tmp) / "01111111.jpg"))
+            self.assertEqual(rows[1]["image_path"], "/home/user/LMS/libib-sync/batch-0001/02222222.jpg")
+
 
 class TestRunFixer(unittest.TestCase):
     def test_run_fixer_without_playwright_names_the_venv(self):
