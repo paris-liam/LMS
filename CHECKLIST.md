@@ -160,3 +160,16 @@ Standing rules:
 
 - 2026-09-30 — checklist created. Tag cleanup finished (see
   `claudedocs/2026-09-28-shopify-manual-fixes.md`).
+- 2026-09-30 — item 10 breakdown (audit `runs/2026-09-30`): now **200**
+  incomplete rentals (was ~226), all active and all with a valid 8-digit
+  barcode. What they lack is only TMDB content: poster 191, description 173,
+  genre metafield 20. Why they're stuck:
+  - 20 have audit **auto-fixes** waiting (genre metafield from the genre tag,
+    category, some poster/description) → `python3 -m catalog apply`; 12 of
+    them are then complete.
+  - ~131 are **ambiguous** (TMDB has several same-titled films) → picker
+    choice; overlaps item 6.
+  - ~57 have **no TMDB match** (box sets, compilations, obscure or oddly
+    titled discs) → corrected search title, or a hand-written description +
+    cover photo.
+  Once a product has all fields, the next `libib sync` imports it.
