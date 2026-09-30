@@ -43,6 +43,20 @@ def rules_for(result, handle):
     return {(f.rule, f.field, f.bucket) for f in result.findings if f.handle == handle}
 
 
+class TestReportSplit(unittest.TestCase):
+    def report(self, rows):
+        result = run_audit(rows, {}, fetcher({}))
+        return build_report(result, source="t", audited=len(rows), excluded={}, tmdb_status="ok")
+
+    def test_poster_only_gaps_are_reported_apart_from_description_gaps(self):
+        rows = [movie(Handle="a", **{"Image Src": "", "Image Alt Text": ""}),
+                movie(Handle="b", **{"Body (HTML)": ""}),
+                movie(Handle="c", **{"Image Src": "", "Image Alt Text": "", "Body (HTML)": ""})]
+        report = self.report(rows)
+        self.assertRegex(report, r"blocks Libib \(description missing\)\s+2\n")
+        self.assertRegex(report, r"poster only \(not blocking Libib\)\s+1\n")
+
+
 class TestContentStep(unittest.TestCase):
     def test_confident_match_autofills_poster_and_alt(self):
         row = movie(**{"Image Src": "", "Image Alt Text": ""})
@@ -63,6 +77,29 @@ class TestContentStep(unittest.TestCase):
         self.assertEqual(result.review[0]["Kind"], "unmatched")
         self.assertIn(("poster-missing", "Image Src", PICKER), rules_for(result, "rushmore-vhs-rental"))
 
+    def test_review_entry_lists_everything_missing(self):
+        row = movie(**{"Image Src": "", "Image Alt Text": "", "Body (HTML)": ""})
+        result = run_audit([row], {}, fetcher({}))
+        self.assertEqual(result.review[0]["Missing"], ["Image Src", "Body (HTML)"])
+
+    def test_imageless_movie_is_tagged_poster_missing(self):
+        row = movie(**{"Image Src": "", "Image Alt Text": ""})
+        result = run_audit([row], {}, fetcher({}))
+        self.assertEqual(result.autofix["rushmore-vhs-rental"]["changes"]["Tags"], "Rental, VHS, Comedy, Poster_Missing")
+
+    def test_tmdb_poster_autofill_does_not_tag_the_product_poster_missing(self):
+        row = movie(**{"Image Src": "", "Image Alt Text": ""})
+        result = run_audit([row], {}, fetcher({"Rushmore": [tmdb("Rushmore", 1998)]}))
+        changes = result.autofix["rushmore-vhs-rental"]["changes"]
+        self.assertIn("Image Src", changes)
+        self.assertNotIn("Tags", changes)
+
+    def test_tmdb_poster_autofill_removes_an_existing_poster_missing_tag(self):
+        row = movie(**{"Image Src": "", "Image Alt Text": "", "Tags": "Rental, VHS, Comedy, Poster_Missing"})
+        result = run_audit([row], {}, fetcher({"Rushmore": [tmdb("Rushmore", 1998)]}))
+        changes = result.autofix["rushmore-vhs-rental"]["changes"]
+        self.assertEqual((changes["Image Src"][-6:], changes["Tags"]), ("/p.jpg", "Rental, VHS, Comedy"))
+
     def test_ambiguous_goes_to_ambiguous_queue(self):
         row = movie(Title="Mandela", **{"Image Src": "", "Image Alt Text": "", GENRE_METAFIELD: ""},
                     Tags="Rental, VHS, Drama", **{"Option1 Value": "Drama"})
@@ -70,7 +107,8 @@ class TestContentStep(unittest.TestCase):
         self.assertEqual(len(result.review), 1)
         entry = result.review[0]
         self.assertEqual(entry["Kind"], "ambiguous")
-        self.assertEqual(set(entry), {"Handle", "Title", "Vendor", "Genre", "Tags", "Kind", "Reason"})
+        self.assertEqual(set(entry), {"Handle", "Title", "Vendor", "Genre", "Tags", "Kind", "Reason", "Missing"})
+        self.assertEqual(entry["Missing"], ["Image Src"])
 
     def test_no_match_goes_to_unmatched_queue(self):
         result = run_audit([movie(**{"Image Src": "", "Image Alt Text": ""})], {}, fetcher({}))

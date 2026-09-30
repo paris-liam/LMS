@@ -112,6 +112,31 @@ class TestAutoFixRules(unittest.TestCase):
         self.assertNotIn(("alt-text-missing", "Image Alt Text"),
                          by_rule(check_row(movie(**{"Image Src": "", "Image Alt Text": ""}))))
 
+    def test_imageless_movie_gets_the_poster_missing_tag(self):
+        for maker in (movie, floor_sale):
+            with self.subTest(maker=maker.__name__):
+                f = by_rule(check_row(maker(**{"Image Src": "", "Image Alt Text": ""})))
+                finding = f[("poster-tag-sync", "Tags")]
+                self.assertEqual(finding.bucket, AUTO_FIX)
+                self.assertTrue(finding.proposed_value.endswith(", Poster_Missing"))
+
+    def test_poster_missing_tag_is_removed_once_there_is_an_image(self):
+        f = by_rule(check_row(movie(Tags="Rental, VHS, Comedy, poster_missing")))
+        self.assertEqual(f[("poster-tag-sync", "Tags")].proposed_value, "Rental, VHS, Comedy")
+
+    def test_poster_missing_tag_already_right_is_left_alone(self):
+        self.assertEqual(check_row(movie(**{"Image Src": "", "Image Alt Text": "",
+                                            "Tags": "Rental, VHS, Comedy, Poster_Missing"})), [])
+
+    def test_poster_missing_tag_folds_into_the_same_tags_value_as_a_respelling(self):
+        f = check_row(movie(**{"Image Src": "", "Image Alt Text": "", "Tags": "rental, VHS, Comedy"}))
+        proposed = {x.proposed_value for x in f if x.field == "Tags"}
+        self.assertEqual(proposed, {"Rental, VHS, Comedy, Poster_Missing"})
+
+    def test_multi_variant_gets_no_poster_tag_fix(self):
+        f = check_row(movie(**{"Image Src": "", "Image Alt Text": "", "Variant Count": "2"}))
+        self.assertNotIn("poster-tag-sync", {x.rule for x in f})
+
     def test_rental_blank_price(self):
         f = by_rule(check_row(movie(**{"Variant Price": ""})))
         self.assertEqual(f[("rental-price-blank", "Variant Price")].proposed_value, "0")

@@ -7,12 +7,14 @@ writes outputs.
 
 import html
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 from catalog.audit.findings import AUTO_FIX, FINDING_COLUMNS, MANUAL, PICKER, Finding
+from catalog.audit.resolvers import split_list
 from catalog.audit.rules import (
-    check_catalogue, check_row, is_multi_variant, needs_description, needs_poster, resolve_row,
+    POSTER_MISSING_TAG, check_catalogue, check_row, has_poster_tag, is_multi_variant, needs_description,
+    needs_poster, resolve_row, strip_poster_tag,
 )
 from catalog.core import log
 from catalog.core.columns import GENRE_METAFIELD
@@ -36,9 +38,10 @@ class AuditResult:
 
 
 def _review_entry(row: dict, kind: str, reason: str) -> dict:
+    missing = [f for f, needed in (("Image Src", needs_poster(row)), ("Body (HTML)", needs_description(row))) if needed]
     return {"Handle": row["Handle"], "Title": row.get("Title", ""), "Vendor": row.get("Vendor", ""),
             "Genre": row.get(GENRE_METAFIELD, ""), "Tags": row.get("Tags", ""),
-            "Kind": kind, "Reason": reason}
+            "Kind": kind, "Reason": reason, "Missing": missing}
 
 
 def _content(row: dict, registry: dict, fetch_fn) -> tuple[list[Finding], dict | None, str]:
@@ -118,6 +121,30 @@ def _applied_missing(registry: dict, rows_by_handle: dict, handles: list[str]) -
     return out
 
 
+def _reconcile_poster_tag(findings: list[Finding], rows_by_handle: dict) -> list[Finding]:
+    """A poster the TMDB step is about to fill must not also be tagged Poster_Missing
+    (or keep the tag): rewrite that product's Tags fixes without it."""
+    arriving = {f.handle for f in findings if f.bucket == AUTO_FIX and f.field == "Image Src"}
+    if not arriving:
+        return findings
+    out: list[Finding] = []
+    tag_fixed: set[str] = set()
+    for f in findings:
+        if f.handle in arriving and f.bucket == AUTO_FIX and f.field == "Tags":
+            if f.rule == "poster-tag-sync":
+                continue
+            f = replace(f, proposed_value=strip_poster_tag(f.proposed_value))
+            tag_fixed.add(f.handle)
+        out.append(f)
+    for handle in sorted(arriving - tag_fixed):
+        row = rows_by_handle[handle]
+        if has_poster_tag(split_list(row.get("Tags", ""))) and not is_multi_variant(row):
+            out.append(Finding(handle, (row.get("Title") or "").strip(), resolve_row(row).type or "",
+                               "poster-tag-sync", "Tags", row.get("Tags", ""), strip_poster_tag(row.get("Tags", "")),
+                               AUTO_FIX, f"a poster is being filled in, so drop {POSTER_MISSING_TAG}"))
+    return out
+
+
 def collect_autofix(findings: list[Finding]) -> dict:
     out: dict = {}
     for f in findings:
@@ -153,6 +180,8 @@ def run_audit(rows: list[dict], registry: dict, fetch_fn=None) -> AuditResult:
             review.append(entry)
         log.progress(index, len(content_rows), (row.get("Title") or row["Handle"]).strip(), message)
 
+    findings = _reconcile_poster_tag(findings, rows_by_handle)
+
     for row in rows:
         if not is_multi_variant(row):
             continue
@@ -173,6 +202,12 @@ def build_report(result: AuditResult, *, source: str, audited: int, excluded: di
     for f in result.findings:
         by_rule.setdefault(f.rule, set()).add(f.handle)
         by_bucket.setdefault(f.bucket, set()).add(f.handle)
+    gaps: dict[str, set] = {}
+    for f in result.findings:
+        if f.bucket != AUTO_FIX and f.rule in _CONTENT_RULE.values():
+            gaps.setdefault(f.handle, set()).add(f.rule)
+    description_gap = [h for h, rules in gaps.items() if "description-missing" in rules]
+    poster_only = [h for h, rules in gaps.items() if rules == {"poster-missing"}]
     excluded_text = ", ".join(f"{k}: {v}" for k, v in sorted(excluded.items())) or "none"
     lines = [
         f"source:    {source}",
@@ -180,6 +215,9 @@ def build_report(result: AuditResult, *, source: str, audited: int, excluded: di
         f"findings:  {len(result.findings)} across {len({f.handle for f in result.findings})} products",
         "by bucket (products):",
         *[f"  {b:<10} {len(by_bucket.get(b, ()))}" for b in (AUTO_FIX, PICKER, MANUAL)],
+        "by impact on Libib (products):",
+        f"  {'blocks Libib (description missing)':<36} {len(description_gap)}",
+        f"  {'poster only (not blocking Libib)':<36} {len(poster_only)}",
         "by rule (products):",
         *[f"  {rule:<26} {len(handles)}" for rule, handles in sorted(by_rule.items())],
         f"auto-fix:  {len(result.autofix)} products in autofix.json",

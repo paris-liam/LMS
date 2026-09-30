@@ -16,6 +16,8 @@ from catalog.core.columns import GENRE_METAFIELD, MOVIE_CATEGORY
 from catalog.core.taxonomy import canonical_format, canonical_genre, canonical_type, genre_handle
 from catalog.core.text import strip_html
 
+POSTER_MISSING_TAG = "Poster_Missing"
+
 _TAG_ALIAS_RULES = (("type-alias", canonical_type), ("format-alias", canonical_format),
                     ("genre-alias", canonical_genre))
 
@@ -45,6 +47,25 @@ def respelled_tags(r: Resolved) -> str:
     remove a type or format tag — even on a product tagged with both types."""
     respelled = [canonical_type(t) or canonical_format(t) or canonical_genre(t) or t for t in r.tags]
     return ", ".join(dedupe(respelled))
+
+
+def has_poster_tag(tags: list[str]) -> bool:
+    return any(t.strip().lower() == POSTER_MISSING_TAG.lower() for t in tags)
+
+
+def strip_poster_tag(tags: str) -> str:
+    """A comma-separated tag string without Poster_Missing (any case)."""
+    return ", ".join(t for t in split_list(tags) if t.strip().lower() != POSTER_MISSING_TAG.lower())
+
+
+def final_tags(row: dict, r: Resolved) -> str:
+    """The tags the product should end up with: its own, respelled, plus
+    Poster_Missing exactly when it has no image. Every Tags fix proposes this
+    one value, so several fixes on one product never disagree."""
+    base = strip_poster_tag(respelled_tags(r))
+    if not needs_poster(row):
+        return base
+    return ", ".join([base, POSTER_MISSING_TAG] if base else [POSTER_MISSING_TAG])
 
 
 def needs_poster(row: dict) -> bool:
@@ -106,12 +127,16 @@ def _rental_barcode_findings(row, r, make) -> list[Finding]:
 def _autofix_findings(row, r, make) -> list[Finding]:
     out: list[Finding] = []
     current_tags = row.get("Tags", "")
-    proposed_tags = respelled_tags(r)
+    proposed_tags = final_tags(row, r)
     for tag in r.tags:
         for rule, resolver in _TAG_ALIAS_RULES:
             canonical = resolver(tag)
             if canonical and canonical != tag:
                 out.append(make(rule, "Tags", current_tags, proposed_tags, AUTO_FIX, f"{tag!r} -> {canonical!r}"))
+
+    if has_poster_tag(r.tags) != needs_poster(row):
+        out.append(make("poster-tag-sync", "Tags", current_tags, proposed_tags, AUTO_FIX,
+                        f"{POSTER_MISSING_TAG} marks a product with no poster"))
 
     vendor = (row.get("Vendor") or "").strip()
     if r.format and vendor != r.format:
