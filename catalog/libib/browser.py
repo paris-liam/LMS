@@ -16,7 +16,19 @@ def login(page: Page, email: str, password: str) -> None:
     """Libib sometimes answers with a "One moment, please..." holding page
     that reloads itself every 5s (seen 2026-09-30). Typing into the real form
     before its scripts load makes Next submit as a plain form post (the page
-    turns into raw JSON), so wait for the form *and* its page load first."""
+    turns into raw JSON), so wait for the form *and* its page load first, and
+    start over from a fresh login page if a step still times out."""
+    for attempt in range(3):
+        try:
+            _login_once(page, email, password)
+            return
+        except PlaywrightTimeoutError:
+            if attempt == 2:
+                raise
+            page.wait_for_timeout(15000)
+
+
+def _login_once(page: Page, email: str, password: str) -> None:
     page.goto(LIBIB_LOGIN_URL)
     email_box = page.get_by_role("textbox", name="Email")
     email_box.wait_for(state="visible", timeout=90000)
