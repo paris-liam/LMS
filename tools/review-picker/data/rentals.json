@@ -826,5 +826,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/imFmo6KvwfC9Z3ERnqtan2Azzqe.jpg",
     "overview": "The son of a priest slain by the Mau Mau moves in with a police officer and his wife in 1950 Kenya."
+  },
+  {
+    "handle": "the-dwarves-of-dragon-mountain-dvd-rental-fantasy",
+    "choice": "tmdb",
+    "poster_path": "/xdJVC9zIxqyXPMfz6luRsh0Jxv8.jpg",
+    "overview": "In this steampunk fantasy adventure, a collapse imprisons three dwarven miners who must now work collectively to combat starvation, despair, and a mysterious creature."
   }
 ]
