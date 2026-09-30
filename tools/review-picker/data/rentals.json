@@ -712,5 +712,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/mM7lFpYA2IEpXluO3XB7UU5aZ7i.jpg",
     "overview": "Los Angeles, 1958: a detective holes up in a downtown hotel awaiting killers to come get him. During the course of one night he will meet various occupants of the hotel and the truth of how he came to be in his present situation will be revealed."
+  },
+  {
+    "handle": "dracula-sucks-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "A 1978 adult erotic horror parody of Dracula, directed by Philip Marshak, with Jamie Gillis as the Count, who buys an estate next to a mental institution. Also released as \"Lust at First Bite\". Adults only."
   }
 ]
