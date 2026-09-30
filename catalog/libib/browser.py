@@ -34,7 +34,10 @@ def login(page: Page, email: str, password: str) -> None:
 def _login_once(page: Page, email: str, password: str) -> None:
     page.goto(LIBIB_LOGIN_URL)
     email_box = page.get_by_role("textbox", name="Email")
-    email_box.wait_for(state="visible", timeout=90000)
+    # Libib redirects /login to /library when the session is still signed in.
+    email_box.or_(page.locator("#search")).first.wait_for(state="visible", timeout=90000)
+    if "/library" in page.url:
+        return
     page.wait_for_load_state("load")
     email_box.fill(email)
     page.get_by_role("button", name="Next").click()
