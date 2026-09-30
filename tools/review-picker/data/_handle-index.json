@@ -13,15 +13,33 @@
   },
   "20th-century-boys-1-dvd-rental-foreign": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In 1969, Kenji, an elementary school kid and his friends built a secret base during their summer holidays. They fantasized that they had to fight villains who were out to conquer the world and wrote them in the Book of Prophecies. Years later in 1997, Kenji becomes a convenience store manager and leads a regular life after giving up his dreams to become a rock star. His boring life is suddenly turned upside down when his old classmate dies mysteriously and an entire family in the neighbourhood disappears. At the same time, a religious cult and its mysterious leader, Friend emerges and a strange chain of events duplicating exactly the events described in the Book of Prophecies follow. Is this the beginning of the end of the world? Who is Friend?</p>",
+      "Image Alt Text": "20th Century Boys 1 poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/nb1fd4nZyBLUhkjnAQx5607aBMq.jpg"
+    }
   },
   "20th-century-boys-2-dvd-rental-foreign": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Set 15 years after \"Twentieth Century Boys,\" Kanna (Airi Taira) reunites with several main characters from the first film in an attempt to stop Friend's increasing influence over the world and continued plans to eliminate humanity, as detailed in the New Book of Prophecy.</p>",
+      "Image Alt Text": "20th Century Boys 2 poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/ej5rGwbyybno1pKDqqTLy7Gwc1T.jpg"
+    }
   },
   "20th-century-boys-3-dvd-rental-foreign": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The final showdown, and the final reveal. Who is Friend? How can he be stopped?</p>",
+      "Image Alt Text": "20th Century Boys 3 poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/zf5wTUqciMcSEUjPF5E9O8fBNo9.jpg"
+    }
   },
   "28-days-later-sbk-4k-floor-sale-horror": {
     "batch": "floor-sale-01",
@@ -57,7 +75,13 @@
   },
   "a-christmas-story-bluray-rental-holiday": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The comic mishaps and adventures of a young boy named Ralph, trying to convince his parents, teachers, and Santa that a Red Ryder B.B. gun really is the perfect Christmas gift for the 1940s.</p>",
+      "Image Alt Text": "A Christmas Story poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/34nSHYqmb7222tiqiuKqKJmZiQa.jpg"
+    }
   },
   "a-christmas-story-clamshell-vhs-floor-sale-holiday": {
     "batch": "floor-sale-01",
@@ -65,7 +89,13 @@
   },
   "a-christmas-story-dvd-rental-holiday": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The comic mishaps and adventures of a young boy named Ralph, trying to convince his parents, teachers, and Santa that a Red Ryder B.B. gun really is the perfect Christmas gift for the 1940s.</p>",
+      "Image Alt Text": "A Christmas Story poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/34nSHYqmb7222tiqiuKqKJmZiQa.jpg"
+    }
   },
   "a-christmas-story-vhs-floor-sale-holiday": {
     "batch": "floor-sale-01",
@@ -73,7 +103,13 @@
   },
   "a-fool-and-his-money-vhs-rental-romantic-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>New York advertising executive Morris Codman seems to have it all - lots of talent and a beautiful girlfriend, Debbie. When he loses his job he decides to use his advertising expertise to create, package and market a shady product that will make him millions. Debbie tries to convince him that money isn't everything and she loves him just the way he is. Morris' bizarre antics in promoting his product surprisingly lead to a fortune, but can love survive his quest for the almighty dollar?</p>",
+      "Image Alt Text": "A Fool and His Money poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/xclRdJ9x6VlfQxwsHoDXbS3EQLf.jpg"
+    }
   },
   "a-house-on-the-hills-vhs-floor-sale-thriller": {
     "batch": "floor-sale-01",
@@ -121,7 +157,13 @@
   },
   "alien-4k-rental-sci-fi": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>During its return to the earth, commercial spaceship Nostromo intercepts a distress signal from a distant planet. When a three-member team of the crew discovers a chamber containing thousands of eggs on the planet, a creature inside one of the eggs attacks an explorer. The entire crew is unaware of the impending nightmare set to descend upon them when the alien parasite planted inside its unfortunate host is birthed.</p>",
+      "Image Alt Text": "Alien poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg"
+    }
   },
   "alien-ressurrection-laserdisc-floor-sale-sci-fi": {
     "batch": "floor-sale-01",
@@ -240,7 +282,13 @@
   },
   "avalon-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A Polish-Jewish family comes to the U.S. at the beginning of the twentieth century. There, the family and their children try to make themselves a better future in the so-called promised land.</p>",
+      "Image Alt Text": "Avalon poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/lsyPs8pU6hIJCS5sw0H9Q8Tl1nJ.jpg"
+    }
   },
   "b-a-d-cats": {
     "batch": "floor-sale-01",
@@ -252,7 +300,13 @@
   },
   "baby-mana-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A successful, single businesswoman who dreams of having a baby discovers she is infertile and hires a working class woman to be her unlikely surrogate.</p>",
+      "Image Alt Text": "Baby Mama poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/xZOwucsL5NInPyFcmqJzytHkaJR.jpg"
+    }
   },
   "babylon": {
     "status": "skipped"
@@ -287,7 +341,13 @@
   },
   "barbie-the-fairy-princess-bluray-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Join Mariposa and her new friend, Princess Catania, in this magical adventure to save the fairy land of Shimmervale. Together, the girls learn that with great friends, the sky is the limit.</p>",
+      "Image Alt Text": "Barbie & The Fairy Princess poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/aUVd4itaF4mDFgld99wMIihjUK7.jpg"
+    }
   },
   "basic-instinct-vhs-floor-sale-thriller": {
     "batch": "floor-sale-01",
@@ -409,7 +469,13 @@
   },
   "butterfly-sword-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A loyalist attempts to keep the King's empire from being overthrown by a revolutionary group.</p>",
+      "Image Alt Text": "Butterfly Sword poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/i1s86wKq0FTWJ5xQtYW8b7n7g79.jpg"
+    }
   },
   "caged-in-triple-feature-dvd-rental-action": {
     "batch": "rentals",
@@ -561,7 +627,13 @@
   },
   "clerks-vhs-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Convenience and video store clerks Dante and Randal are sharp-witted, potty-mouthed and bored out of their minds. So in between needling customers, the counter jockeys play hockey on the roof, visit a funeral home and deal with their love lives.</p>",
+      "Image Alt Text": "Clerks poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/9IiSgiq4h4siTIS9H3o4nZ3h5L9.jpg"
+    }
   },
   "cloudy-with-a-chance-of-meatballs-bluray-floor-sale-kids-family": {
     "batch": "floor-sale-02",
@@ -569,7 +641,13 @@
   },
   "coffee-and-cigarettes-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>An anthology of eleven vignettes featuring star-studded casts of extremely unique individuals who all share the common activities of conversing while drinking coffee and smoking cigarettes.</p>",
+      "Image Alt Text": "Coffee and Cigarettes poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/pfG02QCsutx3PIxFS8UY4iM9AsS.jpg"
+    }
   },
   "cold-feet-vhs-floor-sale-comedy": {
     "batch": "floor-sale-02",
@@ -717,11 +795,23 @@
   },
   "defiance-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Based on a true story, during World War II, four Jewish brothers escape their Nazi-occupied homeland of West Belarus in Poland and join the Soviet partisans to combat the Nazis. The brothers begin the rescue of roughly 1,200 Jews still trapped in the ghettos of Poland.</p>",
+      "Image Alt Text": "Defiance poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/kEF847cC9yAkgoeEZPQwnF08p6p.jpg"
+    }
   },
   "delicatessen-dvd-rental-foreign": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In a post-apocalyptic world, the residents of an apartment above the butcher shop receive an occasional delicacy of meat, something that is in low supply. A young man new in town falls in love with the butcher's daughter, which causes conflicts in her family, who need the young man for other business-related purposes.</p>",
+      "Image Alt Text": "Delicatessen poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/gNtOgQHxE5B8e08zuNRAdDpmK5Z.jpg"
+    }
   },
   "delision-vhs-floor-sale-thriller": {
     "batch": "floor-sale-02",
@@ -741,7 +831,13 @@
   },
   "desert-heat-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Eddie Lomax is a drifter who has been in a suicidal funk since the death of his close friend Johnny. Riding his motorcycle into a small desert town where Johnny once lived, Lomax is confronted by a gang of toughs, who beat him and steal his bike. However, Lomax is not a man to take an injustice lying down, and soon he begins exacting a violent revenge on the men who stole his motorcycle, with local handyman Jubal Early lending a hand and several area ladies offering aid and comfort.</p>",
+      "Image Alt Text": "Desert Heat poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/n5C3PSYfjpUqBhyVWEWJQmM3Sr9.jpg"
+    }
   },
   "desperado-dvd-floor-sale-action": {
     "batch": "floor-sale-02",
@@ -805,7 +901,13 @@
   },
   "doppelganger-the-evil-within-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>After being implicated in a murder, a young woman flees New York City and moves to Los Angeles, where she rents a room from a writer. They begin an affair, but it seems she's been followed by a homicidal duplicate of herself.</p>",
+      "Image Alt Text": "Doppelganger The Evil Within poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/2JBlzmEzvclTkrn6tMB0Hg9N9RU.jpg"
+    }
   },
   "dorf-vhs-floor-sale-comedy": {
     "batch": "floor-sale-02",
@@ -833,7 +935,13 @@
   },
   "dr-strangelove-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>After the insane General Jack D. Ripper initiates a nuclear strike on the Soviet Union, a war room full of politicians, generals and a Russian diplomat all frantically try to stop it.</p>",
+      "Image Alt Text": "Dr Strangelove poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/gHm96BRW4GoI339rF1vYoYTB6Qe.jpg"
+    }
   },
   "dracula-bram-stokers-bluray": {
     "batch": "floor-sale-02",
@@ -849,11 +957,23 @@
   },
   "dragonfight-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In the future, large corporations earn millions of dollars by staging gladiatorial fights to the death that are shown on worldwide television. One day, however, a fighter who is scheduled to hunt and kill an opponent in the Arizona desert decides he's had enough, and makes a run for it. His opponent is instructed to track him down and kill him.</p>",
+      "Image Alt Text": "DragonFight poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/fAdEeOHpzKrdL6L5fIE8rekAPr8.jpg"
+    }
   },
   "dragonslayer-vhs-rental-fantasy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A sorcerer and his apprentice are on a mission to kill an evil dragon to save the King\u2019s daughter from being sacrificed according to a pact that the King himself made with the dragon to protect his kingdom.</p>",
+      "Image Alt Text": "Dragonslayer poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/92VXAEwbjebYqTeUa7uX5bBtDuD.jpg"
+    }
   },
   "dumb-and-dumber-dvd-5": {
     "batch": "floor-sale-02",
@@ -865,7 +985,13 @@
   },
   "dumb-and-dumberer-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>This wacky prequel to the 1994 blockbuster goes back to the lame-brained Harry and Lloyd's days as classmates at a Rhode Island high school, where the unprincipled principal puts the pair in remedial courses as part of a scheme to fleece the school.</p>",
+      "Image Alt Text": "Dumb And Dumberer poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/qxD6P3UXASFCdbrVavceZzgOfI9.jpg"
+    }
   },
   "dummy-vhs-floor-sale-comedy": {
     "batch": "floor-sale-02",
@@ -877,7 +1003,13 @@
   },
   "dying-to-get-rich-vhs-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Susan wants her reprehensible ex-husband dead and, in several bungled attempts by henchmen, tries to accomplish the deed.</p>",
+      "Image Alt Text": "Dying to Get Rich poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/kSzJiqJBQ771Vr2RJOBdYyLPa5H.jpg"
+    }
   },
   "earthly-possessions-vhs": {
     "batch": "floor-sale-02",
@@ -893,7 +1025,13 @@
   },
   "easy-money-vhs-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>To inherit his mother-in-law's colossal fortune, a hard living gambling addict must change his unhealthy ways before it gets the best of him.</p>",
+      "Image Alt Text": "Easy Money poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/nREZhCfkUgl6XqMZAvd6DCbVj2c.jpg"
+    }
   },
   "easyriders-vhs": {
     "batch": "floor-sale-02",
@@ -937,7 +1075,13 @@
   },
   "elysium-bluray-rental-sci-fi": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In the year 2159, two classes of people exist: the very wealthy who live on a pristine man-made space station called Elysium, and the rest, who live on an overpopulated, ruined Earth. Secretary Rhodes, a hard line government official, will stop at nothing to enforce anti-immigration laws and preserve the luxurious lifestyle of the citizens of Elysium. That doesn\u2019t stop the people of Earth from trying to get in, by any means they can. When unlucky Max is backed into a corner, he agrees to take on a daunting mission that, if successful, will not only save his life, but could bring equality to these polarized worlds.</p>",
+      "Image Alt Text": "Elysium poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/aRjuJuPXHtVs6YegfeeQWXGRs1E.jpg"
+    }
   },
   "enigma-vhs": {
     "batch": "floor-sale-02",
@@ -957,7 +1101,13 @@
   },
   "europa-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Just after World War II, an American takes a railway job in Germany, but finds his position politically sensitive with various people trying to use him.</p>",
+      "Image Alt Text": "Europa poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/pyFtuYQReoSmhNs55kRJedA5wEJ.jpg"
+    }
   },
   "ever-after-vhs-rental-drama": {
     "batch": "rentals",
@@ -969,7 +1119,13 @@
   },
   "excellent-cadavers-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Palermo, Sicily, 1984. Examining magistrate Giovanni Falcone allies with Tomasso Buscetta, a former mobster, to defeat the clan of Corleone, the ruthless Mafia faction that rules Cosa Nostra with an iron hand, cruelly eliminating all those who dare to oppose its immense power: other criminals, policemen, judges, even innocent civilians. One of them wants revenge, the other wants justice. But only one can survive such an unequal fight.</p>",
+      "Image Alt Text": "Excellent Cadavers poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/4PGKekbYuushvovzHCEl4X51sfl.jpg"
+    }
   },
   "expendables-1-2-3-bluray": {
     "batch": "floor-sale-02",
@@ -1017,7 +1173,13 @@
   },
   "far-from-heaven-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In 1950s Connecticut, a housewife's life is upended by a marital crisis and mounting racial tensions in society.</p>",
+      "Image Alt Text": "Far From Heaven poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/9gQuvFDRPLx39smUvyafm36tp0d.jpg"
+    }
   },
   "fass-black-vhs-floor-sale-drama": {
     "batch": "floor-sale-02",
@@ -1141,7 +1303,13 @@
   },
   "ghostbusters-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>After losing their university jobs, three parapsychologists start a ghost-catching business in New York City and uncover a supernatural threat that could destroy the world.</p>",
+      "Image Alt Text": "Ghostbusters poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/7E8nLijS9AwwUEPu2oFYOVKhdFA.jpg"
+    }
   },
   "giallo-essentials-yellow-edition-standard-edition-blu-ray-bluray-floor-sale-horror": {
     "batch": "floor-sale-03",
@@ -1253,7 +1421,13 @@
   },
   "hard-boiled-dvd-rental-foreign": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A cop who loses his partner in a shoot-out with gun smugglers goes on a mission to catch them. In order to get closer to the leaders of the ring he joins forces with an undercover cop who's working as a gangster hitman. They use all means of excessive force to find them.</p>",
+      "Image Alt Text": "Hard Boiled poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/oMqr4CGGqVlfI8DdrSelK1e9aFM.jpg"
+    }
   },
   "hard-justice-vhs-floor-sale-action": {
     "batch": "floor-sale-03",
@@ -1321,7 +1495,13 @@
   },
   "hero-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>During China's Warring States period, a district prefect arrives at the palace of Qin Shi Huang, claiming to have killed the three assassins who had made an attempt on the king's life three years ago.</p>",
+      "Image Alt Text": "Hero poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/vxgZto2Cz7ILHAlmRXt50I2brB2.jpg"
+    }
   },
   "heroes-of-the-heart-vhs-floor-sale-drama": {
     "batch": "floor-sale-03",
@@ -1353,7 +1533,13 @@
   },
   "home-alone-bluray-rental-holiday": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Eight-year-old Kevin McCallister makes the most of the situation after his family unwittingly leaves him behind when they go on Christmas vacation. When thieves try to break into his home, he puts up a fight like no other.</p>",
+      "Image Alt Text": "Home Alone poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/onTSipZ8R3bliBdKfPtsDuHTdlL.jpg"
+    }
   },
   "home-for-christmas-vhs-floor-sale-holiday": {
     "batch": "floor-sale-03",
@@ -1373,7 +1559,13 @@
   },
   "homeward-bound-vhs-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Before the Seavers leave for a family vacation to San Francisco, they drop off their pets -- Chance, an adventurous American bulldog; Shadow, a wise golden retriever; and Sassy, a cautious cat -- at a friend's ranch. But when the animals start to worry that they've been left for good, the three embark together on a treacherous and thrilling journey to find their way back home through the California wilderness.</p>",
+      "Image Alt Text": "Homeward Bound poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/el6dJEpK97OJRQiQhuiSGk2jkV5.jpg"
+    }
   },
   "horrible-bosses-bluray-floor-sale-comedy": {
     "batch": "floor-sale-03",
@@ -1437,7 +1629,13 @@
   },
   "immortal-dvd-rental-foreign": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In the distant future, Earth is occupied by ancient gods and genetically altered humans. When a god is sentenced to death he seeks a new human host and a woman to bear his child.</p>",
+      "Image Alt Text": "Immortal poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/ryCZBW1iGlW70LGCswawI26AcBE.jpg"
+    }
   },
   "impulse-vhs-floor-sale-thriller": {
     "batch": "floor-sale-03",
@@ -1557,7 +1755,13 @@
   },
   "john-wick-3-4k-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin\u2019s guild, the High Table, John Wick is excommunicado, but the world\u2019s most ruthless hit men and women await his every turn.</p>",
+      "Image Alt Text": "John Wick 3 poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg"
+    }
   },
   "john-woos-once-a-thief-vhs-floor-sale-action": {
     "batch": "floor-sale-04",
@@ -1601,7 +1805,13 @@
   },
   "k2-the-ultimate-high-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>They call it the savage mountain. 27 people have perished trying to reach the summit on K2, the world's second highest peak. A U.S. climbing team, funded by millionaire Clairborne is determined to conquer K2.</p>",
+      "Image Alt Text": "K2 The Ultimate High poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/neAOSoPFnSAiyMH3SDYxhWBn9FY.jpg"
+    }
   },
   "kafka-vhs": {
     "batch": "floor-sale-04",
@@ -1681,7 +1891,13 @@
   },
   "les-miserables-bluray-rental-musical": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>An adaptation of the successful stage musical based on Victor Hugo's classic novel set in 19th-century France. Jean Valjean, a man imprisoned for stealing bread, must flee a relentless policeman named Javert. The pursuit consumes both men's lives, and soon Valjean finds himself in the midst of the student revolutions in France.</p>",
+      "Image Alt Text": "Les Miserables poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/6CuzBs2Lb8At7qQr64mLXg2RYRb.jpg"
+    }
   },
   "les-miserables-dvd-floor-sale-muscal": {
     "batch": "floor-sale-04",
@@ -1721,7 +1937,13 @@
   },
   "live-die-repeat-bluray-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Major Bill Cage is an officer who has never seen a day of combat when he is unceremoniously demoted and dropped into combat. Cage is killed within minutes, managing to take an alpha alien down with him. He awakens back at the beginning of the same day and is forced to fight and die again... and again - as physical contact with the alien has thrown him into a time loop.</p>",
+      "Image Alt Text": "Live Die Repeat poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/nBM9MMa2WCwvMG4IJ3eiGUdbPe6.jpg"
+    }
   },
   "livin-the-blues-vhs-floor-sale-thriller": {
     "batch": "floor-sale-04",
@@ -1804,7 +2026,13 @@
   },
   "magnolia-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>On one random day in the San Fernando Valley, a dying father, a young wife, a male caretaker, a famous lost son, a police officer in love, a boy genius, an ex-boy genius, a game show host and an estranged daughter will each become part of a dazzling multiplicity of plots, but one story.</p>",
+      "Image Alt Text": "Magnolia poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/tpfC325Jk6S38VTe5dDWjWtoyxr.jpg"
+    }
   },
   "maid-to-order-vhs": {
     "batch": "floor-sale-04",
@@ -1872,7 +2100,13 @@
   },
   "mckenna-shoots-for-the-stars-bluray-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A young girl struggles to maintain her school grades while competing as a gymnast.</p>",
+      "Image Alt Text": "McKenna Shoots for the Stars poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/bDbtolQKNSKlW9QQo98ZmJDoaTG.jpg"
+    }
   },
   "mechanic-bluray-floor-sale-thriller": {
     "batch": "floor-sale-04",
@@ -2019,7 +2253,13 @@
   },
   "mulholland-dr-dvd-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Blonde Betty Elms has only just arrived in Hollywood to become a movie star when she meets an enigmatic brunette with amnesia. Meanwhile, as the two set off to solve the second woman's identity, filmmaker Adam Kesher runs into ominous trouble while casting his latest project.</p>",
+      "Image Alt Text": "Mulholland Dr. poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/x7A59t6ySylr1L7aubOQEA480vM.jpg"
+    }
   },
   "murder-in-texas-vhs": {
     "batch": "rentals",
@@ -2027,7 +2267,13 @@
   },
   "murphys-fault-vhs-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A down-on-his-luck, struggling writer hits rock bottom just when he meets a sexy policewoman. But bad luck seems to follow him like a lost puppy and just when things start looking up, a story sold, a new camper and a new love life, his adventure of misfortune begins again.</p>",
+      "Image Alt Text": "Murphy's Fault poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/wyIHpL4w8aheN6RukJhjFC9M2za.jpg"
+    }
   },
   "mussolini-and-i-vhs-rental-drama": {
     "batch": "rentals",
@@ -2134,7 +2380,13 @@
   },
   "nirvana-dvd-rental-foreign": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Jimi, a computer game designer, finds that his latest product has been infected by a virus which has given consciousness to the main character of the game, Solo. Tormented by the memory of his fled girlfriend Lisa and begged by Solo to end its useless \"life\", Jimi begins a search for people who can help him both to discover what happened to Lisa and to delete his game before it is released.</p>",
+      "Image Alt Text": "Nirvana poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/1UXk8P1qY3PadOdSj5qk1qBXWMy.jpg"
+    }
   },
   "no-mans-land-vhs-6": {
     "batch": "floor-sale-05",
@@ -2214,7 +2466,13 @@
   },
   "osamu-tezukas-metropolis-dvd-rental-anime": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In the midst of societal conflict in the futuristic city of Metropolis, Kenichi and his uncle Shunsaku Ban set out to uncover the mystery behind the first human-like robot, Tima.</p>",
+      "Image Alt Text": "Osamu Tezuka's Metropolis poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/41WtqvaObaYE3RuqgBfQFPV3aV1.jpg"
+    }
   },
   "othello-vhs-floor-sale-drama": {
     "batch": "floor-sale-05",
@@ -2234,7 +2492,13 @@
   },
   "out-of-sight-bluray-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Meet Jack Foley, a smooth criminal who bends the law and is determined to make one last heist. Karen Sisco is a federal marshal who chooses all the right moves \u2026 and all the wrong guys. Now they're willing to risk it all to find out if there's more between them than just the law.</p>",
+      "Image Alt Text": "Out of Sight poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/v49q7AMR3pB4M762woWB1NYMCLF.jpg"
+    }
   },
   "out-of-time-vhs-floor-sale-kids-family": {
     "batch": "floor-sale-05",
@@ -2358,11 +2622,23 @@
   },
   "police-story-2-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The Hong Kong super-cop must stop a group of blackmailing bombers at the same time that the villains of the first Police Story are out for revenge.</p>",
+      "Image Alt Text": "Police Story 2 poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/kjq1FXtHh9i2sIuM0JaoYf43FDU.jpg"
+    }
   },
   "police-story-dvd-rental-foreign": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Officer Chan Ka Kui manages to put a major Hong Kong drug dealer behind the bars practically alone, after a shooting and an impressive chase inside a slum. Now, he must protect the boss' secretary, Selina, who will testify against the gangster in court.</p>",
+      "Image Alt Text": "Police Story poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/1eFB0Iy1TMU4VO5hMcoCE064JAT.jpg"
+    }
   },
   "poos-heffalump-movie-dvd-rental-kids-family": {
     "batch": "rentals",
@@ -2466,7 +2742,12 @@
   },
   "rear-window-4k-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Image Alt Text": "Rear Window poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/ILVF0eJxHMddjxeQhswFtpMtqx.jpg"
+    }
   },
   "rebel-run-vhs-rental-action": {
     "batch": "rentals",
@@ -2490,7 +2771,13 @@
   },
   "redline-dvd-rental-anime": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A daredevil driver is determined to compete in Redline, the most popular race in the galaxy. The race only occurs every five years, but in order to participate he must overcome the mafia, the government and even love.</p>",
+      "Image Alt Text": "Redline poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/yUkH0y9OsY7J08Dvfzi1P0di559.jpg"
+    }
   },
   "reefer-madness-vhs-floor-sale-horror": {
     "batch": "floor-sale-05",
@@ -2546,7 +2833,13 @@
   },
   "romeo-is-bleeding-dvd-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A corrupt cop gets in over his head when he tries to assassinate a beautiful Russian hit-woman.</p>",
+      "Image Alt Text": "Romeo is Bleeding poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/ojXNRpHMXU99UFmF9MKKiJCymKr.jpg"
+    }
   },
   "romeo-juliet-floor-sale-drama": {
     "batch": "floor-sale-05",
@@ -2554,11 +2847,23 @@
   },
   "rough-air-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Having taken the blame for an accident beyond his control, pilot Mike Hogan has been on administrative leave indefinitely; however when the airline is desperately short of staff, he is offered to be first officer and accepts, without enthusiasm, received with disdain by the well-connected commander. Surprisingly his come-back proves less then routine, as the captain gets knocked out and a collision as well as a murderer being transported by police require courageous action from Mike, his crew and several passengers, including soccer star Ty Conner.</p>",
+      "Image Alt Text": "Rough Air poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/1knV2zm12XNYIvlrgphHRenC3v1.jpg"
+    }
   },
   "royal-space-force-dvd-rental-anime": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>On a future Earth, war between the Kingdom of Honneamise and its rival, The Republic, is inevitable. As evolving technology creates new ways to wage war, a small group seeks to propel mankind into space in their world\u2019s first spaceflight program. For astronaut candidate Shirotsugh Lhadatt, it\u2019s a personal odyssey as he grows from an aimless young man into a leader willing to put everything on the line in order to move the human race forward and away from the brink of Armageddon.</p>",
+      "Image Alt Text": "Royal Space Force poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/iIwFPYZS1BxGydf9weYH8hBFVfK.jpg"
+    }
   },
   "rumble-in-the-brox-dvd-floor-sale-action": {
     "batch": "floor-sale-05",
@@ -2590,7 +2895,13 @@
   },
   "salvador-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In 1980, an American journalist covering the Salvadoran Civil War becomes entangled with both the leftist guerrilla groups and the right-wing military dictatorship while trying to rescue his girlfriend and her children.</p>",
+      "Image Alt Text": "Salvador poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/c5JgUmzN7syTFy9suwoHF3vhNsN.jpg"
+    }
   },
   "sammy-vhs-floor-sale-kids-family": {
     "batch": "floor-sale-06",
@@ -2697,7 +3008,13 @@
   },
   "shadow-hunter-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>An L.A. cop tracks down a seemingly mystic murderer on an Indian reservation.</p>",
+      "Image Alt Text": "Shadow Hunter poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/1Rvs3sN4rHrfbmfWPESG1gKolDU.jpg"
+    }
   },
   "shadowlands-vhs-floor-sale-drama": {
     "batch": "floor-sale-06",
@@ -2729,11 +3046,23 @@
   },
   "sherlock-holmes-bluray-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Eccentric consulting detective Sherlock Holmes and Doctor John Watson battle to bring down a new nemesis and unravel a deadly plot that could destroy England.</p>",
+      "Image Alt Text": "Sherlock Holmes poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/momkKuWburNTqKBF6ez7rvhYVhE.jpg"
+    }
   },
   "sherlock-holmes-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Eccentric consulting detective Sherlock Holmes and Doctor John Watson battle to bring down a new nemesis and unravel a deadly plot that could destroy England.</p>",
+      "Image Alt Text": "Sherlock Holmes poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/momkKuWburNTqKBF6ez7rvhYVhE.jpg"
+    }
   },
   "shooter-bluray-floor-sale-action": {
     "batch": "floor-sale-06",
@@ -2777,7 +3106,13 @@
   },
   "sleeping-beauty-1989-vhs-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Cursed to die by the evil fairy Maleficent when she was a baby, Princess Aurora is sent into hiding under protection from three good fairies. As she grows up far away, Maleficent becomes increasingly determined to seal the princess's fate.</p>",
+      "Image Alt Text": "Sleeping Beauty (1989) poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/pO9YMLSmj3essVSWSGygjGxX6Kw.jpg"
+    }
   },
   "sleeping-beauty-bluray-floor-sale-kids-family": {
     "batch": "floor-sale-06",
@@ -2845,7 +3180,13 @@
   },
   "soldiers-fortune-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A rich young girl is kidnapped by masked terrorists. Her mother's ex-husband, a former mercenary, gathers some of his former comrades and goes off to rescue her.</p>",
+      "Image Alt Text": "Soldier's Fortune poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/aEsOIsU5Tf2j14JWLjR7i7dXbtz.jpg"
+    }
   },
   "somethingn-special-vhs": {
     "batch": "floor-sale-06",
@@ -2937,7 +3278,13 @@
   },
   "state-of-grace-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Hell's Kitchen, New York. Terry Noonan returns home after a ten-year absence. He soon reconnects with Jackie, a childhood friend and member of the Irish mob, and rekindles his love affair with Jackie's sister Kathleen.</p>",
+      "Image Alt Text": "State of Grace poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/dNMeRLY3MeY2FFeh639plHai3F1.jpg"
+    }
   },
   "steam-vhs-floor-sale-drama": {
     "batch": "floor-sale-06",
@@ -2960,7 +3307,13 @@
   },
   "streetwise-bluray-rental-criterion-collection-documentary": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>This documentary about teenagers living on the streets in Seattle began as a magazine article. The film follows nine teenagers who discuss how they live by panhandling, prostitution, and petty theft.</p>",
+      "Image Alt Text": "Streetwise poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/fW9z3HXWYTKzlqE3CYMMxaXyyy2.jpg"
+    }
   },
   "strike-screener-vhs": {
     "batch": "floor-sale-06",
@@ -2984,7 +3337,13 @@
   },
   "swingers-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>After 6 years together, Mike's girlfriend leaves him, so he travels to LA to be a star. Six months on, he's still not doing very well\u2014 so a few of his friends try to reconnect him to the social scene and hopefully help him forget his failed relationship.</p>",
+      "Image Alt Text": "Swingers poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/rRjWk68kU3a2so4lgr3TKB7Y5vA.jpg"
+    }
   },
   "taking-chance-dvd-floor-sale-drama": {
     "batch": "floor-sale-06",
@@ -3015,7 +3374,13 @@
   },
   "terror-from-under-the-house-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A British family takes revenge into its own hands in avenging their recently slain daughter.</p>",
+      "Image Alt Text": "Terror From Under The House poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/cT1SpFlks4oLd4GXpR0VnNvysPZ.jpg"
+    }
   },
   "texas-chainsaw-massacre-dvd-6": {
     "batch": "floor-sale-06",
@@ -3035,7 +3400,13 @@
   },
   "the-adventures-of-ichabod-and-mr-toad-bluray-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The Wind in the Willows: Concise version of Kenneth Grahame's story of the same name. J. Thaddeus Toad, owner of Toad Hall, is prone to fads, such as the newfangled motor car. This desire for the very latest lands him in much trouble with the wrong crowd, and it is up to his friends, Mole, Rat and Badger to save him from himself. - The Legend of Sleepy Hollow: Retelling of Washington Irving's story set in a tiny New England town. Ichabod Crane, the new schoolmaster, falls for the town beauty, Katrina Van Tassel, and the town Bully Brom Bones decides that he is a little too successful and needs \"convincing\" that Katrina is not for him.</p>",
+      "Image Alt Text": "Ichabod and Mr. Toad poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/o6GfVkgPaaHJnXNywDLpHJII2tW.jpg"
+    }
   },
   "the-arrival-floor-sale-sci-fi": {
     "batch": "floor-sale-06",
@@ -3063,11 +3434,23 @@
   },
   "the-best-years-of-our-lives-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>It's the hope that sustains the spirit of every GI: the dream of the day when he will finally return home. For three WWII veterans, the day has arrived. But for each man, the dream is about to become a nightmare.</p>",
+      "Image Alt Text": "The Best Years of Our Lives poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/gd5EoAU4MM57sW3vlWxJ0NMM8cV.jpg"
+    }
   },
   "the-best-years-of-our-lives-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>It's the hope that sustains the spirit of every GI: the dream of the day when he will finally return home. For three WWII veterans, the day has arrived. But for each man, the dream is about to become a nightmare.</p>",
+      "Image Alt Text": "The Best Years of Our Lives poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/gd5EoAU4MM57sW3vlWxJ0NMM8cV.jpg"
+    }
   },
   "the-beverly-hillbillies-christmas-vhs-floor-sale-holiday": {
     "batch": "floor-sale-07",
@@ -3075,7 +3458,13 @@
   },
   "the-blue-angel-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Prim professor Immanuel Rath finds some of his students ogling racy photos of cabaret performer Lola Lola and visits a local club, The Blue Angel, in an attempt to catch them there. Seeing Lola perform, the teacher is filled with lust, eventually resigning his position at the school to marry the young woman. However, his marriage to a coquette -- whose job is to entice men -- proves to be more difficult than Rath imagined.</p>",
+      "Image Alt Text": "The Blue Angel poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/khz2rKLAPDVu9auJt1sR1HO9SCG.jpg"
+    }
   },
   "the-book-of-pooh-dvd-rental-kids-family": {
     "batch": "rentals",
@@ -3135,7 +3524,13 @@
   },
   "the-candidate-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Bill McKay is a candidate for the U.S. Senate from California. He has no hope of winning, so he is willing to tweak the establishment.</p>",
+      "Image Alt Text": "The Candidate poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/6zcDSOe1akUXsc2Q1APfchKcVaI.jpg"
+    }
   },
   "the-cardona-collection-vol-2-vinegar-syndrome": {
     "batch": "rentals",
@@ -3203,7 +3598,13 @@
   },
   "the-expendables-bluray-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Barney Ross leads a band of highly skilled mercenaries including knife enthusiast Lee Christmas, a martial arts expert Yin Yang, heavy weapons specialist Hale Caesar, demolitionist Toll Road, and a loose-cannon sniper Gunner Jensen. When the group is commissioned by the mysterious Mr. Church to assassinate the dictator of a small South American island, Barney and Lee visit the remote locale to scout out their opposition and discover the true nature of the conflict engulfing the city.</p>",
+      "Image Alt Text": "The Expendables poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/j09ZkH6R4JWVylBcDai1laCmGw7.jpg"
+    }
   },
   "the-expert-vhs-floor-sale-thriller": {
     "batch": "floor-sale-07",
@@ -3275,7 +3676,13 @@
   },
   "the-great-silence-dvd-rental-foreign": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A mute gunslinger fights in the defense of a group of outlaws and a vengeful young widow, against a group of ruthless bounty hunters.</p>",
+      "Image Alt Text": "The Great Silence poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/3kpxS7SZMyYSXvhDnmxQXOOxiTM.jpg"
+    }
   },
   "the-grudge-dvd-floor-sale-horror": {
     "batch": "floor-sale-07",
@@ -3311,7 +3718,13 @@
   },
   "the-holy-mountain-dvd-rental-foreign": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The Alchemist assembles together a group of people from all walks of life to represent the planets in the solar system. The occult adept's intention is to put his recruits through strange mystical rites and divest them of their worldly baggage before embarking on a trip to Lotus Island. There they ascend the Holy Mountain to displace the immortal gods who secretly rule the universe.</p>",
+      "Image Alt Text": "The Holy Mountain poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/oaOyrFD4ZyZZwjO8wc4b12XHcgZ.jpg"
+    }
   },
   "the-honeymooners-dvd-floor-sale-comedy": {
     "batch": "floor-sale-07",
@@ -3439,7 +3852,13 @@
   },
   "the-last-waltz-bluray-rental-criterion-collection-musical": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Martin Scorsese's documentary intertwines footage from The Band's incredible farewell tour with probing backstage interviews and featured performances by Eric Clapton, Bob Dylan, Joni Mitchell, Van Morrison, and other rock legends.</p>",
+      "Image Alt Text": "The Last Waltz poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/2K7CFH0AIHnGrA4yQjPCoIB5CmQ.jpg"
+    }
   },
   "the-last-winter-vhs-rental-drama": {
     "batch": "rentals",
@@ -3491,7 +3910,13 @@
   },
   "the-little-mermaid-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>This colorful adventure tells the story of an impetuous mermaid princess named Ariel who falls in love with the very human Prince Eric and puts everything on the line for the chance to be with him. Memorable songs and characters -- including the villainous sea witch Ursula.</p>",
+      "Image Alt Text": "The Little Mermaid poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/plcZXvI310FkbwIptvd6rqk63LP.jpg"
+    }
   },
   "the-lone-ranger-bluray-floor-sale-action": {
     "batch": "floor-sale-07",
@@ -3527,7 +3952,13 @@
   },
   "the-mask-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Timid bank clerk Stanley Ipkiss discovers a magical mask infused with the spirit of the Norse god Loki. Donning it transforms him into an unrestrained, green-faced, cartoon-like wild man. While the mask grants him the confidence to woo a local singer, it also makes him the target of a ruthless mobster.</p>",
+      "Image Alt Text": "The Mask poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/jPC2eYub74zwf2tPGVtzSlBW6Oy.jpg"
+    }
   },
   "the-matchmaker-vhs": {
     "batch": "floor-sale-07",
@@ -3535,7 +3966,13 @@
   },
   "the-messenger-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Will Montgomery, a U.S. Army Staff Sergeant who has returned home from Iraq, is assigned to the Army\u2019s Casualty Notification service. Montgomery is partnered with Captain Tony Stone, to give notice to the families of fallen soldiers. The Sergeant is drawn to Olivia Pitterson, to whom he has delivered news of her husband\u2019s death.</p>",
+      "Image Alt Text": "The Messenger poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/p4fJyH7mMbasiFYwiw2nE7D6pMY.jpg"
+    }
   },
   "the-mighty-ducks-vhs-floor-sale-kids-family": {
     "batch": "floor-sale-07",
@@ -3607,7 +4044,12 @@
   },
   "the-rules-of-the-game-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Image Alt Text": "The Rules of the Game poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/8JOzt7uFZyshcuzCBmYU6CDJL4D.jpg"
+    }
   },
   "the-secret-agent-criterion-4k-uhd-blu-ray-floor-sale-drama": {
     "batch": "floor-sale-08",
@@ -3619,7 +4061,13 @@
   },
   "the-secret-life-of-pets-bluray-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The quiet life of a terrier named Max is upended when his owner takes in Duke, a stray whom Max instantly dislikes.</p>",
+      "Image Alt Text": "The Secret Life of Pets poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/g3Hms6AE174doeGR1gz5zX5sVsv.jpg"
+    }
   },
   "the-secrets-of-dumbledore-bluray": {
     "batch": "floor-sale-08",
@@ -3643,7 +4091,13 @@
   },
   "the-survivors-vhs-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Having both lost their jobs, two strangers become unlikely friends after a run in with a would be robber, who is actually a hitman with a grudge against the two.</p>",
+      "Image Alt Text": "The Survivors poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/eb7DrR2h2GjUCZRozH46CqU1A9d.jpg"
+    }
   },
   "the-talented-mr-ripley-vhs-2000": {
     "batch": "rentals",
@@ -3651,7 +4105,13 @@
   },
   "the-thin-blue-line-bluray-rental-criterion-collection-documentary": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>An unorthodox investigation into the wrongful conviction of Randall Dale Adams for the 1976 murder of Dallas police officer Robert Wood. Using stylized reenactments and interviews with key figures, conflicting testimonies and evidence are presented to argue that Adams was framed by a corrupt justice system, ultimately leading to his exoneration.</p>",
+      "Image Alt Text": "The Thin Blue Line poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/4w4BJk3l8y9gYwPPLRs6uPHOmGL.jpg"
+    }
   },
   "the-thing-3-movie-collection-bluray-floor-sale-horror": {
     "batch": "floor-sale-08",
@@ -3679,7 +4139,13 @@
   },
   "the-wild-bunch-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>An aging group of outlaws look for one last big score as the \"traditional\" American West is disappearing around them.</p>",
+      "Image Alt Text": "The Wild Bunch poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/8j9yEC3xjy1PJDSizIbaxcHaSph.jpg"
+    }
   },
   "they-live-sbk-4k-floor-sale-horror": {
     "batch": "floor-sale-08",
@@ -3687,7 +4153,13 @@
   },
   "this-is-it-dvd-rental-documentary": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A compilation of interviews, rehearsals and backstage footage of Michael Jackson as he prepared for his series of sold-out shows in London.</p>",
+      "Image Alt Text": "This Is It poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/8GvQzHFSqr9KhyVxLEpB5dXPOWG.jpg"
+    }
   },
   "tie-died-vhs": {
     "batch": "floor-sale-08",
@@ -3695,7 +4167,13 @@
   },
   "to-die-for-bluray-rental-criterion-collection-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Suzanne Stone wants to be a world-famous news anchor and she is willing to do anything to get what she wants. What she lacks in intelligence, she makes up for in cold determination and diabolical wiles. As she pursues her goal with relentless focus, she is forced to destroy anything and anyone that may stand in her way, regardless of the ultimate cost or means necessary.</p>",
+      "Image Alt Text": "To Die For poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/ji0F2HvO58iIrNfbo41lrnYybed.jpg"
+    }
   },
   "tokyo-eyes-dvd-floor-sale-foreign": {
     "batch": "floor-sale-08",
@@ -3755,7 +4233,13 @@
   },
   "wanted-bluray-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Doormat Wesley Gibson is an office worker whose life is going nowhere. He meets an attractive woman named Fox and discovers that his recently murdered father - whom Wesley never knew - belonged to the Fraternity, a secret society of assassins which takes its orders from Fate itself. Fox and Sloan, the Fraternity's leader, teach Wesley, through intense training, to tap into dormant powers and hone his innate killing skills. Though he enjoys his newfound abilities, he begins to suspect that there is more to the Fraternity than meets the eye.</p>",
+      "Image Alt Text": "Wanted poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/njy7Pz7ZHZceO7lNfGIHKphY8Hd.jpg"
+    }
   },
   "warner-bros-animation-collection-dvd-rental-kids-family": {
     "batch": "rentals",
@@ -3783,7 +4267,13 @@
   },
   "whos-that-knocking-at-my-door-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A Catholic New Yorker falls in love with a girl and wants to marry her, but he struggles to accept her past and what it means for their future.</p>",
+      "Image Alt Text": "Who's That Knocking At My Door poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/zcH6pKZKeImwcBtIH7fSdUyoQ2e.jpg"
+    }
   },
   "wide-awake-demo-tape": {
     "batch": "floor-sale-08",
@@ -3803,11 +4293,23 @@
   },
   "willard-1970-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A social misfit, Willard is made fun of by his co-workers, and squeezed out of the company started by his deceased father by his boss. His only friends are a couple of rats he raised at home, Ben and Socrates. However, when one of them is killed at work, he goes on a rampage using his rats to attack those who have been tormenting him.</p>",
+      "Image Alt Text": "Willard (1970) poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/uhDAH8JRO9R1ROjSH24GoJPaJBJ.jpg"
+    }
   },
   "winnie-the-pooh-springtime-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Spring has sprung, and baby Roo is excited to get out and explore and make new friends. But Rabbit seems preoccupied with spring cleaning, instead of embracing his usual role of playing Easter Bunny. Leave it to Roo to show Rabbit -- through love -- that it's more important who you love and not who's in charge.</p>",
+      "Image Alt Text": "Winnie the Pooh Springtime poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/yAgVcU1BdPqvnyYnOkb1QtVNd5V.jpg"
+    }
   },
   "wise-cracks-vhs": {
     "batch": "floor-sale-08",
@@ -3819,7 +4321,13 @@
   },
   "working-girl-vhs-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-09-30",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>When a secretary's idea is stolen by her boss, she takes a risky chance to reclaim it by impersonating him and running the project from his position.</p>",
+      "Image Alt Text": "Working Girl poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/q2jfFzZvAzjTaArQR0tjilIZ5aJ.jpg"
+    }
   },
   "xmen-collection-dvd": {
     "batch": "floor-sale-08",
