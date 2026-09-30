@@ -1,34 +1,78 @@
 [
   {
     "batch_id": "review-ambigeous-queue-8.31-1",
-    "total": 86
+    "total": 86,
+    "hidden": true
   },
   {
     "batch_id": "review-ambigeous-queue-8.31-2",
-    "total": 127
+    "total": 127,
+    "hidden": true
   },
   {
     "batch_id": "review-ambigeous-queue-8.31-3",
-    "total": 130
+    "total": 130,
+    "hidden": true
   },
   {
     "batch_id": "review-ambigeous-queue-8.31-4",
-    "total": 133
+    "total": 133,
+    "hidden": true
   },
   {
     "batch_id": "review-ambigeous-queue-8.31-5",
-    "total": 120
+    "total": 120,
+    "hidden": true
   },
   {
     "batch_id": "review-9.2-gaps",
-    "total": 135
+    "total": 135,
+    "hidden": true
   },
   {
     "batch_id": "ambiguous-queue",
-    "total": 945
+    "total": 945,
+    "hidden": true
   },
   {
     "batch_id": "unmatched-queue",
-    "total": 178
+    "total": 178,
+    "hidden": true
+  },
+  {
+    "batch_id": "rentals",
+    "total": 213
+  },
+  {
+    "batch_id": "floor-sale-01",
+    "total": 100
+  },
+  {
+    "batch_id": "floor-sale-02",
+    "total": 100
+  },
+  {
+    "batch_id": "floor-sale-03",
+    "total": 100
+  },
+  {
+    "batch_id": "floor-sale-04",
+    "total": 100
+  },
+  {
+    "batch_id": "floor-sale-05",
+    "total": 100
+  },
+  {
+    "batch_id": "floor-sale-06",
+    "total": 100
+  },
+  {
+    "batch_id": "floor-sale-07",
+    "total": 100
+  },
+  {
+    "batch_id": "floor-sale-08",
+    "total": 38
   }
 ]
