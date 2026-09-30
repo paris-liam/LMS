@@ -622,5 +622,11 @@
     "choice": "tmdb",
     "poster_path": "/e5oD3fuQpjZ8Po6WNW0VkUJmW52.jpg",
     "overview": "On a mission deep in the Bolivian jungle, a team of elite commandos finds itself on the receiving end of a lethal betrayal. Now presumed dead, the men join forces with a mysterious operative named Aisha to hunt down their enemy and even the score."
+  },
+  {
+    "handle": "rebel-run-vhs-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/qGsFb3oNbxiFY8xw8jm8H1pc4UD.jpg",
+    "overview": "A tough New Jersey biker named Bolt travels across the country heading west. He encounters old gang rival Billy Niles."
   }
 ]
