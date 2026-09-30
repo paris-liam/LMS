@@ -664,5 +664,11 @@
     "choice": "tmdb",
     "poster_path": "/niwRJ18nJurSFEVHoeVaPsJVWoL.jpg",
     "overview": "A mother takes her two sons on an unusual road trip from New York to Pittsburgh, St. Louis and eventually Hollywood in her quest to find a man to take care of them all."
+  },
+  {
+    "handle": "christmas-vacation-dvd-rental-holiday",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
