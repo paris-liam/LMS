@@ -231,7 +231,7 @@ function render() {
   cards.innerHTML = PRODUCTS.map(product => {
     const current = picks[product.handle];
     const searchUrl = "https://www.themoviedb.org/search?query=" + encodeURIComponent(product.title);
-    const googleUrl = "https://www.google.com/search?q=" + encodeURIComponent(product.title + " movie");
+    const googleUrl = "https://www.google.com/search?q=" + encodeURIComponent([product.title, product.genre, product.vendor].filter(Boolean).join(" "));
     const options = product.candidates.map((candidate, i) => {
       const poster = candidate.poster_path
         ? `<img src="https://image.tmdb.org/t/p/w185${esc(candidate.poster_path)}" alt="" loading="lazy">`
