@@ -150,8 +150,10 @@ Standing rules:
     so the job has to commit its changes back (needs `contents: write`) and
     must never run at the same time as a person's session (`concurrency`).
   - Libib may challenge a login from GitHub's servers — try the selftest
-    workflow first; if it can't log in, the scheduled Claude cloud session is
-    the fallback.
+    workflow first. Don't count on the Claude cloud session as the fallback:
+    on 2026-09-30 it was far slower in Libib than a home connection (see the
+    note of that date). The other fallback is an always-on machine on a home
+    or shop connection.
   - Don't upload screenshots/exports as public artifacts.
 
 ---
@@ -173,7 +175,33 @@ Standing rules:
     titled discs) → corrected search title, or a hand-written description +
     cover photo.
   Once a product has all fields, the next `libib sync` imports it.
-- 2026-09-30 — **Libib sync batch-0020 IN PROGRESS — finish it locally.**
+- 2026-09-30 — **Libib sync batch-0020 DONE (finished locally).** 46 of 46
+  fixed, 0 need review (commit `89530a1`). Every barcode, title, description
+  and tag was already right; the run uploaded the 46 posters. A fresh export +
+  `libib diff` then showed **3142 of 3143 Libib rentals in sync, 0 drift, 0
+  eligible missing**; the 46 were promoted to `done`. Left over from that diff:
+  1 orphan (`orphans.csv`), 2 blocked (item 2's shared barcode), 200
+  incomplete (item 10).
+  - The first local run failed every item with "image file not found":
+    `ready.csv` stored the cloud box's absolute poster paths
+    (`/home/user/LMS/...`). Fixed in `32ba525`: `libib fix` now uses the
+    same-named poster beside `ready.csv`, so a batch prepared on one machine
+    can be fixed on another. That failed run saved nothing in Libib.
+  - The approval code locally was `29db6af269`, not `16bb2b0dc3`. The 184
+    changes were the same, so expect the code to differ between machines.
+- 2026-09-30 — **Cloud vs local speed (evidence for item 12).** Locally (home
+  connection) `libib selftest` passed all steps: login 5.3s, search 5.1s,
+  edit form 4.8s, export 4.3s. The batch-0020 fix ran at about 17s per item
+  with no timeouts or retries. The cloud session hit repeated 30s timeouts
+  waiting for the library search box on the same items. So Libib itself is
+  fine; the likely causes are the cloud sandbox's HTTPS proxy, or Libib
+  slowing traffic from data-center addresses (not yet confirmed). To tell them
+  apart, run `libib selftest` in a cloud session and compare its step times
+  with the local ones above. Options that don't depend on a personal laptop:
+  an always-on machine on a home or shop connection, a rented server, or
+  GitHub Actions. Check any new machine with `check-login` + `selftest` before
+  giving it a real batch.
+- 2026-09-30 — (history) **Libib sync batch-0020 IN PROGRESS — finish it locally.**
   46 new rentals (list: `libib-sync/batch-0020/ready.csv`; the full approved
   change list was 184 field changes, approval code `16bb2b0dc3`). All 46 are
   **imported** into Libib (each exactly once, verified). The browser fix step
