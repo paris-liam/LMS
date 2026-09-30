@@ -1,0 +1,8 @@
+call_number,barcode_status,content_status,message
+91570426,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
+16492026,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
+95601658,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
+95273978,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
+20144890,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
+19456762,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
+20013818,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
