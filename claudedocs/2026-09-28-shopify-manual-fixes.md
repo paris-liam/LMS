@@ -55,12 +55,14 @@ reading each product back.
   the reprint map yet, so each needs a new 8-digit label, the Shopify barcode
   updated, and Libib updated. The other 3 (For the Boys, Legend of Zorro,
   Paradise Now) have valid 8-digit barcodes. Open question: tag all 29 Rental?
-- **Swashbuckler / Frances share barcode `08873722`.** Swashbuckler
-  (`swashbuckler-dvd-rental-action`) is a Rental (tagged Rental + new-arrival,
-  $0), created 2026-09-25 — two months after Frances (2026-07-24), and the
-  Libib item under `08873722` is Frances. Likely the number was entered on
-  Swashbuckler by mistake. Needs: check the physical label on Swashbuckler;
-  if it reads `08873722`, print it a new label.
+- **DONE 2026-09-30 — Swashbuckler / Frances shared barcode `08873722`.** Not
+  a typo: both variant IDs end in `08873722` (Frances `…49749808873722`,
+  Swashbuckler `…50581808873722`), so Retail Barcode Labels' last-8-digits
+  rule gave both the same number. Frances keeps it (it is the Libib item).
+  Swashbuckler (`swashbuckler-dvd-rental-action`) got the next reprint number
+  **`90000494`** (sequence last used `90000493`) and the
+  `Reprint_These_Barcodes` tag. Still to do: print its new label; the next
+  `libib sync` imports it and clears the Frances orphan.
 - **Floor Sale at $0** — Earth Girls Are Easy, The Call (`Issue_No_Price`):
   need prices.
 

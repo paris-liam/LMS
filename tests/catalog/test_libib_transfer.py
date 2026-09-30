@@ -147,6 +147,13 @@ class TestImportCommand(unittest.TestCase):
         self.assertEqual({h: e["status"] for h, e in self.state().items()}, {"jaws": "imported", "heat": "imported"})
         self.assertTrue(any(self.exports.iterdir()))  # the after-export is kept
 
+    def test_next_step_hint_runs_the_fixer_with_the_libib_venv(self):
+        libib = FakeLibib()
+        with mock.patch.object(log, "summary") as summary:
+            self.assertEqual(self.run_import(libib, "--approve", "ok"), 0)
+        hints = [c.args[0] for c in summary.call_args_list if c.args[0].startswith("Next:")]
+        self.assertEqual(hints, ["Next: .venv-libib/bin/python -m catalog libib fix batch-0001 --headless"])
+
     def test_a_rerun_never_imports_a_copy_libib_already_has(self):
         libib = FakeLibib(calls=["01111111"])  # a stopped earlier run got Jaws in
         self.assertEqual(self.run_import(libib, "--approve", "ok"), 0)

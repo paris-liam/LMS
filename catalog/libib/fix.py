@@ -9,7 +9,7 @@ import csv
 from pathlib import Path
 
 from catalog.core import log
-from catalog.errors import CatalogError
+from catalog.libib import venv
 from catalog.libib.columns import ready_row
 from catalog.libib.diff import FIXABLE_FIELDS
 
@@ -177,11 +177,7 @@ def sync_with_retries(sync, page, row, pause, attempts: int = ITEM_ATTEMPTS) -> 
 
 
 def run_fixer(rows: list[dict], report_path, email: str, password: str, headless: bool) -> list[dict]:
-    try:
-        from playwright.sync_api import sync_playwright
-    except ImportError:
-        raise CatalogError("Playwright is not installed for this Python. Run the fixer with the Libib venv:\n"
-                           "  .venv-libib/bin/python -m catalog libib fix …") from None
+    sync_playwright = venv.sync_playwright("fix")
     from catalog.libib import browser
 
     report_path = Path(report_path)

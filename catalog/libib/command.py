@@ -308,7 +308,7 @@ def run_import_command(args, exporter=None, importer=None, stdin=None, sleep=tim
     if result["duplicated"]:
         log.summary(f"DUPLICATED in Libib ({len(result['duplicated'])}, left queued): {', '.join(result['duplicated'])}")
     log.summary(f"fresh export: {after_dir}")
-    log.summary(f"Next: python3 -m catalog libib fix {args.batch} --headless")
+    log.summary(f"Next: .venv-libib/bin/python -m catalog libib fix {args.batch} --headless")
     return 0 if not (result["missing"] or result["duplicated"]) else 1
 
 
