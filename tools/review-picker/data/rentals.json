@@ -766,5 +766,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": ""
+  },
+  {
+    "handle": "murder-in-texas-vhs",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/u4AF14HoynncUxLlEFCQtxt2EnJ.jpg",
+    "overview": "A plastic surgeon was suspected of causing the death of his first wife, the daughter of a wealthy member of Houston society. The doctor then marries his mistress, whom he had been keeping during his marriage. His former father-in-law, convinced that his daughter was murdered, determines to see the doctor punished."
   }
 ]
