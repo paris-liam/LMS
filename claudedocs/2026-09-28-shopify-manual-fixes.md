@@ -46,6 +46,14 @@ reading each product back.
   career-opportunities-blanket). `Reprint_These_Barcodes` left as is.
 - Audit after all of the above (`runs/2026-09-28-5`): manual bucket 33
   products — only the deferred items below.
+- 2026-09-30 Libib sync (batches 0021 + 0022): 15 drifted posters fixed, 83
+  new rentals imported and filled (incl. Swashbuckler). Diff on audit
+  `runs/2026-09-30-3`: **3,226 in sync, 0 drift, 0 eligible, 0 orphans,
+  0 blocked, 0 held** — the orphan/held backlog listed in
+  `2026-09-28-cloud-next-steps.md` is cleared. 118 rentals stay out of Libib
+  until they are complete in Shopify (description/poster — picker queue).
+- Audit `runs/2026-09-30-3`: manual bucket **31** products — the 29 untyped
+  and 2 $0 floor-sale items below.
 
 ## Deferred
 
@@ -61,10 +69,27 @@ reading each product back.
   rule gave both the same number. Frances keeps it (it is the Libib item).
   Swashbuckler (`swashbuckler-dvd-rental-action`) got the next reprint number
   **`90000494`** (sequence last used `90000493`) and the
-  `Reprint_These_Barcodes` tag. Still to do: print its new label; the next
-  `libib sync` imports it and clears the Frances orphan.
+  `Reprint_These_Barcodes` tag. Imported into Libib under `90000494`
+  (batch-0022); the Frances orphan is cleared. **Still to do: print its new
+  label** in Retail Barcode Labels.
 - **Floor Sale at $0** — Earth Girls Are Easy, The Call (`Issue_No_Price`):
   need prices.
+
+## Remaining (as of 2026-09-30)
+
+- [ ] Print Swashbuckler's new label (`90000494`).
+- [ ] Decide: tag the 29 untyped $0 DVD/Blu-Ray products `Rental`? Then give
+      the 26 `191-` discs new 8-digit barcodes (next in sequence after
+      `90000494`) + `Reprint_These_Barcodes`, print labels, and `libib sync`.
+- [ ] Prices for the 2 $0 floor-sale items (Earth Girls Are Easy, The Call).
+- [ ] Client's live Google Sheet: add `Special Interest,special-interest` and
+      `Anime,anime` to the `mappings` tab and both to the Genre dropdowns.
+- [ ] Picker queue: 866 products with a missing description/poster (769 /
+      842); 128 rental cards left for the client
+      (`2026-09-30-picker-rentals-left-for-client.md`). `apply` when picks
+      come in — this also unblocks the 118 rentals held out of Libib.
+- [ ] Reprint labels: 493 products carry `Reprint_These_Barcodes` — confirm
+      which are already printed and clear the tag from those.
 
 ## Follow-ups
 
