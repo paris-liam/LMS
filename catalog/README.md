@@ -1,7 +1,9 @@
 # catalog — Little Movie Store catalogue pipeline
 
 Design: `docs/superpowers/specs/2026-09-25-catalog-pipeline-design.md`.
-Run everything from the repo root. Standard library only (Libib `fix` will need Playwright).
+Run everything from the repo root. Standard library only, except the Libib commands that drive a
+browser (`export`, `import`, `fix`, `sync`, `selftest`, `check-login`): they need Playwright, which
+lives in `.venv-libib` — run them locally with `.venv-libib/bin/python`, not `python3` (cloud: see below).
 
 ## Stage 1 — audit (read-only)
 
@@ -110,19 +112,19 @@ only when it changes Option1 — `apply` warns when it does.
 
 Libib has no API, so exports and CSV imports are driven in a browser (Playwright), like the fixer.
 
-    python3 -m catalog libib export                 # -> exports/<date>/{barcodes_*.csv, library_*.csv}
+    .venv-libib/bin/python -m catalog libib export  # -> exports/<date>/{barcodes_*.csv, library_*.csv}
     python3 -m catalog libib diff --barcode-export exports/<date>/barcodes_*.csv --collection-export exports/<date>/library_*.csv
     # -> runs/<id>/libib/: drift.csv, eligible.csv, orphans.csv, blocked.csv, libib-report.txt
 
     python3 -m catalog libib prepare --size 200     # -> libib-sync/batch-NNNN/{import.csv, posters, ready.csv}
-    python3 -m catalog libib import batch-NNNN      # CSV Import, Force Import Mode; verified by a fresh export
+    .venv-libib/bin/python -m catalog libib import batch-NNNN   # CSV Import, Force Import Mode; verified by a fresh export
     .venv-libib/bin/python -m catalog libib fix batch-NNNN      # barcode + title/description/tags/poster
     .venv-libib/bin/python -m catalog libib fix --drift         # fix what the diff found drifted
     python3 -m catalog libib status
 
-    python3 -m catalog libib sync --dry-run         # all of the above, one plan: every Libib change listed
-    python3 -m catalog libib sync --approve <code>  # export, diff, fix drift, prepare+import+fix new, export, diff
-    python3 -m catalog libib selftest               # read-only: does every Libib page step still work?
+    .venv-libib/bin/python -m catalog libib sync --dry-run          # all of the above, one plan: every Libib change listed
+    .venv-libib/bin/python -m catalog libib sync --approve <code>   # export, diff, fix drift, prepare+import+fix new, export, diff
+    .venv-libib/bin/python -m catalog libib selftest                # read-only: does every Libib page step still work?
 
 `sync` is the whole round trip under one approval: it exports and diffs, then lists each
 drifted field (current Libib value -> Shopify value) and each new item with the content it
@@ -137,7 +139,8 @@ uploading a one-row sample that is never processed). It never saves or imports. 
 screenshots in `libib-selftest/` name the step that broke. Run it on a schedule and before
 any big Libib run; `--skip-import-matching` leaves out the sample upload.
 
-`export`, `import` and `fix` need `LIBIB_EMAIL` / `LIBIB_PASSWORD` and Playwright. `import` exports
+`export`, `import`, `fix`, `sync` and `selftest` need `LIBIB_EMAIL` / `LIBIB_PASSWORD` and Playwright
+(`.venv-libib/bin/python`). `import` exports
 Libib first and skips any call number already there (a re-run never imports a copy twice), refuses
 if Libib's column matching differs from ours, and afterwards marks only the call numbers that the
 second export shows exactly once; screenshots of the matching and result pages land in the batch
