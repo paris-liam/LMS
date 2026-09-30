@@ -34,6 +34,8 @@ def download_posters(rows: list[dict], dest_dir, download=urllib.request.urlretr
     for index, row in enumerate(rows, start=1):
         call = (row.get("Variant Barcode") or "").strip()
         url = (row.get("Image Src") or "").strip()
+        if not url:
+            continue  # no poster yet: the rental still imports, and the poster is uploaded once it exists
         target = dest_dir / f"{call}.{image_ext(url)}"
         try:
             download(url, target)

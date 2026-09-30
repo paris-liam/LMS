@@ -100,6 +100,35 @@ class TestDiffCommand(LibibCase):
             self.assertIn(fragment, report)
 
 
+class TestImagelessRentals(LibibCase):
+    def imageless_alien(self):
+        rows = json.loads((self.run / "snapshot.json").read_text(encoding="utf-8"))
+        for row in rows:
+            if row["Handle"] == "alien":
+                row["Image Src"] = ""
+        (self.run / "snapshot.json").write_text(json.dumps(rows), encoding="utf-8")
+
+    def test_diff_offers_an_imageless_rental_and_reports_it(self):
+        self.imageless_alien()
+        self.diff()
+        self.assertEqual([e["handle"] for e in self.read("eligible.csv")], ["alien"])
+        report = (self.run / "libib" / "libib-report.txt").read_text(encoding="utf-8")
+        self.assertIn("no poster yet:", report)
+        self.assertIn("1 eligible", report.split("no poster yet:")[1].splitlines()[0])
+        self.assertIn("0 rentals missing from Libib but not complete", report.split("incomplete:")[1].splitlines()[0])
+
+    def test_prepare_batches_an_imageless_rental_without_a_poster(self):
+        self.imageless_alien()
+        self.diff()
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            command.run_prepare_command(self.parse("prepare", "--approve", "ok"), download=fake_download)
+        self.assertIn("0 posters", out.getvalue())
+        self.assertIn("no poster yet", out.getvalue())
+        batch = self.sync / "batch-0001"
+        self.assertEqual(sorted(p.name for p in batch.iterdir()), ["import.csv", "ready.csv"])
+        self.assertEqual(self.state()["alien"]["status"], "queued")
+
+
 class TestStatusCommand(LibibCase):
     def test_status_counts(self):
         args = build_parser().parse_args(["libib", "status", "--sync-dir", str(self.sync)])

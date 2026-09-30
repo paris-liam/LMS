@@ -4,7 +4,7 @@ from catalog.core.columns import GENRE_METAFIELD
 from catalog.libib.columns import LIBIB_MOVIE_COLUMNS, READY_COLUMNS, import_row, ready_row
 from catalog.libib.fields import (
     expected_description, expected_tags_string, expected_title, is_complete, is_rental, missing_fields,
-    normalized_tag_set,
+    missing_wanted, normalized_tag_set,
 )
 
 
@@ -26,7 +26,14 @@ class TestFields(unittest.TestCase):
 
     def test_complete_and_missing(self):
         self.assertTrue(is_complete(rental()))
-        self.assertEqual(missing_fields(rental(**{"Image Src": "", GENRE_METAFIELD: ""})), ["poster", "genre"])
+        self.assertEqual(missing_fields(rental(**{GENRE_METAFIELD: "", "Body (HTML)": ""})), ["description", "genre"])
+
+    def test_poster_is_wanted_not_required(self):
+        imageless = rental(**{"Image Src": ""})
+        self.assertTrue(is_complete(imageless))
+        self.assertEqual(missing_fields(imageless), [])
+        self.assertEqual(missing_wanted(imageless), ["poster"])
+        self.assertEqual(missing_wanted(rental()), [])
 
     def test_expected_values(self):
         self.assertEqual(expected_title(rental()), "Jaws")
