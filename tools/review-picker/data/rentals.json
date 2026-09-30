@@ -862,5 +862,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/oTQxsQWKHlxRtd8rJPaqz0x9rj0.jpg",
     "overview": "A wacky free-for-all comedy about the riotous rivalry between snobby skiers and knuckle-dragging snowboarders."
+  },
+  {
+    "handle": "the-cat-in-the-hat-sing-along-vhs-rental-kids-family",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/uKHm41DzzC4VoDwLZDU9PBYj6ue.jpg",
+    "overview": "In a marvelously animated version of one of the most beloved of all Dr. Seuss tales, two youngsters find themselves at home with nothing to do on a rainy afternoon. But when the magical, mischievous Cat in the Hat arrives on the scene, they're all cat-apulted into a day of rousing, romping, outlandish antics they - and you - will never forget!"
   }
 ]
