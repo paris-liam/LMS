@@ -808,5 +808,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/3B2A5g8t3HZltKp1fplNn2xW4us.jpg",
     "overview": "The rise and inevitable fall of an amoral but naive young woman whose insouciant eroticism inspires lust and violence in those around her."
+  },
+  {
+    "handle": "the-incredibly-true-adventures-of-2-girls-in-love-vhs-rental-comedy",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/dPbYJaH1j7sgj1NuA4VRyb7O4Mt.jpg",
+    "overview": "An adventurous love story between two young women of different social and economic backgrounds who find themselves going through all the typical struggles of a new romance."
   }
 ]
