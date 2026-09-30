@@ -13,8 +13,15 @@ LIBIB_LOGIN_URL = "https://www.libib.com/login"
 
 
 def login(page: Page, email: str, password: str) -> None:
+    """Libib sometimes answers with a "One moment, please..." holding page
+    that reloads itself every 5s (seen 2026-09-30). Typing into the real form
+    before its scripts load makes Next submit as a plain form post (the page
+    turns into raw JSON), so wait for the form *and* its page load first."""
     page.goto(LIBIB_LOGIN_URL)
-    page.get_by_role("textbox", name="Email").fill(email)
+    email_box = page.get_by_role("textbox", name="Email")
+    email_box.wait_for(state="visible", timeout=90000)
+    page.wait_for_load_state("load")
+    email_box.fill(email)
     page.get_by_role("button", name="Next").click()
     page.get_by_role("textbox", name="Password").fill(password)
     page.get_by_role("button", name="Sign In").click()
@@ -58,8 +65,14 @@ def open_item(page: Page, call_number: str):
         items.first.wait_for(state="visible", timeout=8000)
     except PlaywrightTimeoutError:
         return "error", "no item found for this call number"
-    page.wait_for_timeout(400)
+    # A slow Libib shows the unfiltered library for a while before the search
+    # applies (seen 2026-09-30), so give it time to narrow to one hit.
     count = items.count()
+    for _ in range(30):
+        if count == 1:
+            break
+        page.wait_for_timeout(500)
+        count = items.count()
     if count > 1:
         return "error", f"{count} items matched this call number -- ambiguous"
 
