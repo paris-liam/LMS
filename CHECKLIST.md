@@ -102,7 +102,9 @@ Standing rules:
   and stock, sort into those three kinds, and bring back a proposal (the
   client may need to check labels).
 
-- [ ] **8. Investigate the floor-sale quantities.**
+- [x] **8. Investigate the floor-sale quantities.** *(Closed 2026-09-30 —
+  investigated, no action for now; to revisit with the client. See the note
+  of that date.)*
   124 Floor Sale products have a quantity of 2 or more. The rule is **one
   product per physical copy**, so either these are several copies that
   should be split into separate products, or the stock number is wrong.
@@ -269,6 +271,26 @@ Standing rules:
     say to use `.venv-libib/bin/python` instead of a raw
     `ModuleNotFoundError`, and the "Next:" hint after `import` names the venv
     (`02d1cdb`).
+- 2026-09-30 — **Item 8 closed: floor-sale quantities investigated, no
+  action.** Now 129 Floor Sale products with quantity ≥ 2 (all active,
+  tracked, one location, nothing committed); **no Rental has quantity > 1**.
+  Nothing says they should be 0: quantities move correctly (Backrooms sold 1
+  at POS, 4 → 3) and only 4 floor-sale products have sold at all since orders
+  began (2026-09-09). None came from the current upload sheet (it always
+  writes quantity 1). Two groups: 79 new releases at ≥ $20 (mostly the
+  2026-09-06 and 2026-09-29 uploads — likely genuine multi-copy retail
+  stock) and 50 used items at $5–10; 9 of those also have the same
+  title+format listed separately (Lion King, Pretty Woman, Speed, …) — the
+  likeliest overcounts. Setting them to 0 would mark real stock sold out.
+  **Open question for the client:** are floor-sale copies now one product
+  with a quantity? If yes, only Floor Sale changes (rentals stay one product
+  per copy for Libib): add a Quantity column to the upload sheet + its Python
+  transform and `check-upload`; warn that re-importing an existing handle
+  likely *sets* the quantity (test on dev) so restock in admin/POS; add an
+  audit rule flagging a Rental with quantity > 1; make the dedupe pass merge
+  floor-sale listings with the same title, format and price; update the
+  client guide, CLAUDE.md roadmap #3 and this item. Theme, Libib, picker and
+  `apply` need no change.
 - 2026-09-30 — **Cloud vs local speed (evidence for item 12).** Locally (home
   connection) `libib selftest` passed all steps: login 5.3s, search 5.1s,
   edit form 4.8s, export 4.3s. The batch-0020 fix ran at about 17s per item
