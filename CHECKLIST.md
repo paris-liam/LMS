@@ -158,7 +158,7 @@ Standing rules:
 
 ## Picker
 
-- [ ] **13. Restructure the review picker: rentals in one group, floor sales
+- [x] **13. Restructure the review picker: rentals in one group, floor sales
   in groups of 100.** (Planned 2026-09-30; can run in a cloud session — it
   doesn't touch Libib. Needs `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET`,
   `TMDB_API_KEY`.) Do this before item 6, so item 6 works on the new groups.
@@ -289,3 +289,10 @@ Standing rules:
      rentals that became complete since — those are a new, separate approval.
   7. Commit `libib-sync/` and `exports/` and push.
   Don't run it while a cloud session is in Libib (one Libib session at a time).
+- 2026-09-30 — **Item 13 DONE (picker regrouped and published to `main`).** Full
+  audit with TMDB, then `scripts/regroup-picker.py` (approval `1e20df4511`):
+  `rentals` 213, `floor-sale-01`..`07` 100 each, `floor-sale-08` 38 = 951 cards
+  (51 new with fresh TMDB candidates). 223 no-longer-flagged cards dropped. No
+  `untyped` group was needed. The old queues and six 8/31 + 9/2 groups are
+  `"hidden": true` in `batches.json` (off the launcher; `apply` still reads their
+  picks). `picker push` now files new products by type. Item 6 can work on these groups.
