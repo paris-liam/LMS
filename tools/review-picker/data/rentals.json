@@ -736,5 +736,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/uiGhFl1pRIqVGs10qyYjLub9IaY.jpg",
     "overview": "A girl starts her own investigation after the police fail to catch a local serial killer."
+  },
+  {
+    "handle": "ball-buster-vhs-rental-action",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/biiucXyfUEdWqE8jqKkRlZ97TSR.jpg",
+    "overview": "Roosevelt Prophet is a one-time big city cop turned private investigator- nickname \"Ballbuster\". Ballbuster must stop the nefarious Nick Plato, who's into everything from loan sharking to gambling."
   }
 ]
