@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="en" data-whatinput="mouse" data-whatintent="mouse"><head>
+    <meta charset="utf-8">
+
+    <title>Libib | CSV Import</title>
+    <meta name="apple-mobile-web-app-title" content="Libib | Web">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="google" content="notranslate">
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/img/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/libib-webapp-icon.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer="" data-domain="libib.com" src="https://d2owygzutcldbs.cloudfront.net/js/script.js"></script>
+
+    <link href="/css/fonts.css?v=64" rel="preload stylesheet" as="style">
+
+    <!-- Foundation -->
+    <link rel="stylesheet" href="/css/foundation.css?v=64">
+    <link rel="stylesheet" href="/css/notification.css?v=64">
+    <link rel="stylesheet" href="/css/library/DateTimePicker.min.css?v=64">
+    <link rel="stylesheet" href="/css/public/style.css?v=64">
+    <link rel="stylesheet" href="/css/library/style.css?v=64">
+    <link rel="stylesheet" href="/css/chosen.min.css?v=64">
+<meta class="foundation-mq"></head>
+
+<body class="library-tpl ">
+
+    <!-- This is referenced by different datepickers -->
+    <div id="date-picker-container"></div>
+
+
+    <!-- grid-frame -->
+    <div class="grid-x grid-padding-x small-padding-collapse">
+        <div class="navbar-spacer hide-for-large"></div>
+<div id="navbar" class="hide-for-large">
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="cell small-4 medium-4 hide-for-large"><a id="mobile-logo" class="text-left" href="/">Libib</a></div>
+            <div class="cell small-8 medium-8 hide-for-large">
+                <a href="#" id="mobile-menu" class="hide-for-large hide-text">Menu</a>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- left-sidebar -->
+        <div id="mobile-overlay" class="hide-for-large hide-for-small-only"></div>
+<div id="left-sidebar" class="cell">
+  <a id="logo" class="text-left" href="/library">libib</a>
+
+  <!-- Skip Navigation Menu - Only visible on keyboard focus -->
+  <div id="skip-nav" tabindex="0" aria-label="Skip Navigation">
+    <h2>Skip to</h2>
+    <nav role="navigation">
+      <ul>
+        <li><a href="#primary-menu" aria-label="Skip to site navigation">Site Navigation</a></li>
+        <li><a href="#primary" aria-label="Skip to page navigation">Page Navigation</a></li>
+        <li><a href="#main-content" aria-label="Skip to main content">Main Content</a></li>
+        <li><a href="#" id="skip-to-account" aria-label="Skip to account menu">Account Menu</a></li>
+        <li>Search: alt + /</li>
+      </ul>
+    </nav>
+  </div>
+
+  <ul id="primary-menu" class="menu" aria-label="Libib Primary Menu">
+      <li id="libraries-link" class="margin-top-20"><a href="/library" title="Library" class="">Library</a></li>
+          <li id="add-item-link"><a href="/library/add-item" title="Add Item" class="active">Add Items</a></li>
+              <li id="add-library-link"><a href="/library/add-collection" title="Add Collection" class="">Add Collection</a></li>
+              <li id="publish-link"><a href="/publish" title="Publish" class="">Publish</a></li>
+    
+          <li class="menu-spacer" role="presentation" aria-hidden="true"></li>
+    
+          <li id="lending-link"><a href="/lending" title="Lending" class="">Lending</a></li>
+              <li id="managers-link"><a href="/managers" title="Managers" class="">Managers</a></li>
+              <li id="barcodes-link"><a href="/barcodes" title="Barcodes" class="">Barcodes</a></li>
+      <li class="menu-spacer" role="presentation" aria-hidden="true"></li>
+    
+          <li id="dashboards-link"><a href="/dashboards" title="Dashboards" class="">Dashboards</a></li>
+              <li id="reports-link"><a href="/reports" title="Reports" class="">Reports</a></li>
+    
+      <li class="menu-spacer" role="presentation" aria-hidden="true"></li>
+              <li id="settings-link"><a href="/settings" title="Settings" class="">Settings</a></li>
+            <li id="support-link"><a href="https://support.libib.com" target="_blank">Support</a></li>
+      <li id="logout-link"><a href="#" title="Logout">
+        Logout        </a>
+      </li>
+  </ul>
+  <div id="s-spacer"></div>
+  <div id="s-menu">
+      <div id="user-profile" class="hide-for-large">
+        <div id="user-image" class="notification-count-parent">
+          <img src="https://www.gravatar.com/avatar/2dfbea355986b814f92028b04f76bed2?s=75" alt="">
+        </div>
+        <div id="user-email">
+          Little Movie Store        </div>
+        <div id="account-menu-label" class="mobile-account-menu-label">Account Menu</div>
+        <div class="user-profile-arrow"></div>
+
+      </div>
+
+            <ul id="s-sites" class="menu expanded horizontal align-center">
+        <li><a id="bluesky-link" target="_blank" href="https://bsky.app/profile/libib.com" class="s-link">Bluesky</a></li>
+        <li><a id="insta-link" target="_blank" href="https://instagram.com/libib" class="s-link">Instagram</a></li>
+        <li><a id="tiktok-link" target="_blank" href="https://www.tiktok.com/@libib" class="s-link">TikTok</a></li>
+        <li><a id="youtube-link" target="_blank" href="https://youtube.com/libib" class="s-link">YouTube</a></li>
+      </ul>
+  </div>
+  <div id="mobile-profile-menu" class="hide-for-large">
+    
+<div id="profile-menu-header">
+  <div id="user-info">
+    <div class="name">Dylan Wise</div>
+    <div class="email">hello@littlemoviestore.com</div>
+      <div class="manager">
+                  Account Owner
+              </div>
+  </div>
+
+      <div id="profile-menu-list">
+
+      <a id="edit-account" class="profile-item" href="/profile">Account Settings</a>
+      
+
+              <div class="divider"></div>
+        <a id="history" class="profile-item" href="/profile/history-log">History Log</a>
+      
+              <div class="divider"></div>
+        <a id="user-billing" class="pro-plan profile-item" href="/billing">Manage Billing <span>Pro</span></a>
+          </div>
+  </div>
+
+<!-- We load the list of notifications from script.js -->
+<div id="profile-menu-notifications" class="notification-load">
+</div>
+  </div>
+</div>
+
+<!-- end left sidebar -->
+        <!-- primary-container -->
+        <div id="primary" class="cell auto">
+
+
+        <!-- user profile -->
+          <!-- <div title="" class="fullscreen show-for-large"></div> -->
+          <div id="user-profile" class="show-for-large">
+            <div id="user-identification">Little Movie Store</div>
+            <div id="account-menu-label">Account Menu</div>
+            <div id="user-image" class="notification-count-parent">
+              <img src="https://www.gravatar.com/avatar/2dfbea355986b814f92028b04f76bed2?s=75" alt="">
+            </div>
+          </div>
+          <div id="profile-menu" class="show-for-large">
+            
+<div id="profile-menu-header">
+  <div id="user-info">
+    <div class="name">Dylan Wise</div>
+    <div class="email">hello@littlemoviestore.com</div>
+      <div class="manager">
+                  Account Owner
+              </div>
+  </div>
+
+      <div id="profile-menu-list">
+
+      <a id="edit-account" class="profile-item" href="/profile">Account Settings</a>
+      
+
+              <div class="divider"></div>
+        <a id="history" class="profile-item" href="/profile/history-log">History Log</a>
+      
+              <div class="divider"></div>
+        <a id="user-billing" class="pro-plan profile-item" href="/billing">Manage Billing <span>Pro</span></a>
+          </div>
+  </div>
+
+<!-- We load the list of notifications from script.js -->
+<div id="profile-menu-notifications" class="notification-load">
+</div>
+          </div>
+
+            <div id="primary-inner" tabindex="-1">
+                
+<h1 class="admin-title">Add Item</h1>
+
+<ul class="admin-tabs menu">
+  <li><a href="/library/add-item">Search</a></li>
+  <li><a href="/library/manual-entry">Manual Entry</a></li>
+  <li class="active"><a href="/csvimport">CSV Import</a></li>
+</ul>
+<a id="main-content" tabindex="-1"></a>
+<div id="csv-import-container" class="grid-container full"><h3>Processing your import, you will receive an email once it is done!</h3></div>
+
+
+<script>
+  $(document).ready(function() {
+
+    $('#csv-import-submit').postForm({formId: 'csv-import-form', clearForm: true }, function(data) {
+      if (data) {
+        var obj = $.parseJSON(data);
+        if (obj['outcome'] == 'success') {
+          $('#csv-import-container').html(obj['csv-preview']);
+        }
+      }
+    }, null, function() {
+      $('#csv-import-filename').hide();
+    });
+
+    $('#csv-import-file').on('change', function() {
+      var max_size = 22 * 1024 * 1024; // 22MB
+      if (this.files[0] && this.files[0].size > max_size) {
+        notification("File is too large. Maximum size is 20MB.", 'notification-error');
+        $(this).val('');
+        $('#csv-import-filename').hide();
+        return;
+      }
+
+      var path = $(this).val();
+      var filename = path.replace(/^.*\\/, "");
+      if (filename) {
+        $('#csv-import-filename')
+          .empty()
+          .append($('<span class="csv-filename-icon"></span>'))
+          .append($('<span class="csv-filename-text"></span>').text(filename))
+          .show();
+      } else {
+        $('#csv-import-filename').hide();
+      }
+    });
+  });
+</script>
+
+            </div>
+        </div>
+        <!-- filter-sidebar -->
+        <div id="filter-sidebar">
+    <div class="grid-container full sticky-header">
+        <div class="grid-x filter-title">
+            <button type="button" class="close close-filters" tabindex="0" aria-label="Close filters"></button>
+            <div class="cell small-12 margin-top-30"></div>
+            <div class="cell small-6">
+                <span class="large-label top">Filters</span>
+            </div>
+            <div class="cell small-6 text-right margin-top-10">
+                <button type="reset" class="clear-all-filters">Clear all</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="filter-container" tabindex="0"></div>
+
+</div>
+    </div>
+    <!-- end grid-frame -->
+
+    <!-- LOAD SCRIPTS -->
+    <script src="/js/what-input.js?v=64"></script>
+    <script src="/js/foundation.min.js?v=64"></script>
+    <script src="/js/library/script.js?v=64"></script>
+    <script src="/js/library/autocomplete.js?v=64"></script>
+    <script src="/js/library/search.js?v=64"></script>
+    <script src="/js/library/filter.js?v=64"></script>
+    <script src="/js/notification.js?v=64"></script>
+    <script src="/js/postform.js?v=64"></script>
+    <script src="/js/chosen.jquery.min.js?v=64"></script>
+    <script src="/js/library/DateTimePicker.js?v=64"></script>
+
+
+</body></html>
