@@ -688,5 +688,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "Shelley Duvall's Faerie Tale Theatre retelling of Hans Christian Andersen's fairy tale. A young girl sets out to rescue her friend from the icy palace of the Snow Queen."
+  },
+  {
+    "handle": "against-the-ropes-contrecoups-dvd-rental-drama",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/9CuODYTA3vvrGluaIl0hMPsEIK8.jpg",
+    "overview": "A fictional story inspired by North America's most famous female boxing promoter, Jackie Kallen. Her struggle to survive and succeed in a male dominated sport."
   }
 ]
