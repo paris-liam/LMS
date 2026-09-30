@@ -844,5 +844,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "Feature-length home-video release of the second-season premiere of the TV series Miami Vice, \"The Prodigal Son,\" starring Don Johnson and Philip Michael Thomas as Crockett and Tubbs."
+  },
+  {
+    "handle": "mussolini-and-i-vhs-rental-drama",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/2PQGwnxcYqAdgXd8Gq0vbhCo03R.jpg",
+    "overview": "World War II is about to end. Benito Mussolini, il Duce, supreme dictator of Fascist Italy, sees his totalitarian dream crumbling and his power slipping away as the terrible day of his ignominious death at the hands of those he so ruthlessly oppressed for more than two decades draws inexorably near."
   }
 ]
