@@ -832,5 +832,11 @@
     "choice": "tmdb",
     "poster_path": "/xdJVC9zIxqyXPMfz6luRsh0Jxv8.jpg",
     "overview": "In this steampunk fantasy adventure, a collapse imprisons three dwarven miners who must now work collectively to combat starvation, despair, and a mysterious creature."
+  },
+  {
+    "handle": "soap-dish-vhs-rental-comedy",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/cDiXGOBa0SjY30rzl26DeSP16bk.jpg",
+    "overview": "Celeste Talbert is the star of the long-running soap opera \"The Sun Also Sets.\" With the show's ratings down, Celeste's ruthlessly ambitious co-star, Montana Moorehead, and the show's arrogant producer, David Seton Barnes, plot to aggravate her into leaving the show by bringing back her old flame, Jeffrey Anderson, and hiring her beautiful young niece, Lori Craven."
   }
 ]
