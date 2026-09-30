@@ -604,5 +604,11 @@
     "choice": "tmdb",
     "poster_path": "/tXhWg0m92zVGaei06FYw5lQFAoQ.jpg",
     "overview": "A German living in India during World War II is blackmailed by the English to impersonate an SS officer on board a cargo ship leaving Japan for Germany carrying a large supply of rubber for tyres. His mission is to disable the scuttling charges so the captain cannot sink the ship if they are stopped by English warships."
+  },
+  {
+    "handle": "circle-of-fear-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/9HkHWCZt5lrIEzPWfUpOM3iiaG4.jpg",
+    "overview": "Tom Price, an ex-LA mob enforcer, travels to the Philippines to investigate the mysterious death of his brother Charlie. Tom's investigation turns to catastrophe, and he must employ all the tricks of the trade to stay alive."
   }
 ]
