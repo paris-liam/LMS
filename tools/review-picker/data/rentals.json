@@ -802,5 +802,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/65oKWdrQRwtkOolnCQMUQkvUryS.jpg",
     "overview": "A boy's life is turned upside down when he learns that he is the last of a group of immortal warriors who have dedicated their lives to fighting the forces of the dark."
+  },
+  {
+    "handle": "pandoras-box-criterion-dvd-rental-foreign",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/3B2A5g8t3HZltKp1fplNn2xW4us.jpg",
+    "overview": "The rise and inevitable fall of an amoral but naive young woman whose insouciant eroticism inspires lust and violence in those around her."
   }
 ]
