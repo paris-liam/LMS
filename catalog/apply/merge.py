@@ -9,6 +9,7 @@ since. Handles already applied/resolved are left alone.
 """
 
 import html
+import re
 from dataclasses import dataclass, field
 
 from catalog.core.picks import Pick
@@ -16,6 +17,9 @@ from catalog.core.text import strip_html
 from catalog.tmdb.match import POSTER_BASE_URL
 
 AUTO_FIX_SOURCE = "auto-fix"
+# Any size of a TMDB image link. The picker shows candidates at w185, so a
+# pasted thumbnail is resized to the poster size every other path uses.
+TMDB_IMAGE = re.compile(r"^https?://image\.tmdb\.org/t/p/[^/]+(/.+)$")
 CHANGE_COLUMNS = ["handle", "field", "before", "after", "source"]
 
 
@@ -47,6 +51,9 @@ def _pick_values(pick: Pick, row: dict, current_cycle: bool) -> dict | None:
         if not pick.image_src and not pick.overview:
             return None
         image, body, overwrite = pick.image_src, pick.overview, current_cycle
+        tmdb = TMDB_IMAGE.match(image.strip())
+        if tmdb:
+            image = f"{POSTER_BASE_URL}{tmdb.group(1)}"
     else:
         image = f"{POSTER_BASE_URL}{pick.poster_path}" if pick.poster_path else ""
         body, overwrite = pick.overview, False

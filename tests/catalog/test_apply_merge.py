@@ -58,6 +58,19 @@ class TestPicks(unittest.TestCase):
         self.assertEqual(c[("the-thing", "Body (HTML)")][0], "<p>New.</p>")
         self.assertNotIn(("the-thing", "Image Alt Text"), c)  # existing alt text kept
 
+    def test_manual_pick_tmdb_thumbnail_is_upgraded_to_full_size(self):
+        # The picker shows TMDB candidates at w185; a pasted thumbnail link
+        # would put a 185px poster on the store.
+        for size in ("w92", "w185", "w500", "original"):
+            result = merge([row()], {}, [Pick("q", "the-thing", "manual",
+                                              image_src=f"https://image.tmdb.org/t/p/{size}/abc.jpg")], QUEUED)
+            self.assertEqual(changes_of(result)[("the-thing", "Image Src")][0], f"{POSTER_BASE_URL}/abc.jpg")
+
+    def test_manual_pick_other_image_hosts_are_kept_as_given(self):
+        url = "https://m.media-amazon.com/images/I/71-awWlPjEL._SX466_.jpg"
+        result = merge([row()], {}, [Pick("q", "the-thing", "manual", image_src=url)], QUEUED)
+        self.assertEqual(changes_of(result)[("the-thing", "Image Src")][0], url)
+
     def test_legacy_manual_pick_only_fills_gaps(self):
         result = merge([row(**{"Image Src": "https://cdn/fixed-since.jpg"})], {},
                        [Pick("review-9.2-gaps", "the-thing", "manual", image_src="https://old.jpg", overview="Old.")],
