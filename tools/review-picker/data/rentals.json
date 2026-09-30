@@ -532,5 +532,11 @@
     "choice": "tmdb",
     "poster_path": "/ykUEbfpkf8d0w49pHh0AD2KrT52.jpg",
     "overview": "A kindhearted street urchin named Aladdin embarks on a magical adventure after finding a lamp that releases a wisecracking genie while a power-hungry Grand Vizier vies for the same lamp that has the power to make their deepest wishes come true."
+  },
+  {
+    "handle": "alice-in-wonderland-bluray-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/o0kre9wRCZz3jjSjaru7QU0UtFz.jpg",
+    "overview": "Alice, now 19 years old, returns to the whimsical world she first entered as a child and embarks on a journey to discover her true destiny."
   }
 ]
