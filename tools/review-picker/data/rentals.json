@@ -670,5 +670,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": ""
+  },
+  {
+    "handle": "face-vhs-rental-action",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
