@@ -1156,5 +1156,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/2/21/Elektra_teaser.jpg",
     "overview": "Elektra (2005): Marvel superhero spin-off from Daredevil directed by Rob Bowman, with Jennifer Garner as the assassin Elektra Natchios."
+  },
+  {
+    "handle": "pirates-of-the-caribbean-dvd-rental-kids-family",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/8/89/Pirates_of_the_Caribbean_-_The_Curse_of_the_Black_Pearl.png",
+    "overview": "Pirates of the Caribbean: The Curse of the Black Pearl (2003): swashbuckler directed by Gore Verbinski, produced by Jerry Bruckheimer."
   }
 ]
