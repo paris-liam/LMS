@@ -1108,5 +1108,11 @@
   {
     "handle": "wb-academy-award-animation-dvd-rental-kids-family",
     "choice": "skip"
+  },
+  {
+    "handle": "kino-film-noir-dvd-rental-thriller",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
