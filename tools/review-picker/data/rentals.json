@@ -1234,5 +1234,11 @@
     "choice": "tmdb",
     "poster_path": "/lXHPkjlXFlclX4KMq0wVGQ2KkQN.jpg",
     "overview": "A married woman has a fling with her husband’s charming, but sociopathic young patient, but when she returns to her husband she finds herself being stalked by her former lover."
+  },
+  {
+    "handle": "the-dogfighters-vhs-rental-action",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "The CIA hires a retired Air Force pilot (Robert Davi) to destroy a terrorist's (Alexander Godunov) nuclear-weapons plant."
   }
 ]
