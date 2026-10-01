@@ -1076,5 +1076,11 @@
     "choice": "tmdb",
     "poster_path": "/x9AvkYek0bGdxQSZ8W3lAjGrREm.jpg",
     "overview": "With King Richard off to the Crusades, Prince John and his slithering minion, Sir Hiss, set about taxing Nottingham's citizens with support from the corrupt sheriff - and staunch opposition by the wily Robin Hood and his band of merry men."
+  },
+  {
+    "handle": "smart-money-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/jh0rfYD3FLXjqFflN1hk5aFgF6f.jpg",
+    "overview": "Leon, a hacker convicted for a crime he did not commit, escapes from detention centre following the death of his father, to take revenge on the man who really did it."
   }
 ]
