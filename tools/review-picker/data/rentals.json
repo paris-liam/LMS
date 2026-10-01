@@ -1366,5 +1366,11 @@
     "choice": "tmdb",
     "poster_path": "/4Pnsi9DX4zOdV0Sqj87yYyctrYm.jpg",
     "overview": "A student receives a serial killer's brain in a transplant after being thrown into a pool with no water in it."
+  },
+  {
+    "handle": "resurrection-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/2j6cMHN1Mx1u8S897VVhO7wSrce.jpg",
+    "overview": "A jaded homicide detective has been put on the case of a ruthless killer in the city of Chicago, who leaves a trail of horribly mutilated and dismembered corpses along with perversely ironic biblical quotes."
   }
 ]
