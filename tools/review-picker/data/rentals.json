@@ -1372,5 +1372,11 @@
     "choice": "tmdb",
     "poster_path": "/2j6cMHN1Mx1u8S897VVhO7wSrce.jpg",
     "overview": "A jaded homicide detective has been put on the case of a ruthless killer in the city of Chicago, who leaves a trail of horribly mutilated and dismembered corpses along with perversely ironic biblical quotes."
+  },
+  {
+    "handle": "seven-vhs-rental-thriller",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
