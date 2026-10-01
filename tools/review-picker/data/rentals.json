@@ -1228,5 +1228,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/33VdppGbeNxICrFUtW2WpGHvfYc.jpg",
     "overview": "Buck is a big-hearted dog whose blissful domestic life is turned upside down when he is suddenly uprooted from his California home and transplanted to the exotic wilds of the Yukon during the Gold Rush of the 1890s. As the newest rookie on a mail delivery dog sled team—and later its leader—Buck experiences the adventure of a lifetime, ultimately finding his true place in the world and becoming his own master."
+  },
+  {
+    "handle": "cold-heart-vhs-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/lXHPkjlXFlclX4KMq0wVGQ2KkQN.jpg",
+    "overview": "A married woman has a fling with her husband’s charming, but sociopathic young patient, but when she returns to her husband she finds herself being stalked by her former lover."
   }
 ]
