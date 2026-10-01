@@ -1162,5 +1162,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/8/89/Pirates_of_the_Caribbean_-_The_Curse_of_the_Black_Pearl.png",
     "overview": "Pirates of the Caribbean: The Curse of the Black Pearl (2003): swashbuckler directed by Gore Verbinski, produced by Jerry Bruckheimer."
+  },
+  {
+    "handle": "the-three-muskateers-dvd-rental-action",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/e/e6/Threemusketeers1993.jpg",
+    "overview": "The Three Musketeers (1993): action-adventure comedy from Walt Disney Pictures and Caravan Pictures, directed by Stephen Herek."
   }
 ]
