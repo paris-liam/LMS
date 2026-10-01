@@ -1,0 +1,80 @@
+call_number,barcode_status,content_status,message
+19815162,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000364,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+90000218,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+53730042,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+09463546,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+71697914,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+42032890,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+42163962,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+20165370,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+20263674,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+20624122,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+10342906,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+17207290,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+19763194,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+83335930,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+83696378,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+72249082,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+06929402,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+31841786,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+85748218,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+29794298,skipped,skipped,barcode: barcode already matches call_number | content: title/description/tags/poster already correct
+29990906,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+31137786,skipped,updated,barcode: barcode already matches call_number | content: changed: poster
+42115578,updated,updated,barcode: ok | content: changed: poster
+42410490,updated,updated,barcode: ok | content: changed: poster
+43033082,updated,updated,barcode: ok | content: changed: poster
+40183802,updated,updated,barcode: ok | content: changed: poster
+02701562,updated,updated,barcode: ok | content: changed: poster
+03029242,updated,updated,barcode: ok | content: changed: poster
+03782906,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+55444730,updated,updated,barcode: ok | content: changed: poster
+69408762,updated,updated,barcode: ok | content: changed: poster
+29253882,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+49479930,updated,updated,barcode: ok | content: changed: poster
+50754042,updated,updated,barcode: ok | content: changed: poster
+80527098,updated,updated,barcode: ok | content: changed: poster
+97687546,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+98408442,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+99358714,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+99424250,updated,updated,barcode: ok | content: changed: poster
+65278714,updated,updated,barcode: ok | content: changed: poster
+28455418,updated,updated,barcode: ok | content: changed: poster
+90000394,updated,updated,barcode: ok | content: changed: poster
+41764090,updated,updated,barcode: ok | content: changed: poster
+26194170,updated,updated,barcode: ok | content: changed: poster
+98533882,updated,updated,barcode: ok | content: changed: poster
+99811834,updated,updated,barcode: ok | content: changed: poster
+01253626,updated,updated,barcode: ok | content: changed: poster
+01319162,updated,updated,barcode: ok | content: changed: poster
+01417466,updated,updated,barcode: ok | content: changed: poster
+11064314,updated,updated,barcode: ok | content: changed: poster
+11097082,updated,updated,barcode: ok | content: changed: poster
+05990138,updated,updated,barcode: ok | content: changed: poster
+09106938,updated,updated,barcode: ok | content: changed: poster
+48436986,updated,updated,barcode: ok | content: changed: poster
+48469754,updated,updated,barcode: ok | content: changed: poster
+48535290,updated,updated,barcode: ok | content: changed: poster
+48600826,updated,updated,barcode: ok | content: changed: poster
+48633594,updated,updated,barcode: ok | content: changed: poster
+48731898,updated,updated,barcode: ok | content: changed: poster
+48797434,updated,updated,barcode: ok | content: changed: poster
+48830202,updated,updated,barcode: ok | content: changed: poster
+48928506,updated,updated,barcode: ok | content: changed: poster
+48961274,updated,updated,barcode: ok | content: changed: poster
+49092346,updated,updated,barcode: ok | content: changed: poster
+49125114,updated,updated,barcode: ok | content: changed: poster
+49190650,updated,updated,barcode: ok | content: changed: poster
+65902330,updated,updated,barcode: ok | content: changed: poster
+65935098,updated,updated,barcode: ok | content: changed: poster
+66000634,updated,updated,barcode: ok | content: changed: poster
+66033402,updated,updated,barcode: ok | content: changed: poster
+68163322,updated,updated,barcode: ok | content: changed: poster
+68294394,updated,updated,barcode: ok | content: changed: poster
+68359930,updated,updated,barcode: ok | content: changed: poster
+68392698,updated,updated,barcode: ok | content: changed: poster
+68425466,updated,updated,barcode: ok | content: changed: poster
+68589306,updated,updated,barcode: ok | content: changed: poster
+68622074,updated,updated,barcode: ok | content: changed: poster
+68654842,updated,updated,barcode: ok | content: changed: poster
