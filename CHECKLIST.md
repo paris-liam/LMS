@@ -63,6 +63,12 @@ Standing rules:
   `catalog/client_sheet/template/genre-mappings.csv`.
 
 - [ ] **5. Review the sheet, and have it also produce a Libib import CSV.**
+  **Redesigned 2026-10-01 — follow
+  `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md`**, which
+  also covers items 4 and 14. The client imports to both Shopify and Libib
+  himself: he types each barcode into the sheet after printing, and a new
+  `Libib import` tab writes it as the call number. The text below is the
+  original framing, kept for background.
   Today the sheet only produces the Shopify import (tab 2,
   `catalog/client_sheet/template/import-tab-formula.txt`), and rentals reach
   Libib later through `libib sync`. The idea is a second output tab so a new
