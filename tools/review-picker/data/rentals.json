@@ -1282,5 +1282,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": ""
+  },
+  {
+    "handle": "the-glass-house-vhs-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/16obDcmphjfq17zwWKJlur53fCh.jpg",
+    "overview": "When Ruby and Rhett's parents are killed in a car accident, their carefree teenage lives are suddenly shattered. Moving to an incredible house in Malibu with the Glasses', old friends of the family, seems to be the beginning of a new life for them."
   }
 ]
