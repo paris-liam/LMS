@@ -970,5 +970,11 @@
     "choice": "manual",
     "image_src": "https://m.media-amazon.com/images/I/71mF6v2uGQL._SX342_.jpg",
     "overview": "Peter Jackson's Lord of the Rings trilogy: The Fellowship of the Ring, The Two Towers and The Return of the King."
+  },
+  {
+    "handle": "harry-potter-8-film-collection-bluray-rental-fantasy",
+    "choice": "manual",
+    "image_src": "https://m.media-amazon.com/images/I/91reTAYWeNL._SX342_.jpg",
+    "overview": "The complete Harry Potter film series, all 8 movies from Sorcerer's Stone to Deathly Hallows Part 2."
   }
 ]
