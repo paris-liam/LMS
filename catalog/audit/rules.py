@@ -36,8 +36,12 @@ def resolve_row(row: dict) -> Resolved:
     option1 = (row.get("Option1 Value") or "").strip()
     product_type, type_reason = resolve_type(tags)
     media_format, _ = resolve_format(row.get("Vendor", ""), option1, tags, "")
-    genres, _ = resolve_genres(option1, tags, [])
+    genres, _ = resolve_genres(option1, genre_handles(row), tags)
     return Resolved(tags, product_type, type_reason, media_format, genres)
+
+
+def genre_handles(row: dict) -> list[str]:
+    return [h.strip() for h in (row.get(GENRE_METAFIELD) or "").split(";") if h.strip()]
 
 
 def respelled_tags(r: Resolved) -> str:
@@ -156,7 +160,7 @@ def _autofix_findings(row, r, make) -> list[Finding]:
             out.append(make("category-missing", "Product Category", category, MOVIE_CATEGORY, AUTO_FIX,
                             "the genre field only exists on Media > Videos products"))
         expected = [genre_handle(g) for g in r.genres]
-        current = [h.strip() for h in (row.get(GENRE_METAFIELD) or "").split(";") if h.strip()]
+        current = genre_handles(row)
         if set(current) != set(expected):
             out.append(make("genre-metafield-sync", GENRE_METAFIELD, "; ".join(current), "; ".join(expected),
                             AUTO_FIX, "the genre filter and PDP chip read this field"))
@@ -180,7 +184,7 @@ def check_row(row: dict) -> list[Finding]:
                              "no VHS/DVD/Blu-Ray/4K/Laserdisc/Betamax in Vendor, Option1 or tags"))
     if not r.genres:
         findings.append(make("genre-missing", GENRE_METAFIELD, row.get(GENRE_METAFIELD, ""), "", MANUAL,
-                             "no recognisable genre in Option1 Value or tags"))
+                             "no recognisable genre in Option1 Value, the genre field or tags"))
     findings += _price_findings(row, r, make)
     if (row.get("Variant Inventory Tracker") or "").strip() != "shopify":
         findings.append(make("inventory-untracked", "Variant Inventory Tracker",

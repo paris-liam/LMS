@@ -29,33 +29,28 @@ def resolve_type(tags: list[str]) -> tuple[str | None, str | None]:
 
 
 def resolve_genres(
-    option1_value: str, tags: list[str], helper_genres: list[str]
+    option1_value: str, metafield_handles: list[str], tags: list[str]
 ) -> tuple[list[str], str | None]:
     """Resolve the genre list, primary first.
 
-    Helper columns win outright when the sheet supplied them — no union,
-    they're the freshest signal available.
-
-    Otherwise the result is a union of Option1 Value and Tags, in that
-    order: Option1 Value (the barcode-label slot) supplies genres[0] and
-    anything else it names, then any additional genre found in Tags that
-    isn't already present is appended. Option1 Value only ever holds one
-    value on output, so a second pass that consulted Option1 Value alone
-    would silently drop every genre after the first — the union is what
-    keeps a product's own output a valid, lossless input to a re-run.
+    A union of Option1 Value, the shopify.genre metafield and Tags, in that
+    order: Option1 Value (the barcode-label slot) supplies genres[0], the
+    metafield supplies every other genre, and any genre found only in Tags is
+    appended (a stray upload). Option1 Value only ever holds one value, so a
+    pass that consulted it alone would silently drop every genre after the
+    first; the union keeps a product's own output a valid, lossless input to
+    a re-run. Unknown handles and labels are ignored.
     """
-    from_helpers = dedupe([g for g in (canonical_genre(v) for v in helper_genres) if g])
-    if from_helpers:
-        return from_helpers, None
-
-    from_option1 = [g for g in (canonical_genre(v) for v in split_list(option1_value)) if g]
-    from_tags = [g for g in (canonical_genre(tag) for tag in tags) if g]
-    merged = dedupe(from_option1 + from_tags)
+    from_option1 = [canonical_genre(v) for v in split_list(option1_value)]
+    from_metafield = [canonical_genre(h) for h in metafield_handles]
+    from_tags = [canonical_genre(tag) for tag in tags]
+    merged = dedupe([g for g in from_option1 + from_metafield + from_tags if g])
     if merged:
         return merged, None
 
     return [], (
         f"no usable genre (Option1 Value {option1_value!r}, "
+        f"genre field {'; '.join(metafield_handles) or '(empty)'}, "
         f"tags {', '.join(tags) or '(none)'})"
     )
 

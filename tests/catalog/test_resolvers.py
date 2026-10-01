@@ -39,79 +39,74 @@ class TestResolveType(unittest.TestCase):
 
 
 class TestResolveGenres(unittest.TestCase):
+    # resolve_genres(option1_value, metafield_handles, tags): a lossless union,
+    # in that order. Option1 Value (the barcode-label slot) supplies genres[0];
+    # the shopify.genre metafield adds every other genre; Tags add anything
+    # still missing (a stray upload whose genre exists only in a tag).
+
     def test_option1_supplies_the_primary_genre_and_tags_are_unioned_in(self):
-        # Option1 Value names genres[0]; a genre named only in Tags is kept,
-        # not discarded, so a second pass can't silently drop it (fix round 1).
-        self.assertEqual(resolve_genres("Comedy", ["Rental", "Drama"], []),
-                          (["Comedy", "Drama"], None))
+        self.assertEqual(resolve_genres("Comedy", [], ["Rental", "Drama"]),
+                         (["Comedy", "Drama"], None))
+
+    def test_metafield_supplies_secondary_genres_without_tags(self):
+        # Genre/format tags are being removed: the metafield alone must keep a
+        # multi-genre product's secondary genres.
+        self.assertEqual(resolve_genres("Comedy", ["comedy", "sci-fi"], ["Rental"]),
+                         (["Comedy", "Sci-Fi"], None))
+
+    def test_metafield_handles_resolve_to_labels(self):
+        self.assertEqual(resolve_genres("", ["kids-family", "romantic-comedy", "special-interest"], [])[0],
+                         ["Kids & Family", "Romantic Comedy", "Special Interest"])
+
+    def test_option1_stays_primary_whatever_the_metafield_order(self):
+        self.assertEqual(resolve_genres("Comedy", ["drama", "comedy"], [])[0], ["Comedy", "Drama"])
+
+    def test_metafield_alone_when_option1_is_unusable(self):
+        self.assertEqual(resolve_genres("Default Title", ["horror", "thriller"], []),
+                         (["Horror", "Thriller"], None))
+
+    def test_unknown_metafield_handle_is_ignored(self):
+        self.assertEqual(resolve_genres("Comedy", ["comedy", "western"], [])[0], ["Comedy"])
+
+    def test_tag_genre_missing_from_metafield_is_kept(self):
+        self.assertEqual(resolve_genres("Action", ["action"], ["Floor Sale", "Comedy"])[0],
+                         ["Action", "Comedy"])
 
     def test_compound_option1_keeps_only_the_genre_part(self):
         self.assertEqual(resolve_genres("4K, Action", [], []), (["Action"], None))
         self.assertEqual(resolve_genres("Comedy, Criterion Collection", [], []), (["Comedy"], None))
 
-    def test_falls_back_to_tags_when_option1_is_unusable(self):
-        self.assertEqual(resolve_genres("Standard", ["Rental", "Horror"], []), (["Horror"], None))
-        self.assertEqual(resolve_genres("#VALUE!", ["Comedy"], []), (["Comedy"], None))
-
-    def test_helper_columns_win_when_present(self):
-        genres, reason = resolve_genres("", ["Rental"], ["Sci-Fi", "Thriller", ""])
-        self.assertEqual(genres, ["Sci-Fi", "Thriller"])
-        self.assertIsNone(reason)
+    def test_falls_back_to_tags_when_option1_and_metafield_are_unusable(self):
+        self.assertEqual(resolve_genres("Standard", [], ["Rental", "Horror"]), (["Horror"], None))
+        self.assertEqual(resolve_genres("#VALUE!", [], ["Comedy"]), (["Comedy"], None))
 
     def test_multiple_tag_genres_keep_tag_order(self):
-        self.assertEqual(resolve_genres("", ["Comedy", "Rental", "Musical"], [])[0],
+        self.assertEqual(resolve_genres("", [], ["Comedy", "Rental", "Musical"])[0],
                          ["Comedy", "Musical"])
 
     def test_deduplicates(self):
-        self.assertEqual(resolve_genres("Comedy", ["Comedy", "comedy"], [])[0], ["Comedy"])
+        self.assertEqual(resolve_genres("Comedy", ["comedy"], ["Comedy", "comedy"])[0], ["Comedy"])
 
     def test_no_usable_genre_is_flagged(self):
-        for option1, tags in (("Western", ["Rental"]), ("#REF!", []),
-                              ("Chicago", []), ("", ["Rental", "VHS"])):
-            genres, reason = resolve_genres(option1, tags, [])
+        for option1, handles, tags in (("Western", [], ["Rental"]), ("#REF!", [], []),
+                                       ("Chicago", ["western"], []), ("", [], ["Rental", "VHS"])):
+            genres, reason = resolve_genres(option1, handles, tags)
             self.assertEqual(genres, [])
             self.assertIn("no usable genre", reason)
 
-    # Fix round 1 (data-loss bug): resolve_genres used to consult Option1
-    # Value, then fall back to Tags only if Option1 was unusable — so a
-    # multi-genre product whose Option1 already held one genre would lose
-    # every other genre named only in Tags on a second pass. It now unions
-    # Option1 Value (primary genre first) with any additional genre found
-    # in Tags. Table from the ruling, verbatim.
+    # Fix round 1 (data-loss bug): a multi-genre product whose Option1 held one
+    # genre used to lose every other genre on a second pass. The union keeps a
+    # product's own output a valid, lossless input to a re-run.
     def test_union_table_multi_genre_option1_and_tags(self):
         self.assertEqual(
-            resolve_genres("Action, Comedy", ["Floor Sale", "Action", "Comedy"], []),
-            (["Action", "Comedy"], None),
-        )
-
-    def test_union_table_single_genre_option1_plus_extra_tag_genre(self):
-        self.assertEqual(
-            resolve_genres("Action", ["Floor Sale", "Action", "Comedy"], []),
+            resolve_genres("Action, Comedy", [], ["Floor Sale", "Action", "Comedy"]),
             (["Action", "Comedy"], None),
         )
 
     def test_union_table_option1_primary_kept_first_even_when_tag_disagrees(self):
-        # A tag that disagrees with Option1 is kept, not silently discarded.
         self.assertEqual(
-            resolve_genres("Comedy", ["Rental", "Horror"], []),
+            resolve_genres("Comedy", [], ["Rental", "Horror"]),
             (["Comedy", "Horror"], None),
-        )
-
-    def test_union_table_unusable_option1_falls_back_to_tags_only(self):
-        self.assertEqual(
-            resolve_genres("Standard", ["Rental", "Horror"], []),
-            (["Horror"], None),
-        )
-
-    def test_union_table_unusable_option1_and_tags_is_flagged(self):
-        genres, reason = resolve_genres("Western", ["Rental"], [])
-        self.assertEqual(genres, [])
-        self.assertIn("no usable genre", reason)
-
-    def test_union_table_helper_genres_still_win_outright(self):
-        self.assertEqual(
-            resolve_genres("Comedy", ["Rental"], ["Sci-Fi", "Thriller", ""]),
-            (["Sci-Fi", "Thriller"], None),
         )
 
 

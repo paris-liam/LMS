@@ -94,6 +94,11 @@ class TestAutoFixRules(unittest.TestCase):
     def test_metafield_order_does_not_matter(self):
         self.assertEqual(check_row(movie(Tags="Rental, VHS, Comedy, Drama", **{GENRE_METAFIELD: "drama; comedy"})), [])
 
+    def test_secondary_genre_survives_without_genre_tags(self):
+        # Genre/format tags are being removed: the metafield alone must keep
+        # a multi-genre product's secondary genre (no genre-metafield-sync).
+        self.assertEqual(check_row(movie(Tags="Rental", **{GENRE_METAFIELD: "comedy; sci-fi"})), [])
+
     def test_default_title_option_gets_genre(self):
         f = by_rule(check_row(movie(**{"Option1 Name": "Title", "Option1 Value": "Default Title"})))
         self.assertEqual(f[("option1-genre", "Option1 Value")].proposed_value, "Comedy")
