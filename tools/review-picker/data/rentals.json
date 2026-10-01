@@ -1186,5 +1186,11 @@
     "choice": "tmdb",
     "poster_path": "/cPGmqu3WhJuGDPIqOiPOZ35us2f.jpg",
     "overview": "Part of The Book of Pooh series, which offers preschool kids simple life lessons and scholastic pointers, The Book of Pooh: Stories From the Heart uses puppetry and computer animation to tell Christopher Robin's imaginative tales. Kids join Christopher Robin, Winnie the Pooh, Piglet, and Tigger for an afternoon of storytelling and lesson learning."
+  },
+  {
+    "handle": "poos-heffalump-movie-dvd-rental-kids-family",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/5kd5JqccroxOnC9sVMP5NtLrbkr.jpg",
+    "overview": "Who or what exactly is a Heffalump? The lovable residents of the Hundred Acre Wood -- Winnie the Pooh, Rabbit, Tigger, Eeyore, Kanga and the rest of the pack -- embark on a journey of discovery in search of the elusive Heffalump. But as is always the case, this unusual road trip opens their eyes to so much more than just the creature they're seeking."
   }
 ]
