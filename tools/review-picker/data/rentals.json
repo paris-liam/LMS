@@ -1360,5 +1360,11 @@
     "choice": "tmdb",
     "poster_path": "/5Np88iigCfnXvMlMKmCcbPVIbYQ.jpg",
     "overview": "When the crew of an American tugboat boards an abandoned Russian research vessel, the alien life form aboard regards them as a virus which must be destroyed."
+  },
+  {
+    "handle": "boltneck-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/4Pnsi9DX4zOdV0Sqj87yYyctrYm.jpg",
+    "overview": "A student receives a serial killer's brain in a transplant after being thrown into a pool with no water in it."
   }
 ]
