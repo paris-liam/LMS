@@ -1246,5 +1246,11 @@
     "choice": "tmdb",
     "poster_path": "/sN1RU08CMi8xkRIibremh3AOdgw.jpg",
     "overview": "A couple with a newborn baby face unexpected difficulties after they are forced to live next to a fraternity house."
+  },
+  {
+    "handle": "lightnight-incident-vhs-rental-thriller",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/pweeNO3pMHIeuUC9aOKoe38y971.jpg",
+    "overview": "McKeon's baby is kidnapped by a devil-worshipping cult and she uses her new-found psychic abilities to track them down."
   }
 ]
