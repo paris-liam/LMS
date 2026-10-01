@@ -1396,5 +1396,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/8/86/PoseidonAdventure.jpg",
     "overview": "The Poseidon Adventure is a 1972 disaster film in which a luxury ocean liner is capsized by a massive rogue wave on New Year's Eve, and a small group of survivors must climb through the overturned ship to reach the hull and escape before it sinks."
+  },
+  {
+    "handle": "the-edge-vhs-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/7SG7rUrNzaNiq9ZqE5PNIdXUmUC.jpg",
+    "overview": "A three-part anthology suspense program in which men and women face life's ultimate danger zone. Each episode is introduced by a mysterious figure known as The Watcher (Barry Sattels), who arrives on the scene just as strange things being to happen - pushing men and women in crisis over the edge and into bizarre, unexpected actions."
   }
 ]
