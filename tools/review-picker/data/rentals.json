@@ -1252,5 +1252,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/pweeNO3pMHIeuUC9aOKoe38y971.jpg",
     "overview": "McKeon's baby is kidnapped by a devil-worshipping cult and she uses her new-found psychic abilities to track them down."
+  },
+  {
+    "handle": "the-last-winter-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/9rtwPZRmgqURABPhSCdd0dEc0yo.jpg",
+    "overview": "Tells the story of a young man's struggle to keep his world from changing. Placed in the rural setting of the mid 1950s."
   }
 ]
