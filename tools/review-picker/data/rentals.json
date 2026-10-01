@@ -1138,5 +1138,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/2/2b/The_Way%2C_Way_Back_Poster.jpg",
     "overview": "The Way, Way Back (2013): coming-of-age comedy-drama."
+  },
+  {
+    "handle": "bubble-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/tFwvUSc8g0HHvDOBQ2rvC9LWVSj.jpg",
+    "overview": "Jimmy is a young man who was born without an immune system and has lived his life within a plastic bubble in his bedroom... who pines for the sweet caresses of girl-next-door Chloe. But when Chloe decides to marry her high school boyfriend, Jimmy – bubble suit and all – treks cross-country to stop her."
   }
 ]
