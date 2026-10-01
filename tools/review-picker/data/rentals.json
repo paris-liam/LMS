@@ -1120,5 +1120,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": ""
+  },
+  {
+    "handle": "magdalenes-vhs-rental-drama",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/c/c8/The_Magdalene_Sisters_poster.jpg",
+    "overview": "The Magdalene Sisters (2002): drama written and directed by Peter Mullan about three teenage girls sent to Magdalene asylums, homes for women labelled 'fallen' by their families and society."
   }
 ]
