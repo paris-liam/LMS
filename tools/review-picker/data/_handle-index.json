@@ -244,7 +244,13 @@
   },
   "american-horror-stories-12-movie-collection-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Box set of 12 classic public-domain and cult horror films on 3 discs: Nightmare Castle, Point of Terror, Horror Express, Don't Answer the Phone, Bloody Pit of Horror, A Bucket of Blood, Don't Look in the Basement, The Driller Killer, Drive-In Massacre, Silent Night Bloody Night, House on Haunted Hill and Little Shop of Horrors.</p>",
+      "Image Alt Text": "American Horror Stories 12 Movie Collection poster",
+      "Image Src": "https://store.horrorpack.com/cdn/shop/files/daf23b8e-16a6-5d1f-82ec-797a9fa6fecd.jpg"
+    }
   },
   "american-pie-dvd-floor-sale-comedy": {
     "batch": "floor-sale-01",
@@ -318,7 +324,13 @@
   },
   "at-worlds-end-hot-fuzz-shaun-of-the-dead-bluray-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Edgar Wright and Simon Pegg's Three Flavours Cornetto trilogy: Shaun of the Dead, Hot Fuzz and The World's End.</p>",
+      "Image Alt Text": "Three Flavours Cornetto poster",
+      "Image Src": "https://m.media-amazon.com/images/I/818XRgljtBL._SX342_.jpg"
+    }
   },
   "atonement-dvd": {
     "batch": "floor-sale-01",
@@ -535,7 +547,13 @@
   },
   "bubble-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Jimmy is a young man who was born without an immune system and has lived his life within a plastic bubble in his bedroom... who pines for the sweet caresses of girl-next-door Chloe. But when Chloe decides to marry her high school boyfriend, Jimmy \u2013 bubble suit and all \u2013 treks cross-country to stop her.</p>",
+      "Image Alt Text": "Bubble poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/tFwvUSc8g0HHvDOBQ2rvC9LWVSj.jpg"
+    }
   },
   "butterfly-sword-dvd-rental-action": {
     "batch": "rentals",
@@ -549,7 +567,13 @@
   },
   "caged-in-triple-feature-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Nicolas Cage triple feature on 2 discs (about 5 hours), also starring Nicole Kidman, Eva Mendes, Josh Lucas, Malin Akerman, Cam Gigandet and Val Kilmer.</p>",
+      "Image Alt Text": "Cage'd In: Triple Feature poster",
+      "Image Src": "https://m.media-amazon.com/images/I/71TE0tKU3IL._SY445_.jpg"
+    }
   },
   "call-of-the-wild-dvd-floor-sale-kids-family": {
     "batch": "floor-sale-01",
@@ -1052,7 +1076,13 @@
   },
   "double-feature-the-land-before-time-6-7-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Double feature of The Land Before Time VI: The Secret of Saurus Rock and VII: The Stone of Cold Fire.</p>",
+      "Image Alt Text": "Double Feature: The Land Before Time 6&7 poster",
+      "Image Src": "https://m.media-amazon.com/images/I/71Zs79+WqSL._SX342_.jpg"
+    }
   },
   "double-jeopardy-vhs-floor-sale-thriller": {
     "batch": "floor-sale-02",
@@ -1184,7 +1214,13 @@
   },
   "electra-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Elektra (2005): Marvel superhero spin-off from Daredevil directed by Rob Bowman, with Jennifer Garner as the assassin Elektra Natchios.</p>",
+      "Image Alt Text": "Electra poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/2/21/Elektra_teaser.jpg"
+    }
   },
   "elephant-man-the-4k-uhd-blu-ray-floor-sale-drama": {
     "batch": "floor-sale-02",
@@ -1451,7 +1487,13 @@
   },
   "gaumont-treasures-vol-2-dvd-rental-special-interest": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Kino collection of early French silent films from Gaumont, 1908-1916 (Volume 2).</p>",
+      "Image Alt Text": "Gaumont Treasures | Vol. 2 poster",
+      "Image Src": "https://m.media-amazon.com/images/I/81t02e9gZIL._SX342_.jpg"
+    }
   },
   "get-carter-vhs-floor-sale-thriller": {
     "batch": "floor-sale-03",
@@ -1459,7 +1501,13 @@
   },
   "get-hard-central-intelligence-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Comedy double feature: Get Hard (Will Ferrell, Kevin Hart) and Central Intelligence (Dwayne Johnson, Kevin Hart).</p>",
+      "Image Alt Text": "Get Hard / Central Intelligence poster",
+      "Image Src": "https://m.media-amazon.com/images/I/81YSGNpd4xL._SX342_.jpg"
+    }
   },
   "ghost-busters-dvd-8": {
     "batch": "floor-sale-03",
@@ -1489,7 +1537,13 @@
   },
   "girl-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Girl (2018): drama directed by Lukas Dhont in his feature debut, starring Victor Polster as a trans girl pursuing a career as a ballet dancer.</p>",
+      "Image Alt Text": "girl poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/4/41/Girl_%282018_film%29.jpg"
+    }
   },
   "girls-fight-tonite-vhs": {
     "batch": "floor-sale-03",
@@ -1509,7 +1563,13 @@
   },
   "godzilla-2000-bluray-rental-sci-fi": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>An independent group of researchers called the Godzilla Prediction Network (GPN) actively track Godzilla as he makes landfall in Nemuro. Matters are further complicated when a giant meteor is discovered in the Ibaragi Prefecture. The mysterious rock begins to levitate as its true intentions for the world and Godzilla are revealed.</p>",
+      "Image Alt Text": "Godzilla (2000) poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/7BrjFxV0j5VzZRfVYeYbFXMUweB.jpg"
+    }
   },
   "godzilla-4k-uhd-blu-ray-floor-sale-sci-fi": {
     "batch": "floor-sale-03",
@@ -1621,7 +1681,13 @@
   },
   "harry-potter-8-film-collection-bluray-rental-fantasy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The complete Harry Potter film series, all 8 movies from Sorcerer's Stone to Deathly Hallows Part 2.</p>",
+      "Image Alt Text": "Harry Potter - 8 Film Collection poster",
+      "Image Src": "https://m.media-amazon.com/images/I/91reTAYWeNL._SX342_.jpg"
+    }
   },
   "harry-potter-and-the-deathly-hallows-part-1-dvd-floor-sale-fantasy": {
     "batch": "floor-sale-03",
@@ -1793,7 +1859,7 @@
   },
   "hugo-mask-special-horrible-full-head-mask-with-hair": {
     "batch": "rentals",
-    "status": "queued"
+    "status": "skipped"
   },
   "i-am-legend-dvd-5": {
     "batch": "floor-sale-03",
@@ -1897,7 +1963,13 @@
   },
   "iron-man-trilogy-bluray-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Iron Man, Iron Man 2 and Iron Man 3, starring Robert Downey Jr. as Tony Stark.</p>",
+      "Image Alt Text": "Iron Man Trilogy poster",
+      "Image Src": "https://m.media-amazon.com/images/I/91x+KUgVfXL._SX342_.jpg"
+    }
   },
   "it-1990-dvd-floor-sale-horror": {
     "batch": "floor-sale-03",
@@ -2039,7 +2111,13 @@
   },
   "kino-film-noir-dvd-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Film Noir: The Dark Side of Cinema II (Kino Lorber Blu-ray): three classic 1950s noir films - Thunder on the Hill, The Price of Fear and The Female Animal.</p>",
+      "Image Alt Text": "KINO Film Noir poster",
+      "Image Src": "https://kinolorber.com/media_cache/userFiles/uploads/products/film-noir-the-dark-side-of-cinema-ii-thunder-on-the-hill-the-price-of-fear-the-female-animal/filmpageposter/738329246648.jpg"
+    }
   },
   "kiss-or-kill-vhs-floor-sale-thriller": {
     "batch": "floor-sale-04",
@@ -2177,11 +2255,23 @@
   },
   "lord-of-the-rings-the-motion-picture-trilogy-bluray-rental-fantasy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Peter Jackson's Lord of the Rings trilogy: The Fellowship of the Ring, The Two Towers and The Return of the King.</p>",
+      "Image Alt Text": "Lord of the Rings Trilogy poster",
+      "Image Src": "https://m.media-amazon.com/images/I/71mF6v2uGQL._SX342_.jpg"
+    }
   },
   "los-lonely-boys-dvd-rental-musical": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Austin-based band Los Lonely Boys are blazing on Texican Style, a 96-minute concert recorded before a huge, wildly enthusiastic audience in the Texas state capitol in March, 2004. And the brothers Garza do it with what remains rock &amp; roll's most basic and reliable format: the rock guitar trio. True, there's nothing earth-shatteringly original going on here; guitarist Henry, like many others from Texas and everywhere else, is channeling Jimi Hendrix via Stevie Ray Vaughan, with a little Carlos Santana on the side (Jojo is the outstanding bassist, while Ringo--his real name, by the way--plays drums, of course). But Los Lonely Boys bring something else to the party: good singing (all three are capable lead and harmony vocalists), and enough other influences, from Tex-Mex to the Beatles, to forge a distinctive, melodically appealing sound.</p>",
+      "Image Alt Text": "Los Lonely Boys poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/hAX0ObDzIYgSLavS1YhU9kxW5u9.jpg"
+    }
   },
   "lost-in-space-vhs-floor-sale-sci-fi": {
     "batch": "floor-sale-04",
@@ -2189,7 +2279,12 @@
   },
   "lost-picture-show-vinegar-syndrome": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Vinegar Syndrome collection of 10 rediscovered films on 6 discs.</p>",
+      "Image Src": "https://m.media-amazon.com/images/I/314wthBdL3L._SX342_.jpg"
+    }
   },
   "love-a-45-vhs-floor-sale-action": {
     "batch": "floor-sale-04",
@@ -2228,7 +2323,13 @@
   },
   "magdalenes-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The Magdalene Sisters (2002): drama written and directed by Peter Mullan about three teenage girls sent to Magdalene asylums, homes for women labelled 'fallen' by their families and society.</p>",
+      "Image Alt Text": "Magdalenes poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/c/c8/The_Magdalene_Sisters_poster.jpg"
+    }
   },
   "magnolia-dvd-rental-drama": {
     "batch": "rentals",
@@ -2280,7 +2381,13 @@
   },
   "mark-wahlberg-rockstar-perfect-storm-three-kings-corrupter-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>4 Film Favorites starring Mark Wahlberg: Rock Star, The Perfect Storm, Three Kings and The Corruptor.</p>",
+      "Image Alt Text": "Mark Wahlberg: Rockstar, Perfect Storm, Three Kings, Corrupter poster",
+      "Image Src": "https://m.media-amazon.com/images/I/91JzhtcBd9L._SX342_.jpg"
+    }
   },
   "masala-vhs": {
     "batch": "floor-sale-04",
@@ -2296,7 +2403,13 @@
   },
   "masters-of-terror-8-horror-films-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Eight-film horror collection.</p>",
+      "Image Alt Text": "Masters of Terror: 8 Horror Films poster",
+      "Image Src": "https://m.media-amazon.com/images/I/91DkJB6AY6L._SX342_.jpg"
+    }
   },
   "matilda-vhs-floor-sale-kids-family": {
     "batch": "floor-sale-04",
@@ -2308,7 +2421,13 @@
   },
   "max-magician-and-the-legen-of-the-ring-dvd-rental-fantasy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A magical tale about young Max, a shy, bullied boy. His life is forever changed when he receives an ancient magical book that opens a mystical door into an enchanted kingdom where an adventure filled with warriors, elves, queens and sorcerers awaits.</p>",
+      "Image Alt Text": "Max Magician and the Legen of the Ring poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/kEq2JeXmaQGLxt8VmHCTe0lv46h.jpg"
+    }
   },
   "mckenna-shoots-for-the-stars-bluray-rental-kids-family": {
     "batch": "rentals",
@@ -2377,7 +2496,13 @@
   },
   "miss-julie-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A footman seduces a count's daughter. Adaptation of August Strindberg's famous play.</p>",
+      "Image Alt Text": "Miss Julie poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/7eBM9T0CKZpy59dIsvAg4GArTg8.jpg"
+    }
   },
   "missing-in-action-triple-feature-dvd-rental-action": {
     "batch": "rentals",
@@ -2413,7 +2538,13 @@
   },
   "mom-can-i-keep-him-vhs-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Mom, Can I Keep Her? (1998): twelve-year-old Timmy Blair's furry new friend follows him home from school - a 500 pound gorilla.</p>",
+      "Image Alt Text": "Mom, Can I Keep Him? poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/az6cyc3nb1MgPPehC1XZn2CjbF5.jpg"
+    }
   },
   "momento-box-set-dvd-floor-sale-thriller": {
     "batch": "floor-sale-04",
@@ -2528,7 +2659,13 @@
   },
   "my-bloody-valentine-april-fools-day-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Slasher double feature: My Bloody Valentine and April Fool's Day.</p>",
+      "Image Alt Text": "My Bloody Valentine, April Fool's Day poster",
+      "Image Src": "https://m.media-amazon.com/images/I/71QMMNK7pUL._SX342_.jpg"
+    }
   },
   "my-boyfriends-back-vhs": {
     "batch": "floor-sale-04",
@@ -2705,7 +2842,13 @@
   },
   "oldboy-dvd-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>With no clue how he came to be imprisoned, drugged and tortured for 15 years, a desperate man seeks revenge on his captors.</p>",
+      "Image Alt Text": "Oldboy poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/pWDtjs568ZfOTMbURQBYuT4Qxka.jpg"
+    }
   },
   "on-golden-pond-vhs-floor-sale-drama": {
     "batch": "floor-sale-05",
@@ -2757,7 +2900,13 @@
   },
   "outrage-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Tom Casey reports to the police some youngsters stealing from cars. He becomes the target of the 3 teenagers, who start to terrorise him and his family.</p>",
+      "Image Alt Text": "Outrage poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/nx3m181hxEJv1XHWu8URbd4hOoa.jpg"
+    }
   },
   "outsiders": {
     "batch": "rentals",
@@ -2820,7 +2969,13 @@
   },
   "peter-pan-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Leaving the safety of their nursery behind, Wendy, Michael and John follow Peter Pan to a magical world where childhood lasts forever. But while in Neverland, the kids must face Captain Hook and foil his attempts to get rid of Peter for good.</p>",
+      "Image Alt Text": "Peter Pan poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/fJJOs1iyrhKfZceANxoPxPwNGF1.jpg"
+    }
   },
   "peter-pan-vhs-10": {
     "batch": "floor-sale-05",
@@ -2860,7 +3015,13 @@
   },
   "pirates-of-the-caribbean-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Pirates of the Caribbean: The Curse of the Black Pearl (2003): swashbuckler directed by Gore Verbinski, produced by Jerry Bruckheimer.</p>",
+      "Image Alt Text": "Pirates of the Caribbean poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/8/89/Pirates_of_the_Caribbean_-_The_Curse_of_the_Black_Pearl.png"
+    }
   },
   "pitch-perfect-bluray-floor-sale-comedy": {
     "batch": "floor-sale-05",
@@ -3085,7 +3246,13 @@
   },
   "risk-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Maya, a New York artist and model, meets Joe, a drifter. They begin a passionate affair. On an impromptu trip to visit Joe's sister in the country, Joe's inner demons begin to surface.</p>",
+      "Image Alt Text": "Risk poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/g4jNvfu3FrCvRQhA29qOflzoc97.jpg"
+    }
   },
   "riverworld-dvd-floor-sale-sci-fi": {
     "batch": "floor-sale-05",
@@ -3097,7 +3264,13 @@
   },
   "robin-hood-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>With King Richard off to the Crusades, Prince John and his slithering minion, Sir Hiss, set about taxing Nottingham's citizens with support from the corrupt sheriff - and staunch opposition by the wily Robin Hood and his band of merry men.</p>",
+      "Image Alt Text": "Robin Hood poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/x9AvkYek0bGdxQSZ8W3lAjGrREm.jpg"
+    }
   },
   "romeo-is-bleeding-dvd-rental-thriller": {
     "batch": "rentals",
@@ -3414,7 +3587,13 @@
   },
   "smart-money-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Leon, a hacker convicted for a crime he did not commit, escapes from detention centre following the death of his father, to take revenge on the man who really did it.</p>",
+      "Image Alt Text": "Smart Money poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/jh0rfYD3FLXjqFflN1hk5aFgF6f.jpg"
+    }
   },
   "smile-4k-floor-sale-horror": {
     "batch": "floor-sale-06",
@@ -3488,7 +3667,13 @@
   },
   "space-rangers-chronicles-2-vhs-rental-sci-fi": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Space Rangers Chronicles 2: sci-fi action on VHS (Cabin Fever) starring Clint Howard.</p>",
+      "Image Alt Text": "Space Rangers Chronicles 2 poster",
+      "Image Src": "https://i.ebayimg.com/images/g/w4MAAeSwES1oH9JZ/s-l400.jpg"
+    }
   },
   "spartacus-dvd-rental-action": {
     "batch": "rentals",
@@ -3562,7 +3747,13 @@
   },
   "star-wars-trilogy-iv-v-vi-dvd-rental-sci-fi": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The original Star Wars trilogy: Episode IV A New Hope, Episode V The Empire Strikes Back and Episode VI Return of the Jedi.</p>",
+      "Image Alt Text": "Star Wars Trilogy: IV, V, VI poster",
+      "Image Src": "https://m.media-amazon.com/images/I/71WpabqiM9L._SX342_.jpg"
+    }
   },
   "star-wars-trilogy-special-edition-vhs-floor-sale-sci-fi": {
     "batch": "floor-sale-06",
@@ -3670,7 +3861,13 @@
   },
   "tcm-sci-fi-collection-dvd-rental-sci-fi": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Turner Classic Movies Greatest Classic Films Collection: Science Fiction.</p>",
+      "Image Alt Text": "TCM Sci-Fi Collection poster",
+      "Image Src": "https://m.media-amazon.com/images/I/81w6wyU23vL._SX342_.jpg"
+    }
   },
   "teenage-mutant-ninja-turtles-dvd-floor-sale-kids-family": {
     "batch": "floor-sale-06",
@@ -3800,7 +3997,13 @@
   },
   "the-bourne-trilogy-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The Bourne Identity, The Bourne Supremacy and The Bourne Ultimatum, starring Matt Damon.</p>",
+      "Image Alt Text": "The Bourne Trilogy poster",
+      "Image Src": "https://m.media-amazon.com/images/I/812FAmsxNIL._SX342_.jpg"
+    }
   },
   "the-boxer-vhs-floor-sale-drama": {
     "batch": "floor-sale-07",
@@ -3816,7 +4019,13 @@
   },
   "the-butterfly-effect-collection-dvd-rental-sci-fi": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The Butterfly Effect Trilogy: The Butterfly Effect (2004), Butterfly Effect 2 (2006) and Butterfly Effect 3: The Revelation (2009), psychological sci-fi thrillers about time travel.</p>",
+      "Image Alt Text": "The Butterfly Effect Collection poster",
+      "Image Src": "https://www.orbitdvd.com/cdn/shop/products/the-butterfly-effect-trilogy-region-b-new-blu-ray.jpg"
+    }
   },
   "the-caged-heart-vhs": {
     "batch": "floor-sale-07",
@@ -3838,7 +4047,12 @@
   },
   "the-cardona-collection-vol-2-vinegar-syndrome": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Vinegar Syndrome collection of three violent, horror-tinged adventure and disaster films by Mexican exploitation director Rene Cardona Jr., restored from the original negatives.</p>",
+      "Image Src": "https://spcdn.shortpixel.ai/spio/ret_img+q_cdnize+to_webp+s_webp/diabolikdvd.com/wp-content/uploads/2023/08/VS-357B_case_front_gray_large-copy.jpg"
+    }
   },
   "the-cat-and-the-canary-vhs-floor-sale-horror": {
     "batch": "floor-sale-07",
@@ -3978,11 +4192,23 @@
   },
   "the-gift-bluray-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Simon and Robyn are a young married couple whose life is going as planned until a chance run-in with Simon's high school acquaintance sends their world into a tailspin.</p>",
+      "Image Alt Text": "The Gift poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/kH3qLP8pn68Xq5XwvmPkCyaAU7W.jpg"
+    }
   },
   "the-girl-with-the-dragon-tattoo-bluray-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Disgraced journalist Mikael Blomkvist investigates the disappearance of a weary patriarch's niece from 40 years ago. He is aided by the pierced, tattooed, punk computer hacker named Lisbeth Salander. As they work together in the investigation, Blomkvist and Salander uncover immense corruption beyond anything they have ever imagined.</p>",
+      "Image Alt Text": "The Girl With the Dragon Tattoo poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/8bokS83zGdhaXgN9tjidUKmAftW.jpg"
+    }
   },
   "the-girl-with-the-hungry-eyes-vhs-floor-sale-horror": {
     "batch": "floor-sale-07",
@@ -4092,7 +4318,13 @@
   },
   "the-hustle-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Maya and Tony are a modern-day Bonnie and Clyde. Maya seduces businessmen while Tony copies their credit cards. It's a smooth con until one of their victims, Pierce, pulls a gun. Instead of killing them, Pierce offers the desperate couple a chance at the biggest score of their lives.</p>",
+      "Image Alt Text": "The Hustle poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/al98fW7ubwfjfEgSkCVadJtFxQY.jpg"
+    }
   },
   "the-ice-house-dvd-floor-sale-drama": {
     "batch": "floor-sale-07",
@@ -4222,7 +4454,13 @@
   },
   "the-line-staten-island-bluray-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Blu-ray double feature: The Line and Staten Island.</p>",
+      "Image Alt Text": "The Line / Staten Island poster",
+      "Image Src": "https://i.ebayimg.com/images/g/e2EAAOSwMRFm68WG/s-l400.jpg"
+    }
   },
   "the-lion-in-winter-vhs-floor-sale-drama": {
     "batch": "floor-sale-07",
@@ -4437,7 +4675,13 @@
   },
   "the-shadow-collection-8-movies-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Share the menacing shadows with eight sinister movies where supernatural entities prowl, human monsters stalk, and imagination runs wild. With selections covering extraterrestrials to the occult, revel in the terrifying possibilities presented by a dark and stormy night.</p>",
+      "Image Alt Text": "The Shadow Collection: 8 Movies poster",
+      "Image Src": "https://m.media-amazon.com/images/I/71ZeAJjw1ML._SL1184_.jpg"
+    }
   },
   "the-spider-and-the-fly-vhs-floor-sale-drama": {
     "batch": "floor-sale-08",
@@ -4487,7 +4731,13 @@
   },
   "the-three-muskateers-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The Three Musketeers (1993): action-adventure comedy from Walt Disney Pictures and Caravan Pictures, directed by Stephen Herek.</p>",
+      "Image Alt Text": "The Three Muskateers poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/e/e6/Threemusketeers1993.jpg"
+    }
   },
   "the-time-of-the-wolf-vhs-floor-sale-action": {
     "batch": "floor-sale-08",
@@ -4499,7 +4749,13 @@
   },
   "the-way-back-bluray-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The Way, Way Back (2013): coming-of-age comedy-drama.</p>",
+      "Image Alt Text": "The Way Back poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/2/2b/The_Way%2C_Way_Back_Poster.jpg"
+    }
   },
   "the-wild-bunch-dvd-rental-action": {
     "batch": "rentals",
@@ -4607,7 +4863,7 @@
   },
   "warner-bros-animation-collection-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "status": "skipped"
   },
   "warren-millers-playground-bluray-floor-sale-documentary": {
     "batch": "floor-sale-08",
@@ -4629,7 +4885,7 @@
   },
   "wb-academy-award-animation-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "status": "skipped"
   },
   "where-the-wild-things-are-the-neverending-story-bluray-floor-sale-kids-family": {
     "batch": "floor-sale-08",
