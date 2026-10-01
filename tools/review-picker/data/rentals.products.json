@@ -6313,5 +6313,1009 @@
     "tag": "Rental",
     "reason": "no TMDB match",
     "candidates": []
+  },
+  {
+    "handle": "virus-vhs-rental-horror",
+    "title": "Virus",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Virus' (1999))",
+    "candidates": [
+      {
+        "id": 41972,
+        "title": "Virus",
+        "year": "1980",
+        "overview": "Scientists in Antarctica desperately try to find a cure to a military virus that was released in a plane crash and has wiped out the rest of the world.",
+        "poster_path": "/hUkLBDDUISSEv19xXRj2tFWNzMj.jpg"
+      },
+      {
+        "id": 9423,
+        "title": "Virus",
+        "year": "1999",
+        "overview": "When the crew of an American tugboat boards an abandoned Russian research vessel, the alien life form aboard regards them as a virus which must be destroyed.",
+        "poster_path": "/5Np88iigCfnXvMlMKmCcbPVIbYQ.jpg"
+      },
+      {
+        "id": 607845,
+        "title": "Virus",
+        "year": "2025",
+        "overview": "A mysterious virus spreads out. Anyone infected feels the emotion of love, and the emotion amplifies until it kills the person in love. The pessimist Taek-seon, who likes nothing in life, is infected, and the researcher Gyun reaches her out to test her the medicine that he's developing. Soon Gyun finds out Taek-seon has special antibody, but Taek-seon slowly feels love to Gyun. Is this a real love or just a virus?",
+        "poster_path": "/8MyXMXxBaaDb9VxALJkYkFTan8d.jpg"
+      },
+      {
+        "id": 119292,
+        "title": "Virus",
+        "year": "1996",
+        "overview": "A United States Presidential bodyguard risks everything to save the day when a truck chock full of biological weapons contrives to crash in a National Park.",
+        "poster_path": "/lvzboCEMvEH3wnY82ghEnyIWLzE.jpg"
+      },
+      {
+        "id": 585261,
+        "title": "Virus",
+        "year": "2019",
+        "overview": "A real life account of the deadly Nipah virus outbreak in Kerala, and the courageous fight put on by several individuals which helped to contain the epidemic.",
+        "poster_path": "/fd8BJ1j5BzaC9McYRW98PmeqkHo.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "red-dragon-vhs-rental-horror",
+    "title": "Red Dragon",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Red Dragon' (2002))",
+    "candidates": [
+      {
+        "id": 9533,
+        "title": "Red Dragon",
+        "year": "2002",
+        "overview": "Former FBI Agent Will Graham, who was once almost killed by the savage Hannibal 'The Cannibal' Lecter, now has no choice but to face him again, as it seems Lecter is the only one who can help Graham track down a new serial killer.",
+        "poster_path": "/ou9ZKA2cms02b7CdCdVqGkKu0O0.jpg"
+      },
+      {
+        "id": 196531,
+        "title": "Red Dragon",
+        "year": "1965",
+        "overview": "An FBI agent goes to Hong Kong to short-circuit a smuggler of electrical parts to the communists.",
+        "poster_path": "/A5op86U0i5S1zwepa4JllO2GsDk.jpg"
+      },
+      {
+        "id": 1725259,
+        "title": "Red Dragon",
+        "year": "",
+        "overview": "",
+        "poster_path": "/oDNvABhxJLGz8ZvAjgjdW35jAgQ.jpg"
+      },
+      {
+        "id": 1685618,
+        "title": "Red Dragon",
+        "year": "1994",
+        "overview": " ",
+        "poster_path": ""
+      },
+      {
+        "id": 38466,
+        "title": "The Red Dragon",
+        "year": "1945",
+        "overview": "Chan is faced with suspects in a stolen atomic bomb formula case, that are being killed with bullets that are not fired from a gun.",
+        "poster_path": "/uVDsoYCHoktiDVNTMJg23ySNLCz.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "joy-ride-vhs-rental-horror",
+    "title": "Joy Ride",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Joy Ride' (2023))",
+    "candidates": [
+      {
+        "id": 10866,
+        "title": "Joy Ride",
+        "year": "2001",
+        "overview": "Three young people on a road trip from Colorado to New Jersey talk to a trucker on their CB radio, then must escape when he turns out to be a psychotic killer.",
+        "poster_path": "/1LVGjf1QWgkNNPQssZtuT1GYKoP.jpg"
+      },
+      {
+        "id": 864168,
+        "title": "Joy Ride",
+        "year": "2023",
+        "overview": "When Audrey's business trip to Asia goes sideways, she enlists the aid of Lolo, her irreverent, childhood best friend who also happens to be a hot mess; Kat, her college friend turned Chinese soap star; and Deadeye, Lolo's eccentric cousin. Their no-holds-barred, epic experience becomes a journey of bonding, friendship, belonging, and wild debauchery that reveals the universal truth of what it means to know and love who you are.",
+        "poster_path": "/lTZ3r9NBdbrR6NA90v3hFYqd6TC.jpg"
+      },
+      {
+        "id": 208233,
+        "title": "Joy Ride",
+        "year": "1958",
+        "overview": "Teenage story of a bad apple in a barrel evolving from a kid's desire to drive a new T-bird.",
+        "poster_path": "/xwzH9vP9245Gq0dMvEgMYJNlxaB.jpg"
+      },
+      {
+        "id": 377538,
+        "title": "Joy Ride",
+        "year": "2000",
+        "overview": "For Sandra, a woman in her late teens, life is wonderful. She has recently fallen in love with Daniel, a member of the group of young men she hangs around with frequently. Daniel is flattered by Sandra's affection for him and they begin to spend more time together, apart from the rest of the gang. Their relationship remains diffuse and directionless, provoking tension and threatening to cause a schism within the group.",
+        "poster_path": "/eW7MyFEzTiU2Ho28mD29ZVlDFMX.jpg"
+      },
+      {
+        "id": 922836,
+        "title": "Joy Ride",
+        "year": "1928",
+        "overview": "Comedy sketch in which a pair of hapless guys try to pick up a couple of girls. The girls perform a song, then depart. When the guys attempt to follow, their car breaks down.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "hannibal-vhs-rental-horror",
+    "title": "Hannibal",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Hannibal' (2001))",
+    "candidates": [
+      {
+        "id": 9740,
+        "title": "Hannibal",
+        "year": "2001",
+        "overview": "After having successfully eluded the authorities for years, Hannibal peacefully lives in Italy in disguise as an art scholar. Trouble strikes again when he's discovered leaving a deserving few dead in the process. He returns to America to make contact with now disgraced Agent Clarice Starling, who is suffering the wrath of a malicious FBI rival as well as the media.",
+        "poster_path": "/v5wAZwRqpGWmyAaaJ8BBHYuNXnj.jpg"
+      },
+      {
+        "id": 169818,
+        "title": "Hannibal",
+        "year": "1959",
+        "overview": "A Carthaginian general attempts to cross the Alps with an army of elephants in order to conquer Rome.",
+        "poster_path": "/3KGA7vHcdcNiEQG4WADCUcYuhAr.jpg"
+      },
+      {
+        "id": 388859,
+        "title": "Hannibal",
+        "year": "1972",
+        "overview": "A young man happens upon a strange, isolated village which is oppressively ruled by foreign soldiers. When he tries to inquire into what is going on, he is forced to flee to an island where a renegade medical doctor tries to force him into submission.",
+        "poster_path": "/3dnBp9NlOpz8LNN9yUw2qpI2YZz.jpg"
+      },
+      {
+        "id": 1050455,
+        "title": "Hannibal",
+        "year": "2017",
+        "overview": "A film about the Yakut rock musician Gavril Kolesov - Hannibal.",
+        "poster_path": "/g3dQdDXlYP5MBfJTasCVsvhIwyU.jpg"
+      },
+      {
+        "id": 1248,
+        "title": "Hannibal Rising",
+        "year": "2007",
+        "overview": "The story of the early, murderous roots of the cannibalistic killer, Hannibal Lecter \u2013 from his hard-scrabble Lithuanian childhood, where he witnesses the repulsive lengths to which hungry soldiers will go to satiate themselves, through his sojourn in France, where as a medical student he hones his appetite for the kill and learnt sword skills from his Japanese girlfriend, who happened to have similar fate",
+        "poster_path": "/7FTDMQoac0uqJUquZk4KenDzLMZ.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "dark-city-vhs-rental-sci-fi",
+    "title": "Dark City",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Dark City' (1998))",
+    "candidates": [
+      {
+        "id": 2666,
+        "title": "Dark City",
+        "year": "1998",
+        "overview": "A man struggles with memories of his past, including a wife he cannot remember, in a nightmarish world with no sun and run by beings with telekinetic powers who seek the souls of humans.",
+        "poster_path": "/tNPEGju4DpTdbhBphNmZoEi9Bd3.jpg"
+      },
+      {
+        "id": 36331,
+        "title": "Dark City",
+        "year": "1950",
+        "overview": "War hero Danny Haley fleeces out-of-town dupes in a rigged poker game. He and his pals see Arthur Winant as an easy mark, but they've reckoned without Winant's homicidal brother, who wants revenge after Arthur commits suicide.",
+        "poster_path": "/7mkj8Vv5lpndZnjdHNBdIV4fhoh.jpg"
+      },
+      {
+        "id": 919092,
+        "title": "Dark City",
+        "year": "1990",
+        "overview": "Political thriller inspired by events in the townships of South Africa. At the same time as protesters weave through the shanty town of 'Dark City', the mayor's home is burgled. These two apparently unconnected events lead to the death of a councillor. Seven people are put on trial and only one person can prove their innocence.",
+        "poster_path": "/jeQhtreCmDeu4OLsAxAZxyNJ3uw.jpg"
+      },
+      {
+        "id": 349907,
+        "title": "Dark City",
+        "year": "1990",
+        "overview": "International drug ring Madame Q and its action team members Kang-min and Cheol-ho travel to Hong Kong to deal methamphetamine with the Hong Kong Mister Y gang, but they sense a trap and shoot them indiscriminately.",
+        "poster_path": ""
+      },
+      {
+        "id": 998634,
+        "title": "Dark City",
+        "year": "2009",
+        "overview": "",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "manunter-vhs-rental-thriller",
+    "title": "Manunter",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "fear-vhs-rental-thriller",
+    "title": "Fear",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Fear' (1996))",
+    "candidates": [
+      {
+        "id": 10543,
+        "title": "Fear",
+        "year": "1996",
+        "overview": "Nicole Walker always dreamed of being swept away by someone special \u2014 someone strong, sexy and sensitive who would care for her more than anything else in the world. David is all that and more: a modern-day knight who charms and seduces her, body and soul. But her perfect boyfriend is not all he seems to be. His sweet facade masks a savage, dark side that will soon transform Nicole's dream into a nightmare.",
+        "poster_path": "/ut8snuINzOibbKnvpTnsGWQr4Nl.jpg"
+      },
+      {
+        "id": 880100,
+        "title": "Fear",
+        "year": "2023",
+        "overview": "An author's celebration with friends at a woodland cabin takes a terrifying turn when an airborne virus emerges at the same time supernatural forces target the group.",
+        "poster_path": "/asCLy4s7HYP3zSRlLP4Qgme5L0A.jpg"
+      },
+      {
+        "id": 457310,
+        "title": "Fear",
+        "year": "1928",
+        "overview": "\"The Fear of an Unfaithful Woman\" - Inge Duhan lives with her husband, the lawyer Erich Duhan, and her little daughter Susi in Berlin. Inge is a very attractive woman. She loves her husband and has always been faithful to him. On a holiday trip to the French Riviera Inge meet the charming painter Francard. A brief affair begins that turns into blackmail.",
+        "poster_path": "/lzJ5IUPe7VKzlMr2A02lSh65Jz.jpg"
+      },
+      {
+        "id": 31144,
+        "title": "Fear",
+        "year": "1946",
+        "overview": "B-movie film noir take on Crime and Punishment. A college student gets deeper and deeper in trouble when he takes a loan from a shady college professor.",
+        "poster_path": "/7SPI9pO7j3w1rUS6N0QACsY2IDR.jpg"
+      },
+      {
+        "id": 1598,
+        "title": "Cape Fear",
+        "year": "1991",
+        "overview": "Sam Bowden is a small-town corporate attorney. Max Cady is a tattooed, cigar-smoking, Bible-quoting, psychotic rapist. What do they have in common? 14 years ago, Sam was a public defender assigned to Max Cady's rape trial, and he made a serious error: he hid a document from his illiterate client that could have gotten him acquitted. Now, the cagey Cady has been released, and he intends to teach Sam Bowden and his family a thing or two about loss.",
+        "poster_path": "/meJZAAuVcjic2ipvbOPz5UlE4P9.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-glass-house-vhs-rental-thriller",
+    "title": "The Glass House",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Glass House' (2001))",
+    "candidates": [
+      {
+        "id": 2176,
+        "title": "The Glass House",
+        "year": "2001",
+        "overview": "When Ruby and Rhett's parents are killed in a car accident, their carefree teenage lives are suddenly shattered. Moving to an incredible house in Malibu with the Glasses', old friends of the family, seems to be the beginning of a new life for them.",
+        "poster_path": "/16obDcmphjfq17zwWKJlur53fCh.jpg"
+      },
+      {
+        "id": 242920,
+        "title": "The Glass House",
+        "year": "1972",
+        "overview": "Adapted from a story by Truman Capote (\"In Cold Blood\"), the world of the prison convict is open to the viewer. As the story develops, one thing becomes clear. As in the outside world, there is a \"system\"; and just as on the outside, there is accommodation, honesty, cynicism, violence and all the other factors that make up our society. The film follows the three newcomers, it records the grim, terrifying, sometimes fascinating events that occur.",
+        "poster_path": "/uG8KlJKIIUlNNfFSkPVaeinIqMx.jpg"
+      },
+      {
+        "id": 1085172,
+        "title": "The Glass House",
+        "year": "2025",
+        "overview": "When her daughter vanishes under suspicious circumstances, a perfectionist architect must confront harsh truths\u2014and seek help from the ex-husband she left behind.",
+        "poster_path": "/u9VJMgVPnWpyCBVpchP3fxMzHap.jpg"
+      },
+      {
+        "id": 434150,
+        "title": "The Glass House",
+        "year": "1982",
+        "overview": "A story about a life of a group of children in the foster home.",
+        "poster_path": "/7eJmpTgnViMEsMocJf8BBRxG4Kh.jpg"
+      },
+      {
+        "id": 885082,
+        "title": "The Glass House",
+        "year": "2003",
+        "overview": "",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "the-edge-vhs-rental-thriller",
+    "title": "The Edge",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Edge' (1997))",
+    "candidates": [
+      {
+        "id": 9433,
+        "title": "The Edge",
+        "year": "1997",
+        "overview": "The plane carrying wealthy Charles Morse crashes down in the Alaskan wilderness. Together with the two other passengers, photographer Robert and assistant Stephen, Charles devises a plan to help them reach civilization. However, his biggest obstacle might not be the elements, or even the Kodiak bear stalking them -- it could be Robert, whom Charles suspects is having an affair with his wife and would not mind seeing him dead.",
+        "poster_path": "/zplJqfuUyqzW0D4jX3W1afl0d7b.jpg"
+      },
+      {
+        "id": 697924,
+        "title": "The Edge",
+        "year": "1989",
+        "overview": "A three-part anthology suspense program in which men and women face life's ultimate danger zone. Each episode is introduced by a mysterious figure known as The Watcher (Barry Sattels), who arrives on the scene just as strange things being to happen - pushing men and women in crisis over the edge and into bizarre, unexpected actions.",
+        "poster_path": "/7SG7rUrNzaNiq9ZqE5PNIdXUmUC.jpg"
+      },
+      {
+        "id": 1501238,
+        "title": "The Edge",
+        "year": "2025",
+        "overview": "Three young women - an Aussie sprinter, a First Nations powerlifter, and a Japanese Paralympic swimmer - navigate love, education and controversy while embedded in the world of elite sport.",
+        "poster_path": "/ehntRgFLwr1ylQsNxNJlIMgeyse.jpg"
+      },
+      {
+        "id": 1371170,
+        "title": "The Edge",
+        "year": "",
+        "overview": "Tells the story of a romantic escape that turns deadly when a bus plunges off a mountain road. Faced with a harrowing decision, a woman whose partner has been killed must save herself and a ten-year-old boy while battling unforgiving terrain, brutal weather, and the grief of losing her love.",
+        "poster_path": ""
+      },
+      {
+        "id": 617342,
+        "title": "The Edge",
+        "year": "2019",
+        "overview": "Between 2009 and 2013, the England Test cricket team rose from the depths of the rankings to become the first and only English side to reach world number one (since ICC records began). The Edge is a compelling, funny and emotional insight into a band of brothers' rise to the top, their unmatched achievements and the huge toll it would take.",
+        "poster_path": "/aLgn7YiHINOX1iSO473vRHsuRHV.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "breakdown-vhs-rental-thriller",
+    "title": "Breakdown",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Breakdown' (1997))",
+    "candidates": [
+      {
+        "id": 2163,
+        "title": "Breakdown",
+        "year": "1997",
+        "overview": "On their cross-country drive, a married couple, Jeff and Amy Taylor, experience car trouble after their SUV breaks down. Stranded in the New Mexico desert, the two catch a break when a passing truck driver offers Amy a ride to a nearby caf\u00e9 to call for help. Meanwhile, Jeff is able to fix the car and make his way to the caf\u00e9, but Amy isn't there. He tracks down the trucker \u2015 who tells the police he's never seen Jeff or his wife before. Jeff then begins a desperate, frenzied search for Amy.",
+        "poster_path": "/m3VB59ppr1RlpxNUYRUfZTgjgU.jpg"
+      },
+      {
+        "id": 1117423,
+        "title": "Breakdown",
+        "year": "2023",
+        "overview": "After a psychopath's infidelity is exposed by his girlfriend's best friend, he resorts to extreme and dangerous measures in order to keep his secret.",
+        "poster_path": "/ckt6lYkg4IdLi8CoHJOZ2jm0PQy.jpg"
+      },
+      {
+        "id": 1388875,
+        "title": "BREAKDOWN",
+        "year": "2024",
+        "overview": "\"Breakdown\" dives into the lives of shattered souls brought together by a daring, controversial website. Matteo, haunted by the ghost of his past with Mila, creates a platform where people can schedule their own deaths. His twisted vision, born of pain, spirals into an uncharted journey of self-discovery and redemption.  Lia, desperate to escape the grip of trauma, turns to Matteo's service, sparking an unexpected connection that blurs the line between salvation and oblivion. As their fragile bond deepens, they confront the weight of their choices and the shadows of their pasts.  Amid this chaos, photographer Ettore grapples with his desires, torn between his steadfast girlfriend Sara and a forbidden pull toward his enigmatic sister, Giada.  \"Breakdown\" is a gripping exploration of despair, hope, and the moral ambiguities of life and death. As lives collide, the film challenges perceptions of love, loss, and redemption in the unlikeliest of places.",
+        "poster_path": "/tiEjz0BblUYfWL5tbBmI06jX6sA.jpg"
+      },
+      {
+        "id": 378613,
+        "title": "Breakdown",
+        "year": "2016",
+        "overview": "A professional contract killer, haunted by visions of his violent past, spirals out of control. His work compromised as he reaches breaking point, he is forced to defend his family from his ruthless employers.",
+        "poster_path": "/rHKJ1Q6Ztszb1eLBVIVqObgCV4M.jpg"
+      },
+      {
+        "id": 149788,
+        "title": "Breakdown",
+        "year": "1952",
+        "overview": "A boxer (William Bishop) jailed for murder proves his girlfriend's (Ann Richards) wealthy father and a ward boss framed him.",
+        "poster_path": "/qpGJOGydhlTEREcveJiSCIuhZgG.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-skulls-vhs-rental-thriller",
+    "title": "The Skulls",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Skulls' (2000))",
+    "candidates": [
+      {
+        "id": 11478,
+        "title": "The Skulls",
+        "year": "2000",
+        "overview": "A senior at an Ivy League college, who depends on scholarships and working on the side, gets accepted into the secret society The Skulls. He hopes it betters chances at Harvard but The Skulls is not what he thought and comes at a price.",
+        "poster_path": "/pYuggibfzm8LWgjnUKMMtii2430.jpg"
+      },
+      {
+        "id": 162626,
+        "title": "The Skulls",
+        "year": "1931",
+        "overview": "This Spanish language film was produced simultaneously with the filming of the two English language Laurel and Hardy shorts Be Big! and Laughing Gravy. The two shorts were edited together into one continuous film. Laurel and Hardy read their lines from cue cards on which Spanish was written phonetically. At the time of early talkies, dubbing was not yet perfected.",
+        "poster_path": "/z5IujAsU2jQf7vx8ddcfqZO5WSE.jpg"
+      },
+      {
+        "id": 8460,
+        "title": "The Skulls II",
+        "year": "2002",
+        "overview": "After joining the Skulls, Ryan Sommers (Robin Dunne) is warned not to betray any secrets about the organization or its high-powered members. However, when Ryan witnesses a murder within the Skulls' private chambers, he finds that the closer he gets to revealing the truth - the more dangerous life becomes.",
+        "poster_path": "/h6atL0SP5qg6TXOXy9DklZgObn2.jpg"
+      },
+      {
+        "id": 10594,
+        "title": "The Skulls III",
+        "year": "2004",
+        "overview": "A young college co-ed tries joining the elite, all-male, secret society, the Skulls, and in so doing, she uncovers some unscrupulous methods used by some of the members to get what they want.",
+        "poster_path": "/b6ugfuEwEND5UCuf6Hu6XBmWOQP.jpg"
+      },
+      {
+        "id": 73087,
+        "title": "The Red Skulls",
+        "year": "2005",
+        "overview": "In the city of Bronston, staying alive is a twenty four hour job... A wild bunch of hooligan kids who call themselves the Red Skulls have been the dominant street gang in the city for years. But everything changes one night when Uri, the leader of the Skulls, sees his best friend hacked to pieces by a rival group. Uri decides to get out of Bronston before he shares his friend's same fate. The only problem is the rest of the gang doesn't plan on letting him out so easy. The new self-appointed leader, Lester, has set a trap to lure Uri back, but without Uri in charge, all is not well within the gang's ranks. A traitorous member has set a trap of his own for Lester and the rest of the Red Skulls are about to become the victims. Now, Uri is about to find out the only thing more dangerous than a backstabbing street gang... is a mutated, cannibalistic street gang!",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "turbulence-vhs-rental-thriller",
+    "title": "Turbulence",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Turbulence' (2025))",
+    "candidates": [
+      {
+        "id": 1401778,
+        "title": "Turbulence",
+        "year": "2025",
+        "overview": "Young married couple Zach and Emmy decide to take a hot air balloon trip across the Italian Dolomites to rekindle their relationship. When they and pilot Harry are joined by a third passenger, Julia, events unfold in ways they could never imagine five thousand meters in the air.",
+        "poster_path": "/ggCueswyZYkHqQcbJuKgteshY2F.jpg"
+      },
+      {
+        "id": 34314,
+        "title": "Turbulence",
+        "year": "1997",
+        "overview": "On a flight transporting dangerous convicts, murderer Ryan Weaver manages to break free and cause complete chaos throughout the plane. As various people on board fall victim to Weaver, it is ultimately down to flight attendant Teri Halloran to keep the aircraft from crashing, with on-ground support from an air traffic controller. While Halloran struggles to pilot the plane, Weaver continues to terrorize the surviving members of the crew.",
+        "poster_path": "/8N63NGWIErS7jUvR5NeVWDZEeZJ.jpg"
+      },
+      {
+        "id": 514237,
+        "title": "Turbulence",
+        "year": "2016",
+        "overview": "As the plane slowly makes its descent, a young couple is faced with their differences through sudden pockets of turbulence.",
+        "poster_path": "/rcqoYGF0GPCvkDavy4yo4dlCzL5.jpg"
+      },
+      {
+        "id": 261256,
+        "title": "Turbulence",
+        "year": "1991",
+        "overview": "An adolescent girl, sexually abused as a child by her father, runs away from home.",
+        "poster_path": ""
+      },
+      {
+        "id": 141137,
+        "title": "Turbulence",
+        "year": "2011",
+        "overview": "When a failing music venue staffed by fools looks set to close, manager Keith launches a last ditch Battle of the Bands competition. More by accident than by design, musical genius is unleashed by a rapping transvestite, some precocious indie rockers and a barmaid with a golden voice, who together try to save the world they love.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "seven-vhs-rental-thriller",
+    "title": "Seven",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Seven Pounds' (2008))",
+    "candidates": [
+      {
+        "id": 11321,
+        "title": "Seven Pounds",
+        "year": "2008",
+        "overview": "An IRS agent with a fateful secret embarks on an extraordinary journey of redemption by forever changing the lives of seven strangers.",
+        "poster_path": "/85zUipgVy2QbvAJ6djZXYaGckMv.jpg"
+      },
+      {
+        "id": 1288341,
+        "title": "Seven Snipers",
+        "year": "2026",
+        "overview": "When a former elite sniper is hunted down by the ruthless warlord who once held her captive, she must fight to the death to protect the daughter she has raised in hiding, on a remote Australian farm.",
+        "poster_path": "/pK6tGCG6UAgUT5FTq3ylGErHxQQ.jpg"
+      },
+      {
+        "id": 346,
+        "title": "Seven Samurai",
+        "year": "1954",
+        "overview": "A samurai answers a village's request for protection after he falls on hard times. The town needs protection from bandits, so the samurai gathers six others to help him teach the people how to defend themselves, and the villagers provide the soldiers with food.",
+        "poster_path": "/lOMGc8bnSwQhS4XyE1S99uH8NXf.jpg"
+      },
+      {
+        "id": 1747136,
+        "title": "Seven Pirates",
+        "year": "2026",
+        "overview": "Late 1970s. Dinmukhamed Kunaev brings together seven Kazakhs \u2014 criminals and homeless youths \u2014 and entrusts them with a secret mission against the Soviet regime. Their goal is to stop nuclear weapons testing at the Semipalatinsk Test Site, which threatens humanity.",
+        "poster_path": "/2Y0NuDFxvt3zJ5y7A4MCKRQG6Bz.jpg"
+      },
+      {
+        "id": 333484,
+        "title": "The Magnificent Seven",
+        "year": "2016",
+        "overview": "Looking to mine for gold, greedy industrialist Bartholomew Bogue seizes control of the Old West town of Rose Creek. With their lives in jeopardy, Emma Cullen and other desperate residents turn to bounty hunter Sam Chisolm for help. Chisolm recruits an eclectic group of gunslingers to take on Bogue and his ruthless henchmen. With a deadly showdown on the horizon, the seven mercenaries soon find themselves fighting for more than just money once the bullets start to fly.",
+        "poster_path": "/ezcS78TIjgr85pVdaPDd2rSPVNs.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-posiedon-adventure-vhs-rental-action",
+    "title": "The Posiedon Adventure",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "quick-silver-highway-vhs-rental-horror",
+    "title": "Quick Silver Highway",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "shattered-vhs-rental-horror",
+    "title": "Shattered",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Shattered' (2022))",
+    "candidates": [
+      {
+        "id": 844398,
+        "title": "Shattered",
+        "year": "2022",
+        "overview": "Chris, a wealthy divorcee, lives in a high-tech house of his own design in Montana. His life changes when he meets Sky, a mysterious young woman who draws him out of his shell and moves in after Chris is injured.",
+        "poster_path": "/ounMihksHS9EI3Uc3KyK46WzD13.jpg"
+      },
+      {
+        "id": 2071,
+        "title": "Shattered",
+        "year": "1991",
+        "overview": "Dan Merrick comes out from a shattering car accident with amnesia. He finds that he is married to Judith who is trying to help him start his life again. He keeps getting flashbacks about events and places that he can't remember. He meets pet shop owner and part time private detective Gus Klein who has supposedly done some work for him prior to the accident. Klein helps Merrick to find out more...",
+        "poster_path": "/k3UaQNJ8FAUaHgDhPyT3uEiod8h.jpg"
+      },
+      {
+        "id": 491084,
+        "title": "Shattered",
+        "year": "2017",
+        "overview": "Shattered is a story based on true events about family betrayal, love lost, and a dark destructive secret that swirls around a high powered political family in the Deep South. Kate Stenson dreams of an enviable life as the quintessential Southern Belle. She marries Ken Burnett, the son of the town's powerful Mayor - a controlling father who will do anything to protect his position. Kate has two children with Ken - a biological daughter, and an adopted son, named Logan (Tate Birchmore). But Kate's seemingly perfect lifestyle begins to fray at the edges as she discovers that Logan suffers from severe mental health issues. Kate's journey to uncover the true story of Logan's past reveals a dark secret that can destroy the entire Burnett legacy. As Kate investigates - with the aid of a new friend - to unmask the history behind Logan's illness, these unimaginable family secrets surface, putting her in unforeseen danger.",
+        "poster_path": "/rGpanq1XAkw4qYVeE6wbX57JMLr.jpg"
+      },
+      {
+        "id": 463069,
+        "title": "Shattered!",
+        "year": "2008",
+        "overview": "FIVE MEN - FIVE SHATTERED LIVES: JIMMY struggles with his girlfriend, Dina, when she runs away, half naked, in the middle of night, accusing him of molesting her. DENNIS, desperate and unhappy in his marriage, has an ill-timed affair with his daughter's 17 year old babysitter. JORDAN splits from his partner, Steve, only to discover he may not be the biological father of their daughter. HARRY, angered over his estranged relationship with his father and his ex-wife, loses it and abuses his girlfriend sadistically. BEN, after losing custody of his son because he viciously attacked his ex-wife's boyfriend in front of him, takes the law into his own hands and kidnaps his son. All five stories intersect as each man tries to salvage what is left of his life.",
+        "poster_path": "/yPNVd6GNdsscB8UoPngtOJ3Ad2F.jpg"
+      },
+      {
+        "id": 1287755,
+        "title": "Shattered",
+        "year": "2008",
+        "overview": "Four girlfriends hold the man who attacked one of them captive, pushing their friendship to the limit deciding whether he will live or die.",
+        "poster_path": "/ocZrEkWkTLF8J91kCHFsiuCHANW.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "premonition-vhs-rental-horror",
+    "title": "Premonition",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Premonition' (2007))",
+    "candidates": [
+      {
+        "id": 9963,
+        "title": "Premonition",
+        "year": "2007",
+        "overview": "A depressed housewife who learns her husband was killed in a car accident the day previously awakens the next morning to find him alive and well at home, and then awakens the day after to a world in which he is still dead.",
+        "poster_path": "/vKW1XIYrIqVrbCaYj9FQDHKXR8R.jpg"
+      },
+      {
+        "id": 40069,
+        "title": "Premonition",
+        "year": "2004",
+        "overview": "While stopped at a roadside phone booth for transmitting his work through the Internet to the university, Professor Hideki Satomi finds a scrap of newspaper with the picture of his five-year-old daughter Nana in the obituary section.",
+        "poster_path": "/Aarfof4kkVvxw9aKETcOGX8vFaZ.jpg"
+      },
+      {
+        "id": 1101833,
+        "title": "Premonition",
+        "year": "2023",
+        "overview": "A man struggles to keep his life and relationships from spiraling out of control by fortunes that foresee his immediate future.",
+        "poster_path": "/d6sSbkVkm6EJsbOoUqcK19mMBpE.jpg"
+      },
+      {
+        "id": 72909,
+        "title": "Premonition",
+        "year": "2005",
+        "overview": "After a violent car wreck nearly takes his life, Detective Jack Barnes begins having inexplicable and terrifying premonitions of horrible disasters. At first his warning calls go unheeded, but as the premonitions begin to come true Jack is shocked to find himself wanted for questioning by the FBI. He goes on the run, narrowly avoiding both the FBI and a band of terrorists on the verge of unleashing a deadly attack. As he scrambles to unlock the meaning of the visions, he must race against the clock to stop the terrorists before they can strike again.",
+        "poster_path": "/2Lo6USMKuPtoAzZwVqyKu5mgdMC.jpg"
+      },
+      {
+        "id": 1567449,
+        "title": "Premonition",
+        "year": "2025",
+        "overview": "Juan has a gift he deeply hates: as a child, he suffered the death of a friend, which he predicted, and then saw his wife die. Because of this torment, he decides to isolate himself in a cabin in the woods. Now he repeatedly dreams of the death of Paula, whom he has yet to meet. One day, Paula and her husband show up at his door asking for help. Surprised to see her, Juan opens the door and a new dramatic story begins. Will his dreams come true? Will he be able to save Paula? Who will try to kill her?",
+        "poster_path": "/yYbbk1jx6DT7dur9FNIICcDfKDL.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-butterfly-effect-vhs-rental-horror",
+    "title": "The Butterfly Effect",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Butterfly Effect' (2004))",
+    "candidates": [
+      {
+        "id": 1954,
+        "title": "The Butterfly Effect",
+        "year": "2004",
+        "overview": "A young man struggles to access sublimated childhood memories. He finds a technique that allows him to travel back into the past, to occupy his childhood body and change history. However, he soon finds that every change he makes has unexpected consequences.",
+        "poster_path": "/ea5iv7TWMh18fOKoRGgmtcg85Gx.jpg"
+      },
+      {
+        "id": 201051,
+        "title": "The Butterfly Effect",
+        "year": "1995",
+        "overview": "Luis, a Spanish student, goes to London to get a course in Economics. He lives at a house the neighbor of her aunt, but when she broke up with her husband, Luis goes to live with her.",
+        "poster_path": "/vhmuoz9vxREuclMdyMzwZwHcAMM.jpg"
+      },
+      {
+        "id": 1209167,
+        "title": "The Butterfly Effect",
+        "year": "2023",
+        "overview": "A story that will show you through a multitude of unpredictable, humorous, but also stressful situations how diversity works. when they have the same goal.",
+        "poster_path": "/3WMD08OfNQZhQxf0lVzIykUmqL9.jpg"
+      },
+      {
+        "id": 1110767,
+        "title": "The Butterfly Effect",
+        "year": "2023",
+        "overview": "Documenting her daughter Willow's preparation to sing a heartwarming song in front of an audience for the first time, filmmaker Kelly O'Brien offers a tender glimpse into the highs and lows of pre-teen life as Willow makes an unexpected choice.",
+        "poster_path": ""
+      },
+      {
+        "id": 719181,
+        "title": "The Butterfly Effect",
+        "year": "2020",
+        "overview": "As deforestation and climate change disturb Belize\u2019s critical rainy season, one organization works to educate children using butterflies!",
+        "poster_path": "/oQDXWjpb4DcWIK3XhkZVSS5u4gF.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "cube-vhs-rental-horror",
+    "title": "Cube",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Cube' (1998))",
+    "candidates": [
+      {
+        "id": 431,
+        "title": "Cube",
+        "year": "1998",
+        "overview": "A group of strangers find themselves trapped in a maze-like prison. It soon becomes clear that each of them possesses the peculiar skills necessary to escape, if they don't wind up dead first.",
+        "poster_path": "/x4BTjxdrOKC27FcSkBh8KPEgnum.jpg"
+      },
+      {
+        "id": 792678,
+        "title": "Cube",
+        "year": "2021",
+        "overview": "Six complete strangers with widely varying personalities are involuntarily placed in an endless maze of interlocking cube-shaped rooms containing deadly traps.",
+        "poster_path": "/3uTnw1XahydeVkwFzY5xq5aFUh7.jpg"
+      },
+      {
+        "id": 814665,
+        "title": "CUBE",
+        "year": "2021",
+        "overview": "Shinyoung is preparing for a 9th-level civil servant position at the goshiwon. One day, when Shinyoung opens her eyes, her body is a cube. Shinyoung is transferred to the research institute and used as research data. But the lab can\u00b4t figure out anything.",
+        "poster_path": ""
+      },
+      {
+        "id": 1400919,
+        "title": "Cube",
+        "year": "2019",
+        "overview": "Landis arrives at the meeting site",
+        "poster_path": ""
+      },
+      {
+        "id": 1261243,
+        "title": "Cube",
+        "year": "1988",
+        "overview": "Dedicated to the tragically deceased young Belarusian artist Yunis Sandgazin. He left behind a thousand drawings that line up in a clear storyline \u2013 a man frightened by the diversity and complexity of modern life shuts himself off from it, closes in on himself.",
+        "poster_path": "/ikOzswWMp4iQcdz3hroSd7BXD50.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-fly-2-vhs-rental-horror",
+    "title": "The Fly 2",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Fly II' (1989))",
+    "candidates": [
+      {
+        "id": 10344,
+        "title": "The Fly II",
+        "year": "1989",
+        "overview": "Martin Brundle, born of the human/fly, is adopted by his father's place of employment (Bartok Inc.) while the employees simply wait for his mutant chromosomes to come out of their dormant state.",
+        "poster_path": "/gORksEPahEgO409HYJOZlNVyEpe.jpg"
+      },
+      {
+        "id": 38126,
+        "title": "Return of the Fly",
+        "year": "1959",
+        "overview": "Fifteen years after his father's experiments with matter transmission fail, Philippe Delambre and his uncle Fran\u00e7ois attempt to create a matter transmission device on their own. However, their experiments have disastrous results, turning Philippe into a horrible half-man, half-fly creature.",
+        "poster_path": "/a6w010kxAZfr0wsW7OiZgvkMwtN.jpg"
+      },
+      {
+        "id": 68418,
+        "title": "The Screwfly Solution",
+        "year": "2006",
+        "overview": "A strange virus renders the entire human male population into homicidal maniacs who end up wiping out all females, leaving a woman and her daughter to fend for themselves.",
+        "poster_path": "/rwC8HMFC5C7RZjPbDNvrv37n00M.jpg"
+      },
+      {
+        "id": 264625,
+        "title": "The Fish & The Fly 2: Nymphs",
+        "year": "2010",
+        "overview": "This is a movie in the series The Fish &amp; The Fly . In these films , we go deep into the details of each fishing situation , as a fly fisherman meetings. We have traveled to various fantastic fishing waters in order to find the best ways to show fly fishing with nymph.  In the film, together with Morten Oeland that shows how he fishes in the many different fishing situations we experience. We see the natural nymphs on quite closely, and Morten shows practically fly fishing with his best imitation of these nymphs.  As in the other films , we have located underwater cameras in the fishing areas while we fish , and we get new insight into the movements of the fish when we thus come under the surface.",
+        "poster_path": ""
+      },
+      {
+        "id": 1029473,
+        "title": "The Wing Will Fly: Northrop B-2 Stealth Bomber",
+        "year": "1991",
+        "overview": "Aviation pioneer Jack Northrop designed the flying wing - a breakthrough that reduced drag... increased lift... and dodged radar. Northrop fought to get the flying wing into mass production - only to lose everything. But his dream became the B2 stealth bomber, 40 years later.\r This documentary takes us from the early days of the aviation designer to the final production and test flights of the Northrop B-49 \"Flying Wing\" jet bomber, which was 50 years ahead of its time and the first true \"stealth\" aircraft.\r The film contains archival video and interviews with the original test pilots and Northrop employees.",
+        "poster_path": "/vchHSHZUuehsuw661tHs3CsXK5B.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "boltneck-vhs-rental-horror",
+    "title": "Boltneck",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Big Monster on Campus' (1998))",
+    "candidates": [
+      {
+        "id": 3152,
+        "title": "Big Monster on Campus",
+        "year": "1998",
+        "overview": "A student receives a serial killer's brain in a transplant after being thrown into a pool with no water in it.",
+        "poster_path": "/4Pnsi9DX4zOdV0Sqj87yYyctrYm.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "hide-and-seek-vhs-rental-horror",
+    "title": "Hide and Seek",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Hide and Seek' (2005))",
+    "candidates": [
+      {
+        "id": 11096,
+        "title": "Hide and Seek",
+        "year": "2005",
+        "overview": "David Callaway tries to piece together his life in the wake of his wife's suicide and has been left to raise his nine-year-old daughter, Emily on his own. David is at first amused to discover that Emily has created an imaginary friend named 'Charlie', but it isn't long before 'Charlie' develops a sinister and violent side, and as David struggles with his daughter's growing emotional problems, he comes to the frightening realisation that 'Charlie' isn't just a figment of Emily's imagination.",
+        "poster_path": "/orY4PX3TNFdCbdVwhKY32UKMvoA.jpg"
+      },
+      {
+        "id": 801271,
+        "title": "Hide and Seek",
+        "year": "2021",
+        "overview": "Noah is seeking to reconnect with his outcast brother after the death of their father. He hopes to make amends and share the family's fortune, but instead finds himself in a dark underworld that threatens to tear his family apart. As he struggles to maintain his sanity, Noah is led on a terrifying trail to the truth through a series of cryptic clues.",
+        "poster_path": "/8vGAAlgJL4BXQVYmwfyMt5nBfjC.jpg"
+      },
+      {
+        "id": 12255,
+        "title": "Hide and Seek",
+        "year": "2000",
+        "overview": "A desperate, childless couple kidnap a pregnant woman and lead her husband to believe that she is dead.",
+        "poster_path": "/dVoXOqczPVK6HuWLhkXYwrvOLkl.jpg"
+      },
+      {
+        "id": 214209,
+        "title": "Hide and Seek",
+        "year": "2013",
+        "overview": "Sung-soo has everything a man could want: a beautiful wife and children, a comfortable home and luxury car, and plenty of money in the bank. When he learns that his estranged brother, Sung-chul, has gone missing, haunting memories of their troubled past urge him to visit his brother\u2019s apartment in search of answers.",
+        "poster_path": "/z11Dd1r8BQhCLhLfRh1x5QuzMRw.jpg"
+      },
+      {
+        "id": 1462589,
+        "title": "Hide and Seek",
+        "year": "2016",
+        "overview": "In the film, a series of interesting events take place against the backdrop of the love between two young people in love - Farid and Gunel.",
+        "poster_path": "/pujYI81c6lMH53DO89TNhoZe3cm.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "resurrection-vhs-rental-horror",
+    "title": "Resurrection",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Resurrection' (2025))",
+    "candidates": [
+      {
+        "id": 878608,
+        "title": "Resurrection",
+        "year": "2025",
+        "overview": "In a world where humanity has lost the ability to dream in exchange for eternal life, one creature remains entranced by the fading illusions of the dreamworld. This monster, adrift in reverie, clings to visions no one else can see - until a woman appears. As she allows him to dream one final time, his life of different identities is replayed as they journey through his century of existence.",
+        "poster_path": "/4asJAxshXzQriox6tnIoEnWN1nu.jpg"
+      },
+      {
+        "id": 872497,
+        "title": "Resurrection",
+        "year": "2022",
+        "overview": "A woman's carefully constructed life is upended when an unwelcome shadow from her past returns, forcing her to confront the monster she's evaded for two decades.",
+        "poster_path": "/kfRr8Jm1gaEnLTXCIfHkSw8QW6t.jpg"
+      },
+      {
+        "id": 10359,
+        "title": "Resurrection",
+        "year": "1999",
+        "overview": "A jaded homicide detective has been put on the case of a ruthless killer in the city of Chicago, who leaves a trail of horribly mutilated and dismembered corpses along with perversely ironic biblical quotes.",
+        "poster_path": "/2j6cMHN1Mx1u8S897VVhO7wSrce.jpg"
+      },
+      {
+        "id": 194139,
+        "title": "Resurrection",
+        "year": "2001",
+        "overview": "At the end of the XIX century in Russia, Prince Dimitri Necklivdov is called as a jury-man in a trial. The defendant is Katiuscia Maslova, accused of murdering a merchant in order to rob him. Dimitri recognizes Katiuscia: she was the girl he seduced many years before. Dimitri decides to save her.",
+        "poster_path": "/h6SJqwN5ZuhDZ9BX5THc3aWQ0dW.jpg"
+      },
+      {
+        "id": 98864,
+        "title": "Resurrection",
+        "year": "1980",
+        "overview": "The story of a woman who survives the car accident which kills her husband, but discovers that she has the power to heal other people. She becomes an unwitting celebrity, the hope of those in desperate need of healing, and a lightning rod for religious beliefs and skeptics.",
+        "poster_path": "/8Oq0lF2a0Cqzp5NA8spLPola0lN.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "aracnaphobia-vhs-rental-horror",
+    "title": "Aracnaphobia",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
   }
 ]

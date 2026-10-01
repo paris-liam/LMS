@@ -306,6 +306,10 @@
     "batch": "floor-sale-01",
     "status": "queued"
   },
+  "aracnaphobia-vhs-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "area-51-secrets-of-dreamland": {
     "batch": "floor-sale-01",
     "status": "queued"
@@ -526,12 +530,20 @@
     "batch": "floor-sale-01",
     "status": "queued"
   },
+  "boltneck-vhs-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "boys-dont-cry-vhs-floor-sale-drama": {
     "batch": "floor-sale-01",
     "status": "queued"
   },
   "brass": {
     "status": "skipped"
+  },
+  "breakdown-vhs-rental-thriller": {
+    "batch": "rentals",
+    "status": "queued"
   },
   "breakfast-club-the-4k-uhd-blu-ray-floor-sale-comedy": {
     "batch": "floor-sale-01",
@@ -882,6 +894,10 @@
     "batch": "floor-sale-02",
     "status": "queued"
   },
+  "cube-vhs-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "dance-with-me-dvd-5": {
     "batch": "floor-sale-02",
     "status": "queued"
@@ -892,6 +908,10 @@
   },
   "dangerous-game-vhs-14": {
     "batch": "floor-sale-02",
+    "status": "queued"
+  },
+  "dark-city-vhs-rental-sci-fi": {
+    "batch": "rentals",
     "status": "queued"
   },
   "date-night-bluray-floor-sale-comedy": {
@@ -1397,6 +1417,10 @@
     "batch": "floor-sale-02",
     "status": "queued"
   },
+  "fear-vhs-rental-thriller": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "fighting-dvd-4": {
     "batch": "floor-sale-02",
     "status": "queued"
@@ -1653,6 +1677,10 @@
     "batch": "floor-sale-03",
     "status": "queued"
   },
+  "hannibal-vhs-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "hansel-gretel-bluray-floor-sale-action": {
     "batch": "floor-sale-03",
     "status": "queued"
@@ -1753,6 +1781,10 @@
   },
   "hidden-city-vhs-floor-sale-drama": {
     "batch": "floor-sale-03",
+    "status": "queued"
+  },
+  "hide-and-seek-vhs-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "high-crime-vhs-floor-sale-thriller": {
@@ -2053,6 +2085,10 @@
   },
   "journey-to-the-center-of-the-earth-dvd-floor-sale-sci-fi": {
     "batch": "floor-sale-04",
+    "status": "queued"
+  },
+  "joy-ride-vhs-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "jump-off-a-building-vhs": {
@@ -2365,6 +2401,10 @@
   },
   "mama-mia-dvd-floor-sale-kids-family": {
     "batch": "floor-sale-04",
+    "status": "queued"
+  },
+  "manunter-vhs-rental-thriller": {
+    "batch": "rentals",
     "status": "queued"
   },
   "marie-antoinette-4k-uhd-blu-ray-floor-sale-drama": {
@@ -3079,6 +3119,10 @@
     "batch": "floor-sale-05",
     "status": "queued"
   },
+  "premonition-vhs-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "pretty-woman-vhs-8": {
     "batch": "floor-sale-05",
     "status": "queued"
@@ -3139,6 +3183,10 @@
     "batch": "floor-sale-05",
     "status": "queued"
   },
+  "quick-silver-highway-vhs-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "radio-days-vhs-floor-sale-comedy": {
     "batch": "floor-sale-05",
     "status": "queued"
@@ -3186,6 +3234,10 @@
     "batch": "floor-sale-05",
     "status": "queued"
   },
+  "red-dragon-vhs-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "red-eye-dvd-floor-sale-thriller": {
     "batch": "floor-sale-05",
     "status": "queued"
@@ -3222,6 +3274,10 @@
   },
   "resident-evil-collection-dvd-7": {
     "batch": "floor-sale-05",
+    "status": "queued"
+  },
+  "resurrection-vhs-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "retribution-vhs": {
@@ -3445,6 +3501,10 @@
     "batch": "floor-sale-06",
     "status": "queued"
   },
+  "seven-vhs-rental-thriller": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "sex-and-the-city-dvd-floor-sale-comedy": {
     "batch": "floor-sale-06",
     "status": "queued"
@@ -3485,6 +3545,10 @@
   },
   "shattered-glass-vhs-floor-sale-drama": {
     "batch": "floor-sale-06",
+    "status": "queued"
+  },
+  "shattered-vhs-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "sherlock-holmes-bluray-floor-sale-action": {
@@ -4027,6 +4091,10 @@
       "Image Src": "https://www.orbitdvd.com/cdn/shop/products/the-butterfly-effect-trilogy-region-b-new-blu-ray.jpg"
     }
   },
+  "the-butterfly-effect-vhs-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-caged-heart-vhs": {
     "batch": "floor-sale-07",
     "status": "queued"
@@ -4132,6 +4200,10 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/xdJVC9zIxqyXPMfz6luRsh0Jxv8.jpg"
     }
   },
+  "the-edge-vhs-rental-thriller": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-expendables-bluray-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -4152,6 +4224,10 @@
   },
   "the-firm-vhs-floor-sale-drama": {
     "batch": "floor-sale-07",
+    "status": "queued"
+  },
+  "the-fly-2-vhs-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "the-fly-vhs-floor-sale": {
@@ -4212,6 +4288,10 @@
   },
   "the-girl-with-the-hungry-eyes-vhs-floor-sale-horror": {
     "batch": "floor-sale-07",
+    "status": "queued"
+  },
+  "the-glass-house-vhs-rental-thriller": {
+    "batch": "rentals",
     "status": "queued"
   },
   "the-good-shepherd-dvd-floor-sale-drama": {
@@ -4618,6 +4698,10 @@
     "batch": "floor-sale-08",
     "status": "queued"
   },
+  "the-posiedon-adventure-vhs-rental-action": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-postman-always-rings-twice-vhs-floor-sale-thriller": {
     "batch": "floor-sale-08",
     "status": "queued"
@@ -4682,6 +4766,10 @@
       "Image Alt Text": "The Shadow Collection: 8 Movies poster",
       "Image Src": "https://m.media-amazon.com/images/I/71ZeAJjw1ML._SL1184_.jpg"
     }
+  },
+  "the-skulls-vhs-rental-thriller": {
+    "batch": "rentals",
+    "status": "queued"
   },
   "the-spider-and-the-fly-vhs-floor-sale-drama": {
     "batch": "floor-sale-08",
@@ -4819,6 +4907,10 @@
     "batch": "floor-sale-08",
     "status": "queued"
   },
+  "turbulence-vhs-rental-thriller": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "unbreakable-vhs-floor-sale-action": {
     "batch": "floor-sale-08",
     "status": "queued"
@@ -4837,6 +4929,10 @@
   },
   "virgin-suicides-the-dvd-floor-sale-drama": {
     "batch": "floor-sale-08",
+    "status": "queued"
+  },
+  "virus-vhs-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "wall-e-4k-rental-criterion-collection-kids-family": {
