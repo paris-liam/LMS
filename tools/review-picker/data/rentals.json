@@ -1168,5 +1168,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/e/e6/Threemusketeers1993.jpg",
     "overview": "The Three Musketeers (1993): action-adventure comedy from Walt Disney Pictures and Caravan Pictures, directed by Stephen Herek."
+  },
+  {
+    "handle": "the-shadow-collection-8-movies-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "https://m.media-amazon.com/images/I/71ZeAJjw1ML._SL1184_.jpg",
+    "overview": ""
   }
 ]
