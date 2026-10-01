@@ -1354,5 +1354,11 @@
     "choice": "tmdb",
     "poster_path": "/vKW1XIYrIqVrbCaYj9FQDHKXR8R.jpg",
     "overview": "A depressed housewife who learns her husband was killed in a car accident the day previously awakens the next morning to find him alive and well at home, and then awakens the day after to a world in which he is still dead."
+  },
+  {
+    "handle": "virus-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/5Np88iigCfnXvMlMKmCcbPVIbYQ.jpg",
+    "overview": "When the crew of an American tugboat boards an abandoned Russian research vessel, the alien life form aboard regards them as a virus which must be destroyed."
   }
 ]
