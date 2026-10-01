@@ -16,7 +16,7 @@ def movie(**overrides):
     base = blank_row()
     base.update({
         "Handle": "rushmore-vhs-rental", "Title": "Rushmore", "Body (HTML)": "<p>A student.</p>",
-        "Vendor": "VHS", "Tags": "Rental, VHS, Comedy", "Status": "active",
+        "Vendor": "VHS", "Tags": "Rental", "Status": "active",
         "Image Src": "https://cdn/r.jpg", "Image Alt Text": "Rushmore poster",
         "Option1 Name": "Genre", "Option1 Value": "Comedy", "Variant Price": "0.00",
         "Variant Barcode": "01577790", "Variant Inventory Tracker": "shopify",
@@ -85,7 +85,7 @@ class TestContentStep(unittest.TestCase):
     def test_imageless_movie_is_tagged_poster_missing(self):
         row = movie(**{"Image Src": "", "Image Alt Text": ""})
         result = run_audit([row], {}, fetcher({}))
-        self.assertEqual(result.autofix["rushmore-vhs-rental"]["changes"]["Tags"], "Rental, VHS, Comedy, Poster_Missing")
+        self.assertEqual(result.autofix["rushmore-vhs-rental"]["changes"]["Tags"], "Rental, Poster_Missing")
 
     def test_tmdb_poster_autofill_does_not_tag_the_product_poster_missing(self):
         row = movie(**{"Image Src": "", "Image Alt Text": ""})
@@ -95,10 +95,10 @@ class TestContentStep(unittest.TestCase):
         self.assertNotIn("Tags", changes)
 
     def test_tmdb_poster_autofill_removes_an_existing_poster_missing_tag(self):
-        row = movie(**{"Image Src": "", "Image Alt Text": "", "Tags": "Rental, VHS, Comedy, Poster_Missing"})
+        row = movie(**{"Image Src": "", "Image Alt Text": "", "Tags": "Rental, Poster_Missing"})
         result = run_audit([row], {}, fetcher({"Rushmore": [tmdb("Rushmore", 1998)]}))
         changes = result.autofix["rushmore-vhs-rental"]["changes"]
-        self.assertEqual((changes["Image Src"][-6:], changes["Tags"]), ("/p.jpg", "Rental, VHS, Comedy"))
+        self.assertEqual((changes["Image Src"][-6:], changes["Tags"]), ("/p.jpg", "Rental"))
 
     def test_ambiguous_goes_to_ambiguous_queue(self):
         row = movie(Title="Mandela", **{"Image Src": "", "Image Alt Text": "", GENRE_METAFIELD: ""},
@@ -180,9 +180,9 @@ class TestCollectAutofix(unittest.TestCase):
     def test_merges_fields_and_rules(self):
         result = run_audit([movie(Tags="Rental, VHS, Horor", **{"Option1 Value": "Horor", GENRE_METAFIELD: ""})], {}, None)
         entry = result.autofix["rushmore-vhs-rental"]
-        self.assertEqual(entry["changes"]["Tags"], "Rental, VHS, Horror")
+        self.assertEqual(entry["changes"]["Tags"], "Rental")
         self.assertEqual(entry["changes"][GENRE_METAFIELD], "horror")
-        self.assertEqual(set(entry["rules"]), {"genre-alias", "option1-genre", "genre-metafield-sync"})
+        self.assertEqual(set(entry["rules"]), {"format-genre-tag", "option1-genre", "genre-metafield-sync"})
 
     def test_conflicting_values_raise(self):
         from catalog.audit.findings import Finding
@@ -194,7 +194,7 @@ class TestCollectAutofix(unittest.TestCase):
 
 class TestOutputs(unittest.TestCase):
     def test_writes_every_file_and_marks_complete_last(self):
-        rows = [movie(), movie(Handle="bad", Tags="VHS, Comedy", **{"Variant Barcode": "1"})]
+        rows = [movie(), movie(Handle="bad", Tags="", **{"Variant Barcode": "1"})]
         result = run_audit(rows, {}, None)
         report = build_report(result, source="export test.csv", audited=2,
                               excluded={"archived": 3}, tmdb_status="skipped (--skip-tmdb)")

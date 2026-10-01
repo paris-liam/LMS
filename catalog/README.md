@@ -45,7 +45,12 @@ Libib (description missing)* apart from *poster only (not blocking Libib)*.
 **`Poster_Missing` tag.** The audit's `poster-tag-sync` auto-fix adds the `Poster_Missing` Shopify
 tag to every movie with no image and removes it once there is one (a poster the TMDB step fills in
 the same run never gets it). It is written by `apply` like any other tag fix, folded into the
-product's single `Tags` value with any alias respelling.
+product's single `Tags` value with any type-tag respelling.
+
+**No format or genre tags.** Format lives in `Vendor` and genre in Option1 + `shopify.genre`, so the
+`format-genre-tag` auto-fix removes VHS/DVD/…/genre tags (misspelt ones too) from `Tags`. A format or
+genre found only in a tag is moved to Vendor / the genre field by the same apply. Genres resolve as
+the union Option1 → `shopify.genre` → Tags, so removing the tags never drops a secondary genre.
 
 Flags: `--skip-tmdb` (no lookups), `--no-cache` (bypass `runs/.tmdb-cache.json`), `-v` / `-q`.
 

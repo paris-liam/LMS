@@ -77,7 +77,7 @@ class TestAuditCommand(unittest.TestCase):
         self.assertEqual(len(snapshot), 4)  # archived product excluded
         with open(run_dir / "findings.csv", newline="", encoding="utf-8") as f:
             rules = {(r["handle"], r["rule"]) for r in csv.DictReader(f)}
-        self.assertIn(("heat-vhs-rental", "genre-alias"), rules)
+        self.assertIn(("heat-vhs-rental", "format-genre-tag"), rules)
         self.assertIn(("rushmore-vhs-rental", "rental-barcode-duplicate"), rules)
         self.assertNotIn(("dup-dvd-floor-sale", "rental-barcode-duplicate"), rules)
         autofix = json.loads((run_dir / "autofix.json").read_text(encoding="utf-8"))

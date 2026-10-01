@@ -18,8 +18,11 @@ from catalog.core.text import strip_html
 
 POSTER_MISSING_TAG = "Poster_Missing"
 
-_TAG_ALIAS_RULES = (("type-alias", canonical_type), ("format-alias", canonical_format),
-                    ("genre-alias", canonical_genre))
+
+def is_format_or_genre_tag(tag: str) -> bool:
+    """Format lives in Vendor and genre in Option1 + shopify.genre, so these
+    tags only duplicate them."""
+    return bool(canonical_format(tag) or canonical_genre(tag))
 
 
 @dataclass
@@ -45,11 +48,11 @@ def genre_handles(row: dict) -> list[str]:
 
 
 def respelled_tags(r: Resolved) -> str:
-    """The product's own tags, in order, with each misspelt type/format/genre
-    tag replaced by its canonical spelling. Nothing is added or dropped (apart
-    from exact duplicates the respelling creates), so a tag fix can never
-    remove a type or format tag — even on a product tagged with both types."""
-    respelled = [canonical_type(t) or canonical_format(t) or canonical_genre(t) or t for t in r.tags]
+    """The product's own tags, in order, minus every format and genre tag, with
+    each misspelt type tag replaced by its canonical spelling. Nothing else is
+    added or dropped (apart from exact duplicates the respelling creates), so a
+    tag fix can never remove a type tag — even on a product tagged with both."""
+    respelled = [canonical_type(t) or t for t in r.tags if not is_format_or_genre_tag(t)]
     return ", ".join(dedupe(respelled))
 
 
@@ -133,10 +136,14 @@ def _autofix_findings(row, r, make) -> list[Finding]:
     current_tags = row.get("Tags", "")
     proposed_tags = final_tags(row, r)
     for tag in r.tags:
-        for rule, resolver in _TAG_ALIAS_RULES:
-            canonical = resolver(tag)
-            if canonical and canonical != tag:
-                out.append(make(rule, "Tags", current_tags, proposed_tags, AUTO_FIX, f"{tag!r} -> {canonical!r}"))
+        canonical = canonical_type(tag)
+        if canonical and canonical != tag:
+            out.append(make("type-alias", "Tags", current_tags, proposed_tags, AUTO_FIX, f"{tag!r} -> {canonical!r}"))
+
+    redundant = [t for t in r.tags if is_format_or_genre_tag(t)]
+    if redundant:
+        out.append(make("format-genre-tag", "Tags", current_tags, proposed_tags, AUTO_FIX,
+                        f"remove {', '.join(redundant)}: format lives in Vendor, genre in the genre field"))
 
     if has_poster_tag(r.tags) != needs_poster(row):
         out.append(make("poster-tag-sync", "Tags", current_tags, proposed_tags, AUTO_FIX,
