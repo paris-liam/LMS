@@ -1174,5 +1174,11 @@
     "choice": "manual",
     "image_src": "https://m.media-amazon.com/images/I/71ZeAJjw1ML._SL1184_.jpg",
     "overview": "Share the menacing shadows with eight sinister movies where supernatural entities prowl, human monsters stalk, and imagination runs wild. With selections covering extraterrestrials to the occult, revel in the terrifying possibilities presented by a dark and stormy night."
+  },
+  {
+    "handle": "godzilla-2000-bluray-rental-sci-fi",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/7BrjFxV0j5VzZRfVYeYbFXMUweB.jpg",
+    "overview": "An independent group of researchers called the Godzilla Prediction Network (GPN) actively track Godzilla as he makes landfall in Nemuro. Matters are further complicated when a giant meteor is discovered in the Ibaragi Prefecture. The mysterious rock begins to levitate as its true intentions for the world and Godzilla are revealed."
   }
 ]
