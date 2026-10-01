@@ -1376,8 +1376,8 @@
   {
     "handle": "seven-vhs-rental-thriller",
     "choice": "manual",
-    "image_src": "",
-    "overview": ""
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/6/68/Seven_%28movie%29_poster.jpg",
+    "overview": "Seven is a 1995 crime thriller film directed by David Fincher, starring Brad Pitt and Morgan Freeman as two detectives hunting a serial killer who uses the seven deadly sins as the motif for his gruesome murders."
   },
   {
     "handle": "quick-silver-highway-vhs-rental-horror",
