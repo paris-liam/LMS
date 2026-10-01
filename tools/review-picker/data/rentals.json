@@ -1258,5 +1258,11 @@
     "choice": "tmdb",
     "poster_path": "/9rtwPZRmgqURABPhSCdd0dEc0yo.jpg",
     "overview": "Tells the story of a young man's struggle to keep his world from changing. Placed in the rural setting of the mid 1950s."
+  },
+  {
+    "handle": "joy-ride-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/1LVGjf1QWgkNNPQssZtuT1GYKoP.jpg",
+    "overview": "Three young people on a road trip from Colorado to New Jersey talk to a trucker on their CB radio, then must escape when he turns out to be a psychotic killer."
   }
 ]
