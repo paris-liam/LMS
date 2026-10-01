@@ -1180,5 +1180,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/7BrjFxV0j5VzZRfVYeYbFXMUweB.jpg",
     "overview": "An independent group of researchers called the Godzilla Prediction Network (GPN) actively track Godzilla as he makes landfall in Nemuro. Matters are further complicated when a giant meteor is discovered in the Ibaragi Prefecture. The mysterious rock begins to levitate as its true intentions for the world and Godzilla are revealed."
+  },
+  {
+    "handle": "the-book-of-pooh-dvd-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/cPGmqu3WhJuGDPIqOiPOZ35us2f.jpg",
+    "overview": "Part of The Book of Pooh series, which offers preschool kids simple life lessons and scholastic pointers, The Book of Pooh: Stories From the Heart uses puppetry and computer animation to tell Christopher Robin's imaginative tales. Kids join Christopher Robin, Winnie the Pooh, Piglet, and Tigger for an afternoon of storytelling and lesson learning."
   }
 ]
