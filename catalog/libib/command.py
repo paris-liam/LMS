@@ -22,7 +22,7 @@ from catalog.errors import InputShapeError, NoRunError
 from catalog.libib.columns import READY_COLUMNS, ready_row
 from catalog.libib.diff import BLOCKED_COLUMNS, DRIFT_COLUMNS, ELIGIBLE_COLUMNS, HELD_COLUMNS, ORPHAN_COLUMNS, diff
 from catalog.libib.exports import DEFAULT_COLLECTION, load_libib
-from catalog.libib.fields import is_rental
+from catalog.libib.fields import is_rental, missing_wanted
 from catalog.libib.fix import (
     apply_report, archive_report, completed_calls, confirmed_remaps, drift_ready_rows, drift_targets, read_ready,
     run_fixer, run_login_check,
@@ -151,11 +151,14 @@ def run_diff_command(args) -> int:
         save_state(sync_dir, state)
 
     drift_handles = {d["handle"] for d in result.drift}
+    rows_by_handle = {r["Handle"]: r for r in rows}
+    no_poster = [e for e in result.eligible if missing_wanted(rows_by_handle[e["handle"]])]
     lines = [
         f"libib items:  {len(items)} ({args.collection or 'all collections'})",
         f"in sync:      {len(result.in_sync)} rentals",
         f"drift:        {len(drift_handles)} rentals, {len(result.drift)} fields -> drift.csv",
         f"eligible:     {len(result.eligible)} rentals missing from Libib -> eligible.csv",
+        f"no poster yet: {len(no_poster)} eligible rentals have no poster (they import without one; it uploads when it appears)",
         f"incomplete:   {len(result.incomplete)} rentals missing from Libib but not complete in Shopify",
         f"orphans:      {len(result.orphans)} Libib items (no rental / duplicates) -> orphans.csv",
         f"blocked:      {len(result.blocked)} rentals with a bad or shared barcode -> blocked.csv",
@@ -345,7 +348,9 @@ def run_sync_command(args, exporter=None, importer=None, fixer=run_fixer, downlo
                 if (state.get(e["handle"]) or {}).get("status") not in HELD][: args.size]
     new_lines = [line for e in eligible
                  for line in [f"{e['call_number']} {e['title']} — NEW Libib item (CSV import)"]
-                 + ready_change_lines(ready_row(rows_by_handle[e["handle"]], f"{e['call_number']}.jpg"))]
+                 + ready_change_lines(ready_row(
+                     rows_by_handle[e["handle"]],
+                     "" if missing_wanted(rows_by_handle[e["handle"]]) else f"{e['call_number']}.jpg"))]
     people = {name: len(_read_csv(out / f"{name}.csv")) for name in ("orphans", "blocked", "held")}
 
     log.setup_logging(out / "sync.log", log.verbosity(args))
@@ -437,11 +442,13 @@ def run_prepare_command(args, download=None, stdin=None) -> int:
     batch_id = next_batch_id(sync_dir)
     batch_dir = sync_dir / batch_id
 
+    with_poster = sum(1 for e in chosen if not missing_wanted(rows_by_handle[e["handle"]]))
     plan = Plan(
         title="libib prepare",
         count=len(chosen),
         summary=[f"{batch_id}: {len(chosen)} rentals (of {len(eligible)} eligible)",
-                 f"downloads {len(chosen)} posters and writes {batch_dir}/import.csv + ready.csv",
+                 f"downloads {with_poster} posters ({len(chosen) - with_poster} have no poster yet) "
+                 f"and writes {batch_dir}/import.csv + ready.csv",
                  f"state: {len(chosen)} -> queued"],
         samples=[f"{e['call_number']} {e['title']}" for e in chosen],
     )

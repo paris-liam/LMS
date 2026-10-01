@@ -46,6 +46,13 @@ class TestPrepare(unittest.TestCase):
         self.assertEqual(paths, {"01111111": str(self.dir / "01111111.jpg")})
         self.assertEqual(failed, ["02222222"])
 
+    def test_download_posters_skips_rows_without_an_image(self):
+        calls = []
+        rows = [rental("a", "01111111", image=""), rental("b", "02222222")]
+        paths, failed = download_posters(rows, self.dir, lambda url, path: (calls.append(url), Path(path).write_bytes(b"i")))
+        self.assertEqual(paths, {"02222222": str(self.dir / "02222222.jpg")})
+        self.assertEqual((failed, len(calls)), ([], 1))
+
     def test_write_batch(self):
         rows = [rental("a", "01111111"), rental("b", "02222222")]
         write_batch(self.dir, rows, {"01111111": "libib-sync/batch-0001/01111111.jpg"})

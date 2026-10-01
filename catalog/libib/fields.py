@@ -9,16 +9,19 @@ from catalog.core.columns import GENRE_METAFIELD
 from catalog.core.taxonomy import canonical_type
 from catalog.core.text import norm_ws, strip_html
 
-# Libib concept -> snapshot column
+# Libib concept -> snapshot column. The poster is not here: a rental goes to
+# Libib without one and the poster is uploaded when it appears (WANTED_FIELDS).
 REQUIRED_FIELDS = {
     "title": "Title",
-    "poster": "Image Src",
     "barcode": "Variant Barcode",
     "description": "Body (HTML)",
     "genre": GENRE_METAFIELD,
     "tags": "Tags",
     "format": "Vendor",
 }
+
+# Worth having, never blocks a rental from Libib.
+WANTED_FIELDS = {"poster": "Image Src"}
 
 
 def is_rental(row: dict) -> bool:
@@ -32,6 +35,10 @@ def is_complete(row: dict) -> bool:
 
 def missing_fields(row: dict) -> list[str]:
     return [name for name, col in REQUIRED_FIELDS.items() if not (row.get(col) or "").strip()]
+
+
+def missing_wanted(row: dict) -> list[str]:
+    return [name for name, col in WANTED_FIELDS.items() if not (row.get(col) or "").strip()]
 
 
 def expected_title(row: dict) -> str:

@@ -235,6 +235,14 @@ Products with no findings are omitted. `bucket` is exactly one of:
 
 Floor Sale barcodes carry no rule of their own (duplicates among Floor Sale items are allowed).
 
+**Amended 2026-09-30 — poster optional for Libib.** `poster` moved out of the Libib
+required fields (`libib/fields.py` `WANTED_FIELDS`): a rental without a poster is eligible
+and imports blank; the existing poster-drift path uploads it later. New audit auto-fix
+`poster-tag-sync` adds/removes the `Poster_Missing` tag (one final `Tags` value per product,
+shared with the alias fixes; dropped for products whose poster TMDB fills in the same run).
+Review entries gain `Missing`; `picker push` orders poster-only cards last and the picker
+badges them; `run-report.txt` splits gaps into *blocks Libib* vs *poster only*.
+
 ### TMDB
 
 - Matcher logic moves unchanged (confidence thresholds, year cutoffs, genre/overview/

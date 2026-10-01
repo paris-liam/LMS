@@ -57,9 +57,19 @@ class TestDiff(unittest.TestCase):
         result = diff([rental()], [], {})
         self.assertEqual(result.eligible, [{"handle": "jaws", "call_number": "01577790", "title": "Jaws"}])
 
-    def test_missing_and_incomplete_is_counted_not_eligible(self):
+    def test_missing_poster_alone_is_still_eligible(self):
         result = diff([rental(**{"Image Src": ""})], [], {})
+        self.assertEqual(result.eligible, [{"handle": "jaws", "call_number": "01577790", "title": "Jaws"}])
+        self.assertEqual(result.incomplete, [])
+
+    def test_missing_and_incomplete_is_counted_not_eligible(self):
+        result = diff([rental(**{"Body (HTML)": ""})], [], {})
         self.assertEqual((result.eligible, result.incomplete), ([], ["jaws"]))
+
+    def test_poster_appearing_later_is_poster_drift_for_a_synced_rental(self):
+        # synced without a poster (poster_src unset), Shopify now has one -> the fixer uploads it
+        result = diff([rental()], [item()], {"jaws": {"status": "done", "call_number": "01577790"}})
+        self.assertEqual(fields(result), {"poster"})
 
     def test_in_flight_rental_is_not_eligible(self):
         for status in ("queued", "imported"):

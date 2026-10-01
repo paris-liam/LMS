@@ -75,9 +75,12 @@ def collect_products(
                 "handle": handle, "title": row["Title"],
                 "vendor": row.get("Vendor", ""), "genre": row.get("Genre", ""),
                 "tag": rental_or_floor_sale(row.get("Tags", "")),
-                "reasons": [],
+                "reasons": [], "missing": [],
             }
         merged[handle]["reasons"].append(row["Reason"])
+        for field in row.get("Missing") or []:
+            if field not in merged[handle]["missing"]:
+                merged[handle]["missing"].append(field)
 
     products = []
     total = len(merged)
@@ -98,6 +101,7 @@ def collect_products(
             "vendor": entry["vendor"],
             "genre": entry["genre"],
             "tag": entry["tag"],
+            "missing": entry["missing"],
             "reason": "; ".join(entry["reasons"]),
             "candidates": candidates,
         })

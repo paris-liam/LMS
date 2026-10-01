@@ -16,6 +16,7 @@
   body.hide-decided .card.decided { display: none; }
   body.rental-only .card:not(.tag-rental) { display: none; }
   .tag.rental { color: #973123; background: #fbeceb; }
+  .tag.poster-only { color: #6b6b6b; background: #f0efec; }
   .card h2 { font-size: 1.15rem; margin: 0 0 .15rem; display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
   .save-state { font-size: .8rem; font-weight: 500; }
   .save-state.saved { color: #5f8d7a; }
@@ -242,7 +243,9 @@ function render() {
     }).join("");
     const plainTags = [product.vendor, product.genre].filter(Boolean).map(t => `<span class="tag">${esc(t)}</span>`);
     const scopeTag = product.tag ? [`<span class="tag ${product.tag === "Rental" ? "rental" : ""}">${esc(product.tag)}</span>`] : [];
-    const allTags = [...plainTags, ...scopeTag];
+    const posterOnly = Array.isArray(product.missing) && product.missing.length === 1 && product.missing[0] === "Image Src"
+      ? [`<span class="tag poster-only" title="Only the poster is missing; this does not hold up the Libib upload">poster only · lower priority</span>`] : [];
+    const allTags = [...plainTags, ...scopeTag, ...posterOnly];
     const tagsHtml = allTags.length ? `<span class="tags">${allTags.join("")}</span>` : "";
     const cardTagClass = product.tag === "Rental" ? "tag-rental" : product.tag === "Floor Sale" ? "tag-floor-sale" : "";
     return `<section class="card ${current !== undefined ? "decided" : ""} ${cardTagClass}" data-handle="${esc(product.handle)}">
