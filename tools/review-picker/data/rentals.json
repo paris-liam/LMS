@@ -976,5 +976,11 @@
     "choice": "manual",
     "image_src": "https://m.media-amazon.com/images/I/91reTAYWeNL._SX342_.jpg",
     "overview": "The complete Harry Potter film series, all 8 movies from Sorcerer's Stone to Deathly Hallows Part 2."
+  },
+  {
+    "handle": "iron-man-trilogy-bluray-rental-action",
+    "choice": "manual",
+    "image_src": "https://m.media-amazon.com/images/I/91x+KUgVfXL._SX342_.jpg",
+    "overview": "Iron Man, Iron Man 2 and Iron Man 3, starring Robert Downey Jr. as Tony Stark."
   }
 ]
