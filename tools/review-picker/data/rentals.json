@@ -1240,5 +1240,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "The CIA hires a retired Air Force pilot (Robert Davi) to destroy a terrorist's (Alexander Godunov) nuclear-weapons plant."
+  },
+  {
+    "handle": "neighbors-bluray-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/sN1RU08CMi8xkRIibremh3AOdgw.jpg",
+    "overview": "A couple with a newborn baby face unexpected difficulties after they are forced to live next to a fraternity house."
   }
 ]
