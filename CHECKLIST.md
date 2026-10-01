@@ -79,6 +79,22 @@ Standing rules:
   the spec (`docs/superpowers/specs/2026-09-09-client-upload-template-rebuild-design.md`)
   and check a real filled export with `python3 -m catalog check-upload <csv>`.
 
+- [ ] **14. Stop the sheet writing format and genre tags.**
+  Part of removing format/genre tags from every product (plan:
+  `genre-format-tag-removal.md`, branch `feat/genre-from-metafield`). The audit
+  side is done: the `format-genre-tag` auto-fix strips them, and genres now
+  resolve from Option1 + `shopify.genre`, so no secondary genre is lost. But
+  the sheet still writes `Type, Format, Genre 1-3, Extra tags` into Tags, so
+  every new upload would bring them back. Do this before merging the branch.
+  *Do:* in the tab-2 formula, change the `tags` line to
+  `MAP(typ, extra, LAMBDA(y, e, TEXTJOIN(", ", TRUE, y, e)))`, in the repo
+  (`catalog/client_sheet/template/import-tab-formula.txt`) **and** the
+  client's live sheet. Mirror it in `catalog/client_sheet/transform.py:57`,
+  regenerate the fixtures (`client-upload-template.expected.csv`,
+  `sheet-export.csv`, `sheet-export-input.csv` for the seam test), and update
+  the stale comment at `catalog/client_sheet/check.py:83` ("labels survive
+  only in Tags"). Vendor, Option1 and the genre field are unchanged.
+
 ## Catalogue clean-up
 
 - [ ] **6. First pass through the picker queue before it goes to the client.**
