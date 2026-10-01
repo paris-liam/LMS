@@ -1104,5 +1104,9 @@
   {
     "handle": "warner-bros-animation-collection-dvd-rental-kids-family",
     "choice": "skip"
+  },
+  {
+    "handle": "wb-academy-award-animation-dvd-rental-kids-family",
+    "choice": "skip"
   }
 ]
