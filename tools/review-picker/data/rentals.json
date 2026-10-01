@@ -1150,5 +1150,11 @@
     "choice": "manual",
     "image_src": "https://image.tmdb.org/t/p/w185/az6cyc3nb1MgPPehC1XZn2CjbF5.jpg",
     "overview": "Mom, Can I Keep Her? (1998): twelve-year-old Timmy Blair's furry new friend follows him home from school - a 500 pound gorilla."
+  },
+  {
+    "handle": "electra-dvd-rental-action",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/2/21/Elektra_teaser.jpg",
+    "overview": "Elektra (2005): Marvel superhero spin-off from Daredevil directed by Rob Bowman, with Jennifer Garner as the assassin Elektra Natchios."
   }
 ]
