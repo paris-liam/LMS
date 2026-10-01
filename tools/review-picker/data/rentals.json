@@ -1144,5 +1144,11 @@
     "choice": "tmdb",
     "poster_path": "/tFwvUSc8g0HHvDOBQ2rvC9LWVSj.jpg",
     "overview": "Jimmy is a young man who was born without an immune system and has lived his life within a plastic bubble in his bedroom... who pines for the sweet caresses of girl-next-door Chloe. But when Chloe decides to marry her high school boyfriend, Jimmy – bubble suit and all – treks cross-country to stop her."
+  },
+  {
+    "handle": "mom-can-i-keep-him-vhs-rental-kids-family",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/az6cyc3nb1MgPPehC1XZn2CjbF5.jpg",
+    "overview": "Mom, Can I Keep Her? (1998): twelve-year-old Timmy Blair's furry new friend follows him home from school - a 500 pound gorilla."
   }
 ]
