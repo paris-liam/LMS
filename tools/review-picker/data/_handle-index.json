@@ -308,7 +308,13 @@
   },
   "aracnaphobia-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Arachnophobia is a 1990 horror comedy film in which a small California town is terrorized by a rapidly multiplying colony of deadly spiders after a venomous new species hitches a ride from the Amazon, forcing the town's spider-phobic new doctor to confront his fears.</p>",
+      "Image Alt Text": "Aracnaphobia poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/a/a0/Arachnophobia_%28film%29_POSTER.jpg"
+    }
   },
   "area-51-secrets-of-dreamland": {
     "batch": "floor-sale-01",
@@ -455,7 +461,13 @@
   },
   "beauty-shop-leagally-blonde-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Two-disc double feature: Beauty Shop (Queen Latifah) and Legally Blonde (Reese Witherspoon).</p>",
+      "Image Alt Text": "Beauty Shop / Leagally Blonde poster",
+      "Image Src": "https://i.ebayimg.com/images/g/BkAAAOSwGThmz5TQ/s-l400.jpg"
+    }
   },
   "becky": {
     "status": "skipped"
@@ -532,7 +544,13 @@
   },
   "boltneck-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>A student receives a serial killer's brain in a transplant after being thrown into a pool with no water in it.</p>",
+      "Image Alt Text": "Boltneck poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/4Pnsi9DX4zOdV0Sqj87yYyctrYm.jpg"
+    }
   },
   "boys-dont-cry-vhs-floor-sale-drama": {
     "batch": "floor-sale-01",
@@ -543,7 +561,13 @@
   },
   "breakdown-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>On their cross-country drive, a married couple, Jeff and Amy Taylor, experience car trouble after their SUV breaks down. Stranded in the New Mexico desert, the two catch a break when a passing truck driver offers Amy a ride to a nearby caf\u00e9 to call for help. Meanwhile, Jeff is able to fix the car and make his way to the caf\u00e9, but Amy isn't there. He tracks down the trucker \u2015 who tells the police he's never seen Jeff or his wife before. Jeff then begins a desperate, frenzied search for Amy.</p>",
+      "Image Alt Text": "Breakdown poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/m3VB59ppr1RlpxNUYRUfZTgjgU.jpg"
+    }
   },
   "breakfast-club-the-4k-uhd-blu-ray-floor-sale-comedy": {
     "batch": "floor-sale-01",
@@ -815,7 +839,13 @@
   },
   "cold-heart-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>A married woman has a fling with her husband\u2019s charming, but sociopathic young patient, but when she returns to her husband she finds herself being stalked by her former lover.</p>",
+      "Image Alt Text": "Cold Heart poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/lXHPkjlXFlclX4KMq0wVGQ2KkQN.jpg"
+    }
   },
   "cold-mountain-dvd-floor-sale-drama": {
     "batch": "floor-sale-02",
@@ -896,7 +926,13 @@
   },
   "cube-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>A group of strangers find themselves trapped in a maze-like prison. It soon becomes clear that each of them possesses the peculiar skills necessary to escape, if they don't wind up dead first.</p>",
+      "Image Alt Text": "Cube poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/x4BTjxdrOKC27FcSkBh8KPEgnum.jpg"
+    }
   },
   "dance-with-me-dvd-5": {
     "batch": "floor-sale-02",
@@ -912,7 +948,13 @@
   },
   "dark-city-vhs-rental-sci-fi": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>A man struggles with memories of his past, including a wife he cannot remember, in a nightmarish world with no sun and run by beings with telekinetic powers who seek the souls of humans.</p>",
+      "Image Alt Text": "Dark City poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/tNPEGju4DpTdbhBphNmZoEi9Bd3.jpg"
+    }
   },
   "date-night-bluray-floor-sale-comedy": {
     "batch": "floor-sale-02",
@@ -1419,7 +1461,13 @@
   },
   "fear-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Nicole Walker always dreamed of being swept away by someone special \u2014 someone strong, sexy and sensitive who would care for her more than anything else in the world. David is all that and more: a modern-day knight who charms and seduces her, body and soul. But her perfect boyfriend is not all he seems to be. His sweet facade masks a savage, dark side that will soon transform Nicole's dream into a nightmare.</p>",
+      "Image Alt Text": "Fear poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/ut8snuINzOibbKnvpTnsGWQr4Nl.jpg"
+    }
   },
   "fighting-dvd-4": {
     "batch": "floor-sale-02",
@@ -1679,7 +1727,13 @@
   },
   "hannibal-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>After having successfully eluded the authorities for years, Hannibal peacefully lives in Italy in disguise as an art scholar. Trouble strikes again when he's discovered leaving a deserving few dead in the process. He returns to America to make contact with now disgraced Agent Clarice Starling, who is suffering the wrath of a malicious FBI rival as well as the media.</p>",
+      "Image Alt Text": "Hannibal poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/v5wAZwRqpGWmyAaaJ8BBHYuNXnj.jpg"
+    }
   },
   "hansel-gretel-bluray-floor-sale-action": {
     "batch": "floor-sale-03",
@@ -1785,7 +1839,13 @@
   },
   "hide-and-seek-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>David Callaway tries to piece together his life in the wake of his wife's suicide and has been left to raise his nine-year-old daughter, Emily on his own. David is at first amused to discover that Emily has created an imaginary friend named 'Charlie', but it isn't long before 'Charlie' develops a sinister and violent side, and as David struggles with his daughter's growing emotional problems, he comes to the frightening realisation that 'Charlie' isn't just a figment of Emily's imagination.</p>",
+      "Image Alt Text": "Hide and Seek poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/orY4PX3TNFdCbdVwhKY32UKMvoA.jpg"
+    }
   },
   "high-crime-vhs-floor-sale-thriller": {
     "batch": "floor-sale-03",
@@ -2089,7 +2149,13 @@
   },
   "joy-ride-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Three young people on a road trip from Colorado to New Jersey talk to a trucker on their CB radio, then must escape when he turns out to be a psychotic killer.</p>",
+      "Image Alt Text": "Joy Ride poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/1LVGjf1QWgkNNPQssZtuT1GYKoP.jpg"
+    }
   },
   "jump-off-a-building-vhs": {
     "batch": "floor-sale-04",
@@ -2237,7 +2303,13 @@
   },
   "lightnight-incident-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>McKeon's baby is kidnapped by a devil-worshipping cult and she uses her new-found psychic abilities to track them down.</p>",
+      "Image Alt Text": "Lightnight incident poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/pweeNO3pMHIeuUC9aOKoe38y971.jpg"
+    }
   },
   "lincon-and-lee-at-antietam-dvd-floor-sale-documentary": {
     "batch": "floor-sale-04",
@@ -2283,7 +2355,13 @@
   },
   "lonesome-dove-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>A pair of longtime friends and former Texas Rangers crave one last adventure before hanging-up their spurs. After stealing over a thousand head of cattle from rustlers south of the border, they recruit an unlikely crew of hands to drive the herd 3,000 miles north to the grasslands of Montana.</p>",
+      "Image Alt Text": "Lonesome Dove poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/qK4iseZGf0YhYx53ecawSGhL0sl.jpg"
+    }
   },
   "loopers-bluray-floor-sale-sci-fi": {
     "batch": "floor-sale-04",
@@ -2405,7 +2483,13 @@
   },
   "manunter-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Former FBI profiler Will Graham returns to service to pursue a deranged serial killer dubbed \"the Tooth Fairy\" by the media.</p>",
+      "Image Alt Text": "Manunter poster",
+      "Image Src": "https://m.media-amazon.com/images/S/pv-target-images/4ad1769f93a80257fc96d275cca8cba3e68eee7d69a5a7409d9f40209623a638.jpg"
+    }
   },
   "marie-antoinette-4k-uhd-blu-ray-floor-sale-drama": {
     "batch": "floor-sale-04",
@@ -2546,7 +2630,13 @@
   },
   "missing-in-action-triple-feature-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Chuck Norris action triple feature: Missing in Action, Missing in Action 2: The Beginning and Braddock: Missing in Action III.</p>",
+      "Image Alt Text": "Missing in Action Triple Feature poster",
+      "Image Src": "https://m.media-amazon.com/images/I/813BCsFZciL._SX342_.jpg"
+    }
   },
   "missing-link-peter-elliot-vhs-rare-1st-edition-original-release-1989-mca": {
     "batch": "floor-sale-04",
@@ -2762,7 +2852,13 @@
   },
   "neighbors-bluray-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>A couple with a newborn baby face unexpected difficulties after they are forced to live next to a fraternity house.</p>",
+      "Image Alt Text": "Neighbors poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/sN1RU08CMi8xkRIibremh3AOdgw.jpg"
+    }
   },
   "neighbors-dvd-5": {
     "batch": "floor-sale-05",
@@ -2985,7 +3081,13 @@
   },
   "paul-mccartney-back-in-the-us-concert-film-dvd-rental-musical": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>In 2002, a 60-year old McCartney refocused the attention on his musicianship, staging a massive live concert in Cleveland, Ohio. The superstar, who went on to form the popular rock group Wings and had several hit records as a solo artist, performs a track list that covers all three phases of his long and prolific career, including the hits \"Eleanor Rigby,\" \"Live And Let Die,\" \"Blackbird,\" \"The Long And Winding Road,\" and \"Mother Nature's Son.\"</p>",
+      "Image Alt Text": "Paul McCartney | Back in the US Concert Film poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/2f3T573FG88cs3eIbBcaHE0IzaR.jpg"
+    }
   },
   "payback-vhs-floor-sale-action": {
     "batch": "floor-sale-05",
@@ -3105,7 +3207,13 @@
   },
   "poos-heffalump-movie-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Who or what exactly is a Heffalump? The lovable residents of the Hundred Acre Wood -- Winnie the Pooh, Rabbit, Tigger, Eeyore, Kanga and the rest of the pack -- embark on a journey of discovery in search of the elusive Heffalump. But as is always the case, this unusual road trip opens their eyes to so much more than just the creature they're seeking.</p>",
+      "Image Alt Text": "Poo's Heffalump Movie poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/5kd5JqccroxOnC9sVMP5NtLrbkr.jpg"
+    }
   },
   "popeye-45th-anniversary-4k-floor-sale-kids-family": {
     "batch": "floor-sale-05",
@@ -3121,7 +3229,13 @@
   },
   "premonition-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>After a violent car wreck nearly takes his life, Detective Jack Barnes begins having inexplicable and terrifying premonitions of horrible disasters. At first his warning calls go unheeded, but as the premonitions begin to come true Jack is shocked to find himself wanted for questioning by the FBI. He goes on the run, narrowly avoiding both the FBI and a band of terrorists on the verge of unleashing a deadly attack. As he scrambles to unlock the meaning of the visions, he must race against the clock to stop the terrorists before they can strike again.</p>",
+      "Image Alt Text": "Premonition poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/2Lo6USMKuPtoAzZwVqyKu5mgdMC.jpg"
+    }
   },
   "pretty-woman-vhs-8": {
     "batch": "floor-sale-05",
@@ -3185,7 +3299,13 @@
   },
   "quick-silver-highway-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Quicksilver Highway is a 1997 made-for-television horror anthology film directed by Mick Garris, pairing two tales of the macabre hosted by a mysterious biker: one based on a Stephen King story, the other on a Clive Barker story.</p>",
+      "Image Alt Text": "Quick Silver Highway poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/8/81/Quicksilver_Highway_FilmPoster.jpeg"
+    }
   },
   "radio-days-vhs-floor-sale-comedy": {
     "batch": "floor-sale-05",
@@ -3236,7 +3356,13 @@
   },
   "red-dragon-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Former FBI Agent Will Graham, who was once almost killed by the savage Hannibal 'The Cannibal' Lecter, now has no choice but to face him again, as it seems Lecter is the only one who can help Graham track down a new serial killer.</p>",
+      "Image Alt Text": "Red Dragon poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/ou9ZKA2cms02b7CdCdVqGkKu0O0.jpg"
+    }
   },
   "red-eye-dvd-floor-sale-thriller": {
     "batch": "floor-sale-05",
@@ -3278,7 +3404,13 @@
   },
   "resurrection-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>A jaded homicide detective has been put on the case of a ruthless killer in the city of Chicago, who leaves a trail of horribly mutilated and dismembered corpses along with perversely ironic biblical quotes.</p>",
+      "Image Alt Text": "Resurrection poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/2j6cMHN1Mx1u8S897VVhO7wSrce.jpg"
+    }
   },
   "retribution-vhs": {
     "batch": "floor-sale-05",
@@ -3503,7 +3635,13 @@
   },
   "seven-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Seven is a 1995 crime thriller film directed by David Fincher, starring Brad Pitt and Morgan Freeman as two detectives hunting a serial killer who uses the seven deadly sins as the motif for his gruesome murders.</p>",
+      "Image Alt Text": "Seven poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/6/68/Seven_%28movie%29_poster.jpg"
+    }
   },
   "sex-and-the-city-dvd-floor-sale-comedy": {
     "batch": "floor-sale-06",
@@ -3549,7 +3687,13 @@
   },
   "shattered-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Dan Merrick comes out from a shattering car accident with amnesia. He finds that he is married to Judith who is trying to help him start his life again. He keeps getting flashbacks about events and places that he can't remember. He meets pet shop owner and part time private detective Gus Klein who has supposedly done some work for him prior to the accident. Klein helps Merrick to find out more...</p>",
+      "Image Alt Text": "Shattered poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/k3UaQNJ8FAUaHgDhPyT3uEiod8h.jpg"
+    }
   },
   "sherlock-holmes-bluray-floor-sale-action": {
     "batch": "floor-sale-06",
@@ -4033,7 +4177,13 @@
   },
   "the-book-of-pooh-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Part of The Book of Pooh series, which offers preschool kids simple life lessons and scholastic pointers, The Book of Pooh: Stories From the Heart uses puppetry and computer animation to tell Christopher Robin's imaginative tales. Kids join Christopher Robin, Winnie the Pooh, Piglet, and Tigger for an afternoon of storytelling and lesson learning.</p>",
+      "Image Alt Text": "The Book of Pooh poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/cPGmqu3WhJuGDPIqOiPOZ35us2f.jpg"
+    }
   },
   "the-boondock-saints-dvd": {
     "batch": "floor-sale-07",
@@ -4093,7 +4243,13 @@
   },
   "the-butterfly-effect-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>A young man struggles to access sublimated childhood memories. He finds a technique that allows him to travel back into the past, to occupy his childhood body and change history. However, he soon finds that every change he makes has unexpected consequences.</p>",
+      "Image Alt Text": "The Butterfly Effect poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/ea5iv7TWMh18fOKoRGgmtcg85Gx.jpg"
+    }
   },
   "the-caged-heart-vhs": {
     "batch": "floor-sale-07",
@@ -4101,7 +4257,13 @@
   },
   "the-call-of-the-wild-bluray-rental-drama-4k": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Buck is a big-hearted dog whose blissful domestic life is turned upside down when he is suddenly uprooted from his California home and transplanted to the exotic wilds of the Yukon during the Gold Rush of the 1890s. As the newest rookie on a mail delivery dog sled team\u2014and later its leader\u2014Buck experiences the adventure of a lifetime, ultimately finding his true place in the world and becoming his own master.</p>",
+      "Image Alt Text": "The Call of the Wild poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/33VdppGbeNxICrFUtW2WpGHvfYc.jpg"
+    }
   },
   "the-candidate-vhs-rental-drama": {
     "batch": "rentals",
@@ -4188,7 +4350,11 @@
   },
   "the-dogfighters-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>The CIA hires a retired Air Force pilot (Robert Davi) to destroy a terrorist's (Alexander Godunov) nuclear-weapons plant.</p>"
+    }
   },
   "the-dwarves-of-dragon-mountain-dvd-rental-fantasy": {
     "batch": "rentals",
@@ -4202,7 +4368,13 @@
   },
   "the-edge-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>The plane carrying wealthy Charles Morse crashes down in the Alaskan wilderness. Together with the two other passengers, photographer Robert and assistant Stephen, Charles devises a plan to help them reach civilization. However, his biggest obstacle might not be the elements, or even the Kodiak bear stalking them -- it could be Robert, whom Charles suspects is having an affair with his wife and would not mind seeing him dead.</p>",
+      "Image Alt Text": "The Edge poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/zplJqfuUyqzW0D4jX3W1afl0d7b.jpg"
+    }
   },
   "the-expendables-bluray-rental-action": {
     "batch": "rentals",
@@ -4228,7 +4400,13 @@
   },
   "the-fly-2-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Martin Brundle, born of the human/fly, is adopted by his father's place of employment (Bartok Inc.) while the employees simply wait for his mutant chromosomes to come out of their dormant state.</p>",
+      "Image Alt Text": "The Fly 2 poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/gORksEPahEgO409HYJOZlNVyEpe.jpg"
+    }
   },
   "the-fly-vhs-floor-sale": {
     "batch": "floor-sale-07",
@@ -4292,7 +4470,13 @@
   },
   "the-glass-house-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>When Ruby and Rhett's parents are killed in a car accident, their carefree teenage lives are suddenly shattered. Moving to an incredible house in Malibu with the Glasses', old friends of the family, seems to be the beginning of a new life for them.</p>",
+      "Image Alt Text": "The Glass House poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/16obDcmphjfq17zwWKJlur53fCh.jpg"
+    }
   },
   "the-good-shepherd-dvd-floor-sale-drama": {
     "batch": "floor-sale-07",
@@ -4514,7 +4698,13 @@
   },
   "the-last-winter-vhs-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>Tells the story of a young man's struggle to keep his world from changing. Placed in the rural setting of the mid 1950s.</p>",
+      "Image Alt Text": "The Last Winter poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/9rtwPZRmgqURABPhSCdd0dEc0yo.jpg"
+    }
   },
   "the-legend-of-sleepy-hollow": {
     "batch": "floor-sale-07",
@@ -4700,7 +4890,13 @@
   },
   "the-posiedon-adventure-vhs-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>The Poseidon Adventure is a 1972 disaster film in which a luxury ocean liner is capsized by a massive rogue wave on New Year's Eve, and a small group of survivors must climb through the overturned ship to reach the hull and escape before it sinks.</p>",
+      "Image Alt Text": "The Posiedon Adventure poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/8/86/PoseidonAdventure.jpg"
+    }
   },
   "the-postman-always-rings-twice-vhs-floor-sale-thriller": {
     "batch": "floor-sale-08",
@@ -4769,7 +4965,13 @@
   },
   "the-skulls-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>A senior at an Ivy League college, who depends on scholarships and working on the side, gets accepted into the secret society The Skulls. He hopes it betters chances at Harvard but The Skulls is not what he thought and comes at a price.</p>",
+      "Image Alt Text": "The Skulls poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/pYuggibfzm8LWgjnUKMMtii2430.jpg"
+    }
   },
   "the-spider-and-the-fly-vhs-floor-sale-drama": {
     "batch": "floor-sale-08",
@@ -4909,7 +5111,13 @@
   },
   "turbulence-vhs-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>On a flight transporting dangerous convicts, murderer Ryan Weaver manages to break free and cause complete chaos throughout the plane. As various people on board fall victim to Weaver, it is ultimately down to flight attendant Teri Halloran to keep the aircraft from crashing, with on-ground support from an air traffic controller. While Halloran struggles to pilot the plane, Weaver continues to terrorize the surviving members of the crew.</p>",
+      "Image Alt Text": "Turbulence poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/8N63NGWIErS7jUvR5NeVWDZEeZJ.jpg"
+    }
   },
   "unbreakable-vhs-floor-sale-action": {
     "batch": "floor-sale-08",
@@ -4933,11 +5141,22 @@
   },
   "virus-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>When the crew of an American tugboat boards an abandoned Russian research vessel, the alien life form aboard regards them as a virus which must be destroyed.</p>",
+      "Image Alt Text": "Virus poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/5Np88iigCfnXvMlMKmCcbPVIbYQ.jpg"
+    }
   },
   "wall-e-4k-rental-criterion-collection-kids-family": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>After hundreds of years doing what he was built for, WALL\u2022E\u2014 a robot designed to clean up the earth\u2014discovers a new purpose in life when he meets a sleek search robot named EVE. EVE comes to realize that WALL\u2022E has inadvertently stumbled upon the key to the planet's future, and races back to space to report to the humans. Meanwhile, WALL\u2022E chases EVE across the galaxy and sets into motion one of the most imaginative adventures ever brought to the big screen.</p>",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/hbhFnRzzg6ZDmm8YAmxBnQpQIPh.jpg"
+    }
   },
   "wall-e-4k-uhd-blu-ray-floor-sale-kids-family": {
     "batch": "floor-sale-08",
@@ -4977,7 +5196,13 @@
   },
   "water-world-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-01-5",
+    "status": "resolved",
+    "values": {
+      "Body (HTML)": "<p>In a futuristic world where the polar ice caps have melted and made Earth a liquid planet, a beautiful barmaid rescues a mutant seafarer from a floating island prison. They escape, along with her young charge, Enola, and sail off aboard his ship. But the trio soon becomes the target of a menacing pirate who covets the map to 'Dryland'\u2014which is tattooed on Enola's back.</p>",
+      "Image Alt Text": "Water World poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/X4UyUO5jgzs3c5YafnmYKLKKYw.jpg"
+    }
   },
   "wb-academy-award-animation-dvd-rental-kids-family": {
     "batch": "rentals",

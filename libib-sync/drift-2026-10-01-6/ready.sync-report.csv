@@ -1,0 +1,7 @@
+call_number,barcode_status,content_status,message
+03782906,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
+29253882,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
+29794298,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
+42163962,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
+99358714,skipped,updated,barcode: barcode already matches call_number | content: changed: description
+16328186,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
