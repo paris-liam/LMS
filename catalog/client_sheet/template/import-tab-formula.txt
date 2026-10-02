@@ -43,9 +43,9 @@ PASTE INTO TAB 2, CELL A1:
   title,   TRIM(INDEX(src,,1)),
   fmt,     TRIM(INDEX(src,,2)),
   typ,     TRIM(INDEX(src,,3)),
-  g1,      INDEX(src,,4),
-  g2,      INDEX(src,,5),
-  g3,      INDEX(src,,6),
+  genre_a,      INDEX(src,,4),
+  genre_b,      INDEX(src,,5),
+  genre_c,      INDEX(src,,6),
   price,   TRIM(INDEX(src,,7)),
   descr,   INDEX(src,,8),
   img,     TRIM(INDEX(src,,9)),
@@ -58,10 +58,10 @@ PASTE INTO TAB 2, CELL A1:
   tags,    MAP(typ, extra, LAMBDA(y, e, TEXTJOIN(", ", TRUE, y, e))),
   priceo,  MAP(typ, price, LAMBDA(y, p, IF(y = "Rental", "0", TO_TEXT(p)))),
   alt,     MAP(title, img, LAMBDA(t, i, IF(i = "", "", t & " poster"))),
-  genres,  MAP(g1, g2, g3, LAMBDA(a, b, c, TEXTJOIN("; ", TRUE, gh(a), gh(b), gh(c)))),
-  o1,      MAP(g1, g2, g3, LAMBDA(a, b, c, IF(a <> "", a, IF(b <> "", b, c)))),
+  genres,  MAP(genre_a, genre_b, genre_c, LAMBDA(a, b, c, TEXTJOIN("; ", TRUE, gh(a), gh(b), gh(c)))),
+  primary,      MAP(genre_a, genre_b, genre_c, LAMBDA(a, b, c, IF(a <> "", a, IF(b <> "", b, c)))),
   header,  {"Handle","Title","Body (HTML)","Vendor","Product Category","Tags","Status","Option1 Name","Option1 Value","Variant Inventory Tracker","Variant Inventory Qty","Variant Inventory Policy","Variant Fulfillment Service","Variant Price","Image Src","Image Alt Text","Genre (product.metafields.shopify.genre)"},
-  body,    HSTACK(handle, title, descr, fmt, konst("Media > Videos"), tags, konst("Active"), konst("Genre"), o1, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, img, alt, genres),
+  body,    HSTACK(handle, title, descr, fmt, konst("Media > Videos"), tags, konst("Active"), konst("Genre"), primary, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, img, alt, genres),
   IF(empty, header, VSTACK(header, body))
 )
 
@@ -89,6 +89,10 @@ NOTES FOR WHOEVER BUILDS THE SHEET
 * Tags are the Type plus Extra tags only. Format lives in Vendor and genre
   in the metafield + Option1, so writing them as tags too only invites drift
   (removed 2026-10-02, checklist item 14).
+
+* LET names must not look like a cell reference: `g1`, `o1` etc. are
+  rejected ("Argument N of function LET is not a valid name"), hence
+  `genre_a` / `primary`. Same rule in libib-tab-formula.txt.
 
 * `konst` exists because a bare string in HSTACK would not repeat down the
   rows. It maps the constant over `title` purely to get an array of the
