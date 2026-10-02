@@ -79,7 +79,9 @@ format or genre tag (all but `patti-lapel-enamel-pin`). None are multi-variant, 
      findings and nothing else. Every non-Tags finding is identical, no product gets conflicting Tags auto-fixes, and
      no product ends up with empty Tags. The 30 `type-missing` products (MANUAL) keep their other tags.
    - `extra_tags` in `resolvers.py` is still used only by its test. Left alone.
-3. **Upload sheet** stops writing format/genre into Tags:
+3. **Upload sheet** stops writing format/genre into Tags — **repo side DONE 2026-10-02** as part of the sheet
+   redesign (`claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md`); the seam fixture's Tags column was
+   recomputed, to be re-captured from the live sheet. Live sheet still to update:
    - live Google Sheet tab 2: `tags` line `TEXTJOIN(", ", TRUE, y, f, a, b, c, e)` -> `TEXTJOIN(", ", TRUE, y, e)`,
      and the `MAP(...)` arguments to match (`catalog/client_sheet/template/import-tab-formula.txt`)
    - `catalog/client_sheet/transform.py:57` (Python mirror of the formula)

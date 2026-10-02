@@ -193,10 +193,14 @@ Read-only: nothing is applied or queued. Re-run `audit` first for fresh Shopify 
 
 ## Client upload sheet (not a pipeline stage)
 
-`catalog/client_sheet/template/` holds the client's Google Sheet scaffold, the tab-2
-formula, `genre-mappings.csv` and the client guide.
+`catalog/client_sheet/template/` holds the client's Google Sheet scaffold, the two
+output formulas (tab 2 `Shopify import`, tab 3 `Libib import`), `genre-mappings.csv`
+and the client guide. The client imports into both Shopify and Libib himself; the
+barcode he types in after printing becomes the Libib call number, so `libib sync`
+matches his copies like its own. Design:
+`claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md`.
 
-    python3 -m catalog check-upload <sheet.csv>     # exit 0 clean, 1 problems, 2 unreadable
+    python3 -m catalog check-upload <sheet.csv>     # any of the 3 tabs; exit 0 clean (warnings ok), 1 problems, 2 unreadable
     python3 -m catalog.client_sheet.generate_expected   # after a taxonomy change
 
 ## Secrets

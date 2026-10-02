@@ -53,6 +53,7 @@ Standing rules:
 ## Client upload sheet
 
 - [ ] **4. Add the two new genres to the client's live Google Sheet.**
+  *(Folded into the live-sheet update of item 5 — do them together.)*
   Special Interest and Anime were added as genres on 2026-09-28/29 (in
   Shopify, the pipeline and the repo's template), but the client's live sheet
   is a separate copy. Without this, a product he uploads as Anime or Special
@@ -85,7 +86,9 @@ Standing rules:
   the spec (`docs/superpowers/specs/2026-09-09-client-upload-template-rebuild-design.md`)
   and check a real filled export with `python3 -m catalog check-upload <csv>`.
 
-- [ ] **14. Stop the sheet writing format and genre tags.**
+- [ ] **14. Stop the sheet writing format and genre tags.** *(Repo side done
+  2026-10-02 — see the note of that date. Left: paste the new tab-2 formula
+  into the client's live sheet, part of item 5.)*
   Part of removing format/genre tags from every product (plan:
   `genre-format-tag-removal.md`, branch `feat/genre-from-metafield`). The audit
   side is done: the `format-genre-tag` auto-fix strips them, and genres now
@@ -364,3 +367,23 @@ Standing rules:
   `untyped` group was needed. The old queues and six 8/31 + 9/2 groups are
   `"hidden": true` in `batches.json` (off the launcher; `apply` still reads their
   picks). `picker push` now files new products by type. Item 6 can work on these groups.
+- 2026-10-02 — **Upload sheet redesign, repo side DONE (items 5 + 14; item 4
+  is a live-sheet step).** Per
+  `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md`:
+  `Add movies` gains column K `Barcode`; tab 2 writes Tags = Type + Extra
+  tags only; new tab 3 `Libib import` (`libib-tab-formula.txt`) emits one
+  Libib row per Rental with a barcode, barcode → call number, built to match
+  `libib sync`'s own `import_row`. `check-upload` reads all three tabs, has
+  warnings (a Rental with no barcode yet, a Libib row with no genre),
+  checks barcodes (8 digits, unique), and no longer requires description or
+  image. Guide rewritten around the 5-step flow (no more Supercycle). 631
+  tests pass.
+  **Still to do, in the client's live sheet:** column K as Plain text + the
+  8-digit validation, the M1 missing-barcode counter, the new tab-2 formula,
+  the new `Libib import` tab, the two new genres in `mappings`, and the
+  Genre dropdowns → `mappings!A:A`. Then: test one Rental + one Floor Sale
+  through Shopify (dev store) and one throwaway Libib force import; then
+  re-capture `sheet-export-input.csv` / `sheet-export.csv` from the live
+  sheet (their Tags column was recomputed in Python, so the seam test is
+  circular for Tags until then) and add a tab-3 export as a Libib seam
+  fixture. The tab-3 formula has not yet been run in Google Sheets.

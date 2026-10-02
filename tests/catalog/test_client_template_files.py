@@ -6,12 +6,16 @@ import unittest
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
-from catalog.client_sheet.transform import FILL_COLUMNS, fill_rows_to_import_rows  # noqa: E402
+from catalog.client_sheet.transform import (  # noqa: E402
+    FILL_COLUMNS, fill_rows_to_import_rows, fill_rows_to_libib_rows,
+)
 from catalog.core.columns import TEMPLATE_COLUMNS  # noqa: E402
+from catalog.libib.columns import LIBIB_MOVIE_COLUMNS  # noqa: E402
 
 TEMPLATE_DIR = os.path.join(ROOT, "catalog", "client_sheet", "template")
 FILL_CSV = os.path.join(TEMPLATE_DIR, "client-upload-template.csv")
 EXPECTED_CSV = os.path.join(TEMPLATE_DIR, "client-upload-template.expected.csv")
+LIBIB_EXPECTED_CSV = os.path.join(TEMPLATE_DIR, "client-upload-template.libib-expected.csv")
 SHEET_EXPORT_CSV = os.path.join(TEMPLATE_DIR, "sheet-export.csv")
 SHEET_INPUT_CSV = os.path.join(TEMPLATE_DIR, "sheet-export-input.csv")
 
@@ -44,16 +48,28 @@ class TestScaffold(unittest.TestCase):
         produced = fill_rows_to_import_rows(_read(FILL_CSV))
         self.assertEqual(_read(EXPECTED_CSV), produced)
 
+    def test_libib_expected_csv_header_matches_libib_columns(self):
+        with open(LIBIB_EXPECTED_CSV, newline="", encoding="utf-8") as handle:
+            header = next(csv.reader(handle))
+        self.assertEqual(header, LIBIB_MOVIE_COLUMNS)
+
+    def test_libib_expected_csv_is_what_the_transform_produces(self):
+        produced = fill_rows_to_libib_rows(_read(FILL_CSV))
+        self.assertEqual(len(produced), 1, "the scaffold's one rental, with its barcode")
+        self.assertEqual(_read(LIBIB_EXPECTED_CSV), produced)
+
 
 class TestGenerator(unittest.TestCase):
     def test_generator_is_idempotent(self):
-        before = open(EXPECTED_CSV, encoding="utf-8").read()
+        paths = (EXPECTED_CSV, LIBIB_EXPECTED_CSV)
+        before = [open(p, encoding="utf-8").read() for p in paths]
         subprocess.run(
             [sys.executable, "-m", "catalog.client_sheet.generate_expected"],
             check=True,
             cwd=ROOT,
+            capture_output=True,
         )
-        self.assertEqual(open(EXPECTED_CSV, encoding="utf-8").read(), before)
+        self.assertEqual([open(p, encoding="utf-8").read() for p in paths], before)
 
 class TestSheetExportSeam(unittest.TestCase):
     """The live spreadsheet's own output against the tested Python transform.
@@ -65,7 +81,12 @@ class TestSheetExportSeam(unittest.TestCase):
 
     sheet-export-input.csv holds the fill-tab rows; sheet-export.csv is what
     the tab-2 array formula emitted for them. Regenerate the pair by pasting
-    the input into a real sheet and downloading the import tab. A failure
+    the input into a real sheet and downloading the import tab.
+
+    2026-10-02: the export's Tags column was recomputed by hand for checklist
+    item 14 (Type + extra tags only), and the input gained the Barcode column
+    (ignored by tab 2). Re-capture both from the live sheet once the new
+    formula is pasted in, so this is a real seam again. A failure
     here means the formula in import-tab-formula.txt has drifted from
     sheet_transform.py — fix the formula, since the Python side is the
     tested one.

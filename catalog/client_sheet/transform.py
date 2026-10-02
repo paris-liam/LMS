@@ -1,8 +1,10 @@
-"""Python mirror of the client sheet's tab-2 array formula.
+"""Python mirror of the client sheet's two output formulas.
 
-The sheet is the deliverable; this module exists so the transform it encodes
-can be tested against normalize.py and so the expected-output fixture can be
-regenerated when the taxonomy changes. The pipeline does not import it.
+Tab 2 (`Shopify import`) and tab 3 (`Libib import`) are array formulas in the
+sheet (template/import-tab-formula.txt, template/libib-tab-formula.txt). The
+sheet is the deliverable; this module exists so the transforms it encodes can
+be tested and so the expected-output fixtures can be regenerated when the
+taxonomy changes. The pipeline does not import it.
 
 Kept deliberately literal — it mirrors what the spreadsheet formula does,
 including the fact that the sheet trusts its own dropdowns and performs no
@@ -13,6 +15,7 @@ unchanged rather than corrected, exactly as the formula would.
 from catalog.core.columns import FIXED_VALUES, GENRE_METAFIELD, TEMPLATE_COLUMNS
 from catalog.core.handles import HandleAllocator, derive_handle
 from catalog.core.taxonomy import genre_handle
+from catalog.libib.columns import import_row
 
 FILL_COLUMNS = [
     "Title",
@@ -25,6 +28,9 @@ FILL_COLUMNS = [
     "Description",
     "Image URL",
     "Extra tags",
+    # Typed in after the Shopify import, once the label is printed. Tab 2
+    # ignores it; tab 3 writes it as the Libib call number.
+    "Barcode",
 ]
 
 
@@ -54,10 +60,10 @@ def fill_row_to_import_row(row: dict, allocator: HandleAllocator) -> dict:
     out["Title"] = title
     out["Body (HTML)"] = row.get("Description") or ""
     out["Vendor"] = media_format
+    # Type + curation tags only: format lives in Vendor and genre in the
+    # metafield, so neither is written as a tag (checklist item 14).
     out["Tags"] = ", ".join(
-        [t for t in [product_type, media_format] if t]
-        + genres
-        + _extra_tags(row.get("Extra tags"))
+        [t for t in [product_type] if t] + _extra_tags(row.get("Extra tags"))
     )
     out["Option1 Value"] = genres[0] if genres else ""
     out["Variant Price"] = "0" if product_type == "Rental" else _cell(row, "Price")
@@ -73,3 +79,20 @@ def fill_rows_to_import_rows(rows: list[dict]) -> list[dict]:
     """Every tab-1 row, sharing one allocator so repeats get -2 / -3."""
     allocator = HandleAllocator()
     return [fill_row_to_import_row(row, allocator) for row in rows]
+
+
+def fill_rows_to_libib_rows(rows: list[dict]) -> list[dict]:
+    """Tab 3: one Libib import row per Rental row that has a barcode.
+
+    Built through the pipeline's own import_row, so a copy the client imports
+    by hand looks exactly like one `libib sync` would have imported — the
+    barcode becomes the call number, which is how every Libib command finds
+    the item again.
+    """
+    out = []
+    for row, shopify in zip(rows, fill_rows_to_import_rows(rows)):
+        barcode = _cell(row, "Barcode")
+        if _cell(row, "Type") != "Rental" or not barcode:
+            continue
+        out.append(import_row(dict(shopify, **{"Variant Barcode": barcode})))
+    return out

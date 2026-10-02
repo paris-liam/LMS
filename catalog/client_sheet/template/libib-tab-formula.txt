@@ -1,0 +1,95 @@
+LITTLE MOVIE STORE — upload sheet, tab 3 ("Libib import")
+
+Paste the formula below into cell A1 of a tab named exactly `Libib import`.
+Nothing else goes on that tab. Like tab 2 it reads `Add movies` and grows and
+shrinks on its own.
+
+It emits the header row plus one row per copy that is BOTH:
+  * Type = Rental (floor sales never go to Libib), and
+  * has a Barcode in column K (typed in after the label is printed).
+
+So the tab fills up as barcodes are typed in. Download it only when the
+"Rentals missing a barcode" count on `Add movies` reads 0 — importing a
+half-done batch and then the full one creates every early copy twice.
+
+What each row carries (the same values `python3 -m catalog libib sync` would
+write — catalog/libib/columns.py:import_row — so a hand-imported copy shows
+no drift on the next sync):
+
+  title         the Title, whitespace collapsed
+  description   the Description, HTML tags removed, whitespace collapsed
+                (may be blank)
+  tags          Format, then the genre codes: "VHS, drama; documentary"
+  price         0
+  copies        1
+  call_number   the Barcode — this is how every Libib command finds the copy
+  (the other 20 columns are blank)
+
+------------------------------------------------------------------
+PASTE INTO TAB `Libib import`, CELL A1:
+------------------------------------------------------------------
+
+=LET(
+  raw,     IFERROR(FILTER('Add movies'!A2:K, 'Add movies'!A2:A<>"", TRIM('Add movies'!C2:C)="Rental", TRIM(TO_TEXT('Add movies'!K2:K))<>""), ""),
+  empty,   COLUMNS(raw) = 1,
+  src,     IF(empty, {"","","","","","","","","","",""}, raw),
+  ws,      LAMBDA(t, TRIM(REGEXREPLACE(TO_TEXT(t), "[\s\x{00A0}]+", " "))),
+  title,   MAP(INDEX(src,,1), LAMBDA(t, ws(t))),
+  fmt,     MAP(INDEX(src,,2), LAMBDA(f, TRIM(f))),
+  g1,      INDEX(src,,4),
+  g2,      INDEX(src,,5),
+  g3,      INDEX(src,,6),
+  descr,   MAP(INDEX(src,,8), LAMBDA(d, ws(REGEXREPLACE(TO_TEXT(d), "<[^>]+>", "")))),
+  bc,      MAP(INDEX(src,,11), LAMBDA(b, TRIM(TO_TEXT(b)))),
+  gh,      LAMBDA(g, IF(g="", "", IFERROR(VLOOKUP(g, mappings!$A:$B, 2, FALSE), ""))),
+  genres,  MAP(g1, g2, g3, LAMBDA(a, b, c, TEXTJOIN("; ", TRUE, gh(a), gh(b), gh(c)))),
+  tags,    MAP(fmt, genres, LAMBDA(f, g, TEXTJOIN(", ", TRUE, f, g))),
+  konst,   LAMBDA(v, MAP(title, LAMBDA(x, v))),
+  blank,   konst(""),
+  header,  {"title","creators","description","upc_isbn10","ean_isbn13","number_of_discs","ensemble","aspect_ratio","tags","notes","group","price","added","publisher","publish_date","length_of","copies","call_number","ddc","lcc","rating","review","review_created","status","began_date","completed_date"},
+  body,    HSTACK(title, blank, descr, blank, blank, blank, blank, blank, tags, blank, blank, konst("0"), blank, blank, blank, blank, konst("1"), bc, blank, blank, blank, blank, blank, blank, blank, blank),
+  IF(empty, header, VSTACK(header, body))
+)
+
+------------------------------------------------------------------
+ALSO ON `Add movies`
+------------------------------------------------------------------
+
+* Column K header: `Barcode`. Select K2:K → Format → Number → **Plain
+  text** BEFORE anything is typed in it. Barcodes can start with 0
+  (`07530234`); as a number Sheets keeps `7530234` and the copy can no
+  longer be found in Libib.
+
+* Data validation on K2:K → Custom formula is
+  `=REGEXMATCH(TO_TEXT(K2), "^\d{8}$")` → "Reject the input", help text
+  "8 digits, exactly as printed on the label".
+
+* A status cell where he will see it — e.g. M1:
+  `="Rentals missing a barcode: "&COUNTIFS(C2:C,"Rental",A2:A,"<>",K2:K,"")`
+
+------------------------------------------------------------------
+NOTES FOR WHOEVER BUILDS THE SHEET
+------------------------------------------------------------------
+
+* The 26 columns and their order are Libib's Movie import template
+  (catalog/libib/columns.py:LIBIB_MOVIE_COLUMNS). Libib's import screen
+  matches each column to a field; the six that matter must land on Title,
+  Description, Tags, Price, Copies and Call # (EXPECTED_MAPPINGS in
+  catalog/libib/transfer.py). Check them on the import screen before
+  confirming.
+
+* Import with **Force Import Mode** on: the UPC/EAN columns are blank on
+  purpose, and Libib otherwise rejects rows it can't look up.
+
+* Libib's import can't set the item barcode or the cover. After the import,
+  per copy: open it (search `call:<barcode>`), set Barcode to the same 8
+  digits, upload the poster file.
+
+* The Python mirror is catalog/client_sheet/transform.py:fill_rows_to_libib_rows
+  and the answer key for the scaffold's two example rows is
+  client-upload-template.libib-expected.csv. One known difference: Python
+  also decodes HTML entities (`&amp;` → `&`) in the description; the sheet
+  doesn't. Descriptions typed by hand don't contain them.
+
+* `TRIM(...)` inside FILTER: Type and Barcode are compared trimmed, matching
+  tab 2 and the Python mirror, so a stray space can't drop a copy.

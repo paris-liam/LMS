@@ -5,11 +5,15 @@ tab. It reads tab 1 ("Add movies") and emits the header row plus one row
 per filled-in movie — it grows and shrinks on its own, so there is never
 anything to drag down.
 
-Tab 1 columns, in order (A-J):
+Tab 1 columns, in order (A-K):
   A Title   B Format   C Type   D Genre 1   E Genre 2   F Genre 3
-  G Price   H Description   I Image URL   J Extra tags
+  G Price   H Description   I Image URL   J Extra tags   K Barcode
 
-Tab 3 is named `mappings` and holds ONLY this table, starting in A1:
+This tab reads only A-J. K (Barcode) is typed in after the Shopify import and
+is used only by the `Libib import` tab (libib-tab-formula.txt).
+
+The `mappings` tab holds ONLY this table, starting in A1 (the Genre
+dropdowns use `mappings!A:A`, so a row added here appears in them):
 
   Comedy            comedy
   Action            action
@@ -51,7 +55,7 @@ PASTE INTO TAB 2, CELL A1:
   base,    MAP(title, fmt, typ, LAMBDA(t, f, y, slug(t) & "-" & slug(f) & "-" & slug(y))),
   handle,  MAP(SEQUENCE(MAX(n, 1)), LAMBDA(i, LET(b, INDEX(base, i), k, COUNTIF(ARRAY_CONSTRAIN(base, i, 1), b), IF(k = 1, b, b & "-" & k)))),
   konst,   LAMBDA(v, MAP(title, LAMBDA(x, v))),
-  tags,    MAP(typ, fmt, g1, g2, g3, extra, LAMBDA(y, f, a, b, c, e, TEXTJOIN(", ", TRUE, y, f, a, b, c, e))),
+  tags,    MAP(typ, extra, LAMBDA(y, e, TEXTJOIN(", ", TRUE, y, e))),
   priceo,  MAP(typ, price, LAMBDA(y, p, IF(y = "Rental", "0", TO_TEXT(p)))),
   alt,     MAP(title, img, LAMBDA(t, i, IF(i = "", "", t & " poster"))),
   genres,  MAP(g1, g2, g3, LAMBDA(a, b, c, TEXTJOIN("; ", TRUE, gh(a), gh(b), gh(c)))),
@@ -81,6 +85,10 @@ NOTES FOR WHOEVER BUILDS THE SHEET
   and `Amélie` becomes `am-lie`. That matches
   catalog/core/handles.py:slugify exactly. Accented titles are fixed
   by typing over that one cell.
+
+* Tags are the Type plus Extra tags only. Format lives in Vendor and genre
+  in the metafield + Option1, so writing them as tags too only invites drift
+  (removed 2026-10-02, checklist item 14).
 
 * `konst` exists because a bare string in HSTACK would not repeat down the
   rows. It maps the constant over `title` purely to get an array of the

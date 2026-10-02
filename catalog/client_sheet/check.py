@@ -1,4 +1,4 @@
-"""Check a filled upload sheet before it reaches Shopify.
+"""Check a filled upload sheet before it reaches Shopify or Libib.
 
 Every problem this catches is one Shopify will happily import. A product with
 an empty genre metafield uploads clean, appears on the storefront, and is
@@ -6,28 +6,48 @@ simply missing from the genre filter and the PDP chip — with nothing anywhere
 to say why. That exact fault survived three import rounds in testing before
 anyone noticed, which is what this script exists to prevent.
 
-Accepts either shape:
+Accepts any of the sheet's three tabs:
 
-  fill    the "Add movies" tab  (10 columns, what the client types)
-  import  the "Shopify import"  (17 columns, what actually gets imported)
+  fill    the "Add movies" tab    (11 columns, what the client types)
+  import  the "Shopify import" tab (17 columns, what Shopify imports)
+  libib   the "Libib import" tab   (26 columns, what Libib force-imports)
 
-The import shape is the one worth checking — it is what Shopify consumes, and
-it is where a failed VLOOKUP shows up as a blank cell rather than an error.
+The import shape is the one worth checking for Shopify — it is where a failed
+VLOOKUP shows up as a blank cell rather than an error. The libib shape guards
+the call number, which is how every Libib command finds an item again.
+
+Description and image are deliberately not required (decided 2026-10-01): the
+client may upload a copy without them and the catalogue fill adds them later.
 
     python3 -m catalog check-upload <csv>
 
-Exit status is 0 when nothing is wrong, 1 when anything is, so it can gate an
-import in a script.
+Exit status is 0 when nothing is wrong (warnings allowed), 1 when anything
+is, so it can gate an import in a script.
 """
 
 import csv
 import os
+import re
 import sys
 
-
+from catalog.core.barcodes import is_rental_barcode
 from catalog.core.columns import GENRE_METAFIELD, TEMPLATE_COLUMNS
 from catalog.client_sheet.transform import FILL_COLUMNS
 from catalog.core.taxonomy import FORMATS, GENRES, TYPES
+from catalog.libib.columns import LIBIB_MOVIE_COLUMNS
+
+SHAPES = {"fill": FILL_COLUMNS, "import": TEMPLATE_COLUMNS, "libib": LIBIB_MOVIE_COLUMNS}
+LABELS = {"fill": "fill tab", "import": "Shopify import tab", "libib": "Libib import tab"}
+# The column that must be unique per row, and why a repeat is costly.
+UNIQUE = {
+    # Two rows sharing a handle do not become two products — they become one
+    # product with two variants, merging two copies under a single barcode.
+    "import": ("Handle", "handle", "edit one of the two Handle cells to something distinct"),
+    "fill": ("Barcode", "barcode", "two copies can't share a label; check both cases"),
+    "libib": ("call_number", "call number", "two copies can't share a label; check both cases"),
+}
+BARCODE_FIX = ("format the Barcode column as Plain text (a leading 0 is otherwise "
+               "dropped) and type all 8 digits from the label")
 
 GENRE_LABELS = set(GENRES)
 GENRE_HANDLES = set(GENRES.values())
@@ -38,11 +58,13 @@ TYPE_SET = set(TYPES)
 class Problem:
     """One thing wrong with one row. `row` is the spreadsheet row number."""
 
-    def __init__(self, row, title, message, fix):
+    def __init__(self, row, title, message, fix, warning=False):
         self.row = row
         self.title = title
         self.message = message
         self.fix = fix
+        # A warning is worth seeing but does not make the file unsafe to import.
+        self.warning = warning
 
 
 def _read(path):
@@ -52,13 +74,12 @@ def _read(path):
 
 
 def detect_shape(header):
-    """Return "fill" or "import", or raise ValueError naming the mismatch."""
-    if header == FILL_COLUMNS:
-        return "fill"
-    if header == TEMPLATE_COLUMNS:
-        return "import"
+    """Return "fill", "import" or "libib", or raise ValueError naming the mismatch."""
+    for name, expected in SHAPES.items():
+        if header == expected:
+            return name
 
-    for name, expected in (("fill", FILL_COLUMNS), ("import", TEMPLATE_COLUMNS)):
+    for name, expected in SHAPES.items():
         missing = [c for c in expected if c not in header]
         extra = [c for c in header if c not in expected]
         # Close enough to be that shape, but not exactly — say what differs
@@ -72,26 +93,30 @@ def detect_shape(header):
             raise ValueError(f"looks like the {name} shape but {'; '.join(parts)}")
 
     raise ValueError(
-        "header matches neither the fill tab (10 columns) nor the import tab "
-        f"(17 columns). Got {len(header)} columns: {', '.join(header[:6])}…"
+        "header matches none of the fill tab (11 columns), the Shopify import "
+        f"tab (17) or the Libib import tab (26). Got {len(header)} columns: "
+        f"{', '.join(header[:6])}…"
     )
 
 
 def _genres_of(row, shape):
     if shape == "fill":
         return [row.get(f"Genre {n}", "").strip() for n in (1, 2, 3)]
-    # On the import shape the labels survive only in Tags; Option1 Value holds
-    # the primary. Checking the primary is enough to catch a bad dropdown pick.
+    # On the import shape only the primary label survives, in Option1 Value
+    # (the rest are handles in the genre metafield, checked separately).
+    # Checking the primary is enough to catch a bad dropdown pick.
     return [row.get("Option1 Value", "").strip()]
 
 
 def check_row(row, number, shape):
     """Every problem with one row, in reading order."""
+    if shape == "libib":
+        return check_libib_row(row, number)
     problems = []
     title = (row.get("Title") or "").strip()
 
-    def bad(message, fix):
-        problems.append(Problem(number, title or "(no title)", message, fix))
+    def bad(message, fix, warning=False):
+        problems.append(Problem(number, title or "(no title)", message, fix, warning))
 
     if not title:
         bad("no Title", "every row needs a movie title")
@@ -99,7 +124,7 @@ def check_row(row, number, shape):
     for label in [g for g in _genres_of(row, shape) if g]:
         if label not in GENRE_LABELS:
             bad(
-                f"genre {label!r} is not one of the 13",
+                f"genre {label!r} is not one of the {len(GENRES)}",
                 "pick from the dropdown; if it came from the mappings tab, "
                 "re-import genre-mappings.csv",
             )
@@ -118,10 +143,13 @@ def check_row(row, number, shape):
         if ptype == "Floor Sale" and not price:
             bad("Floor Sale with no price",
                 "a blank price ships a live product sellable at $0.00")
-        if not (row.get("Image URL") or "").strip():
-            bad("no Image URL", "the product would have no poster")
-        if not (row.get("Description") or "").strip():
-            bad("no Description", "the product page would have no copy")
+        barcode = (row.get("Barcode") or "").strip()
+        if barcode and not is_rental_barcode(barcode):
+            bad(f"barcode {barcode!r} is not 8 digits", BARCODE_FIX)
+        if ptype == "Rental" and not barcode:
+            bad("no Barcode yet, so it is not on the Libib import tab",
+                "type it in after printing the label, before downloading the Libib tab",
+                warning=True)
         return problems
 
     # --- import shape only ---------------------------------------------
@@ -172,9 +200,48 @@ def check_row(row, number, shape):
             "an untracked product can never show as unavailable on the site",
         )
 
-    if not (row.get("Image Src") or "").strip():
-        bad("no image", "the product would have no poster")
+    return problems
 
+
+def check_libib_row(row, number):
+    """Every problem with one Libib import row."""
+    problems = []
+    title = (row.get("title") or "").strip()
+
+    def bad(message, fix, warning=False):
+        problems.append(Problem(number, title or "(no title)", message, fix, warning))
+
+    if not title:
+        bad("no title", "every row needs a movie title")
+
+    call = (row.get("call_number") or "").strip()
+    if not call:
+        bad("no call number",
+            "Libib finds every copy by its call number; the sheet copies it from Barcode")
+    elif not is_rental_barcode(call):
+        bad(f"call number {call!r} is not 8 digits", BARCODE_FIX)
+
+    # "VHS, drama; documentary": the format, then the genre handles — the same
+    # string `libib sync` writes, so a hand-imported copy shows no drift.
+    parts = [p.strip() for p in re.split(r"[,;]", row.get("tags") or "") if p.strip()]
+    if not parts or parts[0] not in FORMAT_SET:
+        bad(f"tags {row.get('tags', '')!r} do not start with a media format",
+            f"Format must be one of: {', '.join(FORMATS)}")
+    genres = parts[1:]
+    for handle in genres:
+        if handle not in GENRE_HANDLES:
+            bad(f"genre handle {handle!r} is not a real genre", "check the mappings tab's column B")
+    if parts and not genres:
+        bad("no genre", "pick a Genre 1 so the copy can be found by genre", warning=True)
+
+    try:
+        price = float((row.get("price") or "0").strip())
+    except ValueError:
+        price = None
+    if price != 0:
+        bad(f"price {row.get('price')!r} is not 0", "rentals carry no price")
+    if (row.get("copies") or "").strip() != "1":
+        bad(f"copies {row.get('copies')!r} is not 1", "one row per physical copy")
     return problems
 
 
@@ -189,30 +256,27 @@ def check(path):
     for offset, row in enumerate(rows):
         problems.extend(check_row(row, offset + 2, shape))  # +2: header is row 1
 
-    if shape == "import":
-        seen = {}
-        for offset, row in enumerate(rows):
-            handle_value = (row.get("Handle") or "").strip()
-            if not handle_value:
-                continue
-            if handle_value in seen:
-                # Two rows sharing a handle do not become two products — they
-                # become one product with two variants, merging two physical
-                # copies into a single item with a single barcode.
-                problems.append(Problem(
-                    offset + 2, (row.get("Title") or "").strip(),
-                    f"handle {handle_value!r} is already used on row {seen[handle_value]}",
-                    "edit one of the two Handle cells to something distinct",
-                ))
-            else:
-                seen[handle_value] = offset + 2
+    column, noun, fix = UNIQUE[shape]
+    seen = {}
+    for offset, row in enumerate(rows):
+        value = (row.get(column) or "").strip()
+        if not value:
+            continue
+        if value in seen:
+            problems.append(Problem(
+                offset + 2, (row.get("Title") or row.get("title") or "").strip(),
+                f"{noun} {value!r} is already used on row {seen[value]}", fix,
+            ))
+        else:
+            seen[value] = offset + 2
 
     problems.sort(key=lambda p: p.row)
     return shape, rows, problems
 
 
 def report(path) -> int:
-    """Print the check for one file. 0 = clean, 1 = problems, 2 = unreadable."""
+    """Print the check for one file. 0 = clean (warnings allowed), 1 = problems,
+    2 = unreadable."""
     try:
         shape, rows, problems = check(path)
     except FileNotFoundError:
@@ -222,17 +286,25 @@ def report(path) -> int:
         print(f"✗ {os.path.basename(path)}: {error}", file=sys.stderr)
         return 2
 
-    label = {"fill": "fill tab", "import": "import tab"}[shape]
-    print(f"{os.path.basename(path)} — {len(rows)} rows, {label}")
+    print(f"{os.path.basename(path)} — {len(rows)} rows, {LABELS[shape]}")
+    errors = [p for p in problems if not p.warning]
+    warnings = [p for p in problems if p.warning]
 
-    if not problems:
-        print(f"✓ nothing wrong. Safe to import.")
+    def show(items):
+        for problem in items:
+            print(f"  row {problem.row} — {problem.title}")
+            print(f"    {problem.message}")
+            print(f"    → {problem.fix}")
+
+    if warnings:
+        print(f"\n! {len(warnings)} warning(s):\n")
+        show(warnings)
+
+    if not errors:
+        print("\n✓ nothing wrong. Safe to import." if warnings else "✓ nothing wrong. Safe to import.")
         return 0
 
-    print(f"\n✗ {len(problems)} problem(s) in {len({p.row for p in problems})} row(s):\n")
-    for problem in problems:
-        print(f"  row {problem.row} — {problem.title}")
-        print(f"    {problem.message}")
-        print(f"    → {problem.fix}")
+    print(f"\n✗ {len(errors)} problem(s) in {len({p.row for p in errors})} row(s):\n")
+    show(errors)
     print("\nFix these in the sheet, re-export, and run this again.")
     return 1

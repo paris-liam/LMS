@@ -1,5 +1,8 @@
 # Client upload sheet — Shopify **and** Libib (design, 2026-10-01)
 
+**Status 2026-10-02:** repo changes below are built (see CHECKLIST.md note of
+that date). The live-sheet steps and the end-to-end dry run are not done yet.
+
 **Supersedes** `docs/superpowers/specs/2026-09-09-client-upload-template-rebuild-design.md`
 for the sheet's end goal. That spec's Shopify half (10 fill columns, the
 17-column import tab, handle rules, one product per physical copy) still
