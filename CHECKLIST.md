@@ -52,7 +52,7 @@ Standing rules:
 
 ## Client upload sheet
 
-- [ ] **4. Add the two new genres to the client's live Google Sheet.**
+- [x] **4. Add the two new genres to the client's live Google Sheet.**
   *(Folded into the live-sheet update of item 5 — do them together.)*
   Special Interest and Anime were added as genres on 2026-09-28/29 (in
   Shopify, the pipeline and the repo's template), but the client's live sheet
@@ -63,7 +63,9 @@ Standing rules:
   to the Genre dropdown(s). Reference copy:
   `catalog/client_sheet/template/genre-mappings.csv`.
 
-- [ ] **5. Review the sheet, and have it also produce a Libib import CSV.**
+- [x] **5. Review the sheet, and have it also produce a Libib import CSV.**
+  *(Done 2026-10-02 — built and tested end to end (4a seam, 4b dev-store
+  Shopify import, 4c throwaway Libib import). See the notes of that date.)*
   **Redesigned 2026-10-01 — follow
   `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md`**, which
   also covers items 4 and 14. The client imports to both Shopify and Libib
@@ -86,7 +88,7 @@ Standing rules:
   the spec (`docs/superpowers/specs/2026-09-09-client-upload-template-rebuild-design.md`)
   and check a real filled export with `python3 -m catalog check-upload <csv>`.
 
-- [ ] **14. Stop the sheet writing format and genre tags.** *(Repo side done
+- [x] **14. Stop the sheet writing format and genre tags.** *(Repo side done
   2026-10-02 — see the note of that date. Left: paste the new tab-2 formula
   into the client's live sheet, part of item 5.)*
   Part of removing format/genre tags from every product (plan:
@@ -395,3 +397,9 @@ Standing rules:
   seam test covers both tabs against real Sheets output. Left: 4b (dev-store
   Shopify import) and 4c (throwaway Libib import), then hand the copy over as
   the client's master sheet.
+- 2026-10-02 — **Upload sheet: 4b + 4c passed, items 4, 5, 14 closed.** The
+  dev-store Shopify import created both test products correctly and a
+  throwaway Libib force import kept the leading-zero call number and the
+  tags. Remaining is hand-over only: clear the test rows from the tested
+  copy, make it the client's master sheet (rename the old one "OLD – don't
+  use"), and give him `catalog/client_sheet/template/client-upload-guide.md`.
