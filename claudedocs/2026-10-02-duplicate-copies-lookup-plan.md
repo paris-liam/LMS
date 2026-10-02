@@ -1,5 +1,8 @@
 # Duplicate copies lookup — plan (2026-10-02)
 
+**Status:** built as `python3 -m catalog duplicates` (`catalog/duplicates/`);
+the audit snapshot now also records `Variant Inventory Qty` and `Created At`.
+
 **Question:** if we moved from "one product per physical copy" to "one product
 per movie + format, with a copy count", how many products would collapse, and
 into what? Two DVDs + one VHS of a film = **two** products (DVD ×2, VHS ×1).
@@ -24,7 +27,7 @@ DVD 2,257 · Blu-Ray 976 · 4K 125 · Laserdisc 33 · Betamax 1 · 6 with Vendor
 the rental-vs-sale question below changes the answer by ~3×. Group sizes are
 mostly 2 (492), some 3 (61), a few 4 (2).
 
-## Decisions needed before the real run
+## Decisions (all four recommendations accepted 2026-10-02)
 
 1. **Rental and Floor Sale copies of the same movie + format: one product or
    two?** Recommended: **two**. They differ in price, storefront collection

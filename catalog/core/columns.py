@@ -77,8 +77,9 @@ FIXED_VALUES = {
 
 # One row per product in runs/<id>/snapshot.json. Keys are Shopify export
 # column names, so the API reader and --from-export produce identical rows
-# and every resolver reads them unchanged. "Variant Count" and
-# "Template Suffix" are snapshot-only (not import columns).
+# and every resolver reads them unchanged. "Variant Count", "Template
+# Suffix" and "Created At" are snapshot-only (not import columns); "Created
+# At" is blank on the --from-export path (Shopify exports don't carry it).
 SNAPSHOT_COLUMNS = [
     "Handle",
     "Title",
@@ -95,6 +96,8 @@ SNAPSHOT_COLUMNS = [
     "Variant Barcode",
     "Variant Inventory Tracker",
     "Variant Count",
+    "Variant Inventory Qty",
+    "Created At",
     "Product Category",
     GENRE_METAFIELD,
 ]

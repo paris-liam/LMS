@@ -191,6 +191,17 @@ carrying that tag — including ones that already have a poster — and writes
 `runs/<id>/tmdb-lookup-<tag>.csv` (match, TMDB title/year/id, poster URL, overview).
 Read-only: nothing is applied or queued. Re-run `audit` first for fresh Shopify data.
 
+## Duplicate copies (read-only, not a pipeline stage)
+
+    python3 -m catalog duplicates [--run <id>]
+
+Groups the latest audit snapshot's movies into copies of the same movie +
+format + type (editions and box sets kept separate), in three title tiers
+(exact, cleaned-up, one typo apart) with description/poster evidence, and
+rates each group certain / likely / review. Writes `duplicates.csv`,
+`duplicate-editions.csv` and `duplicates-summary.txt` into the run folder.
+Plan: `claudedocs/2026-10-02-duplicate-copies-lookup-plan.md`.
+
 ## Client upload sheet (not a pipeline stage)
 
 `catalog/client_sheet/template/` holds the client's Google Sheet scaffold, the two

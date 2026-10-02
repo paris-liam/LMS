@@ -9,7 +9,7 @@ REQUIRED_COLUMNS = ("Handle", "Title")
 COPIED_COLUMNS = (
     "Title", "Body (HTML)", "Vendor", "Tags", "Status", "Template Suffix", "Image Src",
     "Image Alt Text", "Option1 Name", "Option1 Value", "Variant Price", "Variant Barcode",
-    "Variant Inventory Tracker", "Product Category", GENRE_METAFIELD,
+    "Variant Inventory Tracker", "Variant Inventory Qty", "Product Category", GENRE_METAFIELD,
 )
 
 

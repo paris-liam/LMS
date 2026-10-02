@@ -12,6 +12,7 @@ query CatalogProducts($cursor: String) {
       tags
       status
       templateSuffix
+      createdAt
       category {
         fullName
       }
@@ -22,6 +23,7 @@ query CatalogProducts($cursor: String) {
         nodes {
           price
           barcode
+          inventoryQuantity
           selectedOptions {
             name
             value
