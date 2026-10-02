@@ -40,15 +40,16 @@ PASTE INTO TAB 2, CELL A1:
   empty,   COLUMNS(raw) = 1,
   src,     IF(empty, {"","","","","","","","","",""}, raw),
   n,       IF(empty, 0, ROWS(src)),
-  title,   TRIM(INDEX(src,,1)),
-  fmt,     TRIM(INDEX(src,,2)),
-  typ,     TRIM(INDEX(src,,3)),
+  tr,      LAMBDA(col, MAP(col, LAMBDA(x, TRIM(x)))),
+  title,   tr(INDEX(src,,1)),
+  fmt,     tr(INDEX(src,,2)),
+  typ,     tr(INDEX(src,,3)),
   genre_a,      INDEX(src,,4),
   genre_b,      INDEX(src,,5),
   genre_c,      INDEX(src,,6),
-  price,   TRIM(INDEX(src,,7)),
+  price,   tr(INDEX(src,,7)),
   descr,   INDEX(src,,8),
-  img,     TRIM(INDEX(src,,9)),
+  img,     tr(INDEX(src,,9)),
   extra,   INDEX(src,,10),
   slug,    LAMBDA(t, REGEXREPLACE(REGEXREPLACE(REGEXREPLACE(LOWER(TRIM(TO_TEXT(t))), "['’]", ""), "[^a-z0-9]+", "-"), "^-+|-+$", "")),
   gh,      LAMBDA(g, IF(g="", "", IFERROR(VLOOKUP(g, mappings!$A:$B, 2, FALSE), ""))),
@@ -89,6 +90,11 @@ NOTES FOR WHOEVER BUILDS THE SHEET
 * Tags are the Type plus Extra tags only. Format lives in Vendor and genre
   in the metafield + Option1, so writing them as tags too only invites drift
   (removed 2026-10-02, checklist item 14).
+
+* TRIM is not array-aware outside ARRAYFORMULA: `TRIM(INDEX(src,,1))`
+  returns only the first row, which made every other column one row tall
+  (#N/A padding from HSTACK, and INDEX out of range in the handle). `tr`
+  maps TRIM over each cell instead.
 
 * LET names must not look like a cell reference: `g1`, `o1` etc. are
   rejected ("Argument N of function LET is not a valid name"), hence

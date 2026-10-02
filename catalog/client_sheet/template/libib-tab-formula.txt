@@ -30,7 +30,7 @@ PASTE INTO TAB `Libib import`, CELL A1:
 ------------------------------------------------------------------
 
 =LET(
-  raw,     IFERROR(FILTER('Add movies'!A2:K, 'Add movies'!A2:A<>"", TRIM('Add movies'!C2:C)="Rental", TRIM(TO_TEXT('Add movies'!K2:K))<>""), ""),
+  raw,     IFERROR(FILTER('Add movies'!A2:K, 'Add movies'!A2:A<>"", ARRAYFORMULA(TRIM('Add movies'!C2:C))="Rental", ARRAYFORMULA(TRIM(TO_TEXT('Add movies'!K2:K)))<>""), ""),
   empty,   COLUMNS(raw) = 1,
   src,     IF(empty, {"","","","","","","","","","",""}, raw),
   ws,      LAMBDA(t, TRIM(REGEXREPLACE(TO_TEXT(t), "[\s\x{00A0}]+", " "))),
@@ -91,5 +91,5 @@ NOTES FOR WHOEVER BUILDS THE SHEET
   also decodes HTML entities (`&amp;` → `&`) in the description; the sheet
   doesn't. Descriptions typed by hand don't contain them.
 
-* `TRIM(...)` inside FILTER: Type and Barcode are compared trimmed, matching
+* `ARRAYFORMULA(TRIM(...))` inside FILTER (plain TRIM only reads one cell): Type and Barcode are compared trimmed, matching
   tab 2 and the Python mirror, so a stray space can't drop a copy.
