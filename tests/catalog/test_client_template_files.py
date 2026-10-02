@@ -18,6 +18,7 @@ EXPECTED_CSV = os.path.join(TEMPLATE_DIR, "client-upload-template.expected.csv")
 LIBIB_EXPECTED_CSV = os.path.join(TEMPLATE_DIR, "client-upload-template.libib-expected.csv")
 SHEET_EXPORT_CSV = os.path.join(TEMPLATE_DIR, "sheet-export.csv")
 SHEET_INPUT_CSV = os.path.join(TEMPLATE_DIR, "sheet-export-input.csv")
+SHEET_LIBIB_CSV = os.path.join(TEMPLATE_DIR, "sheet-export-libib.csv")
 
 
 def _read(path):
@@ -79,17 +80,14 @@ class TestSheetExportSeam(unittest.TestCase):
     disagree with the column contract. Every other fixture is generated from
     the same constant it is checked against, which makes it circular.
 
-    sheet-export-input.csv holds the fill-tab rows; sheet-export.csv is what
-    the tab-2 array formula emitted for them. Regenerate the pair by pasting
-    the input into a real sheet and downloading the import tab.
-
-    2026-10-02: the export's Tags column was recomputed by hand for checklist
-    item 14 (Type + extra tags only), and the input gained the Barcode column
-    (ignored by tab 2). Re-capture both from the live sheet once the new
-    formula is pasted in, so this is a real seam again. A failure
-    here means the formula in import-tab-formula.txt has drifted from
-    sheet_transform.py — fix the formula, since the Python side is the
-    tested one.
+    sheet-export-input.csv holds the fill-tab rows; sheet-export.csv and
+    sheet-export-libib.csv are what the tab-2 and tab-3 array formulas
+    emitted for them (re-captured from Google Sheets 2026-10-02, after the
+    Barcode column, the Libib tab and the item-14 tags change). Regenerate
+    them by pasting the input into a real sheet and downloading both tabs. A
+    failure here means a formula (import-tab-formula.txt /
+    libib-tab-formula.txt) has drifted from transform.py — fix the formula,
+    since the Python side is the tested one.
     """
 
     def test_export_header_matches_the_column_contract(self):
@@ -135,6 +133,28 @@ class TestSheetExportSeam(unittest.TestCase):
                     self.assertEqual(
                         (got[column] or "").strip(), (want[column] or "").strip(),
                         f"{handle}: {column}",
+                    )
+
+    def test_libib_export_header_matches_libib_columns(self):
+        with open(SHEET_LIBIB_CSV, newline="", encoding="utf-8-sig") as handle:
+            header = next(csv.reader(handle))
+        self.assertEqual(header, LIBIB_MOVIE_COLUMNS)
+
+    def test_libib_formula_agrees_with_the_python_transform(self):
+        produced = fill_rows_to_libib_rows(_read(SHEET_INPUT_CSV))
+        exported = _read(SHEET_LIBIB_CSV)
+        self.assertEqual(
+            [r["call_number"] for r in exported], [r["call_number"] for r in produced],
+            "the Libib tab must hold exactly the rentals with a barcode, in sheet order",
+        )
+        for got, want in zip(exported, produced):
+            for column in LIBIB_MOVIE_COLUMNS:
+                if column == "price":
+                    self.assertEqual(float(got[column] or 0), float(want[column] or 0))
+                else:
+                    self.assertEqual(
+                        (got[column] or "").strip(), (want[column] or "").strip(),
+                        f"{want['call_number']}: {column}",
                     )
 
 if __name__ == "__main__":

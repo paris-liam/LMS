@@ -384,6 +384,14 @@ Standing rules:
   Genre dropdowns → `mappings!A:A`. Then: test one Rental + one Floor Sale
   through Shopify (dev store) and one throwaway Libib force import; then
   re-capture `sheet-export-input.csv` / `sheet-export.csv` from the live
-  sheet (their Tags column was recomputed in Python, so the seam test is
-  circular for Tags until then) and add a tab-3 export as a Libib seam
-  fixture. The tab-3 formula has not yet been run in Google Sheets.
+  sheet and add a tab-3 export as a Libib seam fixture.
+- 2026-10-02 — **Upload sheet, step 4a passed.** Both formulas needed fixes
+  once pasted into Google Sheets: LET names that look like cell references
+  (`g1`, `o1`) are rejected, and plain `TRIM` over a column returns only one
+  cell (fixed with a per-cell MAP / ARRAYFORMULA). With the 20 seam rows the
+  sheet's Shopify tab (20 rows) and Libib tab (10 rentals) match the Python
+  transform cell for cell, and `check-upload` passes both. The exports are now
+  the seam fixtures (`sheet-export.csv`, new `sheet-export-libib.csv`), so the
+  seam test covers both tabs against real Sheets output. Left: 4b (dev-store
+  Shopify import) and 4c (throwaway Libib import), then hand the copy over as
+  the client's master sheet.
