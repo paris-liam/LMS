@@ -85,7 +85,16 @@ same batch duplicates items). Add a status cell above the data or in the
 guide's checklist: `="Rentals missing a barcode: "&COUNTIFS(C2:C,"Rental",A2:A,"<>",K2:K,"")`
 and tell him to import into Libib only when it reads 0.
 
-### `Shopify import` (tab 2): 17 columns, unchanged shape
+### `Shopify import` (tab 2): 18 columns (was 17 — `Published` added 2026-10-02)
+
+- **`Published` (after `Status`), added 2026-10-02:** `FALSE` on Floor Sale
+  rows, `TRUE` otherwise — Floor Sale is sold at the counter only and must
+  not be on the website. It controls the Online Store channel only; `Status`
+  stays `Active` so POS can still sell the copy (Draft would hide it there
+  too). `check-upload` fails a published Floor Sale or an unpublished Rental.
+  Floor Sale products imported before this need a one-time unpublish
+  (Products → filter tag `Floor Sale` → select all → Exclude from sales
+  channels → Online Store).
 
 - Still reads `A2:J` — the Barcode column is ignored, so the Shopify import
   never carries or clears barcodes.

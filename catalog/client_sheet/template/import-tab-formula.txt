@@ -58,11 +58,12 @@ PASTE INTO TAB 2, CELL A1:
   konst,   LAMBDA(v, MAP(title, LAMBDA(x, v))),
   tags,    MAP(typ, extra, LAMBDA(y, e, TEXTJOIN(", ", TRUE, y, e))),
   priceo,  MAP(typ, price, LAMBDA(y, p, IF(y = "Rental", "0", TO_TEXT(p)))),
+  publ,    MAP(typ, LAMBDA(y, IF(y = "Floor Sale", "FALSE", "TRUE"))),
   alt,     MAP(title, img, LAMBDA(t, i, IF(i = "", "", t & " poster"))),
   genres,  MAP(genre_a, genre_b, genre_c, LAMBDA(a, b, c, TEXTJOIN("; ", TRUE, gh(a), gh(b), gh(c)))),
   primary,      MAP(genre_a, genre_b, genre_c, LAMBDA(a, b, c, IF(a <> "", a, IF(b <> "", b, c)))),
-  header,  {"Handle","Title","Body (HTML)","Vendor","Product Category","Tags","Status","Option1 Name","Option1 Value","Variant Inventory Tracker","Variant Inventory Qty","Variant Inventory Policy","Variant Fulfillment Service","Variant Price","Image Src","Image Alt Text","Genre (product.metafields.shopify.genre)"},
-  body,    HSTACK(handle, title, descr, fmt, konst("Media > Videos"), tags, konst("Active"), konst("Genre"), primary, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, img, alt, genres),
+  header,  {"Handle","Title","Body (HTML)","Vendor","Product Category","Tags","Status","Published","Option1 Name","Option1 Value","Variant Inventory Tracker","Variant Inventory Qty","Variant Inventory Policy","Variant Fulfillment Service","Variant Price","Image Src","Image Alt Text","Genre (product.metafields.shopify.genre)"},
+  body,    HSTACK(handle, title, descr, fmt, konst("Media > Videos"), tags, konst("Active"), publ, konst("Genre"), primary, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, img, alt, genres),
   IF(empty, header, VSTACK(header, body))
 )
 
@@ -70,7 +71,12 @@ PASTE INTO TAB 2, CELL A1:
 NOTES FOR WHOEVER BUILDS THE SHEET
 ------------------------------------------------------------------
 
-* The 17 output columns and their order are fixed — they are the contract
+* `Published` (after Status) keeps Floor Sale off the website: FALSE on
+  Floor Sale rows, TRUE on everything else. It touches the Online Store
+  channel only — Status stays Active so the copy can still be sold at the
+  counter through POS (Draft would hide it there too).
+
+* The 18 output columns and their order are fixed — they are the contract
   in catalog/core/columns.py:TEMPLATE_COLUMNS. Do not add, remove or
   reorder them.
 

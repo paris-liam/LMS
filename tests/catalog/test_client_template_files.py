@@ -83,7 +83,10 @@ class TestSheetExportSeam(unittest.TestCase):
     sheet-export-input.csv holds the fill-tab rows; sheet-export.csv and
     sheet-export-libib.csv are what the tab-2 and tab-3 array formulas
     emitted for them (re-captured from Google Sheets 2026-10-02, after the
-    Barcode column, the Libib tab and the item-14 tags change). Regenerate
+    Barcode column, the Libib tab and the item-14 tags change). The
+    Published column in sheet-export.csv was inserted by hand on 2026-10-02
+    (FALSE on Floor Sale rows, TRUE otherwise) when it was added to the
+    formula; re-capture it from the updated sheet to make it real. Regenerate
     them by pasting the input into a real sheet and downloading both tabs. A
     failure here means a formula (import-tab-formula.txt /
     libib-tab-formula.txt) has drifted from transform.py — fix the formula,

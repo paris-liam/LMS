@@ -1,7 +1,7 @@
 """The two output column contracts and the values fixed on every row.
 
 Template output creates new products and matches the client sheets'
-17-column header exactly. Export output updates products that already
+18-column header exactly. Export output updates products that already
 exist and deliberately omits every column it does not intend to set —
 Shopify leaves absent columns untouched, so anything omitted here cannot
 be clobbered by the import.
@@ -29,6 +29,9 @@ TEMPLATE_COLUMNS = [
     "Product Category",
     "Tags",
     "Status",
+    # Online Store channel only. Floor Sale is "FALSE": sold at the counter
+    # through POS, never on the website. Status stays Active so POS can sell it.
+    "Published",
     "Option1 Name",
     "Option1 Value",
     "Variant Inventory Tracker",

@@ -64,6 +64,16 @@ class TestTransform(unittest.TestCase):
         self.assertEqual(out["Image Alt Text"], "Rushmore poster")
         self.assertEqual(out[GENRE_METAFIELD], "comedy")
 
+    def test_rental_is_published_to_the_online_store(self):
+        out = fill_rows_to_import_rows([RENTAL])[0]
+        self.assertEqual(out["Published"], "TRUE")
+
+    def test_floor_sale_is_kept_off_the_online_store_but_stays_active(self):
+        out = fill_rows_to_import_rows([FLOOR_SALE])[0]
+        self.assertEqual(out["Published"], "FALSE")
+        # Draft would hide it from POS too, so it could not be rung up.
+        self.assertEqual(out["Status"], "Active")
+
     def test_floor_sale_row_multi_genre_and_extra_tag(self):
         out = fill_rows_to_import_rows([FLOOR_SALE])[0]
         self.assertEqual(out["Handle"], "little-shop-of-horrors-blu-ray-floor-sale")

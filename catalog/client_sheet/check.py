@@ -9,7 +9,7 @@ anyone noticed, which is what this script exists to prevent.
 Accepts any of the sheet's three tabs:
 
   fill    the "Add movies" tab    (11 columns, what the client types)
-  import  the "Shopify import" tab (17 columns, what Shopify imports)
+  import  the "Shopify import" tab (18 columns, what Shopify imports)
   libib   the "Libib import" tab   (26 columns, what Libib force-imports)
 
 The import shape is the one worth checking for Shopify — it is where a failed
@@ -94,7 +94,7 @@ def detect_shape(header):
 
     raise ValueError(
         "header matches none of the fill tab (11 columns), the Shopify import "
-        f"tab (17) or the Libib import tab (26). Got {len(header)} columns: "
+        f"tab (18) or the Libib import tab (26). Got {len(header)} columns: "
         f"{', '.join(header[:6])}…"
     )
 
@@ -142,7 +142,7 @@ def check_row(row, number, shape):
         price = (row.get("Price") or "").strip()
         if ptype == "Floor Sale" and not price:
             bad("Floor Sale with no price",
-                "a blank price ships a live product sellable at $0.00")
+                "a blank price ships a product rung up at $0.00 at the counter")
         barcode = (row.get("Barcode") or "").strip()
         if barcode and not is_rental_barcode(barcode):
             bad(f"barcode {barcode!r} is not 8 digits", BARCODE_FIX)
@@ -182,6 +182,16 @@ def check_row(row, number, shape):
             "each row needs exactly one of Rental / Floor Sale",
         )
 
+    # Floor Sale is sold at the counter only. A published one is live and
+    # buyable on the website, which is exactly what the column exists to stop.
+    published = (row.get("Published") or "").strip().upper()
+    if types == ["Floor Sale"] and published != "FALSE":
+        bad("Floor Sale published to the online store",
+            "Published must be FALSE on Floor Sale rows — check the tab-2 formula")
+    if types == ["Rental"] and published != "TRUE":
+        bad("Rental not published to the online store",
+            "Published must be TRUE on Rental rows — check the tab-2 formula")
+
     raw_price = (row.get("Variant Price") or "").strip()
     try:
         price = float(raw_price or 0)
@@ -192,7 +202,7 @@ def check_row(row, number, shape):
             bad(f"Rental priced {raw_price}", "rentals must be 0")
         if types == ["Floor Sale"] and price <= 0:
             bad("Floor Sale priced 0",
-                "this ships a live product sellable at $0.00")
+                "this ships a product rung up at $0.00 at the counter")
 
     if (row.get("Variant Inventory Tracker") or "").strip() != "shopify":
         bad(

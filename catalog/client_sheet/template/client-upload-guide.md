@@ -104,8 +104,8 @@ rows** — select the row and press Ctrl+D twice.
 | Genre 1 | Pick from the dropdown — this is the shelf genre, and it prints on the barcode label |
 | Price | **Floor Sale rows only.** Leave blank on Rental rows — they're priced by membership, not a shelf price |
 
-**A blank Price on a Floor Sale row still imports** — and goes live on the
-website sellable at **$0.00**. Double-check Price on every Floor Sale row.
+**A blank Price on a Floor Sale row still imports** — and rings up at
+**$0.00** at the counter. Double-check Price on every Floor Sale row.
 
 **Fill in when you have it:**
 
@@ -136,8 +136,14 @@ typed by hand become two separate options in the website's filters.
    should be **all created and none updated**. If it says anything was
    updated, see "When a movie gets updated instead of added" below.
 
-Imported products are set **Active** and go live on the website immediately
-— there is no draft or review step.
+Imported **Rentals** are set **Active** and go live on the website
+immediately — there is no draft or review step.
+
+**Floor Sale items are in-store only.** The sheet keeps them off the website
+for you (the `Published` column on the `Shopify import` tab is `FALSE` on
+every Floor Sale row) — they're still **Active**, so you can ring them up
+at the counter as usual. There's nothing to do here; just don't edit that
+column.
 
 **Import this tab once per batch.** Importing it again doesn't add anything
 new — it re-applies the sheet's values to the same products.

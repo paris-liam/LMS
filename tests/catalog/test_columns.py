@@ -19,8 +19,12 @@ class TestTemplateContract(unittest.TestCase):
     # the constant against itself. A CSV exported from the built Google Sheet can
     # genuinely disagree, so that check is added when that export first exists.
 
-    def test_has_seventeen_columns(self):
-        self.assertEqual(len(TEMPLATE_COLUMNS), 17)
+    def test_has_eighteen_columns(self):
+        self.assertEqual(len(TEMPLATE_COLUMNS), 18)
+
+    def test_published_sits_after_status(self):
+        i = TEMPLATE_COLUMNS.index("Status")
+        self.assertEqual(TEMPLATE_COLUMNS[i + 1], "Published")
 
 
 class TestExportContract(unittest.TestCase):

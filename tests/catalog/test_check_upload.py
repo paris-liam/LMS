@@ -135,6 +135,31 @@ class TestCatchesCostlyMistakes(unittest.TestCase):
         self.addCleanup(os.unlink, path)
         self.assertTrue(any("Floor Sale priced 0" in m for m in _messages(path)))
 
+    def test_flags_a_floor_sale_published_to_the_online_store(self):
+        rows = _read(GOOD_IMPORT)
+        sale = next(r for r in rows if "Floor Sale" in r["Tags"])
+        sale["Published"] = "TRUE"
+        path = _write(rows, TEMPLATE_COLUMNS)
+        self.addCleanup(os.unlink, path)
+        self.assertTrue(any("Floor Sale published" in m for m in _messages(path)))
+
+    def test_flags_a_floor_sale_with_published_left_blank(self):
+        # Shopify publishes a blank to the online store, so blank is not safe.
+        rows = _read(GOOD_IMPORT)
+        sale = next(r for r in rows if "Floor Sale" in r["Tags"])
+        sale["Published"] = ""
+        path = _write(rows, TEMPLATE_COLUMNS)
+        self.addCleanup(os.unlink, path)
+        self.assertTrue(any("Floor Sale published" in m for m in _messages(path)))
+
+    def test_flags_a_rental_kept_off_the_online_store(self):
+        rows = _read(GOOD_IMPORT)
+        rental = next(r for r in rows if "Rental" in r["Tags"])
+        rental["Published"] = "FALSE"
+        path = _write(rows, TEMPLATE_COLUMNS)
+        self.addCleanup(os.unlink, path)
+        self.assertTrue(any("Rental not published" in m for m in _messages(path)))
+
     def test_flags_a_rental_with_a_price(self):
         rows = _read(GOOD_IMPORT)
         rental = next(r for r in rows if "Rental" in r["Tags"])

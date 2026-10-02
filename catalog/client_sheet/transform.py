@@ -53,6 +53,8 @@ def fill_row_to_import_row(row: dict, allocator: HandleAllocator) -> dict:
     out = {column: "" for column in TEMPLATE_COLUMNS}
     out.update(FIXED_VALUES)
     out["Status"] = "Active"
+    # Floor Sale is in-store only: kept off the Online Store, still Active for POS.
+    out["Published"] = "FALSE" if product_type == "Floor Sale" else "TRUE"
 
     out["Handle"] = allocator.allocate(
         derive_handle(title, media_format, product_type)
