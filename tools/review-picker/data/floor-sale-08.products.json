@@ -720,5 +720,350 @@
     "reason": "no TMDB match",
     "candidates": [],
     "tag": "Floor Sale"
+  },
+  {
+    "handle": "snow-white-copy",
+    "title": "Snow White",
+    "vendor": "VHS",
+    "genre": "kids-family",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Snow White' (2025))",
+    "candidates": [
+      {
+        "id": 447273,
+        "title": "Snow White",
+        "year": "2025",
+        "overview": "Following the benevolent King's disappearance, the Evil Queen dominated the once fair land with a cruel streak. Princess Snow White flees the castle when the Queen, in her jealousy over Snow White's inner beauty, tries to kill her. Deep into the dark woods, she stumbles upon seven magical dwarves and a young bandit named Jonathan. Together, they strive to survive the Queen's relentless pursuit and aspire to take back the kingdom.",
+        "poster_path": "/oLxWocqheC8XbXbxqJ3x422j9PW.jpg"
+      },
+      {
+        "id": 59075,
+        "title": "Snow White",
+        "year": "1987",
+        "overview": "A prince, seeking the greatest treasure, stumbles upon seven little men guarding a coffin. They tell him the story of Snow White, a beautiful princess who was forced to run away from home after her jealous stepmother tried to have her killed. When she realizes that the girl is still alive and living with the dwarfs, she sets out to destroy her only rival once and for all.",
+        "poster_path": "/k7ICLYTRHdyERwOC29pd9FqZD3H.jpg"
+      },
+      {
+        "id": 116743,
+        "title": "Snow White",
+        "year": "1995",
+        "overview": "A young princess named Snow White is sent away from her palace to live in the woods due to the jealousy of her stepmother.",
+        "poster_path": "/eYiSyqi584AW9eKHPVYzME3cNTv.jpg"
+      },
+      {
+        "id": 359921,
+        "title": "Snow White",
+        "year": "1990",
+        "overview": "Enter the spellbinding realm of a pretty young princess, a scheming queen and seven funny little fellows with very big hearts in this brilliantly animated retelling of the timeless fairy take classic.",
+        "poster_path": "/i0Npt5BQk7L81TminE6ll02NsCg.jpg"
+      },
+      {
+        "id": 482737,
+        "title": "Snow White",
+        "year": "1971",
+        "overview": "Once upon a time, there was a vain queen who desired nothing more than to be the most beautiful woman in the kingdom. But soon, the beautiful and young king's daughter, Snow White, became the thorn in her side. She ordered the huntsman to kill the girl deep in the forest, but as he had nothing but love for the child, he spared her life and let her go. There, deep in the woods, the king\u2019s daughter finds refuge with seven dwarfs, who kindly take her into their little house. But the queen learns from her magic mirror that Snow White is still alive. Driven by jealousy, she hatches a new plan to rid herself of her rival once and for all! A short film produced by Ullstein AV for distribution through the Foto-Quelle catalog of the period, based on the Brothers Grimm fairy tale.",
+        "poster_path": "/1Qp0kKscTJnaUGqhILtBXIZFMx1.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "pinocchio-black-clamshell",
+    "title": "Pinocchio (Black Clamshell)",
+    "vendor": "VHS",
+    "genre": "kids-family",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "ninja-wars-toy-robot-bluray-floor-sale-action",
+    "title": "Ninja Wars (Toy Robot)",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "a-simple-plan-bluray-floor-sale-thriller",
+    "title": "A Simple Plan",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'A Simple Plan' (1998))",
+    "candidates": [
+      {
+        "id": 10223,
+        "title": "A Simple Plan",
+        "year": "1998",
+        "overview": "Captivated by the lure of sudden wealth, the quiet rural lives of two brothers erupt into conflicts of greed, paranoia and distrust when over $4 million in cash is discovered at the remote site of a downed small airplane. Their simple plan to retain the money while avoiding detection opens a Pandora's box when the fear of getting caught triggers panicked behavior and leads to virulent consequences.",
+        "poster_path": "/wO2gH7DMqpMeHlj5QmDhW4IkgAr.jpg"
+      },
+      {
+        "id": 1038926,
+        "title": "A simple plan",
+        "year": "2012",
+        "overview": "Greece 2011. In an uncertain economic climate, two young people suddenly find themselves out of a job when the owner of the company they work for suddenly declares bankruptcy. With nothing left to lose, they decide to take their destinies into their own hands. All they need is a plan. A simple plan...",
+        "poster_path": "/u54QCvl9m5PR7G48IP8PyVn7K1Z.jpg"
+      },
+      {
+        "id": 406498,
+        "title": "Simple Plan: A Big Package for You",
+        "year": "2003",
+        "overview": "A Big Package for You: 1999-2003 is a DVD/CD by the pop punk band Simple Plan from Montreal, Canada. The band consists of five members Pierre Bouvier, guitarist and lead vocalist, David Desrosiers, bassist and backing vocalist, S\u00e9bastien Lefebvre, rhythm guitarist and backing vocalist, Chuck Comeau, drummer, and Jeff Stinco, lead guitarist.",
+        "poster_path": "/asrQiju9gLvQ6KEkZS1pdtjzgJw.jpg"
+      },
+      {
+        "id": 437667,
+        "title": "Love at First Glance",
+        "year": "2017",
+        "overview": "After journalist Mary Landers is assigned to write a Valentine's Day story about \"The Meaning of Love,\" her long-time boyfriend breaks up with her. On her train ride home, she finds herself trading glances with a handsome stranger who, as he exits the train, leaves his phone behind.",
+        "poster_path": "/q6IbL3Teve159BSGDaUsZ2HNoBn.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "a-simple-plan-4k-floor-sale-thriller",
+    "title": "A Simple Plan",
+    "vendor": "4K",
+    "genre": "",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'A Simple Plan' (1998))",
+    "candidates": [
+      {
+        "id": 10223,
+        "title": "A Simple Plan",
+        "year": "1998",
+        "overview": "Captivated by the lure of sudden wealth, the quiet rural lives of two brothers erupt into conflicts of greed, paranoia and distrust when over $4 million in cash is discovered at the remote site of a downed small airplane. Their simple plan to retain the money while avoiding detection opens a Pandora's box when the fear of getting caught triggers panicked behavior and leads to virulent consequences.",
+        "poster_path": "/wO2gH7DMqpMeHlj5QmDhW4IkgAr.jpg"
+      },
+      {
+        "id": 1038926,
+        "title": "A simple plan",
+        "year": "2012",
+        "overview": "Greece 2011. In an uncertain economic climate, two young people suddenly find themselves out of a job when the owner of the company they work for suddenly declares bankruptcy. With nothing left to lose, they decide to take their destinies into their own hands. All they need is a plan. A simple plan...",
+        "poster_path": "/u54QCvl9m5PR7G48IP8PyVn7K1Z.jpg"
+      },
+      {
+        "id": 406498,
+        "title": "Simple Plan: A Big Package for You",
+        "year": "2003",
+        "overview": "A Big Package for You: 1999-2003 is a DVD/CD by the pop punk band Simple Plan from Montreal, Canada. The band consists of five members Pierre Bouvier, guitarist and lead vocalist, David Desrosiers, bassist and backing vocalist, S\u00e9bastien Lefebvre, rhythm guitarist and backing vocalist, Chuck Comeau, drummer, and Jeff Stinco, lead guitarist.",
+        "poster_path": "/asrQiju9gLvQ6KEkZS1pdtjzgJw.jpg"
+      },
+      {
+        "id": 437667,
+        "title": "Love at First Glance",
+        "year": "2017",
+        "overview": "After journalist Mary Landers is assigned to write a Valentine's Day story about \"The Meaning of Love,\" her long-time boyfriend breaks up with her. On her train ride home, she finds herself trading glances with a handsome stranger who, as he exits the train, leaves his phone behind.",
+        "poster_path": "/q6IbL3Teve159BSGDaUsZ2HNoBn.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "brivido-giallo-vol-2-the-ogre-dinner-with-a-vampire-bluray-floor-sale-horror",
+    "title": "Brivido Giallo Vol. 2 (The Ogre / Dinner with a Vampire)",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "watchers-toy-robot-bluray-floor-sale-horror",
+    "title": "Watchers (Toy Robot)",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "roaring-fire-toy-robot-bluray-floor-sale-action",
+    "title": "Roaring Fire (Toy Robot)",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "marshmallow-bluray-floor-sale-horror",
+    "title": "Marshmallow",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Marshmallow' (2025))",
+    "candidates": [
+      {
+        "id": 1134048,
+        "title": "Marshmallow",
+        "year": "2025",
+        "overview": "At a secluded summer camp, timid and introverted 12-year-old Morgan is thrust into a waking nightmare when a once-fabled campfire tale becomes real. As a mysterious figure descends upon the camp, Morgan and his newfound friends must embark on a treacherous journey and uncover a sinister reality buried beneath the surface.",
+        "poster_path": "/qZseaOw1BgLkJsfiEmNpS1KhH8d.jpg"
+      },
+      {
+        "id": 1085365,
+        "title": "Marshmallow",
+        "year": "2006",
+        "overview": "",
+        "poster_path": ""
+      },
+      {
+        "id": 1561439,
+        "title": "Marshmallow",
+        "year": "",
+        "overview": "Two brothers search for their dog in the woods but discover they are being stalked by something far more dangerous.",
+        "poster_path": "/7aeOWsnrUDBZHcxWrtqfS6IQkwi.jpg"
+      },
+      {
+        "id": 643196,
+        "title": "Marshmallows",
+        "year": "2019",
+        "overview": "While her father has just been publicly accused of bribery, M\u00e9lanie goes partying on a week-end with some friends, in the luxurious house of her parents. A moment, out of time and away from reality. A race to excess, where nothing is prohibited.",
+        "poster_path": "/7khFQgv0cfwIl9YnoK40gWXAlSY.jpg"
+      },
+      {
+        "id": 1457921,
+        "title": "Marshmallows",
+        "year": "",
+        "overview": "Some bonds transcend time and others shape our fate. When two strangers with different experiences with love meet on a random day, they both try to find a middle ground in their clashing perspectives.",
+        "poster_path": "/olE4FZYN7rdJMFf6dgWorJj5m0S.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "go-4k-floor-sale-comedy",
+    "title": "Go",
+    "vendor": "4K",
+    "genre": "",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Go' (1999))",
+    "candidates": [
+      {
+        "id": 9430,
+        "title": "Go",
+        "year": "1999",
+        "overview": "A supermarket clerk decides to step in for an absent drug dealer, setting off an explosive, comedic chain of events.",
+        "poster_path": "/7UzD5Dmu3jqb2ls4Lnb4SYQqbYm.jpg"
+      },
+      {
+        "id": 37959,
+        "title": "GO",
+        "year": "2001",
+        "overview": "Sugihara, a Japanese-born, third-generation Korean teenager struggles to find a place in a society that will not accept him.",
+        "poster_path": "/1b4JNGUsy0WAuHAVK2VPNCcvPGS.jpg"
+      },
+      {
+        "id": 520765,
+        "title": "Go!",
+        "year": "2020",
+        "overview": "Jack is a charismatic larrikin who has just discovered the one thing he's really good at \u2014 go-kart racing. With the support of his mentor, Patrick, an old race car driver with a secret past, and his best mates Colin and Mandy, Jack must learn to control his recklessness if he is to defeat the best drivers in Australia, including the ruthless champion Dean, and win the National title.",
+        "poster_path": "/tOLC9552jBvymwsgHc3ri2SyuyD.jpg"
+      },
+      {
+        "id": 1558568,
+        "title": "Go Team!",
+        "year": "2026",
+        "overview": "When their team-building event gets downgraded to a tiny village, a cheese company's staff think it can't get worse \u2014 then they learn about the layoffs.",
+        "poster_path": "/jM8LRvzYIqZqw6Si5xNECiHFDgM.jpg"
+      },
+      {
+        "id": 22575,
+        "title": "Go West",
+        "year": "1940",
+        "overview": "A con man heading west to search for gold teams up with a pair of scheming brothers along the way. The trio soon find themselves in the middle of a feud between two rival families and two underhanded land developers.",
+        "poster_path": "/di0laTicoduEdp1WS10T8Poss7r.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "tequila-sunrise-bluray-floor-sale-action",
+    "title": "Tequila Sunrise",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Floor Sale",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Tequila Sunrise' (1988))",
+    "candidates": [
+      {
+        "id": 10396,
+        "title": "Tequila Sunrise",
+        "year": "1988",
+        "overview": "In a seaside California town, best friends Mac and Nick are on opposite sides of the law. Mac is a former drug dealer trying to clean up his act, while Nick is a high-profile detective trying to take down a Mexican drug lord named Carlos. Soon Nick's loyalties are put to the test when he begins an affair with restaurateur Jo Ann  -- a love interest of Mac's -- unwittingly leading his friend into a police-orchestrated trap.",
+        "poster_path": "/8LoG0GL5N5e7zvvXezwwGnUfRHL.jpg"
+      },
+      {
+        "id": 1107670,
+        "title": "Tequila Sunrise",
+        "year": "2019",
+        "overview": "After a night out on the town, a terrified slacker wakes to find himself slap bang in the aftermath of a gang shootout - or so he thinks. But things are not always quite what they seem.",
+        "poster_path": "/nfMDWPg4rGsdSBJ4mhUpJxLsDT4.jpg"
+      },
+      {
+        "id": 1715465,
+        "title": "Tequila Sunrise",
+        "year": "",
+        "overview": "A lonely and recently married truck driver contemplates leaving his family behind after encountering a beautiful stranger on the road.",
+        "poster_path": "/5cqKFiLtykQveVly1oQNQRYTa9J.jpg"
+      },
+      {
+        "id": 745975,
+        "title": "Tequila Sunrise",
+        "year": "2000",
+        "overview": "A female killer, CO CO (played by Irene wan), looks as charming and charming as ever. Her partner is God (played by mark cheng) and Xiaosi. After doing a ticket sale, the three fled to another city. The master is obsessed with drugs and the unintentional battle, the young and vigorously quarreled with the god, and then mixed with the local underworld, and was used by the other party to kill the god.",
+        "poster_path": "/bf7n9kuJW8ZY2rE1hIpA5i4j50k.jpg"
+      },
+      {
+        "id": 1715477,
+        "title": "Tequila Sunrise",
+        "year": "",
+        "overview": "A lonely and recently married truck driver contemplates leaving his family behind after encountering a beautiful stranger on the road.",
+        "poster_path": "/A1DeCyjKMi28LqAOymBUDTNrSGz.jpg"
+      }
+    ]
   }
 ]

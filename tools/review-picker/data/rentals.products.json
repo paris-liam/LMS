@@ -7317,5 +7317,2797 @@
     ],
     "reason": "no TMDB match",
     "candidates": []
+  },
+  {
+    "handle": "fright-night-vhs-rental-horror",
+    "title": "Fright Night",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Fright Night' (2011))",
+    "candidates": [
+      {
+        "id": 58151,
+        "title": "Fright Night",
+        "year": "2011",
+        "overview": "A teenager suspects his new neighbour is a vampire. Unable to convince anyone, he tries to enlist the help of a self-proclaimed vampire hunter and magician.",
+        "poster_path": "/ySQ3v4Fzpy3fePs86eoLiDzwLYM.jpg"
+      },
+      {
+        "id": 11797,
+        "title": "Fright Night",
+        "year": "1985",
+        "overview": "Charley Brewster, a high school student, accidentally discovers the true and creepy nature of Jerry Dandrige, his dashing and enigmatic new neighbor; but no one seems willing to believe him.",
+        "poster_path": "/euIh75MwNDrYkTEVSkw7VXWGXoE.jpg"
+      },
+      {
+        "id": 116117,
+        "title": "Fright Night",
+        "year": "1947",
+        "overview": "The Stooges are managers of \"Chopper\", a beefy boxer, and they bet their bankroll on his next fight.",
+        "poster_path": "/3PJYa9YrF933IdzzgzpZlKbA3Lw.jpg"
+      },
+      {
+        "id": 690059,
+        "title": "Fright Night",
+        "year": "2016",
+        "overview": "In this Chinese horror-thriller, a girl who lives alone in fear of a curse that she believed would kill those that she loved is visited by some friends on the eve of her birthday. Unaware of the imminent danger ahead, they decide to play a popular \u2018Death\u2019 game that bears terrible consequences.",
+        "poster_path": "/1zTsNIEm76vJwsSsDtJIfoOHGoh.jpg"
+      },
+      {
+        "id": 994979,
+        "title": "Fright night",
+        "year": "2010",
+        "overview": "The story of a person after death",
+        "poster_path": "/qDJOlmdQxdbrBxDo0Gk2RYm0bKF.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "a-little-princess-vhs-rental-kids-family",
+    "title": "A Little Princess",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'A Little Princess' (1995))",
+    "candidates": [
+      {
+        "id": 19101,
+        "title": "A Little Princess",
+        "year": "1995",
+        "overview": "When her father enlists to fight for the British in WWI, young Sara Crewe goes to New York to attend the same boarding school her late mother attended. She soon clashes with the severe headmistress, Miss Minchin, who attempts to stifle Sara's creativity and sense of self-worth.",
+        "poster_path": "/9V4bAVEskSNbEqjVI0YmeuB0n8I.jpg"
+      },
+      {
+        "id": 575722,
+        "title": "A Little Princess",
+        "year": "2019",
+        "overview": "Mal-soon is poor 72-years-old granny and enjoys her single life. One day, Gong-ju and her baby sister appear in front of Mal-soon. Gong-ju introduces herself as Mal-soon's granddaughter. Since then, Mal-soon's peaceful life changes.",
+        "poster_path": "/tOdSsv38JgnimLfAvYR57DJqCOI.jpg"
+      },
+      {
+        "id": 133929,
+        "title": "A Little Princess",
+        "year": "1917",
+        "overview": "Little Sara Crewe is placed in a boarding school by her father when he goes off to war, but he does not understand that the headmistress is a cruel, spiteful woman who makes life miserable for Sara.",
+        "poster_path": "/5qpqn59J5eCKLyp4Oi6tNH21Sr3.jpg"
+      },
+      {
+        "id": 78363,
+        "title": "My Little Princess",
+        "year": "2011",
+        "overview": "Young Violetta and her mother Hannah are a peculiar couple. Ten-year-old Violetta lives a quiet life with her grandmother, while her mother Hannah is an unpredictable photographer who lives off of the generosity of others. When Hannah forces her daughter to pose as a model, Violetta finds her life with her loving grandmother turned upside down.The resulting pictures quickly become a sensation for the trendy 70's Paris art scene, and Violetta finds herself caught in between her new stature as an art muse and her dull childhood.",
+        "poster_path": "/uHBBHx7AXfk3tNhy3zYgF8DttYm.jpg"
+      },
+      {
+        "id": 26531,
+        "title": "The Little Princess",
+        "year": "1939",
+        "overview": "A little girl goes in search of her father who is reported missing by the military during the Second Boer War.",
+        "poster_path": "/cnMSURyv7R6gjmUm5SYdTxXLzIO.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "land-before-time-ii-vhs-rental-kids-family",
+    "title": "Land Before Time II",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Land Before Time II: The Great Valley Adventure' (1994))",
+    "candidates": [
+      {
+        "id": 15997,
+        "title": "The Land Before Time II: The Great Valley Adventure",
+        "year": "1994",
+        "overview": "Littlefoot and his friends find life in the Great Valley a bit too restrictive under the watchful eyes of their overprotective parents. Wishing to not be treated like babies anymore, the group chase after a pair of dangerous dinosaurs stealing an egg from Ducky's nest. When the egg they bring back hatches in the valley, the friends are surprised to find a baby Sharptooth. Rather than abandoning him, they name him Chomper and attempt to raise him as one of their own.",
+        "poster_path": "/1lIkU6gbqMx4oRDGegawLdQdLJD.jpg"
+      },
+      {
+        "id": 19004,
+        "title": "The Land Before Time III: The Time of the Great Giving",
+        "year": "1995",
+        "overview": "A huge meteorite has plunged into the Great Valley, cutting off the water supply and causing tension among the once-peaceful dinosaurs.  While the adults argue and turn against one another, Littlefoot and his friends venture out to find a new source of water, only to be constantly bullied by a trio of older dinosaurs. The journey becomes a fight for survival when the group is cornered by a pack of Velociraptors and trapped by a sudden wildfire.",
+        "poster_path": "/abcJUBDHi6hxibSgm2bxYK1wAZK.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-world-according-to-goofy-vhs-rental-kids-family",
+    "title": "The World According to Goofy",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Walt Disney Cartoon Classics Limited Gold Edition II: The World According to Goofy' (?))",
+    "candidates": [
+      {
+        "id": 1036371,
+        "title": "Walt Disney Cartoon Classics Limited Gold Edition II: The World According to Goofy",
+        "year": "",
+        "overview": "Introduction: The Goofy Story  FEATURED CARTOONS\r Goofy's Glider (1940)\r Baggage Buster (1941)\r How to Be a Sailor (1944)\r They're Off (1948)\r Home Made Home (1951)\r Man's Best Friend (1952)\r How to Dance (1953)",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "25th-hour-vhs-rental-drama",
+    "title": "25th Hour",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: '25th Hour' (2002))",
+    "candidates": [
+      {
+        "id": 1429,
+        "title": "25th Hour",
+        "year": "2002",
+        "overview": "On the eve of a seven-year prison sentence, a New York drug dealer spends his final day of freedom confronting his past, his relationships, and the choices that led to his downfall in a city still reeling from 9/11.",
+        "poster_path": "/uW7tTRElr2tRhmAVESzvHy4ByXg.jpg"
+      },
+      {
+        "id": 812448,
+        "title": "25th hour",
+        "year": "2006",
+        "overview": "Taha (played by Amin Tarokh) returns to the country after many years of war and captivity in the war. But he realizes that everything has changed, even his family has changed, he does not know that there is a truth behind these bitter facts.",
+        "poster_path": "/qDUeOs8qOxSXKYI8zRRrrDyJxrv.jpg"
+      },
+      {
+        "id": 66568,
+        "title": "The 25th Hour",
+        "year": "1967",
+        "overview": "A Romanian peasant fights to get back to his family after he's imprisoned by the Nazis.The picture is based on real events. It includes Hungary's government in collaboration with the Nazis, the encroachment of Romania by Stalin's troopers, and other happenings.",
+        "poster_path": "/6dn74C4XXSU4bAigMdUEDjjM57T.jpg"
+      },
+      {
+        "id": 1739549,
+        "title": "Waiting for the 25th Hour",
+        "year": "",
+        "overview": "An amateur docu-fiction set in Taffala, the slums of Sousse, Tunisia. While working, Tijani stumbles upon an old camera and with the help of the neighborhood photographer, sets out to direct a film capturing the daily life of Taffala.",
+        "poster_path": ""
+      },
+      {
+        "id": 1409163,
+        "title": "25 O'Clock in Shinjuku",
+        "year": "1969",
+        "overview": "Police detective Amachi fights against those who banished him from his job-both cops and criminals.",
+        "poster_path": "/fiSxqTc9RFjco1mVGYIR6UP03gr.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "invader-vhs-rental-sci-fi",
+    "title": "Invader",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Invader' (2024))",
+    "candidates": [
+      {
+        "id": 1572582,
+        "title": "Invader",
+        "year": "",
+        "overview": "Follows a family whose Christmas gathering becomes a fight for survival when stalked by a vengeful ex-husband seeking revenge after 20 years of imprisonment.",
+        "poster_path": ""
+      },
+      {
+        "id": 1190833,
+        "title": "Invader",
+        "year": "2023",
+        "overview": "A skilled and meticulous home invader, Ash, tempts fate in the pursuit of performing what he considers could be his masterpiece: a daylight robbery, armed with nothing but an empty gun.",
+        "poster_path": "/5TNjyJOLlyWKpYUT96sSjiid8oT.jpg"
+      },
+      {
+        "id": 210105,
+        "title": "Invader",
+        "year": "1992",
+        "overview": "A crashed UFO and its reverse-engineered computer system take over the minds of soldiers at an air force base. The alien entity (in the guise of A.S.M.O.D.S., (Asmodeus), a strategic flight defense systems program for fighter jets) is discovered by tabloid reporter Frank McCall and D.O.D. Captain Harry Anders. They escape the base in a stolen F-19 and are taken to the Pentagon, where their story is met with understandable scepticism. An attempt by Asmodeus' minions to capture Frank &amp; Harry for brainwashing convinces General Anheiser of their sincerity, and they return to the base and eventually face Asmodeus and its army of brainwashed soldiers. Written by Dave Foster",
+        "poster_path": "/tY2ujZxHNDiTyzTM9wmSlClxTXX.jpg"
+      },
+      {
+        "id": 1245776,
+        "title": "Invader",
+        "year": "2024",
+        "overview": "A young woman arrives in the Chicago suburbs and begins to suspect that something terrible has happened to her missing cousin, but soon realizes that her greatest fears don\u2019t even begin to scratch the surface.",
+        "poster_path": "/veor2xVEp6klhCl0elbLfC1bCqt.jpg"
+      },
+      {
+        "id": 141021,
+        "title": "Invader",
+        "year": "2012",
+        "overview": "Iraq, 2003. Pablo, a Spanish army doctor sent on a peacekeeping mission, is involved in an attack on his convoy during a routine trip through the desert.",
+        "poster_path": "/9DEHOfwUyDRFI2ZMEQWuedafFkd.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "ghost-rider-dvd-rental-action",
+    "title": "Ghost Rider",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Ghost Rider' (2007))",
+    "candidates": [
+      {
+        "id": 1250,
+        "title": "Ghost Rider",
+        "year": "2007",
+        "overview": "In order to save his dying father, young stunt cyclist Johnny Blaze sells his soul to Mephistopheles and sadly parts from the pure-hearted Roxanne Simpson, the love of his life. Years later, Johnny's path crosses again with Roxanne, now a go-getting reporter, and also with Mephistopheles, who offers to release Johnny's soul if Johnny becomes the fabled, fiery 'Ghost Rider'.",
+        "poster_path": "/4quwR1VwZouD0YF9AaD72kQAjxH.jpg"
+      },
+      {
+        "id": 1738010,
+        "title": "Ghost Rider",
+        "year": "2028",
+        "overview": "A film set in the Marvel Cinematic Universe (MCU) based on the Marvel Comics character of the same name. Plot TBA.",
+        "poster_path": "/zgC1zo3lyujoEiIMnUrHltvPmZg.jpg"
+      },
+      {
+        "id": 319657,
+        "title": "Ghost Rider",
+        "year": "1982",
+        "overview": "Kevin, feeling very sad and lonely after spending his first day in a new junior high school, meets a young girl on his bus ride home who drops a pencil and suddenly disappears. Is this mysterious young girl the ghost of a girl who died on a bus years before? And why is she so adamant that Kevin learns bus safety rules?",
+        "poster_path": "/slkTic7dUO6aSoALibXb6Tv0S4.jpg"
+      },
+      {
+        "id": 1563046,
+        "title": "Ghost Rider",
+        "year": "2025",
+        "overview": "Shot on 8mm Kodachrome film in West Berlin in 1988, this dream-like hallucinogenic film is dedicated to the memory of our friend, filmmaker and musician, Lysanne Thibodeau, who brought us to Germany to screen Canadian experimental films. We shot additional black and white Super 8 film in Victoria in 2023, and edited in 2024 at FLUX media gallery.",
+        "poster_path": ""
+      },
+      {
+        "id": 252630,
+        "title": "The Ghost Rider",
+        "year": "1943",
+        "overview": "The first of a long-running series of Monogram-produced westerns starring Johnny Mack Brown and Raymond Hatton that replaced the Rough Riders series following the death of Buck Jones in the Boston night club fire. Though the next three years featured Brown (as Nevada Jack McKenzie) and Hatton (in his Sandy Hopkins role from the Rough Riders series) as undercover marshals in some form or another, this initial entry had Brown as a lone rider seeking vengeance and he and Hatton's characters were unknown to each other through most of the film. Hopkins offer McKenzie a marshal's job at the end of the film, which the Brown character declined and rode off alone on his quest. This quest didn't take long as by the next film in the series Nevada Jack McKenzie was a full-fledged U. S. Marshal.",
+        "poster_path": "/kQ7VhV30WorhA2aY5GhmgIQR24b.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "stardust-dvd-rental-fantasy",
+    "title": "Stardust",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Stardust' (2007))",
+    "candidates": [
+      {
+        "id": 2270,
+        "title": "Stardust",
+        "year": "2007",
+        "overview": "In a countryside town bordering on a magical land, a young man makes a promise to his beloved that he'll retrieve a fallen star by venturing into the magical realm. His journey takes him into a world beyond his wildest dreams and reveals his true identity.",
+        "poster_path": "/le1gPiqeWrCj5FkjBtcF9clFmdX.jpg"
+      },
+      {
+        "id": 1428585,
+        "title": "Stardust",
+        "year": "2024",
+        "overview": "Jana must confront a bureaucratic space machine and her relationship with her boyfriend while attempting to go to space.",
+        "poster_path": "/ndszC0ccoFWFhkmLIR4Pqm2zH91.jpg"
+      },
+      {
+        "id": 579400,
+        "title": "Stardust",
+        "year": "2020",
+        "overview": "In 1971, rock star David Bowie travels to America for the first time to promote his third album, The Man Who Sold the World. There, he embarks on a coast-to-coast publicity tour. During this tour, Bowie creates his iconic Ziggy Stardust persona, inspired by artists like Iggy Pop and Lou Reed.",
+        "poster_path": "/4auKoOWYVbLwmVBv0fdZUwTyiwk.jpg"
+      },
+      {
+        "id": 73995,
+        "title": "Stardust",
+        "year": "1973",
+        "overview": "The lives of two local professional dancers change suddenly as American soldiers stop in their town hoping to be entertained in accordance with the Broadway style. Effectively, they perform up to their expectations. However, as the army men have to march northward, their moment of glory finishes heartlessly.",
+        "poster_path": "/t7LM5uRuKn2E3xntt13uNahlwMD.jpg"
+      },
+      {
+        "id": 298204,
+        "title": "Stardust",
+        "year": "1922",
+        "overview": "Lily Becker is born in Paradise, Iowa and raised there by her prudish mother and her spineless father. Mrs Becker pressures Lily into marrying local yokel Albert Penny, who is extremely dull\u2026\u2026",
+        "poster_path": "/xGs4rBpVNY2N9NWAjkDMHm4VbLs.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "borat-dvd-rental-comedy",
+    "title": "Borat",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Best of Borat' (2001))",
+    "candidates": [
+      {
+        "id": 372623,
+        "title": "The Best of Borat",
+        "year": "2001",
+        "overview": "Series of reports from Borat Karabzhanov, the Kazakhstani TV journalist, a character featuring in DA ALI G SHOW, as he travels in Britain looking at British culture and customs, including visits to Henley Regatta, Saville Row and a tea party, and looking at aspects such as fox hunting. Made up of footage taken from DA ALI G SHOW plus new footage and links comparing life in Britain and Kazakhstan",
+        "poster_path": "/pTxjQgcWe01DZDHjcZ3I9bgCa0u.jpg"
+      },
+      {
+        "id": 101585,
+        "title": "When Borat Came to Town",
+        "year": "2008",
+        "overview": "A look at what happened after Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan was filmed in the Romanian village of Glod. It follows the life of one girl who longs to escape the poverty as foreign lawyers arrive with the promise of suing 20th Century Fox for millions of dollars.",
+        "poster_path": "/eExz9aforS7T9fEOFp6Cx3ovKYN.jpg"
+      },
+      {
+        "id": 169020,
+        "title": "Vive la France",
+        "year": "2013",
+        "overview": "Muzafar and Feruz are two easy going shepherds from Taboulistan, a tiny country in Asia that is unknown to the rest of the world. To alert the world to his country\u2019s existence, the son of Taboulistan\u2019s president decides to instigate a program of publicity terrorism. To that end, he recruits our two naive shepherds, their mission: to destroy the Eiffel Tower! But the France that Muzafar and Feruz discover is far from what they had expected...",
+        "poster_path": "/uzOTJOOLrLhr2r8YHCmdahvVkF.jpg"
+      },
+      {
+        "id": 496,
+        "title": "Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan",
+        "year": "2006",
+        "overview": "Kazakh journalist Borat Sagdiyev travels to America to make a documentary. As he zigzags across the nation, Borat meets real people in real situations with hysterical consequences. His backwards behavior generates strong reactions around him exposing prejudices and hypocrisies in American culture.",
+        "poster_path": "/7g9kBHMN2KTr5KUf8aen187Mdn.jpg"
+      },
+      {
+        "id": 818789,
+        "title": "Borat: VHS Cassette of Material Deemed \"Sub-Acceptable\" by Kazakhstan Ministry of Censorship and Circumcision",
+        "year": "2021",
+        "overview": "Never before seen footage from the award-winning movie Borat Subsequent Moviefilm.",
+        "poster_path": "/VjewbEjJu0RZ2ENIwxeGKMHhZJ.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "good-night-and-good-luck-bluray-rental-drama",
+    "title": "Good Night, And Good Luck",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Good Night, and Good Luck' (2025))",
+    "candidates": [
+      {
+        "id": 3291,
+        "title": "Good Night, and Good Luck.",
+        "year": "2005",
+        "overview": "The story of journalist Edward R. Murrow's stand against Senator Joseph McCarthy's anti-communist witch-hunts in the early 1950s.",
+        "poster_path": "/w4QSEno2xxHqMtSr3mPUhJpO3F2.jpg"
+      },
+      {
+        "id": 1481851,
+        "title": "Good Night, and Good Luck",
+        "year": "2025",
+        "overview": "Livestreamed from the penultimate show at the Winter Garden Theatre in New York City, this stage adaptation of George Clooney's 2005 film follows the story of journalist Edward R. Murrow's stand against Senator Joseph McCarthy's anti-communist witch-hunts in the early 1950s.",
+        "poster_path": "/fINjqjQNWYr7g9nVawzPDenxVO3.jpg"
+      },
+      {
+        "id": 1493854,
+        "title": "Good Night, and Good Luck: Truth and Power",
+        "year": "2025",
+        "overview": "Anderson Cooper discusses the critically acclaimed production and state of global journalism in front of a live audience of journalism students",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "how-the-grinch-stole-christmas-dvd-rental-holiday",
+    "title": "How the Grinch Stole Christmas",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'How the Grinch Stole Christmas' (2000))",
+    "candidates": [
+      {
+        "id": 8871,
+        "title": "How the Grinch Stole Christmas",
+        "year": "2000",
+        "overview": "The Grinch decides to rob Whoville of Christmas - but a dash of kindness from little Cindy Lou Who and her family may be enough to melt his heart...",
+        "poster_path": "/1WZbbPApEivA421gCOluuzMMKCk.jpg"
+      },
+      {
+        "id": 13377,
+        "title": "How the Grinch Stole Christmas!",
+        "year": "1966",
+        "overview": "Bitter and hateful, the Grinch is irritated at the thought of a nearby village having a happy time celebrating Christmas. Disguised as Santa Claus, with his dog made to look like a reindeer, he decides to raid the village to steal all the Christmas things.",
+        "poster_path": "/7ir0iRuPK9OEuH569cp0nF5CJce.jpg"
+      },
+      {
+        "id": 372205,
+        "title": "How the Grinch Stole Christmas!",
+        "year": "1992",
+        "overview": "This short video features illustrations from the Dr Seuss story book with narration by Walter Matthau. A hermit known as the Grinch hates Christmas and is tired of the Whos of Who-ville celebrating it. This year, he plans to steal it from them.  Video also includes the story If I Ran The Zoo.",
+        "poster_path": "/swvcmVEakFNZCZmIIjmcfi8ewyb.jpg"
+      },
+      {
+        "id": 1787796,
+        "title": "How The Grinch Stole Christmas",
+        "year": "",
+        "overview": "The Grinch breaks into someone's house...",
+        "poster_path": "/79STABMtolYXuuukoxFgvHrSHgK.jpg"
+      },
+      {
+        "id": 1738568,
+        "title": "How the Grinch Stole Christmas Collection",
+        "year": "",
+        "overview": "The Grinch decides to rob Whoville of Christmas - but a dash of kindness from little Cindy Lou Who and her family may be enough to melt his heart...",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "rudolph-the-red-nosed-reindeer-dvd-rental-holiday",
+    "title": "Rudolph the Red-Nosed Reindeer",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Rudolph the Red-Nosed Reindeer' (1964))",
+    "candidates": [
+      {
+        "id": 13382,
+        "title": "Rudolph the Red-Nosed Reindeer",
+        "year": "1964",
+        "overview": "Sam the snowman tells us the story of a young red-nosed reindeer who, after being ousted from the reindeer games because of his glowing nose, teams up with Hermey, an elf who wants to be a dentist, and Yukon Cornelius, the prospector. They run into the Abominable Snowman and find a whole island of misfit toys. Rudolph vows to see if he can get Santa to help the toys, and he goes back to the North Pole on Christmas Eve. But Santa's sleigh is fogged in. But when Santa looks over Rudolph, he gets a very bright idea...",
+        "poster_path": "/xjAElUhXuc7zFJPj3qUHjcySNsE.jpg"
+      },
+      {
+        "id": 81294,
+        "title": "Rudolph the Red-Nosed Reindeer",
+        "year": "1948",
+        "overview": "Classic holiday tale about a flying reindeer who helps Santa Claus. An interpretation of Robert L. May's 1939 Christmas poem, this animated short was created to run in theaters to advertise Montgomery Ward department stores, publisher of the original story.",
+        "poster_path": "/sDxEaJoFRHcI7kdDE5c8WSMofPi.jpg"
+      },
+      {
+        "id": 33719,
+        "title": "Rudolph the Red-Nosed Reindeer: The Movie",
+        "year": "1998",
+        "overview": "Young Rudolph suffers a childhood accident that sees his nose turn from the publicly accepted norm of black to a glowing red colour. His parents worry about him getting teased, and indeed he does in the end. When he is beaten in the reindeer games by his rival for a doe he fancies, Rudolph runs away and moves into a cave with Slyly the Fox. However can he overcome his fear and reach his true potential?",
+        "poster_path": "/pNwHtfMVcqmWat1MfMJ9XSVBBXR.jpg"
+      },
+      {
+        "id": 1068808,
+        "title": "Rudolph the Red-Nosed Reindeer 4D Attraction",
+        "year": "2016",
+        "overview": "When young Rudolph is teased for his red nose and runs away from Christmastown, he sets off on a series of adventures, meets new friends Hermey the Elf and Yukon Cornelius along the way, and escapes the clutches of the Abominable Snow Monster. When an epic snowstorm threatens Christmas, can he rescue his family and friends and help Santa save the holiday?",
+        "poster_path": "/geNYWfP0iHSCONQrzxlbS2DtOWM.jpg"
+      },
+      {
+        "id": 43575,
+        "title": "Rudolph the Red-Nosed Reindeer & the Island of Misfit Toys",
+        "year": "2001",
+        "overview": "When the mysterious Toy Taker grabs all of Santa's toys, it looks like the children will miss out on Christmas. But everyone's favorite reindeer, Rudolph, comes to the rescue with his lovable friends: Hermey the elf, Yukon Cornelius the grizzly prospector, the abominable snow monster Bumbles and Rudolph's very special friend Clarice. Together, they promise Santa they'll track down Toy Taker and rescue Santa's toy. Their incredible quest takes them on a wild adventure with Rudolph's red nose leading the way!",
+        "poster_path": "/sZEfq7g2LUNxI0axgWm0cwQ41gl.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "a-charlie-brown-christmas-dvd-rental-holiday",
+    "title": "A Charlie Brown Christmas",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'A Charlie Brown Christmas' (1965))",
+    "candidates": [
+      {
+        "id": 13187,
+        "title": "A Charlie Brown Christmas",
+        "year": "1965",
+        "overview": "When Charlie Brown complains about the overwhelming materialism that he sees amongst everyone during the Christmas season, Lucy suggests that he become director of the school Christmas pageant. Charlie Brown accepts, but it is a frustrating struggle. When an attempt to restore the proper spirit with a forlorn little fir Christmas tree fails, he needs Linus' help to learn the meaning of Christmas.",
+        "poster_path": "/6fDmxNVFGSYlVR01zbYSZ4M0lU0.jpg"
+      },
+      {
+        "id": 1423632,
+        "title": "A Charlie Brown Christmas",
+        "year": "2025",
+        "overview": "Christmastime is here. Happiness and cheer.  And for Peanuts fans everywhere. It just wouldn't be Christmas without this classic holiday delight.  Christmas lights may be twinkling red and green, but Charlie Brown has the Yuletide blues. To get in the holiday spirit, he takes Lucy's advice and directs the Christmas play. And what's a Christmas play without a Christmas tree? But everyone makes fun of the short, spindly nevergreen Charlie Brown brings back - until the real meaning of Christmas works its magic once again in this Remastered Live-Action Edition with Improved Picture and Audio. Happy Holidays!",
+        "poster_path": "/wbxlTiuzz3akzjVKU3QfN7Y4kn9.jpg"
+      },
+      {
+        "id": 1585816,
+        "title": "A Charlie Brown Christmas Reanimated",
+        "year": "2024",
+        "overview": "Over 50 animators came together to reanimate the classic TV special \"A Charlie Brown Christmas\"",
+        "poster_path": "/sRwtC5PIIBc3XXofNBmZNhcXsmE.jpg"
+      },
+      {
+        "id": 746008,
+        "title": "The Making of 'A Charlie Brown Christmas'",
+        "year": "2001",
+        "overview": "Now, years later, fans can get a behind-the-scenes look at the making of this Christmas favorite. Hosted by comedienne Whoopi Goldberg, this program includes interviews with some of the actors who brought the Peanuts gang to life, and archive footage of the creator himself, Charles Schulz.",
+        "poster_path": "/8FxrWd4tteVIiAFQOgfVlMHZHJ4.jpg"
+      },
+      {
+        "id": 767143,
+        "title": "A Christmas Miracle: The Making of A Charlie Brown Christmas",
+        "year": "2008",
+        "overview": "A behind the scenes look at how A Charlie Brown Christmas was made.",
+        "poster_path": "/srWRjTz3QNZpY6lUOpqEmD8sWS6.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "cinderella-dvd-rental-kids-family",
+    "title": "Cinderella",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Cinderella' (1950))",
+    "candidates": [
+      {
+        "id": 150689,
+        "title": "Cinderella",
+        "year": "2015",
+        "overview": "When her father unexpectedly passes away, young Ella finds herself at the mercy of her cruel stepmother and her daughters. Never one to give up hope, Ella's fortunes begin to change after meeting a dashing stranger in the woods.",
+        "poster_path": "/j91LJmcWo16CArFOoapsz84bwxb.jpg"
+      },
+      {
+        "id": 11224,
+        "title": "Cinderella",
+        "year": "1950",
+        "overview": "Cinderella has faith her dreams of a better life will come true. With help from her loyal mice friends and a wave of her Fairy Godmother's wand, Cinderella's rags are magically turned into a glorious gown and off she goes to the Royal Ball. But when the clock strikes midnight, the spell is broken, leaving a single glass slipper... the only key to the ultimate fairy-tale ending!",
+        "poster_path": "/4nssBcQUBadCTBjrAkX46mVEKts.jpg"
+      },
+      {
+        "id": 593910,
+        "title": "Cinderella",
+        "year": "2021",
+        "overview": "Cinderella, an orphaned girl with an evil stepmother, has big dreams and with the help of her Fabulous Godmother, she perseveres to make them come true.",
+        "poster_path": "/clDFqATL4zcE7LzUwkrVj3zHvk7.jpg"
+      },
+      {
+        "id": 25892,
+        "title": "Cinderella",
+        "year": "1965",
+        "overview": "After the success of the  live 1957 Cinderella on CBS (with Julie Andrews), the network decided to produce another television version. The new script hewed closer to the traditional tale, although nearly all of the original songs were retained and performed in their original settings. Added to the Rodgers and Hammerstein score was \"Loneliness of Evening\", which had been composed for South Pacific but not used.",
+        "poster_path": "/60gQBt16TakffKrR2sizX7SWJ1M.jpg"
+      },
+      {
+        "id": 42884,
+        "title": "Cinderella",
+        "year": "1997",
+        "overview": "Cinderella chafes under the cruelty of her wicked stepmother and her evil stepsisters, until her Fairy Godmother steps in to change her life for one unforgettable night. At the ball, she falls for handsome Prince Christopher, whose parents, King Maximillian and Queen Constantina, are anxious for him to find a suitable paramour.",
+        "poster_path": "/54awQrtekrsI11bKg2NwQrBHLIe.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-jungle-book-dvd-rental-kids-family",
+    "title": "The Jungle Book",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Jungle Book' (2016))",
+    "candidates": [
+      {
+        "id": 278927,
+        "title": "The Jungle Book",
+        "year": "2016",
+        "overview": "After a threat from the tiger Shere Khan, Mowgli, a man-cub fostered by wolves, is forced to flee the jungle, and he embarks on a journey of self-discovery with the help of the panther, Bagheera, and the free-spirited bear, Baloo.",
+        "poster_path": "/2Epx7F9X7DrFptn4seqn4mzBVks.jpg"
+      },
+      {
+        "id": 9325,
+        "title": "The Jungle Book",
+        "year": "1967",
+        "overview": "The boy Mowgli makes his way to the man-village with Bagheera, the wise panther. Along the way he meets jazzy King Louie, the hypnotic snake Kaa and the lovable, happy-go-lucky bear Baloo, who teaches Mowgli \"The Bare Necessities\" of life and the true meaning of friendship.",
+        "poster_path": "/yN1kuupnPTLUprgfvC5WapgrxG4.jpg"
+      },
+      {
+        "id": 10714,
+        "title": "The Jungle Book",
+        "year": "1994",
+        "overview": "Raised by wild animals since childhood, Mowgli is drawn away from the jungle by the beautiful Kitty. But Mowgli must eventually face corrupt Capt. Boone, who wants both Kitty's hand and the treasures of Monkey City \u2013 a place only Mowgli can find.",
+        "poster_path": "/lFMxUrByUG2LcRAIsqrGti1zGIu.jpg"
+      },
+      {
+        "id": 1165601,
+        "title": "The Jungle Book",
+        "year": "1992",
+        "overview": "Mowgli, a boy raised by wolves in the jungle, lives great adventures alongside Baloo the bear and Bagheera the panther. However, his peace is threatened when the fearsome tiger Shere Khan returns determined to hunt him down. This colorful 90s adaptation stands out for its lighthearted approach, comedy gags, and fun supporting characters.",
+        "poster_path": "/7b7AXEFq1HlHxtu5JDTz2m1Tw3c.jpg"
+      },
+      {
+        "id": 431036,
+        "title": "The Jungle Book",
+        "year": "1990",
+        "overview": "Watch Rudyard Kipling's world famous novel, The Jungle Book, come alive in this high quality entertaining animated feature. Join young Mowgli, and his animal friends Bagheera and Baloo, on their adventures in the wilderness.",
+        "poster_path": "/4kn68Civbu5HDYEBaCkRxhSQbQC.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "bambi-dvd-rental-kids-family",
+    "title": "Bambi",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Bambi' (1942))",
+    "candidates": [
+      {
+        "id": 3170,
+        "title": "Bambi",
+        "year": "1942",
+        "overview": "Bambi's tale unfolds from season to season as the young prince of the forest learns about life, love, and friends.",
+        "poster_path": "/wV9e2y4myJ4KMFsyFfWYcUOawyK.jpg"
+      },
+      {
+        "id": 1202950,
+        "title": "Bambi",
+        "year": "",
+        "overview": "A girl skips school after stealing a jacket and heels at a bus stop.",
+        "poster_path": "/A26xudm6nVeU1CAbvBFhAyvJWd.jpg"
+      },
+      {
+        "id": 171944,
+        "title": "Bambi",
+        "year": "2013",
+        "overview": "Bambi was born Jean-Pierre Pruvot in a tiny Algerian village in 1935. Even as a child, she refused to meet the expectations of her extended family, choosing instead to find a way to become the woman she always knew herself to be. A Cabaret Carrousel de Paris performance in Algiers in the 1950s proved to be all the encouragement she needed to emigrate to the French capital, assume the stage name of \u2018Bambi\u2019 and lead the life she longed for on the music-hall stages.",
+        "poster_path": "/gWwAKOzGWHO1vZizZLgkk81r6w1.jpg"
+      },
+      {
+        "id": 374273,
+        "title": "Bambi",
+        "year": "2015",
+        "overview": "Bambi is a tale of losing and finding oneself.",
+        "poster_path": "/hxcYI5y0F6izIqanQrJFFSgF9lH.jpg"
+      },
+      {
+        "id": 955286,
+        "title": "Bambi",
+        "year": "1963",
+        "overview": "",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "lady-and-the-tramp-dvd-rental-kids-family",
+    "title": "Lady and the Tramp",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Lady and the Tramp' (2019))",
+    "candidates": [
+      {
+        "id": 10340,
+        "title": "Lady and the Tramp",
+        "year": "1955",
+        "overview": "Lady, a golden cocker spaniel, meets up with a mongrel dog who calls himself the Tramp. He is obviously from the wrong side of town, but happenings at Lady's home make her decide to travel with him for a while.",
+        "poster_path": "/340NcWz9SQXWQyf4oicMxjbrLOb.jpg"
+      },
+      {
+        "id": 512895,
+        "title": "Lady and the Tramp",
+        "year": "2019",
+        "overview": "The love story between a pampered Cocker Spaniel named Lady and a streetwise mongrel named Tramp. Lady finds herself out on the street after her owners have a baby and is saved from a pack by Tramp, who tries to show her to live her life footloose and collar-free.",
+        "poster_path": "/8wBEye516IKul9sW7JKGcFXVGfV.jpg"
+      },
+      {
+        "id": 1280088,
+        "title": "Lady and the Tramp",
+        "year": "",
+        "overview": "A young woman invites a homeless man into her flat to take a shower\u2026",
+        "poster_path": ""
+      },
+      {
+        "id": 301494,
+        "title": "The Lady and the Tramp",
+        "year": "1968",
+        "overview": "Rena\u2019s father insists on marrying her off to the son of a shipowner. Rena, however, doesn\u2019t even want to hear about it, so she runs away and disguises herself as a boy named Pipis. As such, she meets a poor fisherman, Lefteris, and helps him on his way to Ioannina.",
+        "poster_path": "/jGDkBD2ucutmUnubpdA7Uvdg7Oi.jpg"
+      },
+      {
+        "id": 18269,
+        "title": "Lady and the Tramp II: Scamp's Adventure",
+        "year": "2001",
+        "overview": "Lady and Tramp's mischievous pup, Scamp, gets fed up with rules and restrictions imposed on him by life in a family, and longs for a wild and free lifestyle. He runs away from home and into the streets where he joins a pack of stray dogs known as the \"Junkyard Dogs.\" Buster, the pack's leader, takes an instant disliking to the \"house-dog\" and considers him a rival. Angel, a junkyard pup Scamp's age, longs for the safety and comfort of life in a family and the two become instant companions. Will Scamp choose the wild and free life of a stray or the unconditional love of his family?",
+        "poster_path": "/nS3nhUZUSY8dWEsRmKILfiOC3F0.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "atlantis-vhs-rental-kids-family",
+    "title": "Atlantis",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Atlantis' (1972))",
+    "candidates": [
+      {
+        "id": 15466,
+        "title": "Atlantis",
+        "year": "1991",
+        "overview": "Atlantis is filmmaker Luc Besson's celebration of the beauty and wonder of the world beneath the sea, expanding upon themes touched on in his film The Big Blue. Combining stunning underwater cinematography and a hypnotic score by Eric Serra, Besson's singular vision defies dialogue or narrative structure to explore ocean life as you've never seen it before.  Following the colossal success of The Big Blue, Luc Besson crisscrossed the world's seas and oceans to film the beauty and diversity of marine life: from the giant octopuses of Vancouver to the manta rays of the Pacific (New Caledonia), and the grey sharks of Tahiti. A film with no actors or sets other than the underwater world. A breathtaking view of marine species: sharks, dolphins, manatees, octopuses. An exploration of the seabed in the Bahamas, the Galapagos, Vancouver, and Tahiti.",
+        "poster_path": "/Y9GVuu0tVPUWvcFufTkBLg2840.jpg"
+      },
+      {
+        "id": 718058,
+        "title": "Atlantis",
+        "year": "",
+        "overview": "A thriller about the mythical city.",
+        "poster_path": ""
+      },
+      {
+        "id": 760888,
+        "title": "Atlantis",
+        "year": "1983",
+        "overview": "Goff and Lytton have a dream \u2013 a canal boat of their own on which to cruise the inland waterways. The reality is the boatyard of Josh Adkins and a rusting hulk called Atlantis.",
+        "poster_path": "/qkgm4f6zup9p1D08cMWIvyaQicE.jpg"
+      },
+      {
+        "id": 933482,
+        "title": "Atlantis",
+        "year": "1972",
+        "overview": "The world is plagued by natural disasters, but here comes a couple in love who boldly enter a different game. Their love cannot be thwarted by natural disasters.",
+        "poster_path": "/r8x1CMlUnKWknu8d2KA03x3t7hZ.jpg"
+      },
+      {
+        "id": 298437,
+        "title": "Atlantis",
+        "year": "2014",
+        "overview": "A documentary portrait of Utopia, loosely framed by Plato\u2019s invocation of the lost continent of Atlantis in 360 BC and its re-resurrection via a 1970s science fiction pulp novel.",
+        "poster_path": "/hgn7f3iLztNFUWvslb8kiY8Gjh7.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "faerie-tale-theatre-the-tale-of-the-frog-prince-vhs-rental-kids-family",
+    "title": "Faerie Tale Theatre: The Tale of the Frog Prince",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "silent-night-collection-bluray-rental-horror",
+    "title": "Silent Night Collection",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "x-bluray-rental-horror",
+    "title": "X",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'X' (2022))",
+    "candidates": [
+      {
+        "id": 760104,
+        "title": "X",
+        "year": "2022",
+        "overview": "In 1979, a group of young filmmakers set out to make an adult film in rural Texas, but when their reclusive, elderly hosts catch them in the act, the cast find themselves fighting for their lives.",
+        "poster_path": "/lopZSVtXzhFY603E9OqF7O1YKsh.jpg"
+      },
+      {
+        "id": 73454,
+        "title": "X",
+        "year": "2011",
+        "overview": "A veteran call girl and a runaway prostitute witness a murder which sends them on an out-of-control roller coaster ride through the twilight zone of sex-for-sale.",
+        "poster_path": "/nvU6uTwSpMpitM6mnuYXb1LgxxX.jpg"
+      },
+      {
+        "id": 44587,
+        "title": "X",
+        "year": "1996",
+        "overview": "It's the year of destiny, and 15 year old Kamui Shiro, a powerful psychic, has returned to Toyko after a 6 year absence, having left when he was very young. He wants to be with his childhood friends, Fuma (his best friend) and Kotori, Fuma's little sister (and Kamui's possible girlfriend). He wants to protect them from all dangers, but destiny and fate are haunting Kamui and pulling in himself and his beloved childhood friends. It is his destiny and his sole decision to decide the fate of the world, no matter if he wants the role or not. Now it is a matter of if he will join the side of the Seven Seals and become the Dragon of Heaven to save mankind or join the Seven Angels and become the Dragon of Earth to destroy all civilization so the earth can heal itself from man's destruction.",
+        "poster_path": "/irv0rrd34VGdxHRjI3AiJiXnAdo.jpg"
+      },
+      {
+        "id": 278236,
+        "title": "X+Y",
+        "year": "2015",
+        "overview": "Struggling to connect with those around him, a teenage math prodigy trains for the International Mathematical Olympiad, where a budding romance with a fellow contestant breaks through his emotional walls and teaches him that love cannot be calculated.",
+        "poster_path": "/jYkfSWb9rlTTzvLclCuJwm48kbl.jpg"
+      },
+      {
+        "id": 1126723,
+        "title": "Mr. X",
+        "year": "2026",
+        "overview": "Centers on secret intelligence agency cases involving five major national threats that were thwarted through covert operations.",
+        "poster_path": "/7aqx7T9FNu1HPCyb0CBjJtjshoU.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "pearl-bluray-rental-horror",
+    "title": "Pearl",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Pearl' (2022))",
+    "candidates": [
+      {
+        "id": 949423,
+        "title": "Pearl",
+        "year": "2022",
+        "overview": "Trapped on her family\u2019s isolated farm, Pearl must tend to her ailing father under the bitter and overbearing watch of her devout mother. Lusting for a glamorous life like she\u2019s seen in the movies, Pearl\u2019s ambitions, temptations, and repressions collide.",
+        "poster_path": "/ulBLIBqvdnf4H6JBt0OpMCU1ECn.jpg"
+      },
+      {
+        "id": 485164,
+        "title": "Pearl",
+        "year": "2018",
+        "overview": "Competitive bodybuilder L\u00e9a Pearl is preparing to compete for the prestigious Miss Heaven title. Her coach, Al, a former bodybuilding star, hopes that, thanks to L\u00e9a, he will be back in the spotlight once again. But at the last minute, L\u00e9a's ex arrives with their son Joseph, who she hasn't seen in four years.",
+        "poster_path": "/nMvenpRLYfyYG4LhYhmDjSCDVOH.jpg"
+      },
+      {
+        "id": 410445,
+        "title": "Pearl",
+        "year": "2010",
+        "overview": "Beautifully filmed, impeccably portrayed, the feature film \"Pearl\", a production of the Chickasaw Nation, brings to life the endearing story of Pearl Carter Scott - Chickasaw aviatrix.  A spunky 12 year old Pearl soars as she befriends world renowned pilot Wiley Post, which introduces her to a love for flying and to becoming the youngest pilot in American aviation history.  Raised in the late 1920's in Marlow, Oklahoma, Pearl encountered her share of obstacles. This Chickasaw girl rises above adversity, takes on responsibility and, with the guidance of her father, holds fast to her 'never give up' attitude.  The story of Pearl Carter Scott is one worth telling, as it is inspiring, heartfelt and true to the character of Pearl.\r This film is sure to spur encouragement in the hearts and minds of its viewers. Pearl reminds us of the resilience, determination and drive we all have within us - that dreams are possible when you 'never give up'.",
+        "poster_path": ""
+      },
+      {
+        "id": 668225,
+        "title": "Pearl",
+        "year": "2020",
+        "overview": "A long time ago, the entire world was home to a watery kingdom ruled by the Fish King. He had a magic Pearl that formed the source of his power. The people wanted to rob the Fish King of this power, but only those who believed in its magic and could overcome their fear of the dark could gaze into the glow of the magic Pearl in the watery depths. A short film about how people who believe in fairy tales have nothing to fear.",
+        "poster_path": ""
+      },
+      {
+        "id": 846096,
+        "title": "Pearl",
+        "year": "2021",
+        "overview": "Three stories unravel around the finding of a rotten foot on a beach in Guaruj\u00e1.",
+        "poster_path": "/vezTRS7rUP2ZFT4UMGRQYY0Vq40.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "troll-2-bluray-rental-horror",
+    "title": "Troll 2",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Troll 2' (2025))",
+    "candidates": [
+      {
+        "id": 1180831,
+        "title": "Troll 2",
+        "year": "2025",
+        "overview": "When a dangerous new troll unleashes devastation across their homeland, Nora, Andreas and Major Kris embark on their most perilous mission yet.",
+        "poster_path": "/p6xAExLNFbHcLfvSuvLPoM8aqZU.jpg"
+      },
+      {
+        "id": 26914,
+        "title": "Troll 2",
+        "year": "1990",
+        "overview": "When young Joshua learns that he will be going on vacation with his family to a small town called Nilbog, he protests adamantly. He is warned by the spirit of his deceased grandfather that goblins populate the town. His parents, Michael and Diana, dismiss his apprehensions, but soon learn to appreciate their son's warnings. Guided by his grandfather's ghost, will Joshua and his family stand a chance in fighting off these evil beings?",
+        "poster_path": "/eFth6zw4PEInzr2Y64mYVN1zbBi.jpg"
+      },
+      {
+        "id": 446893,
+        "title": "Trolls World Tour",
+        "year": "2020",
+        "overview": "Queen Poppy and Branch make a surprising discovery \u2014 there are other Troll worlds beyond their own, and their distinct differences create big clashes between these various tribes. When a mysterious threat puts all of the Trolls across the land in danger, Poppy, Branch, and their band of friends must embark on an epic quest to create harmony among the feuding Trolls to unite them against certain doom.",
+        "poster_path": "/7W0G3YECgDAfnuiHG91r8WqgIOe.jpg"
+      },
+      {
+        "id": 748621,
+        "title": "Under ConTroll",
+        "year": "2019",
+        "overview": "During building work in the city of Baden-Baden in 2015, an evil troll who was transformed into stone in the 15th century, is accidentally brought back to life. To prevent being unmasked, the Troll slips into the body of Vanessa and enslaves her. Vanessa Troll then goes looking for Charlie, the virgin boyfriend of Vanessa's daughter, as The Troll needs his blood to evoke a portal to a magical prison. Will the Troll's plans find success?",
+        "poster_path": "/iXuYlwT5Dnzt1yoriZoTcsrl8eb.jpg"
+      },
+      {
+        "id": 1628727,
+        "title": "Troll-ed 2 - The Last Troll",
+        "year": "",
+        "overview": "The last troll lives on in epicness.",
+        "poster_path": "/xooqeaZgH8vO2MaLSZ5inAZEE4Y.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "wolf-cop-wolfpack-bluray-rental-horror",
+    "title": "Wolf Cop Wolfpack",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "trickr-treat-bluray-rental-horror",
+    "title": "Trick 'r Treat",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Trick 'r Treat' (2025))",
+    "candidates": [
+      {
+        "id": 23202,
+        "title": "Trick 'r Treat",
+        "year": "2025",
+        "overview": "Four interwoven stories that occur on Halloween: an everyday high school principal has a secret life as a serial killer; a college virgin might have just met the one guy for her; a group of teenagers pull a mean prank, and a bitter old recluse receives an uninvited guest.",
+        "poster_path": "/w0nmol4g7n6MFfhfphV7GzHHYjB.jpg"
+      },
+      {
+        "id": 25438,
+        "title": "Trick or Treat",
+        "year": "1986",
+        "overview": "Eddie Weinbauer, a metalhead teen who is bullied at school, looks to his heavy metal superstar idol, Sammi Curr, for guidance. When Curr is killed in a hotel fire, Eddie becomes the recipient of the only copy of his unreleased album, which, when played backwards, brings the rocker back to life. As Halloween approaches, Eddie begins to realize that this isn't only rock 'n roll...It's life and death.",
+        "poster_path": "/ycCrGbfuOEcKSCwxQeKA1VEPs7O.jpg"
+      },
+      {
+        "id": 1567792,
+        "title": "Trick 'r Treat: Snowmen",
+        "year": "2012",
+        "overview": "Two friends show us what ingredients are needed to build the perfect snowman.",
+        "poster_path": "/z8JDQx9WzTWRJFUXJ6453yoAe5F.jpg"
+      },
+      {
+        "id": 1596492,
+        "title": "Trick 'r Treat: Father's Day",
+        "year": "2011",
+        "overview": "You don't have to be a dad to enjoy Father's Day, especially when that devilish little Sam's around...",
+        "poster_path": "/3YfudMvfhzYzVnSfhNxzKEsFJKy.jpg"
+      },
+      {
+        "id": 1467951,
+        "title": "Trick 'r Treat: Easter Candy",
+        "year": "2011",
+        "overview": "Something wrong with this Easter holiday...",
+        "poster_path": "/oDgSRYDeO1NVSBEWo797MU5ifgJ.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "pulse-bluray-rental-horror",
+    "title": "Pulse",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Pulse' (2001))",
+    "candidates": [
+      {
+        "id": 27324,
+        "title": "Pulse",
+        "year": "2001",
+        "overview": "In the immense city of Tokyo, the darkness of the afterlife lures some of its inhabitants desperately trying to escape the sadness and isolation of the modern world.",
+        "poster_path": "/c3zEimDraIyMSasPMGDaNOrhnzn.jpg"
+      },
+      {
+        "id": 9682,
+        "title": "Pulse",
+        "year": "2006",
+        "overview": "When the dead discover a means to contact the living through electronic devices, cellphones and computers become open gateways to monstrosities and destruction.",
+        "poster_path": "/9ePdNzKVvGHsMMphfS3HeoMvuEX.jpg"
+      },
+      {
+        "id": 32033,
+        "title": "Pulse",
+        "year": "1988",
+        "overview": "An intelligent pulse of electricity moves from house to house, terrorizing occupants through their own appliances. Having already destroyed one household in a quiet neighborhood, the pulse finds itself in the home of a boy and his divorced father.",
+        "poster_path": "/3klryy0WVJFh5HAkMWrY6TY6QiP.jpg"
+      },
+      {
+        "id": 1486394,
+        "title": "Pulse",
+        "year": "2025",
+        "overview": "An overworked college student hallucinates her final project coming to life, blurring reality with imagination amidst academic stress",
+        "poster_path": ""
+      },
+      {
+        "id": 514387,
+        "title": "Pulse",
+        "year": "2017",
+        "overview": "Tells of the inner conflict Daniel faces when coming to terms with his sexuality, exploring his acceptance and love through a stylised, surreal continuous movement; battling his denial and faith.",
+        "poster_path": "/mhjmnSIAedSjbaUWQtieGJg3fGl.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "pet-semetary-a-quiet-place-bluray-rental-horror",
+    "title": "Pet Sematary / A Quiet Place",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "the-fog-the-howling-bluray-rental-horror",
+    "title": "The Fog / The Howling",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "the-dentist-the-dentist-2-bluray-rental-horror",
+    "title": "The Dentist / The Dentist 2",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Dentist 2' (1998))",
+    "candidates": [
+      {
+        "id": 37526,
+        "title": "The Dentist 2",
+        "year": "1998",
+        "overview": "Dr. Feinstone escapes from the mental hospital where he has been held ever since his wife's adultery sent him on a deranged killing spree. Hoping to resume a normal life, he makes his way to a quiet Midwestern town and establishes himself in a new practice under an assumed name. Things are starting to look up for Dr. 'Caine' \u2013 that is, until the day he catches his new love in the arms of someone else. As before, the impact of romantic betrayal sends him over the edge into madness and murder, with his unfortunate patients once again bearing the brunt of his hostility.",
+        "poster_path": "/7Ibri70TTY34ucoXsh3DqWM5jqM.jpg"
+      },
+      {
+        "id": 24958,
+        "title": "Bedside Dentist",
+        "year": "1971",
+        "overview": "Thomas, a naive young dental student, faces a rather difficult challenge. His millionaire aunt, a bit of a sex nut, will give both him and his dental school millions if he can prove that he is sexually able and skillful. His schoolmates hear rumors of this trial, but understand the challenge to be for him to keep his celibacy.",
+        "poster_path": "/4Roz78riyYOqJ7GBG4Bob7dwA9e.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "warlock-collection-bluray-rental-horror",
+    "title": "Warlock Collection",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "black-christmas-bluray-rental-horror",
+    "title": "Black Christmas",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Black Christmas' (1974))",
+    "candidates": [
+      {
+        "id": 551808,
+        "title": "Black Christmas",
+        "year": "2019",
+        "overview": "A group of sorority pledges are stalked by a stranger during their Christmas break. That is until the young women discover that the killer is part of an underground campus conspiracy.",
+        "poster_path": "/iMBlUzqwpz9ffbeLsYjyHPp8tn8.jpg"
+      },
+      {
+        "id": 16938,
+        "title": "Black Christmas",
+        "year": "1974",
+        "overview": "As the residents of the Pi Kappa Sigma sorority house prepare for the festive season, a stranger begins to harass them with a series of obscene phone calls.",
+        "poster_path": "/ym0QcbrKNujzDyAU1IHGYUdRWub.jpg"
+      },
+      {
+        "id": 9656,
+        "title": "Black Christmas",
+        "year": "2006",
+        "overview": "As the residents of sorority house Pi Kappa Sigma prepare for the festive season, a stranger begins a series of obscene phone calls with dubious intentions...",
+        "poster_path": "/4eDKgdHcyIAB5pvGRCjdgFKh3eC.jpg"
+      },
+      {
+        "id": 581432,
+        "title": "Black Christmas",
+        "year": "1977",
+        "overview": "A bittersweet drama on a familiar theme - the frictions forced to the surface during a Christmas family get-together - Michael Abbensetts' Black Christmas is an understated and affecting study of relationships, unexpressed pain and a tormented nostalgia for a distant home.",
+        "poster_path": "/j8Ldfpy5FBGy6fZ9MwNxGBgvEye.jpg"
+      },
+      {
+        "id": 937222,
+        "title": "A Black Christmas Eve",
+        "year": "1993",
+        "overview": "",
+        "poster_path": "/jOy15AbGpIlnoxiKyzYntWyVXZf.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "cats-eye-bluray-rental-horror",
+    "title": "Cat's Eye",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Cat's Eye' (1985))",
+    "candidates": [
+      {
+        "id": 10552,
+        "title": "Cat's Eye",
+        "year": "1985",
+        "overview": "Three short stories linked by a stray cat that roams from one tale to the next, in this creepy triptych that begins as Dick tries to quit smoking by any means necessary. Next, we meet Johnny, an adulterous man who's forced by his lover's husband onto a building's hazardous ledge. Finally, Amanda is threatened by an evil gnome who throws suspicion on the family cat.",
+        "poster_path": "/kKyq7izpMkmr8sT2nLic5qAuJPo.jpg"
+      },
+      {
+        "id": 34854,
+        "title": "Cat's Eye",
+        "year": "1997",
+        "overview": "Three cat burgling sisters have to go up against the police and a Chinese crime syndicate in order to rescue their kidnapped father.",
+        "poster_path": "/sHnFLRNNvA4eX6ExIFVRfTQSoWC.jpg"
+      },
+      {
+        "id": 1237009,
+        "title": "Cat's Eye",
+        "year": "2025",
+        "overview": "A woman visits a personal stretcher, only to have unexpected objects pulled out of her body. A near silent witness statement to the reopening of invisible wounds in an abstract pursuit of healing.",
+        "poster_path": "/yK1DuxsAuRdYmRFKp3PHILHJT6P.jpg"
+      },
+      {
+        "id": 846717,
+        "title": "Cat\u2019s Eye",
+        "year": "2020",
+        "overview": "A cat's happy childhood takes an unexpected turn when she falls into a river.",
+        "poster_path": ""
+      },
+      {
+        "id": 1435273,
+        "title": "Cat's Eyes",
+        "year": "2009",
+        "overview": "",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "creepshow-bluray-rental-horror",
+    "title": "Creepshow",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Creepshow' (1982))",
+    "candidates": [
+      {
+        "id": 16281,
+        "title": "Creepshow",
+        "year": "1982",
+        "overview": "Five grisly tales from a 1950s-style comic, including a murdered father rising from beyond, a bizarre meteor, a vengeful husband, a mysterious crate's occupant, and a plague of cockroaches.",
+        "poster_path": "/4SoyTCEpsgLjX6yAyMsx3AsAyRQ.jpg"
+      },
+      {
+        "id": 1338808,
+        "title": "Creepshow",
+        "year": "2024",
+        "overview": "University student and drag queen Feng faces ridicule when trapped in a sudden lockdown at his dormitory. Defiantly, he orchestrates a drag operation to challenge his detractors, sparking unexpected alliances and revelations.",
+        "poster_path": "/2mVbnx1b9HfAnetNImSWqpviqrc.jpg"
+      },
+      {
+        "id": 16288,
+        "title": "Creepshow 2",
+        "year": "1987",
+        "overview": "Three macabre tales from the latest issue of a boy's favorite comic book, dealing with a vengeful wooden Native American, a monstrous blob in a lake, and an undying hitchhiker.",
+        "poster_path": "/bbanIymLuTYmQGis9nlCkFlT1eg.jpg"
+      },
+      {
+        "id": 16304,
+        "title": "Creepshow 3",
+        "year": "2006",
+        "overview": "This follow-up to the George Romero/Stephen King-launched anthology series features five new tales of horror and a wraparound. The main stories deal with alternative realities (\"Alice\"), possessed communication devices (\"The Radio\"), vampires and serial killers in lust (\"Call Girl\"), mad inventors (\"The Professor's Wife\"), and hauntings from beyond the grave (\"Haunted Dog\").",
+        "poster_path": "/qvJSdbruD4e5cUxruoUFUkJrsqt.jpg"
+      },
+      {
+        "id": 782140,
+        "title": "Carnivale Creepshow",
+        "year": "2014",
+        "overview": "A group of friends stumble upon an old abandoned barn where a group of murderous, cannibalistic performers squat and wait for their prey. In a fight for survival, the group have to act fast or risk their lives.",
+        "poster_path": "/jgCvTcVmKTMP06WqlOfKywoDfKU.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-lost-boys-bluray-rental-horror",
+    "title": "The Lost Boys",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Lost Boys' (1987))",
+    "candidates": [
+      {
+        "id": 1547,
+        "title": "The Lost Boys",
+        "year": "1987",
+        "overview": "When an unsuspecting town newcomer is drawn to local blood fiends, the Frog brothers and other unlikely heroes gear up to rescue him.",
+        "poster_path": "/nH1lvyQvfbL5GKScTtT6zkIvDEn.jpg"
+      },
+      {
+        "id": 1000563,
+        "title": "The Lost Boys",
+        "year": "2023",
+        "overview": "In a youth correctional facility, Joe is preparing his return to society. But William\u2019s arrival turns his desire for freedom into desire of another kind. Behind fences and cell walls, passions begin to play havoc with the need for liberty.",
+        "poster_path": "/5iLvMitjAswoh33VeAP2jCBAILE.jpg"
+      },
+      {
+        "id": 500645,
+        "title": "The Lost Boys",
+        "year": "1978",
+        "overview": "The story of J.M. Barrie and his relationship with the Llewelyn-Davies family. Barrie writes PETER PAN for the five boys, and later adopts George, Jack, Peter, Michael, and Nicholas.",
+        "poster_path": "/1zClslZc11XjUzAe2hXX0gHOSmK.jpg"
+      },
+      {
+        "id": 102606,
+        "title": "The Lost Boys",
+        "year": "2002",
+        "overview": "Orphaned by the war in Sudan, and raised in a refugee camp in the Kenyan desert, Moses and his young friends are one day invited by the U.S. government to start a new life in Boston.",
+        "poster_path": "/o9mttOjlqATBNJrN40iYIbfwxSC.jpg"
+      },
+      {
+        "id": 1405651,
+        "title": "The Lost Boys",
+        "year": "2025",
+        "overview": "The Lost Boys is an exploration of grief through the lens of film. It aims to stretch the bounds of what we think of the horror genre is capable and aims to tell a story that can only be told with the power of cinema. It's a picture with heart...and perhaps a tear.",
+        "poster_path": "/qVMuCSCs8bceXGm7hVdXJqnL53V.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "candyman-the-fog-terror-train-dvd-rental-horror",
+    "title": "Candyman / The Fog / Terror Train",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "a-simple-plan-bluray-rental-thriller",
+    "title": "A Simple Plan",
+    "vendor": "Blu-Ray",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'A Simple Plan' (1998))",
+    "candidates": [
+      {
+        "id": 10223,
+        "title": "A Simple Plan",
+        "year": "1998",
+        "overview": "Captivated by the lure of sudden wealth, the quiet rural lives of two brothers erupt into conflicts of greed, paranoia and distrust when over $4 million in cash is discovered at the remote site of a downed small airplane. Their simple plan to retain the money while avoiding detection opens a Pandora's box when the fear of getting caught triggers panicked behavior and leads to virulent consequences.",
+        "poster_path": "/wO2gH7DMqpMeHlj5QmDhW4IkgAr.jpg"
+      },
+      {
+        "id": 1038926,
+        "title": "A simple plan",
+        "year": "2012",
+        "overview": "Greece 2011. In an uncertain economic climate, two young people suddenly find themselves out of a job when the owner of the company they work for suddenly declares bankruptcy. With nothing left to lose, they decide to take their destinies into their own hands. All they need is a plan. A simple plan...",
+        "poster_path": "/u54QCvl9m5PR7G48IP8PyVn7K1Z.jpg"
+      },
+      {
+        "id": 406498,
+        "title": "Simple Plan: A Big Package for You",
+        "year": "2003",
+        "overview": "A Big Package for You: 1999-2003 is a DVD/CD by the pop punk band Simple Plan from Montreal, Canada. The band consists of five members Pierre Bouvier, guitarist and lead vocalist, David Desrosiers, bassist and backing vocalist, S\u00e9bastien Lefebvre, rhythm guitarist and backing vocalist, Chuck Comeau, drummer, and Jeff Stinco, lead guitarist.",
+        "poster_path": "/asrQiju9gLvQ6KEkZS1pdtjzgJw.jpg"
+      },
+      {
+        "id": 437667,
+        "title": "Love at First Glance",
+        "year": "2017",
+        "overview": "After journalist Mary Landers is assigned to write a Valentine's Day story about \"The Meaning of Love,\" her long-time boyfriend breaks up with her. On her train ride home, she finds herself trading glances with a handsome stranger who, as he exits the train, leaves his phone behind.",
+        "poster_path": "/q6IbL3Teve159BSGDaUsZ2HNoBn.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "marty-dvd-rental-drama",
+    "title": "Marty",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Marty' (1955))",
+    "candidates": [
+      {
+        "id": 15919,
+        "title": "Marty",
+        "year": "1955",
+        "overview": "Marty, a butcher who lives in the Bronx with his mother, is unmarried at 34. Good-natured but socially awkward, he faces constant badgering from family and friends to get married but has reluctantly resigned himself to bachelorhood. He then meets Clara, an unattractive school teacher. Realising their emotional connection, Marty promises to call, but family and friends try to convince him not to.",
+        "poster_path": "/8tnGO5VoAQII4DbE3hozWKhV4BY.jpg"
+      },
+      {
+        "id": 1559913,
+        "title": "Marty",
+        "year": "",
+        "overview": "Two Idiots. One bag of cash. A whole lot of dead guys.",
+        "poster_path": "/nHi0v82oSsdg3qUDxLyIjJH0pkI.jpg"
+      },
+      {
+        "id": 409952,
+        "title": "Marty",
+        "year": "1953",
+        "overview": "Marty Pilletti is a 36-year-old butcher who lives with his mother, who is always asking him why he doesn't find a nice girl and get married. The truth is Marty is lonely and would like nothing better, but he has low self-esteem and admits to his mother that he's ugly and no one wants him. He's tired of going to the Saturday night dance with his buddies and then going home more depressed than he was when the evening started. But at one of those dances he meets Clara. They have a great deal in common but Marty will have to overcome peer pressure if he and Clara are to have a relationship.",
+        "poster_path": "/1rZfZy4zZbhAX7aY8n29A2oiMDA.jpg"
+      },
+      {
+        "id": 1668918,
+        "title": "Marty",
+        "year": "2020",
+        "overview": "This 7 minute documentary titled MARTY follows an 11 year old 80's obsessed skate punk - stuck in the past while struggling to navigate the present.",
+        "poster_path": ""
+      },
+      {
+        "id": 1193228,
+        "title": "Marty",
+        "year": "2004",
+        "overview": "Over the course of one night, a young messenger in a seedy hotel delivers the fate of several tenants as he relays the messages that will ultimately change their lives forever.",
+        "poster_path": "/uZ6VclmMM7kZOfm8e5kuQOVwAjs.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "those-magnificent-men-in-their-flying-machines-dvd-rental-comedy",
+    "title": "Those Magnificent Men in Their Flying Machines",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Those Magnificent Men in Their Flying Machines or How I Flew from London to Paris in 25 Hours 11 Minutes' (1965))",
+    "candidates": [
+      {
+        "id": 10338,
+        "title": "Those Magnificent Men in Their Flying Machines or How I Flew from London to Paris in 25 Hours 11 Minutes",
+        "year": "1965",
+        "overview": "In order to boost circulation of his newspaper, Lord Rawnsley announces an air race and offers \u00a310,000 to the first person who can fly across the English Channel. But one of the participants, Percy, plots to sabotage his competitor's planes. Will Percy triumph?",
+        "poster_path": "/wcGELNaQ8TbiMUpAnkKLl5g09OO.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "going-my-way-holiday-inn-dvd-rental-musical",
+    "title": "Going My Way / Holiday Inn",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "return-to-me-dvd-rental-romantic-comedy",
+    "title": "Return to Me",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Return to Me' (2000))",
+    "candidates": [
+      {
+        "id": 2621,
+        "title": "Return to Me",
+        "year": "2000",
+        "overview": "Dragged out on a blind date a year after his wife's tragic death, grieving architect Bob Rueland finds an unexpected spark not with his date, but with Grace, the sharp-witted waitress at a lively Irish-Italian restaurant. Unbeknownst to Bob, Grace is the recipient of his late wife's donated heart. As they grow closer, their romance offers the promise of healing and the weight of a secret that could tear them apart.",
+        "poster_path": "/mtYZyZh7hSiTq3gAU0C8FlcMC5.jpg"
+      },
+      {
+        "id": 1183624,
+        "title": "Return to Me",
+        "year": "2022",
+        "overview": "When a young mother, Kelli loses her infant son to SIDS (Sudden Infant Death Syndrome) she severs ties with her life and begins living in her car. Trying to process her grief in isolation, she runs into a teen mother, Esther and the two begin a journey of healing across the American West.",
+        "poster_path": "/4ZOSMR9ZgPtGXpevl0l55sSxaY9.jpg"
+      },
+      {
+        "id": 1374875,
+        "title": "A Return to Memory",
+        "year": "2024",
+        "overview": "When Canada entered World War II, the National Film Board suddenly had an urgent new mission\u2014and hundreds of women stepped forward, helping to create Canadian cinema as we now know it.",
+        "poster_path": "/8tJ9Hf5gaCuwpwbWeUBDyPxGfvW.jpg"
+      },
+      {
+        "id": 1630510,
+        "title": "You Return to Me in My Dreams",
+        "year": "",
+        "overview": "After a breakup marked by violence, Flor tries to rebuild her life as her abuser returns in her dreams in the loving form she needs in order to survive.",
+        "poster_path": ""
+      },
+      {
+        "id": 1005276,
+        "title": "Return to Heavy Metal Basement",
+        "year": "2021",
+        "overview": "Director Jeff Krulik returns to Jim Powell's basement for more heavy metal goodies.",
+        "poster_path": "/eK60v9qSRyuKb1y8aYqa09CbKQ5.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-fighter-dvd-rental-drama",
+    "title": "The Fighter",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Fighter' (2010))",
+    "candidates": [
+      {
+        "id": 45317,
+        "title": "The Fighter",
+        "year": "2010",
+        "overview": "Boxer \"Irish\" Micky Ward's unlikely road to the world light welterweight title. His Rocky-like rise was shepherded by half-brother Dicky, a boxer-turned-trainer who rebounded in life after nearly being KO'd by drugs and crime.",
+        "poster_path": "/xfsFerGhO1h6rLk8vwLgMyQ8WVJ.jpg"
+      },
+      {
+        "id": 1666008,
+        "title": "The Fighter",
+        "year": "1995",
+        "overview": "Tom Grant and his niece Hana are harassed by gangsters in Malaysia to sell their restaurant so that development can be made over it. The gang threaten their lives, so Tom calls on his old friend, a martial arts expert named John Tan, to protect them.",
+        "poster_path": "/3Sh5vaKZIethdXm7reg4MU5cdNE.jpg"
+      },
+      {
+        "id": 146877,
+        "title": "The Fighter",
+        "year": "1983",
+        "overview": "Jacques Darnay has served 8 years for robbing a jeweller. Now he is out of prison and looking for his loot worth 6 million francs.",
+        "poster_path": "/AqjSPW1ExVcVNj95ugRqJcPv8ai.jpg"
+      },
+      {
+        "id": 1748993,
+        "title": "The Fighter",
+        "year": "2026",
+        "overview": "He fights fighters who use their signature move, but refuses to use it first. She doesn't engage in combat at all\u2014until he's defeated. And then one day she'll have to defend herself.",
+        "poster_path": ""
+      },
+      {
+        "id": 247143,
+        "title": "The Fighter",
+        "year": "2013",
+        "overview": "The entire community lives in fear of a quick tempered firebrand who unleashes her fury at the slightest provocation. Almost everybody is relieved when it looks like she is finally about to be married. [parts 1-2]",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "invincible-dvd-rental-drama",
+    "title": "Invincible",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Invincible' (2006))",
+    "candidates": [
+      {
+        "id": 11652,
+        "title": "Invincible",
+        "year": "2006",
+        "overview": "Inspired by the true story of Vince Papale, a man with nothing to lose who ignored the staggering odds and made his dream come true. When the coach of Papale's beloved hometown football team hosted an unprecedented open tryout, the public consensus was that it was a waste of time \u2013 no one good enough to play professional football was going to be found this way.",
+        "poster_path": "/oEaUMn5POAiMLnU6hKOBKoZbDpo.jpg"
+      },
+      {
+        "id": 68569,
+        "title": "Invincible",
+        "year": "2001",
+        "overview": "A Jewish strongman performs in Berlin as the blond Aryan hero Siegfried.",
+        "poster_path": "/vvNDQO2izNk6ytDxFtTr1BP5CxL.jpg"
+      },
+      {
+        "id": 837928,
+        "title": "Invincible",
+        "year": "2025",
+        "overview": "A character-driven comedy drama about neighbourliness and class divisions (or lack thereof); Invincible follows Emily and Oliver \u2013 a liberal, middle-class couple from the South of England \u2013 who move up North to live a cheaper life as the 2012 recession hits, and raise their children among what they term as \u201creal people\u201d. There, they invite their neighbours round for drinks where the evening turns to debates about war, art and football. A microcosm for the wider discussion on class politics and world views.",
+        "poster_path": "/fybd3ih4UMbBnYfnQk1A66tkgoZ.jpg"
+      },
+      {
+        "id": 35216,
+        "title": "Invincible",
+        "year": "2001",
+        "overview": "The Shadow Men are immortal beings of darkness and destruction. One such Shadow Man, Os (Zane), is confronted by the White Warrior, a being of light, and given the chance to change his ways or die. After the White Warrior bests Os in combat, she opens his heart to the power of love, and charges him to find the warriors who are the representation of the five elements and will save the world.",
+        "poster_path": "/tVyc2qLdLBM67BLVah2VPm2tHsS.jpg"
+      },
+      {
+        "id": 844251,
+        "title": "Invincible",
+        "year": "2021",
+        "overview": "A dynamic and emotional story of fighting, passion and sacrifice. From 2016 to 2018, the filmmakers accompanied Joanna Jedrzejczyk, a multiple UFC champion, who at her time conquered the world of female MMA. To stay on top, the Polish fighter has to constantly confront her opponents and her own body, which is forced to make superhuman efforts over and over again. \"Invincible\" reveals the behind-the-scenes fights of modern gladiators, bluntly showing the blood, sweat, tears and overwhelming loneliness that are the price of the road to success in sports on a global scale.",
+        "poster_path": "/oss3pdMXDh9kwoCD9YEqv0hZ1vq.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "i-want-to-live-dvd-rental-drama",
+    "title": "I Want to Live!",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'I Want to Live' (1983))",
+    "candidates": [
+      {
+        "id": 28577,
+        "title": "I Want to Live!",
+        "year": "1958",
+        "overview": "Brazen perpetual offender Barbara Graham tries to go straight but she finds herself implicated in a murder and sent to death row.",
+        "poster_path": "/hufXkmILGy34VXEdQC69etY8Rt4.jpg"
+      },
+      {
+        "id": 561632,
+        "title": "I Want to Live",
+        "year": "1983",
+        "overview": "The movie tells the story of a woman who struggles and fights to escape the gas chamber being condemned with capital punishment because of her participation in a hold up in which a person was killed.",
+        "poster_path": "/soMmM8OKtcGizUpB7s9FzcfSPkQ.jpg"
+      },
+      {
+        "id": 364259,
+        "title": "I Want to Live",
+        "year": "1982",
+        "overview": "Deals with the father-son conflict in a farming family. The two never see eye to eye especially over the way the farm is run. The boy opts for a different way of life and also falls in love with a dumb girl to the horror of his family.",
+        "poster_path": "/i5RurgBp9mvQn1oGBj7RnDKc52L.jpg"
+      },
+      {
+        "id": 282972,
+        "title": "I Want to Live",
+        "year": "1970",
+        "overview": "Rahimah is forced into prostitution by her stepfather. While she solicits at a bar, it is raided by the police. But Rahimah is able to escape thanks to Nor, a sympathetic policeman who takes her into his home. A romance soon blossoms between them, and they begin to yearn for a new life together. However, Rahimah is haunted by her past, and she lives in fear of her stepfather catching up to them.",
+        "poster_path": "/t8AbphxmhhEI6dNZIlgW1BbTD2m.jpg"
+      },
+      {
+        "id": 198025,
+        "title": "I Want to Live",
+        "year": "1977",
+        "overview": "An 11-year-old boy survives a serious car accident but remains mentally and physically disabled for the rest of his life. The film depicts the situation of those affected and the reaction of those around them. It is a call for more humane treatment of people with disabilities.",
+        "poster_path": "/q6v2tR8gp3YiXPiW0YtjHCW4K3I.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "as-good-as-it-gets-dvd-rental-comedy",
+    "title": "As Good as it Gets",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'As Good as It Gets' (1997))",
+    "candidates": [
+      {
+        "id": 2898,
+        "title": "As Good as It Gets",
+        "year": "1997",
+        "overview": "A misanthropic author, a single mother and waitress, and a gay artist form an unlikely friendship after the artist is assaulted in a robbery.",
+        "poster_path": "/xXxuJPNUDZ0vjsAXca0O5p3leVB.jpg"
+      },
+      {
+        "id": 526869,
+        "title": "As Good as It Gets?",
+        "year": "2018",
+        "overview": "What will you lose to win? 'As Good As It Gets?' explores the rebirth of British rugby league side Leeds Rhinos, the team's 'Golden Generation' and the battle for a historic treble in 2015.",
+        "poster_path": "/pdOmn4Z4HQeGPxteWqkwvSYA8ZW.jpg"
+      },
+      {
+        "id": 398162,
+        "title": "ECW As Good As It Gets",
+        "year": "1997",
+        "overview": "\"The Franchise\" Shane Douglas prepares to defend the ECW World Heavyweight Title against \"Ravishing\" Rick Rude's personally selected mystery opponent.  Bam Bam Bigelow introduces Spike Dudley to extreme crowd surfing. Beulah and Fonzie battle in a bloody brawl. Former nemeses \"The Original Gangsta\" New Jack and John Kronus join forces to battle their mutual enemy the Dudley Boys for the ECW World Tag Team Titles. \"The Hardcore Icon\" The Sandman faces \"The Homicidal Suicidal Genocidal Death-Defying Maniac\" Sabu for the first time ever, Jerry Lynn vs. Justin Credible, Chris Candido vs. Lance Storm, and more!",
+        "poster_path": "/iFxPgcXbXoWqiMfeqKYNXNYb9JW.jpg"
+      },
+      {
+        "id": 1419720,
+        "title": "I Hope This isn\u2019t as Good as it Gets",
+        "year": "2024",
+        "overview": "\u201cI Hope This Isn\u2019t as Good as it Gets\u201d Is a queer coming of age story about two boys, Edgar and Britt who attend the same private school. Edgar is a normal student, but Britt is a recluse that no one knows anything about. Edgar becomes fascinated with Britt and the two begin spending time together, sparking a romance. Concurrently, a true narrative, retold by Andor\u2019s mother, is woven into the story about a long ago lost friend. How do these narratives connect?",
+        "poster_path": "/yFUuUI8LbZkbyiPeUoEKGAwOXWW.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "some-like-it-hot-dvd-rental-comedy",
+    "title": "Some Like it Hot",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Some Like It Hot' (1959))",
+    "candidates": [
+      {
+        "id": 239,
+        "title": "Some Like It Hot",
+        "year": "1959",
+        "overview": "In Prohibition-era Chicago, musicians Joe and Jerry witness a mob hit, and flee the state in an all-female band disguised as Josephine and Daphne, but further complications set in.",
+        "poster_path": "/hVIKyTK13AvOGv7ICmJjK44DTzp.jpg"
+      },
+      {
+        "id": 433605,
+        "title": "Some Like It Hot",
+        "year": "2016",
+        "overview": "After the unexpected death of his best friend, a man examines his life and finds it incredibly lonely.  Inspired by an encounter with a beautiful and sexy model, he embarks with his three friends on what turns out to be a crazy (and slightly stupid) endeavor on a path towards fulfillment.",
+        "poster_path": "/zjSlDMCCnus3q5aFrPbYwBAm7nx.jpg"
+      },
+      {
+        "id": 160688,
+        "title": "Some Like It Hot",
+        "year": "1939",
+        "overview": "Nicky Nelson is a fast-talking sideshow barker with a wax-and-alive concession on Atlantic City's boardwalk. Even with the band of his friend, struggling musician Gene Krupa, playing on the sidewalk to attract the customers, \"The Living Corpse\" and other low-rent acts aren't enough to lure the seen-it-all boardwalk strollers, and the landlord closes the show in lieu of never-paid rent. Nicky, always promoting, goes to Stephen Hanratty, head of the pier's Dance Pavilion, to plug Krupa's band as an attraction, but Hanratty won't even listen to them. But, while there, he meets singer Lily Racquel, who knows he is a phoney but might have the ability to to talk a radio-station manager into giving her an audition. She gives him a ring to help finance the project; he promptly loses it in a crap-game.",
+        "poster_path": "/aEB2laTOrdLc4ng76UjCsznlAia.jpg"
+      },
+      {
+        "id": 496723,
+        "title": "Some Like it Hot",
+        "year": "1964",
+        "overview": "Two musicians witness a mob hit and need to quickly find a way out of city. Their only opportunity comes in the form of joining an all-girl band as they prepare to leave on a tour. The two disguise themselves as women and struggle to keep their identities secret as the gangsters close in.",
+        "poster_path": "/6K1RrMofh4v29mch7J01ai6Mkar.jpg"
+      },
+      {
+        "id": 1033802,
+        "title": "Some Like It Hot",
+        "year": "1991",
+        "overview": "Detective investigates a murder connected to cocaine in a coin locker",
+        "poster_path": "/2RjUQMkZvsLaIfBzhqQf26sG0Jc.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "head-of-state-dvd-rental-comedy",
+    "title": "Head of State",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Head of State' (2003))",
+    "candidates": [
+      {
+        "id": 9776,
+        "title": "Head of State",
+        "year": "2003",
+        "overview": "When a presidential candidate dies unexpectedly in the middle of the campaign, the Democratic party unexpectedly picks a Washington, D.C. alderman as his replacement.",
+        "poster_path": "/5itBve85q2oXmiQ3SkgCJa5Asxq.jpg"
+      },
+      {
+        "id": 575279,
+        "title": "Head of State",
+        "year": "2016",
+        "overview": "An unemployed journalist keeps blaming everyone but himself for problems in his love life and bad policies of the country only to find out what he can change when he becomes the President.",
+        "poster_path": "/uXbcY0mAbtzyqL1vwNK7j43pd3B.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "miracle-dvd-rental-drama",
+    "title": "Miracle",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Miracle' (2004))",
+    "candidates": [
+      {
+        "id": 14292,
+        "title": "Miracle",
+        "year": "2004",
+        "overview": "When college coach Herb Brooks is hired to helm the 1980 U.S. men's Olympic hockey team, he brings a unique and brash style to the ice. After assembling a team of hot-headed college all-stars, who are humiliated in an early match, Brooks unites his squad against a common foe: the heavily-favored Soviet team.",
+        "poster_path": "/mxtej2th8t8x0ufVBTyhsO6Htxj.jpg"
+      },
+      {
+        "id": 472612,
+        "title": "Miracle",
+        "year": "2018",
+        "overview": "Close to bankruptcy, Irena, the owner of a struggling pig farm in a tiny post-Communist town, finds a surprising benefactor in a handsome American man who appears to be the answer to all her prayers.",
+        "poster_path": "/qrIaVhMlGhcQEN8WMPSPkIp280l.jpg"
+      },
+      {
+        "id": 201447,
+        "title": "Miracle",
+        "year": "2000",
+        "overview": "What do you do if you're twelve years old, your mum is a neurotic babbler, your best friend is hitting on the girl you love, and you're the only guy in your class who doesn't yet sport pubes ...? For Dennis P. there's only one way out - pray. In this musical adventure the miracle comes in the shape of an angel clone looking suspiciously like Dennis P.'s late father. The angel issues Dennis P. with a license to perform medium grade miracles, but there's a string attached - Dennis P. must stop using swearwords. Dennis P. throws himself into readjusting his existence. But one miracle leads to another, and the 'adjustments' lead to grotesque consequences.",
+        "poster_path": "/vdslIUUISjOD4ZwFzNhH0HotsPL.jpg"
+      },
+      {
+        "id": 640122,
+        "title": "Miracle",
+        "year": "1975",
+        "overview": "Over the course of several months, a young pregnant woman as she becomes slowly acquainted with the joys and responsibilities of motherhood.",
+        "poster_path": ""
+      },
+      {
+        "id": 160571,
+        "title": "Miracle",
+        "year": "2006",
+        "overview": "Karsten (35) is at a standstill. He has been since his wife died four years ago. He thinks he's fine, until he meets what could be the love of his life - but isn't she all what he despises in a woman?",
+        "poster_path": "/zjTCnNXvJ8DhDh0oUvDOTsZjvdX.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "jekyll-hyde-1995-vhs-rental-horror",
+    "title": "Jekyll & Hyde (1995)",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Dr. Jekyll and Ms. Hyde' (1995))",
+    "candidates": [
+      {
+        "id": 37019,
+        "title": "Dr. Jekyll and Ms. Hyde",
+        "year": "1995",
+        "overview": "A scientist creating perfumes inherits his great grandfather Dr. Jekyll's formula and decides to use modern technology to improve it. He ends up as an ambitious, ruthless woman. She tries to prevent returning into the spineless man.",
+        "poster_path": "/jSfC0KyRdP2BypWydrEcXOskfvH.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "dr-strangelove-vhs-rental-comedy",
+    "title": "Dr. Strangelove",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'National Theatre Live: Dr. Strangelove' (2025))",
+    "candidates": [
+      {
+        "id": 1401957,
+        "title": "National Theatre Live: Dr. Strangelove",
+        "year": "2025",
+        "overview": "Seven-time BAFTA Award-winner Steve Coogan plays four roles in the world premiere stage adaptation of Stanley Kubrick\u2019s comedy masterpiece Dr. Strangelove.  This explosively funny satire, about a rogue U.S General who triggers a nuclear attack. Based on the motion picture directed by Stanley Kubrick, screenplay by Stanley Kubrick, Terry Southern and Peter George, based on the book 'Red Alert' by Peter George.",
+        "poster_path": "/8ByhKl8Foe5jtqyqyZqa3EbeNGZ.jpg"
+      },
+      {
+        "id": 480218,
+        "title": "Best Sellers or: Peter Sellers and 'Dr. Strangelove'",
+        "year": "2004",
+        "overview": "Documentary about actor Peter Sellers and one of his most memorable film roles.",
+        "poster_path": "/bcOzioOqXW751AaJCOCqPc0kS8z.jpg"
+      },
+      {
+        "id": 935,
+        "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+        "year": "1964",
+        "overview": "After the insane General Jack D. Ripper initiates a nuclear strike on the Soviet Union, a war room full of politicians, generals and a Russian diplomat all frantically try to stop it.",
+        "poster_path": "/gHm96BRW4GoI339rF1vYoYTB6Qe.jpg"
+      },
+      {
+        "id": 196733,
+        "title": "No Fighting in the War Room Or: 'Dr Strangelove' and the Nuclear Threat",
+        "year": "2004",
+        "overview": "A documentary exploring the historical concept of the narrative of Stanley Kubrick's 1964 film \"Dr. Strangelove Or: How I Learned to Stop Worrying and Love The Bomb.\" This short documentary compares the film with the actual events concerning the Cold War and the Cuban Missle Crisis.",
+        "poster_path": "/wO3DpTA8MHWiMTd6wEucjDyg4QW.jpg"
+      },
+      {
+        "id": 196738,
+        "title": "Inside: 'Dr. Strangelove or How I Learned to Stop Worrying and Love the Bomb'",
+        "year": "2000",
+        "overview": "A documentary on the making of Stanley Kubrick's classic 1964 film.",
+        "poster_path": "/atV2c2BseV2hrg2J44C4NjE9K9f.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "cash-crop-vhs-rental-comedy",
+    "title": "Cash Crop",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Cash Crop' (2010))",
+    "candidates": [
+      {
+        "id": 1554842,
+        "title": "Cash Crop",
+        "year": "2012",
+        "overview": "A simple score: when the loop is one frame long, it plays only once; when it is two frames long, it plays twice; three frames, three times; and so on. Space compresses but time stretches under this operation and instead of going nowhere, the repetition suggests infinity. As Dziga Vertov once said, there is time inside of time.  Merle Haggard was in the audience when Johnny Cash and Carl Perkins played this song, Folsom Prison Blues, at San Quentin. Carl Perkins' locomotive guitar solo gets caught up in the gears of this video and stretches like a penny on a rail under the weight of a passing train.",
+        "poster_path": "/dFMHdLmf2CmRr0hrCKTgbOk2a1H.jpg"
+      },
+      {
+        "id": 253661,
+        "title": "Cash Crop",
+        "year": "2010",
+        "overview": "Undercover for nearly 2 years, award winning director and musician, Adam Ross is finally going public with his latest film.  CASH CROP is a feature length documentary road trip throughout California to the Emerald Triangle and the heart of the American Dream exploring America\u2019s largest cash crop: marijuana.",
+        "poster_path": "/iZqrDEuD7ANNg0Uh0w9FX5TeOc8.jpg"
+      },
+      {
+        "id": 107946,
+        "title": "Harvest",
+        "year": "1999",
+        "overview": "A DEA agent and a local sheriff have to wrestle with their consciences as they start raids on local farmers, who have started growing marijuana simply to keep their farms operational. Story focuses on a young man, who accidentally discovers that his straight-laced parents are involved in the marijuana cultivation.",
+        "poster_path": "/6OItrKbjICG0aEpCBJYoeLckSuV.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "tommy-vhs-rental-musical",
+    "title": "Tommy",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Tommy' (1975))",
+    "candidates": [
+      {
+        "id": 11326,
+        "title": "Tommy",
+        "year": "1975",
+        "overview": "After a series of traumatic childhood events, a psychosomatically deaf, dumb and blind boy becomes a master pinball player and the object of a religious cult.",
+        "poster_path": "/pAImVnqBJwoFAKrcpAe17JjLGUs.jpg"
+      },
+      {
+        "id": 730961,
+        "title": "Tommy",
+        "year": "2015",
+        "overview": "Viswam Master finds an abandoned dog on a railway platform and adopts it. Initially, his wife disapproves but soon accepts the dog who becomes an important member of his family and is named Tommy.",
+        "poster_path": "/8x0tJsZ4cPfQavrv08pLVQR5i0p.jpg"
+      },
+      {
+        "id": 232564,
+        "title": "Tommy",
+        "year": "2010",
+        "overview": "Tommy Seebach Mortensen; or just Tommy Seebach to the whole nation; were born in Copenhagen in 1949 and passed away far too early in 2003.  \"Tommy\" received four stars out of six by Politiken,[6] Berlingske Tidende[7] and Ekstra Bladet;[8] B.T. awarded it six stars out of six.[9] Dagbladet Information described it as \"... a story of an artist who became a victim of the musical genre which he himself had helped innovate, and who, instead of gaining the broad recognition he had longed for his entire life, ended up with a status somewhere in between national heritage and kitsch clown...\"[10] Politiken called the film \"worthy, worth seeing and moving\", Ekstra Bladet \"a moving portrait of a man caught between the music, his family and the bottle\".",
+        "poster_path": "/A9pp1FRdynQ7rM9WxzaFyb4XGdy.jpg"
+      },
+      {
+        "id": 202418,
+        "title": "Tommy",
+        "year": "2007",
+        "overview": "Arild runs into the father of his former class mate Kjell in the mountains. Controversy from the past unfolds during this brief meeting.",
+        "poster_path": ""
+      },
+      {
+        "id": 259416,
+        "title": "Tommy",
+        "year": "2014",
+        "overview": "After a year abroad Estelle returns home to collect her husband's share of the loot from a major robbery.",
+        "poster_path": "/slzDmA4mMA1mj28JX594ogdtZ1.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "star-wars-the-empire-strikes-back-special-edition-vhs-rental-sci-fi",
+    "title": "Star Wars: The Empire Strikes Back Special Edition",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Empire Strikes Back' (1980))",
+    "candidates": [
+      {
+        "id": 1891,
+        "title": "The Empire Strikes Back",
+        "year": "1980",
+        "overview": "The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.",
+        "poster_path": "/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "star-wars-return-of-the-jedi-vhs-rental-sci-fi",
+    "title": "Star Wars: Return of the Jedi",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Return of the Jedi' (1983))",
+    "candidates": [
+      {
+        "id": 1892,
+        "title": "Return of the Jedi",
+        "year": "1983",
+        "overview": "Luke Skywalker leads a mission to rescue his friend Han Solo from the clutches of Jabba the Hutt, the Emperor prepares to crush the Rebellion with a more powerful Death Star, and the Rebel fleet mounts a massive attack on the space station. Luke Skywalker confronts Darth Vader in a final climactic duel before the evil Emperor.",
+        "poster_path": "/jQYlydvHm3kUix1f8prMucrplhm.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "casino-vhs-rental-drama",
+    "title": "Casino",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Casino' (1995))",
+    "candidates": [
+      {
+        "id": 524,
+        "title": "Casino",
+        "year": "1995",
+        "overview": "In Las Vegas, two best friends--a casino executive and a Mafia enforcer--compete for a gambling empire and a fast-living, fast-loving socialite.",
+        "poster_path": "/gziIkUSnYuj9ChCi8qOu2ZunpSC.jpg"
+      },
+      {
+        "id": 190790,
+        "title": "Casino",
+        "year": "1998",
+        "overview": "It was the summer of 1991, Macau was in violent atmosphere.",
+        "poster_path": "/xd5EXADasXB434vnHoeU9pCVAbp.jpg"
+      },
+      {
+        "id": 940242,
+        "title": "Casino",
+        "year": "1980",
+        "overview": "Mike Connors is a suave gambler who owns a floating hotel/casino which takes a turn when the passengers are stalked by a saboteur during the casino ship's maiden voyage.",
+        "poster_path": "/68SnA6Wbw3pRvcjrXC5HMguuLSi.jpg"
+      },
+      {
+        "id": 262327,
+        "title": "Casino",
+        "year": "1992",
+        "overview": "",
+        "poster_path": "/nexA5N2ZGlTjF1gI5WqQQTblUPd.jpg"
+      },
+      {
+        "id": 187382,
+        "title": "The Casino",
+        "year": "1972",
+        "overview": "A handsome stranger strolls into a casino one evening and all but cleans out the house, beating 160-1 odds at dice by getting three of a kind. He informs beautiful proprietress Miss Cui that he actually came there for her and reveals himself as her betrothed, Luo Tianguang. The couple wed, but their bliss is interrupted when Luo agrees to help old friend Lun Liu defeat crooked gambler Hao Lishan, who uses rigged dice.",
+        "poster_path": "/cbP1SDPKpMrje9cqHJv36Rn2Kqg.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "gossip-vhs-rental-thriller",
+    "title": "Gossip",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Gossip' (2000))",
+    "candidates": [
+      {
+        "id": 18041,
+        "title": "Gossip",
+        "year": "2000",
+        "overview": "For a class project, three college students decide to invent an unfounded rumor about the most popular girl on campus. But as the rumor spreads, it begins to spiral out of control.",
+        "poster_path": "/1fyQiQyBFlqjeqgT6sAEh5vo4Fe.jpg"
+      },
+      {
+        "id": 1719646,
+        "title": "Gossip",
+        "year": "2026",
+        "overview": "A soul-stirring tale of Ajanta, a girl next door with great aspirations to become a musician (Veena player) and hoping for a joyful future filled with abundant happiness. Unexpectedly, her life turns upside down, caused by an ugly gossip",
+        "poster_path": ""
+      },
+      {
+        "id": 1125474,
+        "title": "Gossip",
+        "year": "2011",
+        "overview": "\u00a0Rebecca gazes into the crystal ball. It is afternoon in a Brooklyn neighborhood of industrial buildings. Rebecca has a way with words just as words have a way of seeking her out. The crystal ball intensifies this. The A train rumbles over the Manhattan Bridge. Rebecca gazes into the crystal ball. Nighttime in a suburban neighborhood of burnt out buildings. Words have a way with Rebecca just as Rebecca has a way of seeking them out. The crystal ball intensifies this. Shot using analog video equipment from the early Seventies, Gossip is the second in a series of works stepping into the mystic beyond which encircles us on every side.",
+        "poster_path": "/zpwGgKYAGPIdUhtfC6NW1j9UdEP.jpg"
+      },
+      {
+        "id": 1455473,
+        "title": "Gossip",
+        "year": "",
+        "overview": "East Anglia, 1584. When a young woman goes into labour a group of women, led by the local midwife, gather to guide her through the trials of labour. But as they celebrate the safe arrival of new life, a greater danger arrives at the door. A 16th century tale of community, power and resistance. Gossip tells the untold story of witches as they really were - midwives, healers, women with knowledge and power.",
+        "poster_path": "/7cQHPc5x9L4ObhGkL744Sg9GUCO.jpg"
+      },
+      {
+        "id": 618816,
+        "title": "Gossip",
+        "year": "1923",
+        "overview": "Hiram Ward, a cynical businessman, is having trouble with his employees when Caroline Weatherbee arrives and claims to be a distant relative. Her natural charm brings about a peaceful settlement of a strike, but she returns to her southern home for fear of bringing scandal to Hiram.",
+        "poster_path": "/kknUVCMkLa4JILkdLTo4oeWu6gR.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "deadly-china-hero-vhs-rental-action",
+    "title": "Deadly China Hero",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Last Hero in China' (1993))",
+    "candidates": [
+      {
+        "id": 18731,
+        "title": "Last Hero in China",
+        "year": "1993",
+        "overview": "Jet Li stars in this comic spectacle as a Chinese \"Robin Hood\" who stumbles upon a kidnapping scheme after unwittingly opening a martial arts school next to a brothel!",
+        "poster_path": "/v8uCNayRX5mCgvRwhUVE24qtpnN.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-hand-that-rocks-the-cradle-vhs-rental-thriller",
+    "title": "The Hand That Rocks The Cradle",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Hand That Rocks the Cradle' (1992))",
+    "candidates": [
+      {
+        "id": 11087,
+        "title": "The Hand That Rocks the Cradle",
+        "year": "1992",
+        "overview": "A suburban family chooses seemingly sweet Peyton Flanders as their newborn's nanny. Only much later does the infant's mother, Claire Bartel, realize Peyton's true intentions -- to destroy Claire and replace her in the family. The nail-biting suspense builds quickly in this chilling psychological thriller about deception and bitter revenge.",
+        "poster_path": "/1fBnyO3SbNBplck45js6O4pQaLw.jpg"
+      },
+      {
+        "id": 1362315,
+        "title": "The Hand That Rocks the Cradle",
+        "year": "2025",
+        "overview": "Suburban couple Caitlin and Miguel hire the seemingly sweet Polly to take care of their newborn baby. But Polly's true motives have little to do with singing lullabies.",
+        "poster_path": "/qnLwCl7HPprx3OQCPXHIRZXOfPw.jpg"
+      },
+      {
+        "id": 566189,
+        "title": "The Hand That Rocks the Cradle",
+        "year": "1917",
+        "overview": "A doctor's wife is arrested for educating impoverished women about birth control.",
+        "poster_path": "/qAoSAkysST2Z7IyI166ATjJAaf0.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "habitat-vhs-rental-sci-fi",
+    "title": "Habitat",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Habitat' (1997))",
+    "candidates": [
+      {
+        "id": 1175375,
+        "title": "Habitat",
+        "year": "2023",
+        "overview": "",
+        "poster_path": "/vA0CsPsYnzIdJRL53kKUP0fjqBd.jpg"
+      },
+      {
+        "id": 59309,
+        "title": "Habitat",
+        "year": "1997",
+        "overview": "In order to combat the damage caused by the depletion of the ozone layer, maverick biologist Hank Symes unleashes his most ambitious experiment to date: accelerated evolution. Unfortunately, this not only causes the authorities to take notice, but also creates a backlash from his new neighbors--leaving his son caught in the middle.",
+        "poster_path": "/cgAze8iOWRpEzYc1QHbhXqQQI5n.jpg"
+      },
+      {
+        "id": 362319,
+        "title": "Habitat",
+        "year": "2014",
+        "overview": "\"It\u2019s not until we arrive at Habitat does the wandering eye of Ratt\u00e9\u2019s interlocuteur find respite in a cascading curved form soaked in the color of a pale sunset. The revelation of this habitat creates a visual serenity rarely found within the quivering feedback lines previously employed in Ratt\u00e9\u2019s work. The simplicity and exactness of the vertical lines that dance across the screen in Habitat suggest a kind of transcendental arrival at a near-perfect modular frequency where the input and output harmonize. These lines are pulled back like stage curtains to expose once more the gleaming horizon, this time delicately tinged with a rainbow spectrum created from gamma ramped signal saturation.\"  - Nicholas O'Brien",
+        "poster_path": ""
+      },
+      {
+        "id": 811652,
+        "title": "HABITAT",
+        "year": "2021",
+        "overview": "In a dead-end room lives a slave of the system, addicted to the computer mouse and a reality show that never ends. Obsessed with an illusion, his dream is to go to the paradise that he has seen in a TV commercial...with just a flick of a finger.",
+        "poster_path": "/m9zg9vRkv67ms7MzyxFLOyBvEG7.jpg"
+      },
+      {
+        "id": 430784,
+        "title": "Habitat",
+        "year": "2016",
+        "overview": "A humorous examination of the concept of home, based on the dual definition of the word \"habitat\".",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "storm-of-the-century-vhs-rental-horror",
+    "title": "Storm of the Century",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'National Geographic's Storm of the Century' (1998))",
+    "candidates": [
+      {
+        "id": 1096624,
+        "title": "National Geographic's Storm of the Century",
+        "year": "1998",
+        "overview": "The storm of 1993 that ravaged the Eastern Seaboard was bigger than any since the 1800s. Most were expecting only more unseasonable warmth, and were caught off-guard by the hurricane winds, massive thunderstorms, and fierce blizzards. Meteorologists puzzled over bizarre reports from their computers. Late warnings went largely unheard. Video footage from Florida to Maine documents nature's savagery.",
+        "poster_path": "/aN7WiR2exEaL9OHgNgQvQOukWv1.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-arrival-vhs-rental-sci-fi",
+    "title": "The Arrival",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Arrival' (1996))",
+    "candidates": [
+      {
+        "id": 10547,
+        "title": "The Arrival",
+        "year": "1996",
+        "overview": "Zane Ziminski is an astrophysicist who receives a message that seems to have extraterrestrial origins. Eerily soon after his discovery, Zane is fired. He then embarks on a search to determine the origins of the transmission that leads him into a Hitchcockian labyrinth of paranoia and intrigue.",
+        "poster_path": "/4H3VwvIQC1dsMFb2DEGZpbS0JiI.jpg"
+      },
+      {
+        "id": 401867,
+        "title": "The Arrival",
+        "year": "2016",
+        "overview": "Anna contemplates a big decision while waiting for someone in a cafe.",
+        "poster_path": "/gZtE2nBLYfCuHyqC9ZmMvmwlsFd.jpg"
+      },
+      {
+        "id": 1567483,
+        "title": "The Arrival",
+        "year": "",
+        "overview": "As two long-lost blood brothers grow closer, seduced by the idea of their shared history finally making sense, they must confront the uncomfortable truths at the heart of their family, and the impossible decision that their parents made thirty years ago.",
+        "poster_path": ""
+      },
+      {
+        "id": 286362,
+        "title": "The Arrival",
+        "year": "1980",
+        "overview": "Primitive human Zan learns of his past and future lives when he discovers a spaceship.",
+        "poster_path": "/hP4lOLSr35kkOsZNkL1v3DFqRI5.jpg"
+      },
+      {
+        "id": 617810,
+        "title": "The Arrival",
+        "year": "1965",
+        "overview": "\"UIjez\" shows the events in the then Kosovo, that is, the process of industrialization and modernization that symbolizes the arrival of excavators and other construction machinery.",
+        "poster_path": "/jpwtSeRlUShZsd2I22O32X5NHuX.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "crime-of-honor-vhs-rental-drama",
+    "title": "Crime of Honor",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Twilight of Honor' (1963))",
+    "candidates": [
+      {
+        "id": 138990,
+        "title": "Twilight of Honor",
+        "year": "1963",
+        "overview": "A young lawyer defends a drifter accused of a murder that he has already confessed to. He asks his mentor, a retired, legendary lawyer for help.",
+        "poster_path": "/fPDLLkGllhpderQf9YWZ9Le6utm.jpg"
+      },
+      {
+        "id": 374741,
+        "title": "A Song for Europe",
+        "year": "1985",
+        "overview": "Steven Dyer, an executive working for a giant multinational drugs company, decides to report his employer for breaches of Common Market trading regulations. One night in Basle, Switzerland, he leaves his home to post a letter, the start of a nightmare journey that leads to terrible consequences for his life, his career and for his wife and children.",
+        "poster_path": "/43Zzaxcj2vIX8RZr9Mmg5OqYg2w.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "deadlock-vhs-rental-action",
+    "title": "Deadlock",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Deadlock' (2021))",
+    "candidates": [
+      {
+        "id": 718949,
+        "title": "Deadlock",
+        "year": "2021",
+        "overview": "Mack is a former soldier who, after the war, moved to a town with a nuclear power plant, where nearly everybody works. Life is peaceful for him there, until a gang of mercenaries led by Ron storm the reactor and take everybody hostage, including a group of children on a school trip. Now Mack is in a race against the clock and must use his military training to defeat Ron before he puts the reactor into meltdown. Along the way he discovers Ron\u2019s motive, which unravels a greater secret Mack\u2019s town is hiding.",
+        "poster_path": "/nNZOJnWWaCnfst7LIU8dOuB9h8q.jpg"
+      },
+      {
+        "id": 79830,
+        "title": "Deadlock",
+        "year": "1970",
+        "overview": "After pulling off a bank robbery two bandits meet in a deserted mining town to divide their loot but an old miner tries to steal it from them.",
+        "poster_path": "/zf84Uh1bYMxH7E2mkgMReDS0YXm.jpg"
+      },
+      {
+        "id": 640928,
+        "title": "Deadlock",
+        "year": "1989",
+        "overview": "A government secured defense plant is infiltrated by a group of mercenaries to steal the secret new weapon at any cost. A bloody battle is fought and there's only one chance for survival. It's kill or be killed.",
+        "poster_path": "/tI1iQocrv0AFOwefNoDAJg6Oobp.jpg"
+      },
+      {
+        "id": 1248727,
+        "title": "Deadlock",
+        "year": "2021",
+        "overview": "The world is on lockdown and tomorrow isn't promised. Unemployed Jaleah Capri is unexpectedly stuck in a house with her feuding ex, Ray Montgall, and her new fianc\u00e9, Captain Perry. As the night progresses, the danger outside becomes no comparison to the chaos that advances behind closed doors.",
+        "poster_path": "/k6SsX0yhEut1gABQM5qnVG43yo2.jpg"
+      },
+      {
+        "id": 1439424,
+        "title": "Deadlock",
+        "year": "2025",
+        "overview": "The film takes place in Chernihiv in the first days of the full-scale Russian invasion of Ukraine. A group of people of different ages and social status find themselves in the basement of a high-rise building, where they are hiding from shelling. After the explosion, the entrance is blocked and everyone stays in the basement for 7 days, facing hunger and constant danger. Under the pressure of fear and uncertainty of who will find them \u2014 the Ukrainian army or the Russians \u2014 people are divided into warring groups.",
+        "poster_path": "/3seUYbIrmM0qXoKUfFsi3jUkbQl.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "star-wars-the-phantom-menace-vhs-rental-sci-fi",
+    "title": "Star Wars The Phantom Menace",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Star Wars: Episode I - The Phantom Menace' (1999))",
+    "candidates": [
+      {
+        "id": 1893,
+        "title": "Star Wars: Episode I - The Phantom Menace",
+        "year": "1999",
+        "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.",
+        "poster_path": "/6wkfovpn7Eq8dYNKaG5PY3q2oq6.jpg"
+      },
+      {
+        "id": 1152950,
+        "title": "The Making of Star Wars - The Phantom Menace",
+        "year": "2020",
+        "overview": "Making of Star Wars - The Phantom Menace (1999). This video is not an official product. It was created and edited by a team of dedicated fans of Lucasfilm. The footage used are the webisodes and featurettes officially released by Lucasfilm. All rights to any material used remain courtesy of their respective owners.",
+        "poster_path": ""
+      },
+      {
+        "id": 65083,
+        "title": "The Beginning: The Making of Star Wars Episode I",
+        "year": "2001",
+        "overview": "The entire process of making Star Wars: Episode I - The Phantom Menace (1999) is shown here in this documentary. From pre-production through post-production, we get to see visual effects meetings, John Williams' music sessions, and even the storm that wiped out the pod-racers & props.",
+        "poster_path": "/4V1ShqTlDamTbFtbAA9JEUTFI9h.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "lost-in-space-vhs-rental-sci-fi",
+    "title": "Lost in Space",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Lost in Space' (1998))",
+    "candidates": [
+      {
+        "id": 2157,
+        "title": "Lost in Space",
+        "year": "1998",
+        "overview": "The prospects for continuing life on Earth in the year 2058 are grim. So the Robinsons are launched into space to colonize Alpha Prime, the only other inhabitable planet in the galaxy. But when a stowaway sabotages the mission, the Robinsons find themselves hurtling through uncharted space.",
+        "poster_path": "/fCocPDUFuKswY2GxDdfYsT9BXMd.jpg"
+      },
+      {
+        "id": 577902,
+        "title": "Lost in Space",
+        "year": "1973",
+        "overview": "An animated version of the much loved 1960's TV series. This time the Jupiter 2 is a space shuttle on its way from Earth to Saturn, commanded by Commander Craig Robinson and crewed by Robon the robot. The passengers are Linc Robinson, Craig's brother, Geologist Deanna Carmichael and Professor of Biology, Dr. Zachary Smith, who is not a stowaway this time. During the flight they are caught in a meteor storm sending them through a space warp, causing them to be \"lost in space\". Nearing an inhabited planet they come under attack forcing them to make a crash landing where they find two alien races, but are they friendly?",
+        "poster_path": "/5hfjT3ws62Drk3x2SNC3kbVsJa1.jpg"
+      },
+      {
+        "id": 1394056,
+        "title": "Lost in Space",
+        "year": "2010",
+        "overview": "",
+        "poster_path": "/mM87SUEQQCuEm82qgKQJEkTicEp.jpg"
+      },
+      {
+        "id": 620244,
+        "title": "Lost in Space",
+        "year": "2019",
+        "overview": "An astronaut's wife realizes he has changed after he returns from a famous space mission.",
+        "poster_path": "/jZVnCuSbgZ7O6SENVPKfbN75dUH.jpg"
+      },
+      {
+        "id": 1261171,
+        "title": "Lost in Space",
+        "year": "2023",
+        "overview": "",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "hannibal-vhs-rental-thriller",
+    "title": "Hannibal",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Hannibal' (2001))",
+    "candidates": [
+      {
+        "id": 9740,
+        "title": "Hannibal",
+        "year": "2001",
+        "overview": "After having successfully eluded the authorities for years, Hannibal peacefully lives in Italy in disguise as an art scholar. Trouble strikes again when he's discovered leaving a deserving few dead in the process. He returns to America to make contact with now disgraced Agent Clarice Starling, who is suffering the wrath of a malicious FBI rival as well as the media.",
+        "poster_path": "/v5wAZwRqpGWmyAaaJ8BBHYuNXnj.jpg"
+      },
+      {
+        "id": 169818,
+        "title": "Hannibal",
+        "year": "1959",
+        "overview": "A Carthaginian general attempts to cross the Alps with an army of elephants in order to conquer Rome.",
+        "poster_path": "/3KGA7vHcdcNiEQG4WADCUcYuhAr.jpg"
+      },
+      {
+        "id": 388859,
+        "title": "Hannibal",
+        "year": "1972",
+        "overview": "A young man happens upon a strange, isolated village which is oppressively ruled by foreign soldiers. When he tries to inquire into what is going on, he is forced to flee to an island where a renegade medical doctor tries to force him into submission.",
+        "poster_path": "/3dnBp9NlOpz8LNN9yUw2qpI2YZz.jpg"
+      },
+      {
+        "id": 1050455,
+        "title": "Hannibal",
+        "year": "2017",
+        "overview": "A film about the Yakut rock musician Gavril Kolesov - Hannibal.",
+        "poster_path": "/g3dQdDXlYP5MBfJTasCVsvhIwyU.jpg"
+      },
+      {
+        "id": 1248,
+        "title": "Hannibal Rising",
+        "year": "2007",
+        "overview": "The story of the early, murderous roots of the cannibalistic killer, Hannibal Lecter \u2013 from his hard-scrabble Lithuanian childhood, where he witnesses the repulsive lengths to which hungry soldiers will go to satiate themselves, through his sojourn in France, where as a medical student he hones his appetite for the kill and learnt sword skills from his Japanese girlfriend, who happened to have similar fate",
+        "poster_path": "/7FTDMQoac0uqJUquZk4KenDzLMZ.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "cult-of-fury-vhs-rental-horror",
+    "title": "Cult of Fury",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Disaster' (2003))",
+    "candidates": [
+      {
+        "id": 73685,
+        "title": "Disaster",
+        "year": "2003",
+        "overview": "When the girlfriend of a cult leader tries to leave the flock, she finds escape to be more difficult than she imagined.",
+        "poster_path": "/tK7JhKmLxVXuwPntiChm52aielT.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "rampage-1993-vhs-rental-thriller",
+    "title": "Rampage (1993)",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'WWE UK Rampage '93' (1993))",
+    "candidates": [
+      {
+        "id": 1570551,
+        "title": "WWE UK Rampage '93",
+        "year": "1993",
+        "overview": "Emanating from the Sheffield Arena in Sheffield, England; matches include Lex Luger vs. \"Hacksaw\" Jim Duggan in the main event; Crush challenges Shawn Michaels for the Intercontinental Championship; Bobby \"The Brain\" Heenan interviews Yokozuna.",
+        "poster_path": "/8xPtTYMZJdmdvGakgoiBC9znxpA.jpg"
+      },
+      {
+        "id": 212932,
+        "title": "WWE U.K. Rampage 1993",
+        "year": "1993",
+        "overview": "WWE U.K. Rampage 1993 was an event produced by World Wrestling Federation. It took place on April 11, 1993 at the Sheffield Arena in Sheffield, England.",
+        "poster_path": "/1PaEBxMDDhIt1XJLy5VOwEXWe8x.jpg"
+      },
+      {
+        "id": 404336,
+        "title": "Woman Killer's Rampage",
+        "year": "1993",
+        "overview": "One man's infidelity leads to a wife's scorn and finally a woman's killer.",
+        "poster_path": "/8PCQenSMLWrzUUO01B39bvIBYMM.jpg"
+      },
+      {
+        "id": 1325765,
+        "title": "WWF European Rampage 1993",
+        "year": "1993",
+        "overview": "WWF European Rampage - Milan, Italy - April 25, 1993. Bret Hart vs. Bam Bam Bigelow, The Bushwhackers vs. The Beverly Brothers, Tatanka vs. Papa Shango, Undertaker vs. Yokozuna and much much more.",
+        "poster_path": "/sYrURnNAGx6hX5vOc2aJoFXiFB9.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "star-wars-attack-of-the-clones-vhs-rental-sci-fi",
+    "title": "Star Wars Attack of the Clones",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Star Wars: Episode II - Attack of the Clones' (2002))",
+    "candidates": [
+      {
+        "id": 1894,
+        "title": "Star Wars: Episode II - Attack of the Clones",
+        "year": "2002",
+        "overview": "Following an assassination attempt on Senator Padm\u00e9 Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars.",
+        "poster_path": "/oZNPzxqM2s5DyVWab09NTQScDQt.jpg"
+      },
+      {
+        "id": 1152956,
+        "title": "The Making of Star Wars - Attack of the Clones",
+        "year": "2019",
+        "overview": "The Making of Star Wars - Attack of the Clones (2002). This video is not an official product. It was created and edited by a team of dedicated fans of Lucasfilm. The footage used are the webisodes and featurettes officially released by Lucasfilm. All rights to any material used remain courtesy of their respective owners.",
+        "poster_path": "/dpxxPu1ggr2vbf4vy3dffP8lyvu.jpg"
+      },
+      {
+        "id": 435147,
+        "title": "From Puppets to Pixels: The Making of Star Wars Episode II",
+        "year": "2002",
+        "overview": "For Star Wars: Episode II - Attack of the Clones (2002), there were to be many more visual effects than in Star Wars: Episode I - The Phantom Menace (1999). This documentary shows many VFX meetings between George Lucas and ILM. Many of these meetings focus around the creation of a completely digital Yoda, used for the first time in the Star Wars films.",
+        "poster_path": "/xPv8df5jYFnogXLXm0LvjSJlVJk.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-red-desert-vhs-rental-drama",
+    "title": "The Red Desert",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Red Desert' (1964))",
+    "candidates": [
+      {
+        "id": 26638,
+        "title": "Red Desert",
+        "year": "1964",
+        "overview": "In an industrializing Italian town, a married woman, rendered mentally unstable after a traffic accident, drifts into an affair with a friend of her husband.",
+        "poster_path": "/rGcTVdyhaGzMxPPRVApXre6F7SD.jpg"
+      },
+      {
+        "id": 611125,
+        "title": "The Red, Red Heart",
+        "year": "1918",
+        "overview": "Concerned about the failing health of Rhoda Tuttle, his fianc\u00e9e, John DeWitt takes her to the lavish Arizona home of his friends, Jack and Katherine Newman. Although the Newmans try to cheer Rhoda, who has lost her parents in a train wreck, she remains listless and melancholy. While walking in the desert, Rhoda is bitten by a tarantula but is saved by Kut-le, a Yale-educated Indian employed as a superintendent on Newman's irrigation project. Because of his strong belief in the curative effects of life in the desert, Kut-le kidnaps Rhoda and forces her to live in a manner far removed from the comforts and confinements of civilization.",
+        "poster_path": "/oQWkvrL2JiYQ3Zie8DKWfazqLM5.jpg"
+      },
+      {
+        "id": 129371,
+        "title": "Did the Red Bird Escape?",
+        "year": "1973",
+        "overview": "A young outlaw can\u2019t escape his rebellious past despite connections to a well-to-do family.",
+        "poster_path": "/iudpRxjwvPVAM5OGjzecLoRgH7D.jpg"
+      },
+      {
+        "id": 732272,
+        "title": "Eden \u2013 In the heart of the red desert",
+        "year": "2014",
+        "overview": "Namib, an incredible spot is home to the highest sand dunes on Earth, along with 3500 species of plants of incredible diversity, all adapted to the arid climate. Elephants, antelopes, lions, giraffes and rhinoceros roam freely in the Namib with neither fence nor enclosure, as if at the dawn of time. Management of the protected areas has been entrusted to the local people and in particular to the Himba, the dominant tribe of the desert. Underground there are hidden treasures, diamonds, uranium and iron. From the beginning of the 20th century the Namib has attracted miners from all over the world, with an increasing appetite. Today, new mining projects threaten the ecosystem of the region. Olivia crosses the desert from the South to North, sharing the difficult everyday lives of the people of the desert. Exploring this rich but fragile garden of Eden, she attempts to understand why the survival of the desert is so important to the people and animals that live there.",
+        "poster_path": "/3YM7BKf1rdCOFhkN4r0mfrGI79Q.jpg"
+      },
+      {
+        "id": 115969,
+        "title": "Buddha: The Great Departure",
+        "year": "2011",
+        "overview": "Prince Siddhartha is heir to the Shakya kingdom, which is constantly at war with the more powerful Kosala kingdom. His father tries to raise as him as a warrior leader and to shield him from the miseries of the world. Meeting the young outcast girl Migaila, Siddhartha experiences love for the first time but also witnesses the suffering that afflicts humankind. Meanwhile, in Kosala, Chapra rises through the military, despite his lowly origins, to become a hero and general of the army. A final showdown between the two kingdoms forces Siddhartha to re-evaluate the path he is following.",
+        "poster_path": "/2hPrb9XuZSwmY6MVtWjUvczPQtG.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-legend-of-dolemite-vhs-rental-documentary",
+    "title": "The Legend of Dolemite",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Legend of Dolemite! Bigger & Badder' (1994))",
+    "candidates": [
+      {
+        "id": 272597,
+        "title": "The Legend of Dolemite! Bigger & Badder",
+        "year": "1994",
+        "overview": "Rudy Ray Moore tells all as only he can in this all-new retrospective legendary career. From his humble beginnings to his crowning as \"King of the Party Records,\" Rudy Ray guides us through his struggles and triumphs in the film and music industries.",
+        "poster_path": "/8ecsqECiE1fguzPJV2DIgx9NYlc.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-human-tornado-vhs-rental-thriller",
+    "title": "The Human Tornado",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Human Tornado' (1976))",
+    "candidates": [
+      {
+        "id": 32100,
+        "title": "The Human Tornado",
+        "year": "1976",
+        "overview": "Dolemite comes to the rescue of Queen Bee, whose nightclub is threatened by the Mafia.",
+        "poster_path": "/xTwLcUMwjktY6XZnUSJZlWGfWt0.jpg"
+      },
+      {
+        "id": 1576042,
+        "title": "The Human Tornado",
+        "year": "1925",
+        "overview": "Jim Marlow's brother, Chet, who has come west to manage the family mining properties, cheats Pete Daley out of his property. Pete enters Chet's office at night and robs the safe, being seen in the act by Tom Crowley. Pete hides the strongbox and sends a letter to his daughter, Marion, stating its location. Jim gets the letter and finds the strongbox, running afoul of Crowley, who shoots him. The sheriff arrests Jim for stealing the box, and Crowley attempts to take the box from the sheriff at gunpoint. The sheriff shoots Crowley, and Crowley, mortally wounded, tells the sheriff that Pete Daley was the man responsible for the original theft of the box. A lawyer who has been investigating Chet discovers that he has cheated Jim out of the substantial part of his rightful inheritance; Chet is sent to jail, and Jim settles down with Marion Daley.",
+        "poster_path": "/9X5NmyxVzM1eFczxZc1IbDZYKOJ.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "rude-vhs-rental-horror",
+    "title": "Rude",
+    "vendor": "VHS",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Rude' (1995))",
+    "candidates": [
+      {
+        "id": 166901,
+        "title": "Rude",
+        "year": "1995",
+        "overview": "This is the Easter weekend. In an inner city project, three people struggle against their demons and try to find redemption. They are Maxine, a window dresser depressed since she had an abortion and lost her lover ; Jordan, a boxer who has indulged in gay-bashing ; and 'The General', a drug dealer turned artist.",
+        "poster_path": "/rVkJ9t706jAmGVNOGHXPTp8KSbF.jpg"
+      },
+      {
+        "id": 201287,
+        "title": "Rude",
+        "year": "1982",
+        "overview": "While Rudy Ray Moore is best remembered today for his outrageous blaxploitation movies, such as Dolemite and The Human Tornado, he started out as a standup comedian who broke barriers for off-color comedy on such \"party\" albums as Eat Out More Often. Rude is a performance film which captures Moore on-stage at a comedy club, delivering the rhyming rap routines and epic tales of sexual conquest that first made him famous.",
+        "poster_path": "/xaDjRymfVUYJ8NwXM9xXaBRRXb5.jpg"
+      },
+      {
+        "id": 27930,
+        "title": "Rude Boy",
+        "year": "1980",
+        "overview": "Rude Boy is a semi-documentary, part character study, part 'rockumentary', featuring a British punk band, The Clash. The script includes the story of a fictional fan juxtposed with actual public events of the day, including political demonstrations and Clash concerts.",
+        "poster_path": "/46tzKLP9Huzjf1L09qEEdvNAdx0.jpg"
+      },
+      {
+        "id": 482426,
+        "title": "Rude Raid",
+        "year": "1985",
+        "overview": "A surrealist, futuristic short film.",
+        "poster_path": ""
+      },
+      {
+        "id": 633782,
+        "title": "Rude Boys",
+        "year": "2018",
+        "overview": "Adam is a slacker without any ambition. Suddenly he wants to participate in a triathlon.",
+        "poster_path": ""
+      }
+    ]
   }
 ]
