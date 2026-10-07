@@ -44,6 +44,21 @@ class TestWriteChanges(unittest.TestCase):
                                         Change("heat", "Vendor", "VHS", "DVD", "x")], store)
         self.assertEqual({(r.handle, r.status) for r in results}, {("jaws", "failed"), ("heat", "written")})
 
+    def test_a_read_error_before_the_write_fails_only_that_product(self):
+        store = FakeStore({"jaws": product("p1"), "heat": product("p2")}, fail_reads={("jaws", 1)})
+        results = writer.write_changes([Change("jaws", "Vendor", "VHS", "DVD", "x"),
+                                        Change("heat", "Vendor", "VHS", "DVD", "x")], store)
+        self.assertEqual({(r.handle, r.status) for r in results}, {("jaws", "failed"), ("heat", "written")})
+        self.assertIn("Internal error", next(r for r in results if r.handle == "jaws").message)
+        self.assertEqual([h for h, _ in store.writes], ["heat"])
+
+    def test_a_read_back_error_fails_only_that_product(self):
+        store = FakeStore({"jaws": product("p1"), "heat": product("p2")}, fail_reads={("jaws", 2)})
+        results = writer.write_changes([Change("jaws", "Vendor", "VHS", "DVD", "x"),
+                                        Change("heat", "Vendor", "VHS", "DVD", "x")], store)
+        self.assertEqual({(r.handle, r.status) for r in results}, {("jaws", "failed"), ("heat", "written")})
+        self.assertIn("could not read back", next(r for r in results if r.handle == "jaws").message)
+
     def test_a_missing_product_fails_its_changes(self):
         result = writer.write_changes([Change("gone", "Vendor", "VHS", "DVD", "x")], FakeStore({}))[0]
         self.assertEqual(result.status, "failed")

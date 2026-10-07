@@ -8,13 +8,18 @@ from catalog.core.columns import GENRE_METAFIELD
 class FakeStore:
     """In-memory products shaped like ApiStore.get(); write() applies values."""
 
-    def __init__(self, products, lose=(), fail=()):
+    def __init__(self, products, lose=(), fail=(), fail_reads=()):
         self.products = products
         self.lose = set(lose)      # fields a write silently doesn't persist
         self.fail = set(fail)      # handles whose write raises
+        self.fail_reads = set(fail_reads)  # (handle, n): the handle's n-th get() raises
+        self.reads = {}
         self.writes = []
 
     def get(self, handle, wait_for_media=False):
+        self.reads[handle] = self.reads.get(handle, 0) + 1
+        if (handle, self.reads[handle]) in self.fail_reads:
+            raise RuntimeError("Internal error. Looks like something went wrong on our end.")
         return copy.deepcopy(self.products.get(handle))
 
     def write(self, product, values):

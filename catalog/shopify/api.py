@@ -51,9 +51,17 @@ def request_token(store: str, client_id: str, client_secret: str, urlopen=urllib
     return token
 
 
+def _error_codes(payload: dict) -> set:
+    return {(e.get("extensions") or {}).get("code") for e in payload.get("errors") or [] if isinstance(e, dict)}
+
+
 def _throttled(payload: dict) -> bool:
-    return any((e.get("extensions") or {}).get("code") == "THROTTLED" for e in payload.get("errors") or []
-               if isinstance(e, dict))
+    return "THROTTLED" in _error_codes(payload)
+
+
+# Shopify-side failures that a moment later usually succeed. Only reads retry them: a
+# mutation that hit one may have landed, and re-sending it could add a second poster.
+SERVER_ERROR_STATUSES = (500, 520, 521, 522, 524)
 
 
 def make_executor(store: str, token: str, version: str = config.SHOPIFY_API_VERSION,
@@ -63,7 +71,9 @@ def make_executor(store: str, token: str, version: str = config.SHOPIFY_API_VERS
     url = f"https://{store}/admin/api/{version}/graphql.json"
 
     def execute(_store, query_path, variables: dict) -> dict:
-        body = json.dumps({"query": query_path.read_text(encoding="utf-8"), "variables": variables}).encode()
+        query = query_path.read_text(encoding="utf-8")
+        is_read = not query.lstrip().startswith("mutation")
+        body = json.dumps({"query": query, "variables": variables}).encode()
         for attempt in range(1, MAX_ATTEMPTS + 1):
             request = urllib.request.Request(url, data=body, headers={
                 "Content-Type": "application/json", "X-Shopify-Access-Token": token})
@@ -72,7 +82,8 @@ def make_executor(store: str, token: str, version: str = config.SHOPIFY_API_VERS
                     payload = json.loads(response.read())
             except urllib.error.HTTPError as exc:
                 detail = _error_body(exc)
-                if exc.code in (429, 502, 503, 504) and attempt < MAX_ATTEMPTS:
+                retry = exc.code in (429, 502, 503, 504) or (is_read and exc.code in SERVER_ERROR_STATUSES)
+                if retry and attempt < MAX_ATTEMPTS:
                     sleep(2 ** attempt)
                     continue
                 if exc.code in (401, 403):
@@ -84,7 +95,8 @@ def make_executor(store: str, token: str, version: str = config.SHOPIFY_API_VERS
                     sleep(2 ** attempt)
                     continue
                 raise ShopifyError(f"could not reach {store}: {exc.reason}") from None
-            if _throttled(payload) and attempt < MAX_ATTEMPTS:
+            server_error = is_read and "INTERNAL_SERVER_ERROR" in _error_codes(payload)
+            if (_throttled(payload) or server_error) and attempt < MAX_ATTEMPTS:
                 sleep(2 ** attempt)
                 continue
             return payload

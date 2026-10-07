@@ -92,6 +92,25 @@ class TestExecutor(unittest.TestCase):
         self.assertEqual(len(calls), 3)
         self.assertEqual(len(sleeps), 2)
 
+    def test_retries_transient_server_errors(self):
+        sleeps = []
+        urlopen, calls = fake_urlopen(http_error(520, {"errors": "error code: 520"}),
+                                      {"errors": [{"message": "Internal error. Looks like something went wrong on our end.",
+                                                   "extensions": {"code": "INTERNAL_SERVER_ERROR"}}]},
+                                      {"data": {"ok": True}})
+        execute = api.make_executor(STORE, "tok", urlopen=urlopen, sleep=sleeps.append)
+        self.assertEqual(execute(STORE, reader.QUERY_PATH, {}), {"data": {"ok": True}})
+        self.assertEqual(len(calls), 3)
+        self.assertEqual(len(sleeps), 2)
+
+    def test_does_not_retry_a_mutation_after_a_server_error(self):
+        urlopen, calls = fake_urlopen(http_error(520, {"errors": "error code: 520"}), {"data": {"ok": True}})
+        execute = api.make_executor(STORE, "tok", urlopen=urlopen, sleep=lambda s: None)
+        mutation = mock.Mock(read_text=lambda encoding="utf-8": "mutation { productUpdate { userErrors { message } } }")
+        with self.assertRaises(ShopifyError):
+            execute(STORE, mutation, {})  # it may have landed: retrying could add a second poster
+        self.assertEqual(len(calls), 1)
+
     def test_gives_up_after_repeated_throttling(self):
         urlopen, _ = fake_urlopen(*[http_error(429, {"errors": "Throttled"})] * 10)
         execute = api.make_executor(STORE, "tok", urlopen=urlopen, sleep=lambda s: None)

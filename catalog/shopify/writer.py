@@ -89,7 +89,10 @@ def write_changes(changes, store, log_fn=lambda line: None) -> list[Result]:
 
 
 def _write_product(handle: str, changes: list, store) -> list[Result]:
-    product = store.get(handle)
+    try:
+        product = store.get(handle)
+    except Exception as exc:  # one product's failure must not stop the rest
+        return [Result(handle, c.field, "failed", f"{type(exc).__name__}: {exc}") for c in changes]
     if product is None:
         return [Result(handle, c.field, "failed", "product not found in Shopify") for c in changes]
 
@@ -111,7 +114,11 @@ def _write_product(handle: str, changes: list, store) -> list[Result]:
     except Exception as exc:  # one product's failure must not stop the rest
         return results + [Result(handle, f, "failed", f"{type(exc).__name__}: {exc}") for f in todo]
 
-    after = store.get(handle, wait_for_media="Image Src" in todo)
+    try:
+        after = store.get(handle, wait_for_media="Image Src" in todo)
+    except Exception as exc:  # written but unverified: report it failed, the next audit re-checks it
+        return results + [Result(handle, f, "failed", f"written, but could not read back: {type(exc).__name__}: {exc}")
+                          for f in todo]
     for field, value in todo.items():
         now = current_value(after, field) if after else ""
         if field == "Image Src":
