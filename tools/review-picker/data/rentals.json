@@ -1534,5 +1534,11 @@
     "choice": "tmdb",
     "poster_path": "/hVIKyTK13AvOGv7ICmJjK44DTzp.jpg",
     "overview": "In Prohibition-era Chicago, musicians Joe and Jerry witness a mob hit, and flee the state in an all-female band disguised as Josephine and Daphne, but further complications set in."
+  },
+  {
+    "handle": "x-bluray-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/lopZSVtXzhFY603E9OqF7O1YKsh.jpg",
+    "overview": "In 1979, a group of young filmmakers set out to make an adult film in rural Texas, but when their reclusive, elderly hosts catch them in the act, the cast find themselves fighting for their lives."
   }
 ]
