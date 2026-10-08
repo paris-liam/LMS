@@ -1402,5 +1402,11 @@
     "choice": "tmdb",
     "poster_path": "/zplJqfuUyqzW0D4jX3W1afl0d7b.jpg",
     "overview": "The plane carrying wealthy Charles Morse crashes down in the Alaskan wilderness. Together with the two other passengers, photographer Robert and assistant Stephen, Charles devises a plan to help them reach civilization. However, his biggest obstacle might not be the elements, or even the Kodiak bear stalking them -- it could be Robert, whom Charles suspects is having an affair with his wife and would not mind seeing him dead."
+  },
+  {
+    "handle": "the-gun-run-dvd-rental-action",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Two gunrunners travel door to door selling contraband to a list of clients in this darkly comic crime drama."
   }
 ]
