@@ -1414,5 +1414,11 @@
     "choice": "tmdb",
     "poster_path": "/euIh75MwNDrYkTEVSkw7VXWGXoE.jpg",
     "overview": "Charley Brewster, a high school student, accidentally discovers the true and creepy nature of Jerry Dandrige, his dashing and enigmatic new neighbor; but no one seems willing to believe him."
+  },
+  {
+    "handle": "yojimbo-criterion-dvd-rental-foreign",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/tN7kYPjRhDolpui9sc9Eq9n5b2O.jpg",
+    "overview": "A nameless ronin, or samurai with no master, enters a small village in feudal Japan where two rival businessmen are struggling for control of the local gambling trade. Taking the name Sanjuro Kuwabatake, the ronin convinces both silk merchant Tazaemon and sake merchant Tokuemon to hire him as a personal bodyguard, then artfully sets in motion a full-scale gang war between the two ambitious and unscrupulous men."
   }
 ]
