@@ -1802,8 +1802,8 @@
   {
     "handle": "atlantis-vhs-rental-kids-family",
     "choice": "manual",
-    "image_src": "",
-    "overview": ""
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/d/de/Atlantis_The_Lost_Empire_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "overview": "Atlantis: The Lost Empire is a 2001 animated Disney adventure film directed by Gary Trousdale and Kirk Wise. Set in 1914, it follows young linguist Milo Thatch (voiced by Michael J. Fox), who gains possession of a sacred book that he believes will guide him and a crew of mercenaries to the lost city of Atlantis."
   },
   {
     "handle": "silent-night-collection-bluray-rental-horror",
