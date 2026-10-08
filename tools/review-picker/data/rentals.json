@@ -1732,5 +1732,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/9/95/Stormcentury.jpg",
     "overview": "Storm of the Century is a 1999 American horror television miniseries written by Stephen King and directed by Craig R. Baxley, starring Tim Daly. A mysterious stranger arrives on a remote Maine island as a massive blizzard cuts it off from the mainland, and he demands that the islanders give him what he wants."
+  },
+  {
+    "handle": "warlock-collection-bluray-rental-horror",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Three-film collection: Warlock (1989, Steve Miner), in which a 17th-century warlock is pulled forward in time to Los Angeles; Warlock: The Armageddon (1993, Anthony Hickox); and Warlock III: The End of Innocence (1999)."
   }
 ]
