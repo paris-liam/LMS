@@ -758,8 +758,8 @@
   {
     "handle": "the-bridges-of-medison-county-vhs-rental-drama",
     "choice": "manual",
-    "image_src": "",
-    "overview": ""
+    "image_src": "https://image.tmdb.org/t/p/w185/aCBrhOQjhG397GLkEZ49zReQEKX.jpg",
+    "overview": "Photographer Robert Kincaid wanders into the life of housewife Francesca Johnson for four days in the 1960s."
   },
   {
     "handle": "max-magician-and-the-legen-of-the-ring-dvd-rental-fantasy",
@@ -1402,5 +1402,419 @@
     "choice": "tmdb",
     "poster_path": "/zplJqfuUyqzW0D4jX3W1afl0d7b.jpg",
     "overview": "The plane carrying wealthy Charles Morse crashes down in the Alaskan wilderness. Together with the two other passengers, photographer Robert and assistant Stephen, Charles devises a plan to help them reach civilization. However, his biggest obstacle might not be the elements, or even the Kodiak bear stalking them -- it could be Robert, whom Charles suspects is having an affair with his wife and would not mind seeing him dead."
+  },
+  {
+    "handle": "the-gun-run-dvd-rental-action",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Two gunrunners travel door to door selling contraband to a list of clients in this darkly comic crime drama."
+  },
+  {
+    "handle": "fright-night-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/euIh75MwNDrYkTEVSkw7VXWGXoE.jpg",
+    "overview": "Charley Brewster, a high school student, accidentally discovers the true and creepy nature of Jerry Dandrige, his dashing and enigmatic new neighbor; but no one seems willing to believe him."
+  },
+  {
+    "handle": "yojimbo-criterion-dvd-rental-foreign",
+    "choice": "manual",
+    "image_src": "https://image.tmdb.org/t/p/w185/tN7kYPjRhDolpui9sc9Eq9n5b2O.jpg",
+    "overview": "A nameless ronin, or samurai with no master, enters a small village in feudal Japan where two rival businessmen are struggling for control of the local gambling trade. Taking the name Sanjuro Kuwabatake, the ronin convinces both silk merchant Tazaemon and sake merchant Tokuemon to hire him as a personal bodyguard, then artfully sets in motion a full-scale gang war between the two ambitious and unscrupulous men."
+  },
+  {
+    "handle": "a-little-princess-vhs-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/9V4bAVEskSNbEqjVI0YmeuB0n8I.jpg",
+    "overview": "When her father enlists to fight for the British in WWI, young Sara Crewe goes to New York to attend the same boarding school her late mother attended. She soon clashes with the severe headmistress, Miss Minchin, who attempts to stifle Sara's creativity and sense of self-worth."
+  },
+  {
+    "handle": "land-before-time-ii-vhs-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/1lIkU6gbqMx4oRDGegawLdQdLJD.jpg",
+    "overview": "Littlefoot and his friends find life in the Great Valley a bit too restrictive under the watchful eyes of their overprotective parents. Wishing to not be treated like babies anymore, the group chase after a pair of dangerous dinosaurs stealing an egg from Ducky's nest. When the egg they bring back hatches in the valley, the friends are surprised to find a baby Sharptooth. Rather than abandoning him, they name him Chomper and attempt to raise him as one of their own."
+  },
+  {
+    "handle": "the-world-according-to-goofy-vhs-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "",
+    "overview": "Introduction: The Goofy Story  FEATURED CARTOONS\r Goofy's Glider (1940)\r Baggage Buster (1941)\r How to Be a Sailor (1944)\r They're Off (1948)\r Home Made Home (1951)\r Man's Best Friend (1952)\r How to Dance (1953)"
+  },
+  {
+    "handle": "25th-hour-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/uW7tTRElr2tRhmAVESzvHy4ByXg.jpg",
+    "overview": "On the eve of a seven-year prison sentence, a New York drug dealer spends his final day of freedom confronting his past, his relationships, and the choices that led to his downfall in a city still reeling from 9/11."
+  },
+  {
+    "handle": "invader-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/tY2ujZxHNDiTyzTM9wmSlClxTXX.jpg",
+    "overview": "A crashed UFO and its reverse-engineered computer system take over the minds of soldiers at an air force base. The alien entity (in the guise of A.S.M.O.D.S., (Asmodeus), a strategic flight defense systems program for fighter jets) is discovered by tabloid reporter Frank McCall and D.O.D. Captain Harry Anders. They escape the base in a stolen F-19 and are taken to the Pentagon, where their story is met with understandable scepticism. An attempt by Asmodeus' minions to capture Frank &amp; Harry for brainwashing convinces General Anheiser of their sincerity, and they return to the base and eventually face Asmodeus and its army of brainwashed soldiers. Written by Dave Foster"
+  },
+  {
+    "handle": "ghost-rider-dvd-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/4quwR1VwZouD0YF9AaD72kQAjxH.jpg",
+    "overview": "In order to save his dying father, young stunt cyclist Johnny Blaze sells his soul to Mephistopheles and sadly parts from the pure-hearted Roxanne Simpson, the love of his life. Years later, Johnny's path crosses again with Roxanne, now a go-getting reporter, and also with Mephistopheles, who offers to release Johnny's soul if Johnny becomes the fabled, fiery 'Ghost Rider'."
+  },
+  {
+    "handle": "bambi-dvd-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/wV9e2y4myJ4KMFsyFfWYcUOawyK.jpg",
+    "overview": "Bambi's tale unfolds from season to season as the young prince of the forest learns about life, love, and friends."
+  },
+  {
+    "handle": "as-good-as-it-gets-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/xXxuJPNUDZ0vjsAXca0O5p3leVB.jpg",
+    "overview": "A misanthropic author, a single mother and waitress, and a gay artist form an unlikely friendship after the artist is assaulted in a robbery."
+  },
+  {
+    "handle": "marty-dvd-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/8tnGO5VoAQII4DbE3hozWKhV4BY.jpg",
+    "overview": "Marty, a butcher who lives in the Bronx with his mother, is unmarried at 34. Good-natured but socially awkward, he faces constant badgering from family and friends to get married but has reluctantly resigned himself to bachelorhood. He then meets Clara, an unattractive school teacher. Realising their emotional connection, Marty promises to call, but family and friends try to convince him not to."
+  },
+  {
+    "handle": "head-of-state-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/5itBve85q2oXmiQ3SkgCJa5Asxq.jpg",
+    "overview": "When a presidential candidate dies unexpectedly in the middle of the campaign, the Democratic party unexpectedly picks a Washington, D.C. alderman as his replacement."
+  },
+  {
+    "handle": "stardust-dvd-rental-fantasy",
+    "choice": "tmdb",
+    "poster_path": "/le1gPiqeWrCj5FkjBtcF9clFmdX.jpg",
+    "overview": "In a countryside town bordering on a magical land, a young man makes a promise to his beloved that he'll retrieve a fallen star by venturing into the magical realm. His journey takes him into a world beyond his wildest dreams and reveals his true identity."
+  },
+  {
+    "handle": "miracle-dvd-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/mxtej2th8t8x0ufVBTyhsO6Htxj.jpg",
+    "overview": "When college coach Herb Brooks is hired to helm the 1980 U.S. men's Olympic hockey team, he brings a unique and brash style to the ice. After assembling a team of hot-headed college all-stars, who are humiliated in an early match, Brooks unites his squad against a common foe: the heavily-favored Soviet team."
+  },
+  {
+    "handle": "rudolph-the-red-nosed-reindeer-dvd-rental-holiday",
+    "choice": "tmdb",
+    "poster_path": "/xjAElUhXuc7zFJPj3qUHjcySNsE.jpg",
+    "overview": "Sam the snowman tells us the story of a young red-nosed reindeer who, after being ousted from the reindeer games because of his glowing nose, teams up with Hermey, an elf who wants to be a dentist, and Yukon Cornelius, the prospector. They run into the Abominable Snowman and find a whole island of misfit toys. Rudolph vows to see if he can get Santa to help the toys, and he goes back to the North Pole on Christmas Eve. But Santa's sleigh is fogged in. But when Santa looks over Rudolph, he gets a very bright idea..."
+  },
+  {
+    "handle": "troll-2-bluray-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/eFth6zw4PEInzr2Y64mYVN1zbBi.jpg",
+    "overview": "When young Joshua learns that he will be going on vacation with his family to a small town called Nilbog, he protests adamantly. He is warned by the spirit of his deceased grandfather that goblins populate the town. His parents, Michael and Diana, dismiss his apprehensions, but soon learn to appreciate their son's warnings. Guided by his grandfather's ghost, will Joshua and his family stand a chance in fighting off these evil beings?"
+  },
+  {
+    "handle": "cats-eye-bluray-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/kKyq7izpMkmr8sT2nLic5qAuJPo.jpg",
+    "overview": "Three short stories linked by a stray cat that roams from one tale to the next, in this creepy triptych that begins as Dick tries to quit smoking by any means necessary. Next, we meet Johnny, an adulterous man who's forced by his lover's husband onto a building's hazardous ledge. Finally, Amanda is threatened by an evil gnome who throws suspicion on the family cat."
+  },
+  {
+    "handle": "borat-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/7g9kBHMN2KTr5KUf8aen187Mdn.jpg",
+    "overview": "Kazakh journalist Borat Sagdiyev travels to America to make a documentary. As he zigzags across the nation, Borat meets real people in real situations with hysterical consequences. His backwards behavior generates strong reactions around him exposing prejudices and hypocrisies in American culture."
+  },
+  {
+    "handle": "creepshow-bluray-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/4SoyTCEpsgLjX6yAyMsx3AsAyRQ.jpg",
+    "overview": "Five grisly tales from a 1950s-style comic, including a murdered father rising from beyond, a bizarre meteor, a vengeful husband, a mysterious crate's occupant, and a plague of cockroaches."
+  },
+  {
+    "handle": "pearl-bluray-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/ulBLIBqvdnf4H6JBt0OpMCU1ECn.jpg",
+    "overview": "Trapped on her family’s isolated farm, Pearl must tend to her ailing father under the bitter and overbearing watch of her devout mother. Lusting for a glamorous life like she’s seen in the movies, Pearl’s ambitions, temptations, and repressions collide."
+  },
+  {
+    "handle": "some-like-it-hot-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/hVIKyTK13AvOGv7ICmJjK44DTzp.jpg",
+    "overview": "In Prohibition-era Chicago, musicians Joe and Jerry witness a mob hit, and flee the state in an all-female band disguised as Josephine and Daphne, but further complications set in."
+  },
+  {
+    "handle": "x-bluray-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/lopZSVtXzhFY603E9OqF7O1YKsh.jpg",
+    "overview": "In 1979, a group of young filmmakers set out to make an adult film in rural Texas, but when their reclusive, elderly hosts catch them in the act, the cast find themselves fighting for their lives."
+  },
+  {
+    "handle": "tommy-vhs-rental-musical",
+    "choice": "tmdb",
+    "poster_path": "/pAImVnqBJwoFAKrcpAe17JjLGUs.jpg",
+    "overview": "After a series of traumatic childhood events, a psychosomatically deaf, dumb and blind boy becomes a master pinball player and the object of a religious cult."
+  },
+  {
+    "handle": "jekyll-hyde-1995-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/jSfC0KyRdP2BypWydrEcXOskfvH.jpg",
+    "overview": "A scientist creating perfumes inherits his great grandfather Dr. Jekyll's formula and decides to use modern technology to improve it. He ends up as an ambitious, ruthless woman. She tries to prevent returning into the spineless man."
+  },
+  {
+    "handle": "dr-strangelove-vhs-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/gHm96BRW4GoI339rF1vYoYTB6Qe.jpg",
+    "overview": "After the insane General Jack D. Ripper initiates a nuclear strike on the Soviet Union, a war room full of politicians, generals and a Russian diplomat all frantically try to stop it."
+  },
+  {
+    "handle": "a-charlie-brown-christmas-dvd-rental-holiday",
+    "choice": "tmdb",
+    "poster_path": "/6fDmxNVFGSYlVR01zbYSZ4M0lU0.jpg",
+    "overview": "When Charlie Brown complains about the overwhelming materialism that he sees amongst everyone during the Christmas season, Lucy suggests that he become director of the school Christmas pageant. Charlie Brown accepts, but it is a frustrating struggle. When an attempt to restore the proper spirit with a forlorn little fir Christmas tree fails, he needs Linus' help to learn the meaning of Christmas."
+  },
+  {
+    "handle": "i-want-to-live-dvd-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/hufXkmILGy34VXEdQC69etY8Rt4.jpg",
+    "overview": "Brazen perpetual offender Barbara Graham tries to go straight but she finds herself implicated in a murder and sent to death row."
+  },
+  {
+    "handle": "invincible-dvd-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/oEaUMn5POAiMLnU6hKOBKoZbDpo.jpg",
+    "overview": "Inspired by the true story of Vince Papale, a man with nothing to lose who ignored the staggering odds and made his dream come true. When the coach of Papale's beloved hometown football team hosted an unprecedented open tryout, the public consensus was that it was a waste of time – no one good enough to play professional football was going to be found this way."
+  },
+  {
+    "handle": "return-to-me-dvd-rental-romantic-comedy",
+    "choice": "tmdb",
+    "poster_path": "/mtYZyZh7hSiTq3gAU0C8FlcMC5.jpg",
+    "overview": "Dragged out on a blind date a year after his wife's tragic death, grieving architect Bob Rueland finds an unexpected spark not with his date, but with Grace, the sharp-witted waitress at a lively Irish-Italian restaurant. Unbeknownst to Bob, Grace is the recipient of his late wife's donated heart. As they grow closer, their romance offers the promise of healing and the weight of a secret that could tear them apart."
+  },
+  {
+    "handle": "gossip-vhs-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/1fyQiQyBFlqjeqgT6sAEh5vo4Fe.jpg",
+    "overview": "For a class project, three college students decide to invent an unfounded rumor about the most popular girl on campus. But as the rumor spreads, it begins to spiral out of control."
+  },
+  {
+    "handle": "the-arrival-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/4H3VwvIQC1dsMFb2DEGZpbS0JiI.jpg",
+    "overview": "Zane Ziminski is an astrophysicist who receives a message that seems to have extraterrestrial origins. Eerily soon after his discovery, Zane is fired. He then embarks on a search to determine the origins of the transmission that leads him into a Hitchcockian labyrinth of paranoia and intrigue."
+  },
+  {
+    "handle": "habitat-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/cgAze8iOWRpEzYc1QHbhXqQQI5n.jpg",
+    "overview": "In order to combat the damage caused by the depletion of the ozone layer, maverick biologist Hank Symes unleashes his most ambitious experiment to date: accelerated evolution. Unfortunately, this not only causes the authorities to take notice, but also creates a backlash from his new neighbors--leaving his son caught in the middle."
+  },
+  {
+    "handle": "casino-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/gziIkUSnYuj9ChCi8qOu2ZunpSC.jpg",
+    "overview": "In Las Vegas, two best friends--a casino executive and a Mafia enforcer--compete for a gambling empire and a fast-living, fast-loving socialite."
+  },
+  {
+    "handle": "star-wars-return-of-the-jedi-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/jQYlydvHm3kUix1f8prMucrplhm.jpg",
+    "overview": "Luke Skywalker leads a mission to rescue his friend Han Solo from the clutches of Jabba the Hutt, the Emperor prepares to crush the Rebellion with a more powerful Death Star, and the Rebel fleet mounts a massive attack on the space station. Luke Skywalker confronts Darth Vader in a final climactic duel before the evil Emperor."
+  },
+  {
+    "handle": "star-wars-the-empire-strikes-back-special-edition-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg",
+    "overview": "The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair."
+  },
+  {
+    "handle": "hannibal-vhs-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/v5wAZwRqpGWmyAaaJ8BBHYuNXnj.jpg",
+    "overview": "After having successfully eluded the authorities for years, Hannibal peacefully lives in Italy in disguise as an art scholar. Trouble strikes again when he's discovered leaving a deserving few dead in the process. He returns to America to make contact with now disgraced Agent Clarice Starling, who is suffering the wrath of a malicious FBI rival as well as the media."
+  },
+  {
+    "handle": "the-hand-that-rocks-the-cradle-vhs-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/1fBnyO3SbNBplck45js6O4pQaLw.jpg",
+    "overview": "A suburban family chooses seemingly sweet Peyton Flanders as their newborn's nanny. Only much later does the infant's mother, Claire Bartel, realize Peyton's true intentions -- to destroy Claire and replace her in the family. The nail-biting suspense builds quickly in this chilling psychological thriller about deception and bitter revenge."
+  },
+  {
+    "handle": "lost-in-space-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/fCocPDUFuKswY2GxDdfYsT9BXMd.jpg",
+    "overview": "The prospects for continuing life on Earth in the year 2058 are grim. So the Robinsons are launched into space to colonize Alpha Prime, the only other inhabitable planet in the galaxy. But when a stowaway sabotages the mission, the Robinsons find themselves hurtling through uncharted space."
+  },
+  {
+    "handle": "star-wars-attack-of-the-clones-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/oZNPzxqM2s5DyVWab09NTQScDQt.jpg",
+    "overview": "Following an assassination attempt on Senator Padmé Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars."
+  },
+  {
+    "handle": "the-red-desert-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/rGcTVdyhaGzMxPPRVApXre6F7SD.jpg",
+    "overview": "In an industrializing Italian town, a married woman, rendered mentally unstable after a traffic accident, drifts into an affair with a friend of her husband."
+  },
+  {
+    "handle": "star-wars-the-phantom-menace-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/6wkfovpn7Eq8dYNKaG5PY3q2oq6.jpg",
+    "overview": "Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi."
+  },
+  {
+    "handle": "the-legend-of-dolemite-vhs-rental-documentary",
+    "choice": "tmdb",
+    "poster_path": "/8ecsqECiE1fguzPJV2DIgx9NYlc.jpg",
+    "overview": "Rudy Ray Moore tells all as only he can in this all-new retrospective legendary career. From his humble beginnings to his crowning as \"King of the Party Records,\" Rudy Ray guides us through his struggles and triumphs in the film and music industries."
+  },
+  {
+    "handle": "the-human-tornado-vhs-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/xTwLcUMwjktY6XZnUSJZlWGfWt0.jpg",
+    "overview": "Dolemite comes to the rescue of Queen Bee, whose nightclub is threatened by the Mafia."
+  },
+  {
+    "handle": "deadly-china-hero-vhs-rental-action",
+    "choice": "tmdb",
+    "poster_path": "/v8uCNayRX5mCgvRwhUVE24qtpnN.jpg",
+    "overview": "Jet Li stars in this comic spectacle as a Chinese \"Robin Hood\" who stumbles upon a kidnapping scheme after unwittingly opening a martial arts school next to a brothel!"
+  },
+  {
+    "handle": "how-the-grinch-stole-christmas-dvd-rental-holiday",
+    "choice": "tmdb",
+    "poster_path": "/1WZbbPApEivA421gCOluuzMMKCk.jpg",
+    "overview": "The Grinch decides to rob Whoville of Christmas - but a dash of kindness from little Cindy Lou Who and her family may be enough to melt his heart..."
+  },
+  {
+    "handle": "cinderella-dvd-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/4nssBcQUBadCTBjrAkX46mVEKts.jpg",
+    "overview": "Cinderella has faith her dreams of a better life will come true. With help from her loyal mice friends and a wave of her Fairy Godmother's wand, Cinderella's rags are magically turned into a glorious gown and off she goes to the Royal Ball. But when the clock strikes midnight, the spell is broken, leaving a single glass slipper... the only key to the ultimate fairy-tale ending!"
+  },
+  {
+    "handle": "the-jungle-book-dvd-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/2Epx7F9X7DrFptn4seqn4mzBVks.jpg",
+    "overview": "After a threat from the tiger Shere Khan, Mowgli, a man-cub fostered by wolves, is forced to flee the jungle, and he embarks on a journey of self-discovery with the help of the panther, Bagheera, and the free-spirited bear, Baloo."
+  },
+  {
+    "handle": "lady-and-the-tramp-dvd-rental-kids-family",
+    "choice": "tmdb",
+    "poster_path": "/340NcWz9SQXWQyf4oicMxjbrLOb.jpg",
+    "overview": "Lady, a golden cocker spaniel, meets up with a mongrel dog who calls himself the Tramp. He is obviously from the wrong side of town, but happenings at Lady's home make her decide to travel with him for a while."
+  },
+  {
+    "handle": "trickr-treat-bluray-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/w0nmol4g7n6MFfhfphV7GzHHYjB.jpg",
+    "overview": "Four interwoven stories that occur on Halloween: an everyday high school principal has a secret life as a serial killer; a college virgin might have just met the one guy for her; a group of teenagers pull a mean prank, and a bitter old recluse receives an uninvited guest."
+  },
+  {
+    "handle": "pulse-bluray-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/c3zEimDraIyMSasPMGDaNOrhnzn.jpg",
+    "overview": "In the immense city of Tokyo, the darkness of the afterlife lures some of its inhabitants desperately trying to escape the sadness and isolation of the modern world."
+  },
+  {
+    "handle": "black-christmas-bluray-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/ym0QcbrKNujzDyAU1IHGYUdRWub.jpg",
+    "overview": "As the residents of the Pi Kappa Sigma sorority house prepare for the festive season, a stranger begins to harass them with a series of obscene phone calls."
+  },
+  {
+    "handle": "cash-crop-vhs-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/6OItrKbjICG0aEpCBJYoeLckSuV.jpg",
+    "overview": "A DEA agent and a local sheriff have to wrestle with their consciences as they start raids on local farmers, who have started growing marijuana simply to keep their farms operational. Story focuses on a young man, who accidentally discovers that his straight-laced parents are involved in the marijuana cultivation."
+  },
+  {
+    "handle": "pet-semetary-a-quiet-place-bluray-rental-horror",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Double feature of Pet Sematary, the Stephen King horror adaptation about a burial ground that brings the dead back changed, and A Quiet Place (2018), John Krasinski's thriller about a family hiding from sound-hunting creatures."
+  },
+  {
+    "handle": "storm-of-the-century-vhs-rental-horror",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/9/95/Stormcentury.jpg",
+    "overview": "Storm of the Century is a 1999 American horror television miniseries written by Stephen King and directed by Craig R. Baxley, starring Tim Daly. A mysterious stranger arrives on a remote Maine island as a massive blizzard cuts it off from the mainland, and he demands that the islanders give him what he wants."
+  },
+  {
+    "handle": "warlock-collection-bluray-rental-horror",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Three-film collection: Warlock (1989, Steve Miner), in which a 17th-century warlock is pulled forward in time to Los Angeles; Warlock: The Armageddon (1993, Anthony Hickox); and Warlock III: The End of Innocence (1999)."
+  },
+  {
+    "handle": "going-my-way-holiday-inn-dvd-rental-musical",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Double feature of two Bing Crosby musicals: Going My Way (1944, Leo McCarey), in which a young priest takes over a struggling parish, and Holiday Inn (1942, Mark Sandrich), co-starring Fred Astaire, about an inn that opens only on holidays."
+  },
+  {
+    "handle": "the-dentist-the-dentist-2-bluray-rental-horror",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Double feature of two horror films directed by Brian Yuzna and starring Corbin Bernsen as a dentist driven to murderous madness: The Dentist (1996) and The Dentist 2 (1998), in which Dr. Feinstone escapes a mental hospital and starts a new practice under an assumed name."
+  },
+  {
+    "handle": "candyman-the-fog-terror-train-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Three-film horror collection: Candyman (1992, Bernard Rose), about a vengeful urban legend summoned by saying his name; John Carpenter's The Fog (1980); and Terror Train (1980, Roger Spottiswoode), about a killer stalking a college party on a train."
+  },
+  {
+    "handle": "faerie-tale-theatre-the-tale-of-the-frog-prince-vhs-rental-kids-family",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/3/38/FaerieTaleTheatreBoxSet.jpg",
+    "overview": "Faerie Tale Theatre: The Tale of the Frog Prince is a 1982 episode of Shelley Duvall's fairy-tale anthology series Faerie Tale Theatre, starring Robin Williams as the Frog Prince and Teri Garr as the Princess."
+  },
+  {
+    "handle": "wolf-cop-wolfpack-bluray-rental-horror",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/8/87/WolfCop2014_poster.jpg",
+    "overview": "WolfCop Wolfpack is a 2-film Blu-ray collection of the Canadian horror-comedies WolfCop (2014) and Another WolfCop (2017), both directed by Lowell Dean, following a hard-drinking small-town cop who transforms into a werewolf."
+  },
+  {
+    "handle": "the-fog-the-howling-bluray-rental-horror",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Double feature of two horror films: John Carpenter's The Fog (1980), in which a mysterious fog brings vengeful ghosts to a California coastal town, and Joe Dante's The Howling (1981), in which a TV reporter retreats to a countryside colony that hides werewolves."
+  },
+  {
+    "handle": "rampage-1993-vhs-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/8xPtTYMZJdmdvGakgoiBC9znxpA.jpg",
+    "overview": "Emanating from the Sheffield Arena in Sheffield, England; matches include Lex Luger vs. \"Hacksaw\" Jim Duggan in the main event; Crush challenges Shawn Michaels for the Intercontinental Championship; Bobby \"The Brain\" Heenan interviews Yokozuna."
+  },
+  {
+    "handle": "rude-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/rVkJ9t706jAmGVNOGHXPTp8KSbF.jpg",
+    "overview": "This is the Easter weekend. In an inner city project, three people struggle against their demons and try to find redemption. They are Maxine, a window dresser depressed since she had an abortion and lost her lover ; Jordan, a boxer who has indulged in gay-bashing ; and 'The General', a drug dealer turned artist."
+  },
+  {
+    "handle": "cult-of-fury-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/tK7JhKmLxVXuwPntiChm52aielT.jpg",
+    "overview": "When the girlfriend of a cult leader tries to leave the flock, she finds escape to be more difficult than she imagined."
+  },
+  {
+    "handle": "crime-of-honor-vhs-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/fPDLLkGllhpderQf9YWZ9Le6utm.jpg",
+    "overview": "A young lawyer defends a drifter accused of a murder that he has already confessed to. He asks his mentor, a retired, legendary lawyer for help."
+  },
+  {
+    "handle": "atlantis-vhs-rental-kids-family",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/d/de/Atlantis_The_Lost_Empire_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "overview": "Atlantis: The Lost Empire is a 2001 animated Disney adventure film directed by Gary Trousdale and Kirk Wise. Set in 1914, it follows young linguist Milo Thatch (voiced by Michael J. Fox), who gains possession of a sacred book that he believes will guide him and a crew of mercenaries to the lost city of Atlantis."
+  },
+  {
+    "handle": "silent-night-collection-bluray-rental-horror",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/1/13/Silentnightdeadlynight.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "overview": "Double feature of the 1984 holiday slasher Silent Night, Deadly Night, in which a young man haunted by childhood trauma at the hands of a killer dressed as Santa Claus goes on a Christmas murder spree, and its 1987 sequel, Silent Night, Deadly Night Part 2."
+  },
+  {
+    "handle": "deadlock-vhs-rental-action",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/5/58/Wedlock-movie.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "overview": "Wedlock is a 1991 American science fiction-action television film that aired on HBO on December 10, 1991. It was directed by Lewis Teague and starring Rutger Hauer, Mimi Rogers, Joan Chen, and James Remar. It received an Emmy Nomination for Sound Editing."
   }
 ]
