@@ -1540,5 +1540,11 @@
     "choice": "tmdb",
     "poster_path": "/lopZSVtXzhFY603E9OqF7O1YKsh.jpg",
     "overview": "In 1979, a group of young filmmakers set out to make an adult film in rural Texas, but when their reclusive, elderly hosts catch them in the act, the cast find themselves fighting for their lives."
+  },
+  {
+    "handle": "tommy-vhs-rental-musical",
+    "choice": "tmdb",
+    "poster_path": "/pAImVnqBJwoFAKrcpAe17JjLGUs.jpg",
+    "overview": "After a series of traumatic childhood events, a psychosomatically deaf, dumb and blind boy becomes a master pinball player and the object of a religious cult."
   }
 ]
