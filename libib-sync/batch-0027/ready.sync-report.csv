@@ -1,0 +1,100 @@
+call_number,barcode_status,content_status,message
+24894202,updated,updated,barcode: ok | content: changed: poster
+32299770,updated,updated,barcode: ok | content: changed: poster
+21297658,updated,updated,barcode: ok | content: changed: poster
+21330426,updated,updated,barcode: ok | content: changed: poster
+22051322,updated,updated,barcode: ok | content: changed: poster
+22837754,updated,updated,barcode: ok | content: changed: poster
+24508922,updated,updated,barcode: ok | content: changed: poster
+24967674,updated,updated,barcode: ok | content: changed: poster
+25623034,updated,updated,barcode: ok | content: changed: poster
+25688570,updated,updated,barcode: ok | content: changed: poster
+25721338,updated,updated,barcode: ok | content: changed: poster
+26868218,updated,updated,barcode: ok | content: changed: poster
+29129210,updated,updated,barcode: ok | content: changed: poster
+30046714,updated,updated,barcode: ok | content: changed: poster
+30145018,updated,updated,barcode: ok | content: changed: poster
+30177786,updated,updated,barcode: ok | content: changed: poster
+30407162,updated,updated,barcode: ok | content: changed: poster
+95286010,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+74751738,updated,updated,barcode: ok | content: changed: poster
+10991610,updated,updated,barcode: ok | content: changed: poster
+11024378,updated,updated,barcode: ok | content: changed: poster
+11089914,updated,updated,barcode: ok | content: changed: poster
+11122682,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+11155450,updated,updated,barcode: ok | content: changed: poster
+11188218,skipped,error,"barcode: barcode already matches call_number | content: description did not persist -- reloaded value is ""A crashed UFO and its reverse-engineered computer system take over the minds of soldiers at an air force base. The alien entity (in the guise of A.S.M.O.D.S., (Asmodeus), a strategic flight defense systems program for fighter jets) is discovered by tabloid reporter Frank McCall and D.O.D. Captain Harry Anders. They escape the base in a stolen F-19 and are taken to the Pentagon, where their story is met with understandable scepticism. An attempt by Asmodeus' minions to capture Frank & Harry for brainwashing convinces General Anheiser of their sincerity, and they return to the base and eventually face Asmodeus and its army of brainwashed soldiers. Written by Dave Foster"""
+16300026,updated,updated,barcode: ok | content: changed: poster
+16332794,updated,updated,barcode: ok | content: changed: poster
+16463866,updated,updated,barcode: ok | content: changed: poster
+60208122,updated,updated,barcode: ok | content: changed: poster
+60306426,updated,updated,barcode: ok | content: changed: poster
+60371962,updated,updated,barcode: ok | content: changed: poster
+60437498,updated,updated,barcode: ok | content: changed: poster
+60568570,updated,updated,barcode: ok | content: changed: poster
+63550458,updated,updated,barcode: ok | content: changed: poster
+63583226,updated,updated,barcode: ok | content: changed: poster
+64074746,updated,updated,barcode: ok | content: changed: poster
+64238586,updated,updated,barcode: ok | content: changed: poster
+63549434,updated,updated,barcode: ok | content: changed: poster
+63614970,updated,updated,barcode: ok | content: changed: poster
+63647738,updated,updated,barcode: ok | content: changed: poster
+63680506,updated,updated,barcode: ok | content: changed: poster
+63713274,updated,updated,barcode: ok | content: changed: poster
+63975418,updated,updated,barcode: ok | content: changed: poster
+64106490,updated,updated,barcode: ok | content: changed: poster
+64204794,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+64303098,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+64434170,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+64598010,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+64630778,updated,updated,barcode: ok | content: changed: poster
+64663546,updated,updated,barcode: ok | content: changed: poster
+64696314,updated,updated,barcode: ok | content: changed: poster
+00675578,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+11070970,updated,updated,barcode: ok | content: changed: poster
+11693562,updated,skipped,barcode: ok | content: title/description/tags/poster already correct
+12152314,updated,updated,barcode: ok | content: changed: poster
+12807674,updated,updated,barcode: ok | content: changed: poster
+13102586,updated,updated,barcode: ok | content: changed: poster
+13659642,updated,updated,barcode: ok | content: changed: poster
+13692410,updated,updated,barcode: ok | content: changed: poster
+13987322,updated,updated,barcode: ok | content: changed: poster
+14675450,updated,updated,barcode: ok | content: changed: poster
+42379258,updated,updated,barcode: ok | content: changed: poster
+42412026,updated,updated,barcode: ok | content: changed: poster
+42674170,updated,updated,barcode: ok | content: changed: poster
+43067386,updated,updated,barcode: ok | content: changed: poster
+43132922,updated,updated,barcode: ok | content: changed: poster
+43198458,updated,updated,barcode: ok | content: changed: poster
+43329530,updated,updated,barcode: ok | content: changed: poster
+50702330,updated,updated,barcode: ok | content: changed: poster
+50898938,updated,updated,barcode: ok | content: changed: poster
+50997242,updated,updated,barcode: ok | content: changed: poster
+51095546,updated,updated,barcode: ok | content: changed: poster
+51193850,updated,updated,barcode: ok | content: changed: poster
+51226618,updated,updated,barcode: ok | content: changed: poster
+56240122,updated,updated,barcode: ok | content: changed: poster
+56371194,updated,updated,barcode: ok | content: changed: poster
+56436730,updated,updated,barcode: ok | content: changed: poster
+56469498,updated,updated,barcode: ok | content: changed: poster
+56535034,updated,updated,barcode: ok | content: changed: poster
+56600570,updated,updated,barcode: ok | content: changed: poster
+56633338,updated,updated,barcode: ok | content: changed: poster
+56666106,updated,updated,barcode: ok | content: changed: poster
+56698874,updated,updated,barcode: ok | content: changed: poster
+56797178,updated,updated,barcode: ok | content: changed: poster
+56862714,updated,updated,barcode: ok | content: changed: poster
+56895482,updated,updated,barcode: ok | content: changed: poster
+32100602,updated,updated,barcode: ok | content: changed: poster
+32264442,updated,updated,barcode: ok | content: changed: poster
+32428282,updated,updated,barcode: ok | content: changed: poster
+32559354,updated,updated,barcode: ok | content: changed: poster
+32690426,updated,updated,barcode: ok | content: changed: poster
+32919802,updated,updated,barcode: ok | content: changed: poster
+32952570,updated,updated,barcode: ok | content: changed: poster
+33181946,updated,updated,barcode: ok | content: changed: poster
+33771770,updated,updated,barcode: ok | content: changed: poster
+33804538,updated,updated,barcode: ok | content: changed: poster
+33837306,updated,updated,barcode: ok | content: changed: poster
+33902842,updated,updated,barcode: ok | content: changed: poster
+34001146,updated,updated,barcode: ok | content: changed: poster
