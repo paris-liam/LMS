@@ -1756,5 +1756,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "Three-film horror collection: Candyman (1992, Bernard Rose), about a vengeful urban legend summoned by saying his name; John Carpenter's The Fog (1980); and Terror Train (1980, Roger Spottiswoode), about a killer stalking a college party on a train."
+  },
+  {
+    "handle": "faerie-tale-theatre-the-tale-of-the-frog-prince-vhs-rental-kids-family",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/3/38/FaerieTaleTheatreBoxSet.jpg",
+    "overview": "Faerie Tale Theatre: The Tale of the Frog Prince is a 1982 episode of Shelley Duvall's fairy-tale anthology series Faerie Tale Theatre, starring Robin Williams as the Frog Prince and Teri Garr as the Princess."
   }
 ]
