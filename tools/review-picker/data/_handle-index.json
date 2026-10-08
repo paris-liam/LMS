@@ -50,7 +50,7 @@
   "25th-hour-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>On the eve of a seven-year prison sentence, a New York drug dealer spends his final day of freedom confronting his past, his relationships, and the choices that led to his downfall in a city still reeling from 9/11.</p>",
       "Image Alt Text": "25th Hour poster",
@@ -100,7 +100,7 @@
   "a-charlie-brown-christmas-dvd-rental-holiday": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>When Charlie Brown complains about the overwhelming materialism that he sees amongst everyone during the Christmas season, Lucy suggests that he become director of the school Christmas pageant. Charlie Brown accepts, but it is a frustrating struggle. When an attempt to restore the proper spirit with a forlorn little fir Christmas tree fails, he needs Linus' help to learn the meaning of Christmas.</p>",
       "Image Alt Text": "A Charlie Brown Christmas poster",
@@ -156,7 +156,7 @@
   "a-little-princess-vhs-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>When her father enlists to fight for the British in WWI, young Sara Crewe goes to New York to attend the same boarding school her late mother attended. She soon clashes with the severe headmistress, Miss Minchin, who attempts to stifle Sara's creativity and sense of self-worth.</p>",
       "Image Alt Text": "A Little Princess poster",
@@ -373,7 +373,7 @@
   "as-good-as-it-gets-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>A misanthropic author, a single mother and waitress, and a gay artist form an unlikely friendship after the artist is assaulted in a robbery.</p>",
       "Image Alt Text": "As Good as it Gets poster",
@@ -397,7 +397,7 @@
   "atlantis-vhs-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Atlantis: The Lost Empire is a 2001 animated Disney adventure film directed by Gary Trousdale and Kirk Wise. Set in 1914, it follows young linguist Milo Thatch (voiced by Michael J. Fox), who gains possession of a sacred book that he believes will guide him and a crew of mercenaries to the lost city of Atlantis.</p>",
       "Image Alt Text": "Atlantis poster",
@@ -472,7 +472,7 @@
   "bambi-dvd-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Bambi's tale unfolds from season to season as the young prince of the forest learns about life, love, and friends.</p>",
       "Image Alt Text": "Bambi poster",
@@ -601,7 +601,7 @@
   "black-christmas-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>As the residents of the Pi Kappa Sigma sorority house prepare for the festive season, a stranger begins to harass them with a series of obscene phone calls.</p>",
       "Image Alt Text": "Black Christmas poster",
@@ -637,7 +637,7 @@
   "borat-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Kazakh journalist Borat Sagdiyev travels to America to make a documentary. As he zigzags across the nation, Borat meets real people in real situations with hysterical consequences. His backwards behavior generates strong reactions around him exposing prejudices and hypocrisies in American culture.</p>",
       "Image Alt Text": "Borat poster",
@@ -718,7 +718,7 @@
   "candyman-the-fog-terror-train-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Three-film horror collection: Candyman (1992, Bernard Rose), about a vengeful urban legend summoned by saying his name; John Carpenter's The Fog (1980); and Terror Train (1980, Roger Spottiswoode), about a killer stalking a college party on a train.</p>"
     }
@@ -748,7 +748,7 @@
   "cash-crop-vhs-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>A DEA agent and a local sheriff have to wrestle with their consciences as they start raids on local farmers, who have started growing marijuana simply to keep their farms operational. Story focuses on a young man, who accidentally discovers that his straight-laced parents are involved in the marijuana cultivation.</p>",
       "Image Alt Text": "Cash Crop poster",
@@ -772,7 +772,7 @@
   "casino-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>In Las Vegas, two best friends--a casino executive and a Mafia enforcer--compete for a gambling empire and a fast-living, fast-loving socialite.</p>",
       "Image Alt Text": "Casino poster",
@@ -796,7 +796,7 @@
   "cats-eye-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Three short stories linked by a stray cat that roams from one tale to the next, in this creepy triptych that begins as Dick tries to quit smoking by any means necessary. Next, we meet Johnny, an adulterous man who's forced by his lover's husband onto a building's hazardous ledge. Finally, Amanda is threatened by an evil gnome who throws suspicion on the family cat.</p>",
       "Image Alt Text": "Cat's Eye poster",
@@ -894,7 +894,7 @@
   "cinderella-dvd-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Cinderella has faith her dreams of a better life will come true. With help from her loyal mice friends and a wave of her Fairy Godmother's wand, Cinderella's rags are magically turned into a glorious gown and off she goes to the Royal Ball. But when the clock strikes midnight, the spell is broken, leaving a single glass slipper... the only key to the ultimate fairy-tale ending!</p>",
       "Image Alt Text": "Cinderella poster",
@@ -1050,7 +1050,7 @@
   "creepshow-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Five grisly tales from a 1950s-style comic, including a murdered father rising from beyond, a bizarre meteor, a vengeful husband, a mysterious crate's occupant, and a plague of cockroaches.</p>",
       "Image Alt Text": "Creepshow poster",
@@ -1060,7 +1060,7 @@
   "crime-of-honor-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>A young lawyer defends a drifter accused of a murder that he has already confessed to. He asks his mentor, a retired, legendary lawyer for help.</p>",
       "Image Alt Text": "Crime of Honor poster",
@@ -1101,7 +1101,7 @@
   "cult-of-fury-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>When the girlfriend of a cult leader tries to leave the flock, she finds escape to be more difficult than she imagined.</p>",
       "Image Alt Text": "Cult of Fury poster",
@@ -1161,7 +1161,7 @@
   "deadlock-vhs-rental-action": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Wedlock is a 1991 American science fiction-action television film that aired on HBO on December 10, 1991. It was directed by Lewis Teague and starring Rutger Hauer, Mimi Rogers, Joan Chen, and James Remar. It received an Emmy Nomination for Sound Editing.</p>",
       "Image Alt Text": "Deadlock poster",
@@ -1171,7 +1171,7 @@
   "deadly-china-hero-vhs-rental-action": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Jet Li stars in this comic spectacle as a Chinese \"Robin Hood\" who stumbles upon a kidnapping scheme after unwittingly opening a martial arts school next to a brothel!</p>",
       "Image Alt Text": "Deadly China Hero poster",
@@ -1361,7 +1361,7 @@
   "dr-strangelove-vhs-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>After the insane General Jack D. Ripper initiates a nuclear strike on the Soviet Union, a war room full of politicians, generals and a Russian diplomat all frantically try to stop it.</p>",
       "Image Alt Text": "Dr. Strangelove poster",
@@ -1602,7 +1602,7 @@
   "faerie-tale-theatre-the-tale-of-the-frog-prince-vhs-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Faerie Tale Theatre: The Tale of the Frog Prince is a 1982 episode of Shelley Duvall's fairy-tale anthology series Faerie Tale Theatre, starring Robin Williams as the Frog Prince and Teri Garr as the Princess.</p>",
       "Image Alt Text": "Faerie Tale Theatre: The Tale of the Frog Prince poster",
@@ -1752,7 +1752,7 @@
   "fright-night-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Charley Brewster, a high school student, accidentally discovers the true and creepy nature of Jerry Dandrige, his dashing and enigmatic new neighbor; but no one seems willing to believe him.</p>",
       "Image Alt Text": "Fright Night poster",
@@ -1816,7 +1816,7 @@
   "ghost-rider-dvd-rental-action": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>In order to save his dying father, young stunt cyclist Johnny Blaze sells his soul to Mephistopheles and sadly parts from the pure-hearted Roxanne Simpson, the love of his life. Years later, Johnny's path crosses again with Roxanne, now a go-getting reporter, and also with Mephistopheles, who offers to release Johnny's soul if Johnny becomes the fabled, fiery 'Ghost Rider'.</p>",
       "Image Alt Text": "Ghost Rider poster",
@@ -1892,7 +1892,7 @@
   "going-my-way-holiday-inn-dvd-rental-musical": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Double feature of two Bing Crosby musicals: Going My Way (1944, Leo McCarey), in which a young priest takes over a struggling parish, and Holiday Inn (1942, Mark Sandrich), co-starring Fred Astaire, about an inn that opens only on holidays.</p>"
     }
@@ -1936,7 +1936,7 @@
   "gossip-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>For a class project, three college students decide to invent an unfounded rumor about the most popular girl on campus. But as the rumor spreads, it begins to spiral out of control.</p>",
       "Image Alt Text": "Gossip poster",
@@ -1970,7 +1970,7 @@
   "habitat-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>In order to combat the damage caused by the depletion of the ozone layer, maverick biologist Hank Symes unleashes his most ambitious experiment to date: accelerated evolution. Unfortunately, this not only causes the authorities to take notice, but also creates a backlash from his new neighbors--leaving his son caught in the middle.</p>",
       "Image Alt Text": "Habitat poster",
@@ -2008,7 +2008,7 @@
   "hannibal-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>After having successfully eluded the authorities for years, Hannibal peacefully lives in Italy in disguise as an art scholar. Trouble strikes again when he's discovered leaving a deserving few dead in the process. He returns to America to make contact with now disgraced Agent Clarice Starling, who is suffering the wrath of a malicious FBI rival as well as the media.</p>",
       "Image Alt Text": "Hannibal poster",
@@ -2070,7 +2070,7 @@
   "head-of-state-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>When a presidential candidate dies unexpectedly in the middle of the campaign, the Democratic party unexpectedly picks a Washington, D.C. alderman as his replacement.</p>",
       "Image Alt Text": "Head of State poster",
@@ -2234,7 +2234,7 @@
   "how-the-grinch-stole-christmas-dvd-rental-holiday": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>The Grinch decides to rob Whoville of Christmas - but a dash of kindness from little Cindy Lou Who and her family may be enough to melt his heart...</p>",
       "Image Alt Text": "How the Grinch Stole Christmas poster",
@@ -2264,7 +2264,7 @@
   "i-want-to-live-dvd-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Brazen perpetual offender Barbara Graham tries to go straight but she finds herself implicated in a murder and sent to death row.</p>",
       "Image Alt Text": "I Want to Live! poster",
@@ -2358,7 +2358,7 @@
   "invader-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>A crashed UFO and its reverse-engineered computer system take over the minds of soldiers at an air force base. The alien entity (in the guise of A.S.M.O.D.S., (Asmodeus), a strategic flight defense systems program for fighter jets) is discovered by tabloid reporter Frank McCall and D.O.D. Captain Harry Anders. They escape the base in a stolen F-19 and are taken to the Pentagon, where their story is met with understandable scepticism. An attempt by Asmodeus' minions to capture Frank &amp;amp; Harry for brainwashing convinces General Anheiser of their sincerity, and they return to the base and eventually face Asmodeus and its army of brainwashed soldiers. Written by Dave Foster</p>",
       "Image Alt Text": "Invader poster",
@@ -2376,7 +2376,7 @@
   "invincible-dvd-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Inspired by the true story of Vince Papale, a man with nothing to lose who ignored the staggering odds and made his dream come true. When the coach of Papale's beloved hometown football team hosted an unprecedented open tryout, the public consensus was that it was a waste of time \u2013 no one good enough to play professional football was going to be found this way.</p>",
       "Image Alt Text": "Invincible poster",
@@ -2428,7 +2428,7 @@
   "jekyll-hyde-1995-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>A scientist creating perfumes inherits his great grandfather Dr. Jekyll's formula and decides to use modern technology to improve it. He ends up as an ambitious, ruthless woman. She tries to prevent returning into the spineless man.</p>",
       "Image Alt Text": "Jekyll & Hyde (1995) poster",
@@ -2594,7 +2594,7 @@
   "lady-and-the-tramp-dvd-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Lady, a golden cocker spaniel, meets up with a mongrel dog who calls himself the Tramp. He is obviously from the wrong side of town, but happenings at Lady's home make her decide to travel with him for a while.</p>",
       "Image Alt Text": "Lady and the Tramp poster",
@@ -2608,7 +2608,7 @@
   "land-before-time-ii-vhs-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Littlefoot and his friends find life in the Great Valley a bit too restrictive under the watchful eyes of their overprotective parents. Wishing to not be treated like babies anymore, the group chase after a pair of dangerous dinosaurs stealing an egg from Ducky's nest. When the egg they bring back hatches in the valley, the friends are surprised to find a baby Sharptooth. Rather than abandoning him, they name him Chomper and attempt to raise him as one of their own.</p>",
       "Image Alt Text": "Land Before Time II poster",
@@ -2754,7 +2754,7 @@
   "lost-in-space-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>The prospects for continuing life on Earth in the year 2058 are grim. So the Robinsons are launched into space to colonize Alpha Prime, the only other inhabitable planet in the galaxy. But when a stowaway sabotages the mission, the Robinsons find themselves hurtling through uncharted space.</p>",
       "Image Alt Text": "Lost in Space poster",
@@ -2890,7 +2890,7 @@
   "marty-dvd-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Marty, a butcher who lives in the Bronx with his mother, is unmarried at 34. Good-natured but socially awkward, he faces constant badgering from family and friends to get married but has reluctantly resigned himself to bachelorhood. He then meets Clara, an unattractive school teacher. Realising their emotional connection, Marty promises to call, but family and friends try to convince him not to.</p>",
       "Image Alt Text": "Marty poster",
@@ -2993,7 +2993,7 @@
   "miracle-dvd-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>When college coach Herb Brooks is hired to helm the 1980 U.S. men's Olympic hockey team, he brings a unique and brash style to the ice. After assembling a team of hot-headed college all-stars, who are humiliated in an early match, Brooks unites his squad against a common foe: the heavily-favored Soviet team.</p>",
       "Image Alt Text": "Miracle poster",
@@ -3498,7 +3498,7 @@
   "pearl-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Trapped on her family\u2019s isolated farm, Pearl must tend to her ailing father under the bitter and overbearing watch of her devout mother. Lusting for a glamorous life like she\u2019s seen in the movies, Pearl\u2019s ambitions, temptations, and repressions collide.</p>",
       "Image Alt Text": "Pearl poster",
@@ -3520,7 +3520,7 @@
   "pet-semetary-a-quiet-place-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Double feature of Pet Sematary, the Stephen King horror adaptation about a burial ground that brings the dead back changed, and A Quiet Place (2018), John Krasinski's thriller about a family hiding from sound-hunting creatures.</p>"
     }
@@ -3704,7 +3704,7 @@
   "pulse-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>In the immense city of Tokyo, the darkness of the afterlife lures some of its inhabitants desperately trying to escape the sadness and isolation of the modern world.</p>",
       "Image Alt Text": "Pulse poster",
@@ -3748,7 +3748,7 @@
   "rampage-1993-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Emanating from the Sheffield Arena in Sheffield, England; matches include Lex Luger vs. \"Hacksaw\" Jim Duggan in the main event; Crush challenges Shawn Michaels for the Intercontinental Championship; Bobby \"The Brain\" Heenan interviews Yokozuna.</p>",
       "Image Alt Text": "Rampage (1993) poster",
@@ -3859,7 +3859,7 @@
   "return-to-me-dvd-rental-romantic-comedy": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Dragged out on a blind date a year after his wife's tragic death, grieving architect Bob Rueland finds an unexpected spark not with his date, but with Grace, the sharp-witted waitress at a lively Irish-Italian restaurant. Unbeknownst to Bob, Grace is the recipient of his late wife's donated heart. As they grow closer, their romance offers the promise of healing and the weight of a secret that could tear them apart.</p>",
       "Image Alt Text": "Return to Me poster",
@@ -3951,7 +3951,7 @@
   "rude-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>This is the Easter weekend. In an inner city project, three people struggle against their demons and try to find redemption. They are Maxine, a window dresser depressed since she had an abortion and lost her lover ; Jordan, a boxer who has indulged in gay-bashing ; and 'The General', a drug dealer turned artist.</p>",
       "Image Alt Text": "Rude poster",
@@ -3961,7 +3961,7 @@
   "rudolph-the-red-nosed-reindeer-dvd-rental-holiday": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Sam the snowman tells us the story of a young red-nosed reindeer who, after being ousted from the reindeer games because of his glowing nose, teams up with Hermey, an elf who wants to be a dentist, and Yukon Cornelius, the prospector. They run into the Abominable Snowman and find a whole island of misfit toys. Rudolph vows to see if he can get Santa to help the toys, and he goes back to the North Pole on Christmas Eve. But Santa's sleigh is fogged in. But when Santa looks over Rudolph, he gets a very bright idea...</p>",
       "Image Alt Text": "Rudolph the Red-Nosed Reindeer poster",
@@ -4208,7 +4208,7 @@
   "silent-night-collection-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Double feature of the 1984 holiday slasher Silent Night, Deadly Night, in which a young man haunted by childhood trauma at the hands of a killer dressed as Santa Claus goes on a Christmas murder spree, and its 1987 sequel, Silent Night, Deadly Night Part 2.</p>",
       "Image Alt Text": "Silent Night Collection poster",
@@ -4352,7 +4352,7 @@
   "some-like-it-hot-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>In Prohibition-era Chicago, musicians Joe and Jerry witness a mob hit, and flee the state in an all-female band disguised as Josephine and Daphne, but further complications set in.</p>",
       "Image Alt Text": "Some Like it Hot poster",
@@ -4438,7 +4438,7 @@
   "star-wars-attack-of-the-clones-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Following an assassination attempt on Senator Padm\u00e9 Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars.</p>",
       "Image Alt Text": "Star Wars Attack of the Clones poster",
@@ -4456,7 +4456,7 @@
   "star-wars-return-of-the-jedi-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Luke Skywalker leads a mission to rescue his friend Han Solo from the clutches of Jabba the Hutt, the Emperor prepares to crush the Rebellion with a more powerful Death Star, and the Rebel fleet mounts a massive attack on the space station. Luke Skywalker confronts Darth Vader in a final climactic duel before the evil Emperor.</p>",
       "Image Alt Text": "Star Wars: Return of the Jedi poster",
@@ -4466,7 +4466,7 @@
   "star-wars-the-empire-strikes-back-special-edition-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.</p>",
       "Image Alt Text": "Star Wars: The Empire Strikes Back Special Edition poster",
@@ -4480,7 +4480,7 @@
   "star-wars-the-phantom-menace-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Anakin Skywalker, a young slave strong with the Force, is discovered on Tatooine. Meanwhile, the evil Sith have returned, enacting their plot for revenge against the Jedi.</p>",
       "Image Alt Text": "Star Wars The Phantom Menace poster",
@@ -4508,7 +4508,7 @@
   "stardust-dvd-rental-fantasy": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>In a countryside town bordering on a magical land, a young man makes a promise to his beloved that he'll retrieve a fallen star by venturing into the magical realm. His journey takes him into a world beyond his wildest dreams and reveals his true identity.</p>",
       "Image Alt Text": "Stardust poster",
@@ -4550,7 +4550,7 @@
   "storm-of-the-century-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Storm of the Century is a 1999 American horror television miniseries written by Stephen King and directed by Craig R. Baxley, starring Tim Daly. A mysterious stranger arrives on a remote Maine island as a massive blizzard cuts it off from the mainland, and he demands that the islanders give him what he wants.</p>",
       "Image Alt Text": "Storm of the Century poster",
@@ -4686,7 +4686,7 @@
   "the-arrival-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Zane Ziminski is an astrophysicist who receives a message that seems to have extraterrestrial origins. Eerily soon after his discovery, Zane is fired. He then embarks on a search to determine the origins of the transmission that leads him into a Hitchcockian labyrinth of paranoia and intrigue.</p>",
       "Image Alt Text": "The Arrival poster",
@@ -4798,7 +4798,7 @@
   "the-bridges-of-medison-county-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Photographer Robert Kincaid wanders into the life of housewife Francesca Johnson for four days in the 1960s.</p>",
       "Image Alt Text": "The Bridges of Medison County poster",
@@ -4929,7 +4929,7 @@
   "the-dentist-the-dentist-2-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Double feature of two horror films directed by Brian Yuzna and starring Corbin Bernsen as a dentist driven to murderous madness: The Dentist (1996) and The Dentist 2 (1998), in which Dr. Feinstone escapes a mental hospital and starts a new practice under an assumed name.</p>"
     }
@@ -5009,7 +5009,7 @@
   "the-fog-the-howling-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Double feature of two horror films: John Carpenter's The Fog (1980), in which a mysterious fog brings vengeful ghosts to a California coastal town, and Joe Dante's The Howling (1981), in which a TV reporter retreats to a countryside colony that hides werewolves.</p>"
     }
@@ -5101,7 +5101,7 @@
   "the-gun-run-dvd-rental-action": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Two gunrunners travel door to door selling contraband to a list of clients in this darkly comic crime drama.</p>"
     }
@@ -5109,7 +5109,7 @@
   "the-hand-that-rocks-the-cradle-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>A suburban family chooses seemingly sweet Peyton Flanders as their newborn's nanny. Only much later does the infant's mother, Claire Bartel, realize Peyton's true intentions -- to destroy Claire and replace her in the family. The nail-biting suspense builds quickly in this chilling psychological thriller about deception and bitter revenge.</p>",
       "Image Alt Text": "The Hand That Rocks The Cradle poster",
@@ -5175,7 +5175,7 @@
   "the-human-tornado-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Dolemite comes to the rescue of Queen Bee, whose nightclub is threatened by the Mafia.</p>",
       "Image Alt Text": "The Human Tornado poster",
@@ -5261,7 +5261,7 @@
   "the-jungle-book-dvd-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>After a threat from the tiger Shere Khan, Mowgli, a man-cub fostered by wolves, is forced to flee the jungle, and he embarks on a journey of self-discovery with the help of the panther, Bagheera, and the free-spirited bear, Baloo.</p>",
       "Image Alt Text": "The Jungle Book poster",
@@ -5341,7 +5341,7 @@
   "the-legend-of-dolemite-vhs-rental-documentary": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Rudy Ray Moore tells all as only he can in this all-new retrospective legendary career. From his humble beginnings to his crowning as \"King of the Party Records,\" Rudy Ray guides us through his struggles and triumphs in the film and music industries.</p>",
       "Image Alt Text": "The Legend of Dolemite poster",
@@ -5561,7 +5561,7 @@
   "the-red-desert-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>In an industrializing Italian town, a married woman, rendered mentally unstable after a traffic accident, drifts into an affair with a friend of her husband.</p>",
       "Image Alt Text": "The Red Desert poster",
@@ -5716,7 +5716,7 @@
   "the-world-according-to-goofy-vhs-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Introduction: The Goofy Story  FEATURED CARTOONS\r Goofy's Glider (1940)\r Baggage Buster (1941)\r How to Be a Sailor (1944)\r They're Off (1948)\r Home Made Home (1951)\r Man's Best Friend (1952)\r How to Dance (1953)</p>"
     }
@@ -5760,7 +5760,7 @@
   "tommy-vhs-rental-musical": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>After a series of traumatic childhood events, a psychosomatically deaf, dumb and blind boy becomes a master pinball player and the object of a religious cult.</p>",
       "Image Alt Text": "Tommy poster",
@@ -5778,7 +5778,7 @@
   "trickr-treat-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Four interwoven stories that occur on Halloween: an everyday high school principal has a secret life as a serial killer; a college virgin might have just met the one guy for her; a group of teenagers pull a mean prank, and a bitter old recluse receives an uninvited guest.</p>",
       "Image Alt Text": "Trick 'r Treat poster",
@@ -5796,7 +5796,7 @@
   "troll-2-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>When young Joshua learns that he will be going on vacation with his family to a small town called Nilbog, he protests adamantly. He is warned by the spirit of his deceased grandfather that goblins populate the town. His parents, Michael and Diana, dismiss his apprehensions, but soon learn to appreciate their son's warnings. Guided by his grandfather's ghost, will Joshua and his family stand a chance in fighting off these evil beings?</p>",
       "Image Alt Text": "Troll 2 poster",
@@ -5877,7 +5877,7 @@
   "warlock-collection-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>Three-film collection: Warlock (1989, Steve Miner), in which a 17th-century warlock is pulled forward in time to Los Angeles; Warlock: The Armageddon (1993, Anthony Hickox); and Warlock III: The End of Innocence (1999).</p>"
     }
@@ -5983,7 +5983,7 @@
   "wolf-cop-wolfpack-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>WolfCop Wolfpack is a 2-film Blu-ray collection of the Canadian horror-comedies WolfCop (2014) and Another WolfCop (2017), both directed by Lowell Dean, following a hard-drinking small-town cop who transforms into a werewolf.</p>",
       "Image Alt Text": "Wolf Cop Wolfpack poster",
@@ -6003,7 +6003,7 @@
   "x-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>In 1979, a group of young filmmakers set out to make an adult film in rural Texas, but when their reclusive, elderly hosts catch them in the act, the cast find themselves fighting for their lives.</p>",
       "Image Alt Text": "X poster",
@@ -6021,7 +6021,7 @@
   "yojimbo-criterion-dvd-rental-foreign": {
     "batch": "rentals",
     "run": "2026-10-08",
-    "status": "applied",
+    "status": "resolved",
     "values": {
       "Body (HTML)": "<p>A nameless ronin, or samurai with no master, enters a small village in feudal Japan where two rival businessmen are struggling for control of the local gambling trade. Taking the name Sanjuro Kuwabatake, the ronin convinces both silk merchant Tazaemon and sake merchant Tokuemon to hire him as a personal bodyguard, then artfully sets in motion a full-scale gang war between the two ambitious and unscrupulous men.</p>",
       "Image Alt Text": "Yojimbo (Criterion) poster",
