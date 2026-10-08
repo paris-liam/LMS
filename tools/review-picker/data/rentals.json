@@ -1768,5 +1768,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/8/87/WolfCop2014_poster.jpg",
     "overview": "WolfCop Wolfpack is a 2-film Blu-ray collection of the Canadian horror-comedies WolfCop (2014) and Another WolfCop (2017), both directed by Lowell Dean, following a hard-drinking small-town cop who transforms into a werewolf."
+  },
+  {
+    "handle": "the-fog-the-howling-bluray-rental-horror",
+    "choice": "manual",
+    "image_src": "",
+    "overview": "Double feature of two horror films: John Carpenter's The Fog (1980), in which a mysterious fog brings vengeful ghosts to a California coastal town, and Joe Dante's The Howling (1981), in which a TV reporter retreats to a countryside colony that hides werewolves."
   }
 ]
