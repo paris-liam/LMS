@@ -1408,5 +1408,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "Two gunrunners travel door to door selling contraband to a list of clients in this darkly comic crime drama."
+  },
+  {
+    "handle": "fright-night-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/euIh75MwNDrYkTEVSkw7VXWGXoE.jpg",
+    "overview": "Charley Brewster, a high school student, accidentally discovers the true and creepy nature of Jerry Dandrige, his dashing and enigmatic new neighbor; but no one seems willing to believe him."
   }
 ]
