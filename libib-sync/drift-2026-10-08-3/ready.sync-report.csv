@@ -1,0 +1,3 @@
+call_number,barcode_status,content_status,message
+51322106,skipped,updated,barcode: barcode already matches call_number | content: changed: description
+95110138,skipped,updated,"barcode: barcode already matches call_number | content: changed: description, poster"
