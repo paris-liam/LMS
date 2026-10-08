@@ -1774,5 +1774,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": "Double feature of two horror films: John Carpenter's The Fog (1980), in which a mysterious fog brings vengeful ghosts to a California coastal town, and Joe Dante's The Howling (1981), in which a TV reporter retreats to a countryside colony that hides werewolves."
+  },
+  {
+    "handle": "rampage-1993-vhs-rental-thriller",
+    "choice": "tmdb",
+    "poster_path": "/8xPtTYMZJdmdvGakgoiBC9znxpA.jpg",
+    "overview": "Emanating from the Sheffield Arena in Sheffield, England; matches include Lex Luger vs. \"Hacksaw\" Jim Duggan in the main event; Crush challenges Shawn Michaels for the Intercontinental Championship; Bobby \"The Brain\" Heenan interviews Yokozuna."
   }
 ]
