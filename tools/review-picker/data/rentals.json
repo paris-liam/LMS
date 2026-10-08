@@ -1594,5 +1594,11 @@
     "choice": "tmdb",
     "poster_path": "/4H3VwvIQC1dsMFb2DEGZpbS0JiI.jpg",
     "overview": "Zane Ziminski is an astrophysicist who receives a message that seems to have extraterrestrial origins. Eerily soon after his discovery, Zane is fired. He then embarks on a search to determine the origins of the transmission that leads him into a Hitchcockian labyrinth of paranoia and intrigue."
+  },
+  {
+    "handle": "habitat-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/cgAze8iOWRpEzYc1QHbhXqQQI5n.jpg",
+    "overview": "In order to combat the damage caused by the depletion of the ozone layer, maverick biologist Hank Symes unleashes his most ambitious experiment to date: accelerated evolution. Unfortunately, this not only causes the authorities to take notice, but also creates a backlash from his new neighbors--leaving his son caught in the middle."
   }
 ]
