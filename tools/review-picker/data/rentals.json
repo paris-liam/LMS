@@ -1636,5 +1636,11 @@
     "choice": "tmdb",
     "poster_path": "/fCocPDUFuKswY2GxDdfYsT9BXMd.jpg",
     "overview": "The prospects for continuing life on Earth in the year 2058 are grim. So the Robinsons are launched into space to colonize Alpha Prime, the only other inhabitable planet in the galaxy. But when a stowaway sabotages the mission, the Robinsons find themselves hurtling through uncharted space."
+  },
+  {
+    "handle": "star-wars-attack-of-the-clones-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/oZNPzxqM2s5DyVWab09NTQScDQt.jpg",
+    "overview": "Following an assassination attempt on Senator Padmé Amidala, Jedi Knights Anakin Skywalker and Obi-Wan Kenobi investigate a mysterious plot into the heart of the Separatist movement and the beginning of the Clone Wars."
   }
 ]
