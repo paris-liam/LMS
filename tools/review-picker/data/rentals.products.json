@@ -10109,5 +10109,319 @@
         "poster_path": ""
       }
     ]
+  },
+  {
+    "handle": "phonebooth-dvd-rental-thriller",
+    "title": "Phonebooth",
+    "vendor": "DVD",
+    "genre": "thriller",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "the-out-of-towners-dvd-rental-comedy",
+    "title": "The Out-of-Towners",
+    "vendor": "DVD",
+    "genre": "comedy",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Out-of-Towners' (1999))",
+    "candidates": [
+      {
+        "id": 8970,
+        "title": "The Out-of-Towners",
+        "year": "1999",
+        "overview": "The adventures of married couple Henry and Nancy Clark, vexed by misfortune while in New York City for Henry's job interview.",
+        "poster_path": "/wOmLJYh7oOfATE236XpoDfcXhOh.jpg"
+      },
+      {
+        "id": 20444,
+        "title": "The Out-of-Towners",
+        "year": "1970",
+        "overview": "A trip to New York for a job interview turns into a trip to hell for a small town couple.",
+        "poster_path": "/1yun6b1oVbHvyfnkhs5Ib7uQjSL.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "serendipity-dvd-rental-romantic-comedy",
+    "title": "Serendipity",
+    "vendor": "DVD",
+    "genre": "romantic-comedy",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Serendipity' (2001))",
+    "candidates": [
+      {
+        "id": 9778,
+        "title": "Serendipity",
+        "year": "2001",
+        "overview": "Although already in relationships, two strangers realize they have genuine chemistry after a chance encounter \u2013 but part company soon after. Years later, they each yearn to reunite, despite being destined for the altar. But to give true love a chance, they have to find one another again.",
+        "poster_path": "/4jS66Qmq2Ru5S2YzHVknGd4xJyT.jpg"
+      },
+      {
+        "id": 1753866,
+        "title": "Serendipity",
+        "year": "",
+        "overview": "Although already in relationships, two strangers realize they have genuine chemistry after a chance encounter \u2013 but part company soon after. Years later, they each yearn to reunite, despite being destined for the altar. But to give true love a chance, they have to find one another again.",
+        "poster_path": ""
+      },
+      {
+        "id": 540743,
+        "title": "Serendipity",
+        "year": "2018",
+        "overview": "Rani's life changed drastically after her father passed away, leaving a big sum of debt. She made the hardest decision in her life to become a lady escort. Arkan, her boyfriend, broke their relationship after knowing about her job, feeling cheated. Then a photo of her all made up with an old man goes viral, making her the school's bullying subject. Jean, her friend becomes distant. Gibran, a new student in the school gets his interest piqued in Rani after being ignored multiple times by her. After being caught crying, Rani befriends him. He always finds a way to help Rani and likes her. But the feeling is not mutual because she still likes her ex-boyfriend. Though Arkan still loves her, they can't get back together. Their relationship intertwines with family problems.",
+        "poster_path": "/a0f41J0C1gBiLqzaE5iTY9Rud0O.jpg"
+      },
+      {
+        "id": 1586071,
+        "title": "Serendipity",
+        "year": "",
+        "overview": "Although two strangers are both already in relationships, they realize they have genuine chemistry after a chance encounter \u2013 but part company soon after. Years later, they each yearn to reunite, despite being destined for the altar. But to give true love a chance, they have to find one another again. Based on the 2001 romantic comedy of the same name.",
+        "poster_path": ""
+      },
+      {
+        "id": 1429041,
+        "title": "SERENDIPITY",
+        "year": "2024",
+        "overview": "Sunlight, Wind blowing, Chitchatting and Serendipity  SERENDIPITY is an experimental work that focuses on little things in life in some afternoon which contain many beautiful elements and the filmmaker is trying to capture that moment all in just 1 minute.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "the-great-train-robbery-dvd-rental-action",
+    "title": "The Great Train Robbery",
+    "vendor": "DVD",
+    "genre": "action",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Great Train Robbery' (1903))",
+    "candidates": [
+      {
+        "id": 5698,
+        "title": "The Great Train Robbery",
+        "year": "1903",
+        "overview": "After the train station clerk is assaulted and left bound and gagged, then the departing train and its passengers robbed, a posse goes in hot pursuit of the fleeing bandits.",
+        "poster_path": "/vEYr1sJR1dOFGXwXawpBN6hDRGF.jpg"
+      },
+      {
+        "id": 214311,
+        "title": "The Great Train Robbery",
+        "year": "1904",
+        "overview": "A remake of Edwin S. Porter's film of the same title.",
+        "poster_path": "/xYaUOQoB1e332WJ22abnzUOEqwn.jpg"
+      },
+      {
+        "id": 355798,
+        "title": "The Great Train Robbery",
+        "year": "1941",
+        "overview": "Tom Logan is a railroad detective who takes it upon himself to halt the activities of his crooked brother Duke. Duke and his henchman have stolen an entire gold train, including the passengers......",
+        "poster_path": "/y45b3XcYkEUd74ROFZmieEjB2BN.jpg"
+      },
+      {
+        "id": 415382,
+        "title": "The Great Train Robbery",
+        "year": "2012",
+        "overview": "It was one of the greatest heists in British history. \u00a33 million \u2013 worth over \u00a340 million today \u2013 stolen from a moving train by a gang of thieves who almost got away with it.",
+        "poster_path": "/oJDXKtQMs4dmGH10RwXdFM3V973.jpg"
+      },
+      {
+        "id": 120828,
+        "title": "The Great K&A Train Robbery",
+        "year": "1926",
+        "overview": "Cullen has hired Tom to try and stop the robberies on his railroad. Knowing Cullen's secretary Holt is tipping off the gang, Tom works undercover by posing as a highwayman. To help him bring in the gang he enlists the help of the hobo DeLuxe Harry.",
+        "poster_path": "/1G3NRuUSx4wDWmgTRctAdxUPXUX.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "moby-dick-dvd-rental-drama",
+    "title": "Moby Dick",
+    "vendor": "DVD",
+    "genre": "drama",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Moby Dick' (1956))",
+    "candidates": [
+      {
+        "id": 10339,
+        "title": "Moby Dick",
+        "year": "1956",
+        "overview": "In 1841, young Ishmael signs up for service aboard the Pequod, a whaler sailing out of New Bedford. The ship is under the command of Captain Ahab, a strict disciplinarian who exhorts his men to find Moby Dick, the great white whale. Ahab lost his leg to that creature and is desperate for revenge. As the crew soon learns, he will stop at nothing to gain satisfaction.",
+        "poster_path": "/7JXcm3RyWlGsRCZ0YlOliWr6TNv.jpg"
+      },
+      {
+        "id": 177214,
+        "title": "Moby Dick",
+        "year": "1930",
+        "overview": "Herman Melville's mad Capt. Ahab (John Barrymore) spends years hunting the white whale that got his leg.",
+        "poster_path": "/28l2oBnECLYV0uB6ArFNkKT0szu.jpg"
+      },
+      {
+        "id": 847013,
+        "title": "Moby Dick",
+        "year": "1954",
+        "overview": "The demented, ruthless Captain Ahab pursues the white whale which took off his leg years before.",
+        "poster_path": "/7LajpIWpW7qWc3endxWwl4a4M7z.jpg"
+      },
+      {
+        "id": 744612,
+        "title": "Moby Dick",
+        "year": "2017",
+        "overview": "Two parallel journeys, Bianca's and a young illegal immigrant's, end up overlapping, in search of an impossible salvation, despite an almost inevitable shipwreck. At all costs. Against the odds and common sense. This is the story of Bianca. Bianca and her rusty whale. The fishing boat Moby Dick.",
+        "poster_path": "/xTMiSvQ4gD0AnkIMf0nLYkCTbus.jpg"
+      },
+      {
+        "id": 312356,
+        "title": "Moby-Dick",
+        "year": "2013",
+        "overview": "Grammy-winning tenor Jay Hunter Morris plays the role of Captain Ahab in Herman Melville's epic tale of a fierce, obsessive whaling-boat captain who descends into madness in this thrilling production from San Francisco Opera.",
+        "poster_path": "/KGH6LUvqLWA32JsWPG5pzWfFxT.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "inherit-the-wind-dvd-rental-drama",
+    "title": "Inherit the Wind",
+    "vendor": "DVD",
+    "genre": "drama",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Inherit the Wind' (1960))",
+    "candidates": [
+      {
+        "id": 1908,
+        "title": "Inherit the Wind",
+        "year": "1960",
+        "overview": "Schoolteacher Bertram Cates is arrested for teaching his students Darwin's theory of evolution. The case receives national attention and one of the newspaper reporters, E.K. Hornbeck, arranges to bring in renowned defense attorney and atheist Henry Drummond to defend Cates. The prosecutor, Matthew Brady is a former presidential candidate, famous evangelist, and old adversary of Drummond.",
+        "poster_path": "/7oaHcF0gCOt2lKaT2zajhajP0Zo.jpg"
+      },
+      {
+        "id": 103648,
+        "title": "Inherit the Wind",
+        "year": "1999",
+        "overview": "Two great lawyers argue the case for and against a science teacher accused of the crime of teaching evolution.",
+        "poster_path": "/rgH4hyR25OE2AvuW55URkp8bmA.jpg"
+      },
+      {
+        "id": 241492,
+        "title": "Inherit the Wind",
+        "year": "1988",
+        "overview": "Based on a real-life case in 1925, two great lawyers argue the case for and against a science teacher accused of the crime of teaching evolution.",
+        "poster_path": "/3AfXNedfPERiNTWNTktUXkbg808.jpg"
+      },
+      {
+        "id": 382615,
+        "title": "Inherit the Wind",
+        "year": "1965",
+        "overview": "A young man, Bert Cates, is arrested in a small Bible Belt town for teaching the theory of Evolution in the public school. Two of the finest legal minds in the U.S. are called to the trial: Henry Drummond for the defense, and Matthew Harrison Brady for the prosecution. The trial proceeds on three levels, the guilt or innocence of Cates, the issue of the Bible vs. Darwin, and finally, the personal confrontation between Drummond and Brady.",
+        "poster_path": "/69FM5n7ctOfrDx2mJAlxFMxyYbV.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "heaven-can-wait-dvd-rental",
+    "title": "Heaven Can Wait",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Heaven Can Wait' (1978))",
+    "candidates": [
+      {
+        "id": 12185,
+        "title": "Heaven Can Wait",
+        "year": "1978",
+        "overview": "Joe Pendleton is a quarterback preparing to lead his team to the superbowl when he is almost killed in an accident. An overanxious angel plucks him to heaven only to discover that he wasn't ready to die, and that his body has been cremated. A new body must be found, and that of a recently-murdered millionaire is chosen. His wife and accountant\u2014the murderers\u2014are confused by this development, as he buys the L.A. Rams in order to once again quarterback them into the Superbowl.",
+        "poster_path": "/h1yOiO9cow6gwmGxSAWvPdY4lhJ.jpg"
+      },
+      {
+        "id": 18727,
+        "title": "Heaven Can Wait",
+        "year": "1943",
+        "overview": "Spoiled playboy Henry van Cleve dies and arrives at the entrance to Hell, a final destination he is sure he deserves after living a life of profligacy. The devil, however, isn't so sure Henry meets Hell's standards. Convinced he is where he belongs, Henry recounts his life's deeds, both good and bad, including an act of indiscretion during his 25-year marriage to his wife, Martha, with the hope that \"His Excellency\" will arrive at the proper judgment.",
+        "poster_path": "/m4kM8PSYhUbZAsfmFu5WrSgGDUg.jpg"
+      },
+      {
+        "id": 908138,
+        "title": "Heaven Can Wait",
+        "year": "2011",
+        "overview": "",
+        "poster_path": "/ntZ39LlwjEiCwCa6Bw4PQRq9c6J.jpg"
+      },
+      {
+        "id": 1293619,
+        "title": "Heaven Can Wait",
+        "year": "",
+        "overview": "Not a remake of the same name, but will feature the same concept of the main character plucked away before his time.",
+        "poster_path": ""
+      },
+      {
+        "id": 1093738,
+        "title": "Heaven Can Wait",
+        "year": "2019",
+        "overview": "2016 Auntie Li's 16-year-old daughter was raped and killed at the New Oriental Foreign Language School in Beijing. in February 2018, the murderer filed an appeal and she came to Beijing to seek justice for her daughter. Finding her daughter's belongings lost at the school, she was turned away from the school. She hated the murderer and couldn't forgive herself or let go of her daughter",
+        "poster_path": "/lR3vN4MrQARuQbKKIiImE0M9aIl.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-hangover-part-ii-dvd-rental-comedy",
+    "title": "The Hangover Part II",
+    "vendor": "DVD",
+    "genre": "comedy",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Hangover Part II' (2011))",
+    "candidates": [
+      {
+        "id": 45243,
+        "title": "The Hangover Part II",
+        "year": "2011",
+        "overview": "The Hangover crew heads to Thailand for Stu's wedding. After the disaster of a bachelor party in Las Vegas last year, Stu is playing it safe with a mellow pre-wedding brunch. However, nothing goes as planned and Bangkok is the perfect setting for another adventure with the rowdy group.",
+        "poster_path": "/cKZu0Fdkj7dmwbfMpgDqVVCkLJQ.jpg"
+      },
+      {
+        "id": 109439,
+        "title": "The Hangover Part III",
+        "year": "2013",
+        "overview": "This time, there's no wedding. No bachelor party. What could go wrong, right? But when the Wolfpack hits the road, all bets are off.",
+        "poster_path": "/vtxuPWkdllLNLVyGjKYa267ntuH.jpg"
+      },
+      {
+        "id": 1317870,
+        "title": "The Unauthorized Documentary, Hangover Part II",
+        "year": "2011",
+        "overview": "A documentarian try's to find out what happened in Bankok during the filming of the Hangover Part II",
+        "poster_path": ""
+      }
+    ]
   }
 ]

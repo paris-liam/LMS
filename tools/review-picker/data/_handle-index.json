@@ -2085,6 +2085,10 @@
     "batch": "floor-sale-03",
     "status": "queued"
   },
+  "heaven-can-wait-dvd-rental": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "hedwig-and-the-angry-inch-dvd-floor-sale-musical": {
     "batch": "floor-sale-03",
     "status": "queued"
@@ -2333,6 +2337,10 @@
   },
   "inferno-vhs-floor-sale-action": {
     "batch": "floor-sale-03",
+    "status": "queued"
+  },
+  "inherit-the-wind-dvd-rental-drama": {
+    "batch": "rentals",
     "status": "queued"
   },
   "insomnia-dvd-5": {
@@ -3052,6 +3060,10 @@
     "batch": "floor-sale-04",
     "status": "queued"
   },
+  "moby-dick-dvd-rental-drama": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "modern-love-vhs": {
     "batch": "floor-sale-04",
     "status": "queued"
@@ -3549,6 +3561,10 @@
   },
   "philadelphia-sports-follies-vhs": {
     "batch": "floor-sale-05",
+    "status": "queued"
+  },
+  "phonebooth-dvd-rental-thriller": {
+    "batch": "rentals",
     "status": "queued"
   },
   "picnic-vhs-floor-sale-drama": {
@@ -4089,6 +4105,10 @@
   },
   "see-no-evil-vhs": {
     "batch": "floor-sale-06",
+    "status": "queued"
+  },
+  "serendipity-dvd-rental-romantic-comedy": {
+    "batch": "rentals",
     "status": "queued"
   },
   "seven-4k-floor-sale-thriller": {
@@ -5094,6 +5114,10 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/3kpxS7SZMyYSXvhDnmxQXOOxiTM.jpg"
     }
   },
+  "the-great-train-robbery-dvd-rental-action": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-grudge-dvd-floor-sale-horror": {
     "batch": "floor-sale-07",
     "status": "queued"
@@ -5122,6 +5146,10 @@
   },
   "the-hangover-part-ii-bluray-floor-sale-comedy": {
     "batch": "floor-sale-07",
+    "status": "queued"
+  },
+  "the-hangover-part-ii-dvd-rental-comedy": {
+    "batch": "rentals",
     "status": "queued"
   },
   "the-heartbreak-kid-vhs-floor-sale-comedy": {
@@ -5520,6 +5548,10 @@
   },
   "the-nutty-professor-vhs-floor-sale-comedy": {
     "batch": "floor-sale-08",
+    "status": "queued"
+  },
+  "the-out-of-towners-dvd-rental-comedy": {
+    "batch": "rentals",
     "status": "queued"
   },
   "the-outer-limits-demon-with-a-glass-hand-vhs": {
