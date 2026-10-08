@@ -1546,5 +1546,11 @@
     "choice": "tmdb",
     "poster_path": "/pAImVnqBJwoFAKrcpAe17JjLGUs.jpg",
     "overview": "After a series of traumatic childhood events, a psychosomatically deaf, dumb and blind boy becomes a master pinball player and the object of a religious cult."
+  },
+  {
+    "handle": "jekyll-hyde-1995-vhs-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/jSfC0KyRdP2BypWydrEcXOskfvH.jpg",
+    "overview": "A scientist creating perfumes inherits his great grandfather Dr. Jekyll's formula and decides to use modern technology to improve it. He ends up as an ambitious, ruthless woman. She tries to prevent returning into the spineless man."
   }
 ]
