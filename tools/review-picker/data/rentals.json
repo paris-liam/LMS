@@ -1630,5 +1630,11 @@
     "choice": "tmdb",
     "poster_path": "/1fBnyO3SbNBplck45js6O4pQaLw.jpg",
     "overview": "A suburban family chooses seemingly sweet Peyton Flanders as their newborn's nanny. Only much later does the infant's mother, Claire Bartel, realize Peyton's true intentions -- to destroy Claire and replace her in the family. The nail-biting suspense builds quickly in this chilling psychological thriller about deception and bitter revenge."
+  },
+  {
+    "handle": "lost-in-space-vhs-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/fCocPDUFuKswY2GxDdfYsT9BXMd.jpg",
+    "overview": "The prospects for continuing life on Earth in the year 2058 are grim. So the Robinsons are launched into space to colonize Alpha Prime, the only other inhabitable planet in the galaxy. But when a stowaway sabotages the mission, the Robinsons find themselves hurtling through uncharted space."
   }
 ]
