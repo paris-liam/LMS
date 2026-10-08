@@ -124,6 +124,10 @@ class TestPicks(unittest.TestCase):
         c = changes_of(merge([row()], {}, [Pick("q", "the-thing", "tmdb", "", "A & B")], QUEUED))
         self.assertEqual(c[("the-thing", "Body (HTML)")][0], "<p>A &amp; B</p>")
 
+    def test_pre_escaped_pick_overview_is_not_double_escaped(self):
+        c = changes_of(merge([row()], {}, [Pick("q", "the-thing", "manual", "", "A &amp; B")], QUEUED))
+        self.assertEqual(c[("the-thing", "Body (HTML)")][0], "<p>A &amp; B</p>")
+
 
 class TestReviewFixes(unittest.TestCase):
     def test_old_batch_manual_pick_for_a_queued_handle_only_fills_gaps(self):

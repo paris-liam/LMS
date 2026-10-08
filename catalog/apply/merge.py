@@ -64,7 +64,8 @@ def _pick_values(pick: Pick, row: dict, current_cycle: bool) -> dict | None:
         if not has_alt:
             values["Image Alt Text"] = f"{title} poster"
     if body and (overwrite or not has_body):
-        values["Body (HTML)"] = f"<p>{html.escape(body, quote=False)}</p>"
+        # the picker can save an overview already entity-encoded ("A &amp; B"); unescape first so it is escaped once
+        values["Body (HTML)"] = f"<p>{html.escape(html.unescape(body), quote=False)}</p>"
     return values
 
 
