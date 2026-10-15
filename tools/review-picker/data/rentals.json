@@ -1954,5 +1954,11 @@
     "choice": "tmdb",
     "poster_path": "/jmRjnbrcP85xV6LBtsVTM1BVOxM.jpg",
     "overview": "On an island off the coast, a techno rave party attracts a diverse group of college coeds and a Coast Guard officer. Soon, they discover that their X-laced escapades are to be interrupted by zombies and monsters that attack them on the ground, from the air, and in the sea, ruled by an evil entity."
+  },
+  {
+    "handle": "driftwood-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/Avu7xD3A6MLY9LcyNz8INrNpPvZ.jpg",
+    "overview": "A young woman washes ashore and is taken in by a stranger."
   }
 ]
