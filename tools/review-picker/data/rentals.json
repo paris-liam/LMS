@@ -1960,5 +1960,11 @@
     "choice": "tmdb",
     "poster_path": "/Avu7xD3A6MLY9LcyNz8INrNpPvZ.jpg",
     "overview": "A young woman washes ashore and is taken in by a stranger."
+  },
+  {
+    "handle": "ratman-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/5bqFnf9wLJOFgKZIG7I1je3f2vP.jpg",
+    "overview": "After a model is brutally murdered on a Caribbean island, her sister's investigation uncovers a horrifying rat-like creature."
   }
 ]
