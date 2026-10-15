@@ -1942,5 +1942,11 @@
     "choice": "tmdb",
     "poster_path": "/tGktSJW5dPf8QIjmcqum4KOEZPZ.jpg",
     "overview": "A group of young filmmakers encounter real zombies while filming a horror movie of their own."
+  },
+  {
+    "handle": "beneath-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/vgwq4t5GVmLqzhp3dmBTQHDWCn5.jpg",
+    "overview": "Christy returns to her hometown years after a car accident that disfigured her older sister. Haunted by the accident in which she was the driver, she learns that her worst nightmares have either come true ... or are about to."
   }
 ]
