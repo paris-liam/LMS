@@ -62,6 +62,16 @@ class TestLoadLibib(unittest.TestCase):
         with self.assertRaises(InputShapeError):
             load_libib(self.dir / "nope.csv", self.collection)
 
+    def test_created_is_passed_through(self):
+        self.barcodes.write_text(BARCODE_HEADER + ",created\n"
+                                 'a1,movie,2010000000014,Jaws,Rental Library,"vhs, horror",, 2026-10-14 10:00 \n',
+                                 encoding="utf-8")
+        items = load_libib(self.barcodes, self.collection)
+        self.assertEqual(items[0]["created"], "2026-10-14 10:00")
+
+    def test_created_is_blank_when_the_export_has_no_column(self):
+        self.assertEqual(load_libib(self.barcodes, self.collection)[0]["created"], "")
+
 
 if __name__ == "__main__":
     unittest.main()
