@@ -3,9 +3,7 @@
 **Status: repo side built 2026-10-15** (branch
 `feature/floor-sale-upload-sheet`); see "Build status" at the end. Decisions
 below were confirmed with the developer 2026-10-08. The dev-store checks
-("Verify on the dev store first") are still open — on 2026-10-15 the
-developer chose to build ahead of them, since their results change only the
-client guide (step 4, tax note), not the CSV.
+passed 2026-10-15 (see "Verify on the dev store first").
 
 **Supersedes**, for Floor Sale only,
 `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md` and the
@@ -106,15 +104,20 @@ Unchanged: the 15-genre table, imported from `genre-mappings.csv`, hidden.
 3. Download `Shopify import` as CSV → Shopify **Products → Import**, with
    **"Overwrite products with matching handles" unchecked**. Summary should
    read all *created*, none *updated*.
-4. (If the dev-store test shows it's needed — see below) Products → filter
-   tag `Floor Sale` → select the new ones → **Include in sales channels →
-   Point of Sale**.
-5. In Retail Barcode Labels: create barcodes **saved to the variant**, print,
+4. In Retail Barcode Labels: create barcodes **saved to the variant**, print,
    apply.
 
 ## Verify on the dev store first
 
-Both block the build; results go into this doc.
+**Result (2026-10-15, dev store, 2-row test import): all three pass.**
+1. Imported with `Published=FALSE`, the products were on **Point of Sale**
+   (Online Store off) and sellable in POS — no channel step needed, so the
+   client flow's old step 4 was dropped.
+2. "Charge tax" was on and a POS cart charged tax correctly. (Tax-inclusive
+   vs added-on was not recorded; it's a store setting, unaffected by the CSV.)
+3. Re-importing with overwrite unticked skipped the existing handles.
+
+Original checklist:
 
 1. **POS availability after import.** Import one row with `Published=FALSE`.
    Check Products → the product → Sales channels: is **Point of Sale** on?
@@ -157,7 +160,7 @@ Both block the build; results go into this doc.
      `Floor Sale`, any `Rental` tag, handle without a valid date suffix,
      duplicate handle in the file.
 4. `catalog/client_sheet/template/floor-sale/`: scaffold CSV, tab-2
-   formula, expected-output fixture, client guide (rewritten for the 5-step
+   formula, expected-output fixture, client guide (rewritten for the 4-step
    flow above). Reuse `genre-mappings.csv`.
 5. Tests in `tests/catalog/` for the transform, handle suffix, check
    shapes, and a seam test against a live-sheet export (same pattern as
@@ -206,7 +209,7 @@ Done (repo changes 1–8):
 - `template/floor-sale/`: `floor-sale-template.csv` (tab-1 scaffold, date
   in G2), `import-tab-formula.txt`, `floor-sale-template.expected.csv`
   (generated), `sheet-export-input.csv` (seam input), `floor-sale-guide.md`
-  (draft — step 4 and the tax note wait on the dev-store checks).
+  (4-step flow, final after the dev-store checks).
 - `picker push` skips Floor Sale; the audit's content step skips it (no
   TMDB, no review entries, no `Poster_Missing` added or removed).
 - Audit rules `floor-sale-online-store` and `floor-sale-not-taxable`
@@ -217,8 +220,7 @@ Done (repo changes 1–8):
 
 Still open:
 
-1. The three dev-store checks above; fold the results into this doc and
-   `floor-sale-guide.md`, then drop the guide's DRAFT comment.
+1. ~~The three dev-store checks~~ — passed 2026-10-15; guide updated.
 2. Build the live sheet from `template/floor-sale/`, paste
    `sheet-export-input.csv` into `Add floor sale`, download both tabs, and
    add the seam test (same pattern as `TestSheetExportSeam`).

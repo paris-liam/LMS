@@ -1,10 +1,3 @@
-<!--
-DRAFT (2026-10-15). Two parts depend on the dev-store checks in
-claudedocs/2026-10-08-floor-sale-upload-sheet.md ("Verify on the dev store
-first"): step 4 (whether imported products land on Point of Sale on their
-own) and the tax note under step 3. Settle both, then delete this comment.
--->
-
 # Little Movie Store — floor sale sheet
 
 This sheet turns a list of floor-sale copies into a file Shopify can import.
@@ -25,10 +18,9 @@ a product happens in the Shopify admin.
 2. **Fill in one row per copy.** Three copies of the same film means three
    rows.
 3. **Import into Shopify.** Download the `Shopify import` tab and import it,
-   with "Overwrite products with matching handles" **unticked**.
-4. **Put the new products on Point of Sale**, if Shopify didn't already
-   (see step 4).
-5. **Print the barcodes** in Retail Barcode Labels and stick them on.
+   with "Overwrite products with matching handles" **unticked**. The new
+   products land on Point of Sale on their own, ready to ring up.
+4. **Print the barcodes** in Retail Barcode Labels and stick them on.
 
 Each step is described below.
 
@@ -124,9 +116,9 @@ typed by hand count as two different formats.
 4. **Read the summary.** It should say **all created, none updated**. If
    anything was updated, tell your developer before printing barcodes.
 
-The new products are **Active** (so they can be sold) but **not on the
-website**. They're also marked **taxable**, so tax is charged at the
-counter.
+The new products are **Active** and on **Point of Sale**, so they can be
+rung up straight away, but they're **not on the website**. They're also
+marked **taxable**, so tax is charged at the counter.
 
 **Import each batch once.** Downloading the tab again later is safe because
 the batch date is typed, not calculated. Importing it twice still adds
@@ -134,21 +126,7 @@ nothing new.
 
 ---
 
-## Step 4 — Put the new products on Point of Sale
-
-*(Pending the dev-store check. If Shopify turns Point of Sale on by itself,
-this step goes away.)*
-
-1. Shopify: **Products**, filter by tag **`Floor Sale`**.
-2. Tick the products you just imported.
-3. **More actions → Include in sales channels → Point of Sale**.
-
-Check one of them in POS: search its title. It should come up and ring up
-at its price.
-
----
-
-## Step 5 — Barcodes
+## Step 4 — Barcodes
 
 In **Retail Barcode Labels**, create barcodes for the new products and make
 sure they're **saved to the product** (the variant). A barcode that isn't
