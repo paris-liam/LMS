@@ -181,7 +181,13 @@
   },
   "a-simple-plan-bluray-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Captivated by the lure of sudden wealth, the quiet rural lives of two brothers erupt into conflicts of greed, paranoia and distrust when over $4 million in cash is discovered at the remote site of a downed small airplane. Their simple plan to retain the money while avoiding detection opens a Pandora's box when the fear of getting caught triggers panicked behavior and leads to virulent consequences.</p>",
+      "Image Alt Text": "A Simple Plan poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/wO2gH7DMqpMeHlj5QmDhW4IkgAr.jpg"
+    }
   },
   "ace-ventura-pet-detective-dvd-floor-sale-comedy": {
     "batch": "floor-sale-01",
@@ -394,7 +400,13 @@
   },
   "at-deaths-door-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Death is training his son in the art and responsibilities of the family business. His son does well until he's sent out on his own to claim an accident victim. Instead, he's asked by a friend of the dying man to help with CPR. Taken aback, he assents, the dying man is resuscitated, and Death's son is in the doghouse with dad. Enraged, pop gives his son 24 hours to deliver a corpse, so the young man sets out to ice the man who asked him for help earlier that day. Junior's target is a young actor, Tom, going through opening night and loved by Sarah, a rather histrionic young woman. A near-Death experience awaits them all as Junior comes of age.</p>",
+      "Image Alt Text": "At Death's Door poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/TejyuvJj6JEbswmxYC1kVyDK2v.jpg"
+    }
   },
   "at-worlds-end-hot-fuzz-shaun-of-the-dead-bluray-rental-comedy": {
     "batch": "rentals",
@@ -440,7 +452,13 @@
   },
   "avp-requiem-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>After a horrifying PredAlien crash-lands near a small Colorado town, killing everyone it encounters and producing countless Alien offspring, a lone Predator arrives to \"clean up\" the infestation.</p>",
+      "Image Alt Text": "AVP Requiem poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/5iTwPDNtvK6ZZF607BHBbU3HO0B.jpg"
+    }
   },
   "b-a-d-cats": {
     "batch": "floor-sale-01",
@@ -574,7 +592,13 @@
   },
   "beneath-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Christy returns to her hometown years after a car accident that disfigured her older sister. Haunted by the accident in which she was the driver, she learns that her worst nightmares have either come true ... or are about to.</p>",
+      "Image Alt Text": "Beneath poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/vgwq4t5GVmLqzhp3dmBTQHDWCn5.jpg"
+    }
   },
   "benji-in-benjis-very-own-christmas-story-vhs-floor-sale-holiday": {
     "batch": "floor-sale-01",
@@ -763,7 +787,13 @@
   },
   "carnival-of-souls-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Mary Henry ends up the sole survivor of a fatal car accident through mysterious circumstances. Trying to put the incident behind her, she moves to Utah and takes a job as a church organist. But her fresh start is interrupted by visions of a fiendish man. As the visions begin to occur more frequently, Mary finds herself drawn to the deserted carnival on the outskirts of town. The strangely alluring carnival may hold the secret to her tragic past.</p>",
+      "Image Alt Text": "Carnival of Souls poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/AdbQsFB8pS090l0NO3uBtLZy2zw.jpg"
+    }
   },
   "carpool-vhs": {
     "batch": "floor-sale-01",
@@ -819,7 +849,13 @@
   },
   "cat-people-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>After years of separation, Irena Gallier and her minister brother, Paul, reunite in New Orleans. When zoologists capture a wild panther, Irena is drawn to the cat \u2013 and zoo curator Oliver to her. Soon, Paul will have to reveal the family secret: that when sexually aroused, they revert into predatory jungle cats.</p>",
+      "Image Alt Text": "Cat People poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/nYcQnkbTD4LDmp11HCReQuUoMKD.jpg"
+    }
   },
   "cats-eye-bluray-rental-horror": {
     "batch": "rentals",
@@ -1057,7 +1093,13 @@
   },
   "cool-air-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Charlie Baxter, a struggling screenwriter, is searching for accommodation in a rundown mansion somewhere in the isolated mountains above Malibu. An expressionless and creatively bankrupt young man who rewrites exploitation sci-fi / horror scripts for a living, he takes a room in the mansion and learns of the mysterious doctor residing in the room above his own who dabbles in strange experiments. As he learns more about the circumstances of the doctor and the history of his landlady, her autistic daughter and the strange lodger across the hall, Baxter is inspired to write his long blocked \"great American Screenplay\". Working furiously, Baxter suffers a heart attack, and staggers up to see the doctor for treatment. He passes out immediately, but awakens a cured man. But at a terrible price.</p>",
+      "Image Alt Text": "Cool Air poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/59X4T23THKo1oZoLk1YoNNfw9Tn.jpg"
+    }
   },
   "courage-and-fire-vhs-floor-sale-drama": {
     "batch": "floor-sale-02",
@@ -1154,11 +1196,23 @@
   },
   "dario-argento-collection-infero-phenomena-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Dario Argento collection of two Italian horror films: Inferno (1980), the second chapter of his Three Mothers trilogy, and Phenomena (1985), starring Jennifer Connelly as a girl who can communicate with insects.</p>",
+      "Image Alt Text": "Dario Argento Collection: Infero / Phenomena poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/e/e9/InfernoPoster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
   },
   "dark-awakening-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>On the heels of a devastating courtroom defeat, James moves his wife and son back to his hometown to begin a new life. From the very first day in their new home, the family experiences strange paranormal events. They seek help from a priest, who discovers that James is hiding the darkest secret of all.</p>",
+      "Image Alt Text": "Dark Awakening poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/iTeBZr2FH8J4nBqoIxMNuApN7aK.jpg"
+    }
   },
   "dark-city-vhs-rental-sci-fi": {
     "batch": "rentals",
@@ -1306,7 +1360,13 @@
   },
   "diary-of-the-dead-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A group of young filmmakers encounter real zombies while filming a horror movie of their own.</p>",
+      "Image Alt Text": "Diary of the Dead poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/tGktSJW5dPf8QIjmcqum4KOEZPZ.jpg"
+    }
   },
   "dillinger-vhs": {
     "batch": "floor-sale-02",
@@ -1354,7 +1414,13 @@
   },
   "dont-hang-up-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>An evening of drunken prank calls becomes a nightmare for a pair of teenagers when a mysterious stranger turns their own game against them.</p>",
+      "Image Alt Text": "Don't Hang Up poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/hUzhzMqb4pTKZMvHql2DtCWo2Wh.jpg"
+    }
   },
   "doppelganger-the-evil-within-vhs-rental-thriller": {
     "batch": "rentals",
@@ -1454,7 +1520,13 @@
   },
   "driftwood-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A young woman washes ashore and is taken in by a stranger.</p>",
+      "Image Alt Text": "Driftwood poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/Avu7xD3A6MLY9LcyNz8INrNpPvZ.jpg"
+    }
   },
   "dumb-and-dumber-dvd-5": {
     "batch": "floor-sale-02",
@@ -1484,7 +1556,13 @@
   },
   "dust-devil-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A woman on the run from her abusive husband encounters a mysterious hitch-hiker.</p>",
+      "Image Alt Text": "Dust Devil poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/59pEswv24gaJk1BZ6s7o7NnceVf.jpg"
+    }
   },
   "dying-to-get-rich-vhs-rental-comedy": {
     "batch": "rentals",
@@ -1639,7 +1717,13 @@
   },
   "extremes-3-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Features an anthology centred on the experiences of a witch doctor, a film-maker and a disgruntled extra determined to take revenge on him, and a novelist as well as her twin sister.</p>",
+      "Image Alt Text": "Extremes 3 poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/r0UzUF15suxLatzvNK3TQKxp10h.jpg"
+    }
   },
   "face-vhs-rental-action": {
     "batch": "rentals",
@@ -1811,7 +1895,13 @@
   },
   "friday-the-13th-uncut-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Camp counselors are stalked and murdered by an unknown assailant while trying to reopen a summer camp that was the site of a child's drowning.</p>",
+      "Image Alt Text": "Friday the 13th UNCUT poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/uGGpnWHOmWTARVN9wbC1nPxNgps.jpg"
+    }
   },
   "fright-night-vhs-rental-horror": {
     "batch": "rentals",
@@ -1987,7 +2077,13 @@
   },
   "good-night-and-good-luck-bluray-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The story of journalist Edward R. Murrow's stand against Senator Joseph McCarthy's anti-communist witch-hunts in the early 1950s.</p>",
+      "Image Alt Text": "Good Night, And Good Luck poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/w4QSEno2xxHqMtSr3mPUhJpO3F2.jpg"
+    }
   },
   "goonies-vhs": {
     "batch": "floor-sale-03",
@@ -2151,7 +2247,13 @@
   },
   "heaven-can-wait-dvd-rental": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Joe Pendleton is a quarterback preparing to lead his team to the superbowl when he is almost killed in an accident. An overanxious angel plucks him to heaven only to discover that he wasn't ready to die, and that his body has been cremated. A new body must be found, and that of a recently-murdered millionaire is chosen. His wife and accountant\u2014the murderers\u2014are confused by this development, as he buys the L.A. Rams in order to once again quarterback them into the Superbowl.</p>",
+      "Image Alt Text": "Heaven Can Wait poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/h1yOiO9cow6gwmGxSAWvPdY4lhJ.jpg"
+    }
   },
   "hedwig-and-the-angry-inch-dvd-floor-sale-musical": {
     "batch": "floor-sale-03",
@@ -2167,7 +2269,13 @@
   },
   "hellraiser-6-movie-collection-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Six-film Hellraiser collection: Hellraiser III: Hell on Earth (1992), Hellraiser: Bloodline (1996), Hellraiser: Inferno (2000), Hellraiser: Hellseeker (2002), Hellraiser: Deader (2005), and Hellraiser: Hellworld (2005), featuring the Cenobite Pinhead.</p>",
+      "Image Alt Text": "Hellraiser 6-Movie Collection poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/3/32/Hellraiser_III.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
   },
   "hercules-bluray-floor-sale-kids-family": {
     "batch": "floor-sale-03",
@@ -2229,7 +2337,13 @@
   },
   "hold-your-breath-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>There is an old wives tale that you should hold your breath when passing by a cemetery because an evil spirit rejected by both heaven and hell can get inside of you when you inhale. Somewhere in a carload of college kids on holiday doesn't follow the rules when driving by a graveyard, allowing a spirit of a recently executed serial killer to get inside him/her to begin a killing spree of body-jumping carnage.</p>",
+      "Image Alt Text": "Hold Your Breath poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/w7PJWZOHCLzfnw57TRFTcrLk1Ni.jpg"
+    }
   },
   "hollywood-trouble-vhs-floor-sale-comedy": {
     "batch": "floor-sale-03",
@@ -2285,7 +2399,13 @@
   },
   "horror-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Inspired by actual events, a group of 12 year old girls face a night of horror when the compulsive addiction of an online social media game turns a moment of cyber bullying into a night of insanity.</p>",
+      "Image Alt Text": "#HORROR poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/v9pTHwhpSWmPHU8i1pEt9VIG9Kg.jpg"
+    }
   },
   "horror-theater-dvd-floor-sale-foreign": {
     "batch": "floor-sale-03",
@@ -2309,7 +2429,13 @@
   },
   "house-of-the-dead-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>On an island off the coast, a techno rave party attracts a diverse group of college coeds and a Coast Guard officer. Soon, they discover that their X-laced escapades are to be interrupted by zombies and monsters that attack them on the ground, from the air, and in the sea, ruled by an evil entity.</p>",
+      "Image Alt Text": "House of the Dead poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/jmRjnbrcP85xV6LBtsVTM1BVOxM.jpg"
+    }
   },
   "how-the-grinch-stole-christmas-bluray-floor-sale-kids-family": {
     "batch": "floor-sale-03",
@@ -2361,7 +2487,13 @@
   },
   "ice-queen-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A unique female specimen from the Pleistocene Age, a.k.a. the Ice Age, is kept in cryogenic stasis while being transported back to civilization in a military convoy. When the convoy is raided by mercenaries who move the specimen onto a plane, the \"Ice Queen\" awakens in an uncontrollably aggressive state and kills the pilot, causing the plane to crash into a resort. Having survived the crash, the Ice Queen embarks on a rampage throughout the resort, forcing the survivors into a desperate battle for survival.</p>",
+      "Image Alt Text": "Ice Queen poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/uR5cBnE6EYLv9X2wXIrzUiOPlbE.jpg"
+    }
   },
   "if-looks-could-kill-vhs-floor-sale-action": {
     "batch": "floor-sale-03",
@@ -2425,7 +2557,13 @@
   },
   "inherit-the-wind-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Schoolteacher Bertram Cates is arrested for teaching his students Darwin's theory of evolution. The case receives national attention and one of the newspaper reporters, E.K. Hornbeck, arranges to bring in renowned defense attorney and atheist Henry Drummond to defend Cates. The prosecutor, Matthew Brady is a former presidential candidate, famous evangelist, and old adversary of Drummond.</p>",
+      "Image Alt Text": "Inherit the Wind poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/7oaHcF0gCOt2lKaT2zajhajP0Zo.jpg"
+    }
   },
   "insomnia-dvd-5": {
     "batch": "floor-sale-03",
@@ -2495,7 +2633,13 @@
   },
   "its-alive-collection-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Three-film horror collection by writer-director Larry Cohen: It's Alive (1974), It Lives Again (1978), and It's Alive III: Island of the Alive (1987), about mutant killer babies.</p>",
+      "Image Alt Text": "It's Alive Collection poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/7/7d/Itsaliveposter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
   },
   "its-complicated-bluray-floor-sale-comedy": {
     "batch": "floor-sale-03",
@@ -2599,7 +2743,13 @@
   },
   "junior-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A research scientist becomes the world's first pregnant man in order to test a drug he and a colleague have designed for expectant women. To carry out the trial, he has an embryo implant, believing that he will only carry the baby for three months \u2013 hardly expecting to face the prospect of giving birth.</p>",
+      "Image Alt Text": "Junior poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/swxxtzYc60qqnFhfWMFdmx9QXvY.jpg"
+    }
   },
   "just-friends-dvd": {
     "batch": "floor-sale-04",
@@ -2645,7 +2795,13 @@
   },
   "killer-curses-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Six-film horror collection: Venom, Dust Devil (1992), Beneath the Mississippi, The Final Patient, El Muerto, and Children of the Corn 666: Isaac's Return (1999).</p>",
+      "Image Alt Text": "Killer Curses poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/commons/4/43/Dust_devil.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
   },
   "king-of-new-york-1995-vhs-floor-sale-thriller": {
     "batch": "floor-sale-04",
@@ -3158,7 +3314,13 @@
   },
   "moby-dick-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In 1841, young Ishmael signs up for service aboard the Pequod, a whaler sailing out of New Bedford. The ship is under the command of Captain Ahab, a strict disciplinarian who exhorts his men to find Moby Dick, the great white whale. Ahab lost his leg to that creature and is desperate for revenge. As the crew soon learns, he will stop at nothing to gain satisfaction.</p>",
+      "Image Alt Text": "Moby Dick poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/7JXcm3RyWlGsRCZ0YlOliWr6TNv.jpg"
+    }
   },
   "modern-love-vhs": {
     "batch": "floor-sale-04",
@@ -3347,7 +3509,13 @@
   },
   "nature-morte-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>An undercover French cop and an American art critic travel to a mystical island to verify the source of a painting of a scene that only the infamous \"Marseilles Monster\" serial killer could have created.</p>",
+      "Image Alt Text": "Nature Morte poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/8BblVmgqw4EREBz48ZaAlBa1wZ8.jpg"
+    }
   },
   "nature-of-the-beast-vhs-floor-sale-thriller": {
     "batch": "floor-sale-05",
@@ -3436,7 +3604,13 @@
   },
   "no-vacancy-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In a surreal motel in Los Angeles, the life of several sordid characters intertwine.</p>",
+      "Image Alt Text": "No Vacancy poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/2WSdY6kRIpc5MgqyOtWhAsVmxtN.jpg"
+    }
   },
   "noah-dvd-floor-sale-drama": {
     "batch": "floor-sale-05",
@@ -3669,7 +3843,13 @@
   },
   "phantasm-5-movie-collection-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Five-film collection of the Phantasm horror series: Phantasm (1979), Phantasm II (1988), Phantasm III: Lord of the Dead (1994), Phantasm IV: Oblivion (1998), and Phantasm: Ravager (2016), following the battle against the sinister Tall Man.</p>",
+      "Image Alt Text": "Phantasm 5 Movie Collection poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/5/5f/Phantasm.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
   },
   "phantasm-remastered-steelbook-bluray": {
     "batch": "floor-sale-05",
@@ -3681,7 +3861,13 @@
   },
   "phonebooth-dvd-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Phone Booth is a 2002 thriller directed by Joel Schumacher, starring Colin Farrell as a smug New York publicist who answers a ringing pay phone and is pinned down in the booth by a sniper who threatens to shoot him if he hangs up.</p>",
+      "Image Alt Text": "Phonebooth poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/c/c4/Phone_Booth_movie.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
   },
   "picnic-vhs-floor-sale-drama": {
     "batch": "floor-sale-05",
@@ -3861,7 +4047,13 @@
   },
   "queens-of-scream-collection-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Five-film horror collection: Prom Night (1980, starring Jamie Lee Curtis), Prom Night II: Hello Mary Lou (1987), Sorority Sister Slaughter, The Sorority, and Vehemence.</p>",
+      "Image Alt Text": "Queens of Scream Collection poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/7/73/Prom_night_film_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
   },
   "quick-silver-highway-vhs-rental-horror": {
     "batch": "rentals",
@@ -3909,7 +4101,13 @@
   },
   "ratman-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>After a model is brutally murdered on a Caribbean island, her sister's investigation uncovers a horrifying rat-like creature.</p>",
+      "Image Alt Text": "Ratman poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/5bqFnf9wLJOFgKZIG7I1je3f2vP.jpg"
+    }
   },
   "rear-window-4k-rental-thriller": {
     "batch": "rentals",
@@ -4233,7 +4431,13 @@
   },
   "serendipity-dvd-rental-romantic-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Although already in relationships, two strangers realize they have genuine chemistry after a chance encounter \u2013 but part company soon after. Years later, they each yearn to reunite, despite being destined for the altar. But to give true love a chance, they have to find one another again.</p>",
+      "Image Alt Text": "Serendipity poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/4jS66Qmq2Ru5S2YzHVknGd4xJyT.jpg"
+    }
   },
   "seven-4k-floor-sale-thriller": {
     "batch": "floor-sale-06",
@@ -4351,11 +4555,23 @@
   },
   "signs-bluray-rental-sci-fi": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A family living on a farm finds mysterious crop circles in their fields which suggests something more frightening to come.</p>",
+      "Image Alt Text": "Signs poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/YtrIdrTxpRhvCnlw43dwOjfLqx.jpg"
+    }
   },
   "signs-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A family living on a farm finds mysterious crop circles in their fields which suggests something more frightening to come.</p>",
+      "Image Alt Text": "Signs poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/YtrIdrTxpRhvCnlw43dwOjfLqx.jpg"
+    }
   },
   "silent-night-collection-bluray-rental-horror": {
     "batch": "rentals",
@@ -4728,7 +4944,13 @@
   },
   "sublime-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Admitted to Mt. Abaddon Hospital for a routine procedure, George Grieves discovers that his condition is much more serious and complicated than originally expected; and as his own fears begin to manifest around him, he learns that Mt. Abaddon is not a place where people come to get better... it is a place where people come to die.</p>",
+      "Image Alt Text": "Sublime poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/285yCXj3JIe7rXdedZJ0FD4KPnS.jpg"
+    }
   },
   "super-dave-vhs-floor-sale-comedy": {
     "batch": "floor-sale-06",
@@ -4953,7 +5175,13 @@
   },
   "the-boy-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A young American woman takes a job as a nanny in a remote English village, soon discovering that the family's eight-year-old son is a life-sized doll that comes with a list of strict rules.</p>",
+      "Image Alt Text": "The Boy poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/kW2vgzhyWXQu5UxNzebPokipBqH.jpg"
+    }
   },
   "the-bridges-of-medison-county-vhs-rental-drama": {
     "batch": "rentals",
@@ -5068,7 +5296,13 @@
   },
   "the-cry-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Ulster 1959. A young journalist visiting his quiet hometown is awakened by a scream in the night. He catches sight of a youth being beaten up and dragged away. When he investigates, witnesses seem to melt away, and life-long friends reveal a sinister indifference. Or is it fear?</p>",
+      "Image Alt Text": "The Cry poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/rox6ML6nMwg0ySQMUGr9yQvzCIC.jpg"
+    }
   },
   "the-curve-vhs-floor-sale-thriller": {
     "batch": "floor-sale-07",
@@ -5146,7 +5380,13 @@
   },
   "the-fighter-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Boxer \"Irish\" Micky Ward's unlikely road to the world light welterweight title. His Rocky-like rise was shepherded by half-brother Dicky, a boxer-turned-trainer who rebounded in life after nearly being KO'd by drugs and crime.</p>",
+      "Image Alt Text": "The Fighter poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/xfsFerGhO1h6rLk8vwLgMyQ8WVJ.jpg"
+    }
   },
   "the-firm-vhs-floor-sale-drama": {
     "batch": "floor-sale-07",
@@ -5260,7 +5500,13 @@
   },
   "the-great-train-robbery-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Tom Logan is a railroad detective who takes it upon himself to halt the activities of his crooked brother Duke. Duke and his henchman have stolen an entire gold train, including the passengers......</p>",
+      "Image Alt Text": "The Great Train Robbery poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/y45b3XcYkEUd74ROFZmieEjB2BN.jpg"
+    }
   },
   "the-grudge-dvd-floor-sale-horror": {
     "batch": "floor-sale-07",
@@ -5294,7 +5540,13 @@
   },
   "the-hangover-part-ii-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The Hangover crew heads to Thailand for Stu's wedding. After the disaster of a bachelor party in Las Vegas last year, Stu is playing it safe with a mellow pre-wedding brunch. However, nothing goes as planned and Bangkok is the perfect setting for another adventure with the rowdy group.</p>",
+      "Image Alt Text": "The Hangover Part II poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/cKZu0Fdkj7dmwbfMpgDqVVCkLJQ.jpg"
+    }
   },
   "the-heartbreak-kid-vhs-floor-sale-comedy": {
     "batch": "floor-sale-07",
@@ -5604,7 +5856,13 @@
   },
   "the-lost-boys-bluray-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>When an unsuspecting town newcomer is drawn to local blood fiends, the Frog brothers and other unlikely heroes gear up to rescue him.</p>",
+      "Image Alt Text": "The Lost Boys poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/nH1lvyQvfbL5GKScTtT6zkIvDEn.jpg"
+    }
   },
   "the-magic-of-christmas-vhs-floor-sale-holiday": {
     "batch": "floor-sale-07",
@@ -5656,7 +5914,13 @@
   },
   "the-mist-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>After a violent storm, a dense cloud of mist envelops a small Maine town, trapping David Drayton and his five-year-old son in a local grocery store with other local residents. They soon discover that the mist conceals deadly horrors that threaten their lives, and worse, their sanity.</p>",
+      "Image Alt Text": "The Mist poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/c4UgUKZjM0Qzy5t4hAXSOFHYsnb.jpg"
+    }
   },
   "the-moment-cultcave-vhs-floor-sale-musical": {
     "batch": "floor-sale-07",
@@ -5664,7 +5928,13 @@
   },
   "the-monkeys-paw-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>After Jake Tilton is given a mystical \"monkey's paw\" talisman that grants its possessor three wishes, he finds his world turned upside down after his first two wishes result in his malevolent coworker, Tony Cobb, being resurrected from the dead. When Cobb pressures Jake into using the final wish to reunite Cobb with his son, his intimidation quickly escalates into relentless murder - forcing Jake to outwit his psychotic friend and save his remaining loved ones.</p>",
+      "Image Alt Text": "The Monkey's Paw poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/zKL3skF2qCQPcVm2PpR52DJfQKS.jpg"
+    }
   },
   "the-mummy-collectors-set-dvd-floor-sale-action": {
     "batch": "floor-sale-07",
@@ -5672,7 +5942,13 @@
   },
   "the-mummy-trilogy-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Three-film adventure collection: The Mummy (1999), The Mummy Returns (2001), and The Mummy: Tomb of the Dragon Emperor (2008), starring Brendan Fraser as adventurer Rick O'Connell.</p>",
+      "Image Alt Text": "The Mummy Trilogy poster",
+      "Image Src": "https://upload.wikimedia.org/wikipedia/en/6/68/The_mummy.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    }
   },
   "the-naked-gun-2-1-2-laserdisc-floor-sale-comedy": {
     "batch": "floor-sale-07",
@@ -5700,7 +5976,13 @@
   },
   "the-night-stalker-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Wisecracking reporter Carl Kolchak investigates a string of murders in Las Vegas and suspects the culprit is a vampire. His editor thinks he's crazy and the police think he's a nuisance, so Kolchak takes matters into his own hands.</p>",
+      "Image Alt Text": "The Night Stalker poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/dij60cVBL39B5t1SdGQr33APksC.jpg"
+    }
   },
   "the-nutty-professor-vhs": {
     "batch": "floor-sale-07",
@@ -5712,7 +5994,13 @@
   },
   "the-out-of-towners-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>The adventures of married couple Henry and Nancy Clark, vexed by misfortune while in New York City for Henry's job interview.</p>",
+      "Image Alt Text": "The Out-of-Towners poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/wOmLJYh7oOfATE236XpoDfcXhOh.jpg"
+    }
   },
   "the-outer-limits-demon-with-a-glass-hand-vhs": {
     "batch": "floor-sale-08",
@@ -5762,7 +6050,13 @@
   },
   "the-return-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>After twenty years away, Odysseus washes up on the shores of Ithaca, haggard and unrecognizable. The king has finally returned home, but much has changed in his kingdom since he left to fight in the Trojan war.</p>",
+      "Image Alt Text": "The Return poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/xSj6EbdwHs3MFT2tRj9L3I7TE5j.jpg"
+    }
   },
   "the-rules-of-the-game-dvd-rental-comedy": {
     "batch": "rentals",
@@ -5775,11 +6069,23 @@
   },
   "the-sacrament-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Two journalists set out to document their friend's journey to reunite with his estranged sister. They track her to an undisclosed location where they are welcomed into the remote world of \"Eden Parish,\" a self-sustained rural utopia composed of nearly two hundred members and overseen by a mysterious leader known only as \"Father.\" It quickly becomes evident to the newcomers that this paradise may not be as it seems. Eden Parish harbors a twisted secret. What started as just another documentary shoot soon becomes a fight for survival.</p>",
+      "Image Alt Text": "The Sacrament poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/thdioQOYqqusDUfT6trgwMIoNaQ.jpg"
+    }
   },
   "the-school-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>When a doctor looking for her missing child awakens to find herself in an abandoned school, she must survive the supernatural terror and face her own demons if she is to find the truth about where her son is.</p>",
+      "Image Alt Text": "The School poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/38GDdvmKhN9DYrGtaQ6OQr53Tnh.jpg"
+    }
   },
   "the-secret-agent-criterion-4k-uhd-blu-ray-floor-sale-drama": {
     "batch": "floor-sale-08",
@@ -5843,7 +6149,13 @@
   },
   "the-strange-case-of-dr-jekyll-and-mr-hyde-vhs-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In this Dan Curtis production of the Robert Louis Stevenson classic, Jack Palance stars as Dr. Henry Jekyll, a scientist experimenting to reveal the hidden, dark side of man, who, in the process of his experiment, releases a murderer from within himself.</p>",
+      "Image Alt Text": "The Strange Case of Dr. Jekyll and Mr. Hyde poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/2f148sTeER6uMIU3kmr4BJylVdq.jpg"
+    }
   },
   "the-survivors-vhs-rental-comedy": {
     "batch": "rentals",
@@ -5903,7 +6215,13 @@
   },
   "the-visit-4k-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A brother and sister are sent to their grandparents' remote Pennsylvania farm for a week, where they discover that the elderly couple is involved in something deeply disturbing.</p>",
+      "Image Alt Text": "The Visit poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/hDrToKMpKYTdwdpOhshL8ko6WVp.jpg"
+    }
   },
   "the-way-back-bluray-rental-comedy": {
     "batch": "rentals",
@@ -5917,7 +6235,13 @@
   },
   "the-wicker-man-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>A sheriff investigating the disappearance of a young girl from a small island discovers there's a larger mystery to solve among the island's secretive, neo-pagan community.</p>",
+      "Image Alt Text": "The Wicker Man poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/xsHrmfgDcEk5fGhSiieKvrDuofq.jpg"
+    }
   },
   "the-wild-bunch-dvd-rental-action": {
     "batch": "rentals",
@@ -5931,7 +6255,13 @@
   },
   "the-woman-in-black-2-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>40 years after the first haunting at Eel Marsh House, a group of children evacuated from WWII London arrive, awakening the house's darkest inhabitant.</p>",
+      "Image Alt Text": "The Woman in Black 2 poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/2110gY8s9VClt064nFvsobk5MmC.jpg"
+    }
   },
   "the-world-according-to-goofy-vhs-rental-kids-family": {
     "batch": "rentals",
@@ -5957,7 +6287,13 @@
   },
   "those-magnificent-men-in-their-flying-machines-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>In order to boost circulation of his newspaper, Lord Rawnsley announces an air race and offers \u00a310,000 to the first person who can fly across the English Channel. But one of the participants, Percy, plots to sabotage his competitor's planes. Will Percy triumph?</p>",
+      "Image Alt Text": "Those Magnificent Men in Their Flying Machines poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/wcGELNaQ8TbiMUpAnkKLl5g09OO.jpg"
+    }
   },
   "tie-died-vhs": {
     "batch": "floor-sale-08",
@@ -5989,11 +6325,23 @@
   },
   "torment-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Working extremely hard to keep his hotel afloat, Paul begins hearing voices in his head. Convinced that his wife has been unfaithful, he begins to see every male guest as a potential threat. What follows is Paul's downward spiral into the madness of deranged jealousy where he finally discovers that hell is not a state of mind \u2013 hell is himself.</p>",
+      "Image Alt Text": "Torment poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/cW9BUIVQacmt58hcI6RrSLl2QGT.jpg"
+    }
   },
   "tormented-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Driven to suicide by relentless bullying and neglect, a resurrected teenager returns from the dead to exact lethal revenge on his former tormentors.</p>",
+      "Image Alt Text": "Tormented poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/jPaZJjxfJM4cIHeDS9Isfqyat6l.jpg"
+    }
   },
   "toys-trains-christmas-2-vhs-floor-sale-holiday": {
     "batch": "floor-sale-08",
@@ -6047,7 +6395,13 @@
   },
   "unbreakable-bluray-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>An ordinary man makes an extraordinary discovery when a train accident leaves his fellow passengers dead \u2014 and him unscathed. The answer to this mystery could lie with the mysterious Elijah Price, a man who suffers from a disease that renders his bones as fragile as glass.</p>",
+      "Image Alt Text": "Unbreakable poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/mLuehrGLiK5zFCyRmDDOH6gbfPf.jpg"
+    }
   },
   "unbreakable-vhs-floor-sale-action": {
     "batch": "floor-sale-08",
@@ -6156,7 +6510,13 @@
   },
   "white-noise-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
+    "run": "2026-10-15-3",
+    "status": "applied",
+    "values": {
+      "Body (HTML)": "<p>Jack Gladney, professor of Hitler studies at The-College-on-the-Hill, husband to Babette, and father to four children/stepchildren, is torn asunder by a chemical spill from a rail car that releases an \"Airborne Toxic Event\" forcing Jack to confront his biggest fear - his own mortality.</p>",
+      "Image Alt Text": "White Noise poster",
+      "Image Src": "https://image.tmdb.org/t/p/w1280/kesxNdLZlmGoTRspDHU1WgdEuGw.jpg"
+    }
   },
   "whos-that-knocking-at-my-door-dvd-rental-drama": {
     "batch": "rentals",
