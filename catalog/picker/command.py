@@ -37,7 +37,7 @@ def run_push_command(args, fetch_fn=None, sync_fn=sync_review_picker, stdin=None
     review = json.loads((run_dir / "review.json").read_text(encoding="utf-8"))
     picker_dir = Path(args.picker_dir)
     registry = load_registry(picker_dir)
-    entries = new_entries_by_queue(review, registry, picker_dir)
+    entries = new_entries_by_queue(review, registry)
     total = sum(len(v) for v in entries.values())
     message = (f"review-picker: +{total} cards ("
                + ", ".join(f"{queue} +{len(v)}" for queue, v in entries.items())

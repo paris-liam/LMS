@@ -35,8 +35,7 @@ from catalog.core.git_sync import sync_review_picker  # noqa: E402
 from catalog.core.plan import Plan, add_approval_args, confirm  # noqa: E402
 from catalog.core.registry import load_registry, save_registry  # noqa: E402
 from catalog.core.runs import resolve_run  # noqa: E402
-from catalog.picker.push import (FLOOR_SALE_GROUP_SIZE, RENTALS_GROUP, UNTYPED_GROUP,  # noqa: E402
-                                 floor_sale_group)
+from catalog.picker.push import RENTALS_GROUP, UNTYPED_GROUP  # noqa: E402
 from catalog.picker.queues import load_products, save_products, update_manifest, write_launcher  # noqa: E402
 from catalog.picker.page import build_hosted_picker_html  # noqa: E402
 from catalog.tmdb.cache import TmdbCache  # noqa: E402
@@ -44,6 +43,11 @@ from catalog.tmdb.candidates import collect_products, rental_or_floor_sale  # no
 from catalog.tmdb.client import make_fetcher  # noqa: E402
 
 OLD_QUEUES = ("ambiguous-queue", "unmatched-queue")
+FLOOR_SALE_GROUP_SIZE = 100
+
+
+def floor_sale_group(number: int) -> str:
+    return f"floor-sale-{number:02d}"
 
 
 def plan_regroup(flagged, tags_by_handle, registry, old_cards, review_by_handle):

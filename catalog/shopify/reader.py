@@ -45,6 +45,11 @@ def run_cli_query(store: str, query_path: Path, variables: dict) -> dict:
     return _parse_json_output(proc.stdout)
 
 
+def _flag(value) -> str:
+    """True/False -> "TRUE"/"FALSE"; None (not asked for, or unknown) -> ""."""
+    return "" if value is None else ("TRUE" if value else "FALSE")
+
+
 def node_to_row(node: dict) -> dict:
     variants = (node.get("variants") or {}).get("nodes") or []
     variant = variants[0] if variants else {}
@@ -72,6 +77,9 @@ def node_to_row(node: dict) -> dict:
         "Variant Inventory Tracker": "shopify" if (variant.get("inventoryItem") or {}).get("tracked") else "",
         "Variant Count": str(((node.get("variantsCount") or {}).get("count")) or 0),
         "Product Category": (node.get("category") or {}).get("fullName") or "",
+        # onlineStoreUrl is null exactly when the product is off the Online Store channel.
+        "Published": _flag(bool(node["onlineStoreUrl"])) if "onlineStoreUrl" in node else "",
+        "Variant Taxable": _flag(variant.get("taxable")),
         GENRE_METAFIELD: "; ".join(r["handle"] for r in references if r and r.get("handle")),
     })
     return row

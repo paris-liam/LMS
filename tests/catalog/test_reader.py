@@ -16,7 +16,8 @@ def node(**overrides):
         "templateSuffix": None, "variantsCount": {"count": 1},
         "variants": {"nodes": [{"price": "0.00", "barcode": "01577790",
                                 "selectedOptions": [{"name": "Genre", "value": "Comedy"}],
-                                "inventoryItem": {"tracked": True}}]},
+                                "inventoryItem": {"tracked": True}, "taxable": True}]},
+        "onlineStoreUrl": "https://littlemoviestore.com/products/rushmore-vhs-rental",
         "media": {"nodes": [{"image": {"url": "https://cdn.shopify.com/r.jpg", "altText": "Rushmore poster"}}]},
         "genre": {"references": {"nodes": [{"handle": "comedy"}, {"handle": "drama"}]}},
         "category": {"fullName": "Media > Videos"},
@@ -50,6 +51,14 @@ class TestNodeToRow(unittest.TestCase):
         self.assertEqual(r["Image Alt Text"], "Rushmore poster")
         self.assertEqual(r[GENRE_METAFIELD], "comedy; drama")
         self.assertEqual(r["Product Category"], "Media > Videos")
+        self.assertEqual(r["Published"], "TRUE")
+        self.assertEqual(r["Variant Taxable"], "TRUE")
+
+    def test_off_the_online_store_and_untaxed(self):
+        n = node(onlineStoreUrl=None)
+        n["variants"]["nodes"][0]["taxable"] = False
+        r = node_to_row(n)
+        self.assertEqual((r["Published"], r["Variant Taxable"]), ("FALSE", "FALSE"))
 
     def test_node_with_nothing_optional(self):
         r = node_to_row(node(descriptionHtml=None, vendor=None, tags=[], templateSuffix="retail",
@@ -64,6 +73,7 @@ class TestNodeToRow(unittest.TestCase):
         self.assertEqual(r[GENRE_METAFIELD], "")
         self.assertEqual(r["Variant Count"], "0")
         self.assertEqual(r["Product Category"], "")
+        self.assertEqual(r["Variant Taxable"], "")
 
     def test_untracked_and_null_barcode(self):
         n = node()
@@ -125,7 +135,8 @@ class TestRunCliQuery(unittest.TestCase):
     def test_query_file_exists_and_names_every_field(self):
         text = Path(reader.QUERY_PATH).read_text(encoding="utf-8")
         for field in ("handle", "descriptionHtml", "templateSuffix", "variantsCount", "barcode",
-                      "tracked", "altText", 'namespace: "shopify", key: "genre"', "endCursor"):
+                      "tracked", "altText", 'namespace: "shopify", key: "genre"', "endCursor",
+                      "onlineStoreUrl", "taxable"):
             self.assertIn(field, text)
 
     def test_a_non_auth_failure_mentioning_author_is_not_called_auth(self):

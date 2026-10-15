@@ -35,6 +35,8 @@ def read_export(path) -> list[dict]:
             value = primary.get(column) or ""
             out[column] = value if column == "Body (HTML)" else value.strip()
         out["Status"] = out["Status"].lower()
+        for column in ("Published", "Variant Taxable"):  # the export writes true/false
+            out[column] = (primary.get(column) or "").strip().upper()
         out["Variant Count"] = str(max(sum(1 for r in group if _is_variant_row(r)), 1))
         products.append(out)
     return products

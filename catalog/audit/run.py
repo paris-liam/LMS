@@ -14,7 +14,7 @@ from catalog.audit.findings import AUTO_FIX, FINDING_COLUMNS, MANUAL, PICKER, Fi
 from catalog.audit.resolvers import split_list
 from catalog.audit.rules import (
     POSTER_MISSING_TAG, check_catalogue, check_row, has_poster_tag, is_multi_variant, needs_description,
-    needs_poster, resolve_row, strip_poster_tag,
+    needs_poster, resolve_row, strip_poster_tag, wants_content,
 )
 from catalog.core import log
 from catalog.core.columns import GENRE_METAFIELD
@@ -171,7 +171,8 @@ def run_audit(rows: list[dict], registry: dict, fetch_fn=None) -> AuditResult:
     findings.extend(_applied_missing(registry, rows_by_handle, still_missing))
     log.summary(f"rules: {len(findings)} findings before content checks")
 
-    content_rows = [r for r in rows if (needs_poster(r) or needs_description(r)) and not is_multi_variant(r)]
+    content_rows = [r for r in rows if (needs_poster(r) or needs_description(r))
+                    and wants_content(r) and not is_multi_variant(r)]
     review: list[dict] = []
     for index, row in enumerate(content_rows, start=1):
         found, entry, message = _content(row, registry, fetch_fn)
@@ -183,7 +184,7 @@ def run_audit(rows: list[dict], registry: dict, fetch_fn=None) -> AuditResult:
     findings = _reconcile_poster_tag(findings, rows_by_handle)
 
     for row in rows:
-        if not is_multi_variant(row):
+        if not is_multi_variant(row) or not wants_content(row):
             continue
         for field_name, needed in (("Image Src", needs_poster(row)), ("Body (HTML)", needs_description(row))):
             if needed:

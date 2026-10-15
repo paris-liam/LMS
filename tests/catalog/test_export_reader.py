@@ -64,6 +64,17 @@ class TestReadExport(unittest.TestCase):
         self.assertEqual(r["Status"], "active")
         self.assertEqual(r["Template Suffix"], "")
 
+    def test_published_and_taxable_are_read_as_true_or_false(self):
+        header = HEADER + ["Published", "Variant Taxable"]
+        write(self.path, [product(Published="false", **{"Variant Taxable": "true"})], header)
+        r = read_export(self.path)[0]
+        self.assertEqual((r["Published"], r["Variant Taxable"]), ("FALSE", "TRUE"))
+
+    def test_published_and_taxable_blank_when_the_export_lacks_them(self):
+        write(self.path, [product()])
+        r = read_export(self.path)[0]
+        self.assertEqual((r["Published"], r["Variant Taxable"]), ("", ""))
+
     def test_not_an_export_raises(self):
         write(self.path, [{"Title": "x"}], ["Title", "Format"])
         with self.assertRaises(InputShapeError):

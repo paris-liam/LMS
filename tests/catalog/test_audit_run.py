@@ -212,5 +212,25 @@ class TestOutputs(unittest.TestCase):
         self.assertIn("skipped (--skip-tmdb)", report)
 
 
+class TestFloorSaleIsNotEnriched(unittest.TestCase):
+    def test_floor_sale_without_poster_or_description_is_not_content_work(self):
+        calls = []
+        row = movie(Handle="speed-dvd-floor-sale-20261008", Title="Speed", Vendor="DVD", Tags="Floor Sale",
+                    **{"Body (HTML)": "", "Image Src": "", "Image Alt Text": "", "Variant Price": "8",
+                       "Variant Barcode": "", "Option1 Value": "Action", GENRE_METAFIELD: "action"})
+        result = run_audit([row], {}, fetcher({"Speed": [tmdb("Speed", 1994)]}, calls))
+        self.assertEqual(calls, [], "no TMDB lookup for floor sale")
+        self.assertEqual(result.findings, [])
+        self.assertEqual(result.review, [])
+        self.assertEqual(result.autofix, {})
+
+    def test_multi_variant_floor_sale_gets_no_fill_by_hand_finding(self):
+        row = movie(Tags="Floor Sale", Vendor="DVD", **{"Body (HTML)": "", "Image Src": "", "Variant Count": "2",
+                                                         "Variant Price": "8", "Variant Barcode": ""})
+        result = run_audit([row], {}, None)
+        self.assertNotIn("description-missing", {f.rule for f in result.findings})
+        self.assertNotIn("poster-missing", {f.rule for f in result.findings})
+
+
 if __name__ == "__main__":
     unittest.main()

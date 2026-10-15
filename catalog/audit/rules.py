@@ -68,11 +68,20 @@ def strip_poster_tag(tags: str) -> str:
 def final_tags(row: dict, r: Resolved) -> str:
     """The tags the product should end up with: its own, respelled, plus
     Poster_Missing exactly when it has no image. Every Tags fix proposes this
-    one value, so several fixes on one product never disagree."""
+    one value, so several fixes on one product never disagree. Floor sale
+    needs no poster, so its Poster_Missing tag is neither added nor removed."""
+    if r.type == "Floor Sale":
+        return respelled_tags(r)
     base = strip_poster_tag(respelled_tags(r))
     if not needs_poster(row):
         return base
     return ", ".join([base, POSTER_MISSING_TAG] if base else [POSTER_MISSING_TAG])
+
+
+def wants_content(row: dict) -> bool:
+    """Floor sale is never on the website, so it never needs a poster or a
+    description (claudedocs/2026-10-08-floor-sale-upload-sheet.md)."""
+    return resolve_row(row).type != "Floor Sale"
 
 
 def needs_poster(row: dict) -> bool:
@@ -131,6 +140,21 @@ def _rental_barcode_findings(row, r, make) -> list[Finding]:
     return []
 
 
+def _floor_sale_findings(row, r, make) -> list[Finding]:
+    """Floor sale is sold at the counter only, and taxed. A blank value means
+    the source didn't say (an export or an older snapshot), so it isn't flagged."""
+    if r.type != "Floor Sale":
+        return []
+    out = []
+    if (row.get("Published") or "").strip().upper() == "TRUE":
+        out.append(make("floor-sale-online-store", "Published", "TRUE", "FALSE", MANUAL,
+                        "floor sale is in-store only — remove it from the Online Store channel"))
+    if (row.get("Variant Taxable") or "").strip().upper() == "FALSE":
+        out.append(make("floor-sale-not-taxable", "Variant Taxable", "FALSE", "TRUE", MANUAL,
+                        "floor sale is taxable — tick Charge tax on the variant"))
+    return out
+
+
 def _autofix_findings(row, r, make) -> list[Finding]:
     out: list[Finding] = []
     current_tags = row.get("Tags", "")
@@ -145,7 +169,7 @@ def _autofix_findings(row, r, make) -> list[Finding]:
         out.append(make("format-genre-tag", "Tags", current_tags, proposed_tags, AUTO_FIX,
                         f"remove {', '.join(redundant)}: format lives in Vendor, genre in the genre field"))
 
-    if has_poster_tag(r.tags) != needs_poster(row):
+    if r.type != "Floor Sale" and has_poster_tag(r.tags) != needs_poster(row):
         out.append(make("poster-tag-sync", "Tags", current_tags, proposed_tags, AUTO_FIX,
                         f"{POSTER_MISSING_TAG} marks a product with no poster"))
 
@@ -198,6 +222,7 @@ def check_row(row: dict) -> list[Finding]:
                              row.get("Variant Inventory Tracker", ""), "shopify", MANUAL,
                              "an untracked product never shows as unavailable"))
     findings += _rental_barcode_findings(row, r, make)
+    findings += _floor_sale_findings(row, r, make)
     findings += _autofix_findings(row, r, make)
 
     if is_multi_variant(row):

@@ -139,13 +139,12 @@ class TestAutoFixRules(unittest.TestCase):
         self.assertNotIn(("alt-text-missing", "Image Alt Text"),
                          by_rule(check_row(movie(**{"Image Src": "", "Image Alt Text": ""}))))
 
-    def test_imageless_movie_gets_the_poster_missing_tag(self):
-        for maker in (movie, floor_sale):
-            with self.subTest(maker=maker.__name__):
-                f = by_rule(check_row(maker(**{"Image Src": "", "Image Alt Text": ""})))
-                finding = f[("poster-tag-sync", "Tags")]
-                self.assertEqual(finding.bucket, AUTO_FIX)
-                self.assertTrue(finding.proposed_value.endswith(", Poster_Missing"))
+    def test_imageless_rental_gets_the_poster_missing_tag(self):
+        # Floor sale needs no poster: TestFloorSaleRules.
+        f = by_rule(check_row(movie(**{"Image Src": "", "Image Alt Text": ""})))
+        finding = f[("poster-tag-sync", "Tags")]
+        self.assertEqual(finding.bucket, AUTO_FIX)
+        self.assertTrue(finding.proposed_value.endswith(", Poster_Missing"))
 
     def test_poster_missing_tag_is_removed_once_there_is_an_image(self):
         f = by_rule(check_row(movie(Tags="Rental, new-arrival, poster_missing")))
@@ -221,6 +220,37 @@ class TestManualRules(unittest.TestCase):
         findings = check_row(movie(Tags="Rental, VHS, Horor", **{"Variant Count": "2", "Image Alt Text": ""}))
         self.assertIn("multiple-variants", {f.rule for f in findings})
         self.assertFalse([f for f in findings if f.bucket == AUTO_FIX])
+
+
+class TestFloorSaleRules(unittest.TestCase):
+    """claudedocs/2026-10-08-floor-sale-upload-sheet.md: floor sale is sold at
+    the counter only, taxable, and carries no poster or description."""
+
+    def test_on_the_online_store_is_flagged(self):
+        found = by_rule(check_row(floor_sale(Published="TRUE")))
+        self.assertEqual(found[("floor-sale-online-store", "Published")].bucket, MANUAL)
+
+    def test_not_taxable_is_flagged(self):
+        found = by_rule(check_row(floor_sale(**{"Variant Taxable": "FALSE"})))
+        self.assertEqual(found[("floor-sale-not-taxable", "Variant Taxable")].bucket, MANUAL)
+
+    def test_off_the_website_and_taxable_is_clean(self):
+        self.assertEqual(check_row(floor_sale(Published="FALSE", **{"Variant Taxable": "TRUE"})), [])
+
+    def test_unknown_channel_or_tax_is_not_flagged(self):
+        """An export or older snapshot may not say; don't guess."""
+        self.assertEqual(check_row(floor_sale(Published="", **{"Variant Taxable": ""})), [])
+
+    def test_rentals_are_not_held_to_floor_sale_rules(self):
+        self.assertEqual(check_row(movie(Published="TRUE", **{"Variant Taxable": "FALSE"})), [])
+
+    def test_imageless_floor_sale_gets_no_poster_missing_tag(self):
+        self.assertEqual(check_row(floor_sale(**{"Image Src": "", "Image Alt Text": ""})), [])
+
+    def test_existing_poster_missing_tag_on_floor_sale_is_left_alone(self):
+        row = floor_sale(Tags="Floor Sale, Poster_Missing, DVD", **{"Image Src": "", "Image Alt Text": ""})
+        tag_fix = by_rule(check_row(row))[("format-genre-tag", "Tags")]
+        self.assertEqual(tag_fix.proposed_value, "Floor Sale, Poster_Missing")
 
 
 class TestCatalogueRules(unittest.TestCase):

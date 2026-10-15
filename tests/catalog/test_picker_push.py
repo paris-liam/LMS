@@ -48,12 +48,15 @@ class FakeStdin(io.StringIO):
 
 class TestNewEntries(unittest.TestCase):
     def test_groups_by_type_not_by_kind_and_skips_known_and_repeated_handles(self):
-        review = [entry("a"), entry("b", "unmatched"), entry("a"), entry("c"),
-                  entry("f", tags="Floor Sale, DVD"), entry("u", tags="DVD")]
+        review = [entry("a"), entry("b", "unmatched"), entry("a"), entry("c"), entry("u", tags="DVD")]
         grouped = new_entries_by_queue(review, {"c": {"status": "resolved"}})
         self.assertEqual([e["Handle"] for e in grouped["rentals"]], ["a", "b"])
-        self.assertEqual([e["Handle"] for e in grouped["floor-sale-01"]], ["f"])
         self.assertEqual([e["Handle"] for e in grouped["untyped"]], ["u"])
+
+    def test_floor_sale_is_never_queued(self):
+        """Floor sale ships with no poster or description by design (2026-10-08)."""
+        review = [entry("f", tags="Floor Sale, DVD"), entry("a")]
+        self.assertEqual(new_entries_by_queue(review, {}), {"rentals": [entry("a")]})
 
     def test_poster_only_cards_go_after_cards_that_block_libib(self):
         poster_only = dict(entry("p1"), Missing=["Image Src"])
@@ -61,21 +64,6 @@ class TestNewEntries(unittest.TestCase):
         legacy = entry("l1")  # review.json from before Missing existed: treated as blocking
         grouped = new_entries_by_queue([poster_only, both, dict(entry("p2"), Missing=["Image Src"]), legacy], {})
         self.assertEqual([e["Handle"] for e in grouped["rentals"]], ["b1", "l1", "p1", "p2"])
-
-    def test_floor_sales_fill_groups_of_100_continuing_the_newest(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            data = Path(tmp) / "data"
-            data.mkdir()
-            (data / "floor-sale-01.products.json").write_text(json.dumps([{"handle": "x"}] * 100))
-            (data / "floor-sale-02.products.json").write_text(json.dumps([{"handle": "y"}] * 99))
-            review = [entry(f"f{i}", tags="Floor Sale") for i in range(102)]
-            grouped = new_entries_by_queue(review, {}, tmp)
-        self.assertEqual({k: len(v) for k, v in grouped.items()}, {"floor-sale-02": 1, "floor-sale-03": 100, "floor-sale-04": 1})
-
-    def test_first_floor_sale_group_is_01(self):
-        review = [entry(f"f{i}", tags="Floor Sale") for i in range(101)]
-        grouped = new_entries_by_queue(review, {})
-        self.assertEqual({k: len(v) for k, v in grouped.items()}, {"floor-sale-01": 100, "floor-sale-02": 1})
 
 
 class TestPushCommand(unittest.TestCase):
@@ -112,14 +100,14 @@ class TestPushCommand(unittest.TestCase):
         self.assertIn("--approve", err.getvalue())
         self.assertFalse(self.picker.exists())
 
-    def test_yes_appends_to_rentals_and_floor_sale_and_registers(self):
+    def test_yes_appends_rentals_skips_floor_sale_and_registers(self):
         with contextlib.redirect_stdout(io.StringIO()):
             command.run_push_command(self.args("--approve", "ok", "--no-git-sync"), fetch_fn=fetch)
         registry = json.loads((self.picker / "data" / "_handle-index.json").read_text(encoding="utf-8"))
         self.assertEqual(registry["a"], {"batch": "rentals", "status": "queued"})
-        self.assertEqual(registry["b"], {"batch": "floor-sale-01", "status": "queued"})
+        self.assertNotIn("b", registry)
         self.assertTrue((self.picker / "rentals" / "index.html").exists())
-        self.assertTrue((self.picker / "floor-sale-01" / "index.html").exists())
+        self.assertFalse((self.picker / "floor-sale-01").exists())
         self.assertTrue((self.picker / "index.html").exists())
         self.assertTrue((self.runs / ".tmdb-cache.json").exists())
 
