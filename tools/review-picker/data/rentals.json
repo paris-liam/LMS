@@ -2062,5 +2062,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/c/c4/Phone_Booth_movie.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "overview": "Phone Booth is a 2002 thriller directed by Joel Schumacher, starring Colin Farrell as a smug New York publicist who answers a ringing pay phone and is pinned down in the booth by a sniper who threatens to shoot him if he hangs up."
+  },
+  {
+    "handle": "hold-your-breath-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/w7PJWZOHCLzfnw57TRFTcrLk1Ni.jpg",
+    "overview": "There is an old wives tale that you should hold your breath when passing by a cemetery because an evil spirit rejected by both heaven and hell can get inside of you when you inhale. Somewhere in a carload of college kids on holiday doesn't follow the rules when driving by a graveyard, allowing a spirit of a recently executed serial killer to get inside him/her to begin a killing spree of body-jumping carnage."
   }
 ]
