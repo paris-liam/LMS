@@ -1,0 +1,92 @@
+LITTLE MOVIE STORE — Floor Sale sheet, tab 2 ("Shopify import")
+
+Paste the formula below into cell A1 of tab 2. Nothing else goes on that
+tab. It reads tab 1 ("Add floor sale") and emits the header row plus one row
+per filled-in copy — it grows and shrinks on its own, so there is never
+anything to drag down.
+
+Tab 1 layout:
+  A Title   B Format   C Genre   D Price   E Extra tags
+  F (blank)
+  G1 the label "Batch date", G2 the batch date (typed, yyyy-mm-dd)
+
+The `mappings` tab is the same as the old upload sheet's: import
+../genre-mappings.csv (15 rows, genre name in A, handle in B), hidden.
+
+Spec: claudedocs/2026-10-08-floor-sale-upload-sheet.md.
+
+------------------------------------------------------------------
+PASTE INTO TAB 2, CELL A1:
+------------------------------------------------------------------
+
+=LET(
+  raw,     IFERROR(FILTER('Add floor sale'!A2:E, 'Add floor sale'!A2:A<>""), ""),
+  empty,   COLUMNS(raw) = 1,
+  src,     IF(empty, {"","","","",""}, raw),
+  n,       IF(empty, 0, ROWS(src)),
+  batch,   'Add floor sale'!G2,
+  nodate,  IF(batch = "", TRUE, NOT(ISDATE(batch))),
+  stamp,   IF(nodate, "", TEXT(batch, "yyyymmdd")),
+  tr,      LAMBDA(col, MAP(col, LAMBDA(x, TRIM(x)))),
+  title,   tr(INDEX(src,,1)),
+  fmt,     tr(INDEX(src,,2)),
+  genre,   tr(INDEX(src,,3)),
+  price,   tr(INDEX(src,,4)),
+  extra,   INDEX(src,,5),
+  slug,    LAMBDA(t, REGEXREPLACE(REGEXREPLACE(REGEXREPLACE(LOWER(TRIM(TO_TEXT(t))), "['’]", ""), "[^a-z0-9]+", "-"), "^-+|-+$", "")),
+  gh,      LAMBDA(g, IF(g="", "", IFERROR(VLOOKUP(g, mappings!$A:$B, 2, FALSE), ""))),
+  base,    MAP(title, fmt, LAMBDA(t, f, slug(t) & "-" & slug(f) & "-floor-sale-" & stamp)),
+  handle,  MAP(SEQUENCE(MAX(n, 1)), LAMBDA(i, LET(b, INDEX(base, i), k, COUNTIF(ARRAY_CONSTRAIN(base, i, 1), b), IF(k = 1, b, b & "-" & k)))),
+  konst,   LAMBDA(v, MAP(title, LAMBDA(x, v))),
+  tags,    MAP(extra, LAMBDA(e, IF(TRIM(e) = "", "Floor Sale", TEXTJOIN(", ", TRUE, "Floor Sale", ARRAYFORMULA(TRIM(SPLIT(e, ","))))))),
+  priceo,  MAP(price, LAMBDA(p, TO_TEXT(p))),
+  genreh,  MAP(genre, LAMBDA(g, gh(g))),
+  header,  {"Handle","Title","Vendor","Product Category","Tags","Status","Published","Option1 Name","Option1 Value","Variant Inventory Tracker","Variant Inventory Qty","Variant Inventory Policy","Variant Fulfillment Service","Variant Price","Variant Taxable","Genre (product.metafields.shopify.genre)"},
+  oops,    {"ERROR: type the batch date in 'Add floor sale'!G2 (yyyy-mm-dd), then download again","","","","","","","","","","","","","","",""},
+  body,    HSTACK(handle, title, fmt, konst("Media > Videos"), tags, konst("Active"), konst("FALSE"), konst("Genre"), genre, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, konst("TRUE"), genreh),
+  IF(nodate, VSTACK(header, oops), IF(empty, header, VSTACK(header, body)))
+)
+
+------------------------------------------------------------------
+NOTES FOR WHOEVER BUILDS THE SHEET
+------------------------------------------------------------------
+
+* The 16 output columns and their order are fixed — they are the contract
+  in catalog/core/columns.py:FLOOR_SALE_TEMPLATE_COLUMNS. Do not add,
+  remove or reorder them.
+
+* The batch date is TYPED into G2, never =TODAY(). A volatile date would
+  change every handle if the tab were downloaded again on another day, and
+  a re-import would then create the whole batch a second time. With no
+  valid date in G2 the tab emits a single ERROR row instead of a body, so
+  an undated batch can't be imported by accident (check-upload flags it
+  too).
+
+* Handles: `slug(title)-slug(format)-floor-sale-YYYYMMDD`, then -2, -3 …
+  for further copies of the same title + format in the batch. The date is
+  what keeps a later batch from reusing (and on import, overwriting) an
+  earlier batch's product. `slug` matches
+  catalog/core/handles.py:slugify exactly — apostrophes deleted, every
+  other non-alphanumeric run collapsed to one hyphen (`Amélie` -> `am-lie`).
+
+* `handle` is O(n^2) via COUNTIF over ARRAY_CONSTRAIN. If a 200+ row batch
+  feels slow, move `base` and `handle` into two helper columns (Q and R)
+  and reference those instead.
+
+* Tags are `Floor Sale` plus each Extra tag, trimmed, empty parts dropped
+  ("Criterion Collection , Rare Finds," -> "Floor Sale, Criterion
+  Collection, Rare Finds"). SPLIT errors on an empty string, hence the IF.
+
+* `Published` is FALSE on every row: it only controls the Online Store
+  channel. Status stays Active so POS can sell it (Draft would hide it
+  there too).
+
+* `Variant Taxable` is TRUE on every row: floor sale is taxable.
+
+* TRIM is not array-aware outside ARRAYFORMULA, so `tr` maps it over each
+  cell; LET names must not look like cell references (`g1`, `o1` …); and
+  `konst` maps a constant over `title` so it repeats down the rows. Same
+  rules as the old sheet's formula.
+
+* `TO_TEXT` around the price stops Sheets from formatting 19.99 as a locale
+  number with a comma decimal separator on export.

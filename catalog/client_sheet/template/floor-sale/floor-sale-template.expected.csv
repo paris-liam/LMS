@@ -1,0 +1,4 @@
+Handle,Title,Vendor,Product Category,Tags,Status,Published,Option1 Name,Option1 Value,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Taxable,Genre (product.metafields.shopify.genre)
+speed-dvd-floor-sale-20261008,Speed,DVD,Media > Videos,Floor Sale,Active,FALSE,Genre,Action,shopify,1,deny,manual,8,TRUE,action
+speed-dvd-floor-sale-20261008-2,Speed,DVD,Media > Videos,Floor Sale,Active,FALSE,Genre,Action,shopify,1,deny,manual,8,TRUE,action
+little-shop-of-horrors-blu-ray-floor-sale-20261008,Little Shop of Horrors,Blu-Ray,Media > Videos,"Floor Sale, Criterion Collection",Active,FALSE,Genre,Musical,shopify,1,deny,manual,19.99,TRUE,musical
