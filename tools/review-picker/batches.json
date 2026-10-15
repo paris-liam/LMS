@@ -41,7 +41,7 @@
   },
   {
     "batch_id": "rentals",
-    "total": 317
+    "total": 351
   },
   {
     "batch_id": "floor-sale-01",
@@ -74,5 +74,9 @@
   {
     "batch_id": "floor-sale-08",
     "total": 49
+  },
+  {
+    "batch_id": "untyped",
+    "total": 9
   }
 ]
