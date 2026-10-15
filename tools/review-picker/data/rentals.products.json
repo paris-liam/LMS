@@ -12463,5 +12463,1092 @@
     ],
     "reason": "no TMDB match",
     "candidates": []
+  },
+  {
+    "handle": "the-watcher-dvd-rental-horror",
+    "title": "The Watcher",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Watcher' (2000))",
+    "candidates": [
+      {
+        "id": 839342,
+        "title": "The Watcher",
+        "year": "",
+        "overview": "A teenage girl finds herself plagued by a mysterious man only she can see. He is known to her as The Watcher. In an attempt to face her fears, she learns the danger of curiosity and the ease at which people can become the monster in someone else's story.",
+        "poster_path": ""
+      },
+      {
+        "id": 635514,
+        "title": "The Watcher",
+        "year": "2011",
+        "overview": "There are many tales from the Heights, a drug-fueled Kingdom where brutality reigns, a place where the right postcode sells you a wrap or the wrong one buys you a bullet. Every street has a story, every person has a tale.",
+        "poster_path": "/96VWXJuJuivfpenIEBwzHjYlgmE.jpg"
+      },
+      {
+        "id": 421049,
+        "title": "The Watcher",
+        "year": "2016",
+        "overview": "Unaware of its terrible history, a young couple purchases their dream home. But it soon becomes clear that they may not be alone in the house... and that someone -- or something -- is determined to drive them out.",
+        "poster_path": "/mVQYgAZCgkRRSWC2gnj71Ndj19T.jpg"
+      },
+      {
+        "id": 1099702,
+        "title": "The Watcher",
+        "year": "2022",
+        "overview": "Danielle, the last member of a small religious cult (The Children of Enoch), awaits the resurrection of her recently departed \"sisters\" and their leader, Father Enoch.",
+        "poster_path": "/yLY2Tk8s4SWU1mIsPWUuotsZjUg.jpg"
+      },
+      {
+        "id": 1704605,
+        "title": "The Watcher",
+        "year": "2026",
+        "overview": "a kid is attacked by a mysterious person but then two older teens keep him him safe, then the boys realise one of there friends is missing - this film is horror film and is inspired by films like scream and Friday the 13th and more with its slasher genre and scream for its mystery story line about finding out who's doing what",
+        "poster_path": "/37yy3tUkpezn5qslsuMY3pYpexb.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "trauma-dvd-rental-horror",
+    "title": "Trauma",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Trauma' (2017))",
+    "candidates": [
+      {
+        "id": 20357,
+        "title": "Trauma",
+        "year": "2004",
+        "overview": "Awaking from a coma to discover his wife has been killed in a car accident, Ben's world may as well have come to an end. A few weeks later, Ben's out of hospital and, attempting to start a new life, he moves home and is befriended by a beautiful young neighbour Charlotte. His life may be turning around but all is not what it seems and, haunted by visions of his dead wife, Ben starts to lose his grip on reality.",
+        "poster_path": "/k9uFGgQYmyhGFhwRM9jZuIlYAiu.jpg"
+      },
+      {
+        "id": 469722,
+        "title": "Trauma",
+        "year": "2017",
+        "overview": "Four friends visit a rural locality of Chile, are brutally attacked by a man and his son. After not finding help in the town, they decide to confront these men with the help of a pair of policemen. But in this way, they will discover that their attackers have in their blood the direct legacy of the darkest period of Chilean history and will have to face the most brutal enemy.",
+        "poster_path": "/wbtU44cXUa57LV4rCIVuFBSBRql.jpg"
+      },
+      {
+        "id": 28487,
+        "title": "Trauma",
+        "year": "1978",
+        "overview": "Daniel, a writer seeking seclusion to work on his new book, finds himself stranded at a rural bed and breakfast run by a strange and prudish young woman and her ailing, wheelchair-bound husband who remains shut in his room all day. As night falls, a psychotic, razor-wielding killer begins stalking the bed and breakfast, brutally slashing the throats of its most sex-crazed guests, whose bodies and luggage then mysteriously disappear the following morning...",
+        "poster_path": "/kO1gKeYWN5ziMFy3ka94fxSDwx9.jpg"
+      },
+      {
+        "id": 44435,
+        "title": "Trauma",
+        "year": "1993",
+        "overview": "A young Romanian woman and a recovering drug addict launch an unlikely investigation after her parents are murdered by a vicious serial killer known as The Headhunter.",
+        "poster_path": "/A9lheNDXPb4HS0g2RQu2rUD98V5.jpg"
+      },
+      {
+        "id": 951714,
+        "title": "Trauma",
+        "year": "2020",
+        "overview": "One night, the world of a tormented man will turn upside down.",
+        "poster_path": "/waNBoAznd2W5g095bHsmeYOnMiS.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "cursed-dvd-rental-horror",
+    "title": "Cursed",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Cursed' (2005))",
+    "candidates": [
+      {
+        "id": 10012,
+        "title": "Cursed",
+        "year": "2005",
+        "overview": "A werewolf loose in Los Angeles changes the lives of three young adults who, after being mauled by the beast, learn that the only way to break the curse put upon them is to kill the one who started it all.",
+        "poster_path": "/em45jL4CfTMyj5V83kj7rhdorJu.jpg"
+      },
+      {
+        "id": 862029,
+        "title": "Cursed",
+        "year": "2024",
+        "overview": "An American drifter is cursed and undergoes a supernatural transformation after arriving in a rural Romanian village and stealing from a produce stand.",
+        "poster_path": "/5rnbgAy4xeknUR22SRBiMNV9c0k.jpg"
+      },
+      {
+        "id": 511993,
+        "title": "Cursed",
+        "year": "",
+        "overview": "A prominent psychiatrist at a state run hospital wrestles with madness and a dark supernatural force as he races to stop an escaped patient from butchering five people held hostage in a remote house.",
+        "poster_path": "/y4Uba4QQcjEHqv5sw3f59PyMz8R.jpg"
+      },
+      {
+        "id": 163510,
+        "title": "Cursed",
+        "year": "1990",
+        "overview": "When a gargoyle falls off a church during a storm, a scientist and his assistant take it back to their lab, where they are doing genetic experiments. However, the gargoyle is possessed by an evil spirit and starts to interfere in their experiments.",
+        "poster_path": "/p3mTjappYhnsSSH4SEMwxCrJwVq.jpg"
+      },
+      {
+        "id": 944997,
+        "title": "Cursed",
+        "year": "2021",
+        "overview": "A tragic accident in the 1960's leaves a young man and his family haunted by his mistakes.",
+        "poster_path": "/38N4nUlJQv7GunfNjGp0Ijb1TT2.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "maneater-dvd-rental-horror",
+    "title": "Maneater",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Maneater' (2022))",
+    "candidates": [
+      {
+        "id": 982620,
+        "title": "Maneater",
+        "year": "2022",
+        "overview": "A group of friends on vacation in a seeming island paradise are stalked by an unrelenting great white after an accident leaves them stranded and left for dead.",
+        "poster_path": "/pwf3DGuWB1AptvIzHhlGxDUNnQX.jpg"
+      },
+      {
+        "id": 30938,
+        "title": "Maneater",
+        "year": "2007",
+        "overview": "When a dismembered body is found in the Appalachian Mountains, a county Sheriff is shocked to discover that the predator is a six-hundred pound Bengal tiger.",
+        "poster_path": "/vMVx3okb05J3CxCRGx8IY9QiDlJ.jpg"
+      },
+      {
+        "id": 252905,
+        "title": "Maneater",
+        "year": "1973",
+        "overview": "Two couples on a camping trip are hunted by two tigers set upon them by a crazed animal trainer.",
+        "poster_path": "/zPLnWKFwcXzLKG3T5EIRSsSK2EW.jpg"
+      },
+      {
+        "id": 927526,
+        "title": "Maneater!",
+        "year": "2022",
+        "overview": "Anna\u2019s a young cannibal who thinks she has it all figured out, but in a chance encounter, she ends up falling in love with a janitor. Forced to choose between her love of human flesh and this new romance, Anna thinks she can put eating people behind her, but a determined conspiracy theorist won't let her get away so easily.",
+        "poster_path": "/9JM43mALuV6Cx5FfZDoGBtt3frp.jpg"
+      },
+      {
+        "id": 54753,
+        "title": "Maneater",
+        "year": "2009",
+        "overview": "A former FBI profiler, now a sheriff of a small town and a single parent of a high school aged daughter, begins to profile a series of unexplained murders only to learn that the monster he's profiling may be himself.",
+        "poster_path": "/2nNBBsCN6E18iu3Yow4tknj6bQ1.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "mirrors-dvd-rental-horror",
+    "title": "Mirrors",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Mirrors' (2008))",
+    "candidates": [
+      {
+        "id": 13515,
+        "title": "Mirrors",
+        "year": "2008",
+        "overview": "An ex-cop and his family are the target of an evil force that is using mirrors as a gateway into their home.",
+        "poster_path": "/bt5a4ThyLpLTsia2e2ZTLzQjXO0.jpg"
+      },
+      {
+        "id": 1542207,
+        "title": "Mirrors",
+        "year": "2022",
+        "overview": "Mask comes to life & decides the fate of humanity.",
+        "poster_path": "/emNePiYSCccpI6tAaaShB28cMxU.jpg"
+      },
+      {
+        "id": 231188,
+        "title": "Mirrors",
+        "year": "1978",
+        "overview": "A newlywed couple checks into an old hotel in New Orleans where the wife begins having dreams in which she encounters a sinister group of people who seem to want her for some nefarious purpose. When people around her start dying, she realizes she is not dreaming.",
+        "poster_path": "/xSTmjGynnnB2Z65FTdUjT9QAZR2.jpg"
+      },
+      {
+        "id": 1704826,
+        "title": "Mirrors",
+        "year": "2026",
+        "overview": "Upon returning home after spending seven years living in Spain, In\u00e9s must adapt to a reality that is not what she left behind. Her family\u2019s expectations, accumulated tensions, and her grandmother's deterioration make her return more complicated than she imagined.",
+        "poster_path": "/g4luXEQHarkOu3MiKSsjXlaKLM.jpg"
+      },
+      {
+        "id": 219402,
+        "title": "Mirrors",
+        "year": "1985",
+        "overview": "An aspiring Midwestern ballerina (Marguerite Hickey) struggles in New York as the only jobs she can get are as chorus performers. Her personal life is equally dismal.",
+        "poster_path": "/nqphfPlv7cpDSsYv5zwQFriiWSm.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "fear-of-the-dark-dvd-rental-horror",
+    "title": "Fear of the Dark",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Fear of the Dark' (2003))",
+    "candidates": [
+      {
+        "id": 44195,
+        "title": "Fear of the Dark",
+        "year": "2003",
+        "overview": "Twelve year old Ryan Billings has been diagnosed with an acute fear of the dark. He spends each night lying awake in torment, waiting and watching as the evil in the darkness grows stronger, feeding off his fear. His older brother Dale, suspects that there is nothing wrong with Ryan and that this is just a ploy for more attention. Regardless, he promises to watch over his little brother as their parents head off to a party for the night. Outside a storm rages and when the power goes out, darkness envelops the house. Ryan knows that tonight the evil has finally come to claim him. Dale desperately tries everything to try and calm him down, until the horrors in the dark make him realize Ryan had good reason to be so afraid!",
+        "poster_path": "/vPaqnJwsyGmljco3EOVq119Bg7n.jpg"
+      },
+      {
+        "id": 82209,
+        "title": "Fear of the Dark",
+        "year": "2001",
+        "overview": "Follow Alice as she spirals into insanity. Twenty years ago it began with the killing rampage of the Black Rose Killer. No one could stop him. After having barely escaped his clutches, Alice spent the next twenty years moving from foster home to foster home and in and out of psychiatric institutions. Now, one week before the twentieth anniversary of her parents murder, the killing spree begins again.  Alice believes that the killer is coming back for her. She sees him even when she's not asleep. Has he come back for her or is ti all in her mind? Find out the chilling answer in Fear of the Dark. Sleep with the lights on or never sleep again!",
+        "poster_path": ""
+      },
+      {
+        "id": 424079,
+        "title": "Fear of the Dark",
+        "year": "2005",
+        "overview": "Our story begins when a group of girls from a \"halfway\" program are hired to organize and document the contents of a huge old building for it's new owners.  What they find inside is a terrifying trip into the mouth of Hell itself.  The old building houses dark secrets that result in brutal acts of murder, but the ones murdered are the lucky ones, it's the ones who live that have it face the true Horror and the shocking truth that lies at the heart of the evil within the building.",
+        "poster_path": "/mR8kY9fUZfpJSQ1KBlspQfbaP0k.jpg"
+      },
+      {
+        "id": 360743,
+        "title": "Fear of the Dark",
+        "year": "1985",
+        "overview": "Killing a human being \"in cold blood\" requires unique mental preparation and single-minded determination.\r To pull the trigger a second time may be easier, but the moments between the shots must be calculatingly controlled, the precision of \"getting it right\" must be sustained.\r Representing this tormenting tapestry of emotion, the arts of acting and moviemaking become a tug-of-war between reality and imagination.\r A lifetime of regrets, anguish, confusion and frustration may erupt in the fleeting moments between the takes.  In this film writer/director Peter Tammer explores the FEAR OF THE DARK through the person of the actor Robert Ratti, holding together the hopes and fears of the performer who is facing survival on a day-to-day basis for the opportunity to work in the future. This visual fantasy confronts a level of consciousness we've all touched, reminding us that we were not alone in the dark, facing a reality we dare not imagine.",
+        "poster_path": ""
+      },
+      {
+        "id": 16137,
+        "title": "Fear(s) of the Dark",
+        "year": "2007",
+        "overview": "Several scary black-and-white animated segments in different styles appeal to our fear(s) of the dark.",
+        "poster_path": "/9i48eXAo1fviuN6PBhkjl6HT7WS.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "wax-dvd-rental-horror",
+    "title": "Wax",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Wax' (2026))",
+    "candidates": [
+      {
+        "id": 1611601,
+        "title": "Wax",
+        "year": "2026",
+        "overview": "As exam season consumes her, a perfectionist university student ignores a growing ear infection to focus on her studies. But the infection worsens. Pus oozes constantly, sleep becomes impossible, and her grip on reality begins to unravel. One night, driven by a haunting nightmare, exhaustion, and mounting anxiety, she becomes convinced something is alive inside her ear. A body horror short about the cost of perfection, where the pressure to succeed becomes a breeding ground for something far more terrifying.",
+        "poster_path": "/g6XKaRzVmbMHNMfw5b5VBU3jqGj.jpg"
+      },
+      {
+        "id": 211258,
+        "title": "Wax",
+        "year": "2014",
+        "overview": "A young journalist has to spend a night in Barcelona's Wax Museum to investigate paranormal activities. He has no idea Dr. Knox, an insane cannibal surgeon, hides in the museum at night.",
+        "poster_path": "/8T41L1DfsLgeczCV591KxGE5BMr.jpg"
+      },
+      {
+        "id": 610032,
+        "title": "Wax",
+        "year": "2013",
+        "overview": "In an attempt to break away from her religious upbringing, a young Jewish woman sets up an Internet date. The cruelty of casual sex triggers a painful obsession that this fragile character must overcome.",
+        "poster_path": "/eALgG4GFF3XGmOa3hmQ8tRvzXsf.jpg"
+      },
+      {
+        "id": 1119152,
+        "title": "Wax",
+        "year": "",
+        "overview": "16 mm film St Martin's art college 1990-91.",
+        "poster_path": "/hptghLHSvSLTMeFKVVolfJEsO1T.jpg"
+      },
+      {
+        "id": 1187208,
+        "title": "Wax",
+        "year": "",
+        "overview": "A married man grows extremely conscious about his wife\u2019s physical appearance. Problems spiral out of control when his obsession reaches its peak.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "paranormal-activity-dvd-rental-horror",
+    "title": "Paranormal Activity",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Paranormal Activity' (2009))",
+    "candidates": [
+      {
+        "id": 23827,
+        "title": "Paranormal Activity",
+        "year": "2009",
+        "overview": "After a young, middle-class couple moves into what seems like a typical suburban house, they become increasingly disturbed by a presence that may or may not be demonic, but is certainly the most active in the middle of the night.",
+        "poster_path": "/tmclkEpjeo4Zu564gf3KrwIOuKw.jpg"
+      },
+      {
+        "id": 1592452,
+        "title": "Paranormal Activity",
+        "year": "2027",
+        "overview": "The eighth installment in the franchise. Plot TBA.",
+        "poster_path": "/5qwFilGZbYaXHLG4I1Kp82bwbGL.jpg"
+      },
+      {
+        "id": 1234414,
+        "title": "Paranormal Activity",
+        "year": "2024",
+        "overview": "Mr & Mrs Debussy, residing in South Carolina, are living in fear of their past coming back for them\u2026to haunt them, to taunt them, and to come for blood\u2026",
+        "poster_path": "/eIItMG4gOpJyN34Drzdz6OX78nR.jpg"
+      },
+      {
+        "id": 72571,
+        "title": "Paranormal Activity 3",
+        "year": "2011",
+        "overview": "In 1988, young sisters Katie and Kristi befriend an invisible entity who resides in their home.",
+        "poster_path": "/9nYranPiWdNmbD5PRPPSL7VUFTS.jpg"
+      },
+      {
+        "id": 82990,
+        "title": "Paranormal Activity 4",
+        "year": "2012",
+        "overview": "It has been five years since the disappearance of Katie and Hunter, and a suburban family witness strange events in their neighborhood when a woman and a mysterious child move in.",
+        "poster_path": "/na5tAslm1kGNcft083AIXMTOsYR.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "black-sheep-unrated-dvd-rental-horror",
+    "title": "Black Sheep UNRATED",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Black Sheep' (2006))",
+    "candidates": [
+      {
+        "id": 3603,
+        "title": "Black Sheep",
+        "year": "2006",
+        "overview": "After a childhood prank by his brother Angus causes Henry to develop a phobia of sheep, he must step up to the onslaught of a genetically-mutated man-eating flock with the help of his friend and a young environmentalist.",
+        "poster_path": "/b6Spp82Tg8rv4YUSHGWFqFbgp0q.jpg"
+      },
+      {
+        "id": 13997,
+        "title": "Black Sheep",
+        "year": "1996",
+        "overview": "When dignified Albert Donnelly runs for Governor, his team moves to keep his slow-witted and klutzy younger brother, Mike, out of the eye of the media. To baby-sit Mike, the campaign assigns sarcastic Steve, who gets the experience of a lifetime when he tries to take Mike out of town during the election.",
+        "poster_path": "/bqIW5oE4WeHAvk1nh2Y6rfOLGrF.jpg"
+      },
+      {
+        "id": 173288,
+        "title": "Black Sheep",
+        "year": "2006",
+        "overview": "Stories of the Berlin city life, separated into five episodes. A hopeless impostor. An East German couple who dreams of the big money. Three Turkish teenagers who do everything to have sex. Two hapless Satanists. And gay boys who dream of a better world.",
+        "poster_path": "/z1n7xC7scF63CgMg0j9oj3YNPnX.jpg"
+      },
+      {
+        "id": 1769916,
+        "title": "Black Sheep",
+        "year": "",
+        "overview": "Winter, 1995. Bernat turns eighteen, and family tradition pushes him to sacrifice a lamb with his father; refusing to do so will be his first act of rebellion against his greatest fear.",
+        "poster_path": "/ncEjQZJ4DaVSuJAhyVfxUFXvlwL.jpg"
+      },
+      {
+        "id": 543803,
+        "title": "Black Sheep",
+        "year": "2018",
+        "overview": "After the high-profile killing of Damilola Taylor, Cornelius' family move out of London. But when they discover their new town is run by racists, Cornelius takes a drastic step to survive.",
+        "poster_path": "/igcQu4oTlyvheJjyzmeYwWH1J8y.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "after-sundown-dvd-rental-horror",
+    "title": "After Sundown",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'After Sundown' (2023))",
+    "candidates": [
+      {
+        "id": 1113085,
+        "title": "After Sundown",
+        "year": "2023",
+        "overview": "To control their fate and avert a tragedy foretold by a mystic, two men must live under one roof \u2014 but a vicious spirit threatens their bond.",
+        "poster_path": "/diWagfBJ7CZpL0irWfGQXJaStCi.jpg"
+      },
+      {
+        "id": 69686,
+        "title": "After Sundown",
+        "year": "2006",
+        "overview": "\"AFTER SUNDOWN\" is an action-packed story of a young woman who uncovers a dark secret. She is plunged into a gory battle with a predatory vampire from the American Old West, who has the power to create undead zombie slaves that assist him on his search for his vampire offspring. With the help of Texas locals, the woman wages the good fight in a wild clash of vampires and zombies, sending the evil creatures straight to Hell!",
+        "poster_path": "/qCbZjGOQWXWtyIiHRWsvAnQOhbf.jpg"
+      },
+      {
+        "id": 342681,
+        "title": "Welcome to Willits: After Sundown",
+        "year": "2013",
+        "overview": "Deep in the woods outside the Northern California town of Willits lies a remote cabin. Here Brock waits impatiently for his friend to complete a drug deal, urging him to get there before dark, for his own safety. As night draws closer, he grows more desperate, fearing a repeat attack from alien abductors.",
+        "poster_path": "/gZBHOzO7CnLCfiM28q8TvQmajvH.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "pans-labrynth-dvd-rental-horror",
+    "title": "Pan's Labrynth",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "hide-and-seek-dvd-rental-horror",
+    "title": "Hide and Seek",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Hide and Seek' (2005))",
+    "candidates": [
+      {
+        "id": 11096,
+        "title": "Hide and Seek",
+        "year": "2005",
+        "overview": "David Callaway tries to piece together his life in the wake of his wife's suicide and has been left to raise his nine-year-old daughter, Emily on his own. David is at first amused to discover that Emily has created an imaginary friend named 'Charlie', but it isn't long before 'Charlie' develops a sinister and violent side, and as David struggles with his daughter's growing emotional problems, he comes to the frightening realisation that 'Charlie' isn't just a figment of Emily's imagination.",
+        "poster_path": "/orY4PX3TNFdCbdVwhKY32UKMvoA.jpg"
+      },
+      {
+        "id": 801271,
+        "title": "Hide and Seek",
+        "year": "2021",
+        "overview": "Noah is seeking to reconnect with his outcast brother after the death of their father. He hopes to make amends and share the family's fortune, but instead finds himself in a dark underworld that threatens to tear his family apart. As he struggles to maintain his sanity, Noah is led on a terrifying trail to the truth through a series of cryptic clues.",
+        "poster_path": "/8vGAAlgJL4BXQVYmwfyMt5nBfjC.jpg"
+      },
+      {
+        "id": 1481989,
+        "title": "Hide and Seek",
+        "year": "2014",
+        "overview": "A teenage girl is forced by her hostile stepmother to babysit at her young step-brother's birthday party. When she calls her stepmother a witch, weird things start to happen.",
+        "poster_path": ""
+      },
+      {
+        "id": 1724001,
+        "title": "Hide and Seek",
+        "year": "2026",
+        "overview": "When Kyla wakes up to find Ellis missing, she sets out and plays the game that the sisters are most familiar with\u2014hide and seek. However, one game is never like the other.",
+        "poster_path": "/7EFtVgRVoE5NIVmfKRYiyWUAFWv.jpg"
+      },
+      {
+        "id": 12255,
+        "title": "Hide and Seek",
+        "year": "2000",
+        "overview": "A desperate, childless couple kidnap a pregnant woman and lead her husband to believe that she is dead.",
+        "poster_path": "/dVoXOqczPVK6HuWLhkXYwrvOLkl.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "shutter-dvd-rental-horror",
+    "title": "Shutter",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Shutter' (2004))",
+    "candidates": [
+      {
+        "id": 17111,
+        "title": "Shutter",
+        "year": "2004",
+        "overview": "When Jane and Tun run over a girl in a car accident, they speed away immediately from the crime scene. However, Tun, a photographer, soon discovers strange shadows in his photos, which unsettles them.",
+        "poster_path": "/7Tq7SrB14r3WpjJQOldbDHQk89J.jpg"
+      },
+      {
+        "id": 10885,
+        "title": "Shutter",
+        "year": "2008",
+        "overview": "A newly married couple discovers disturbing, ghostly images in photographs they develop after a tragic accident. Fearing the manifestations may be connected, they investigate and learn that some mysteries are better left unsolved.",
+        "poster_path": "/t5AEelR6nS0ISwaSZCcUrF2GKZi.jpg"
+      },
+      {
+        "id": 1475372,
+        "title": "Shutter",
+        "year": "2025",
+        "overview": "After a senior analog photographer discovers the spectral image of a former college student haunting his photos and coming to life, his girlfriend investigates the phantom, uncovering a horrific past crime that is now claiming his friends' lives one by one.",
+        "poster_path": "/7GXs0b8ZyeZ5tTajITMMO0aZX4J.jpg"
+      },
+      {
+        "id": 421881,
+        "title": "Shutter",
+        "year": "2015",
+        "overview": "A man comes to the chilling realization that he is not alone when he finds odd images of himself taken from inside his home.",
+        "poster_path": "/s3qFsQFWCm38hzUGqPxukTo57IZ.jpg"
+      },
+      {
+        "id": 1700369,
+        "title": "Shutter",
+        "year": "2019",
+        "overview": "Recently promoted police Detective Mark finds himself questioning Charley, a brilliantly deceptive photographer, about the disappearances of young models - and Charley was the last person to see them alive.",
+        "poster_path": "/2C94MDmCHbcXOeAwWg90x124TSj.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-skulls-dvd-rental-horror",
+    "title": "The Skulls",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Skulls' (2000))",
+    "candidates": [
+      {
+        "id": 11478,
+        "title": "The Skulls",
+        "year": "2000",
+        "overview": "A senior at an Ivy League college, who depends on scholarships and working on the side, gets accepted into the secret society The Skulls. He hopes it betters chances at Harvard but The Skulls is not what he thought and comes at a price.",
+        "poster_path": "/pYuggibfzm8LWgjnUKMMtii2430.jpg"
+      },
+      {
+        "id": 162626,
+        "title": "The Skulls",
+        "year": "1931",
+        "overview": "This Spanish language film was produced simultaneously with the filming of the two English language Laurel and Hardy shorts Be Big! and Laughing Gravy. The two shorts were edited together into one continuous film. Laurel and Hardy read their lines from cue cards on which Spanish was written phonetically. At the time of early talkies, dubbing was not yet perfected.",
+        "poster_path": "/z5IujAsU2jQf7vx8ddcfqZO5WSE.jpg"
+      },
+      {
+        "id": 8460,
+        "title": "The Skulls II",
+        "year": "2002",
+        "overview": "After joining the Skulls, Ryan Sommers (Robin Dunne) is warned not to betray any secrets about the organization or its high-powered members. However, when Ryan witnesses a murder within the Skulls' private chambers, he finds that the closer he gets to revealing the truth - the more dangerous life becomes.",
+        "poster_path": "/h6atL0SP5qg6TXOXy9DklZgObn2.jpg"
+      },
+      {
+        "id": 73087,
+        "title": "The Red Skulls",
+        "year": "2005",
+        "overview": "In the city of Bronston, staying alive is a twenty four hour job... A wild bunch of hooligan kids who call themselves the Red Skulls have been the dominant street gang in the city for years. But everything changes one night when Uri, the leader of the Skulls, sees his best friend hacked to pieces by a rival group. Uri decides to get out of Bronston before he shares his friend's same fate. The only problem is the rest of the gang doesn't plan on letting him out so easy. The new self-appointed leader, Lester, has set a trap to lure Uri back, but without Uri in charge, all is not well within the gang's ranks. A traitorous member has set a trap of his own for Lester and the rest of the Red Skulls are about to become the victims. Now, Uri is about to find out the only thing more dangerous than a backstabbing street gang... is a mutated, cannibalistic street gang!",
+        "poster_path": ""
+      },
+      {
+        "id": 10594,
+        "title": "The Skulls III",
+        "year": "2004",
+        "overview": "A young college co-ed tries joining the elite, all-male, secret society, the Skulls, and in so doing, she uncovers some unscrupulous methods used by some of the members to get what they want.",
+        "poster_path": "/b6ugfuEwEND5UCuf6Hu6XBmWOQP.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "stephen-kings-it-dvd-rental-horror",
+    "title": "Stephen King's IT",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Stephen King's IT: A Musical Parody' (2019))",
+    "candidates": [
+      {
+        "id": 1751674,
+        "title": "Stephen King's IT: A Musical Parody",
+        "year": "2019",
+        "overview": "A jukebox musical parody of Stephen King's IT.",
+        "poster_path": "/aTNpNuZDXMy6MuMhdJ5eVuk8nJo.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-decent-dvd-rental-horror",
+    "title": "The Decent",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Decent One' (2014))",
+    "candidates": [
+      {
+        "id": 267310,
+        "title": "The Decent One",
+        "year": "2014",
+        "overview": "Through previously undiscovered private letters, photos and diaries that were found in the Himmler family house in 1945, the \"The Decent One\" exposes a unique and at times uncomfortable access to the life and mind of the merciless \"Architect of the Final Solution\" Heinrich Himmler.",
+        "poster_path": "/qbUFc4gkUmBaYOjf32vloypvIF4.jpg"
+      },
+      {
+        "id": 411730,
+        "title": "A Decent Woman",
+        "year": "2016",
+        "overview": "A housemaid, working in an exclusive gated community in the outskirts of Buenos Aires, embarks on a journey of sexual and mental liberation in a nudist swinger-club boarding the high security walls.",
+        "poster_path": "/ei8hui2aB2vqVID3UxxAu4lulaI.jpg"
+      },
+      {
+        "id": 1549091,
+        "title": "The Spartan Chronicles: Decent into Depravity",
+        "year": "",
+        "overview": "In a post-apocalyptic world of chaos, elite soldiers called SPARTANS help keep peace in the world. But though the world has changed, human nature has not, and there are still plenty of psychopaths around who would love to capture, molest and murder an attractive Spartan warrior.... and consume his meaty muscles! In this depraved tale, A man jealous of the Spartans, imagines what it would be like to kill a young Spartan in a heroic battle. He then lures a young Spartan to his house, where he drugs him, strangles him, poses with his body for photographs, before butchering him and eating him for dinner!!",
+        "poster_path": "/fSbnE8KAS3JqNobJym7pepM1xNy.jpg"
+      },
+      {
+        "id": 238708,
+        "title": "Hector the Mighty",
+        "year": "1972",
+        "overview": "A pimp named Horny Hector operates a brothel on property coveted by Cardinal Giove. The Cardinal comes up with a plan to force Hector into selling him the land by kidnapping Helen, triggering a small gang war.",
+        "poster_path": "/5TZrInnR0bvvpEN63R0iBb6H2Fb.jpg"
+      },
+      {
+        "id": 1380255,
+        "title": "Reporting from the Ghost Cities of the Metaverse: Decentraland",
+        "year": "2024",
+        "overview": "A virtual detournement deconstructing the metaverse visually, aurally and philosophically.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "the-substitute-dvd-rental-horror",
+    "title": "The Substitute",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Substitute' (1996))",
+    "candidates": [
+      {
+        "id": 12416,
+        "title": "The Substitute",
+        "year": "2007",
+        "overview": "6th Grade gets a new substitute teacher. She wants to train the class for an international competition in Paris. But something isn't right. How is she able read kids' minds? Why is she so mean? And how does she manage to convince everyone's parents she is so great when the whole class knows she is really an alien?",
+        "poster_path": "/zHApRXaV1NckNtZh6PnKChie2l1.jpg"
+      },
+      {
+        "id": 336871,
+        "title": "The Substitute",
+        "year": "2015",
+        "overview": "A young teacher takes a job at an unusual private school where she soon discovers that the boys have a sinister power over the girls. As the boys behaviour becomes increasingly threatening she uncovers the source of the girls fear; an ominous locked door at the back of the classroom.",
+        "poster_path": "/gnFOc6aqFMaq4v1z9GVFBhLntub.jpg"
+      },
+      {
+        "id": 20762,
+        "title": "The Substitute",
+        "year": "1996",
+        "overview": "When an inner-city Miami schoolteacher gets her knee broken after standing up to the school's gang leader, her mercenary combat specialist boyfriend goes undercover as a substitute teacher to take down the punk. Soon he discovers a conspiracy of criminals at work, and must reassemble his team from his last jungle raid to stop them.",
+        "poster_path": "/7vfzvhPMNauUXrVxVOPEfpOsful.jpg"
+      },
+      {
+        "id": 281583,
+        "title": "The Substitute",
+        "year": "1993",
+        "overview": "A high school substitute English teacher resorts to murder to protect her murderous dark past while seducing a student who begins to suspect her true identity.",
+        "poster_path": "/yGNW30Wdj0txJqFOhSYfQVYRxEA.jpg"
+      },
+      {
+        "id": 1761138,
+        "title": "The Substitute",
+        "year": "2026",
+        "overview": "In the midst of Carnival, taxi driver Manoel finds a sex toy in his living room. Huge and still sticky, the object sets off a tragicomic journey that shakes his imagination and challenges his sense of masculinity.",
+        "poster_path": "/yTo9ZNArNoXCPbeNKXv9w0pu32V.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-plague-dvd-rental-horror",
+    "title": "The Plague",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Plague' (2025))",
+    "candidates": [
+      {
+        "id": 15420,
+        "title": "The Plague",
+        "year": "2006",
+        "overview": "Ten years have passed since the world's children fell into a coma. Tonight they're waking up and all hell is breaking loose. An unholy battle between the generations is being waged, and time is not on the side of adults.",
+        "poster_path": "/mqRmq3iDyvhvYp8kNfjnGhsaDMe.jpg"
+      },
+      {
+        "id": 492628,
+        "title": "The Plague",
+        "year": "2017",
+        "overview": "Rosa's father escapes from a nursing home and comes back to his former house. He hides a secret, and he's not coming alone.",
+        "poster_path": "/khpc3JVs1jfBoNu7hQ6V7954i0s.jpg"
+      },
+      {
+        "id": 1397577,
+        "title": "The Plague",
+        "year": "2025",
+        "overview": "During Argentina's military dictatorship, a blind man desperately tries to reconnect with his teenage son, a disturbing young man who channels his inner torment through rats.",
+        "poster_path": "/jmrkCdQf6cT7NXjh5KnQGwstsGD.jpg"
+      },
+      {
+        "id": 783839,
+        "title": "The Plague",
+        "year": "2020",
+        "overview": "A short proof-of-concept for a feature film about spiders that breed inside of human beings.",
+        "poster_path": "/kmYLdyPBUEpYR0MOI4FipZmuoUN.jpg"
+      },
+      {
+        "id": 793685,
+        "title": "The Plague",
+        "year": "2016",
+        "overview": "Six people find themselves trapped in Love Canal, Niagara Falls, an old toxic waste site, and witness the first hours of the plague that brings the dead back to life.",
+        "poster_path": "/8Q9piBzpXXnu27ZDuWD8tvzyGV3.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-disappoinments-room-dvd-rental-horror",
+    "title": "The Disappoinments Room",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "post-apocolypse-favorites-dvd-rental-horror",
+    "title": "Post Apocolypse Favorites",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "mutants-dvd-rental-horror",
+    "title": "Mutants",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Mutants' (2009))",
+    "candidates": [
+      {
+        "id": 17886,
+        "title": "Mutants",
+        "year": "2009",
+        "overview": "A nasty virus has spread throughout the human race turning the population into something ...else. After a brief setup (and a messy hit and run) we\u2019re introduced to an ambulance and its four occupants. Sonia and Marco are together and riding with two police officers. Tensions rise between them as they head for a mythical research facility called NOAH that is reportedly infection free and working on a cure, and circumstances lead to Sonia and Marco holing up alone in an abandoned building. She\u2019s pregnant, in love, and apparently immune to the virus\u2026 and she realizes that he\u2019s been infected. He slowly transforms but her love for him refuses to give up on a cure, so she sets out to survive the onslaught of infected, attacks from still-human marauders, and the growing threat from her baby\u2019s daddy.",
+        "poster_path": "/wXElN0L7FXYv0K9bOP2e3BWNxDs.jpg"
+      },
+      {
+        "id": 25151,
+        "title": "Mutants",
+        "year": "2008",
+        "overview": "The greedy Braylon owns the Just Rite Sugar Company and has hired the unethical scientist Sergei to conduct an experiment to make an addictive sugar stronger than heroin or nicotine to increase his sales. Sergei uses invisible people as test subjects, like beggars, addicted junkies and illegals, in the clandestine Shadow Rock Mill. When Braylon's men mistakenly kidnap Ryan, who is the brother of his secretary Erin and son of his security chief Griff, and Hannah, the youngster becomes an important non-contaminated subject. However, Erin receives some mysterious e-mails from the unknown Cinderella with a picture of Ryan and a hint that he might be in Shadow Rock and together with her father, they decide to seek out Ryan.",
+        "poster_path": "/1I3MCEnL8MLej7pKGfosb4NFGtm.jpg"
+      },
+      {
+        "id": 7502,
+        "title": "Mutants",
+        "year": "2002",
+        "overview": "Thirteen-year-old Paula lives with her mother on a well-kept estate in a small town surrounded by nice neighbours. But Paula's view of normality has been sharpened by her extensive and consistent diet of horror movies.",
+        "poster_path": ""
+      },
+      {
+        "id": 461484,
+        "title": "Mutants",
+        "year": "2020",
+        "overview": "In the summer of 1996, life throws a curveball in the face of Keven Gu\u00e9nette; and it strikes. Guided by his paraplegic baseball coach, Keven discovers the mutation, sex and love.",
+        "poster_path": "/dzq1XQY7FaYBH4QSJyU5x8dnfkO.jpg"
+      },
+      {
+        "id": 1162981,
+        "title": "Mutants",
+        "year": "1988",
+        "overview": "A film about the life of teenagers in a modern city. They are united by their love of rock music. To buy an expensive synthesizer, they are ready for anything: to play at a funeral, and even steal a windshield from a car.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "sanitarium-dvd-rental-horror",
+    "title": "Sanitarium",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Sanitarium' (2013))",
+    "candidates": [
+      {
+        "id": 167960,
+        "title": "Sanitarium",
+        "year": "2013",
+        "overview": "Malcom McDowell, Lou Diamond Phillips and Robert Englund star in three separate stories set in an eerie mental asylum.",
+        "poster_path": "/5GmJJAnNGWMAPdbsZWNvodpQfeH.jpg"
+      },
+      {
+        "id": 153186,
+        "title": "Sanitarium",
+        "year": "2001",
+        "overview": "A generation ago, Dr Max Warick was researching a mysterious experimental drug which was scientifically proven to cure certain types of madness. But as the most deranged test subjects miraculously regained their sanity, the control patients, who were given no drugs at all, suffered horrific consequences. Because no one could find the cause of such deadly side effects, the experiments were stopped. But now twenty years later, a new set of hospital officials are about to release the drug into the marketplace. And the only man who can prevent this terror from eating away at the masses has since traded in his lab coat for a straight jacket.",
+        "poster_path": "/kTp9sX1O5veGMteJ5wm1cMnGavT.jpg"
+      },
+      {
+        "id": 1285962,
+        "title": "Sanitarium",
+        "year": "2024",
+        "overview": "A dejected employee reckons with his place in a seemingly hopeless Filipino society as another national election looms.",
+        "poster_path": "/7DLKYHm0oGu3RpnGjdESTrg4Uo8.jpg"
+      },
+      {
+        "id": 263481,
+        "title": "The Sanitarium",
+        "year": "1910",
+        "overview": "A young man transforms his uncle's palatial residence into a sanitarium only to end up paying back the money his patients gave him.",
+        "poster_path": "/AmkouhuP3tedeVTZcXUBLXubGuq.jpg"
+      },
+      {
+        "id": 552906,
+        "title": "A Sanitarium Scandal",
+        "year": "1917",
+        "overview": "The sanitarium run by Lallah Hart is in need of repairs and her nephew (Earle Rodney) is broke and after a loan. In her absence (off with her beau) he rents the place out to a group of (presumably) chorus girls (doubling inevitably as bathing beauties) while having to deal with the arrival of his own fianc\u00e9e (Myrtle Lind) and her parents (the formidable Blanche Payson and Baldy Belmont) who between them provide most of what few laughs there are and a sheriff (Fritz Schade) with a debt to collect.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "dont-be-afraid-of-the-dark-dvd-rental-horror",
+    "title": "Don't Be Afraid of the Dark",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Don't Be Afraid of the Dark' (2010))",
+    "candidates": [
+      {
+        "id": 46261,
+        "title": "Don't Be Afraid of the Dark",
+        "year": "2010",
+        "overview": "A young girl sent to live with her father and his new girlfriend discovers creatures in her new home who want to claim her as one of their own.",
+        "poster_path": "/jMBMm1jwqvILV8p1K44brBnmwLK.jpg"
+      },
+      {
+        "id": 26015,
+        "title": "Don't Be Afraid of the Dark",
+        "year": "1973",
+        "overview": "A young couple inherits an old mansion inhabited by small demon-like creatures who are determined to make the wife one of their own.",
+        "poster_path": "/dCTGOKxmRxFZ8Su2Vh6iNJvI4gD.jpg"
+      },
+      {
+        "id": 550307,
+        "title": "Don't be Afraid of the Dark Room",
+        "year": "2009",
+        "overview": "Lata prepares the song for school theater show, on upcoming Father's day. She wants to describe her own feelings in the best possible way, slowly continues to discover, all secrecy hiding by her father.",
+        "poster_path": "/1vZMcRD84wDB89xWzsRr7koQIBt.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "king-of-ants-dvd-rental-horror",
+    "title": "King of Ants",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'King of the Ants' (2004))",
+    "candidates": [
+      {
+        "id": 21619,
+        "title": "King of the Ants",
+        "year": "2004",
+        "overview": "A young drifter, struggling to makes ends meet, accepts a job to kill a prominent accountant. When he isn't paid for the hit, revenge is now his path.",
+        "poster_path": "/bFsxsZlEDo1rMemCLZiR06z9YlF.jpg"
+      },
+      {
+        "id": 1083264,
+        "title": "King of the Ants",
+        "year": "2003",
+        "overview": "College football drama.",
+        "poster_path": "/n73BNZUQ7hoQZusiV2b7sEGA0j2.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "triple-feature-sinister-cabin-in-the-woods-possession-dvd-rental-horror",
+    "title": "Triple Feature (Sinister/Cabin In The Woods/Possession)",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "santas-slay-dvd-rental-horror",
+    "title": "Santa's Slay",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Santa's Slay' (2005))",
+    "candidates": [
+      {
+        "id": 12591,
+        "title": "Santa's Slay",
+        "year": "2005",
+        "overview": "Santa Claus is actually a demon who lost a bet with an angel, so he became the giver of toys and happiness. But this year the bet is off, and Santa is about to return to his evil ways.",
+        "poster_path": "/sdd0TRVpMjAViiBPq0oufYOHg0m.jpg"
+      },
+      {
+        "id": 1612099,
+        "title": "Santa's Slay",
+        "year": "2026",
+        "overview": "As An Unresolved Feud Ignites between two childhood friends, can these survivors outrun a festive serial killer before he crosses them off his naughty list?",
+        "poster_path": "/iROeeS4lWQpZXwtklXUxY5H3xNk.jpg"
+      },
+      {
+        "id": 645062,
+        "title": "Slayer Santa",
+        "year": "2000",
+        "overview": "Christmas is a time of vengeance, when a psychopath with supernatural power and strength starts his bloody revenge on a group of criminals armed to the teeth!  Bloody murders follow each other when Santa uses various different weapons from an axe to a gun.",
+        "poster_path": "/5qGlD2haZcvqDzEVGZNYnUF1Bnm.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "death-bed-dvd-rental-horror",
+    "title": "Death Bed",
+    "vendor": "DVD",
+    "genre": "horror",
+    "tag": "Rental",
+    "missing": [
+      "Image Src"
+    ],
+    "reason": "matched but TMDB has no poster",
+    "candidates": [
+      {
+        "id": 45796,
+        "title": "Death Bed",
+        "year": "2009",
+        "overview": "A terminally ill man in the hospital has a series of awkward and tense meetings with loved ones who wish to say goodbye, made worse after his mother invites a priest to visit.",
+        "poster_path": ""
+      },
+      {
+        "id": 64343,
+        "title": "DeathBed",
+        "year": "2002",
+        "overview": "When Karen and her significant other move to a new apartment, they discover an old antique bed. Karen absolutely loves it and she soon allows it to inspire her artwork. However, a series of disturbing dreams begin to haunt Karen. Eventually she starts to become unhinged and her paranoia overtakes every aspect of her life.",
+        "poster_path": "/enIA7ZCmoDuNAADFnU1vtaYKNPd.jpg"
+      },
+      {
+        "id": 1679136,
+        "title": "Bed Death",
+        "year": "2025",
+        "overview": "Frankie and Aster go away for the weekend to reconnect after a health scare has devastated their sex life. After a successful round of treatment, Aster is feeling good again and is ready for things to \u201cget back to normal\u201d. However, Frankie is constantly worried about their body, not in a sexy way, and struggles to see their partner as anything other than their patient. They find that a return to romance is more complicated than they ever expected.",
+        "poster_path": ""
+      },
+      {
+        "id": 1758992,
+        "title": "Hymns From Death's Bedside",
+        "year": "2026",
+        "overview": "An experimental exploration of closed-eye visualizations, static digital noise, and ambient memory.",
+        "poster_path": "/hIqtS00TItTxeSHtZnaUB68IZff.jpg"
+      },
+      {
+        "id": 45795,
+        "title": "Death Bed: The Bed That Eats",
+        "year": "1977",
+        "overview": "In a one-room stone building near a dilapidated mansion, a demon has condemned an artist to living behind a painting in a state of limbo, forcing him to watch in vain as trespassers' lives are taken by a ravenous bed.",
+        "poster_path": "/s4ScOSYYa2rCdIvDpgUygGfRDMs.jpg"
+      }
+    ]
   }
 ]
