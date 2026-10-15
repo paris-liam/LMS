@@ -2056,5 +2056,11 @@
     "choice": "tmdb",
     "poster_path": "/5iTwPDNtvK6ZZF607BHBbU3HO0B.jpg",
     "overview": "After a horrifying PredAlien crash-lands near a small Colorado town, killing everyone it encounters and producing countless Alien offspring, a lone Predator arrives to \"clean up\" the infestation."
+  },
+  {
+    "handle": "phonebooth-dvd-rental-thriller",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/c/c4/Phone_Booth_movie.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "overview": "Phone Booth is a 2002 thriller directed by Joel Schumacher, starring Colin Farrell as a smug New York publicist who answers a ringing pay phone and is pinned down in the booth by a sniper who threatens to shoot him if he hangs up."
   }
 ]
