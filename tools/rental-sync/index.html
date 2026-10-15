@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Rental Sync</title>
+  <link rel="stylesheet" href="/tools/rental-sync/styles.css">
+</head>
+<body>
+  <header class="top">
+    <h1>Rental Sync <span class="muted">Libib → Shopify</span></h1>
+    <p class="muted small">Store: <span id="store-name">…</span></p>
+  </header>
+
+  <ol id="steps" class="steps" aria-label="Progress">
+    <li>Upload</li><li>New copies</li><li>Details</li><li>Posters</li><li>Create</li>
+  </ol>
+
+  <main>
+    <section data-step="1">
+      <p id="last-run" class="last-run">Checking the last sync…</p>
+      <details class="guide" open>
+        <summary>How to export from Libib</summary>
+        <ol>
+          <li>In Libib, open <strong>Settings</strong> (libib.com/settings).</li>
+          <li>Open <strong>Export Barcode Data</strong>, choose <strong>Rental Library</strong>, and click export.
+            The file's name starts with <code>barcodes_</code>.</li>
+          <li>Open <strong>Export Collection Data</strong>, choose <strong>Rental Library</strong>, and click export.
+            The file's name starts with <code>library_</code>.</li>
+          <li>Upload them below — <code>barcodes_…</code> in the first box, <code>library_…</code> in the second.</li>
+        </ol>
+        <div class="guide-shots">
+          <figure><img src="/tools/rental-sync/guide/export-barcodes.png" alt="Libib Settings, Export Barcode Data with Rental Library selected"><figcaption>Barcodes export</figcaption></figure>
+          <figure><img src="/tools/rental-sync/guide/export-library.png" alt="Libib Settings, Export Collection Data with Rental Library selected"><figcaption>Library export</figcaption></figure>
+        </div>
+      </details>
+      <form id="upload-form" class="upload">
+        <label>Barcodes export <span class="muted small">(barcodes_….csv)</span>
+          <input id="barcodes-file" type="file" accept=".csv,text/csv"></label>
+        <label>Library export <span class="muted small">(library_….csv)</span>
+          <input id="library-file" type="file" accept=".csv,text/csv"></label>
+        <button id="find-button" type="submit">Find new rentals</button>
+      </form>
+      <div id="upload-error" role="alert"></div>
+    </section>
+
+    <section data-step="2" hidden>
+      <h2>New copies found</h2>
+      <p id="found-summary"></p>
+      <table id="found-table" class="found">
+        <thead><tr><th scope="col"><span class="visually-hidden">Include</span></th><th scope="col">Title</th><th scope="col">Barcode</th><th scope="col">Added in Libib</th></tr></thead>
+        <tbody id="found-rows"></tbody>
+      </table>
+      <p class="muted small">Unticked copies are skipped this time and show up again next time.
+        Not what you expected? Re-export from Libib and upload again.</p>
+      <div class="actions">
+        <button id="found-back" type="button" class="secondary">Back</button>
+        <button id="found-continue" type="button">Continue</button>
+      </div>
+    </section>
+
+    <section data-step="3" hidden>
+      <div id="set-aside" class="set-aside" hidden>
+        <h2>Set aside — fix these in Libib</h2>
+        <p>These won't sync this time. Fix them in Libib and they'll show up next time you sync.</p>
+        <div class="vocab">
+          <p><strong>Formats (exactly one):</strong> <span id="vocab-formats"></span></p>
+          <p><strong>Genres (1–3):</strong> <span id="vocab-genres"></span></p>
+        </div>
+        <div id="set-aside-cards" class="cards"></div>
+      </div>
+      <h2 id="ready-heading">Ready to sync</h2>
+      <p class="muted small">These details come from Libib. To change one, edit it in Libib and start again.</p>
+      <div id="ready-cards" class="cards"></div>
+      <div class="actions">
+        <button id="details-back" type="button" class="secondary">Back</button>
+        <button id="details-continue" type="button">Looks good</button>
+      </div>
+    </section>
+
+    <section data-step="4" hidden>
+      <h2>Posters</h2>
+      <p class="muted small">Posters come from TMDB. Paste an image link (https://…) to replace or add one, or leave it blank.</p>
+      <div id="poster-cards" class="cards posters"></div>
+      <div class="actions">
+        <button id="posters-back" type="button" class="secondary">Back</button>
+        <button id="posters-continue" type="button" disabled>Looking up posters…</button>
+      </div>
+    </section>
+
+    <section data-step="5" hidden>
+      <h2>Creating products in Shopify</h2>
+      <div class="progress"><div id="progress-bar" class="progress-bar"></div></div>
+      <p id="progress-text" class="muted small"></p>
+      <ul id="create-rows" class="create-rows"></ul>
+      <div id="results"></div>
+      <div id="print-block" class="print" hidden>
+        <h3>Next: print and apply barcodes</h3>
+        <ol>
+          <li>Open the products tagged <strong>Barcode Not Printed</strong> in Shopify.</li>
+          <li>Print their labels with Retail Barcode Labels and stick each on its copy.</li>
+          <li>Remove the <strong>Barcode Not Printed</strong> tag from each product you labelled.</li>
+        </ol>
+        <a id="print-link" class="button" target="_blank" rel="noopener">Print barcodes in Shopify</a>
+      </div>
+      <div class="actions">
+        <button id="restart" type="button" class="secondary" hidden>Start a new sync</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="login" class="login" hidden>
+    <form id="login-form" class="login-box">
+      <h2>Log in</h2>
+      <label>Password <input id="password" type="password" autocomplete="current-password" required></label>
+      <p id="login-error" class="error" role="alert"></p>
+      <button type="submit">Log in</button>
+    </form>
+  </div>
+
+  <script src="/tools/rental-sync/logic.js"></script>
+  <script src="/tools/rental-sync/app.js"></script>
+</body>
+</html>
