@@ -20,3 +20,8 @@ class InputShapeError(CatalogError):
 
 class ShopifyError(CatalogError):
     """The Shopify CLI failed, is missing, or is not authenticated."""
+
+
+class SetupError(CatalogError):
+    """The app or store is misconfigured (missing scope, setting, location or
+    channel) — something only the developer can fix."""
