@@ -11,6 +11,8 @@ Client instructions: `client-guide.md`.
   `catalog/rental_sync/web.py`. Logic and tests live in `catalog/rental_sync/`.
 - `vercel.json` / `.vercelignore` (repo root) — function config, the `/` rewrite, security
   headers, and a deploy allow-list (only `api/`, `catalog/`, `tools/rental-sync/`).
+- Only tracked files reach a Git deployment; a CLI `vercel deploy` uploads the working tree, so never
+  run it from a checkout with secrets or exports inside the allowed folders.
 
 ## Vercel project (one-time)
 
@@ -35,6 +37,7 @@ email; never click anything else on that page — it also holds Delete Collectio
 
 Sessions are signed with `SESSION_SECRET` and last 12 hours. Changing `SYNC_PASSWORD` does not
 log out existing sessions — rotate `SESSION_SECRET` as well to end them.
+After changing the Shopify app's scopes, redeploy so warm functions drop their cached token.
 
 ## Tests
 
