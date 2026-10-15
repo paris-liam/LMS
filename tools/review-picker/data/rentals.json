@@ -1816,5 +1816,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/5/58/Wedlock-movie.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "overview": "Wedlock is a 1991 American science fiction-action television film that aired on HBO on December 10, 1991. It was directed by Lewis Teague and starring Rutger Hauer, Mimi Rogers, Joan Chen, and James Remar. It received an Emmy Nomination for Sound Editing."
+  },
+  {
+    "handle": "those-magnificent-men-in-their-flying-machines-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/wcGELNaQ8TbiMUpAnkKLl5g09OO.jpg",
+    "overview": "In order to boost circulation of his newspaper, Lord Rawnsley announces an air race and offers £10,000 to the first person who can fly across the English Channel. But one of the participants, Percy, plots to sabotage his competitor's planes. Will Percy triumph?"
   }
 ]
