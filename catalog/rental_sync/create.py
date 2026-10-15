@@ -2,9 +2,10 @@
 check it landed as intended.
 
 Rerun-safe: a copy whose barcode or handle is already in Shopify is skipped,
-so a double-click, a second tab or a re-run after a crash never duplicates.
-Shopify fields are always derived here from the Libib values, never taken
-from the browser.
+so a re-run after a crash, or a repeat click (the page disables the button
+while creating), never creates it twice. The handle check is a direct lookup,
+so it is never behind a just-created product. Shopify fields are always
+derived here from the Libib values, never taken from the browser.
 """
 
 import html
@@ -105,14 +106,21 @@ def _poster_status(node: dict) -> str:
     return "failed" if "FAILED" in statuses else "ok"
 
 
-def _read_settled(shop, product_id: str, wait_for_media: bool, sleep) -> dict:
+def _read(shop, product_id: str) -> dict:
     node = shop.read_back(product_id)
+    if node is None:
+        raise ShopifyError("the new product could not be read back")
+    return node
+
+
+def _read_settled(shop, product_id: str, wait_for_media: bool, sleep) -> dict:
+    node = _read(shop, product_id)
     waited = 0
     while wait_for_media and waited < MEDIA_WAIT_SECONDS and any(
             m["status"] in ("UPLOADED", "PROCESSING") for m in node["media"]["nodes"]):
         sleep(MEDIA_POLL_SECONDS)
         waited += MEDIA_POLL_SECONDS
-        node = shop.read_back(product_id)
+        node = _read(shop, product_id)
     return node
 
 
@@ -141,6 +149,10 @@ def create_copy(shop, item: dict, poster: dict | None, sleep=time.sleep) -> dict
         return {**result, "message": str(exc)}
 
     result["admin_url"] = admin_url(shop.store, product["id"])
+    if product["handle"] != handle:
+        return {**result, "message": f"Shopify created this as {product['handle']} instead of {handle}, so it is "
+                                     f"probably a duplicate of a product created moments ago — check both in "
+                                     f"Shopify admin and delete the extra one"}
     try:
         shop.publish(product["id"], publication)
         node = _read_settled(shop, product["id"], bool(poster), sleep)

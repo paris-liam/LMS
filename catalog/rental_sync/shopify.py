@@ -41,8 +41,8 @@ query($after: String) {
 }"""
 VARIANTS_BY_BARCODE = """
 query($q: String!) { productVariants(first: 10, query: $q) { nodes { barcode product { handle } } } }"""
-PRODUCTS_BY_HANDLE = """
-query($q: String!) { products(first: 5, query: $q) { nodes { handle } } }"""
+PRODUCT_BY_HANDLE = """
+query($h: String!) { productByIdentifier(identifier: {handle: $h}) { id } }"""
 LOCATIONS = """
 query { locations(first: 10, includeInactive: false) { nodes { id name } } }"""
 PUBLICATIONS = """
@@ -114,8 +114,7 @@ class RentalShop:
         return next((n["product"]["handle"] for n in nodes if (n.get("barcode") or "").strip() == barcode), None)
 
     def handle_taken(self, handle: str) -> bool:
-        nodes = self.gql(PRODUCTS_BY_HANDLE, q=f"handle:{handle}")["products"]["nodes"]
-        return any(n["handle"] == handle for n in nodes)
+        return self.gql(PRODUCT_BY_HANDLE, h=handle)["productByIdentifier"] is not None
 
     def location_id(self) -> str:
         nodes = self.gql(LOCATIONS)["locations"]["nodes"]

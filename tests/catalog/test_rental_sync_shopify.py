@@ -42,9 +42,14 @@ class TestReads(unittest.TestCase):
         s2, _ = shop([("productVariants(first: 10", data({"productVariants": {"nodes": []}}))])
         self.assertIsNone(s2.barcode_owner("2010000000014"))
 
-    def test_handle_taken_needs_an_exact_match(self):
-        s, _ = shop([("products(first: 5", data({"products": {"nodes": [{"handle": "jaws-vhs-rental-2010000000014-2"}]}}))])
-        self.assertFalse(s.handle_taken("jaws-vhs-rental-2010000000014"))
+    def test_handle_taken_uses_a_direct_lookup(self):
+        found, execute = shop([("productByIdentifier", data({"productByIdentifier": {"id": "gid://shopify/Product/1"}}))])
+        self.assertTrue(found.handle_taken("jaws-vhs-rental-2010000000014"))
+        text, variables = execute.calls[0]
+        self.assertIn("productByIdentifier", text)
+        self.assertEqual(variables, {"h": "jaws-vhs-rental-2010000000014"})
+        missing, _ = shop([("productByIdentifier", data({"productByIdentifier": None}))])
+        self.assertFalse(missing.handle_taken("jaws-vhs-rental-2010000000014"))
 
     def test_exactly_one_location(self):
         one, _ = shop([("locations(", data({"locations": {"nodes": [{"id": "gid://shopify/Location/1", "name": "Shop"}]}}))])

@@ -155,6 +155,29 @@ class TestCreate(unittest.TestCase):
         with self.assertRaises(SetupError):
             run(FakeShop(location_error=SetupError("two locations")))
 
+    def test_shopify_suffixed_handle_is_reported_as_a_probable_duplicate(self):
+        class SuffixedHandleShop(FakeShop):
+            def product_set(self, product_input):
+                product = super().product_set(product_input)
+                return {**product, "handle": product["handle"] + "-1"}
+
+        shop = SuffixedHandleShop()
+        result, _ = run(shop)
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("probably a duplicate", result["message"])
+        self.assertTrue(result["admin_url"])
+        self.assertEqual(shop.published, [])
+
+    def test_null_read_back_is_reported_as_not_finished(self):
+        class NullReadShop(FakeShop):
+            def read_back(self, product_id):
+                return None
+
+        result, _ = run(NullReadShop())
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("could not be read back", result["message"])
+        self.assertIn("created in Shopify but not finished", result["message"])
+
 
 if __name__ == "__main__":
     unittest.main()
