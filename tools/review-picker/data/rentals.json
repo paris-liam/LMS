@@ -2170,5 +2170,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/commons/4/43/Dust_devil.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "overview": "Six-film horror collection: Venom, Dust Devil (1992), Beneath the Mississippi, The Final Patient, El Muerto, and Children of the Corn 666: Isaac's Return (1999)."
+  },
+  {
+    "handle": "hellraiser-6-movie-collection-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/3/32/Hellraiser_III.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "overview": "Six-film Hellraiser collection: Hellraiser III: Hell on Earth (1992), Hellraiser: Bloodline (1996), Hellraiser: Inferno (2000), Hellraiser: Hellseeker (2002), Hellraiser: Deader (2005), and Hellraiser: Hellworld (2005), featuring the Cenobite Pinhead."
   }
 ]
