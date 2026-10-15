@@ -11874,5 +11874,594 @@
     ],
     "reason": "no TMDB match",
     "candidates": []
+  },
+  {
+    "handle": "its-alive-collection-dvd-rental-horror",
+    "title": "It's Alive Collection",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "ice-queen-dvd-rental-horror",
+    "title": "Ice Queen",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Ice Queen' (2005))",
+    "candidates": [
+      {
+        "id": 68505,
+        "title": "Ice Queen",
+        "year": "2005",
+        "overview": "A unique female specimen from the Pleistocene Age, a.k.a. the Ice Age, is kept in cryogenic stasis while being transported back to civilization in a military convoy. When the convoy is raided by mercenaries who move the specimen onto a plane, the \"Ice Queen\" awakens in an uncontrollably aggressive state and kills the pilot, causing the plane to crash into a resort. Having survived the crash, the Ice Queen embarks on a rampage throughout the resort, forcing the survivors into a desperate battle for survival.",
+        "poster_path": "/uR5cBnE6EYLv9X2wXIrzUiOPlbE.jpg"
+      },
+      {
+        "id": 1735621,
+        "title": "Ice Queen",
+        "year": "2019",
+        "overview": "The spoiled, senseless and egotistical rich woman finds herself trapped in a car due to a car accident. When she slowly realizes that for the first time in her life she is only dependent on herself and that no one can help her, not even a passerby, as she is separated from the outside world by a thick layer of snow, her struggle for survival leads her through various stages of physical and psychological breakdown.",
+        "poster_path": "/s1dn2ejX6dgZiUY6BoNfecM3IZl.jpg"
+      },
+      {
+        "id": 1786140,
+        "title": "Ice Queens",
+        "year": "",
+        "overview": "Ice Queens, a documentary showcasing Black women in hockey, made its broadcast debut across North America during Women's History Month. Ice Queens is a film about resilience, perseverance and jubilance as well as the continued efforts and valuable contributions of Black women to the game of hockey.",
+        "poster_path": ""
+      },
+      {
+        "id": 1466801,
+        "title": "Ice Cream, Ice Queen",
+        "year": "2025",
+        "overview": "Lost in the lonely life of New York City, a middle-aged Chinese woman wrestles with the complexities of her unexpected bond with her son\u2019s lesbian violin teacher.",
+        "poster_path": "/rqU5LEEhcAJ3WBU6CH0lC8Bn4rh.jpg"
+      },
+      {
+        "id": 1415470,
+        "title": "Queen of Ice",
+        "year": "2009",
+        "overview": "",
+        "poster_path": "/zR5kDdSa6V3jqEPYRqcffN1otvK.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "avp-requiem-dvd-rental-horror",
+    "title": "AVP Requiem",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Aliens vs Predator: Requiem' (2007))",
+    "candidates": [
+      {
+        "id": 440,
+        "title": "Aliens vs Predator: Requiem",
+        "year": "2007",
+        "overview": "After a horrifying PredAlien crash-lands near a small Colorado town, killing everyone it encounters and producing countless Alien offspring, a lone Predator arrives to \"clean up\" the infestation.",
+        "poster_path": "/5iTwPDNtvK6ZZF607BHBbU3HO0B.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "the-wicker-man-dvd-rental-horror",
+    "title": "The Wicker Man",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Wicker Man' (1973))",
+    "candidates": [
+      {
+        "id": 9708,
+        "title": "The Wicker Man",
+        "year": "2006",
+        "overview": "A sheriff investigating the disappearance of a young girl from a small island discovers there's a larger mystery to solve among the island's secretive, neo-pagan community.",
+        "poster_path": "/xsHrmfgDcEk5fGhSiieKvrDuofq.jpg"
+      },
+      {
+        "id": 16307,
+        "title": "The Wicker Man",
+        "year": "1973",
+        "overview": "Police sergeant Neil Howie is called to an island village in search of a missing girl whom the locals claim never existed. The investigation is further complicated as Howie\u2019s religious views clash with those of the island\u2019s residents.",
+        "poster_path": "/wwtrXRL8SiOWxhwLEvw7iBgYh0g.jpg"
+      },
+      {
+        "id": 1215408,
+        "title": "Ex-S: The Wicker Man",
+        "year": "1998",
+        "overview": "Cast and crew discuss the 1973 film The Wicker Man, directed by Robin Hardy.",
+        "poster_path": "/b2oaHLEsFkIHxLYYRz1HiRLOUt0.jpg"
+      },
+      {
+        "id": 1285161,
+        "title": "The Wicker Man at 50",
+        "year": "2023",
+        "overview": "Justin Hardy, the son of the films Director, Robin Hardy talks to various experts about his father's film",
+        "poster_path": "/pkr85NfX3H2yllEauMXZfI3ggvI.jpg"
+      },
+      {
+        "id": 714455,
+        "title": "The Wicker Man Enigma",
+        "year": "2001",
+        "overview": "Cast and crew members come together to discuss the troubled production and distribution of The Wicker Man in 1973.",
+        "poster_path": "/paD8MRn1UC75aTJEEZYZOQPyDod.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "dont-hang-up-dvd-rental-horror",
+    "title": "Don't Hang Up",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Don't Hang Up' (2016))",
+    "candidates": [
+      {
+        "id": 375355,
+        "title": "Don't Hang Up",
+        "year": "2016",
+        "overview": "An evening of drunken prank calls becomes a nightmare for a pair of teenagers when a mysterious stranger turns their own game against them.",
+        "poster_path": "/hUzhzMqb4pTKZMvHql2DtCWo2Wh.jpg"
+      },
+      {
+        "id": 956128,
+        "title": "Don't Hang Up",
+        "year": "2022",
+        "overview": "Follows Chris Daniels, a man who receives a call that his daughter has been kidnapped. The kidnappers demand that he completes a series of different missions to get her back, including one crucial direction to not hang up the phone.",
+        "poster_path": "/9xvCnwVkXNcYBTg4bbxurHwiBoY.jpg"
+      },
+      {
+        "id": 1383673,
+        "title": "Don't Hang Up",
+        "year": "2025",
+        "overview": "Summer travels to Tulsa, Oklahoma, for the wedding of a college friend. Her boyfriend Chris couldn\u2019t make it, but she keeps in contact with him via FaceTime. After the wedding, Summer and her two friends Vicky and Eva head back to the AirBnB they\u2019ve rented for the weekend, unaware that their presence in the house has unleashed the ghosts of a family who were killed there during the Tulsa race massacre in 1921. Now, they\u2019re looking for justice...",
+        "poster_path": "/yldpIctqy2GlJayIOGUSrfE3hRQ.jpg"
+      },
+      {
+        "id": 84233,
+        "title": "Don't Hang Up!",
+        "year": "1974",
+        "overview": "13 years after witnessing her mother's murder by an unknown assailant, Amanda Post returns home to attend to her dying grandmother. When she dismisses the doctor, a local magistrate and an antique collector, all of whom seem to have their own sinister agendas, she becomes the target of anonymous threatening phone calls.",
+        "poster_path": "/1vVhbo2yoVdoxIdkQWPifQtYfaN.jpg"
+      },
+      {
+        "id": 1752494,
+        "title": "Don't Hang Up",
+        "year": "",
+        "overview": "\u201cThe Closed Night\u201d has been the most listened-to late-night radio show for decades, hosted by Luis G\u00e1lvez, the most respected broadcaster in the country. Luis takes calls from people in distress and always finds a way to help. But tonight will be different. A man named Salvador is on the other end of the line and plans to end his life. He sets strict rules: the host cannot leave the live broadcast, cut the call, or step out of the booth. A macabre game of blackmail and escalating tension begins. Luis is not who he seems to be, and someone has decided to make him pay for it.",
+        "poster_path": "/fDFuVek80FYKHQVeTCHCOgYlLET.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "dario-argento-collection-infero-phenomena-dvd-rental-horror",
+    "title": "Dario Argento Collection: Infero / Phenomena",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "at-deaths-door-dvd-rental-horror",
+    "title": "At Death's Door",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'At Death's Door' (1999))",
+    "candidates": [
+      {
+        "id": 343076,
+        "title": "At Death's Door",
+        "year": "1999",
+        "overview": "Death is training his son in the art and responsibilities of the family business. His son does well until he's sent out on his own to claim an accident victim. Instead, he's asked by a friend of the dying man to help with CPR. Taken aback, he assents, the dying man is resuscitated, and Death's son is in the doghouse with dad. Enraged, pop gives his son 24 hours to deliver a corpse, so the young man sets out to ice the man who asked him for help earlier that day. Junior's target is a young actor, Tom, going through opening night and loved by Sarah, a rather histrionic young woman. A near-Death experience awaits them all as Junior comes of age.",
+        "poster_path": "/TejyuvJj6JEbswmxYC1kVyDK2v.jpg"
+      },
+      {
+        "id": 1484542,
+        "title": "At Death's Door",
+        "year": "",
+        "overview": "Explore four spine-tingling stories that reveal how ordinary choices can bring you face-to-face with death. Will you dare to open the door and let fear inside? The unknown is all around us.",
+        "poster_path": "/atfJnGEX5cYaZBYVVHBUppJNERc.jpg"
+      },
+      {
+        "id": 1359623,
+        "title": "At Death's Door",
+        "year": "2023",
+        "overview": "Evelyn is abruptly sent to the afterlife and finds a child who she unknowingly has a devastating connection with. In a torturous environment they learn to take care of each other until Evelyn is torn away and her truth is revealed.",
+        "poster_path": "/7z6owE7kLed6kuI2HIFOMxoebLz.jpg"
+      },
+      {
+        "id": 1788260,
+        "title": "At Death's Door 2",
+        "year": "",
+        "overview": "An anthology sequel featuring four chilling tales of murder, mystery, paranormal terror, and the supernatural. Once the door is opened, some souls never return. Do you dare to step through again?",
+        "poster_path": "/8deHy34ux1fvWFIyzbfDIdcijBe.jpg"
+      },
+      {
+        "id": 41850,
+        "title": "At the Death House Door",
+        "year": "2008",
+        "overview": "An investigation of the wrongful death of Carlos DeLuna, who was executed in Texas on December 7, 1989, after prosecutors ignored evidence inculpating a man, who bragged to friends about committing the crimes of which DeLuna was convicted.",
+        "poster_path": "/ag443i7qLvWbqMua562evhmejy7.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "no-vacancy-dvd-rental-horror",
+    "title": "No Vacancy",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'No Vacancy' (2024))",
+    "candidates": [
+      {
+        "id": 61148,
+        "title": "No Vacancy",
+        "year": "1999",
+        "overview": "In a surreal motel in Los Angeles, the life of several sordid characters intertwine.",
+        "poster_path": "/2WSdY6kRIpc5MgqyOtWhAsVmxtN.jpg"
+      },
+      {
+        "id": 950186,
+        "title": "No Vacancy",
+        "year": "2022",
+        "overview": "A jaded reporter is demoted to a rural news station, but her cynicism is slowly transformed when she befriends a recovering addict as she works a news story about a church struggling to purchase a motel for homeless families.",
+        "poster_path": "/fmFU5ntTITbViCfdvZYt53cAOeJ.jpg"
+      },
+      {
+        "id": 1689650,
+        "title": "No Vacancy",
+        "year": "2024",
+        "overview": "",
+        "poster_path": "/73RNcdYs1nV7a66jDiPKV7Blhje.jpg"
+      },
+      {
+        "id": 1169739,
+        "title": "No Vacancy",
+        "year": "1999",
+        "overview": "Hong Kong movie",
+        "poster_path": "/qGZHBlX1T9vvBHN1La7WchC3d4N.jpg"
+      },
+      {
+        "id": 227990,
+        "title": "No Vacancy",
+        "year": "2012",
+        "overview": "A movie about a deaf-mute night gatekeeper of a hotel where strange things happen.",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "junior-dvd-rental-horror",
+    "title": "Junior",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Junior' (1994))",
+    "candidates": [
+      {
+        "id": 6280,
+        "title": "Junior",
+        "year": "1994",
+        "overview": "A research scientist becomes the world's first pregnant man in order to test a drug he and a colleague have designed for expectant women. To carry out the trial, he has an embryo implant, believing that he will only carry the baby for three months \u2013 hardly expecting to face the prospect of giving birth.",
+        "poster_path": "/swxxtzYc60qqnFhfWMFdmx9QXvY.jpg"
+      },
+      {
+        "id": 1446056,
+        "title": "Junior",
+        "year": "2025",
+        "overview": "A free-spirited young man suffocated by his father\u2019s obsessive love escapes to the city in search of freedom, but his carefree attitude soon puts him at odds with his emotionally distant corporate boss. He embarks on a heartwarming journey of redemption and connection discovering the true depth of sacrifice love and the fleeting nature of time.",
+        "poster_path": "/AuJT7uChHqkMmGwbgIK3KZXepUj.jpg"
+      },
+      {
+        "id": 252607,
+        "title": "Junior",
+        "year": "2014",
+        "overview": "Alex is in love with Sandra since childhood but has never dared approach her.He asks Antoine, a lonely writer to help him seduce her, because in his time he was the only one to conquer the heart of the mother.",
+        "poster_path": "/rXyvlWfEgVazefy4aRpgfcgeqx8.jpg"
+      },
+      {
+        "id": 1473931,
+        "title": "Junior",
+        "year": "2025",
+        "overview": "A college freshman joins his school\u2019s Filipino club, only to discover that they\u2019re specifically looking for good dancers.",
+        "poster_path": "/ukjMBVsVnA07TtwQpRjvoPWPXcO.jpg"
+      },
+      {
+        "id": 307130,
+        "title": "Junior",
+        "year": "2011",
+        "overview": "A pimple-faced 13-year-old tomboy starts morphing in bizarre ways after catching stomach flu.",
+        "poster_path": "/4tRF43CbEYHmV8VywkbikQwATB8.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "horror-dvd-rental-horror",
+    "title": "#HORROR",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: '#Horror' (2015))",
+    "candidates": [
+      {
+        "id": 845584,
+        "title": "Horror!!!",
+        "year": "1964",
+        "overview": "Horror stars are interviewed about their craft and films. Included on Severin Films' \"Eurocrypt of Christopher Lee Vol. 1\" collection.",
+        "poster_path": "/5csMUE4hhpGvkJZRDmjppbuOvLS.jpg"
+      },
+      {
+        "id": 301325,
+        "title": "#Horror",
+        "year": "2015",
+        "overview": "Inspired by actual events, a group of 12 year old girls face a night of horror when the compulsive addiction of an online social media game turns a moment of cyber bullying into a night of insanity.",
+        "poster_path": "/v9pTHwhpSWmPHU8i1pEt9VIG9Kg.jpg"
+      },
+      {
+        "id": 1190110,
+        "title": "Horror",
+        "year": "2023",
+        "overview": "Horror is a genre of fiction which is intended to frighten or scare the viewer. In this incredible documentary, we examine the history and art of horror through the ages. Get ready to shiver!",
+        "poster_path": "/lwgWbWj7Na8eIMLakRNkDlXhiC0.jpg"
+      },
+      {
+        "id": 1452020,
+        "title": "HORROR",
+        "year": "2024",
+        "overview": "",
+        "poster_path": "/bwI4q7wGQbcS9NFVHm9jpqqpEPY.jpg"
+      },
+      {
+        "id": 1387299,
+        "title": "Horror",
+        "year": "2015",
+        "overview": "",
+        "poster_path": ""
+      }
+    ]
+  },
+  {
+    "handle": "the-monkeys-paw-dvd-rental-horror",
+    "title": "The Monkey's Paw",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The Monkey's Paw' (2024))",
+    "candidates": [
+      {
+        "id": 222911,
+        "title": "The Monkey's Paw",
+        "year": "2013",
+        "overview": "After Jake Tilton is given a mystical \"monkey's paw\" talisman that grants its possessor three wishes, he finds his world turned upside down after his first two wishes result in his malevolent coworker, Tony Cobb, being resurrected from the dead. When Cobb pressures Jake into using the final wish to reunite Cobb with his son, his intimidation quickly escalates into relentless murder - forcing Jake to outwit his psychotic friend and save his remaining loved ones.",
+        "poster_path": "/zKL3skF2qCQPcVm2PpR52DJfQKS.jpg"
+      },
+      {
+        "id": 1753806,
+        "title": "The Monkey's Paw",
+        "year": "2024",
+        "overview": "A troubled family is visited by an old friend carrying a dark secret. Based on the short story by W.W. Jacobs.",
+        "poster_path": "/ya3uguC73NeHIkqvrK2VyegSknf.jpg"
+      },
+      {
+        "id": 547844,
+        "title": "The Monkey's Paw",
+        "year": "1983",
+        "overview": "After being evicted, a family in serious financial difficulties moves into a tenement next to a cemetery. As soon as they settle in, they meet the neighboring couple who, upon learning of the financial problems of the newcomers, offer them a pact to be made through a magical amulet: the monkey paw.",
+        "poster_path": "/bD6IoHvnR86xvdL7rqug8vhLOap.jpg"
+      },
+      {
+        "id": 384627,
+        "title": "The Monkey's Paw",
+        "year": "1933",
+        "overview": "A mother wishes for the return of her dead son, a wish that is granted by the severed paw of a dead monkey.",
+        "poster_path": "/9ExbpH2rzRG67FgAP3mcSsrZINE.jpg"
+      },
+      {
+        "id": 1324904,
+        "title": "The Monkey's Paw",
+        "year": "1973",
+        "overview": "An old army sergeant, back in England after long service in India, shows some old friends a strange possession he's acquired - a monkey's paw which can make wishes come true.",
+        "poster_path": "/oZV1YnbTW9UHjlbLpxMLVjykDPn.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "white-noise-dvd-rental-horror",
+    "title": "White Noise",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'White Noise' (2022))",
+    "candidates": [
+      {
+        "id": 744594,
+        "title": "White Noise",
+        "year": "2022",
+        "overview": "Jack Gladney, professor of Hitler studies at The-College-on-the-Hill, husband to Babette, and father to four children/stepchildren, is torn asunder by a chemical spill from a rail car that releases an \"Airborne Toxic Event\" forcing Jack to confront his biggest fear - his own mortality.",
+        "poster_path": "/kesxNdLZlmGoTRspDHU1WgdEuGw.jpg"
+      },
+      {
+        "id": 11804,
+        "title": "White Noise",
+        "year": "2005",
+        "overview": "An architect's desire to speak with his wife from beyond the grave using EVP (Electronic Voice Phenomenon), becomes an obsession with supernatural repercussions.",
+        "poster_path": "/ncB9SvOclmXYALlcAsF1jRIuISl.jpg"
+      },
+      {
+        "id": 1120174,
+        "title": "White Noise",
+        "year": "2022",
+        "overview": "A young woman turns to unorthodox methods to ward off an unrelenting visitor who is accompanied by an intolerable noise.",
+        "poster_path": "/jeXC7R35G3Kbhuipuet8NjV8a7p.jpg"
+      },
+      {
+        "id": 407164,
+        "title": "White Noise",
+        "year": "2004",
+        "overview": "A newly arrived film editor (Rahul Bose) in Mumbai, and his chance encounter with Gauri (Koel Purie), whose beauty and complexities intrigue him. Gauri seeks refuge in work and drink, suffering from depression after ending a long relationship with her former boss, Pawan (Aryan Vaid), who is now married. Headhunter Malhotra (Jatin Siyal) hires Gauri and hopes she will resurrect one of his fading on-going television soaps, Pavitra Aarti.",
+        "poster_path": "/7tzAk1anuLhyxVyTn9Ja7kjFLor.jpg"
+      },
+      {
+        "id": 1662094,
+        "title": "White Noise",
+        "year": "2026",
+        "overview": "A depressed man loses grip on reality when the TV becomes a window to another dimension, promising a better life, only for it to reveal it's sinister nature and snatch away his dreams.",
+        "poster_path": "/6CLtR7ieqXShMHUCQFgrva2kupp.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "hellraiser-6-movie-collection-dvd-rental-horror",
+    "title": "Hellraiser 6-Movie Collection",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "paranormal-collection-13-features-dvd-rental-horror",
+    "title": "Paranormal Collection (13 Features)",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "the-school-dvd-rental-horror",
+    "title": "The School",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'The School' (2018))",
+    "candidates": [
+      {
+        "id": 525200,
+        "title": "The School",
+        "year": "2018",
+        "overview": "When a doctor looking for her missing child awakens to find herself in an abandoned school, she must survive the supernatural terror and face her own demons if she is to find the truth about where her son is.",
+        "poster_path": "/38GDdvmKhN9DYrGtaQ6OQr53Tnh.jpg"
+      },
+      {
+        "id": 855990,
+        "title": "The School",
+        "year": "2003",
+        "overview": "Based on the short story by Donald Barthelme, this darkly comedic fable explores the strange and unfortunate occurrences in Mr. Gibson's second grade class.",
+        "poster_path": "/8TPSg2YZczL0oWyH3uv6WWpr9Vl.jpg"
+      },
+      {
+        "id": 1430020,
+        "title": "The School",
+        "year": "1956",
+        "overview": "Directed by Paul Zils and sponsored by the U.S. Technical Cooperation Mission (TCM), this short documentary explores educational development initiatives in post-independence India. The film highlights efforts to promote literacy and modernize schooling systems as part of collaborative development programs between India and the United States.",
+        "poster_path": ""
+      },
+      {
+        "id": 51370,
+        "title": "The Cool School",
+        "year": "2008",
+        "overview": "How LA Learned to Love Modern Art. A lesson in how a few renegade artists built an art scene from scratch.",
+        "poster_path": "/8sEbeDIwBffKMkckFL9mulJth0i.jpg"
+      },
+      {
+        "id": 1327460,
+        "title": "The School Duel",
+        "year": "2024",
+        "overview": "In a near-future, dystopian, \"Free State of Florida,\" gun control is outlawed and school shootings are at an all-time high. When an opportunity for twisted notoriety arises, a tormented 13-year old, Sammy, enlists in a deadly competition.",
+        "poster_path": "/yqKBehMZP3JNJSTJanqCViss2ci.jpg"
+      }
+    ]
+  },
+  {
+    "handle": "night-of-the-living-dead-5-bonus-dvd-rental-horror",
+    "title": "Night of the Living Dead (5 Bonus)",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
+  },
+  {
+    "handle": "the-mummy-trilogy-dvd-rental-action",
+    "title": "The Mummy Trilogy",
+    "vendor": "DVD",
+    "genre": "",
+    "tag": "Rental",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "no TMDB match",
+    "candidates": []
   }
 ]
