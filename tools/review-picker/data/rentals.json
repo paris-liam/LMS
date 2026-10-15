@@ -2044,5 +2044,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/e/e9/InfernoPoster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "overview": "Dario Argento collection of two Italian horror films: Inferno (1980), the second chapter of his Three Mothers trilogy, and Phenomena (1985), starring Jennifer Connelly as a girl who can communicate with insects."
+  },
+  {
+    "handle": "the-mummy-trilogy-dvd-rental-action",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/6/68/The_mummy.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "overview": "Three-film adventure collection: The Mummy (1999), The Mummy Returns (2001), and The Mummy: Tomb of the Dragon Emperor (2008), starring Brendan Fraser as adventurer Rick O'Connell."
   }
 ]
