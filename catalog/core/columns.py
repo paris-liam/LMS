@@ -1,7 +1,7 @@
-"""The two output column contracts and the values fixed on every row.
+"""The output column contracts and the values fixed on every row.
 
 Template output creates new products and matches the client sheets'
-18-column header exactly. Export output updates products that already
+18-column header exactly; the Floor Sale sheet has its own 16-column one. Export output updates products that already
 exist and deliberately omits every column it does not intend to set —
 Shopify leaves absent columns untouched, so anything omitted here cannot
 be clobbered by the import.
@@ -41,6 +41,29 @@ TEMPLATE_COLUMNS = [
     "Variant Price",
     "Image Src",
     "Image Alt Text",
+    GENRE_METAFIELD,
+]
+
+# The Floor Sale sheet's import tab (claudedocs/2026-10-08-floor-sale-upload-sheet.md).
+# No description or poster: floor sale is sold at the counter, never shown on
+# the website, so the catalogue fill never touches it.
+FLOOR_SALE_TEMPLATE_COLUMNS = [
+    "Handle",
+    "Title",
+    "Vendor",
+    "Product Category",
+    "Tags",
+    "Status",
+    # Always FALSE: Online Store channel only. Status stays Active so POS can sell it.
+    "Published",
+    "Option1 Name",
+    "Option1 Value",
+    "Variant Inventory Tracker",
+    "Variant Inventory Qty",
+    "Variant Inventory Policy",
+    "Variant Fulfillment Service",
+    "Variant Price",
+    "Variant Taxable",
     GENRE_METAFIELD,
 ]
 
@@ -99,5 +122,9 @@ SNAPSHOT_COLUMNS = [
     "Variant Inventory Tracker",
     "Variant Count",
     "Product Category",
+    # "TRUE"/"FALSE", or "" when the source didn't say. Published is the
+    # Online Store channel; the audit flags a Floor Sale that is on it.
+    "Published",
+    "Variant Taxable",
     GENRE_METAFIELD,
 ]

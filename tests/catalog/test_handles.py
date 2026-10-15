@@ -3,7 +3,11 @@ import unittest
 from pathlib import Path
 
 
-from catalog.core.handles import HandleAllocator, derive_handle, slugify
+from datetime import date
+
+from catalog.core.handles import (
+    HandleAllocator, derive_floor_sale_handle, derive_handle, floor_sale_batch_date, slugify,
+)
 
 
 class TestSlugify(unittest.TestCase):
@@ -35,6 +39,40 @@ class TestDeriveHandle(unittest.TestCase):
 
     def test_blu_ray_keeps_its_internal_hyphen(self):
         self.assertEqual(derive_handle("Alien", "Blu-Ray", "Rental"), "alien-blu-ray-rental")
+
+
+class TestFloorSaleHandle(unittest.TestCase):
+    def test_carries_the_batch_date(self):
+        self.assertEqual(
+            derive_floor_sale_handle("Speed", "DVD", date(2026, 10, 8)),
+            "speed-dvd-floor-sale-20261008",
+        )
+
+    def test_repeats_in_a_batch_count_up_after_the_date(self):
+        allocator = HandleAllocator()
+        base = derive_floor_sale_handle("Speed", "DVD", date(2026, 10, 8))
+        self.assertEqual(
+            [allocator.allocate(base) for _ in range(3)],
+            ["speed-dvd-floor-sale-20261008", "speed-dvd-floor-sale-20261008-2",
+             "speed-dvd-floor-sale-20261008-3"],
+        )
+
+    def test_a_later_batch_never_collides_with_an_earlier_one(self):
+        self.assertNotEqual(
+            derive_floor_sale_handle("Speed", "DVD", date(2026, 10, 8)),
+            derive_floor_sale_handle("Speed", "DVD", date(2026, 10, 9)),
+        )
+
+
+class TestFloorSaleBatchDate(unittest.TestCase):
+    def test_reads_the_date_back(self):
+        self.assertEqual(floor_sale_batch_date("speed-dvd-floor-sale-20261008"), date(2026, 10, 8))
+        self.assertEqual(floor_sale_batch_date("speed-dvd-floor-sale-20261008-12"), date(2026, 10, 8))
+
+    def test_undated_and_impossible_dates_are_none(self):
+        for handle in ("speed-dvd-floor-sale", "speed-dvd-floor-sale-2", "speed-dvd-floor-sale-20261399",
+                       "speed-dvd-rental-20261008", "ERROR: set the batch date", ""):
+            self.assertIsNone(floor_sale_batch_date(handle), handle)
 
 
 class TestHandleAllocator(unittest.TestCase):

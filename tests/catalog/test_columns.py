@@ -7,6 +7,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 from catalog.core.columns import (
     EXPORT_COLUMNS,
     FIXED_VALUES,
+    FLOOR_SALE_TEMPLATE_COLUMNS,
     GENRE_METAFIELD,
     REASON_COLUMN,
     TEMPLATE_COLUMNS,
@@ -25,6 +26,22 @@ class TestTemplateContract(unittest.TestCase):
     def test_published_sits_after_status(self):
         i = TEMPLATE_COLUMNS.index("Status")
         self.assertEqual(TEMPLATE_COLUMNS[i + 1], "Published")
+
+
+class TestFloorSaleTemplateContract(unittest.TestCase):
+    def test_sixteen_columns_in_the_spec_order(self):
+        self.assertEqual(FLOOR_SALE_TEMPLATE_COLUMNS, [
+            "Handle", "Title", "Vendor", "Product Category", "Tags", "Status",
+            "Published", "Option1 Name", "Option1 Value",
+            "Variant Inventory Tracker", "Variant Inventory Qty",
+            "Variant Inventory Policy", "Variant Fulfillment Service",
+            "Variant Price", "Variant Taxable", GENRE_METAFIELD,
+        ])
+
+    def test_carries_no_content_columns(self):
+        """Floor sale ships with no description or poster, by design."""
+        for column in ("Body (HTML)", "Image Src", "Image Alt Text"):
+            self.assertNotIn(column, FLOOR_SALE_TEMPLATE_COLUMNS)
 
 
 class TestExportContract(unittest.TestCase):
@@ -71,7 +88,8 @@ class TestSnapshotColumns(unittest.TestCase):
         for column in ("Handle", "Title", "Body (HTML)", "Vendor", "Tags", "Status",
                        "Template Suffix", "Image Src", "Image Alt Text", "Option1 Name",
                        "Option1 Value", "Variant Price", "Variant Barcode",
-                       "Variant Inventory Tracker", "Variant Count", GENRE_METAFIELD):
+                       "Variant Inventory Tracker", "Variant Count", "Published",
+                       "Variant Taxable", GENRE_METAFIELD):
             self.assertIn(column, SNAPSHOT_COLUMNS)
 
     def test_has_no_duplicates(self):

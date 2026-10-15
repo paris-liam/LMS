@@ -6,11 +6,17 @@ simply missing from the genre filter and the PDP chip — with nothing anywhere
 to say why. That exact fault survived three import rounds in testing before
 anyone noticed, which is what this script exists to prevent.
 
-Accepts any of the sheet's three tabs:
+Accepts any of the combined sheet's three tabs:
 
   fill    the "Add movies" tab    (11 columns, what the client types)
   import  the "Shopify import" tab (18 columns, what Shopify imports)
   libib   the "Libib import" tab   (26 columns, what Libib force-imports)
+
+and either tab of the Floor Sale sheet
+(claudedocs/2026-10-08-floor-sale-upload-sheet.md):
+
+  floor-sale-fill    the "Add floor sale" tab (5 columns + the batch date in G)
+  floor-sale-import  its "Shopify import" tab (16 columns)
 
 The import shape is the one worth checking for Shopify — it is where a failed
 VLOOKUP shows up as a blank cell rather than an error. The libib shape guards
@@ -31,13 +37,29 @@ import re
 import sys
 
 from catalog.core.barcodes import is_rental_barcode
-from catalog.core.columns import GENRE_METAFIELD, TEMPLATE_COLUMNS
+from catalog.core.columns import FLOOR_SALE_TEMPLATE_COLUMNS, GENRE_METAFIELD, MOVIE_CATEGORY, TEMPLATE_COLUMNS
+from catalog.client_sheet.floor_sale import (
+    BATCH_DATE_COLUMN, FLOOR_SALE_FILL_COLUMNS, FLOOR_SALE_FILL_HEADER, FLOOR_SALE_TAG, parse_batch_date,
+)
 from catalog.client_sheet.transform import FILL_COLUMNS
+from catalog.core.handles import floor_sale_batch_date
 from catalog.core.taxonomy import FORMATS, GENRES, TYPES
 from catalog.libib.columns import LIBIB_MOVIE_COLUMNS
 
-SHAPES = {"fill": FILL_COLUMNS, "import": TEMPLATE_COLUMNS, "libib": LIBIB_MOVIE_COLUMNS}
-LABELS = {"fill": "fill tab", "import": "Shopify import tab", "libib": "Libib import tab"}
+SHAPES = {
+    "fill": FILL_COLUMNS,
+    "import": TEMPLATE_COLUMNS,
+    "libib": LIBIB_MOVIE_COLUMNS,
+    "floor-sale-fill": FLOOR_SALE_FILL_HEADER,
+    "floor-sale-import": FLOOR_SALE_TEMPLATE_COLUMNS,
+}
+LABELS = {
+    "fill": "fill tab",
+    "import": "Shopify import tab",
+    "libib": "Libib import tab",
+    "floor-sale-fill": "Floor Sale fill tab",
+    "floor-sale-import": "Floor Sale Shopify import tab",
+}
 # The column that must be unique per row, and why a repeat is costly.
 UNIQUE = {
     # Two rows sharing a handle do not become two products — they become one
@@ -45,6 +67,7 @@ UNIQUE = {
     "import": ("Handle", "handle", "edit one of the two Handle cells to something distinct"),
     "fill": ("Barcode", "barcode", "two copies can't share a label; check both cases"),
     "libib": ("call_number", "call number", "two copies can't share a label; check both cases"),
+    "floor-sale-import": ("Handle", "handle", "edit one of the two Handle cells to something distinct"),
 }
 BARCODE_FIX = ("format the Barcode column as Plain text (a leading 0 is otherwise "
                "dropped) and type all 8 digits from the label")
@@ -74,27 +97,35 @@ def _read(path):
 
 
 def detect_shape(header):
-    """Return "fill", "import" or "libib", or raise ValueError naming the mismatch."""
+    """Return the shape's name (a SHAPES key), or raise ValueError naming the mismatch."""
+    # Sheets pads a download with blank header cells out to the widest column used.
+    header = list(header)
+    while header and not header[-1].strip():
+        header.pop()
     for name, expected in SHAPES.items():
         if header == expected:
             return name
 
-    for name, expected in SHAPES.items():
-        missing = [c for c in expected if c not in header]
-        extra = [c for c in header if c not in expected]
-        # Close enough to be that shape, but not exactly — say what differs
-        # rather than making the operator diff two column lists by eye.
-        if len(missing) + len(extra) <= 3:
-            parts = []
-            if missing:
-                parts.append("missing " + ", ".join(repr(c) for c in missing))
-            if extra:
-                parts.append("unexpected " + ", ".join(repr(c) for c in extra))
-            raise ValueError(f"looks like the {name} shape but {'; '.join(parts)}")
+    def differences(expected):
+        return ([c for c in expected if c not in header], [c for c in header if c not in expected])
+
+    # The closest shape: the Floor Sale import is within 4 columns of the old one.
+    name, expected = min(SHAPES.items(), key=lambda item: sum(map(len, differences(item[1]))))
+    missing, extra = differences(expected)
+    # Close enough to be that shape, but not exactly — say what differs
+    # rather than making the operator diff two column lists by eye.
+    if len(missing) + len(extra) <= 3:
+        parts = []
+        if missing:
+            parts.append("missing " + ", ".join(repr(c) for c in missing))
+        if extra:
+            parts.append("unexpected " + ", ".join(repr(c) for c in extra))
+        raise ValueError(f"looks like the {name} shape but {'; '.join(parts)}")
 
     raise ValueError(
-        "header matches none of the fill tab (11 columns), the Shopify import "
-        f"tab (18) or the Libib import tab (26). Got {len(header)} columns: "
+        "header matches none of the upload sheets' tabs (fill 11 columns, Shopify "
+        "import 18, Libib import 26, Floor Sale fill 5 + batch date, Floor Sale "
+        f"import 16). Got {len(header)} columns: "
         f"{', '.join(header[:6])}…"
     )
 
@@ -112,6 +143,8 @@ def check_row(row, number, shape):
     """Every problem with one row, in reading order."""
     if shape == "libib":
         return check_libib_row(row, number)
+    if shape.startswith("floor-sale-"):
+        return check_floor_sale_row(row, number, shape)
     problems = []
     title = (row.get("Title") or "").strip()
 
@@ -213,6 +246,102 @@ def check_row(row, number, shape):
     return problems
 
 
+def _number(raw):
+    try:
+        return float(raw)
+    except ValueError:
+        return None
+
+
+def check_floor_sale_row(row, number, shape):
+    """Every problem with one row of either Floor Sale tab."""
+    problems = []
+    fill = shape == "floor-sale-fill"
+
+    def value(column):
+        return (row.get(column) or "").strip()
+
+    title = value("Title")
+
+    def bad(message, fix):
+        problems.append(Problem(number, title or "(no title)", message, fix))
+
+    formats = f"use one of: {', '.join(FORMATS)}"
+    if not title:
+        bad("no Title", "every row needs a movie title")
+
+    media_format = value("Format" if fill else "Vendor")
+    if not media_format:
+        bad("no Format" if fill else "no format in Vendor", formats)
+    elif media_format not in FORMAT_SET:
+        bad(f"format {media_format!r} is not recognised" if fill
+            else f"Vendor {media_format!r} is not a media format", formats)
+
+    genre = value("Genre" if fill else "Option1 Value")
+    if not genre:
+        bad("no Genre" if fill else "no genre", "pick one from the Genre dropdown")
+    elif genre not in GENRE_LABELS:
+        bad(f"genre {genre!r} is not one of the {len(GENRES)}",
+            "pick from the dropdown; if it came from the mappings tab, re-import genre-mappings.csv")
+
+    raw_price = value("Price" if fill else "Variant Price")
+    price = _number(raw_price) if raw_price else None
+    if not raw_price:
+        bad("no price", "a blank price rings up at $0.00 at the counter")
+    elif price is None:
+        bad(f"price {raw_price!r} is not a number", "enter digits only, e.g. 8 or 12.50")
+    elif price <= 0:
+        bad(f"price {raw_price!r}: price must be more than 0",
+            "this would ring up at $0.00 (or less) at the counter")
+
+    if fill:
+        extra = [t.strip() for t in value("Extra tags").split(",") if t.strip()]
+        if "Rental" in extra:
+            bad("'Rental' in Extra tags",
+                "this sheet is floor sale only — add rentals in Libib instead")
+        return problems
+
+    # --- import tab only ------------------------------------------------
+    handles = [h.strip() for h in value(GENRE_METAFIELD).split(";") if h.strip()]
+    if genre and not handles:
+        bad(f"genre {genre!r} produced no genre handle",
+            "the mappings tab is missing this genre — re-import genre-mappings.csv, then re-export")
+    elif genre in GENRE_LABELS and handles != [GENRES[genre]]:
+        bad(f"genre handle {'; '.join(handles)!r} does not match genre {genre!r}",
+            "check the mappings tab's column B")
+
+    if value("Product Category") != MOVIE_CATEGORY:
+        bad(f"category {value('Product Category')!r} is not {MOVIE_CATEGORY}",
+            "the genre field and Shopify Tax both read it — check the tab-2 formula")
+
+    tags = [t.strip() for t in value("Tags").split(",") if t.strip()]
+    if FLOOR_SALE_TAG not in tags:
+        bad("missing the Floor Sale tag", "Tags must start with Floor Sale — check the tab-2 formula")
+    if "Rental" in tags:
+        bad("tagged Rental", "this sheet is floor sale only — remove Rental from Extra tags")
+
+    # Sold at the counter only. Shopify publishes a blank, so only FALSE is safe.
+    if value("Published").upper() != "FALSE":
+        bad("published to the online store",
+            "Published must be FALSE — floor sale is never on the website")
+    # Draft would hide it from POS too, so it could not be rung up.
+    if value("Status") != "Active":
+        bad(f"Status {value('Status')!r} is not Active", "POS can only sell Active products")
+    if value("Variant Taxable").upper() != "TRUE":
+        bad("not taxable", "Variant Taxable must be TRUE — check the tab-2 formula")
+    if value("Variant Inventory Qty") != "1":
+        bad(f"quantity {value('Variant Inventory Qty')!r} is not 1",
+            "one row per physical copy — three copies are three rows")
+    if value("Variant Inventory Tracker") != "shopify":
+        bad("inventory not tracked", "an untracked copy never sells out at the counter")
+
+    handle = value("Handle")
+    if floor_sale_batch_date(handle) is None:
+        bad(f"handle {handle!r} has no batch date",
+            "type the batch date in G2 of the Add floor sale tab, then download this tab again")
+    return problems
+
+
 def check_libib_row(row, number):
     """Every problem with one Libib import row."""
     problems = []
@@ -264,11 +393,22 @@ def check(path):
 
     problems = []
     for offset, row in enumerate(rows):
+        if shape == "floor-sale-fill" and not any(
+            (row.get(c) or "").strip() for c in FLOOR_SALE_FILL_COLUMNS
+        ):
+            continue  # G2 holds the batch date, so its row may have no movie
         problems.extend(check_row(row, offset + 2, shape))  # +2: header is row 1
 
-    column, noun, fix = UNIQUE[shape]
+    if shape == "floor-sale-fill" and parse_batch_date(rows[0].get(BATCH_DATE_COLUMN) if rows else "") is None:
+        problems.append(Problem(
+            2, ((rows[0].get("Title") or "").strip() if rows else "") or "(batch date)",
+            "no batch date in G2 (blank, or not a date)",
+            "type the date this batch is uploaded as yyyy-mm-dd; it goes into every handle",
+        ))
+
+    column, noun, fix = UNIQUE.get(shape, (None, None, None))
     seen = {}
-    for offset, row in enumerate(rows):
+    for offset, row in enumerate(rows if column else []):
         value = (row.get(column) or "").strip()
         if not value:
             continue
