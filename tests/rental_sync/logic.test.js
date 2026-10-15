@@ -65,6 +65,12 @@ test('createPayload only sends https posters', () => {
   assert.deepEqual(L.createPayload(copy, undefined), { item: copy.libib, poster: null });
 });
 
+test('createPayload sends the normalised poster URL so an upper-case scheme still passes the server check', () => {
+  const copy = { libib: { barcode: 'b', title: 'Jaws', tags: 'vhs, horror', description: '', created: '' } };
+  assert.deepEqual(L.createPayload(copy, { url: ' HTTPS://Mine.example/p.jpg ', alt: '' }),
+    { item: copy.libib, poster: { url: 'https://mine.example/p.jpg', alt: '' } });
+});
+
 test('summarize and finishPayload', () => {
   const s = L.summarize([
     { status: 'created', poster: 'ok' }, { status: 'created', poster: 'failed' },
@@ -105,10 +111,13 @@ test('api retries the same request after login', async () => {
 
 test('api surfaces server messages and network failures', async () => {
   const api = L.makeApi({
-    fetch: async () => fakeResponse(503, { error: { message: "Shopify didn't respond", detail: 'HTTP 502' } }),
+    fetch: async () => fakeResponse(503, { error: { kind: 'shopify', message: "Shopify didn't respond", detail: 'HTTP 502' } }),
     requireLogin: async () => {},
   });
-  await assert.rejects(api('status'), (e) => e.message === "Shopify didn't respond" && e.detail === 'HTTP 502');
+  await assert.rejects(api('status'), (e) => e.message === "Shopify didn't respond" && e.detail === 'HTTP 502'
+    && e.kind === 'shopify');
   const offline = L.makeApi({ fetch: async () => { throw new TypeError('Failed to fetch'); }, requireLogin: async () => {} });
-  await assert.rejects(offline('status'), /Couldn't reach the sync app/);
+  await assert.rejects(offline('status'), (e) => /Couldn't reach the sync app/.test(e.message) && e.kind === 'network');
+  const bare = L.makeApi({ fetch: async () => fakeResponse(500, {}), requireLogin: async () => {} });
+  await assert.rejects(bare('status'), (e) => e.kind === '' && e.detail === '');
 });

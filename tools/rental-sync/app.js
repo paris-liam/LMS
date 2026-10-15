@@ -53,10 +53,12 @@
   });
   const api = L.makeApi({ fetch: (url, options) => fetch(url, options), requireLogin });
 
+  function detailsBlock(detail) {
+    return detail ? el('details', {}, el('summary', {}, 'Show details'), el('pre', { class: 'small' }, detail)) : null;
+  }
+
   function showError(container, error) {
-    fill(container,
-      el('p', { class: 'error' }, error.message),
-      error.detail ? el('details', {}, el('summary', {}, 'Show details'), el('pre', { class: 'small' }, error.detail)) : null);
+    fill(container, el('p', { class: 'error' }, error.message), detailsBlock(error.detail));
   }
 
   function showStep(n) {
@@ -271,21 +273,44 @@
       marks.set(copy.barcode, mark);
       return el('li', {}, mark, ' ', copy.title);
     }));
+    const failedRow = (copy, message, detail = '') => ({ status: 'failed', barcode: copy.barcode, title: copy.title,
+      admin_url: '', poster: 'none', message, detail, problems: [] });
+    const markRow = (copy, result) => {
+      const mark = marks.get(copy.barcode);
+      mark.textContent = result.status === 'failed' ? '✗' : '✓';
+      mark.className = `status ${result.status}`;
+    };
+    let setupError = null;
     for (const [i, copy] of state.ready.entries()) {
       setProgress(i, state.ready.length);
       let result;
       try {
         result = await api('create', L.createPayload(copy, state.posters.get(copy.barcode)));
       } catch (error) {
-        result = { status: 'failed', barcode: copy.barcode, title: copy.title, admin_url: '', poster: 'none',
-          message: `${error.message} If it was created anyway, the next sync will skip it.`, problems: [] };
+        result = failedRow(copy, `${error.message} Run the sync again to check it.`, error.detail);
+        if (error.kind === 'setup') {
+          setupError = error;
+          result = failedRow(copy, error.message, error.detail);
+        }
       }
       state.results.push(result);
-      const mark = marks.get(copy.barcode);
-      mark.textContent = result.status === 'failed' ? '✗' : '✓';
-      mark.className = `status ${result.status}`;
+      markRow(copy, result);
+      if (setupError) {
+        // a setup problem will fail every remaining copy the same way: stop and say so
+        for (const rest of state.ready.slice(i + 1)) {
+          const skipped = failedRow(rest, 'Not attempted — the app setup needs fixing first.');
+          state.results.push(skipped);
+          markRow(rest, skipped);
+        }
+        break;
+      }
     }
     setProgress(state.ready.length, state.ready.length);
+    if (setupError) {
+      state.creating = false;
+      renderResults(L.summarize(state.results), null, setupError);
+      return;
+    }
     const summary = L.summarize(state.results);
     let finishError = null;
     try {
@@ -296,15 +321,18 @@
     state.creating = false;
     renderResults(summary, finishError);
   }
-  function renderResults(summary, finishError) {
+  function renderResults(summary, finishError, setupError) {
+    const setupBox = setupError ? el('div', { class: 'setup-error' }) : null;
+    if (setupError) showError(setupBox, setupError);
     const link = (r) => (r.admin_url ? el('a', { href: r.admin_url, target: '_blank', rel: 'noopener' }, r.title) : r.title);
     const group = (title, items, render) => (items.length
       ? el('section', { class: 'result-group' }, el('h3', {}, `${title} (${items.length})`), el('ul', {}, items.map(render)))
       : null);
     fill($('results'),
+      setupBox,
       el('p', { class: 'last-run' }, `${summary.created.length} created, ${summary.skipped.length} already in Shopify, ${summary.failed.length} failed.`),
       group('Failed', summary.failed, (r) => el('li', {}, link(r), ' ', el('span', { class: 'mono muted' }, r.barcode),
-        el('p', { class: 'error small' }, r.message))),
+        el('p', { class: 'error small' }, r.message), detailsBlock(r.detail))),
       summary.failed.length ? el('p', {}, "Fix the issue and run the sync again — products already created won't be duplicated.") : null,
       group("Created, but the poster didn't load — add it in Shopify admin", summary.posterFailed, (r) => el('li', {}, link(r))),
       group('Created', summary.created, (r) => el('li', {}, link(r))),

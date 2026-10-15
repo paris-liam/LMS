@@ -74,7 +74,8 @@
 
   function createPayload(copy, poster) {
     const usable = poster && isHttpsUrl(poster.url);
-    return { item: copy.libib, poster: usable ? { url: poster.url.trim(), alt: poster.alt || '' } : null };
+    // URL-normalised (lower-case scheme) because the server requires a literal "https://" prefix
+    return { item: copy.libib, poster: usable ? { url: new URL(poster.url.trim()).href, alt: poster.alt || '' } : null };
   }
 
   function summarize(results) {
@@ -120,7 +121,10 @@
       try {
         res = await fetch(`/api/rental_sync/${path}`, options);
       } catch (_) {
-        throw new Error("Couldn't reach the sync app — check the internet connection and try again.");
+        const offline = new Error("Couldn't reach the sync app — check the internet connection and try again.");
+        offline.kind = 'network';
+        offline.detail = '';
+        throw offline;
       }
       let data = {};
       try { data = await res.json(); } catch (_) { /* not JSON: use the status below */ }
@@ -130,6 +134,7 @@
       }
       if (!res.ok) {
         const error = new Error((data.error && data.error.message) || `Something went wrong (${res.status}).`);
+        error.kind = (data.error && data.error.kind) || '';
         error.detail = (data.error && data.error.detail) || '';
         throw error;
       }
