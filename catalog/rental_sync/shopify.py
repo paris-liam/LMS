@@ -84,7 +84,9 @@ class RentalShop:
         try:
             return self._api.gql(query, **variables)
         except RuntimeError as exc:
-            if "ACCESS_DENIED" in str(exc):
+            # ApiStore truncates the error text to 300 chars, which can cut off the
+            # ACCESS_DENIED code but keeps the leading "Access denied" message.
+            if "ACCESS_DENIED" in str(exc) or "Access denied" in str(exc):
                 raise SetupError(f"the Shopify app is missing a permission: {exc}") from None
             raise ShopifyError(f"Shopify returned an error: {exc}") from None
 

@@ -113,6 +113,18 @@ class TestErrors(unittest.TestCase):
         with self.assertRaisesRegex(SetupError, "missing a permission"):
             s.location_id()
 
+    def test_access_denied_is_setup_even_when_the_code_is_truncated(self):
+        long_error = {"errors": [{
+            "message": "Access denied for locations field. Required access: `read_locations` access scope. "
+                       "Also: " + "x" * 300,
+            "locations": [{"line": 1, "column": 9}],
+            "path": ["locations"],
+            "extensions": {"code": "ACCESS_DENIED",
+                           "documentation": "https://shopify.dev/api/usage/access-scopes"}}]}
+        s, _ = shop([("locations(", long_error)])
+        with self.assertRaisesRegex(SetupError, "missing a permission"):
+            s.location_id()
+
     def test_other_graphql_errors_are_shopify(self):
         s, _ = shop([("locations(", {"errors": [{"message": "Internal error"}]})])
         with self.assertRaisesRegex(ShopifyError, "Internal error"):
