@@ -97,7 +97,7 @@ later auto-export can call it unchanged.
 |---|---|
 | `POST /api/rental_sync/login` | Checks `SYNC_PASSWORD`; sets the session cookie. |
 | `GET /api/rental_sync/status` | Last successful sync (from the metafield) and the target store name. |
-| `POST /api/rental_sync/prepare` | Body: both CSVs (multipart). Validates headers → `load_libib(..., "Rental Library")` → keep `^201\d{10}$` → read Shopify `201…` barcodes → diff → transform each new copy. Returns `ready[]` and `set_aside[]`, each with warnings/reasons. Stateless — the browser holds the result. |
+| `POST /api/rental_sync/prepare` | Body: JSON with both CSVs gzipped in the browser (`CompressionStream`) and base64-encoded — keeps two growing exports under Vercel's 4.5 MB request limit and avoids multipart parsing (`cgi` is gone from Python 3.13). Validates headers → `load_libib(..., "Rental Library")` → keep `^201\d{10}$` → read Shopify `201…` barcodes → diff → transform each new copy. Returns `ready[]` and `set_aside[]`, each with warnings/reasons. Stateless — the browser holds the result. |
 | `POST /api/rental_sync/posters` | Body: up to 10 copies. Returns per copy `confident` (url, alt) / `unsure` (best candidate url, alt, title, year) / `none` / `error` (reason). |
 | `POST /api/rental_sync/create` | Body: one copy (fields from `prepare` + chosen poster URL). Re-checks barcode and handle, creates, verifies. Returns `created` (admin URL, image status) / `skipped_exists` / `failed` (Shopify message, mismatch list). |
 | `POST /api/rental_sync/finish` | Body: run summary (counts, timestamp). Writes the last-run metafield. Called only when the create loop reaches its end. |
@@ -185,15 +185,15 @@ on `id`). Tags are a comma-separated string, compared case-insensitively.
 | Title | whitespace collapsed | blank | contains `[`, `]`, `(`, `)` or `edition` → "title may need cleanup" |
 | Format | the one tag in the format list → Vendor (`vhs→VHS, dvd→DVD, blu-ray→Blu-Ray, 4k→4K, laserdisc→Laserdisc, betamax→Betamax`) | none; more than one | — |
 | Genres | tags in the genre list, Libib's order → handles; names from `genre-mappings.csv` | none | more than 3 (all kept) |
-| Misspellings | a non-vocabulary tag within Damerau-Levenshtein distance ≤ 2 of a format or genre (after lowercasing and treating space/`_` as `-`; e.g. `horor`, `bluray`, `sci fi`) | any present — reason names the closest term | — |
+| Misspellings | a non-vocabulary tag (after `slugify`) that is a known alias in `catalog/core/taxonomy.py` (`bluray`, `ld`, `kids`, …) or, for tags of 4+ characters, within Damerau-Levenshtein distance 1 (4–5 characters) or 2 (6+) of a format or genre — e.g. `horor`, `bluray`, `scifi`, `thrillers` | any present — reason names the closest term | — |
 | Extra tags | every remaining tag, original text | — | any present → listed |
 | Description | library export `description`, whitespace collapsed | — | blank |
 
 Normalisation that maps exactly onto a vocabulary term (e.g. `Blu Ray` →
-`blu-ray`, `SCI_FI` → `sci-fi`) is accepted as that term, not flagged. Short
-real tags must not false-positive: the distance rule only applies to tags of
-length ≥ 4, and tests pin known-good extra tags (e.g. `criterion`, `oop`,
-`signed`).
+`blu-ray`, `sci fi` / `SCI_FI` → `sci-fi`, `Kids & Family` → `kids-family`)
+is accepted as that term, not flagged. Real extra tags must not
+false-positive: tests pin known-good ones (`criterion`, `oop`, `signed`,
+`music`).
 
 ## Product creation
 
@@ -315,8 +315,10 @@ Rough estimates, not measured.
    whose variant barcode is — otherwise they show as orphans/drift.
 2. **`apply` may only set the poster on new-flow rentals** — never their
    title, description, Vendor or genre (those come from Libib).
-3. **`audit` flags** a new-flow rental that is taxable, on POS, unpublished,
-   or whose handle doesn't end in its barcode.
+3. **`audit` flags** a new-flow rental that is taxable, unpublished, or
+   whose handle doesn't end in its barcode. (POS is not in the audit
+   snapshot; the app's own read-back already refuses a product that is on
+   any channel besides the Online Store.)
 
 ## Later, not in this spec
 
