@@ -1966,5 +1966,11 @@
     "choice": "tmdb",
     "poster_path": "/5bqFnf9wLJOFgKZIG7I1je3f2vP.jpg",
     "overview": "After a model is brutally murdered on a Caribbean island, her sister's investigation uncovers a horrifying rat-like creature."
+  },
+  {
+    "handle": "signs-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/YtrIdrTxpRhvCnlw43dwOjfLqx.jpg",
+    "overview": "A family living on a farm finds mysterious crop circles in their fields which suggests something more frightening to come."
   }
 ]
