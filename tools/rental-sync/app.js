@@ -21,6 +21,11 @@
     return node;
   }
 
+  // replaceChildren() would turn null/false children into the text "null"/"false"
+  function fill(container, ...children) {
+    container.replaceChildren(...children.filter((child) => child != null && child !== false));
+  }
+
   // --- login + api ------------------------------------------------------
   let loginWaiters = [];
   function requireLogin() {
@@ -49,7 +54,7 @@
   const api = L.makeApi({ fetch: (url, options) => fetch(url, options), requireLogin });
 
   function showError(container, error) {
-    container.replaceChildren(
+    fill(container,
       el('p', { class: 'error' }, error.message),
       error.detail ? el('details', {}, el('summary', {}, 'Show details'), el('pre', { class: 'small' }, error.detail)) : null);
   }
@@ -94,6 +99,7 @@
       state.vocabulary = data.vocabulary;
       state.found = [...data.ready, ...data.set_aside].sort(L.byCreatedThenTitle);
       state.selected = new Set(state.found.map((c) => c.barcode));
+      posterBuild = null;
       renderFound();
       showStep(2);
     } catch (error) {
@@ -156,12 +162,23 @@
     $('details-continue').disabled = !state.ready.length;
   }
   $('details-back').addEventListener('click', () => showStep(2));
-  $('details-continue').addEventListener('click', () => { buildPosterCards(); showStep(4); startPosters(); });
+  $('details-continue').addEventListener('click', () => {
+    const key = state.ready.map((c) => c.barcode).join('\n');
+    if (posterBuild && posterBuild.key === key && posterBuild.done) { showStep(4); return; }
+    buildPosterCards();
+    posterBuild = { key, done: false };
+    showStep(4);
+    startPosters(posterBuild);
+  });
 
   // --- step 4: posters --------------------------------------------------------
   const posterCards = new Map();
+  const editedPosters = new Set(); // barcodes the user pasted into or accepted: lookups must not overwrite them
+  let posterRun = 0;
+  let posterBuild = null; // { key, done } for the poster cards currently built
   function buildPosterCards() {
     posterCards.clear();
+    editedPosters.clear();
     state.posters = new Map(state.ready.map((c) => [c.barcode, { url: '', alt: '', original: { url: '', alt: '' },
       suggestion: null, note: 'Looking up…' }]));
     $('poster-cards').replaceChildren(...state.ready.map((copy) => {
@@ -172,12 +189,14 @@
         if (img.getAttribute('src')) { note.textContent = "That link didn't load as an image — check it."; note.classList.add('error'); }
       });
       const useIt = el('button', { type: 'button', class: 'secondary', hidden: true, onclick: () => {
+        editedPosters.add(copy.barcode);
         state.posters.set(copy.barcode, L.acceptSuggestion(state.posters.get(copy.barcode)));
         updatePosterCard(copy.barcode);
       } }, 'Use it');
       const input = el('input', { type: 'url', placeholder: 'Paste image URL (https://…)',
         'aria-label': `Poster link for ${copy.title}` });
       input.addEventListener('input', () => {
+        if (input.value.trim()) editedPosters.add(copy.barcode); else editedPosters.delete(copy.barcode);
         state.posters.set(copy.barcode, L.pastedPoster(state.posters.get(copy.barcode), input.value));
         updatePosterCard(copy.barcode);
       });
@@ -206,19 +225,29 @@
       : poster.note;
     card.useIt.hidden = !unsure;
   }
-  async function startPosters() {
+  async function startPosters(build) {
+    const run = ++posterRun;
     const button = $('posters-continue');
     button.disabled = true;
     button.textContent = 'Looking up posters…';
     for (const batch of L.batches(state.ready)) {
+      let results = null;
       try {
-        const data = await api('posters', { copies: batch });
-        data.posters.forEach((result) => state.posters.set(result.barcode, L.initialPoster(result)));
-      } catch (_) {
-        batch.forEach((c) => state.posters.set(c.barcode, L.initialPoster({ kind: 'error' })));
-      }
-      batch.forEach((c) => updatePosterCard(c.barcode));
+        results = (await api('posters', { copies: batch })).posters;
+      } catch (_) { /* leave null: every copy in the batch gets the error note */ }
+      if (run !== posterRun) return;
+      const byBarcode = new Map((results || []).map((r) => [r.barcode, r]));
+      batch.forEach((c) => {
+        if (!state.posters.has(c.barcode)) return;
+        const fresh = L.initialPoster(byBarcode.get(c.barcode) || { kind: 'error' });
+        const current = state.posters.get(c.barcode);
+        // keep what the user pasted; only refresh what clearing the box falls back to
+        state.posters.set(c.barcode, editedPosters.has(c.barcode)
+          ? { ...current, original: fresh.original, suggestion: fresh.suggestion } : fresh);
+      });
+      batch.forEach((c) => { if (posterCards.has(c.barcode)) updatePosterCard(c.barcode); });
     }
+    build.done = true;
     button.disabled = false;
     button.textContent = `Create ${state.ready.length} ${state.ready.length === 1 ? 'product' : 'products'} in Shopify`;
   }
@@ -272,7 +301,7 @@
     const group = (title, items, render) => (items.length
       ? el('section', { class: 'result-group' }, el('h3', {}, `${title} (${items.length})`), el('ul', {}, items.map(render)))
       : null);
-    $('results').replaceChildren(
+    fill($('results'),
       el('p', { class: 'last-run' }, `${summary.created.length} created, ${summary.skipped.length} already in Shopify, ${summary.failed.length} failed.`),
       group('Failed', summary.failed, (r) => el('li', {}, link(r), ' ', el('span', { class: 'mono muted' }, r.barcode),
         el('p', { class: 'error small' }, r.message))),

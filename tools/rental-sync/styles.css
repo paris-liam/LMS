@@ -11,6 +11,7 @@
   --aside-bg: #fbe9e6;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body { margin: 0; background: var(--parchment); color: var(--ink);
   font: 16px/1.5 -apple-system, system-ui, "Segoe UI", sans-serif; }
 .top, main, .steps { max-width: 960px; margin: 0 auto; padding: 0 16px; }
