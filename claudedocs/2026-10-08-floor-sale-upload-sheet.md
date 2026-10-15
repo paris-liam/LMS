@@ -221,7 +221,13 @@ Done (repo changes 1–8):
 Still open:
 
 1. ~~The three dev-store checks~~ — passed 2026-10-15; guide updated.
-2. Build the live sheet from `template/floor-sale/`, paste
-   `sheet-export-input.csv` into `Add floor sale`, download both tabs, and
-   add the seam test (same pattern as `TestSheetExportSeam`).
+2. ~~Build the live sheet and add the seam test~~ — done 2026-10-15. The
+   live sheet ("FLOOR SALE UPLOAD - BASE") was built; both tabs, downloaded
+   from a copy fed the 11 test rows, are `sheet-export-input.csv` /
+   `sheet-export.csv`, and `TestSheetExportSeam` in
+   `tests/catalog/test_floor_sale_template_files.py` pins the formula to
+   the transform (only difference: Sheets writes `24.50` as `24.5`,
+   compared by value). Before hand-over: clear the stray `10.1` in D5 of
+   the master, and re-apply the `yyyy-mm-dd` format to G2 (it exported as
+   `10/8/2026`; still parsed correctly).
 3. Hand-over: make it the client's master sheet and give him the guide.

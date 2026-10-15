@@ -1,0 +1,12 @@
+Handle,Title,Vendor,Product Category,Tags,Status,Published,Option1 Name,Option1 Value,Variant Inventory Tracker,Variant Inventory Qty,Variant Inventory Policy,Variant Fulfillment Service,Variant Price,Variant Taxable,Genre (product.metafields.shopify.genre)
+speed-dvd-floor-sale-20261008,Speed,DVD,Media > Videos,Floor Sale,Active,FALSE,Genre,Action,shopify,1,deny,manual,8,TRUE,action
+speed-dvd-floor-sale-20261008-2,Speed,DVD,Media > Videos,Floor Sale,Active,FALSE,Genre,Action,shopify,1,deny,manual,8,TRUE,action
+speed-vhs-floor-sale-20261008,Speed,VHS,Media > Videos,Floor Sale,Active,FALSE,Genre,Action,shopify,1,deny,manual,4,TRUE,action
+the-monkeys-uncle-vhs-floor-sale-20261008,The Monkey's Uncle,VHS,Media > Videos,Floor Sale,Active,FALSE,Genre,Kids & Family,shopify,1,deny,manual,5,TRUE,kids-family
+am-lie-dvd-floor-sale-20261008,Amélie,DVD,Media > Videos,Floor Sale,Active,FALSE,Genre,Foreign,shopify,1,deny,manual,10,TRUE,foreign
+paris-texas-blu-ray-floor-sale-20261008,"Paris, Texas",Blu-Ray,Media > Videos,"Floor Sale, Criterion Collection, Rare Finds",Active,FALSE,Genre,Drama,shopify,1,deny,manual,24.5,TRUE,drama
+the-thing-4k-floor-sale-20261008,The Thing,4K,Media > Videos,Floor Sale,Active,FALSE,Genre,Horror,shopify,1,deny,manual,30,TRUE,horror
+dune-laserdisc-floor-sale-20261008,Dune,Laserdisc,Media > Videos,"Floor Sale, Rare Finds",Active,FALSE,Genre,Sci-Fi,shopify,1,deny,manual,45,TRUE,sci-fi
+tron-betamax-floor-sale-20261008,Tron,Betamax,Media > Videos,Floor Sale,Active,FALSE,Genre,Sci-Fi,shopify,1,deny,manual,15,TRUE,sci-fi
+little-shop-of-horrors-blu-ray-floor-sale-20261008,Little Shop of Horrors,Blu-Ray,Media > Videos,"Floor Sale, Criterion Collection",Active,FALSE,Genre,Musical,shopify,1,deny,manual,19.99,TRUE,musical
+sleepless-in-seattle-dvd-floor-sale-20261008,Sleepless in Seattle,DVD,Media > Videos,Floor Sale,Active,FALSE,Genre,Romantic Comedy,shopify,1,deny,manual,6,TRUE,romantic-comedy
