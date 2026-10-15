@@ -1,7 +1,11 @@
 # Rental upload — Libib first, then Shopify (design, 2026-10-09)
 
-**Status: spec, not built.** Decisions confirmed with the developer
-2026-10-09. Items under "Verify first" need a test on the dev store and the
+**Status: SUPERSEDED 2026-10-15, never built** — replaced by the daily
+GitHub Action in `claudedocs/2026-10-15-rental-libib-to-shopify-action.md`,
+itself superseded the same day by the client-run webapp in
+`docs/superpowers/specs/2026-10-15-libib-shopify-sync-app-design.md`.
+Kept as background (its Libib conventions carry over). Decisions confirmed
+with the developer 2026-10-09. Items under "Verify first" need a test on the dev store and the
 client's Libib account before building.
 
 **Companion to** `claudedocs/2026-10-08-floor-sale-upload-sheet.md`. Together
