@@ -1,6 +1,7 @@
 import base64
 import gzip
 import importlib.util
+import io
 import json
 import sys
 import unittest
@@ -12,7 +13,7 @@ from tests_rental_sync_fakes import FakeShop  # noqa: E402
 
 from catalog.errors import SetupError, ShopifyError  # noqa: E402
 from catalog.rental_sync.auth import COOKIE_NAME, new_session  # noqa: E402
-from catalog.rental_sync.web import ROUTES, Deps, respond  # noqa: E402
+from catalog.rental_sync.web import MAX_BODY_BYTES, ROUTES, Deps, make_handler, respond  # noqa: E402
 
 REPO = Path(__file__).resolve().parents[2]
 ENV = {"SYNC_PASSWORD": "pw", "SESSION_SECRET": "secret", "SHOPIFY_STORE": "lms-sandbox-lutsfahz.myshopify.com",
@@ -85,6 +86,14 @@ class TestRoutes(unittest.TestCase):
         self.assertEqual((status, body), (200, {"store": "lms-sandbox-lutsfahz.myshopify.com", "last_run": {"created": 3}}))
         self.assertEqual(headers["Cache-Control"], "no-store")
 
+    def test_status_when_shopify_is_down(self):
+        class Down(FakeShop):
+            def last_run(self):
+                raise ShopifyError("could not reach Shopify: TimeoutError")
+
+        status, _, body = Harness(shop=Down()).call("status")
+        self.assertEqual((status, body["error"]["kind"]), (503, "shopify"))
+
     def test_prepare(self):
         status, _, body = Harness().call("prepare", {"barcodes": upload(BARCODES), "library": upload(LIBRARY)})
         self.assertEqual(status, 200)
@@ -143,6 +152,54 @@ class TestRoutes(unittest.TestCase):
         status, _, body = h.call("status")
         self.assertEqual((status, body["error"]["kind"]), (500, "setup"))
         self.assertTrue(any("ZeroDivisionError" in line for line in h.logs))
+
+
+class _Socket:
+    def __init__(self, raw):
+        self.raw, self.out = raw, io.BytesIO()
+
+    def makefile(self, mode, *args, **kwargs):
+        return io.BytesIO(self.raw) if "r" in mode else _KeepOpen(self.out)
+
+    def sendall(self, data):
+        self.out.write(data)
+
+
+class _KeepOpen(io.RawIOBase):
+    def __init__(self, sink):
+        self.sink = sink
+
+    def writable(self):
+        return True
+
+    def write(self, data):
+        return self.sink.write(data)
+
+
+def serve(harness, request_head, body=b"", route="status"):
+    """Drive the real BaseHTTPRequestHandler over an in-memory socket."""
+    sock = _Socket(request_head.encode() + b"\r\n\r\n" + body)
+    make_handler(route, lambda: harness.deps)(sock, ("127.0.0.1", 0), None)
+    head, _, payload = sock.out.getvalue().partition(b"\r\n\r\n")
+    return int(head.split()[1]), json.loads(payload)
+
+
+class TestHandler(unittest.TestCase):
+    def test_oversized_body_is_413(self):
+        status, body = serve(Harness(), f"POST /x HTTP/1.1\r\nContent-Length: {MAX_BODY_BYTES + 1}", route="prepare")
+        self.assertEqual((status, body["error"]["kind"]), (413, "input"))
+
+    def test_bad_content_length_is_400(self):
+        for bad in ("abc", "-5"):
+            status, body = serve(Harness(), f"POST /x HTTP/1.1\r\nContent-Length: {bad}", route="prepare")
+            self.assertEqual((status, body["error"]["kind"]), (400, "input"), bad)
+            self.assertIn("wasn't readable", body["error"]["message"])
+
+    def test_cookie_header_reaches_the_session_check(self):
+        cookie = f"{COOKIE_NAME}={new_session('secret', NOW)}"
+        status, body = serve(Harness(), f"GET /x HTTP/1.1\r\nCookie: {cookie}")
+        self.assertEqual((status, body["store"]), (200, "lms-sandbox-lutsfahz.myshopify.com"))
+        self.assertEqual(serve(Harness(), "GET /x HTTP/1.1")[0], 401)
 
 
 class TestEntryPoints(unittest.TestCase):

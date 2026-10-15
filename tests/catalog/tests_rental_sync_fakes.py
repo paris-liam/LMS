@@ -27,8 +27,9 @@ class FakeShop:
     store = "lms-sandbox-lutsfahz.myshopify.com"
 
     def __init__(self, barcodes=(), handles=(), set_error=None, publish_error=None, media=("READY",),
-                 extra_channels=(), lose=(), location_error=None, barcodes_error=None, last=None):
-        self.barcodes = {b: f"existing-{b}" for b in barcodes}
+                 extra_channels=(), lose=(), location_error=None, barcodes_error=None, last=None,
+                 existing_unpublished=False):
+        self.barcodes = {}
         self.handles = set(handles)
         self.set_error, self.publish_error = set_error, publish_error
         self.media = list(media)
@@ -39,6 +40,15 @@ class FakeShop:
         self.created, self.published, self.saved = [], [], []
         self.nodes = {}
         self.reads = 0
+        for barcode in barcodes:
+            pid = f"gid://shopify/Product/existing-{barcode}"
+            self.barcodes[barcode] = {"id": pid, "handle": f"existing-{barcode}"}
+            self.nodes[pid] = {
+                "handle": f"existing-{barcode}", "tags": ["Rental", "Barcode Not Printed"],
+                "variants": [{"barcode": barcode, "taxable": False, "inventoryItem": {"tracked": True},
+                              "inventoryQuantities": [{"quantity": 1}]}]}
+            if not existing_unpublished:
+                self.published.append((pid, ONLINE_STORE_ID))
 
     def barcode_owner(self, barcode):
         return self.barcodes.get(barcode)
@@ -62,7 +72,7 @@ class FakeShop:
             raise self.set_error
         self.created.append(product_input)
         pid = f"gid://shopify/Product/{100 + len(self.created)}"
-        self.barcodes[product_input["variants"][0]["barcode"]] = product_input["handle"]
+        self.barcodes[product_input["variants"][0]["barcode"]] = {"id": pid, "handle": product_input["handle"]}
         self.handles.add(product_input["handle"])
         self.nodes[pid] = product_input
         return {"id": pid, "handle": product_input["handle"]}

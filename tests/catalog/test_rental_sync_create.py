@@ -80,12 +80,60 @@ class TestCreate(unittest.TestCase):
         run(shop, poster={"url": "https://example.com/p.jpg", "alt": ""})
         self.assertEqual(shop.created[0]["files"][0]["alt"], "Jaws poster")
 
-    def test_barcode_already_in_shopify_is_skipped(self):
+    def test_clean_existing_barcode_is_skipped(self):
         shop = FakeShop(barcodes=["2010000000014"])
-        result, _ = run(shop)
-        self.assertEqual(result["status"], "skipped_exists")
-        self.assertIn("existing-2010000000014", result["message"])
+        result, _ = run(shop, tags="vhs, horror, thriller")
+        self.assertEqual(result["status"], "skipped_exists", result)
+        self.assertEqual(result["message"], "already in Shopify (existing-2010000000014)")
+        self.assertEqual(result["admin_url"],
+                         "https://admin.shopify.com/store/lms-sandbox-lutsfahz/products/existing-2010000000014")
         self.assertEqual(shop.created, [])
+
+    def test_existing_product_with_problems_fails_with_a_link(self):
+        shop = FakeShop(barcodes=["2010000000014"], existing_unpublished=True)
+        result, _ = run(shop, tags="vhs, horror, thriller")
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("not on the Online Store", result["problems"])
+        self.assertIn("already in Shopify but needs attention: not on the Online Store", result["message"])
+        self.assertIn("fix it in Shopify admin", result["message"])
+        self.assertTrue(result["admin_url"])
+        self.assertEqual(shop.created, [])
+
+    def test_existing_product_is_checked_against_its_own_handle(self):
+        shop = FakeShop(barcodes=["2010000000014"])
+        result, _ = run(shop, tags="vhs, horror, thriller")
+        self.assertNotIn("handle is", result["message"])
+
+    def test_rerun_after_an_unfinished_create_needs_attention(self):
+        shop = FakeShop(publish_error=ShopifyError("Publication not found"))
+        first, _ = run(shop)
+        self.assertEqual(first["status"], "failed")
+        shop.publish_error = None
+        second, _ = run(shop)
+        self.assertEqual(second["status"], "failed")
+        self.assertIn("already in Shopify but needs attention", second["message"])
+        self.assertIn("not on the Online Store", second["message"])
+        self.assertTrue(second["admin_url"])
+        self.assertEqual(len(shop.created), 1)
+
+    def test_existing_product_that_cannot_be_read_fails_with_a_link(self):
+        class UnreadableShop(FakeShop):
+            def read_back(self, product_id):
+                return None
+
+        result, _ = run(UnreadableShop(barcodes=["2010000000014"]))
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("could not be read back", result["message"])
+        self.assertTrue(result["admin_url"])
+
+    def test_error_reading_an_existing_product_does_not_escape(self):
+        class ErrorShop(FakeShop):
+            def read_back(self, product_id):
+                raise SetupError("missing permission")
+
+        result, _ = run(ErrorShop(barcodes=["2010000000014"]))
+        self.assertEqual(result["status"], "failed")
+        self.assertTrue(result["admin_url"])
 
     def test_double_submit_creates_once(self):
         shop = FakeShop()
@@ -127,6 +175,26 @@ class TestCreate(unittest.TestCase):
         self.assertTrue(result["admin_url"])
         self.assertIn("created in Shopify but", result["message"])
         self.assertIn("Publication not found", result["message"])
+
+    def test_setup_error_after_product_set_still_reports_the_product(self):
+        shop = FakeShop(publish_error=SetupError("missing permission"))
+        result, _ = run(shop)
+        self.assertEqual(result["status"], "failed")
+        self.assertTrue(result["admin_url"])
+        self.assertIn("created in Shopify but not finished", result["message"])
+        self.assertIn("missing permission", result["message"])
+
+    def test_network_error_from_product_set_says_it_may_have_landed(self):
+        shop = FakeShop(set_error=ShopifyError("could not reach Shopify: TimeoutError"))
+        result, _ = run(shop)
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("may have been created anyway", result["message"])
+        self.assertIn("could not reach Shopify", result["message"])
+
+    def test_libib_tag_equal_to_a_fixed_tag_is_dropped(self):
+        shop = FakeShop()
+        run(shop, tags="vhs, horror, rental, BARCODE not printed")
+        self.assertEqual(shop.created[0]["tags"], ["Rental", "Barcode Not Printed"])
 
     def test_verify_mismatches_fail(self):
         shop = FakeShop(lose=["taxable", "quantity", "tags"])

@@ -1,9 +1,10 @@
 """Create one Libib copy as a Shopify rental product, then read it back and
 check it landed as intended.
 
-Rerun-safe: a copy whose barcode or handle is already in Shopify is skipped,
-so a re-run after a crash, or a repeat click (the page disables the button
-while creating), never creates it twice. The handle check is a direct lookup,
+Rerun-safe: a copy whose barcode or handle is already in Shopify is never
+created twice. A barcode hit is read back and verified like a new product, so
+only a clean one counts as skipped; one a previous run left unfinished is
+reported as needing attention. The handle check is a direct lookup,
 so it is never behind a just-created product. Shopify fields are always
 derived here from the Libib values, never taken from the browser.
 """
@@ -14,7 +15,7 @@ import time
 
 from catalog.core.barcodes import is_new_flow_barcode
 from catalog.core.handles import slugify
-from catalog.errors import ShopifyError
+from catalog.errors import CatalogError, ShopifyError
 from catalog.rental_sync.transform import transform
 from catalog.shopify.writer import MOVIE_CATEGORY_IDS
 
@@ -38,7 +39,8 @@ def admin_url(store: str, product_id: str) -> str:
 
 
 def _tags(copy: dict) -> list[str]:
-    return list(FIXED_TAGS) + copy["extra_tags"]
+    fixed = {t.lower() for t in FIXED_TAGS}
+    return list(FIXED_TAGS) + [t for t in copy["extra_tags"] if t.lower() not in fixed]
 
 
 def product_set_input(copy: dict, handle: str, location_id: str, genre_ids: list[str], poster: dict | None) -> dict:
@@ -124,6 +126,21 @@ def _read_settled(shop, product_id: str, wait_for_media: bool, sleep) -> dict:
     return node
 
 
+def _existing(shop, copy: dict, owner: dict, result: dict) -> dict:
+    result = {**result, "handle": owner["handle"], "admin_url": admin_url(shop.store, owner["id"])}
+    try:
+        node = shop.read_back(owner["id"])
+        problems = (verify(node, copy, owner["handle"], shop.online_store_publication_id())
+                    if node else ["could not be read back"])
+    except CatalogError as exc:
+        problems = [f"could not be checked ({exc})"]
+    if problems:
+        return {**result, "problems": problems,
+                "message": "already in Shopify but needs attention: " + "; ".join(problems)
+                           + " — fix it in Shopify admin"}
+    return {**result, "status": "skipped_exists", "message": f"already in Shopify ({owner['handle']})"}
+
+
 def create_copy(shop, item: dict, poster: dict | None, sleep=time.sleep) -> dict:
     copy = transform(item)
     result = {"status": "failed", "barcode": copy["barcode"], "title": copy["title"], "handle": "",
@@ -137,16 +154,23 @@ def create_copy(shop, item: dict, poster: dict | None, sleep=time.sleep) -> dict
 
     try:
         owner = shop.barcode_owner(copy["barcode"])
-        if owner:
-            return {**result, "status": "skipped_exists", "message": f"already in Shopify ({owner})"}
+    except ShopifyError as exc:
+        return {**result, "message": str(exc)}
+    if owner:
+        return _existing(shop, copy, owner, result)
+    try:
         if shop.handle_taken(handle):
             return {**result, "status": "skipped_exists", "message": f"a product with handle {handle} already exists"}
         location = shop.location_id()
         genre_ids = shop.genre_ids([g["handle"] for g in copy["genres"]])
         publication = shop.online_store_publication_id()
-        product = shop.product_set(product_set_input(copy, handle, location, genre_ids, poster))
     except ShopifyError as exc:
         return {**result, "message": str(exc)}
+    try:
+        product = shop.product_set(product_set_input(copy, handle, location, genre_ids, poster))
+    except ShopifyError as exc:
+        return {**result, "message": f"{exc} — it may have been created anyway; run the sync again (an existing "
+                                     f"copy is checked, not duplicated) or look in Shopify admin"}
 
     result["admin_url"] = admin_url(shop.store, product["id"])
     if product["handle"] != handle:
@@ -156,7 +180,7 @@ def create_copy(shop, item: dict, poster: dict | None, sleep=time.sleep) -> dict
     try:
         shop.publish(product["id"], publication)
         node = _read_settled(shop, product["id"], bool(poster), sleep)
-    except ShopifyError as exc:
+    except CatalogError as exc:
         return {**result, "message": f"created in Shopify but not finished ({exc}) — open it in Shopify admin, "
                                      f"publish it to the Online Store and check its details"}
 

@@ -36,9 +36,11 @@ class TestReads(unittest.TestCase):
 
     def test_barcode_owner_needs_an_exact_match(self):
         s, _ = shop([("productVariants(first: 10", data({"productVariants": {"nodes": [
-            {"barcode": "20100000000140", "product": {"handle": "other"}},
-            {"barcode": "2010000000014", "product": {"handle": "jaws-vhs-rental-2010000000014"}}]}}))])
-        self.assertEqual(s.barcode_owner("2010000000014"), "jaws-vhs-rental-2010000000014")
+            {"barcode": "20100000000140", "product": {"id": "gid://shopify/Product/9", "handle": "other"}},
+            {"barcode": "2010000000014",
+             "product": {"id": "gid://shopify/Product/1", "handle": "jaws-vhs-rental-2010000000014"}}]}}))])
+        self.assertEqual(s.barcode_owner("2010000000014"),
+                         {"id": "gid://shopify/Product/1", "handle": "jaws-vhs-rental-2010000000014"})
         s2, _ = shop([("productVariants(first: 10", data({"productVariants": {"nodes": []}}))])
         self.assertIsNone(s2.barcode_owner("2010000000014"))
 
@@ -129,6 +131,15 @@ class TestErrors(unittest.TestCase):
         s, _ = shop([("locations(", long_error)])
         with self.assertRaisesRegex(SetupError, "missing a permission"):
             s.location_id()
+
+    def test_raw_network_errors_are_shopify_errors(self):
+        import http.client
+        for exc in (TimeoutError("timed out"), ConnectionResetError(), http.client.RemoteDisconnected("gone"),
+                    http.client.IncompleteRead(b"x")):
+            def execute(store, query, variables, exc=exc):
+                raise exc
+            with self.assertRaisesRegex(ShopifyError, "could not reach Shopify: " + type(exc).__name__):
+                RentalShop(execute, STORE).location_id()
 
     def test_other_graphql_errors_are_shopify(self):
         s, _ = shop([("locations(", {"errors": [{"message": "Internal error"}]})])

@@ -167,8 +167,13 @@ def respond(route: str, method: str, headers: dict, body: bytes, deps: Deps) -> 
 def make_handler(route: str, deps_factory=default_deps):
     class Handler(BaseHTTPRequestHandler):
         def _serve(self, method: str) -> None:
-            length = int(self.headers.get("content-length") or 0)
-            if length > MAX_BODY_BYTES:
+            try:
+                length = int(self.headers.get("content-length") or 0)
+            except ValueError:
+                length = -1
+            if length < 0:
+                status, headers, body = _error(400, "input", "That request wasn't readable — reload the page and try again.")
+            elif length > MAX_BODY_BYTES:
                 status, headers, body = _error(413, "input", "That upload is too big — is it the right Libib export?")
             else:
                 raw = self.rfile.read(length) if length else b""

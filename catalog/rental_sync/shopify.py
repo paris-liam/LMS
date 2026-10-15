@@ -4,9 +4,10 @@ setup checks, the last-run metafield, and the writes create.py makes.
 Uses the same Dev Dashboard custom app as the pipeline (client credentials
 grant). A Vercel instance that stays warm reuses its token; a cold one asks
 for a new one. Scopes needed: read/write_products, write_inventory,
-read_locations, read/write_publications.
+read_locations, read_metaobjects, read/write_publications.
 """
 
+import http.client
 import json
 import time
 
@@ -40,7 +41,7 @@ query($after: String) {
   }
 }"""
 VARIANTS_BY_BARCODE = """
-query($q: String!) { productVariants(first: 10, query: $q) { nodes { barcode product { handle } } } }"""
+query($q: String!) { productVariants(first: 10, query: $q) { nodes { barcode product { id handle } } } }"""
 PRODUCT_BY_HANDLE = """
 query($h: String!) { productByIdentifier(identifier: {handle: $h}) { id } }"""
 LOCATIONS = """
@@ -89,6 +90,9 @@ class RentalShop:
             if "ACCESS_DENIED" in str(exc) or "Access denied" in str(exc):
                 raise SetupError(f"the Shopify app is missing a permission: {exc}") from None
             raise ShopifyError(f"Shopify returned an error: {exc}") from None
+        except (OSError, http.client.HTTPException) as exc:
+            # urllib lets raw socket/http errors through from getresponse()/read()
+            raise ShopifyError(f"could not reach Shopify: {type(exc).__name__}") from None
 
     def mutate(self, query: str, root: str, **variables) -> dict:
         result = self.gql(query, **variables)[root]
@@ -109,9 +113,10 @@ class RentalShop:
                 return {b for b in found if is_new_flow_barcode(b)}
             after = page["pageInfo"]["endCursor"]
 
-    def barcode_owner(self, barcode: str) -> str | None:
+    def barcode_owner(self, barcode: str) -> dict | None:
         nodes = self.gql(VARIANTS_BY_BARCODE, q=f"barcode:{barcode}")["productVariants"]["nodes"]
-        return next((n["product"]["handle"] for n in nodes if (n.get("barcode") or "").strip() == barcode), None)
+        return next(({"id": n["product"]["id"], "handle": n["product"]["handle"]}
+                     for n in nodes if (n.get("barcode") or "").strip() == barcode), None)
 
     def handle_taken(self, handle: str) -> bool:
         return self.gql(PRODUCT_BY_HANDLE, h=handle)["productByIdentifier"] is not None
