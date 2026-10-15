@@ -11,7 +11,7 @@ from catalog.audit.findings import AUTO_FIX, MANUAL, Finding
 from catalog.audit.resolvers import (
     dedupe, resolve_format, resolve_genres, resolve_price, resolve_type, split_list,
 )
-from catalog.core.barcodes import RENTAL_BARCODE, barcode_owners
+from catalog.core.barcodes import RENTAL_BARCODE, barcode_owners, is_new_flow_barcode
 from catalog.core.columns import GENRE_METAFIELD, MOVIE_CATEGORY
 from catalog.core.taxonomy import canonical_format, canonical_genre, canonical_type, genre_handle
 from catalog.core.text import strip_html
@@ -134,9 +134,9 @@ def _rental_barcode_findings(row, r, make) -> list[Finding]:
     if not barcode:
         return [make("rental-barcode-missing", "Variant Barcode", "", "", MANUAL,
                      "rentals need a unique 8-digit barcode")]
-    if not RENTAL_BARCODE.match(barcode):
+    if not RENTAL_BARCODE.match(barcode) and not is_new_flow_barcode(barcode):
         return [make("rental-barcode-format", "Variant Barcode", barcode, "", MANUAL,
-                     "rental barcodes must be exactly 8 digits")]
+                     "rental barcodes must be exactly 8 digits (or a 13-digit 201… Libib barcode)")]
     return []
 
 
@@ -152,6 +152,27 @@ def _floor_sale_findings(row, r, make) -> list[Finding]:
     if (row.get("Variant Taxable") or "").strip().upper() == "FALSE":
         out.append(make("floor-sale-not-taxable", "Variant Taxable", "FALSE", "TRUE", MANUAL,
                         "floor sale is taxable — tick Charge tax on the variant"))
+    return out
+
+
+def _new_flow_rental_findings(row, r, make) -> list[Finding]:
+    """Rentals the rental sync app created (13-digit 201… barcode) are on the
+    Online Store, untaxed, and their handle ends in the barcode. A blank value
+    means the source didn't say, so it isn't flagged."""
+    barcode = (row.get("Variant Barcode") or "").strip()
+    if r.type != "Rental" or not is_new_flow_barcode(barcode):
+        return []
+    out = []
+    if (row.get("Published") or "").strip().upper() == "FALSE":
+        out.append(make("new-flow-rental-unpublished", "Published", "FALSE", "TRUE", MANUAL,
+                        "sync-app rentals belong on the Online Store — publish it there"))
+    if (row.get("Variant Taxable") or "").strip().upper() == "TRUE":
+        out.append(make("new-flow-rental-taxable", "Variant Taxable", "TRUE", "FALSE", MANUAL,
+                        "rentals aren't taxable — untick Charge tax on the variant"))
+    handle = row.get("Handle", "")
+    if not handle.endswith(f"-{barcode}"):
+        out.append(make("new-flow-rental-handle", "Handle", handle, "", MANUAL,
+                        "a sync-app rental's handle ends in its barcode — was it made by hand?"))
     return out
 
 
@@ -223,6 +244,7 @@ def check_row(row: dict) -> list[Finding]:
                              "an untracked product never shows as unavailable"))
     findings += _rental_barcode_findings(row, r, make)
     findings += _floor_sale_findings(row, r, make)
+    findings += _new_flow_rental_findings(row, r, make)
     findings += _autofix_findings(row, r, make)
 
     if is_multi_variant(row):

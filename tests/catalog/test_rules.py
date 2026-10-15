@@ -276,5 +276,31 @@ class TestCatalogueRules(unittest.TestCase):
                                           movie(Handle="x", **{"Variant Barcode": ""})]), [])
 
 
+def new_flow(**overrides):
+    base = {"Handle": "rushmore-vhs-rental-2010000000014", "Variant Barcode": "2010000000014",
+            "Tags": "Rental, Barcode Not Printed", "Published": "TRUE", "Variant Taxable": "FALSE"}
+    base.update(overrides)
+    return movie(**base)
+
+
+class TestNewFlowRentals(unittest.TestCase):
+    def test_clean_new_flow_rental_has_no_findings(self):
+        self.assertEqual(check_row(new_flow()), [])
+
+    def test_blank_channel_and_tax_are_not_flagged(self):
+        self.assertEqual(check_row(new_flow(Published="", **{"Variant Taxable": ""})), [])
+
+    def test_unpublished_taxable_and_hand_made_handle(self):
+        found = by_rule(check_row(new_flow(Handle="rushmore-vhs-rental", Published="FALSE",
+                                           **{"Variant Taxable": "TRUE"})))
+        self.assertEqual(found[("new-flow-rental-unpublished", "Published")].bucket, MANUAL)
+        self.assertEqual(found[("new-flow-rental-taxable", "Variant Taxable")].bucket, MANUAL)
+        self.assertEqual(found[("new-flow-rental-handle", "Handle")].bucket, MANUAL)
+
+    def test_legacy_eight_digit_rules_still_apply(self):
+        found = by_rule(check_row(movie(**{"Variant Barcode": "201000000001"})))   # 12 digits: neither shape
+        self.assertIn(("rental-barcode-format", "Variant Barcode"), found)
+
+
 if __name__ == "__main__":
     unittest.main()
