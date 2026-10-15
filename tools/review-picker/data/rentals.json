@@ -2026,5 +2026,11 @@
     "choice": "tmdb",
     "poster_path": "/dij60cVBL39B5t1SdGQr33APksC.jpg",
     "overview": "Wisecracking reporter Carl Kolchak investigates a string of murders in Las Vegas and suspects the culprit is a vampire. His editor thinks he's crazy and the police think he's a nuisance, so Kolchak takes matters into his own hands."
+  },
+  {
+    "handle": "its-alive-collection-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
