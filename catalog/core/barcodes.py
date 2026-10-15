@@ -28,3 +28,12 @@ NEW_FLOW_BARCODE = re.compile(r"^201[0-9]{10}$")
 
 def is_new_flow_barcode(value) -> bool:
     return bool(NEW_FLOW_BARCODE.match((value or "").strip()))
+
+
+def is_new_flow_item(barcode, call_number) -> bool:
+    """A Libib copy the rental sync app owns: a 201… barcode and no legacy
+    call number (a call number equal to that barcode also counts). A legacy
+    item can carry a Libib-generated 201… barcode alongside its old call
+    number — that one stays with the legacy Libib tooling."""
+    call = (call_number or "").strip()
+    return is_new_flow_barcode(barcode) and (not call or call == (barcode or "").strip())

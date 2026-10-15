@@ -108,6 +108,13 @@ class TestPrepare(unittest.TestCase):
         self.assertIn("barcode 2010000000014 is on 2 Libib copies", aside[0]["set_aside"])
         self.assertNotIn("2010000000014", [c["barcode"] for c in result["ready"]])
 
+    def test_legacy_item_with_a_201_barcode_is_not_new_flow(self):
+        legacy = dict(self.items[0], id="a8", barcode="2010000000045", call_number="191-VHSJAW-001A")
+        result = prepare(self.items + [legacy], set())
+        barcodes = {c["barcode"] for c in result["ready"] + result["set_aside"]}
+        self.assertNotIn("2010000000045", barcodes)
+        self.assertEqual(result["not_new_flow"], 2)
+
     def test_nothing_new(self):
         result = prepare(self.items, {"2010000000014", "2010000000021", "2010000000038"})
         self.assertEqual((result["ready"], result["set_aside"], result["already_in_shopify"]), ([], [], 3))

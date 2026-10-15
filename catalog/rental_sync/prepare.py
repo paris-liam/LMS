@@ -13,7 +13,7 @@ import zlib
 from collections import Counter
 from pathlib import Path
 
-from catalog.core.barcodes import is_new_flow_barcode
+from catalog.core.barcodes import is_new_flow_item
 from catalog.errors import InputShapeError
 from catalog.libib.exports import load_libib
 from catalog.rental_sync.transform import transform
@@ -68,7 +68,7 @@ def _order(item: dict) -> tuple[str, str]:
 
 
 def prepare(items: list[dict], shopify_barcodes: set[str]) -> dict:
-    new_flow = [i for i in items if is_new_flow_barcode(i.get("barcode"))]
+    new_flow = [i for i in items if is_new_flow_item(i.get("barcode"), i.get("call_number"))]
     counts = Counter(i["barcode"] for i in new_flow)
     ready, set_aside, in_shopify = [], [], 0
     for item in sorted(new_flow, key=_order):

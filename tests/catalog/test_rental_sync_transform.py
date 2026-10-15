@@ -1,6 +1,6 @@
 import unittest
 
-from catalog.core.barcodes import is_new_flow_barcode
+from catalog.core.barcodes import is_new_flow_barcode, is_new_flow_item
 from catalog.rental_sync.transform import edit_distance, misspelling_of, transform, vocabulary
 
 
@@ -20,6 +20,12 @@ class TestBarcodes(unittest.TestCase):
         self.assertFalse(is_new_flow_barcode("201000000001"))    # 12 digits
         self.assertFalse(is_new_flow_barcode(""))
         self.assertFalse(is_new_flow_barcode(None))
+
+    def test_new_flow_item_needs_a_201_barcode_and_no_legacy_call_number(self):
+        self.assertTrue(is_new_flow_item("2010000000014", ""))
+        self.assertTrue(is_new_flow_item("2010000000014", "2010000000014"))
+        self.assertFalse(is_new_flow_item("2010000000014", "191-VHSJAW-001A"))
+        self.assertFalse(is_new_flow_item("20144890", ""))
 
 
 class TestTransform(unittest.TestCase):
