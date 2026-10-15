@@ -131,7 +131,9 @@ Standing rules:
 
 - [x] **8. Investigate the floor-sale quantities.** *(Closed 2026-09-30 —
   investigated, no action for now; to revisit with the client. See the note
-  of that date.)*
+  of that date. **New uploads:** one product per copy, quantity always 1 —
+  decision 4 of `claudedocs/2026-10-08-floor-sale-upload-sheet.md`; the 129
+  existing ones stay as they are.)*
   124 Floor Sale products have a quantity of 2 or more. The rule is **one
   product per physical copy**, so either these are several copies that
   should be split into separate products, or the stock number is wrong.

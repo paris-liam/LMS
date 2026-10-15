@@ -1,8 +1,11 @@
 # Floor Sale upload sheet (design, 2026-10-08)
 
-**Status: spec, not built.** Decisions below were confirmed with the
-developer 2026-10-08. Two items need a dev-store test before building (see
-"Verify on the dev store first").
+**Status: repo side built 2026-10-15** (branch
+`feature/floor-sale-upload-sheet`); see "Build status" at the end. Decisions
+below were confirmed with the developer 2026-10-08. The dev-store checks
+("Verify on the dev store first") are still open — on 2026-10-15 the
+developer chose to build ahead of them, since their results change only the
+client guide (step 4, tax note), not the CSV.
 
 **Supersedes**, for Floor Sale only,
 `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md` and the
@@ -181,3 +184,42 @@ Both block the build; results go into this doc.
   call.
 - Optional retail fields not adopted: condition (new/used), cost per item,
   compare-at price. Easy to add later as optional columns.
+
+## Build status (2026-10-15)
+
+Further decisions, 2026-10-15: batch date stays in **G1/G2**; the
+`floor-sale-NN` picker groups already on disk are **kept** (push just stops
+adding to them); the developer builds the live sheet from the repo files and
+exports it for the seam test.
+
+Done (repo changes 1–8):
+
+- `FLOOR_SALE_TEMPLATE_COLUMNS`; `handles.derive_floor_sale_handle` /
+  `floor_sale_batch_date` (no allocator change was needed — the date is part
+  of the base handle, so the existing `-2`/`-3` counter applies after it).
+- `catalog/client_sheet/floor_sale.py` (transform), `check-upload` shapes
+  `floor-sale-fill` / `floor-sale-import` with every error listed in repo
+  change 3, plus: category not `Media > Videos`, genre handle not matching
+  the genre label, and a missing/unreadable batch date on the fill tab.
+  With no date in G2 the import tab emits a single `ERROR: …` row, which
+  check-upload rejects as a handle with no batch date.
+- `template/floor-sale/`: `floor-sale-template.csv` (tab-1 scaffold, date
+  in G2), `import-tab-formula.txt`, `floor-sale-template.expected.csv`
+  (generated), `sheet-export-input.csv` (seam input), `floor-sale-guide.md`
+  (draft — step 4 and the tax note wait on the dev-store checks).
+- `picker push` skips Floor Sale; the audit's content step skips it (no
+  TMDB, no review entries, no `Poster_Missing` added or removed).
+- Audit rules `floor-sale-online-store` and `floor-sale-not-taxable`
+  (manual). The snapshot reads `onlineStoreUrl` (null = off the Online
+  Store; verified on production 2026-10-15 — rentals return their URL even
+  behind the password page, floor sales return null) and the variant's
+  `taxable`; the export path reads `Published` / `Variant Taxable`.
+
+Still open:
+
+1. The three dev-store checks above; fold the results into this doc and
+   `floor-sale-guide.md`, then drop the guide's DRAFT comment.
+2. Build the live sheet from `template/floor-sale/`, paste
+   `sheet-export-input.csv` into `Add floor sale`, download both tabs, and
+   add the seam test (same pattern as `TestSheetExportSeam`).
+3. Hand-over: make it the client's master sheet and give him the guide.

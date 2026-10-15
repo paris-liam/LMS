@@ -79,9 +79,10 @@ Within each push, cards missing only a poster go last and carry a "poster only �
 badge (they don't block Libib); cards already in the picker keep their place.
 
 Adds the run's `review.json` products the registry doesn't know yet to the hosted
-picker's groups by product type — every Rental into `rentals`, Floor Sales into the newest
-`floor-sale-NN` until it holds 100 and then a new one, anything tagged neither into
-`untyped` (fetching TMDB candidates — needs `TMDB_API_KEY`). Each card still shows its own
+picker's groups by product type — every Rental into `rentals`, anything tagged neither into
+`untyped` (fetching TMDB candidates — needs `TMDB_API_KEY`). Floor Sale is never queued: it
+carries no poster or description by design, and the audit doesn't treat either as missing
+on it (the `floor-sale-NN` groups already in the picker stay as they are). Each card still shows its own
 reason (ambiguous / no match). Marks them `queued`, then commits and pushes `tools/review-picker/`.
 It publishes to `main` (Vercel deploys `main`) from whatever branch is checked out — a
 cloud session works on its own branch: it merges `origin/main` in, commits, and pushes
@@ -200,7 +201,14 @@ barcode he types in after printing becomes the Libib call number, so `libib sync
 matches his copies like its own. Design:
 `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md`.
 
-    python3 -m catalog check-upload <sheet.csv>     # any of the 3 tabs; exit 0 clean (warnings ok), 1 problems, 2 unreadable
+`catalog/client_sheet/template/floor-sale/` is the separate **Floor Sale sheet**: five
+columns plus a typed batch date that goes into every handle
+(`speed-dvd-floor-sale-20261008`), producing a 16-column POS-only, taxable import. Design:
+`claudedocs/2026-10-08-floor-sale-upload-sheet.md`. The audit flags a Floor Sale product
+that is on the Online Store (`floor-sale-online-store`) or not taxable
+(`floor-sale-not-taxable`).
+
+    python3 -m catalog check-upload <sheet.csv>     # any tab of either sheet; exit 0 clean (warnings ok), 1 problems, 2 unreadable
     python3 -m catalog.client_sheet.generate_expected   # after a taxonomy change
 
 ## Secrets
