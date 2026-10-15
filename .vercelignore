@@ -1,0 +1,9 @@
+/*
+!/api
+!/catalog
+!/tools
+/tools/*
+!/tools/rental-sync
+!/vercel.json
+__pycache__/
+*.pyc
