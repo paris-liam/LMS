@@ -155,5 +155,25 @@ class TestReviewFixes(unittest.TestCase):
         self.assertEqual(merge([row()], {}, [], registry, run_id="r1").changes, [])
 
 
+NEW = "jaws-vhs-rental-2010000000014"
+
+
+class TestNewFlowRentals(unittest.TestCase):
+    def test_only_poster_alt_and_tags_reach_a_new_flow_rental(self):
+        rows = [row(NEW, **{"Variant Barcode": "2010000000014"})]
+        autofix = {NEW: {"changes": {"Vendor": "DVD", "Tags": "Rental", "Image Alt Text": "Jaws poster"},
+                         "rules": ["format-alias", "poster-tag-sync", "alt-text-missing"]}}
+        pick = Pick("rentals", NEW, "manual", image_src="https://x/p.jpg", overview="A new description.")
+        result = merge(rows, autofix, [pick], {NEW: {"batch": "rentals", "status": "queued"}})
+        self.assertEqual({f for (_, f) in changes_of(result)}, {"Tags", "Image Alt Text", "Image Src"})
+        self.assertIn((NEW, "new-flow rental: Vendor comes from Libib"), result.ignored)
+        self.assertIn((NEW, "new-flow rental: Body (HTML) comes from Libib"), result.ignored)
+        self.assertEqual(set(result.applied[NEW]), {"Image Src", "Image Alt Text"})
+
+    def test_legacy_rentals_are_unaffected(self):
+        result = merge([row()], {"the-thing": {"changes": {"Vendor": "Blu-Ray"}, "rules": []}}, [], {})
+        self.assertEqual(changes_of(result), {("the-thing", "Vendor"): ("Blu-Ray", "auto-fix")})
+
+
 if __name__ == "__main__":
     unittest.main()
