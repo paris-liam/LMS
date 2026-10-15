@@ -2032,5 +2032,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": ""
+  },
+  {
+    "handle": "phantasm-5-movie-collection-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/5/5f/Phantasm.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "overview": "Five-film collection of the Phantasm horror series: Phantasm (1979), Phantasm II (1988), Phantasm III: Lord of the Dead (1994), Phantasm IV: Oblivion (1998), and Phantasm: Ravager (2016), following the battle against the sinister Tall Man."
   }
 ]
