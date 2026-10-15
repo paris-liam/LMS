@@ -40,6 +40,7 @@ def load_libib(barcode_export, collection_export, collection: str | None = DEFAU
             "tags": r.get("tags") or "",
             "description": descriptions.get(r["id"], ""),
             "collection": item_collection,
+            "created": (r.get("created") or "").strip(),
         })
     if collection and items_rows and not items:
         present = sorted({(r.get("collection") or "").strip() for r in items_rows})

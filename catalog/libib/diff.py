@@ -9,7 +9,7 @@ before call numbers existed is never mistaken for missing and re-imported.
 
 from dataclasses import dataclass, field
 
-from catalog.core.barcodes import barcode_owners, is_rental_barcode
+from catalog.core.barcodes import barcode_owners, is_new_flow_barcode, is_new_flow_item, is_rental_barcode
 from catalog.core.text import norm_ws
 from catalog.libib.fields import (
     expected_description, expected_tags_string, expected_title, is_complete, is_rental, normalized_tag_set,
@@ -75,6 +75,10 @@ def _drift(row: dict, item: dict, entry: dict | None) -> list[dict]:
 
 def diff(rows: list[dict], items: list[dict], state: dict) -> DiffResult:
     result = DiffResult()
+    # New-flow copies (13-digit 201… barcodes, no legacy call number) belong to
+    # the rental sync app, which creates their Shopify products from Libib; this
+    # diff manages only the legacy 8-digit rentals.
+    items = [i for i in items if not is_new_flow_item(i["barcode"], i["call_number"])]
     owners = barcode_owners(rows)
     by_call: dict[str, list[dict]] = {}
     by_barcode: dict[str, list[dict]] = {}
@@ -90,6 +94,8 @@ def diff(rows: list[dict], items: list[dict], state: dict) -> DiffResult:
             continue
         handle = row["Handle"]
         call = (row.get("Variant Barcode") or "").strip()
+        if is_new_flow_barcode(call):
+            continue
         if not is_rental_barcode(call):
             reason = "barcode missing" if not call else "barcode is not 8 digits"
             result.blocked.append({"handle": handle, "barcode": call, "reason": reason})

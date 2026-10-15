@@ -12,6 +12,7 @@ import html
 import re
 from dataclasses import dataclass, field
 
+from catalog.core.barcodes import is_new_flow_barcode
 from catalog.core.picks import Pick
 from catalog.core.text import strip_html
 from catalog.tmdb.match import POSTER_BASE_URL
@@ -21,6 +22,10 @@ AUTO_FIX_SOURCE = "auto-fix"
 # pasted thumbnail is resized to the poster size every other path uses.
 TMDB_IMAGE = re.compile(r"^https?://image\.tmdb\.org/t/p/[^/]+(/.+)$")
 CHANGE_COLUMNS = ["handle", "field", "before", "after", "source"]
+# Rentals made by the rental sync app take title, description, Vendor and
+# genre from Libib; apply may only give them a poster (and the tag fixes that
+# go with it, e.g. Poster_Missing).
+NEW_FLOW_FIELDS = {"Image Src", "Image Alt Text", "Tags"}
 
 
 @dataclass(frozen=True)
@@ -128,6 +133,17 @@ def merge(rows: list[dict], autofix: dict, picks: list[Pick], registry: dict, ru
         for field_name, after in values.items():
             planned[(handle, field_name)] = Change(handle, field_name, row.get(field_name, "") or "", after, source)
         result.applied[handle] = values
+
+    for key, change in list(planned.items()):
+        row = by_handle.get(change.handle) or {}
+        if is_new_flow_barcode(row.get("Variant Barcode")) and change.field not in NEW_FLOW_FIELDS:
+            del planned[key]
+            result.ignored.append((change.handle, f"new-flow rental: {change.field} comes from Libib"))
+            values = result.applied.get(change.handle)
+            if values is not None:
+                values.pop(change.field, None)
+                if not values:
+                    del result.applied[change.handle]
 
     result.changes = sorted(planned.values(), key=lambda c: (c.handle, c.field))
     return result

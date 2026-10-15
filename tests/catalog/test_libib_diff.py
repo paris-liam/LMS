@@ -107,10 +107,16 @@ class TestDiff(unittest.TestCase):
         self.assertEqual((result.eligible, result.in_sync, result.drift), ([], [], []))
 
     def test_orphans(self):
-        result = diff([], [item("i1", "05555555"), item("i2", "", barcode="2010000000007")], {})
+        result = diff([], [item("i1", "05555555"), item("i2", "", barcode="06666666")], {})
         reasons = {o["id"]: o["reason"] for o in result.orphans}
         self.assertIn("05555555", reasons["i1"])
         self.assertEqual(reasons["i2"], "no call number")
+
+    def test_legacy_item_with_a_201_barcode_is_still_an_orphan(self):
+        result = diff([rental()], [item(), item("n2", call="191-VHSJAW-002A", barcode="2010000000021")], {})
+        reasons = {o["id"]: o["reason"] for o in result.orphans}
+        self.assertEqual(list(reasons), ["n2"])
+        self.assertIn("191-VHSJAW-002A", reasons["n2"])
 
     def test_in_sync_in_flight_or_needs_review_is_promoted(self):
         for status in ("queued", "imported", "needs-review"):
@@ -124,6 +130,18 @@ class TestDiff(unittest.TestCase):
         state = {"jaws": {"status": "imported"}}
         diff([rental()], [item(title="Wrong")], state)
         self.assertEqual(state["jaws"]["status"], "imported")
+
+    def test_new_flow_libib_items_are_not_orphans(self):
+        result = diff([rental()], [item(), item(item_id="n1", call="", barcode="2010000000014", title="New")], {})
+        self.assertEqual(result.in_sync, ["jaws"])
+        self.assertEqual(result.orphans, [])
+
+    def test_new_flow_shopify_rentals_are_not_blocked(self):
+        new = rental(handle="new-vhs-rental-2010000000014", barcode="2010000000014")
+        result = diff([rental(), new], [item()], {})
+        self.assertEqual(result.blocked, [])
+        self.assertEqual(result.in_sync, ["jaws"])
+        self.assertNotIn("new-vhs-rental-2010000000014", [e["handle"] for e in result.eligible])
 
 
 class TestReviewFixes(unittest.TestCase):

@@ -219,3 +219,23 @@ repo root (see `.env.example`); an exported variable wins over the file.
 ## Tests
 
     python3 -m unittest discover -s tests/catalog -p "test_*.py"
+
+## Rental sync app (new-flow rentals)
+
+New rentals are added in Libib (13-digit `201…` barcodes) and created in Shopify by the client
+through the rental sync web app — not by this pipeline. Code: `catalog/rental_sync/`, front end
+`tools/rental-sync/`, deploy notes `tools/rental-sync/README.md`, design
+`docs/superpowers/specs/2026-10-15-libib-shopify-sync-app-design.md`.
+
+How the pipeline treats them:
+
+- `libib diff` / `fix` / `sync` ignore new-flow copies on both sides; they manage only the
+  legacy 8-digit rentals. A Libib copy counts as new-flow only when its barcode is `201…` AND its
+  call number is blank (a legacy item can carry a Libib-generated `201…` barcode alongside its call
+  number and stays with the legacy tooling). Shopify products are recognised by the `201…` barcode
+  alone. The rental sync app uses the same rule (`catalog/core/barcodes.py:is_new_flow_item`).
+- `apply` may set only `Image Src`, `Image Alt Text` and `Tags` on a new-flow rental; any other
+  planned change is listed as ignored ("comes from Libib").
+- `audit` accepts the 13-digit barcode and flags a new-flow rental that is unpublished
+  (`new-flow-rental-unpublished`), taxable (`new-flow-rental-taxable`), or whose handle doesn't
+  end in its barcode (`new-flow-rental-handle`).
