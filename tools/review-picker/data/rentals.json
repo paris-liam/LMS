@@ -1870,5 +1870,11 @@
     "choice": "tmdb",
     "poster_path": "/7JXcm3RyWlGsRCZ0YlOliWr6TNv.jpg",
     "overview": "In 1841, young Ishmael signs up for service aboard the Pequod, a whaler sailing out of New Bedford. The ship is under the command of Captain Ahab, a strict disciplinarian who exhorts his men to find Moby Dick, the great white whale. Ahab lost his leg to that creature and is desperate for revenge. As the crew soon learns, he will stop at nothing to gain satisfaction."
+  },
+  {
+    "handle": "inherit-the-wind-dvd-rental-drama",
+    "choice": "tmdb",
+    "poster_path": "/7oaHcF0gCOt2lKaT2zajhajP0Zo.jpg",
+    "overview": "Schoolteacher Bertram Cates is arrested for teaching his students Darwin's theory of evolution. The case receives national attention and one of the newspaper reporters, E.K. Hornbeck, arranges to bring in renowned defense attorney and atheist Henry Drummond to defend Cates. The prosecutor, Matthew Brady is a former presidential candidate, famous evangelist, and old adversary of Drummond."
   }
 ]
