@@ -1,4 +1,8 @@
 {
+  "10-movie-horror-collection-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "12-monkeys-dvd-floor-sale-sci-fi": {
     "batch": "floor-sale-01",
     "status": "queued"
@@ -162,6 +166,10 @@
       "Image Alt Text": "A Little Princess poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/9V4bAVEskSNbEqjVI0YmeuB0n8I.jpg"
     }
+  },
+  "a-movie-a-tape-obayashi-vhs-rental-documentary": {
+    "batch": "rentals",
+    "status": "queued"
   },
   "a-simple-plan-4k-floor-sale-thriller": {
     "batch": "floor-sale-08",
@@ -384,6 +392,10 @@
     "batch": "floor-sale-01",
     "status": "queued"
   },
+  "at-deaths-door-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "at-worlds-end-hot-fuzz-shaun-of-the-dead-bluray-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -425,6 +437,10 @@
       "Image Alt Text": "Avalon poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/lsyPs8pU6hIJCS5sw0H9Q8Tl1nJ.jpg"
     }
+  },
+  "avp-requiem-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
   },
   "b-a-d-cats": {
     "batch": "floor-sale-01",
@@ -554,6 +570,10 @@
   },
   "ben-hur-dvd": {
     "batch": "floor-sale-01",
+    "status": "queued"
+  },
+  "beneath-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "benji-in-benjis-very-own-christmas-story-vhs-floor-sale-holiday": {
@@ -741,6 +761,10 @@
     "batch": "floor-sale-01",
     "status": "queued"
   },
+  "carnival-of-souls-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "carpool-vhs": {
     "batch": "floor-sale-01",
     "status": "queued"
@@ -791,6 +815,10 @@
   },
   "cat-on-a-hot-tin-roof-vhs-floor-sale-drama": {
     "batch": "floor-sale-01",
+    "status": "queued"
+  },
+  "cat-people-vhs-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "cats-eye-bluray-rental-horror": {
@@ -1027,6 +1055,10 @@
     "batch": "floor-sale-02",
     "status": "queued"
   },
+  "cool-air-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "courage-and-fire-vhs-floor-sale-drama": {
     "batch": "floor-sale-02",
     "status": "queued"
@@ -1118,6 +1150,14 @@
   },
   "dangerous-game-vhs-14": {
     "batch": "floor-sale-02",
+    "status": "queued"
+  },
+  "dario-argento-collection-infero-phenomena-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
+  "dark-awakening-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "dark-city-vhs-rental-sci-fi": {
@@ -1264,6 +1304,10 @@
     "batch": "floor-sale-02",
     "status": "queued"
   },
+  "diary-of-the-dead-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "dillinger-vhs": {
     "batch": "floor-sale-02",
     "status": "queued"
@@ -1306,6 +1350,10 @@
   },
   "dont-be-a-menace-vhs-floor-sale-comedy": {
     "batch": "floor-sale-02",
+    "status": "queued"
+  },
+  "dont-hang-up-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "doppelganger-the-evil-within-vhs-rental-thriller": {
@@ -1404,6 +1452,10 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/92VXAEwbjebYqTeUa7uX5bBtDuD.jpg"
     }
   },
+  "driftwood-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "dumb-and-dumber-dvd-5": {
     "batch": "floor-sale-02",
     "status": "queued"
@@ -1428,6 +1480,10 @@
   },
   "dune-steelbook-dvd-floor-sale-sci-fi": {
     "batch": "floor-sale-02",
+    "status": "queued"
+  },
+  "dust-devil-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "dying-to-get-rich-vhs-rental-comedy": {
@@ -1579,6 +1635,10 @@
   },
   "exposed-bluray": {
     "batch": "floor-sale-02",
+    "status": "queued"
+  },
+  "extremes-3-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "face-vhs-rental-action": {
@@ -1747,6 +1807,10 @@
   },
   "foul-play-vhs-floor-sale-comedy": {
     "batch": "floor-sale-03",
+    "status": "queued"
+  },
+  "friday-the-13th-uncut-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "fright-night-vhs-rental-horror": {
@@ -2101,6 +2165,10 @@
     "batch": "floor-sale-03",
     "status": "queued"
   },
+  "hellraiser-6-movie-collection-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "hercules-bluray-floor-sale-kids-family": {
     "batch": "floor-sale-03",
     "status": "queued"
@@ -2159,6 +2227,10 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/8Z8dptJEypuLoOQro1WugD855YE.jpg"
     }
   },
+  "hold-your-breath-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "hollywood-trouble-vhs-floor-sale-comedy": {
     "batch": "floor-sale-03",
     "status": "queued"
@@ -2211,6 +2283,10 @@
     "batch": "floor-sale-03",
     "status": "queued"
   },
+  "horror-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "horror-theater-dvd-floor-sale-foreign": {
     "batch": "floor-sale-03",
     "status": "queued"
@@ -2229,6 +2305,10 @@
   },
   "hotel-transylvania-bluray-floor-sale-kids-family": {
     "batch": "floor-sale-03",
+    "status": "queued"
+  },
+  "house-of-the-dead-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "how-the-grinch-stole-christmas-bluray-floor-sale-kids-family": {
@@ -2277,6 +2357,10 @@
   },
   "i-want-you-vhs-floor-sale-drama": {
     "batch": "floor-sale-03",
+    "status": "queued"
+  },
+  "ice-queen-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "if-looks-could-kill-vhs-floor-sale-action": {
@@ -2409,6 +2493,10 @@
     "batch": "floor-sale-03",
     "status": "queued"
   },
+  "its-alive-collection-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "its-complicated-bluray-floor-sale-comedy": {
     "batch": "floor-sale-03",
     "status": "queued"
@@ -2509,6 +2597,10 @@
     "batch": "floor-sale-04",
     "status": "queued"
   },
+  "junior-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "just-friends-dvd": {
     "batch": "floor-sale-04",
     "status": "queued"
@@ -2549,6 +2641,10 @@
   },
   "kill-bill-bluray": {
     "batch": "floor-sale-04",
+    "status": "queued"
+  },
+  "killer-curses-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "king-of-new-york-1995-vhs-floor-sale-thriller": {
@@ -3249,6 +3345,10 @@
     "batch": "floor-sale-05",
     "status": "queued"
   },
+  "nature-morte-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "nature-of-the-beast-vhs-floor-sale-thriller": {
     "batch": "floor-sale-05",
     "status": "queued"
@@ -3300,6 +3400,10 @@
     "batch": "floor-sale-05",
     "status": "queued"
   },
+  "night-of-the-living-dead-5-bonus-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "night-watch-vhs": {
     "batch": "floor-sale-05",
     "status": "queued"
@@ -3328,6 +3432,10 @@
   },
   "no-place-to-hide-vhs": {
     "batch": "floor-sale-05",
+    "status": "queued"
+  },
+  "no-vacancy-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "noah-dvd-floor-sale-drama": {
@@ -3485,6 +3593,10 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/3B2A5g8t3HZltKp1fplNn2xW4us.jpg"
     }
   },
+  "paranormal-collection-13-features-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "parental-guidance-bluray-floor-sale-comedy": {
     "batch": "floor-sale-05",
     "status": "queued"
@@ -3553,6 +3665,10 @@
   },
   "petes-dragon-dvd-floor-sale-kids-family": {
     "batch": "floor-sale-05",
+    "status": "queued"
+  },
+  "phantasm-5-movie-collection-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "phantasm-remastered-steelbook-bluray": {
@@ -3743,6 +3859,10 @@
     "batch": "floor-sale-05",
     "status": "queued"
   },
+  "queens-of-scream-collection-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "quick-silver-highway-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-01-5",
@@ -3785,6 +3905,10 @@
   },
   "rare-bird-vhs-floor-sale-comedy": {
     "batch": "floor-sale-05",
+    "status": "queued"
+  },
+  "ratman-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "rear-window-4k-rental-thriller": {
@@ -4225,6 +4349,14 @@
     "batch": "floor-sale-06",
     "status": "queued"
   },
+  "signs-bluray-rental-sci-fi": {
+    "batch": "rentals",
+    "status": "queued"
+  },
+  "signs-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "silent-night-collection-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -4594,6 +4726,10 @@
     "batch": "floor-sale-06",
     "status": "queued"
   },
+  "sublime-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "super-dave-vhs-floor-sale-comedy": {
     "batch": "floor-sale-06",
     "status": "queued"
@@ -4815,6 +4951,10 @@
     "batch": "floor-sale-07",
     "status": "queued"
   },
+  "the-boy-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-bridges-of-medison-county-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -4924,6 +5064,10 @@
   },
   "the-crocodile-hunter-vhs": {
     "batch": "floor-sale-07",
+    "status": "queued"
+  },
+  "the-cry-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "the-curve-vhs-floor-sale-thriller": {
@@ -5510,12 +5654,24 @@
     "batch": "floor-sale-07",
     "status": "queued"
   },
+  "the-mist-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-moment-cultcave-vhs-floor-sale-musical": {
     "batch": "floor-sale-07",
     "status": "queued"
   },
+  "the-monkeys-paw-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-mummy-collectors-set-dvd-floor-sale-action": {
     "batch": "floor-sale-07",
+    "status": "queued"
+  },
+  "the-mummy-trilogy-dvd-rental-action": {
+    "batch": "rentals",
     "status": "queued"
   },
   "the-naked-gun-2-1-2-laserdisc-floor-sale-comedy": {
@@ -5540,6 +5696,10 @@
   },
   "the-new-world-dvd-floor-sale-drama": {
     "batch": "floor-sale-07",
+    "status": "queued"
+  },
+  "the-night-stalker-vhs-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "the-nutty-professor-vhs": {
@@ -5600,6 +5760,10 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/rGcTVdyhaGzMxPPRVApXre6F7SD.jpg"
     }
   },
+  "the-return-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-rules-of-the-game-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -5608,6 +5772,14 @@
       "Image Alt Text": "The Rules of the Game poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/8JOzt7uFZyshcuzCBmYU6CDJL4D.jpg"
     }
+  },
+  "the-sacrament-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
+  "the-school-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
   },
   "the-secret-agent-criterion-4k-uhd-blu-ray-floor-sale-drama": {
     "batch": "floor-sale-08",
@@ -5669,6 +5841,10 @@
     "batch": "floor-sale-08",
     "status": "queued"
   },
+  "the-strange-case-of-dr-jekyll-and-mr-hyde-vhs-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-survivors-vhs-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -5725,6 +5901,10 @@
     "batch": "floor-sale-08",
     "status": "queued"
   },
+  "the-visit-4k-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-way-back-bluray-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -5735,6 +5915,10 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/2/2b/The_Way%2C_Way_Back_Poster.jpg"
     }
   },
+  "the-wicker-man-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-wild-bunch-dvd-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -5744,6 +5928,10 @@
       "Image Alt Text": "The Wild Bunch poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/8j9yEC3xjy1PJDSizIbaxcHaSph.jpg"
     }
+  },
+  "the-woman-in-black-2-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
   },
   "the-world-according-to-goofy-vhs-rental-kids-family": {
     "batch": "rentals",
@@ -5799,6 +5987,14 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/pAImVnqBJwoFAKrcpAe17JjLGUs.jpg"
     }
   },
+  "torment-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
+  "tormented-dvd-rental-horror": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "toys-trains-christmas-2-vhs-floor-sale-holiday": {
     "batch": "floor-sale-08",
     "status": "queued"
@@ -5848,6 +6044,10 @@
       "Image Alt Text": "Turbulence poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/8N63NGWIErS7jUvR5NeVWDZEeZJ.jpg"
     }
+  },
+  "unbreakable-bluray-rental-thriller": {
+    "batch": "rentals",
+    "status": "queued"
   },
   "unbreakable-vhs-floor-sale-action": {
     "batch": "floor-sale-08",
@@ -5952,6 +6152,10 @@
   },
   "where-the-wild-things-are-the-neverending-story-bluray-floor-sale-kids-family": {
     "batch": "floor-sale-08",
+    "status": "queued"
+  },
+  "white-noise-dvd-rental-horror": {
+    "batch": "rentals",
     "status": "queued"
   },
   "whos-that-knocking-at-my-door-dvd-rental-drama": {
