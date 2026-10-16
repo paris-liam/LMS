@@ -1,31 +1,20 @@
 # Rental sync app — follow-ups after the build (2026-10-15)
 
-Built on `feature/rental-sync-app` from the plan
-`docs/superpowers/plans/2026-10-15-libib-shopify-sync-app.md`. Tests at hand-off: Python 826 OK,
-JS 53 pass. Everything below is **not done yet**.
+Built from the plan `docs/superpowers/plans/2026-10-15-libib-shopify-sync-app.md`.
 
-## Developer steps before anyone uses it (plan Task 9 steps 1–8, Task 13 step 5)
+## Status: live on production (2026-10-16)
 
-1. Capture `tools/rental-sync/guide/export-barcodes.png` and `export-library.png` (see
-   `tools/rental-sync/README.md` → "Before the first deploy").
-2. Dev Dashboard app: confirm scopes (read/write_products, read/write_inventory, read_locations,
-   read/write_publications, read_metaobjects) and install on the dev store; run the Task 9 step 1
-   script. Also confirm whether the shop-metafield write (`lms.rental_sync_last_run`) needs any
-   other scope.
-3. Create the Vercel project (repo root, Framework Other), set the six env vars with
-   `SHOPIFY_STORE` = dev store, deploy, run the Task 9 step 3 smoke test — and confirm
-   `/catalog/errors.py` and `/runs/` are not served.
-4. Dev-store walk-through (Task 9 steps 4–8) with test copies in Libib; delete them afterwards
-   (they are in the client's real Libib).
-5. Things only a live store can answer — check during step 4:
-   - `productByIdentifier(identifier: {handle})`, `productSet` `files`, `resourcePublicationsV2`,
-     `Publication.name` behave as coded on API 2026-07.
-   - Newly created products are **not** auto-published to POS or another channel (the app's
-     read-back refuses anything besides Online Store, so every create would fail if one is).
-   - `https://admin.shopify.com/store/<slug>/products?tag=Barcode%20Not%20Printed` filters by tag.
-   - Re-running immediately after a create: the barcode search may lag; the handle lookup is
-     direct, so a duplicate should be reported, not created.
-6. Production switch (Task 13 step 5), then update `CLAUDE.md` roadmap #3 with the dates.
+All developer steps are done (plan Task 9 steps 1–8 and Task 13 step 5): guide screenshots
+captured, app scopes checked and installed, Vercel project created (repo root, Framework Other),
+smoke-tested, verified end-to-end on the dev store, then switched to production
+(`SHOPIFY_STORE=p0wkgv-wy.myshopify.com`) at `https://lms-rental-sync.vercel.app`.
+
+Found during deployment and fixed in `374fee0`: Vercel's Python builder detects `/api`
+functions by reading the source for a top-level `class handler`, so the entry files must use a
+class statement, not `handler = make_handler(...)` (a test now pins this). `/catalog/**` is served
+as static files — expected, since the repo is public.
+
+What's left is optional: the minor issues and later phases below.
 
 ## Known minor issues (reviewed, deliberately left)
 
@@ -55,3 +44,13 @@ JS 53 pass. Everything below is **not done yet**.
 - Test gaps: zero locations, two Online Store channels, `shop_from_env`, several set-aside reasons
   at once, Library-box wrong-file message, exact 5 MB boundary, `diff()` with call == barcode.
 - Commit trailers on agent-made commits name the model each agent ran on.
+
+## Later phases (from the spec, not started)
+
+- Auto-export from Libib through a GitHub Action (needs the spike: does Libib accept a login from
+  GitHub's runners?), replacing the manual upload.
+- A CSV template so the client can bulk-add rentals to Libib.
+- Pushing later Libib edits to products that already exist (the app is create-only).
+- Bringing the last ~50 legacy 8-digit rentals into this flow; deciding whether `libib sync`
+  retires.
+- Removing legacy rentals from POS (separate bulk action).
