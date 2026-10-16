@@ -5,4 +5,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from catalog.rental_sync.web import make_handler  # noqa: E402
 
-handler = make_handler("posters")
+
+class handler(make_handler("posters")):  # a class statement: Vercel finds handlers by reading the source
+    pass

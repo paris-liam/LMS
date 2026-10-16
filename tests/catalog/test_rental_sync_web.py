@@ -1,3 +1,4 @@
+import ast
 import base64
 import gzip
 import importlib.util
@@ -214,6 +215,15 @@ class TestEntryPoints(unittest.TestCase):
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)
             self.assertTrue(issubclass(module.handler, BaseHTTPRequestHandler), route)
+
+    def test_entry_points_define_handler_as_a_class_statement(self):
+        # Vercel's Python builder finds /api functions by reading the source for a
+        # top-level `class handler` — it does not import the file, so an assignment
+        # (`handler = make_handler(...)`) leaves the deploy with no functions at all.
+        for route in ROUTES:
+            tree = ast.parse((REPO / "api" / "rental_sync" / f"{route}.py").read_text(encoding="utf-8"))
+            classes = [n.name for n in tree.body if isinstance(n, ast.ClassDef)]
+            self.assertIn("handler", classes, route)
 
 
 if __name__ == "__main__":
