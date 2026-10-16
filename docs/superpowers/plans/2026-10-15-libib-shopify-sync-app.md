@@ -3140,7 +3140,7 @@ git commit -m "rental-sync: five-step page (upload, review, posters, create, res
 
 This task is operational. Steps marked **(developer)** need the Vercel/Shopify/Libib accounts; an agent stops and asks the developer to do them.
 
-- [ ] **Step 1: Install the app on the dev store and check scopes (developer)**
+- [x] **Step 1: Install the app on the dev store and check scopes (developer)**
 
 In the Shopify Dev Dashboard, open the custom app used by `catalog/` (its client ID is `SHOPIFY_CLIENT_ID` in `.env`). Make sure the released version has `read_products`, `write_products`, `read_inventory`, `write_inventory`, `read_locations`, `read_publications`, `write_publications`, `read_metaobjects`. Release a new version if any are missing and install it on `lms-sandbox-lutsfahz.myshopify.com`. Then confirm the reads work from this machine:
 
@@ -3148,7 +3148,8 @@ In the Shopify Dev Dashboard, open the custom app used by `catalog/` (its client
 python3 - <<'EOF'
 from catalog import config
 from catalog.rental_sync.shopify import shop_from_env
-env = {"SHOPIFY_STORE": "lms-sandbox-lutsfahz.myshopify.com",
+env = {"SHOPIFY_STORE": "
+",
        "SHOPIFY_CLIENT_ID": config.require_env("SHOPIFY_CLIENT_ID"),
        "SHOPIFY_CLIENT_SECRET": config.require_env("SHOPIFY_CLIENT_SECRET")}
 shop = shop_from_env(env)
@@ -3162,11 +3163,11 @@ EOF
 
 Expected: one location ID, an Online Store publication ID, two metaobject IDs, a count, `last run None`. A `SetupError` here names exactly what to fix.
 
-- [ ] **Step 2: Create the Vercel project (developer)**
+- [x] **Step 2: Create the Vercel project (developer)**
 
 In Vercel: **Add New Project** → import `paris-liam/LMS` → **Root Directory: the repo root** (leave blank) → Framework preset **Other** → no build command, no output directory. Environment variables (Preview and Production): `SYNC_PASSWORD` (a new passphrase for the client), `SESSION_SECRET` (`python3 -c "import secrets; print(secrets.token_hex(32))"`), `SHOPIFY_STORE=lms-sandbox-lutsfahz.myshopify.com`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET`, `TMDB_API_KEY`. Deploy. Then confirm the existing review picker project still has **Root Directory `tools/review-picker`** and still deploys (its root setting means it never sees the repo-root `vercel.json`).
 
-- [ ] **Step 3: Smoke-test the deployment**
+- [x] **Step 3: Smoke-test the deployment**
 
 Replace `<url>` with the deployment URL:
 
@@ -3179,7 +3180,7 @@ curl -s -o /dev/null -w "%{http_code}\n" https://<url>/theme/lms-redesign-v4/lay
 
 Expected: as commented. If `status` returns a 500 with `ModuleNotFoundError: catalog`, the function bundle is missing `catalog/` — check `includeFiles` in `vercel.json` and that `.vercelignore` keeps `/catalog`, redeploy, and re-run.
 
-- [ ] **Step 4: Add test copies to Libib (developer)**
+- [x] **Step 4: Add test copies to Libib (developer)**
 
 In Libib's Rental Library add, with Libib's generated `201…` barcodes and **blank Call #**:
 1. "Rental Sync Test Clean" — tags `vhs, horror, criterion`, a description containing `Tom & Jerry <b>`.
@@ -3191,7 +3192,7 @@ Then export both CSVs from Libib Settings (Rental Library).
 
 **These items are in the client's real Libib.** Step 8 deletes them; until then don't point the app at production.
 
-- [ ] **Step 5: Walk the flow in a browser**
+- [x] **Step 5: Walk the flow in a browser**
 
 Use the Playwright MCP (`mcp__playwright__browser_*`) or a normal browser against `https://<url>/`:
 1. Wrong password → "That password isn't right."; right password → step 1 shows "No sync yet." and the dev store name.
@@ -3201,7 +3202,7 @@ Use the Playwright MCP (`mcp__playwright__browser_*`) or a normal browser agains
 5. Step 5: "Create 3 products"; all three ✓; results list them with admin links; "Print barcodes in Shopify" opens the admin products list **filtered to the `Barcode Not Printed` tag**. If the filter isn't applied, find the URL the admin uses when filtering by that tag manually, update `printBarcodesUrl` and its test in `logic.js` / `logic.test.js`, and commit (`git commit -m "rental-sync: fix the admin tag-filter link"`).
 6. Reload the page: step 1 now shows "Last successful sync: … — 3 created".
 
-- [ ] **Step 6: Check the created products on the dev store**
+- [x] **Step 6: Check the created products on the dev store**
 
 For each of the three, in Shopify admin (or via GraphQL):
 - handle `rental-sync-test-…-<format>-rental-<barcode>`; Vendor; category `Media > Videos`; tags `Rental`, `Barcode Not Printed` (+ `criterion` on Clean)
@@ -3212,14 +3213,14 @@ For each of the three, in Shopify admin (or via GraphQL):
 - "Clean" description shows `Tom & Jerry <b>` literally
 - "Two Copies": two products with different barcodes
 
-- [ ] **Step 7: Re-run and session checks**
+- [x] **Step 7: Re-run and session checks**
 
 1. Re-upload the same exports → step 2 shows only "Typo" and "No Genre" (the three created copies are now in Shopify).
 2. Fix "Typo" in Libib (`horror`), re-export, upload → it moves to ready; create it → ✓.
 3. Session expiry: in the browser devtools delete the `lms_rental_sync` cookie while on step 4, then click Create → the login box appears; log in → creation continues with no lost state.
 4. Double submit: on the results page nothing re-creates; re-uploading shows nothing new for those barcodes.
 
-- [ ] **Step 8: Clean up the test data (developer)**
+- [x] **Step 8: Clean up the test data (developer)**
 
 Delete the five test copies (four items) from Libib, and delete the four test products from the dev store. Keep the dev-store `lms.rental_sync_last_run` metafield; it's harmless.
 
