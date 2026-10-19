@@ -2500,5 +2500,11 @@
     "choice": "tmdb",
     "poster_path": "/5mjLuKluuMzBiCKTA28Qa8TR1wc.jpg",
     "overview": "The story of a century: a decades-long second World War leaves plague and anarchy, then a rational state rebuilds civilization and attempts space travel."
+  },
+  {
+    "handle": "homewrecker-dvd-rental-sci-fi",
+    "choice": "tmdb",
+    "poster_path": "/pjujNvaqiDTI24giRPSZfQ4nq9J.jpg",
+    "overview": "A computer scientist invents an experimental artificial intelligence that can manage and control all the functions for his vacation cabin in the woods. When he gives it a female personality, it becomes a little too managing and controlling, resulting in deαdly consequences."
   }
 ]
