@@ -1,26 +1,43 @@
 # Catalogue cleanup checklist — Shopify + Libib (2026-10-19)
 
 Everything left to make every product in Shopify (production, `p0wkgv-wy.myshopify.com`) and
-every item in Libib's Rental Library clean. Numbers are from audit run `runs/2026-10-19-3`
-and the Libib diff after that day's sync.
+every item in Libib's Rental Library clean. Numbers are from audit run `runs/2026-10-19-2`
+(re-run after `libib fix batch-0031`) and the Libib diff in `runs/2026-10-19/libib`.
 
-**Where things stand:** 8,088 movies audited. Every automatic fix is applied (0 left). Libib
-matches Shopify for all 3,860 synced rentals (no drift). What is left needs a person.
+**Where things stand:** 8,089 movies audited; 42 findings across 36 products. Every automatic fix
+is applied (0 left). Libib holds 3,960 items and matches Shopify for 3,959 rentals (0 drift,
+0 orphans, 0 eligible to import). 7 rentals stay out of Libib because they are incomplete in
+Shopify (§1, plus most likely the DVD player in §4), and 3 are blocked by barcodes (§2). What is
+left needs a person.
 
 | Who | What | Count |
 |---|---|---|
-| Client | Picker: choose TMDB matches | 105 rentals |
-| Client | Physical checks: barcodes, Rental vs Floor Sale, a price, Libib shelf checks | 12 Shopify products, 3 Libib items |
-| Developer (in Libib) | Delete duplicate records left by reprinted labels | 3 Libib items |
-| Developer | Fixes applied earlier that never showed up in Shopify, and client-skipped cards | 17 products |
-| Developer | Not measured by the audit: duplicate copies, retired picker groups, sheet genre row | — |
+| Client | Picker: choose TMDB matches | 6 rentals |
+| Client | Physical checks: barcodes, Rental vs Floor Sale, a price | 12 Shopify products |
+| Client / developer | Posters still owed (photo of the case) | 16 rentals |
+| Developer | Decide on the client-skipped *LMS DVD Player Rental* card | 1 product |
+| Developer | Not measured by the audit: duplicate copies, sheet genre row | — |
 
 ---
 
-## 1. Client — finish the picker (105 rentals)
+## 1. Client — finish the picker (6 rentals)
 
-- [ ] Work through the `rentals` group in the review picker: 104 rentals with no description
-      (this is what keeps them out of Libib) plus 1 with only a missing poster.
+**Progress 2026-10-19:** the earlier picks were applied, and `libib fix batch-0031` brought those
+99 rentals into Libib with their barcodes and 97 posters. 6 are left. Each has no description,
+which is what keeps it out of Libib. All but *The Curse* also have no poster. All 6 are already
+queued in the `rentals` group:
+
+- [ ] *10 Movie Horror Collection* (DVD)
+- [ ] *A Movie/A Tape: Obayashi* (VHS)
+- [ ] *Night of the Living Dead (5 Bonus)* (DVD)
+- [ ] *Paranormal Collection (13 Features)* (DVD)
+- [ ] *The Curse* (VHS, `the-curse-vhs-rental-2010000002155`)
+- [ ] *The Hateful Eight (DXM 35MM)* (4K)
+
+Steps:
+
+- [ ] Work through these in the `rentals` group of the review picker. They are mostly
+      collections, so expect to type several descriptions by hand.
 - [ ] Mark *Nemesis 4: Cry of Angels* in the `untyped` group (also see §2).
 - [ ] For a card with no TMDB match, type the description (and add a poster) in Shopify admin.
 - [ ] Developer: after each picker session, `apply` the picks and run `libib sync`.
@@ -76,7 +93,14 @@ old record would be lost).
 `30407162` are still there). The sync now detects reprints and renumbers the existing item instead
 (`44de37b`), so this should not recur.
 
-## 4. Developer — fixes that didn't stick, and skipped cards (17)
+## 4. Developer — fixes that didn't stick, and skipped cards (18)
+
+- [ ] **New 2026-10-19: *LMS DVD Player Rental*** (`lms-dvd-player-rental-dvd-rental-action`):
+      skipped in the picker, with no description or poster. It is equipment, not a movie, but it
+      uses the movie template and has the `Rental` tag, so the audit reports it and the Libib
+      sync holds it back as incomplete. Decide: give it the `retail` template, which excludes it
+      from the audit, or write its description and photo so it goes into Libib as a lendable
+      item.
 
 - [x] 14 `applied-but-missing` — **investigated 2026-10-19: nothing was lost.** Each was a manual
       picker entry where the client wrote a description but gave no poster (mostly double
@@ -93,11 +117,14 @@ old record would be lost).
   - [x] *Hugo Mask Special! Horrible Full Head Mask With Hair!* (Blu-Ray, `90000192`) — it is its
         own title, not a copy of *Hugo*. Left as is (ignore).
   - [x] *Warner Bros. Animation Collection* (DVD, `19271674`) — the 3-disc 2008 Academy Awards
-        Animation Collection (41 cartoons). Description written to Shopify.
+        Animation Collection (41 cartoons). Description written to Shopify; in Libib since
+        `batch-0031`.
         - [ ] Poster still owed (photo of the case).
   - [x] *WB Academy Award Animation* (DVD, `30551290`) — the single-disc 15 winners. Description
-        written to Shopify.
+        written to Shopify; in Libib since `batch-0031`.
         - [ ] Poster still owed (photo of the case).
+  - Both still show up as `client-skipped` in the audit. That is expected, because the picker
+    registry still records them as skipped.
 
 ## 5. Not measured by the audit
 
