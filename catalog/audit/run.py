@@ -64,8 +64,15 @@ def _content(row: dict, registry: dict, fetch_fn) -> tuple[list[Finding], dict |
             return ([make(f, MANUAL, "client skipped this in the picker", rule="client-skipped") for f in missing],
                     None, "client skipped")
         if status == "resolved":
+            # A field the client's pick never supplied (a manual entry with no poster) was
+            # not lost; it is still owed. Entries from the old pipeline carry no values.
+            supplied = entry.get("values")
             return ([make(f, MANUAL, "marked resolved in the registry but still missing in Shopify",
-                          rule="applied-but-missing") for f in missing], None, "resolved but still missing")
+                          rule="applied-but-missing")
+                     if supplied is None or f in supplied else
+                     make(f, MANUAL, "the client's picker entry had none — add it in Shopify admin "
+                                     "(e.g. a photo of the case)")
+                     for f in missing], None, "resolved but still missing")
         return [], None, "applied, awaiting import"  # reported by the registry step
 
     if fetch_fn is None:

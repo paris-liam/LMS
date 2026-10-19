@@ -3,10 +3,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "12-monkeys-dvd-floor-sale-sci-fi": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "15-classic-movies-dvd-rental-drama": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -16,10 +12,6 @@
       "Image Alt Text": "15 Classic Movies poster",
       "Image Src": "https://m.media-amazon.com/images/I/71-awWlPjEL._SX466_.jpg"
     }
-  },
-  "187-vhs": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "20th-century-boys-1-dvd-rental-foreign": {
     "batch": "rentals",
@@ -61,14 +53,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/uW7tTRElr2tRhmAVESzvHy4ByXg.jpg"
     }
   },
-  "28-days-later-sbk-4k-floor-sale-horror": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "3-kids-movies-beautiy-the-beast-puss-in-boots-jack-the-giant-killer-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "3-movie-collection-think-like-a-man-think-like-a-man-too-about-last-night-dvd-rental-romantic-comedy": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -78,14 +62,6 @@
       "Image Alt Text": "3 Movie Collection: Think Like a Man, Think Like a Man Too, About Last Night poster",
       "Image Src": "https://i.ebayimg.com/images/g/CBYAAeSwPitobGla/s-l500.jpghttps://i.ebayimg.com/images/g/CBYAAeSwPitobGla/s-l500.jpg"
     }
-  },
-  "4-film-favorites-batman-collection-bluray": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "8-movie-monster-pack-dvd-5": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "9-11-dvd-rental-documentary": {
     "batch": "rentals",
@@ -97,10 +73,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/pGkjEL7RkMogMI6aznsKmZOhd8I.jpg"
     }
   },
-  "9-to-5-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "a-charlie-brown-christmas-dvd-rental-holiday": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -110,10 +82,6 @@
       "Image Alt Text": "A Charlie Brown Christmas poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/6fDmxNVFGSYlVR01zbYSZ4M0lU0.jpg"
     }
-  },
-  "a-christmas-carol-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "a-christmas-story-bluray-rental-holiday": {
     "batch": "rentals",
@@ -125,10 +93,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/34nSHYqmb7222tiqiuKqKJmZiQa.jpg"
     }
   },
-  "a-christmas-story-clamshell-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "a-christmas-story-dvd-rental-holiday": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -139,10 +103,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/34nSHYqmb7222tiqiuKqKJmZiQa.jpg"
     }
   },
-  "a-christmas-story-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "a-fool-and-his-money-vhs-rental-romantic-comedy": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -152,10 +112,6 @@
       "Image Alt Text": "A Fool and His Money poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/xclRdJ9x6VlfQxwsHoDXbS3EQLf.jpg"
     }
-  },
-  "a-house-on-the-hills-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "a-little-princess-vhs-rental-kids-family": {
     "batch": "rentals",
@@ -171,14 +127,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "a-simple-plan-4k-floor-sale-thriller": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "a-simple-plan-bluray-floor-sale-thriller": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "a-simple-plan-bluray-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -191,22 +139,6 @@
   },
   "about-last-night-dvd-rental-romantic-comedy": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "ace-ventura-pet-detective-dvd-floor-sale-comedy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "action-4-movie-series-contraband-savages-traffic-miami-vice-dvd-6": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "after-hours-4k-uhd-blu-ray-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "after-hours-bluray-floor-sale-drama": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "after-sundown-dvd-rental-horror": {
@@ -227,10 +159,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "akira-kurosawa-s-dreams-4k-uhd-blu-ray-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "aladdin-bluray-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -243,10 +171,6 @@
   },
   "aladdin-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "alegria-an-enchanting-fable": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "alexander-and-the-terrible-horrible-no-good-very-bad-day-dvd-rental-kids-family": {
@@ -263,10 +187,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/o0kre9wRCZz3jjSjaru7QU0UtFz.jpg"
     }
   },
-  "alice-through-the-looking-glass-alice-in-wonderland-bluray": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "alien-4k-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -279,14 +199,6 @@
   },
   "alien-dxm-35mm-bluray-rental-sc-fi": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "alien-ressurrection-laserdisc-floor-sale-sci-fi": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "all-i-want-for-christmas-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "almost-pregnant-a-bedtime-story": {
@@ -305,16 +217,8 @@
   "ambulance-collectors-edition": {
     "status": "skipped"
   },
-  "amelia-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "amelia-dvd-rental-drama": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "america": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "american-dream-dvd-rental-thriller": {
@@ -325,10 +229,6 @@
       "Body (HTML)": "<p>Entrepreneurs Scott and Nicky are desperate for cash to finish their construction project. They turn to Russian mobster Yuri, but after refusing the funding he offered them, Yuri gets revenge by trying to take over their project. The partners are terrified and have nowhere to turn for help, until Nicky's tough Russian girlfriend Ana decides to step in and help them.</p>",
       "Image Src": "https://image.tmdb.org/t/p/w1280/woKiBAt9aFnkRr1HZ9Bq1FQe6gS.jpg"
     }
-  },
-  "american-gun-vhs-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "american-horror-stories-12-movie-collection-dvd-rental-horror": {
     "batch": "rentals",
@@ -348,24 +248,12 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "american-pie-dvd-floor-sale-comedy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "american-pie-the-book-of-love-dvd-rental-comedy": {
     "batch": "rentals",
     "status": "queued"
   },
   "american-pie-the-naked-mile-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "american-women": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "americas-great-national-parks-yosemite-yellowstone-grand-canyon-vhs-vcr-tapes": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "an-american-summer-vhs": {
@@ -378,14 +266,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/ngtCFUVX3UYiBH3WTtwO33LDCda.jpg"
     }
   },
-  "an-evening-with-robin-williams-live-uncensored": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "an-ideal-husband-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "anchorman-2-dvd-rental-comedy": {
     "batch": "rentals",
     "status": "queued"
@@ -394,32 +274,8 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "angel-of-death": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "animatrix-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "anna-karenina": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "anna-karenina-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "anne-of-green-gables": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "annie-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "antony-and-cleopatra-dvd": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "aracnaphobia-vhs-rental-horror": {
@@ -436,20 +292,8 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "area-51-secrets-of-dreamland": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "argo-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "armageddon-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "armageddon-vhs-floor-sale-sci-fi": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "arthur-dvd-rental-comedy": {
@@ -465,10 +309,6 @@
       "Image Alt Text": "As Good as it Gets poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/xXxuJPNUDZ0vjsAXca0O5p3leVB.jpg"
     }
-  },
-  "assassination": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "asylum-dvd-rental-horror": {
     "batch": "rentals",
@@ -504,18 +344,6 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/d/de/Atlantis_The_Lost_Empire_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     }
   },
-  "atonement-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "audition-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "australia-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "australia-dvd-rental-action": {
     "batch": "rentals",
     "status": "queued"
@@ -548,14 +376,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "b-a-d-cats": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "babes-in-toyland-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "baby-mana-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -577,14 +397,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "backrooms-cultcave-vhs-floor-sale-horror": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "backtrack-1992-directors-cut": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "bad-grandpa-dvd-rental-comedy": {
     "batch": "rentals",
     "status": "queued"
@@ -595,10 +407,6 @@
   },
   "baggage-claim-dvd-rental-romantic-comedy": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "bakers-wife-the-bluray-floor-sale-drama": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "ball-buster-vhs-rental-action": {
@@ -621,10 +429,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/wV9e2y4myJ4KMFsyFfWYcUOawyK.jpg"
     }
   },
-  "bananas-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "bangkock-dangerous-dvd-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -639,10 +443,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "barbie-the-fairy-princess-bluray-floor-sale-action": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "barbie-the-fairy-princess-bluray-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -653,28 +453,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/aUVd4itaF4mDFgld99wMIihjUK7.jpg"
     }
   },
-  "basic-instinct-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "batman-v-superman-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "batman-vhs-floor-sale-action": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "battle-los-angeles-bluray": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "bay-watch-bluray": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "beautiful-creatures-bluray": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "beauty-and-the-beast-belles-magical-world-dvd-rental-kids-family": {
@@ -683,10 +463,6 @@
   },
   "beauty-and-the-beast-bluray-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "beauty-and-the-beast-dvd": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "beauty-shop-leagally-blonde-dvd-rental-comedy": {
@@ -702,18 +478,6 @@
   "becky": {
     "status": "skipped"
   },
-  "before-and-after": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "behind-the-scenes-point-break-hot-shots-vhs": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "ben-hur-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "beneath-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -723,14 +487,6 @@
       "Image Alt Text": "Beneath poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/vgwq4t5GVmLqzhp3dmBTQHDWCn5.jpg"
     }
-  },
-  "benji-in-benjis-very-own-christmas-story-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "beowulf-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "beowulf-dvd-rental-fantasy": {
     "batch": "rentals",
@@ -742,30 +498,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/7QsWYyJAV97N9jOh21pdRIqJeJq.jpg"
     }
   },
-  "beverly-hills-chihuahua-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "beverly-hills-cop-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "big-business-vhs": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "big-country-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "bingo-vhs": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "black-cat-vhs": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "black-christmas-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -776,24 +508,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/ym0QcbrKNujzDyAU1IHGYUdRWub.jpg"
     }
   },
-  "black-death-bluray-floor-sale-horror": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "black-sheep-unrated-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "blade-of-kings-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "blind-justice-vhs-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "body-of-evidence-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "boltneck-vhs-rental-horror": {
@@ -816,10 +532,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/7g9kBHMN2KTr5KUf8aen187Mdn.jpg"
     }
   },
-  "boys-dont-cry-vhs-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "brass": {
     "status": "skipped"
   },
@@ -832,22 +544,6 @@
       "Image Alt Text": "Breakdown poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/m3VB59ppr1RlpxNUYRUfZTgjgU.jpg"
     }
-  },
-  "breakfast-club-the-4k-uhd-blu-ray-floor-sale-comedy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "bright-future-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "brivido-giallo-vol-2-the-ogre-dinner-with-a-vampire-bluray-floor-sale-horror": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "brylcreem-boys-vhs-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "bubble-dvd-rental-comedy": {
     "batch": "rentals",
@@ -879,14 +575,6 @@
       "Image Src": "https://m.media-amazon.com/images/I/71TE0tKU3IL._SY445_.jpg"
     }
   },
-  "call-of-the-wild-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "camoulage-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "camp-blood-trilogy-dvd-rental-horror": {
     "batch": "rentals",
     "status": "queued"
@@ -909,14 +597,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/meJZAAuVcjic2ipvbOPz5UlE4P9.jpg"
     }
   },
-  "cape-fear-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "captain-america-3-movie-collection-3d-bluray-floor-sale-action": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "carnival-of-souls-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -926,10 +606,6 @@
       "Image Alt Text": "Carnival of Souls poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/AdbQsFB8pS090l0NO3uBtLZy2zw.jpg"
     }
-  },
-  "carpool-vhs": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "cash-crop-vhs-rental-comedy": {
     "batch": "rentals",
@@ -951,10 +627,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/lMrxYKKhd4lqRzwUHAy5gcx9PSO.jpg"
     }
   },
-  "casino-royale-dvd-floor-sale-action": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "casino-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -974,10 +646,6 @@
       "Image Alt Text": "Castaway poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/7lLJgKnAicAcR5UEuo8xhSMj18w.jpg"
     }
-  },
-  "cat-on-a-hot-tin-roof-vhs-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "cat-people-vhs-rental-horror": {
     "batch": "rentals",
@@ -999,60 +667,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/kKyq7izpMkmr8sT2nLic5qAuJPo.jpg"
     }
   },
-  "cause-of-evidence-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "celebrity-vhs-floor-sale": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "celebrity-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "champion-vhs-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "changeling-dvd-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "charlies-angels-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "charlottes-web-dvd-5": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "charlottes-web-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "charlottes-web-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "children-of-dune-vhs": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "china-girl-vhs-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "chocolat-dvd-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "choices-vhs-floor-sale-drama": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "christmas-in-connecticut-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-01",
     "status": "queued"
   },
   "christmas-vacation-dvd-rental-holiday": {
@@ -1065,14 +681,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/oat42hUw8XzKYUmfy0YLAxYd484.jpg"
     }
   },
-  "christmas-vacation-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "chrome-soldiers-the-secret-passion-of-robert-clayton": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "cinderella-4k-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -1082,14 +690,6 @@
       "Image Alt Text": "Cinderella poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/j91LJmcWo16CArFOoapsz84bwxb.jpg"
     }
-  },
-  "cinderella-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "cinderella-dvd": {
-    "batch": "floor-sale-01",
-    "status": "queued"
   },
   "cinderella-dvd-rental-kids-family": {
     "batch": "rentals",
@@ -1141,18 +741,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/6iHYLipwEyZUPNO8MM3l1yHDaFE.jpg"
     }
   },
-  "clash-of-the-titans-dvd-floor-sale-fantasy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "clean-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
-  "clerks-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-01",
-    "status": "queued"
-  },
   "clerks-vhs-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -1162,10 +750,6 @@
       "Image Alt Text": "Clerks poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/9IiSgiq4h4siTIS9H3o4nZ3h5L9.jpg"
     }
-  },
-  "cloudy-with-a-chance-of-meatballs-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-02",
-    "status": "queued"
   },
   "coffee-and-cigarettes-dvd-rental-comedy": {
     "batch": "rentals",
@@ -1177,10 +761,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/pfG02QCsutx3PIxFS8UY4iM9AsS.jpg"
     }
   },
-  "cold-feet-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "cold-heart-vhs-rental-action": {
     "batch": "rentals",
     "run": "2026-10-01-5",
@@ -1191,42 +771,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/lXHPkjlXFlclX4KMq0wVGQ2KkQN.jpg"
     }
   },
-  "cold-mountain-dvd-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "complete-kubrick-the-4k-uhd-blu-ray-floor-sale-action": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "conan-the-barbarian-bluray-floor-sale-fantasy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "concussion-bluray-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "contact-dvd-floor-sale-sci-fi": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "contact-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "contact-vhs-floor-sale-sci-fi": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "contagion-dvd-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "contraband-bluray-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "cool-air-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -1236,26 +780,6 @@
       "Image Alt Text": "Cool Air poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/59X4T23THKo1oZoLk1YoNNfw9Tn.jpg"
     }
-  },
-  "courage-and-fire-vhs-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "covert-action-vhs-floor-sale-action": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "crackers-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "crash-dvd-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "crash-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
   },
   "creepshow-bluray-rental-horror": {
     "batch": "rentals",
@@ -1286,18 +810,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/RAFYMC0NgK9In9aGY6k6wsIL8w.jpg"
     }
   },
-  "cross-my-heart-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "cruel-intentions-vhs-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "cry-wolf-dvd-5": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "cube-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-01-5",
@@ -1320,18 +832,6 @@
   },
   "cursed-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "dance-with-me-dvd-5": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dance-with-me-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dangerous-game-vhs-14": {
-    "batch": "floor-sale-02",
     "status": "queued"
   },
   "dario-argento-collection-infero-phenomena-dvd-rental-horror": {
@@ -1364,34 +864,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/tNPEGju4DpTdbhBphNmZoEi9Bd3.jpg"
     }
   },
-  "date-night-bluray-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dave-chappelles-block-party-dvd-floor-sale-documentary": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "davinci-code-bluray-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dawn-of-the-dead-dvd": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dawn-of-the-dead-sbk-4k-floor-sale-horror": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dead-of-night-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dead-poets-society-vhs-1989-robin-williams-buy-2-get-1-free": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "deadlock-vhs-rental-action": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -1416,30 +888,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "death-race-dvd-floor-sale-action": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "deceit-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "deception-dvd-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "deep-blue-sea-dvd-5": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "deep-cover-vhs-floor-sale-action": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "defiance-dvd-floor-sale-action": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "defiance-dvd-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -1460,22 +908,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/gNtOgQHxE5B8e08zuNRAdDpmK5Z.jpg"
     }
   },
-  "delision-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "delta-force-vhs-floor-sale-action": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "delusion-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "desert-blue-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "desert-heat-vhs-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -1486,22 +918,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/n5C3PSYfjpUqBhyVWEWJQmM3Sr9.jpg"
     }
   },
-  "desperado-dvd-floor-sale-action": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "despicable-me-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dial-m-for-murder-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "diamonds-edge-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "diary-of-the-dead-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -1511,50 +927,6 @@
       "Image Alt Text": "Diary of the Dead poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/tGktSJW5dPf8QIjmcqum4KOEZPZ.jpg"
     }
-  },
-  "dillinger-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "diner-vhs-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dirty-dancing-bluray-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "do-the-right-thing-bluray-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "do-the-right-thing-dvd-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "do-the-right-thing-vhs-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "doa-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "doctor-strange-bluray-floor-sale-action": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dolphin-tale-bluray": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "don-king-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dont-be-a-menace-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
   },
   "dont-be-afraid-of-the-dark-dvd-rental-horror": {
     "batch": "rentals",
@@ -1580,18 +952,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/2JBlzmEzvclTkrn6tMB0Hg9N9RU.jpg"
     }
   },
-  "dorf-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "double-edge-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "double-feature-first-wives-club-sliding-doors-dvd-floor-sale-comedy-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "double-feature-the-land-before-time-6-7-dvd-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -1601,14 +961,6 @@
       "Image Alt Text": "Double Feature: The Land Before Time 6&7 poster",
       "Image Src": "https://m.media-amazon.com/images/I/71Zs79+WqSL._SX342_.jpg"
     }
-  },
-  "double-jeopardy-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "downtown-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
   },
   "dr-strangelove-dvd-rental-comedy": {
     "batch": "rentals",
@@ -1630,10 +982,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/gHm96BRW4GoI339rF1vYoYTB6Qe.jpg"
     }
   },
-  "dracula-bram-stokers-bluray": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "dracula-sucks-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -1641,10 +989,6 @@
     "values": {
       "Body (HTML)": "<p>A 1978 adult erotic horror parody of Dracula, directed by Philip Marshak, with Jamie Gillis as the Count, who buys an estate next to a mental institution. Also released as \"Lust at First Bite\". Adults only.</p>"
     }
-  },
-  "dragnet-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
   },
   "dragonfight-vhs-rental-action": {
     "batch": "rentals",
@@ -1676,14 +1020,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/Avu7xD3A6MLY9LcyNz8INrNpPvZ.jpg"
     }
   },
-  "dumb-and-dumber-dvd-5": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dumb-and-dumber-laserdisc-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "dumb-and-dumberer-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -1693,14 +1029,6 @@
       "Image Alt Text": "Dumb And Dumberer poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/qxD6P3UXASFCdbrVavceZzgOfI9.jpg"
     }
-  },
-  "dummy-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "dune-steelbook-dvd-floor-sale-sci-fi": {
-    "batch": "floor-sale-02",
-    "status": "queued"
   },
   "dust-devil-dvd-rental-horror": {
     "batch": "rentals",
@@ -1722,18 +1050,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/kSzJiqJBQ771Vr2RJOBdYyLPa5H.jpg"
     }
   },
-  "earthly-possessions-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "easier-said-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "east-is-east-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "easy-money-vhs-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -1743,22 +1059,6 @@
       "Image Alt Text": "Easy Money poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/nREZhCfkUgl6XqMZAvd6DCbVj2c.jpg"
     }
-  },
-  "easyriders-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "easyriders-video-magazine-12-vhs-floor-sale-special-interest": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "easyriders-video-magazine-15-vhs-floor-sale-special-interest": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "eddie-and-the-cruisers-ii-vhs-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
   },
   "electra-dvd-rental-action": {
     "batch": "rentals",
@@ -1770,26 +1070,6 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/2/21/Elektra_teaser.jpg"
     }
   },
-  "elephant-man-the-4k-uhd-blu-ray-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "elephant-man-the-bluray-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "elephant-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "elizabeth-i-dvd": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "elysium-bluray": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "elysium-bluray-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -1799,22 +1079,6 @@
       "Image Alt Text": "Elysium poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/aRjuJuPXHtVs6YegfeeQWXGRs1E.jpg"
     }
-  },
-  "enigma-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "enter-the-invincible-hero-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "envy-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "envy-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
   },
   "europa-dvd-rental-drama": {
     "batch": "rentals",
@@ -1855,14 +1119,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/4PGKekbYuushvovzHCEl4X51sfl.jpg"
     }
   },
-  "expendables-1-2-3-bluray": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "exposed-bluray": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "extremes-3-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -1901,30 +1157,6 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/3/38/FaerieTaleTheatreBoxSet.jpg"
     }
   },
-  "fair-game-vhs-floor-sale-action": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "fallen-bluray": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "fallen-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "falling-down-limited-edition-blu-ray-4k-ultra-hd-4k-floor-sale-action": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "family-business-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "family-tree-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "fantasic-beasts-the-crimes-of-grindelwald-bluray-rental-fantasy": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -1945,26 +1177,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/9gQuvFDRPLx39smUvyafm36tp0d.jpg"
     }
   },
-  "fass-black-vhs-floor-sale-drama": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "fast-fortune-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "fast-furious-9-movie-collection-dvd-11": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "fatally-yours-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "fate-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
   "fear-of-the-dark-dvd-rental-horror": {
     "batch": "rentals",
     "status": "queued"
@@ -1979,42 +1191,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/ut8snuINzOibbKnvpTnsGWQr4Nl.jpg"
     }
   },
-  "fighting-dvd-4": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "final-destination-dvd": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "final-destination-vhs-floor-sale-horror": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "final-encounter-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "finao-mission-vhs": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "fire-breather-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-02",
-    "status": "queued"
-  },
-  "first-men-in-the-moon-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "flash-fire-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "fool-proof-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "for-better-and-for-worse-vhs-rental-romantic-comedy": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -2024,26 +1200,6 @@
       "Image Alt Text": "For Better and for Worse poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/aeAvRskB91qt98tNF56DyyS9jcn.jpg"
     }
-  },
-  "for-richer-for-poorer-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "forbidden-choices-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "forever-julia-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "forever-young-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "foul-play-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "friday-the-13th-uncut-dvd-rental-horror": {
     "batch": "rentals",
@@ -2065,18 +1221,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/euIh75MwNDrYkTEVSkw7VXWGXoE.jpg"
     }
   },
-  "fx-fx2-dvd-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "gallipoli-vhs-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "gamer-dvd-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "gangster-world-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -2097,10 +1241,6 @@
       "Image Src": "https://m.media-amazon.com/images/I/81t02e9gZIL._SX342_.jpg"
     }
   },
-  "get-carter-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "get-hard-central-intelligence-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -2110,14 +1250,6 @@
       "Image Alt Text": "Get Hard / Central Intelligence poster",
       "Image Src": "https://m.media-amazon.com/images/I/81YSGNpd4xL._SX342_.jpg"
     }
-  },
-  "ghost-busters-dvd-8": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "ghost-dvd-5": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "ghost-rider-dvd-rental-action": {
     "batch": "rentals",
@@ -2129,10 +1261,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/4quwR1VwZouD0YF9AaD72kQAjxH.jpg"
     }
   },
-  "ghost-sealed-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "ghostbusters-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -2142,10 +1270,6 @@
       "Image Alt Text": "Ghostbusters poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/7E8nLijS9AwwUEPu2oFYOVKhdFA.jpg"
     }
-  },
-  "giallo-essentials-yellow-edition-standard-edition-blu-ray-bluray-floor-sale-horror": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "girl-vhs-rental-drama": {
     "batch": "rentals",
@@ -2157,26 +1281,6 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/4/41/Girl_%282018_film%29.jpg"
     }
   },
-  "girls-fight-tonite-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "gloria-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "glory-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "go-4k-floor-sale-comedy": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "god-of-killers-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "godzilla-2000-bluray-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -2187,14 +1291,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/7BrjFxV0j5VzZRfVYeYbFXMUweB.jpg"
     }
   },
-  "godzilla-4k-uhd-blu-ray-floor-sale-sci-fi": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "godzilla-bluray": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "going-my-way-holiday-inn-dvd-rental-musical": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -2202,30 +1298,6 @@
     "values": {
       "Body (HTML)": "<p>Double feature of two Bing Crosby musicals: Going My Way (1944, Leo McCarey), in which a young priest takes over a struggling parish, and Holiday Inn (1942, Mark Sandrich), co-starring Fred Astaire, about an inn that opens only on holidays.</p>"
     }
-  },
-  "golden-gate-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "gone-dvd-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "gone-in-60-seconds-dvd": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "gone-in-60-seconds-dvd-5": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "good-idea-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "good-luck-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "good-night-and-good-luck-bluray-rental-drama": {
     "batch": "rentals",
@@ -2237,14 +1309,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/w4QSEno2xxHqMtSr3mPUhJpO3F2.jpg"
     }
   },
-  "goonies-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "gospel-according-to-vic-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "gossip-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -2254,30 +1318,6 @@
       "Image Alt Text": "Gossip poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/1fyQiQyBFlqjeqgT6sAEh5vo4Fe.jpg"
     }
-  },
-  "grave-indiscretion-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "greetings-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "ground-zero-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "ground-zero-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "gunshy-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "gypsy-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "habitat-vhs-rental-sci-fi": {
     "batch": "rentals",
@@ -2299,14 +1339,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/Apl0WFx61trVOoxvc8Erd5cbP8X.jpg"
     }
   },
-  "halloween-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hamlet-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "hannibal-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-01-5",
@@ -2327,10 +1359,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/v5wAZwRqpGWmyAaaJ8BBHYuNXnj.jpg"
     }
   },
-  "hansel-gretel-bluray-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "hard-boiled-dvd-rental-foreign": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -2340,18 +1368,6 @@
       "Image Alt Text": "Hard Boiled poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/oMqr4CGGqVlfI8DdrSelK1e9aFM.jpg"
     }
-  },
-  "hard-justice-vhs-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hard-to-kill-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hard-to-kill-vhs-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "harry-potter-8-film-collection-bluray-rental-fantasy": {
     "batch": "rentals",
@@ -2363,22 +1379,6 @@
       "Image Src": "https://m.media-amazon.com/images/I/91reTAYWeNL._SX342_.jpg"
     }
   },
-  "harry-potter-and-the-deathly-hallows-part-1-dvd-floor-sale-fantasy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "harry-potter-and-the-deathly-hollows-bluray": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "harry-potter-complete-8-film-collection-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "harvey-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "head-of-state-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -2388,14 +1388,6 @@
       "Image Alt Text": "Head of State poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/5itBve85q2oXmiQ3SkgCJa5Asxq.jpg"
     }
-  },
-  "heart-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hearts-and-souls-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "heaven-can-wait-dvd-rental": {
     "batch": "rentals",
@@ -2407,18 +1399,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/h1yOiO9cow6gwmGxSAWvPdY4lhJ.jpg"
     }
   },
-  "hedwig-and-the-angry-inch-dvd-floor-sale-musical": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hellboy-dvd-5": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hellboy-dvd-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "hellraiser-6-movie-collection-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -2429,18 +1409,6 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/3/32/Hellraiser_III.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     }
   },
-  "hercules-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "here-on-earth-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hero-bluray-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "hero-dvd-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -2450,14 +1418,6 @@
       "Image Alt Text": "Hero poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/vxgZto2Cz7ILHAlmRXt50I2brB2.jpg"
     }
-  },
-  "heroes-of-the-heart-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hidden-city-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "hide-and-seek-dvd-rental-horror": {
     "batch": "rentals",
@@ -2472,14 +1432,6 @@
       "Image Alt Text": "Hide and Seek poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/orY4PX3TNFdCbdVwhKY32UKMvoA.jpg"
     }
-  },
-  "high-crime-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "high-stakes-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "highlander-10th-anniversary-dvd-rental-action": {
     "batch": "rentals",
@@ -2501,14 +1453,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/w7PJWZOHCLzfnw57TRFTcrLk1Ni.jpg"
     }
   },
-  "hollywood-trouble-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "holy-matrimony-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "home-alone-bluray-rental-holiday": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -2518,22 +1462,6 @@
       "Image Alt Text": "Home Alone poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/onTSipZ8R3bliBdKfPtsDuHTdlL.jpg"
     }
-  },
-  "home-for-christmas-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "home-of-the-brave-dvd-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "homeward-bound-2-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "homeward-bound-vhs-6": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "homeward-bound-vhs-rental-kids-family": {
     "batch": "rentals",
@@ -2549,14 +1477,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "horrible-bosses-bluray-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "horror-classics-nightmare-castle-dr-jeckyll-mr-hyde-vhs-floor-sale-horror": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "horror-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -2566,26 +1486,6 @@
       "Image Alt Text": "#HORROR poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/v9pTHwhpSWmPHU8i1pEt9VIG9Kg.jpg"
     }
-  },
-  "horror-theater-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hostage-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hot-stuff-1979-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hot-tub-time-machine-bluray-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "hotel-transylvania-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "house-of-the-dead-dvd-rental-horror": {
     "batch": "rentals",
@@ -2597,10 +1497,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/jmRjnbrcP85xV6LBtsVTM1BVOxM.jpg"
     }
   },
-  "how-the-grinch-stole-christmas-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "how-the-grinch-stole-christmas-dvd-rental-holiday": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -2611,29 +1507,13 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/1WZbbPApEivA421gCOluuzMMKCk.jpg"
     }
   },
-  "how-to-train-your-dragon-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "how-to-train-your-dragon-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "huck-the-kind-of-hearts-vhs": {
-    "batch": "floor-sale-03",
     "status": "queued"
   },
   "hugo-mask-special-horrible-full-head-mask-with-hair": {
     "batch": "rentals",
     "status": "skipped"
-  },
-  "i-am-legend-dvd-5": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "i-know-what-you-did-last-summer-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "i-want-to-live-dvd-rental-drama": {
     "batch": "rentals",
@@ -2645,10 +1525,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/hufXkmILGy34VXEdQC69etY8Rt4.jpg"
     }
   },
-  "i-want-you-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "ice-queen-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -2658,10 +1534,6 @@
       "Image Alt Text": "Ice Queen poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/uR5cBnE6EYLv9X2wXIrzUiOPlbE.jpg"
     }
-  },
-  "if-looks-could-kill-vhs-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "immortal-dvd-rental-foreign": {
     "batch": "rentals",
@@ -2673,26 +1545,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/ryCZBW1iGlW70LGCswawI26AcBE.jpg"
     }
   },
-  "impulse-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "in-china-they-eay-dogs-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "in-search-of-the-dragon-vhs-floor-sale-documentary": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "in-the-army-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "in-the-name-of-the-father-vhs-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "incubus-volume-2-dvd-rental-musical": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -2700,10 +1552,6 @@
     "values": {
       "Body (HTML)": "<p>Music DVD from the band Incubus (2001) with live performances, including acoustic songs recorded at the Sno-Core festival, plus music videos and backstage footage.</p>"
     }
-  },
-  "indiana-jones-widescreen-set-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "indictment-vhs-rental-drama": {
     "batch": "rentals",
@@ -2715,10 +1563,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/m9yQXiRZhn2iS5rvUgXoXIwLtqo.jpg"
     }
   },
-  "inferno-vhs-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "inherit-the-wind-dvd-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -2729,26 +1573,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/7oaHcF0gCOt2lKaT2zajhajP0Zo.jpg"
     }
   },
-  "insomnia-dvd-5": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "insomnia-dvd-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "insomnia-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "intimate-stranger-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "into-the-abyss-dvd-floor-sale-documentary": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "invader-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -2758,14 +1582,6 @@
       "Image Alt Text": "Invader poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/tY2ujZxHNDiTyzTM9wmSlClxTXX.jpg"
     }
-  },
-  "invasion-dvd-6": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "invasion-of-privacy-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "invincible-dvd-rental-drama": {
     "batch": "rentals",
@@ -2787,14 +1603,6 @@
       "Image Src": "https://m.media-amazon.com/images/I/91x+KUgVfXL._SX342_.jpg"
     }
   },
-  "it-1990-dvd-floor-sale-horror": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "its-a-bundyful-life-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
   "its-alive-collection-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -2804,30 +1612,6 @@
       "Image Alt Text": "It's Alive Collection poster",
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/7/7d/Itsaliveposter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     }
-  },
-  "its-complicated-bluray-floor-sale-comedy": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "jackie-chan-emergence-of-a-superstar-bluray-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "jackie-chans-breakout-hits-limited-edition-4k-ultra-hd-4k-floor-sale-action": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "jailbait-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "jakob-the-liar-vhs": {
-    "batch": "floor-sale-03",
-    "status": "queued"
-  },
-  "jane-eyre-dvd-floor-sale-drama": {
-    "batch": "floor-sale-03",
-    "status": "queued"
   },
   "jekyll-hyde-1995-vhs-rental-horror": {
     "batch": "rentals",
@@ -2839,22 +1623,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/jSfC0KyRdP2BypWydrEcXOskfvH.jpg"
     }
   },
-  "jerry-seinfeld-comedian-demo-tape": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "jesse-james-vhs-floor-sale-drama": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "jezebel-vhs-floor-sale-drama": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "john-carpenter-bluray-floor-sale-sci-fi": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "john-wick-3-4k-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -2864,10 +1632,6 @@
       "Image Alt Text": "John Wick 3 poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg"
     }
-  },
-  "john-woos-once-a-thief-vhs-floor-sale-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "john-woos-the-killer-dvd-rental-foreign": {
     "batch": "rentals",
@@ -2879,18 +1643,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/8hTxlSqMAHBXAh1eB69ir0BXhzE.jpg"
     }
   },
-  "joker-bluray-floor-sale-4k-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "journey-to-the-center-of-the-earth-2008-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "journey-to-the-center-of-the-earth-dvd-floor-sale-sci-fi": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "joy-ride-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-01-5",
@@ -2900,10 +1652,6 @@
       "Image Alt Text": "Joy Ride poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/1LVGjf1QWgkNNPQssZtuT1GYKoP.jpg"
     }
-  },
-  "jump-off-a-building-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "junior-dvd-rental-horror": {
     "batch": "rentals",
@@ -2919,22 +1667,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "just-friends-dvd": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "just-looking-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "just-married-vhs-floor-sale-romantic-comedy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "just-one-time-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "k2-the-ultimate-high-vhs-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -2944,22 +1676,6 @@
       "Image Alt Text": "K2 The Ultimate High poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/neAOSoPFnSAiyMH3SDYxhWBn9FY.jpg"
     }
-  },
-  "kafka-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "kansas-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "keatons-cop-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "kill-bill-bluray": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "killer-curses-dvd-rental-horror": {
     "batch": "rentals",
@@ -2975,14 +1691,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "king-of-new-york-1995-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "kingsman-dvd-5": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "kino-film-noir-dvd-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -2992,26 +1700,6 @@
       "Image Alt Text": "KINO Film Noir poster",
       "Image Src": "https://kinolorber.com/media_cache/userFiles/uploads/products/film-noir-the-dark-side-of-cinema-ii-thunder-on-the-hill-the-price-of-fear-the-female-animal/filmpageposter/738329246648.jpg"
     }
-  },
-  "kiss-or-kill-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "knock-knock-dvd-rental-horror": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "krampus-dvd-floor-sale-horror": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "kung-fu-panda-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "laberinth-dvd-floor-sale-fantasy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "lady-and-the-tramp-bluray-rental-kids-family": {
     "batch": "rentals",
@@ -3033,10 +1721,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/340NcWz9SQXWQyf4oicMxjbrLOb.jpg"
     }
   },
-  "lake-placid-dvd-floor-sale-horror": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "land-before-time-ii-vhs-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -3047,28 +1731,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/1lIkU6gbqMx4oRDGegawLdQdLJD.jpg"
     }
   },
-  "last-man-standing-dvd-5": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "last-temptation-of-christ-criterion-collection-dvd-floor-sale-drama": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "laugh-out-loud-pineapple-express-the-interview-the-night-before-this-is-the-end-dvd-6": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "layover-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "leap-year-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "legend-dvd-floor-sale-fantasy": {
-    "batch": "floor-sale-04",
     "status": "queued"
   },
   "les-miserables-bluray-rental-musical": {
@@ -3081,22 +1745,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/6CuzBs2Lb8At7qQr64mLXg2RYRb.jpg"
     }
   },
-  "les-miserables-dvd-floor-sale-muscal": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "lethal-weapon-vhs-floor-sale-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "leviathan-promotional-cassette-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "lightnight-incident-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "lightnight-incident-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-01-5",
@@ -3106,22 +1754,6 @@
       "Image Alt Text": "Lightnight incident poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/pweeNO3pMHIeuUC9aOKoe38y971.jpg"
     }
-  },
-  "lincon-and-lee-at-antietam-dvd-floor-sale-documentary": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "little-heros-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "little-house-on-the-praire-christmas-at-plum-creek-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "little-sister-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "live-die-repeat-bluray-rental-action": {
     "batch": "rentals",
@@ -3133,24 +1765,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/nBM9MMa2WCwvMG4IJ3eiGUdbPe6.jpg"
     }
   },
-  "livin-the-blues-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "living-it-up-english-dubbed-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "lms-dvd-player-rental-dvd-rental-action": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "lolita-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "lone-star-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-04",
     "status": "queued"
   },
   "lonesome-dove-dvd-rental-drama": {
@@ -3162,10 +1778,6 @@
       "Image Alt Text": "Lonesome Dove poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/qK4iseZGf0YhYx53ecawSGhL0sl.jpg"
     }
-  },
-  "loopers-bluray-floor-sale-sci-fi": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "lord-of-the-rings-the-motion-picture-trilogy-bluray-rental-fantasy": {
     "batch": "rentals",
@@ -3187,10 +1799,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/hAX0ObDzIYgSLavS1YhU9kxW5u9.jpg"
     }
   },
-  "lost-in-space-vhs-floor-sale-sci-fi": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "lost-in-space-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -3210,40 +1818,8 @@
       "Image Src": "https://m.media-amazon.com/images/I/314wthBdL3L._SX342_.jpg"
     }
   },
-  "love-a-45-vhs-floor-sale-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "love-and-monsters-dvd-rental-action": {
     "status": "skipped"
-  },
-  "love-kills-vhs-floor-sale-thriler": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "love-letters-vhs-floor-sale-drama": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "love-on-the-run-vhs-floor-sale-romantic-comedy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "loverboy-vhs-floor-sale-romantic-comedy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "lucky-break-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "luzia-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mad-money-dvd-5": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "magdalenes-vhs-rental-drama": {
     "batch": "rentals",
@@ -3265,14 +1841,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/tpfC325Jk6S38VTe5dDWjWtoyxr.jpg"
     }
   },
-  "maid-to-order-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "making-mr-right-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "malcom-x-4k-rental-criterion-collection-drama": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -3282,14 +1850,6 @@
       "Image Alt Text": "Malcom X poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/o2s9ow0uRRm1BcF3teznk5twd90.jpg"
     }
-  },
-  "mama-mia-dvd": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mama-mia-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "maneater-dvd-rental-horror": {
     "batch": "rentals",
@@ -3305,18 +1865,6 @@
       "Image Src": "https://m.media-amazon.com/images/S/pv-target-images/4ad1769f93a80257fc96d275cca8cba3e68eee7d69a5a7409d9f40209623a638.jpg"
     }
   },
-  "marie-antoinette-4k-uhd-blu-ray-floor-sale-drama": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "marie-antoinette-dvd-floor-sale-drama": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mark-of-the-devil-vhs-floor-sale-horror": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "mark-wahlberg-rockstar-perfect-storm-three-kings-corrupter-dvd-rental-action": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -3326,10 +1874,6 @@
       "Image Alt Text": "Mark Wahlberg: Rockstar, Perfect Storm, Three Kings, Corrupter poster",
       "Image Src": "https://m.media-amazon.com/images/I/91JzhtcBd9L._SX342_.jpg"
     }
-  },
-  "marshmallow-bluray-floor-sale-horror": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "marty-dvd-rental-drama": {
     "batch": "rentals",
@@ -3341,18 +1885,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/8tnGO5VoAQII4DbE3hozWKhV4BY.jpg"
     }
   },
-  "masala-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "master-and-commander-dvd-floor-sale-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "master-and-commander-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "masters-of-terror-8-horror-films-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -3362,14 +1894,6 @@
       "Image Alt Text": "Masters of Terror: 8 Horror Films poster",
       "Image Src": "https://m.media-amazon.com/images/I/91DkJB6AY6L._SX342_.jpg"
     }
-  },
-  "matilda-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "matrix-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "max-magician-and-the-legen-of-the-ring-dvd-rental-fantasy": {
     "batch": "rentals",
@@ -3391,18 +1915,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/bDbtolQKNSKlW9QQo98ZmJDoaTG.jpg"
     }
   },
-  "mechanic-bluray-floor-sale-thriller": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "meteorites-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mi2-dvd-floor-sale-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "miami-vice-ii-vhs-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -3411,28 +1923,8 @@
       "Body (HTML)": "<p>Feature-length home-video release of the second-season premiere of the TV series Miami Vice, \"The Prodigal Son,\" starring Don Johnson and Philip Michael Thomas as Crockett and Tubbs.</p>"
     }
   },
-  "michael-vhs-floor-sale-drama": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mickeys-once-upon-a-christmas-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "midnight-strangers": {
     "status": "skipped"
-  },
-  "miiii-dvd-5": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "miles-from-home-vhs-floor-sale-drama": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mind-lies": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "miracle-dvd-rental-drama": {
     "batch": "rentals",
@@ -3444,20 +1936,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/mxtej2th8t8x0ufVBTyhsO6Htxj.jpg"
     }
   },
-  "miracle-on-34th-street-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "miramax-movies-dvd-floor-sale-drama": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "mirrors-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "misled-screener-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-04",
     "status": "queued"
   },
   "miss-julie-dvd-rental-drama": {
@@ -3480,26 +1960,6 @@
       "Image Src": "https://m.media-amazon.com/images/I/813BCsFZciL._SX342_.jpg"
     }
   },
-  "missing-link-peter-elliot-vhs-rare-1st-edition-original-release-1989-mca": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mission-galactica-the-cyclone-attack-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mission-impossible-6-movie-collection-bluray-floor-sale-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mission-impossible-vhs-floor-sale-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mission-of-justice-vhs-floor-sale-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "moana-bluray-rental-kids-family": {
     "batch": "rentals",
     "status": "queued"
@@ -3514,14 +1974,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/7JXcm3RyWlGsRCZ0YlOliWr6TNv.jpg"
     }
   },
-  "modern-love-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "modern-romance-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "mom-can-i-keep-him-vhs-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -3532,16 +1984,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/az6cyc3nb1MgPPehC1XZn2CjbF5.jpg"
     }
   },
-  "momento-box-set-dvd-floor-sale-thriller": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "money-for-nothing-bluray-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "money-for-nothing-vhs-floor-sale-drama": {
-    "batch": "floor-sale-04",
     "status": "queued"
   },
   "monster-hunter-dvd-rental-sci-fi": {
@@ -3553,10 +1997,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/1UCOF11QCw8kcqvce8LKOO6pimh.jpg"
     }
   },
-  "moondance-vhs-floor-sale-drama": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "morituri-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -3566,38 +2006,6 @@
       "Image Alt Text": "Morituri poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/tXhWg0m92zVGaei06FYw5lQFAoQ.jpg"
     }
-  },
-  "mortal-kombat-legacy-dvd-floor-sale-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "most-wanted-dvd-5": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "most-wanted-dvd-floor-sale-action": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "most-wanted-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mother-of-tears-dvd-floor-sale-horror": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "moulin-rouge-dvd-floor-sale-musical": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "much-ado-about-nothing-vhs-floor-sale-romantic-comedy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mulan-mulan-ii-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-04",
-    "status": "queued"
   },
   "mulholland-dr-dvd-rental-thriller": {
     "batch": "rentals",
@@ -3643,14 +2051,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "mututal-needs-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "my-big-fat-greek-wedding-dvd": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "my-bloody-valentine-april-fools-day-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -3665,18 +2065,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "my-boyfriends-back-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "my-father-the-hero-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "my-girl-my-girl-2-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
   "my-one-and-only-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -3687,28 +2075,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/niwRJ18nJurSFEVHoeVaPsJVWoL.jpg"
     }
   },
-  "my-summer-story-vhs": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mysterious-island-vhs-floor-sale-sci-fi": {
-    "batch": "floor-sale-04",
-    "status": "queued"
-  },
-  "mystery-monsters-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "nailed-vhs-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "nancy-drew-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "national-geographic-ocean-drifters-floor-sale-kids-family": {
-    "batch": "floor-sale-05",
     "status": "queued"
   },
   "national-lampoon-barely-legal-dvd-rental-comedy": {
@@ -3723,10 +2091,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "national-lampoons-animal-house-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "nature-morte-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -3736,10 +2100,6 @@
       "Image Alt Text": "Nature Morte poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/8BblVmgqw4EREBz48ZaAlBa1wZ8.jpg"
     }
-  },
-  "nature-of-the-beast-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "neighbors-2": {
     "status": "skipped"
@@ -3754,20 +2114,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/sN1RU08CMi8xkRIibremh3AOdgw.jpg"
     }
   },
-  "neighbors-dvd-5": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "neighbors-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "nemesis-4-cry-of-angels-vhs-sci-fi": {
     "batch": "untyped",
-    "status": "queued"
-  },
-  "network-bluray": {
-    "batch": "floor-sale-05",
     "status": "queued"
   },
   "new-york-cop-vhs-rental-action": {
@@ -3780,32 +2128,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/5kXO783UrTaKZE3wn0KZv3RubZc.jpg"
     }
   },
-  "new-york-nights-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "new-york-yankees-the-movie-vhs-floor-sale-documentary": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "night-and-the-city-vhs-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "night-of-the-living-dead-5-bonus-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "night-watch-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "nightfall-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "ninja-wars-toy-robot-bluray-floor-sale-action": {
-    "batch": "floor-sale-08",
     "status": "queued"
   },
   "nirvana-dvd-rental-foreign": {
@@ -3818,14 +2142,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/1UXk8P1qY3PadOdSj5qk1qBXWMy.jpg"
     }
   },
-  "no-mans-land-vhs-6": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "no-place-to-hide-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "no-vacancy-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -3835,62 +2151,6 @@
       "Image Alt Text": "No Vacancy poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/2WSdY6kRIpc5MgqyOtWhAsVmxtN.jpg"
     }
-  },
-  "noah-dvd-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "noahs-ark-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "nobodys-fool-vhs-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "northern-extremes-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "nothing-but-trouble-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "nuts-vhs-rental-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "ocean-eleven-dvd-5": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "oceans-eleven-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "odd-jobs-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "off-beat-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "off-the-wall": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "oklahoma-dvd": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "old-men-in-new-cars-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "old-school-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "oldboy-dvd-rental-thriller": {
     "batch": "rentals",
@@ -3902,14 +2162,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/pWDtjs568ZfOTMbURQBYuT4Qxka.jpg"
     }
   },
-  "on-golden-pond-vhs-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "operation-dalmatian-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "osamu-tezukas-metropolis-dvd-rental-anime": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -3920,22 +2172,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/41WtqvaObaYE3RuqgBfQFPV3aV1.jpg"
     }
   },
-  "othello-vhs-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "others-the-4k-uhd-blu-ray-floor-sale-horror": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "others-the-bluray-floor-sale-horror": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "out-of-season-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "out-of-sight-bluray-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -3945,10 +2181,6 @@
       "Image Alt Text": "Out of Sight poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/v49q7AMR3pB4M762woWB1NYMCLF.jpg"
     }
-  },
-  "out-of-time-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "outrage-vhs-rental-thriller": {
     "batch": "rentals",
@@ -3968,18 +2200,6 @@
       "Body (HTML)": "<p>In 1960s Tulsa, class divisions ignite a violent rivalry between the working-class Greasers and the privileged Socs. When a deadly encounter forces two Greasers, Ponyboy and Johnny, to flee, their struggle for survival and redemption exposes the fragile innocence and enduring bonds of youth on the wrong side of town.</p>",
       "Image Src": "https://image.tmdb.org/t/p/w1280/l9os0HcXY8BOkvUWAx4rvby3j6L.jpg"
     }
-  },
-  "padre-pio-dvd": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "painted-lady-dvd-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "pals-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "pandoras-box-criterion-dvd-rental-foreign": {
     "batch": "rentals",
@@ -4003,10 +2223,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "parental-guidance-bluray-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "paul-mccartney-back-in-the-us-concert-film-dvd-rental-musical": {
     "batch": "rentals",
     "run": "2026-10-01-5",
@@ -4017,14 +2233,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/2f3T573FG88cs3eIbBcaHE0IzaR.jpg"
     }
   },
-  "payback-vhs-floor-sale-action": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "payoff-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "pearl-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -4034,18 +2242,6 @@
       "Image Alt Text": "Pearl poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/ulBLIBqvdnf4H6JBt0OpMCU1ECn.jpg"
     }
-  },
-  "perfume-vhs-rental-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "perversion-story-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "pet-semetary-4k-floor-sale-horror": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "pet-semetary-a-quiet-place-bluray-rental-horror": {
     "batch": "rentals",
@@ -4069,14 +2265,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "peter-pan-vhs-10": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "petes-dragon-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "phantasm-5-movie-collection-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -4086,14 +2274,6 @@
       "Image Alt Text": "Phantasm 5 Movie Collection poster",
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/5/5f/Phantasm.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     }
-  },
-  "phantasm-remastered-steelbook-bluray": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "philadelphia-sports-follies-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "phonebooth-dvd-rental-thriller": {
     "batch": "rentals",
@@ -4105,30 +2285,6 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/c/c4/Phone_Booth_movie.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     }
   },
-  "picnic-vhs-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "pico-de-gallo-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "pinocchio-black-clamshell": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "pinocchio-vhs-8": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "pirates-of-the-caribbean-4-movie-collection-bluray-floor-sale-action": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "pirates-of-the-caribbean-dvd-floor-sale-4k-kids-family": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "pirates-of-the-caribbean-dvd-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -4138,26 +2294,6 @@
       "Image Alt Text": "Pirates of the Caribbean poster",
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/8/89/Pirates_of_the_Caribbean_-_The_Curse_of_the_Black_Pearl.png"
     }
-  },
-  "pitch-perfect-bluray-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "plan-b-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "pocahontas-vhs-6": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "point-blank-dvd-5": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "poison-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "police-story-2-dvd-rental-action": {
     "batch": "rentals",
@@ -4189,18 +2325,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/5kd5JqccroxOnC9sVMP5NtLrbkr.jpg"
     }
   },
-  "popeye-45th-anniversary-4k-floor-sale-kids-family": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "portaits-of-a-killer-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "possession-vhs-floor-sale-horror": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "post-apocolypse-favorites-dvd-rental-horror": {
     "batch": "rentals",
     "status": "queued"
@@ -4215,50 +2339,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/2Lo6USMKuPtoAzZwVqyKu5mgdMC.jpg"
     }
   },
-  "pretty-woman-vhs-8": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "pretty-woman-vhs-floor-sale-romantic-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "pride-and-prejudice-dvd-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "prince-caspian-and-the-voyage-of-the-dawn-treader-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "prince-charming-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "private-parts-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "project-x-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "prom-night-dvd-floor-sale-horror": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "provovateur-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "ps-i-love-you-dvd-floor-sale-romantic-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "public-enemies-bluray-floor-sale-thriller": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "pulp-fiction-dxm-35mm-bluray-rental-action": {
     "batch": "rentals",
     "status": "queued"
@@ -4272,22 +2352,6 @@
       "Image Alt Text": "Pulse poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/c3zEimDraIyMSasPMGDaNOrhnzn.jpg"
     }
-  },
-  "pursuit-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "puss-in-boots-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "puss-in-boots-faerie-tale-theatre": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "queen-margot-vhs-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "queens-of-scream-collection-dvd-rental-horror": {
     "batch": "rentals",
@@ -4309,14 +2373,6 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/8/81/Quicksilver_Highway_FilmPoster.jpeg"
     }
   },
-  "radio-days-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "ragnarok-bluray-floor-sale-action": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "rampage-1993-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -4326,22 +2382,6 @@
       "Image Alt Text": "Rampage (1993) poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/8xPtTYMZJdmdvGakgoiBC9znxpA.jpg"
     }
-  },
-  "rampage-bluray-floor-sale-action": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "ransom-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "ransom-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "rare-bird-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "ratman-dvd-rental-horror": {
     "batch": "rentals",
@@ -4372,10 +2412,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/qGsFb3oNbxiFY8xw8jm8H1pc4UD.jpg"
     }
   },
-  "red-dawn-bluray-floor-sale-action": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "red-dragon-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-01-5",
@@ -4386,20 +2422,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/ou9ZKA2cms02b7CdCdVqGkKu0O0.jpg"
     }
   },
-  "red-eye-dvd-floor-sale-thriller": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "red-eye-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "red-riding-hood-bluray-floor-sale-horror": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "red-skeltons-christmas-dinner-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-05",
     "status": "queued"
   },
   "redline-dvd-rental-anime": {
@@ -4412,22 +2436,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/yUkH0y9OsY7J08Dvfzi1P0di559.jpg"
     }
   },
-  "reefer-madness-vhs-floor-sale-horror": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "relentless-2-dead-on-vhs-floor-sale-action": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "reservoir-dogs-bluray-floor-sale-action": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "resident-evil-collection-dvd-7": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "resurrection-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-01-5",
@@ -4437,10 +2445,6 @@
       "Image Alt Text": "Resurrection poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/2j6cMHN1Mx1u8S897VVhO7wSrce.jpg"
     }
-  },
-  "retribution-vhs": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "return-to-me-dvd-rental-romantic-comedy": {
     "batch": "rentals",
@@ -4452,22 +2456,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/mtYZyZh7hSiTq3gAU0C8FlcMC5.jpg"
     }
   },
-  "revelation-vhs-floor-sale-horor": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "richard-iii-vhs-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "richard-pryor-triple-feature-bluray-floor-sale-comedy": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "rings-dvd-5": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
   "risk-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -4477,18 +2465,6 @@
       "Image Alt Text": "Risk poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/g4jNvfu3FrCvRQhA29qOflzoc97.jpg"
     }
-  },
-  "riverworld-dvd-floor-sale-sci-fi": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "roaring-fire-toy-robot-bluray-floor-sale-action": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "robin-hood-dvd-floor-sale-action": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "robin-hood-dvd-rental-kids-family": {
     "batch": "rentals",
@@ -4509,10 +2485,6 @@
       "Image Alt Text": "Romeo is Bleeding poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/ojXNRpHMXU99UFmF9MKKiJCymKr.jpg"
     }
-  },
-  "romeo-juliet-floor-sale-drama": {
-    "batch": "floor-sale-05",
-    "status": "queued"
   },
   "rough-air-vhs-rental-action": {
     "batch": "rentals",
@@ -4554,34 +2526,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/xjAElUhXuc7zFJPj3qUHjcySNsE.jpg"
     }
   },
-  "rumble-in-the-brox-dvd-floor-sale-action": {
-    "batch": "floor-sale-05",
-    "status": "queued"
-  },
-  "runaway-bride-vhs-floor-sale-romantic-comedy": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "rush-hour-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "sabrina-the-teenage-witch-1995-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "sahara-vhs-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "salems-lot-limited-edition-4k-ultra-hd-4k-floor-sale-horror": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "salt-bluray-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "salvador-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -4592,48 +2536,12 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/c5JgUmzN7syTFy9suwoHF3vhNsN.jpg"
     }
   },
-  "sammy-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "samson-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "sanata-jr-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "sand-diego-zoo-its-a-wild-life-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "sanitarium-dvd-rental-horror": {
     "batch": "rentals",
     "status": "queued"
   },
-  "sanky-panky-dvd-5": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "santa-clause-2-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "santas-slay-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "save-the-last-dance-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "savior-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "saw-ii-dvd-floor-sale-horror": {
-    "batch": "floor-sale-06",
     "status": "queued"
   },
   "say-anthing-dvd-rental-romantic-comedy": {
@@ -4649,44 +2557,8 @@
   "scala-or-the-incredibly-strange-rise-and-fall-of-the-worlds-wildest-cinema-and-how-it-influenced-a-mixed-up-generation-of-weirdos-and-misfits": {
     "status": "skipped"
   },
-  "scandalous-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "scared-cargo-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "scarface-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "scary-movie-dvd-rental-kids-and-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "scavengers-vhs-academy-1988-stunts-kenneth-david-gilman-brenda-bakke": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "scream-2-movie-collection-4k-floor-sale-horror": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "secret-agent-the-4k-uhd-blu-ray-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "secret-agent-the-bluray-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "secrets-of-a-married-man-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "see-no-evil-vhs": {
-    "batch": "floor-sale-06",
     "status": "queued"
   },
   "serendipity-dvd-rental-romantic-comedy": {
@@ -4699,24 +2571,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/4jS66Qmq2Ru5S2YzHVknGd4xJyT.jpg"
     }
   },
-  "seven-4k-floor-sale-thriller": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "seven-dvd-floor-sale-thriller": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "seven-dxm-35mm-bluray-rental-thriller": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "seven-vhs-floor-sale-horror": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "seven-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-06",
     "status": "queued"
   },
   "seven-vhs-rental-thriller": {
@@ -4729,14 +2585,6 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/6/68/Seven_%28movie%29_poster.jpg"
     }
   },
-  "sex-and-the-city-dvd-floor-sale-comedy": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "shades-of-fear-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "shadow-hunter-vhs-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -4747,32 +2595,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/1Rvs3sN4rHrfbmfWPESG1gKolDU.jpg"
     }
   },
-  "shadowlands-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "shakedown-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "shame-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "shameless-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "sharkboy-and-lavagirl-3d-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "sharks-flipper-lopaka-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "shattered-glass-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
     "status": "queued"
   },
   "shattered-vhs-rental-horror": {
@@ -4784,10 +2608,6 @@
       "Image Alt Text": "Shattered poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/k3UaQNJ8FAUaHgDhPyT3uEiod8h.jpg"
     }
-  },
-  "sherlock-holmes-bluray-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
   },
   "sherlock-holmes-bluray-rental-action": {
     "batch": "rentals",
@@ -4809,24 +2629,12 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/momkKuWburNTqKBF6ez7rvhYVhE.jpg"
     }
   },
-  "shooter-bluray-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "showdown-vhs-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "shrek-the-final-chapter-dvd-rental-kids-family": {
     "batch": "rentals",
     "status": "queued"
   },
   "shutter-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "sid-nancy-vhs": {
-    "batch": "floor-sale-06",
     "status": "queued"
   },
   "signs-bluray-rental-sci-fi": {
@@ -4859,36 +2667,8 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/1/13/Silentnightdeadlynight.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     }
   },
-  "sin-city-dvd": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "singles-dvd-5": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "singles-vhs-floor-sale-romantic-comedy": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "sister-act-ii-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "skindeep-1989-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "skiptrace-bluray": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "sky-high-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "skyscraper-bluray-floor-sale-4k-action": {
-    "batch": "floor-sale-06",
     "status": "queued"
   },
   "sleeping-beauty-1989-vhs-rental-kids-family": {
@@ -4901,30 +2681,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/pO9YMLSmj3essVSWSGygjGxX6Kw.jpg"
     }
   },
-  "sleeping-beauty-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "sleeping-beauty-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "sleeping-beauty-vhs-10": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "sleepy-hollow-vhs-floor-sale-horror": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "slit-second-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "slither-sbk-4k-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "smart-money-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -4934,30 +2690,6 @@
       "Image Alt Text": "Smart Money poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/jh0rfYD3FLXjqFflN1hk5aFgF6f.jpg"
     }
-  },
-  "smile-4k-floor-sale-horror": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "smithereens-1984-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "smoke-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "snow-white-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "snow-white-copy": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "snow-white-vhs-10": {
-    "batch": "floor-sale-06",
-    "status": "queued"
   },
   "snowboat-academy-vhs-rental-comedy": {
     "batch": "rentals",
@@ -4979,14 +2711,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/cDiXGOBa0SjY30rzl26DeSP16bk.jpg"
     }
   },
-  "soccer-dog-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "solaris-vhs-floor-sale-sci-fi": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "soldiers-fortune-vhs-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -5006,18 +2730,6 @@
       "Image Alt Text": "Some Like it Hot poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/hVIKyTK13AvOGv7ICmJjK44DTzp.jpg"
     }
-  },
-  "somethingn-special-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "south-pacific-dvd": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "space-marines-ruby-jean-and-joe-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
   },
   "space-rangers-chronicles-2-vhs-rental-sci-fi": {
     "batch": "rentals",
@@ -5051,50 +2763,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "speed-2-vhs-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "speed-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "speed-vhs-floor-sale": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "speed-vhs-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "spider-man-2002-dvd": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "spider-man-spider-man-2-full-screen-dvd-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "splendor-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "spy-kids-3d-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "spys-vhs-5": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "star-trek-2-disc-special-edition-bluray-floor-sale-sci-fi": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "star-trek-double-feature-dvd-floor-sale-sci-fi": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "star-wars-attack-of-the-clones-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -5104,14 +2772,6 @@
       "Image Alt Text": "Star Wars Attack of the Clones poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/oZNPzxqM2s5DyVWab09NTQScDQt.jpg"
     }
-  },
-  "star-wars-i-ii-iii-bluray-16": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "star-wars-iv-v-vi-bluray-floor-sale-sci-fi": {
-    "batch": "floor-sale-06",
-    "status": "queued"
   },
   "star-wars-return-of-the-jedi-vhs-rental-sci-fi": {
     "batch": "rentals",
@@ -5133,10 +2793,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/nNAeTmF4CtdSgMDplXTDPOpYzsX.jpg"
     }
   },
-  "star-wars-the-phantom-menace-vhs-floor-sale-sci-fi": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "star-wars-the-phantom-menace-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -5147,10 +2803,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/6wkfovpn7Eq8dYNKaG5PY3q2oq6.jpg"
     }
   },
-  "star-wars-trilogy-bonus-meterial-dvd-floor-sale-documentary": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "star-wars-trilogy-iv-v-vi-dvd-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -5160,10 +2812,6 @@
       "Image Alt Text": "Star Wars Trilogy: IV, V, VI poster",
       "Image Src": "https://m.media-amazon.com/images/I/71WpabqiM9L._SX342_.jpg"
     }
-  },
-  "star-wars-trilogy-special-edition-vhs-floor-sale-sci-fi": {
-    "batch": "floor-sale-06",
-    "status": "queued"
   },
   "stardust-dvd-rental-fantasy": {
     "batch": "rentals",
@@ -5185,20 +2833,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/dNMeRLY3MeY2FFeh639plHai3F1.jpg"
     }
   },
-  "steam-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "stephen-kings-it-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "stephen-kings-nightshift-collection-vhs-floor-sale-horror": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "stoke-vhs": {
-    "batch": "floor-sale-06",
     "status": "queued"
   },
   "storm-of-the-century-dvd-rental-horror": {
@@ -5234,10 +2870,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/fW9z3HXWYTKzlqE3CYMMxaXyyy2.jpg"
     }
   },
-  "strike-screener-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "sublime-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -5248,22 +2880,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/285yCXj3JIe7rXdedZJ0FD4KPnS.jpg"
     }
   },
-  "super-dave-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "super-dragons-dynamo-vhs-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "supergirl-bluray-floor-sale-action": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "sweet-dreams-vhs-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "swingers-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -5273,10 +2889,6 @@
       "Image Alt Text": "Swingers poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/rRjWk68kU3a2so4lgr3TKB7Y5vA.jpg"
     }
-  },
-  "taking-chance-dvd-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
   },
   "talk-to-me": {
     "status": "skipped"
@@ -5291,16 +2903,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/qoiGiSbG2JZRJrHJswdirYQsoPI.jpg"
     }
   },
-  "tam-lin-dvd-floor-sale-horror": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "tangled-disney-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "tarzan-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-06",
     "status": "queued"
   },
   "tcm-sci-fi-collection-dvd-rental-sci-fi": {
@@ -5313,14 +2917,6 @@
       "Image Src": "https://m.media-amazon.com/images/I/81w6wyU23vL._SX342_.jpg"
     }
   },
-  "teenage-mutant-ninja-turtles-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "tequila-sunrise-bluray-floor-sale-action": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "terror-from-under-the-house-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -5330,22 +2926,6 @@
       "Image Alt Text": "Terror From Under The House poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/cT1SpFlks4oLd4GXpR0VnNvysPZ.jpg"
     }
-  },
-  "texas-chainsaw-massacre-dvd-6": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "thank-god-its-friday-1986-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "the-abyss-vhs-floor-sale-horror": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "the-accountant-bluray": {
-    "batch": "floor-sale-06",
-    "status": "queued"
   },
   "the-accountant-dvd-rental-action": {
     "batch": "rentals",
@@ -5369,10 +2949,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "the-arrival-floor-sale-sci-fi": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
   "the-arrival-vhs-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -5382,26 +2958,6 @@
       "Image Alt Text": "The Arrival poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/4H3VwvIQC1dsMFb2DEGZpbS0JiI.jpg"
     }
-  },
-  "the-assignment-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "the-associate-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "the-aviator-dvd-floor-sale-drama": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "the-bananas-boat-vhs": {
-    "batch": "floor-sale-06",
-    "status": "queued"
-  },
-  "the-beatles-a-hard-days-night-vhs-floor-sale-musical": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-best-years-of-our-lives-dvd-rental-drama": {
     "batch": "rentals",
@@ -5423,10 +2979,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/gd5EoAU4MM57sW3vlWxJ0NMM8cV.jpg"
     }
   },
-  "the-beverly-hillbillies-christmas-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-blue-angel-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -5447,30 +2999,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/cPGmqu3WhJuGDPIqOiPOZ35us2f.jpg"
     }
   },
-  "the-boondock-saints-dvd": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-boondock-saints-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-boss-unrated-bluray-floor-sale-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-bounty-hunter-bluray-floor-sale-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-bourne-identity-1988-vhs-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-bourne-trilogy-bluray-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-bourne-trilogy-dvd-rental-action": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -5480,10 +3008,6 @@
       "Image Alt Text": "The Bourne Trilogy poster",
       "Image Src": "https://m.media-amazon.com/images/I/812FAmsxNIL._SX342_.jpg"
     }
-  },
-  "the-boxer-vhs-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-boy-dvd-rental-horror": {
     "batch": "rentals",
@@ -5505,10 +3029,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/aCBrhOQjhG397GLkEZ49zReQEKX.jpg"
     }
   },
-  "the-butchering-dvd-floor-sale-horror": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-butterfly-effect-collection-dvd-rental-sci-fi": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -5528,10 +3048,6 @@
       "Image Alt Text": "The Butterfly Effect poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/ea5iv7TWMh18fOKoRGgmtcg85Gx.jpg"
     }
-  },
-  "the-caged-heart-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-call-of-the-wild-bluray-rental-drama-4k": {
     "batch": "rentals",
@@ -5562,10 +3078,6 @@
       "Image Src": "https://spcdn.shortpixel.ai/spio/ret_img+q_cdnize+to_webp+s_webp/diabolikdvd.com/wp-content/uploads/2023/08/VS-357B_case_front_gray_large-copy.jpg"
     }
   },
-  "the-cat-and-the-canary-vhs-floor-sale-horror": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-cat-in-the-hat-sing-along-vhs-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -5575,10 +3087,6 @@
       "Image Alt Text": "The Cat In The Hat Sing-Along poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/uKHm41DzzC4VoDwLZDU9PBYj6ue.jpg"
     }
-  },
-  "the-chidlren-of-times-square-vhs-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-choice-dvd-rental-romantic-comedy": {
     "batch": "rentals",
@@ -5594,22 +3102,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "the-complete-kubrick-criterion-4k-uhd-blu-ray-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-covenant-bluray-floor-sale-horror": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-cradle-will-fall-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-crocodile-hunter-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-cry-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -5619,26 +3111,6 @@
       "Image Alt Text": "The Cry poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/rox6ML6nMwg0ySQMUGr9yQvzCIC.jpg"
     }
-  },
-  "the-curve-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-cutting-ege-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-dark-dvd-5": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-dark-knight-trilogy-dvd-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-day-the-earth-stood-still-dvd-floor-sale-sci-fi": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-decent-dvd-rental-horror": {
     "batch": "rentals",
@@ -5694,14 +3166,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/j09ZkH6R4JWVylBcDai1laCmGw7.jpg"
     }
   },
-  "the-expert-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-family-bluray": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-fighter-dvd-rental-drama": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -5711,10 +3175,6 @@
       "Image Alt Text": "The Fighter poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/xfsFerGhO1h6rLk8vwLgMyQ8WVJ.jpg"
     }
-  },
-  "the-firm-vhs-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-fly-2-vhs-rental-horror": {
     "batch": "rentals",
@@ -5730,14 +3190,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "the-fly-vhs-floor-sale": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-fly-vhs-floor-sale-horror": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-fog-the-howling-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -5745,34 +3197,6 @@
     "values": {
       "Body (HTML)": "<p>Double feature of two horror films: John Carpenter's The Fog (1980), in which a mysterious fog brings vengeful ghosts to a California coastal town, and Joe Dante's The Howling (1981), in which a TV reporter retreats to a countryside colony that hides werewolves.</p>"
     }
-  },
-  "the-four-feathers-dvd-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-four-feathers-vhs-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-fox-and-the-hound-vhs-8": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-fox-and-the-hound-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-funnniest-men-of-comedy-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-getaway-vhs-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-gift-bluray": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-gift-bluray-rental-thriller": {
     "batch": "rentals",
@@ -5794,10 +3218,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/8bokS83zGdhaXgN9tjidUKmAftW.jpg"
     }
   },
-  "the-girl-with-the-hungry-eyes-vhs-floor-sale-horror": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-glass-house-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-01-5",
@@ -5807,14 +3227,6 @@
       "Image Alt Text": "The Glass House poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/16obDcmphjfq17zwWKJlur53fCh.jpg"
     }
-  },
-  "the-good-shepherd-dvd-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-great-gatsby-bluray": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-great-silence-dvd-rental-foreign": {
     "batch": "rentals",
@@ -5836,10 +3248,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/y45b3XcYkEUd74ROFZmieEjB2BN.jpg"
     }
   },
-  "the-grudge-dvd-floor-sale-horror": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-gun-run-dvd-rental-action": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -5858,14 +3266,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/1fBnyO3SbNBplck45js6O4pQaLw.jpg"
     }
   },
-  "the-hand-vhs-floor-sale-horror": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-hangover-part-ii-bluray-floor-sale-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-hangover-part-ii-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -5880,14 +3280,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "the-heartbreak-kid-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-heat-dvd-floor-sale-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-highwayman-vhs-rental-action": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -5897,10 +3289,6 @@
       "Image Alt Text": "The Highwayman poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/8L5ndBKXg8xKv6z3iZpVHNZbBlv.jpg"
     }
-  },
-  "the-hills-have-eyes-dvd-8": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-holy-mountain-dvd-rental-foreign": {
     "batch": "rentals",
@@ -5912,22 +3300,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/oaOyrFD4ZyZZwjO8wc4b12XHcgZ.jpg"
     }
   },
-  "the-honeymooners-dvd-floor-sale-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-honeymooners-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-host-dvd-floor-sale-sci-fi": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-human-factor-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-human-tornado-vhs-rental-thriller": {
     "batch": "rentals",
     "run": "2026-10-08",
@@ -5937,26 +3309,6 @@
       "Image Alt Text": "The Human Tornado poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/xTwLcUMwjktY6XZnUSJZlWGfWt0.jpg"
     }
-  },
-  "the-hunchback-of-notre-dame-vhs-6": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-hunchback-of-notre-dame-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-hunter-dvd-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-hunters-dvd-floor-sale-fantasy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-hurricane-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-hustle-vhs-rental-action": {
     "batch": "rentals",
@@ -5968,18 +3320,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/al98fW7ubwfjfEgSkCVadJtFxQY.jpg"
     }
   },
-  "the-ice-house-dvd-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-importance-of-being-earnest-vhs-floor-sale-romantic-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-in-laws-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-incredibly-true-adventures-of-2-girls-in-love-vhs-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -5989,30 +3329,6 @@
       "Image Alt Text": "The Incredibly True Adventures of 2 Girls in Love poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/dPbYJaH1j7sgj1NuA4VRyb7O4Mt.jpg"
     }
-  },
-  "the-inheritors-vhs-floor-sale-foreign": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-island-of-dr-moreau-1978-vhs-floor-sale-horror": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-joy-luck-club-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-joy-luck-club-vhs-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-jungle-book-1982-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-jungle-book-dvd-floor-sale-kids-family": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-jungle-book-dvd-rental-kids-family": {
     "batch": "rentals",
@@ -6024,26 +3340,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/2Epx7F9X7DrFptn4seqn4mzBVks.jpg"
     }
   },
-  "the-jungle-book-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-kill-reflex-vhs-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-killing-hour-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-king-and-i-dvd": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-king-guards-vhs-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-kitchen-soto-vhs-rental-drama": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -6053,26 +3349,6 @@
       "Image Alt Text": "The Kitchen Soto poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/imFmo6KvwfC9Z3ERnqtan2Azzqe.jpg"
     }
-  },
-  "the-ladykillers-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-last-emperor-dvd-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-last-king-bluray-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-last-metro-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-last-of-the-mohicans-dvd-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-last-waltz-bluray-rental-criterion-collection-musical": {
     "batch": "rentals",
@@ -6104,22 +3380,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/8ecsqECiE1fguzPJV2DIgx9NYlc.jpg"
     }
   },
-  "the-legend-of-sleepy-hollow": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-libertine-dvd-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-life-and-times-of-the-chocolate-killer-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-life-aquatic-dvd-7": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-line-staten-island-bluray-rental-action": {
     "batch": "rentals",
     "run": "2026-10-01",
@@ -6130,32 +3390,8 @@
       "Image Src": "https://i.ebayimg.com/images/g/e2EAAOSwMRFm68WG/s-l400.jpg"
     }
   },
-  "the-lion-in-winter-vhs-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-lion-king-bluray-floor-sale-4k-kids-family": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-lion-king-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "the-lion-king-vhs-10": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-lion-king-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-little-mermaid-3-movie-collection-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-little-mermaid-bluray-floor-sale-4k-kids-family": {
-    "batch": "floor-sale-07",
     "status": "queued"
   },
   "the-little-mermaid-dvd-rental-kids-family": {
@@ -6168,16 +3404,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/plcZXvI310FkbwIptvd6rqk63LP.jpg"
     }
   },
-  "the-lone-ranger-bluray-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-long-shot-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "the-lorax-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-07",
     "status": "queued"
   },
   "the-losers-bluray-rental-action": {
@@ -6190,10 +3418,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/e5oD3fuQpjZ8Po6WNW0VkUJmW52.jpg"
     }
   },
-  "the-losers-dvd-5": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-lost-boys-bluray-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -6203,22 +3427,6 @@
       "Image Alt Text": "The Lost Boys poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/nH1lvyQvfbL5GKScTtT6zkIvDEn.jpg"
     }
-  },
-  "the-magic-of-christmas-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-man-who-knew-too-much-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-man-with-the-iron-fist-bluray-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-manchurian-candidate-dvd-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-mask-dvd-rental-comedy": {
     "batch": "rentals",
@@ -6230,10 +3438,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/jPC2eYub74zwf2tPGVtzSlBW6Oy.jpg"
     }
   },
-  "the-matchmaker-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-messenger-dvd-rental-drama": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -6243,14 +3447,6 @@
       "Image Alt Text": "The Messenger poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/p4fJyH7mMbasiFYwiw2nE7D6pMY.jpg"
     }
-  },
-  "the-mighty-ducks-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-mission-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-mist-dvd-rental-horror": {
     "batch": "rentals",
@@ -6262,10 +3458,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/c4UgUKZjM0Qzy5t4hAXSOFHYsnb.jpg"
     }
   },
-  "the-moment-cultcave-vhs-floor-sale-musical": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-monkeys-paw-dvd-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -6275,10 +3467,6 @@
       "Image Alt Text": "The Monkey's Paw poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/zKL3skF2qCQPcVm2PpR52DJfQKS.jpg"
     }
-  },
-  "the-mummy-collectors-set-dvd-floor-sale-action": {
-    "batch": "floor-sale-07",
-    "status": "queued"
   },
   "the-mummy-trilogy-dvd-rental-action": {
     "batch": "rentals",
@@ -6290,30 +3478,6 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/6/68/The_mummy.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
     }
   },
-  "the-naked-gun-2-1-2-laserdisc-floor-sale-comedy": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-navigator-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-negotiator-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-net-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-new-girl-a-model-agent-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-new-world-dvd-floor-sale-drama": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
   "the-night-stalker-vhs-rental-horror": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -6324,14 +3488,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/dij60cVBL39B5t1SdGQr33APksC.jpg"
     }
   },
-  "the-nutty-professor-vhs": {
-    "batch": "floor-sale-07",
-    "status": "queued"
-  },
-  "the-nutty-professor-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "the-out-of-towners-dvd-rental-comedy": {
     "batch": "rentals",
     "run": "2026-10-15-3",
@@ -6341,18 +3497,6 @@
       "Image Alt Text": "The Out-of-Towners poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/wOmLJYh7oOfATE236XpoDfcXhOh.jpg"
     }
-  },
-  "the-outer-limits-demon-with-a-glass-hand-vhs": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "the-outer-limits-second-chance-vhs": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "the-outer-limits-the-sixth-finger-vhs": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "the-plague-dvd-rental-horror": {
     "batch": "rentals",
@@ -6367,10 +3511,6 @@
       "Image Alt Text": "The Posiedon Adventure poster",
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/8/86/PoseidonAdventure.jpg"
     }
-  },
-  "the-postman-always-rings-twice-vhs-floor-sale-thriller": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "the-reckoning-vhs-rental-action": {
     "batch": "rentals",
@@ -6431,14 +3571,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/38GDdvmKhN9DYrGtaQ6OQr53Tnh.jpg"
     }
   },
-  "the-secret-agent-criterion-4k-uhd-blu-ray-floor-sale-drama": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "the-secret-agent-criterion-bluray-floor-sale-drama": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "the-secret-life-of-pets-bluray-rental-kids-family": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -6448,10 +3580,6 @@
       "Image Alt Text": "The Secret Life of Pets poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/g3Hms6AE174doeGR1gz5zX5sVsv.jpg"
     }
-  },
-  "the-secrets-of-dumbledore-bluray": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "the-seeker-dvd-rental-kids-family": {
     "batch": "rentals",
@@ -6490,14 +3618,6 @@
       "Image Alt Text": "The Skulls poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/pYuggibfzm8LWgjnUKMMtii2430.jpg"
     }
-  },
-  "the-spider-and-the-fly-vhs-floor-sale-drama": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "the-story-of-christ-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "the-strange-case-of-dr-jekyll-and-mr-hyde-vhs-rental-horror": {
     "batch": "rentals",
@@ -6547,16 +3667,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/4w4BJk3l8y9gYwPPLRs6uPHOmGL.jpg"
     }
   },
-  "the-thing-3-movie-collection-bluray-floor-sale-horror": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "the-thing-dxm-35mm-4k-rental-sc-fi": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "the-three-muskateers-bluray-floor-sale-action": {
-    "batch": "floor-sale-08",
     "status": "queued"
   },
   "the-three-muskateers-dvd-rental-action": {
@@ -6569,16 +3681,8 @@
       "Image Src": "https://upload.wikimedia.org/wikipedia/en/e/e6/Threemusketeers1993.jpg"
     }
   },
-  "the-time-of-the-wolf-vhs-floor-sale-action": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "the-toy-dvd-rental-kids-family": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "the-van-vhs-floor-sale-comedy": {
-    "batch": "floor-sale-08",
     "status": "queued"
   },
   "the-visit-4k-rental-horror": {
@@ -6643,10 +3747,6 @@
       "Body (HTML)": "<p>Introduction: The Goofy Story  FEATURED CARTOONS\r Goofy's Glider (1940)\r Baggage Buster (1941)\r How to Be a Sailor (1944)\r They're Off (1948)\r Home Made Home (1951)\r Man's Best Friend (1952)\r How to Dance (1953)</p>"
     }
   },
-  "they-live-sbk-4k-floor-sale-horror": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "things-to-come-dvd-rental-sci-fi": {
     "batch": "rentals",
     "status": "queued"
@@ -6671,10 +3771,6 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/wcGELNaQ8TbiMUpAnkKLl5g09OO.jpg"
     }
   },
-  "tie-died-vhs": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "to-die-for-bluray-rental-criterion-collection-drama": {
     "batch": "rentals",
     "run": "2026-09-30",
@@ -6684,10 +3780,6 @@
       "Image Alt Text": "To Die For poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/ji0F2HvO58iIrNfbo41lrnYybed.jpg"
     }
-  },
-  "tokyo-eyes-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "tommy-vhs-rental-musical": {
     "batch": "rentals",
@@ -6723,14 +3815,6 @@
     "batch": "rentals",
     "status": "queued"
   },
-  "toys-trains-christmas-2-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "toys-trains-christmas-vhs-floor-sale-holiday": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "trauma-dvd-rental-horror": {
     "batch": "rentals",
     "status": "queued"
@@ -6745,16 +3829,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/w0nmol4g7n6MFfhfphV7GzHHYjB.jpg"
     }
   },
-  "trilogy-commando-predator-terminator-bluray-floor-sale-action": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "triple-feature-sinister-cabin-in-the-woods-possession-dvd-rental-horror": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "triple-feature-v-for-vendetta-bluray-floor-sale-action": {
-    "batch": "floor-sale-08",
     "status": "queued"
   },
   "troll-2-bluray-rental-horror": {
@@ -6766,10 +3842,6 @@
       "Image Alt Text": "Troll 2 poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/eFth6zw4PEInzr2Y64mYVN1zbBi.jpg"
     }
-  },
-  "tron-legacy-tron-the-original-classic-bluray-floor-sale-sci-fi": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "tucker-everlasting-dvd-rental-kids-family": {
     "batch": "rentals",
@@ -6799,28 +3871,8 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/mLuehrGLiK5zFCyRmDDOH6gbfPf.jpg"
     }
   },
-  "unbreakable-vhs-floor-sale-action": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "under-siege-2-laserdisc-floor-sale-action": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "under-siege-laserdisc-floor-sale-action": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "valentines-day-dvd-rental-comedy": {
     "batch": "rentals",
-    "status": "queued"
-  },
-  "virgin-suicides-the-blu-ray-floor-sale-drama": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "virgin-suicides-the-dvd-floor-sale-drama": {
-    "batch": "floor-sale-08",
     "status": "queued"
   },
   "virus-vhs-rental-horror": {
@@ -6841,14 +3893,6 @@
       "Body (HTML)": "<p>After hundreds of years doing what he was built for, WALL\u2022E\u2014 a robot designed to clean up the earth\u2014discovers a new purpose in life when he meets a sleek search robot named EVE. EVE comes to realize that WALL\u2022E has inadvertently stumbled upon the key to the planet's future, and races back to space to report to the humans. Meanwhile, WALL\u2022E chases EVE across the galaxy and sets into motion one of the most imaginative adventures ever brought to the big screen.</p>",
       "Image Src": "https://image.tmdb.org/t/p/w1280/hbhFnRzzg6ZDmm8YAmxBnQpQIPh.jpg"
     }
-  },
-  "wall-e-4k-uhd-blu-ray-floor-sale-kids-family": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "walt-disney-mini-classics-commemorative-edition-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "wanted-bluray-rental-action": {
     "batch": "rentals",
@@ -6872,10 +3916,6 @@
     "batch": "rentals",
     "status": "skipped"
   },
-  "warren-millers-playground-bluray-floor-sale-documentary": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
   "was-the-dog-vhs-rental-comedy": {
     "batch": "rentals",
     "run": "2026-09-30-4",
@@ -6885,10 +3925,6 @@
       "Image Alt Text": "Was The Dog poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/kAwOj7t8ZeaniTFtLWVSKO79JxX.jpg"
     }
-  },
-  "watchers-toy-robot-bluray-floor-sale-horror": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "water-world-dvd-rental-action": {
     "batch": "rentals",
@@ -6907,10 +3943,6 @@
   "wb-academy-award-animation-dvd-rental-kids-family": {
     "batch": "rentals",
     "status": "skipped"
-  },
-  "where-the-wild-things-are-the-neverending-story-bluray-floor-sale-kids-family": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "white-noise-dvd-rental-horror": {
     "batch": "rentals",
@@ -6931,18 +3963,6 @@
       "Image Alt Text": "Who's That Knocking At My Door poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/zcH6pKZKeImwcBtIH7fSdUyoQ2e.jpg"
     }
-  },
-  "wide-awake-demo-tape": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "wild-america-fantastic-follies-vhs-floor-sale-kids-family": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "wilderness-adventures-vhs": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "wildside-crimea-of-the-century-vhs-rental-action": {
     "batch": "rentals",
@@ -6971,14 +3991,6 @@
       "Image Alt Text": "Winnie the Pooh Springtime poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/yAgVcU1BdPqvnyYnOkb1QtVNd5V.jpg"
     }
-  },
-  "wise-cracks-vhs": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "wiz-the-bluray-floor-sale-musical": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "wolf-cop-wolfpack-bluray-rental-horror": {
     "batch": "rentals",
@@ -7009,14 +4021,6 @@
       "Image Alt Text": "X poster",
       "Image Src": "https://image.tmdb.org/t/p/w1280/lopZSVtXzhFY603E9OqF7O1YKsh.jpg"
     }
-  },
-  "xmen-collection-dvd": {
-    "batch": "floor-sale-08",
-    "status": "queued"
-  },
-  "y-tu-mama-tabien-dvd-floor-sale-foreign": {
-    "batch": "floor-sale-08",
-    "status": "queued"
   },
   "yojimbo-criterion-dvd-rental-foreign": {
     "batch": "rentals",

@@ -45,35 +45,43 @@
   },
   {
     "batch_id": "floor-sale-01",
-    "total": 100
+    "total": 100,
+    "hidden": true
   },
   {
     "batch_id": "floor-sale-02",
-    "total": 100
+    "total": 100,
+    "hidden": true
   },
   {
     "batch_id": "floor-sale-03",
-    "total": 100
+    "total": 100,
+    "hidden": true
   },
   {
     "batch_id": "floor-sale-04",
-    "total": 100
+    "total": 100,
+    "hidden": true
   },
   {
     "batch_id": "floor-sale-05",
-    "total": 100
+    "total": 100,
+    "hidden": true
   },
   {
     "batch_id": "floor-sale-06",
-    "total": 100
+    "total": 100,
+    "hidden": true
   },
   {
     "batch_id": "floor-sale-07",
-    "total": 100
+    "total": 100,
+    "hidden": true
   },
   {
     "batch_id": "floor-sale-08",
-    "total": 49
+    "total": 49,
+    "hidden": true
   },
   {
     "batch_id": "untyped",

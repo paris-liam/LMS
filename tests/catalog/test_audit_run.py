@@ -141,6 +141,19 @@ class TestContentStep(unittest.TestCase):
         finding = [f for f in result.findings if f.rule == "applied-but-missing"][0]
         self.assertIn("marked resolved", finding.detail)
 
+    def test_resolved_manual_pick_without_a_poster_is_still_owed_not_lost(self):
+        registry = {"rushmore-vhs-rental": {"batch": "rentals", "status": "resolved",
+                                            "values": {"Body (HTML)": "<p>Written by the client.</p>"}}}
+        result = run_audit([movie(**{"Image Src": "", "Image Alt Text": ""})], registry, fetcher({}))
+        self.assertIn(("poster-missing", "Image Src", MANUAL), rules_for(result, "rushmore-vhs-rental"))
+        self.assertNotIn("applied-but-missing", {f.rule for f in result.findings})
+
+    def test_resolved_value_that_disappeared_is_applied_but_missing(self):
+        registry = {"rushmore-vhs-rental": {"batch": "rentals", "status": "resolved",
+                                            "values": {"Image Src": "https://img/x.jpg"}}}
+        result = run_audit([movie(**{"Image Src": "", "Image Alt Text": ""})], registry, fetcher({}))
+        self.assertIn(("applied-but-missing", "Image Src", MANUAL), rules_for(result, "rushmore-vhs-rental"))
+
     def test_multi_variant_skips_tmdb(self):
         calls = []
         run_audit([movie(**{"Image Src": "", "Variant Count": "2"})], {}, fetcher({}, calls))
