@@ -2672,5 +2672,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": ""
+  },
+  {
+    "handle": "the-fly-dxm-35mm-bluray-rental-horror",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/a/aa/Fly_poster.jpg",
+    "overview": "David Cronenberg's 1986 science fiction body horror film starring Jeff Goldblum and Geena Davis, about a scientist whose teleportation experiment goes terribly wrong."
   }
 ]
