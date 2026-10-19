@@ -2200,5 +2200,11 @@
     "choice": "tmdb",
     "poster_path": "/agKyERuMOOzEX5lmZzKr0xQATHb.jpg",
     "overview": "A supernatural story about a mystic events occurring on the train, which had the route similar to the train which crashed many years ago."
+  },
+  {
+    "handle": "scary-movie-dvd-rental-kids-and-family",
+    "choice": "tmdb",
+    "poster_path": "/fVQFPRuw3yWXojYDJvA5EoFjUOY.jpg",
+    "overview": "A familiar-looking group of teenagers find themselves being stalked by a more-than-vaguely recognizable masked killer! As the victims begin to pile up and the laughs pile on, none of your favorite scary movies escape the razor-sharp satire of this outrageously funny parody!"
   }
 ]
