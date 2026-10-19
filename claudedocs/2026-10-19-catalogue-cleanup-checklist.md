@@ -87,14 +87,15 @@ should not recur.
         *Pet Sematary / A Quiet Place* · *The Dentist / The Dentist 2* · *The Dogfighters* ·
         *The Fog / The Howling* · *The Gun Run* · *The World According to Goofy* ·
         *Warlock Collection* · *Wildside: Crimea of the Century*
-- [ ] 3 `client-skipped` cards — decision needed:
-  - [ ] *Hugo Mask Special! Horrible Full Head Mask With Hair!* (Blu-Ray rental, barcode
-        `90000192`) — almost certainly a mis-titled copy of *Hugo* (2011): Libib already has a
-        *Hugo* Blu-Ray at the adjacent `90000191`. Check the case; if so, retitle it *Hugo*, and
-        TMDB has the description and poster.
-  - [ ] *Warner Bros. Animation Collection* (DVD, `19271674`) — no TMDB match; needs a
-        hand-written description and a photo of the case.
-  - [ ] *WB Academy Award Animation* (DVD, `30551290`) — same.
+- [x] 3 `client-skipped` cards — decided 2026-10-19:
+  - [x] *Hugo Mask Special! Horrible Full Head Mask With Hair!* (Blu-Ray, `90000192`) — it is its
+        own title, not a copy of *Hugo*. Left as is (ignore).
+  - [x] *Warner Bros. Animation Collection* (DVD, `19271674`) — the 3-disc 2008 Academy Awards
+        Animation Collection (41 cartoons). Description written to Shopify.
+        - [ ] Poster still owed (photo of the case).
+  - [x] *WB Academy Award Animation* (DVD, `30551290`) — the single-disc 15 winners. Description
+        written to Shopify.
+        - [ ] Poster still owed (photo of the case).
 
 ## 5. Not measured by the audit
 
