@@ -2732,5 +2732,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/6/68/Seven_%28movie%29_poster.jpg",
     "overview": "David Fincher's 1995 crime thriller starring Brad Pitt and Morgan Freeman as detectives hunting a killer who uses the seven deadly sins as his motif."
+  },
+  {
+    "handle": "tucker-everlasting-dvd-rental-kids-family",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
