@@ -2720,5 +2720,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/d/d5/Descentposter.jpg",
     "overview": "Neil Marshall's 2005 British horror film about a group of women on a caving trip who find something hunting them underground."
+  },
+  {
+    "handle": "tangled-disney-dvd-rental-kids-family",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/a/a8/Tangled_poster.jpg",
+    "overview": "Disney's 2010 animated musical fantasy comedy, loosely based on the fairy tale \"Rapunzel\", about a girl with magically long hair who leaves her tower."
   }
 ]
