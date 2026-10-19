@@ -53,13 +53,14 @@ are tagged `Issue_Needs_New_Barcode` and are held out of Libib until fixed.
 
 **Libib shelf checks** — Libib items with no Shopify rental.
 
-- [ ] *The Shawshank Redemption* `07444730` (DVD) — a fourth copy not in Shopify, or a stale
+- [x] *The Shawshank Redemption* `07444730` (DVD) — a fourth copy not in Shopify, or a stale
       record? The three Shopify rentals are already in Libib under their own barcodes.
-- [ ] *Adam's Rib* `90000017` — no Shopify product at all.
-- [ ] *Best of Abbott and Costello Volume 4* `90000060` — no Shopify product at all.
+- [x] *Adam's Rib* `90000017` — no Shopify product at all.
+- [x] *Best of Abbott and Costello Volume 4* `90000060` — no Shopify product at all.
 
 For each: if the copy exists, create its Shopify rental with that barcode (the next sync matches
-it); if not, delete the Libib record.
+it); if not, delete the Libib record. **Done 2026-10-19:** all three removed from Libib (checked
+against a fresh export).
 
 ## 3. Developer, in Libib — delete duplicates from reprinted labels
 
@@ -67,12 +68,13 @@ Each copy got a new label, Shopify was updated, and the sync imported the new ba
 item. The old record is the duplicate. Check for an active loan before deleting (a loan on the
 old record would be lost).
 
-- [ ] *One Rainy Afternoon* — delete `90000278` (same copy is `32299770`).
-- [ ] *The Man In The Moon* — delete `90000380` (same copy is `20077306`).
-- [ ] *Matrix Reloaded* 4K — delete `90000228` (same copy is `30407162`, `the-matrix-reloaded`).
+- [x] *One Rainy Afternoon* — delete `90000278` (same copy is `32299770`).
+- [x] *The Man In The Moon* — delete `90000380` (same copy is `20077306`).
+- [x] *Matrix Reloaded* 4K — delete `90000228` (same copy is `30407162`, `the-matrix-reloaded`).
 
-The sync now detects reprints and renumbers the existing item instead (`44de37b`), so this
-should not recur.
+**Done 2026-10-19:** all three removed (fresh export: the kept copies `32299770`, `20077306`,
+`30407162` are still there). The sync now detects reprints and renumbers the existing item instead
+(`44de37b`), so this should not recur.
 
 ## 4. Developer — fixes that didn't stick, and skipped cards (17)
 
