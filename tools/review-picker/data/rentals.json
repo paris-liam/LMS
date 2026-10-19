@@ -2690,5 +2690,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/c/c3/Alien_movie_poster.jpg",
     "overview": "Ridley Scott's 1979 science fiction horror film about the crew of the commercial spaceship Nostromo, who are stalked by a deadly creature."
+  },
+  {
+    "handle": "stephen-kings-it-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/5/5a/It_%282017%29_poster.jpg",
+    "overview": "Andy Muschietti's 2017 supernatural horror film, the first part of a two-part adaptation of Stephen King's novel."
   }
 ]
