@@ -247,10 +247,16 @@ class TestFloorSaleRules(unittest.TestCase):
     def test_imageless_floor_sale_gets_no_poster_missing_tag(self):
         self.assertEqual(check_row(floor_sale(**{"Image Src": "", "Image Alt Text": ""})), [])
 
-    def test_existing_poster_missing_tag_on_floor_sale_is_left_alone(self):
+    def test_poster_missing_tag_left_on_floor_sale_is_removed(self):
+        row = floor_sale(Tags="Floor Sale, Poster_Missing", **{"Image Src": "", "Image Alt Text": ""})
+        tag_fix = by_rule(check_row(row))[("poster-tag-sync", "Tags")]
+        self.assertEqual(tag_fix.proposed_value, "Floor Sale")
+
+    def test_poster_missing_removal_folds_into_the_format_tag_fix(self):
         row = floor_sale(Tags="Floor Sale, Poster_Missing, DVD", **{"Image Src": "", "Image Alt Text": ""})
-        tag_fix = by_rule(check_row(row))[("format-genre-tag", "Tags")]
-        self.assertEqual(tag_fix.proposed_value, "Floor Sale, Poster_Missing")
+        fixes = by_rule(check_row(row))
+        self.assertEqual({fixes[("format-genre-tag", "Tags")].proposed_value,
+                          fixes[("poster-tag-sync", "Tags")].proposed_value}, {"Floor Sale"})
 
 
 class TestCatalogueRules(unittest.TestCase):

@@ -69,10 +69,11 @@ def final_tags(row: dict, r: Resolved) -> str:
     """The tags the product should end up with: its own, respelled, plus
     Poster_Missing exactly when it has no image. Every Tags fix proposes this
     one value, so several fixes on one product never disagree. Floor sale
-    needs no poster, so its Poster_Missing tag is neither added nor removed."""
-    if r.type == "Floor Sale":
-        return respelled_tags(r)
+    needs no poster, so it never carries Poster_Missing (one left from before
+    2026-10-15, when every imageless movie got it, is removed)."""
     base = strip_poster_tag(respelled_tags(r))
+    if r.type == "Floor Sale":
+        return base
     if not needs_poster(row):
         return base
     return ", ".join([base, POSTER_MISSING_TAG] if base else [POSTER_MISSING_TAG])
@@ -190,7 +191,11 @@ def _autofix_findings(row, r, make) -> list[Finding]:
         out.append(make("format-genre-tag", "Tags", current_tags, proposed_tags, AUTO_FIX,
                         f"remove {', '.join(redundant)}: format lives in Vendor, genre in the genre field"))
 
-    if r.type != "Floor Sale" and has_poster_tag(r.tags) != needs_poster(row):
+    if r.type == "Floor Sale":
+        if has_poster_tag(r.tags):
+            out.append(make("poster-tag-sync", "Tags", current_tags, proposed_tags, AUTO_FIX,
+                            f"floor sale needs no poster, so it never carries {POSTER_MISSING_TAG}"))
+    elif has_poster_tag(r.tags) != needs_poster(row):
         out.append(make("poster-tag-sync", "Tags", current_tags, proposed_tags, AUTO_FIX,
                         f"{POSTER_MISSING_TAG} marks a product with no poster"))
 
