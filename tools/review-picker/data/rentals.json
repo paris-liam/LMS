@@ -2684,5 +2684,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/3/3b/Pulp_Fiction_%281994%29_poster.jpg",
     "overview": "Quentin Tarantino's 1994 crime film telling four intertwining tales of crime and violence in Los Angeles."
+  },
+  {
+    "handle": "alien-dxm-35mm-bluray-rental-sc-fi",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/c/c3/Alien_movie_poster.jpg",
+    "overview": "Ridley Scott's 1979 science fiction horror film about the crew of the commercial spaceship Nostromo, who are stalked by a deadly creature."
   }
 ]
