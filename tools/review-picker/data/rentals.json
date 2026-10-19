@@ -2750,5 +2750,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/6/67/Pan%27s_Labyrinth.jpg",
     "overview": "Guillermo del Toro's 2006 Spanish-language dark fantasy film."
+  },
+  {
+    "handle": "post-apocolypse-favorites-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/d/df/I_am_legend_teaser.jpg",
+    "overview": "Four-film post-apocalypse collection: I Am Legend (2007), Logan's Run (1976), Dark City (Director's Cut, 1998), and The Omega Man (1971)."
   }
 ]
