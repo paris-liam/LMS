@@ -10,7 +10,8 @@ Client instructions: `client-guide.md`.
 - `api/rental_sync/*.py` — Vercel Python functions, three lines each, all calling
   `catalog/rental_sync/web.py`. Logic and tests live in `catalog/rental_sync/`.
 - `vercel.json` / `.vercelignore` (repo root) — function config, the `/` rewrite, security
-  headers, and a deploy allow-list (only `api/`, `catalog/`, `tools/rental-sync/`).
+  headers, and a deploy allow-list (only `api/`, `catalog/`, `tools/rental-sync/`, and
+  `tools/review-picker/` — the picker's own Vercel project reads the same file).
 - Only tracked files reach a Git deployment; a CLI `vercel deploy` uploads the working tree, so never
   run it from a checkout with secrets or exports inside the allowed folders.
 

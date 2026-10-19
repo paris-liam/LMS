@@ -4,6 +4,9 @@
 !/tools
 /tools/*
 !/tools/rental-sync
+# The review picker's Vercel project (Root Directory tools/review-picker) deploys from
+# this repo too and reads this file: without this line it deploys empty and 404s.
+!/tools/review-picker
 !/vercel.json
 __pycache__/
 *.pyc
