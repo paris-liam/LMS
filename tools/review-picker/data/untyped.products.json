@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "handle": "nemesis-4-cry-of-angels-vhs-sci-fi",
+    "title": "Nemesis 4: Cry of Angels",
+    "vendor": "VHS",
+    "genre": "sci-fi",
+    "tag": "",
+    "missing": [
+      "Image Src",
+      "Body (HTML)"
+    ],
+    "reason": "ambiguous match (best candidate: 'Nemesis 4: Death Angel' (1996))",
+    "candidates": [
+      {
+        "id": 60173,
+        "title": "Nemesis 4: Death Angel",
+        "year": "1996",
+        "overview": "Alex shoots again. She has to kill a man, but shoots the wrong one. A high ransom is set on her, so she is visited by some head hunters. Well, she only could sit and wait and hope for a friend's help.",
+        "poster_path": "/q7BWMXdlc9pPeppmxaFlDm6pF33.jpg"
+      }
+    ]
+  }
+]
