@@ -71,6 +71,17 @@ GENRE_SCORE_BOOST = 0.05
 
 YEAR_PATTERN = re.compile(r"\(\s*(\d{4})\s*\)\s*$")
 
+# A bracketed/parenthesized group holding any of these words is a retail
+# listing label ("[Blu-ray]", "(Vinegar Syndrome)", "(Unrated Cut)") — Libib's
+# UPC lookup copies them into the title — so the whole group goes, not just
+# the word: stripping only known words left "Witch Hunters ( Cut)", which
+# TMDB can't find. Groups without one ("(Island of the Seals)") are kept.
+LABEL_WORDS = (r"blu-?ray|dvd|vhs|4k|uhd|full-?screen|wide-?screen|edition|cut|anniversary|unrated"
+               r"|remastered|restored|collector'?s|steelbook|free gift|disc|criterion|arrow"
+               r"|vinegar syndrome|screener")
+LABEL_GROUP_PATTERN = re.compile(rf"\s*[\[(][^\[\]()]*\b(?:{LABEL_WORDS})\b[^\[\]()]*[\])]", re.IGNORECASE)
+TRAILING_FORMAT_PATTERN = re.compile(r"\s+(?:4K(?:\s+UHD)?|Blu-?ray|DVD|VHS)\s*$", re.IGNORECASE)
+
 # Packaging/edition noise that isn't part of the movie's real title.
 # Wrapped (bracketed/parenthesized) forms are listed before their bare form
 # so both "(Remastered)" and a bare trailing "Remastered" get stripped.
@@ -97,7 +108,11 @@ NOISE_PATTERNS = [
 
 
 def clean_title_and_year(title: str) -> tuple[str, int | None]:
-    """Strip a trailing "(YYYY)" year and known packaging/edition noise from a title."""
+    """Strip listing-label groups, a trailing format, a trailing "(YYYY)" year
+    and known packaging/edition noise from a title. Labels go first so a year
+    written before one ("Halloween (1978) (Remastered)") is still trailing."""
+    title = LABEL_GROUP_PATTERN.sub("", title)
+    title = TRAILING_FORMAT_PATTERN.sub("", title)
     year = None
     match = YEAR_PATTERN.search(title)
     if match:

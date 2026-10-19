@@ -38,6 +38,62 @@ class TestPosterBase(unittest.TestCase):
         self.assertEqual(POSTER_BASE_URL, "https://image.tmdb.org/t/p/w1280")
 
 
+class TestCleanTitleAndYear(unittest.TestCase):
+    """Titles from Libib's UPC lookup carry the retailer's listing labels;
+    each case here came from a real 2026-10-19 Libib export."""
+
+    def assertCleans(self, raw, title, year=None):
+        self.assertEqual(clean_title_and_year(raw), (title, year), raw)
+
+    def test_trailing_year(self):
+        self.assertCleans("Dune (1984)", "Dune", 1984)
+
+    def test_bracketed_format_label(self):
+        self.assertCleans("The Thing [Blu-ray]", "The Thing")
+        self.assertCleans("An American Summer [vhs]", "An American Summer")
+
+    def test_parenthesized_format_label(self):
+        self.assertCleans("A Serious Man (DVD)", "A Serious Man")
+        self.assertCleans("Poltergeist Extended Cut (Blu-ray)", "Poltergeist")
+        self.assertCleans("The Lord of the Rings: The Fellowship of the Ring (Fullscreen)",
+                          "The Lord of the Rings: The Fellowship of the Ring")
+
+    def test_trailing_bare_format(self):
+        self.assertCleans("M3GAN (Unrated) 4K", "M3GAN")
+
+    def test_label_groups(self):
+        self.assertCleans("Steel and Lace (Vinegar Syndrome)", "Steel and Lace")
+        self.assertCleans("Thief (Criterion Collection)", "Thief")
+        self.assertCleans("Yojimbo (Criterion)", "Yojimbo")
+        self.assertCleans("Waterworld (Arrow Release)", "Waterworld")
+        self.assertCleans("Tumbleweeds (Screener)", "Tumbleweeds")
+
+    def test_whole_edition_group_goes_not_just_known_words(self):
+        self.assertCleans("Hansel & Gretel: Witch Hunters (Unrated Cut)", "Hansel & Gretel: Witch Hunters")
+        self.assertCleans("Enter the Void (Full-Length Director's Cut)", "Enter the Void")
+        self.assertCleans("The Sinful Dwarf (Limited Collector's Edition)", "The Sinful Dwarf")
+        self.assertCleans("Gamer (2-Disc Special Edition w Digital Copy)", "Gamer")
+        self.assertCleans("Highlander (10th Anniversary)", "Highlander")
+        self.assertCleans("The Wraith (Collector's Series)", "The Wraith")
+        self.assertCleans("Mirrors (Unrated Special Edition)", "Mirrors")
+        self.assertCleans("Jackass 3 (Unrated)", "Jackass 3")
+
+    def test_year_after_a_label_group_is_still_found(self):
+        self.assertCleans("Halloween (1978) (Remastered)", "Halloween", 1978)
+        self.assertCleans("Halloween (Remastered) (1978)", "Halloween", 1978)
+
+    def test_groups_without_a_label_word_are_kept(self):
+        self.assertCleans("The Secret of Roan Inish (Island of the Seals)",
+                          "The Secret of Roan Inish (Island of the Seals)")
+        self.assertCleans("Back to the Future (Trilogy)", "Back to the Future (Trilogy)")
+        self.assertCleans("Birdman or (The Unexpected Virtue of Ignorance)",
+                          "Birdman or (The Unexpected Virtue of Ignorance)")
+
+    def test_label_words_outside_brackets_are_part_of_the_title(self):
+        self.assertCleans("The Final Cut", "The Final Cut")
+        self.assertCleans("Arrowhead", "Arrowhead")
+
+
 class TestClassifyMatch(unittest.TestCase):
     def test_no_results_is_none(self):
         best, kind = classify_match("Rushmore", None, [])
