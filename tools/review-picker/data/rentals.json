@@ -2524,5 +2524,11 @@
     "choice": "tmdb",
     "poster_path": "/em45jL4CfTMyj5V83kj7rhdorJu.jpg",
     "overview": "A werewolf loose in Los Angeles changes the lives of three young adults who, after being mauled by the beast, learn that the only way to break the curse put upon them is to kill the one who started it all."
+  },
+  {
+    "handle": "maneater-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/vMVx3okb05J3CxCRGx8IY9QiDlJ.jpg",
+    "overview": "When a dismembered body is found in the Appalachian Mountains, a county Sheriff is shocked to discover that the predator is a six-hundred pound Bengal tiger."
   }
 ]
