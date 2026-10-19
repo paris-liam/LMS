@@ -2614,5 +2614,11 @@
     "choice": "tmdb",
     "poster_path": "/sdd0TRVpMjAViiBPq0oufYOHg0m.jpg",
     "overview": "Santa Claus is actually a demon who lost a bet with an angel, so he became the giver of toys and happiness. But this year the bet is off, and Santa is about to return to his evil ways."
+  },
+  {
+    "handle": "death-bed-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/s4ScOSYYa2rCdIvDpgUygGfRDMs.jpg",
+    "overview": "In a one-room stone building near a dilapidated mansion, a demon has condemned an artist to living behind a painting in a state of limbo, forcing him to watch in vain as trespassers' lives are taken by a ravenous bed."
   }
 ]
