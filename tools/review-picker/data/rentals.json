@@ -2530,5 +2530,11 @@
     "choice": "tmdb",
     "poster_path": "/vMVx3okb05J3CxCRGx8IY9QiDlJ.jpg",
     "overview": "When a dismembered body is found in the Appalachian Mountains, a county Sheriff is shocked to discover that the predator is a six-hundred pound Bengal tiger."
+  },
+  {
+    "handle": "mirrors-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/bt5a4ThyLpLTsia2e2ZTLzQjXO0.jpg",
+    "overview": "An ex-cop and his family are the target of an evil force that is using mirrors as a gateway into their home."
   }
 ]
