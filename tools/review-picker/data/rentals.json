@@ -2666,5 +2666,11 @@
   {
     "handle": "lms-dvd-player-rental-dvd-rental-action",
     "choice": "skip"
+  },
+  {
+    "handle": "the-thing-dxm-35mm-4k-rental-sc-fi",
+    "choice": "manual",
+    "image_src": "",
+    "overview": ""
   }
 ]
