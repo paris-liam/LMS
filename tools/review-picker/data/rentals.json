@@ -2548,5 +2548,11 @@
     "choice": "tmdb",
     "poster_path": "/8T41L1DfsLgeczCV591KxGE5BMr.jpg",
     "overview": "A young journalist has to spend a night in Barcelona's Wax Museum to investigate paranormal activities. He has no idea Dr. Knox, an insane cannibal surgeon, hides in the museum at night."
+  },
+  {
+    "handle": "paranormal-activity-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/tmclkEpjeo4Zu564gf3KrwIOuKw.jpg",
+    "overview": "After a young, middle-class couple moves into what seems like a typical suburban house, they become increasingly disturbed by a presence that may or may not be demonic, but is certainly the most active in the middle of the night."
   }
 ]
