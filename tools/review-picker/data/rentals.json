@@ -2714,5 +2714,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/9/9f/Bad_Santa_2_poster.jpg",
     "overview": "Mark Waters' 2016 Christmas black comedy and sequel to Bad Santa (2003), starring Billy Bob Thornton, Tony Cox, Brett Kelly, and Kathy Bates."
+  },
+  {
+    "handle": "the-decent-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/d/d5/Descentposter.jpg",
+    "overview": "Neil Marshall's 2005 British horror film about a group of women on a caving trip who find something hunting them underground."
   }
 ]
