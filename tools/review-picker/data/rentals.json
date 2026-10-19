@@ -2338,5 +2338,11 @@
     "choice": "tmdb",
     "poster_path": "/mhZIcRePT7U8viFQVjt1ZjYIsR4.jpg",
     "overview": "It's the 1970s and San Diego anchorman Ron Burgundy is the top dog in local TV, but that's all about to change when ambitious reporter Veronica Corningstone arrives as a new employee at his station."
+  },
+  {
+    "handle": "anchorman-2-dvd-rental-comedy",
+    "choice": "tmdb",
+    "poster_path": "/BAdmxMdCqzjs6hx3KuEtnoWP8d.jpg",
+    "overview": "With the 70s behind him, San Diego's top rated newsman, Ron Burgundy, returns to take New York's first 24-hour news channel by storm."
   }
 ]
