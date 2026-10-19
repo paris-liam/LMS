@@ -3112,6 +3112,10 @@
       "Image Src": "https://image.tmdb.org/t/p/w1280/rox6ML6nMwg0ySQMUGr9yQvzCIC.jpg"
     }
   },
+  "the-curse-vhs-rental-2010000002155": {
+    "batch": "rentals",
+    "status": "queued"
+  },
   "the-decent-dvd-rental-horror": {
     "batch": "rentals",
     "status": "queued"
