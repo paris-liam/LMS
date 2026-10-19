@@ -115,7 +115,7 @@ class TestHelpers(unittest.TestCase):
         vocab = vocabulary()
         self.assertEqual(vocab["formats"], ["vhs", "dvd", "blu-ray", "4k", "laserdisc", "betamax"])
         self.assertIn("kids-family", vocab["genres"])
-        self.assertEqual(len(vocab["genres"]), 15)
+        self.assertEqual(len(vocab["genres"]), 16)
 
 
 if __name__ == "__main__":

@@ -53,10 +53,10 @@ Do this once, on your master copy.
    `genre-mappings.csv` → **Insert new sheet**. Rename the new tab to exactly
    `mappings`.
 
-   You should end up with 15 rows: genre names in column A, and a matching
+   You should end up with 16 rows: genre names in column A, and a matching
    code in column B (`Comedy` / `comedy`, `Kids & Family` / `kids-family`,
-   and so on). Check that **A4 reads `Kids & Family`** and **A15 reads
-   `Anime`** — if either is missing or split across two cells, the import
+   and so on). Check that **A4 reads `Kids & Family`** and **A16 reads
+   `Martial Arts`** — if either is missing or split across two cells, the import
    didn't land cleanly. Delete the tab and import again.
 
    Right-click the tab → Hide sheet. You never need to look at it again.
@@ -256,7 +256,8 @@ Two steps, and the second one needs your developer:
 Ask first — it's a developer step, not a sheet edit. A genre has to exist in
 Shopify (as a genre value) and in the pipeline's genre list before a sheet row
 can use it; a genre typed only into the sheet is silently left empty on the
-product. The fifteen genres in the dropdown are the complete list today
-(Special Interest and Anime were added this way on 2026-09-28/29). If a film
+product. The sixteen genres in the dropdown are the complete list today
+(Special Interest and Anime were added this way on 2026-09-28/29, Martial
+Arts on 2026-10-19). If a film
 doesn't fit any of them, use the closest one and put the more specific label
 in **Extra tags**.

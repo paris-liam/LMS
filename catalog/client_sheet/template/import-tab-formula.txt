@@ -30,6 +30,7 @@ dropdowns use `mappings!A:A`, so a row added here appears in them):
   Holiday           holiday
   Special Interest  special-interest
   Anime             anime
+  Martial Arts      martial-arts
 
 ------------------------------------------------------------------
 PASTE INTO TAB 2, CELL A1:

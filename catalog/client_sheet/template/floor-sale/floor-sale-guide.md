@@ -47,7 +47,7 @@ Do this once, on your master copy.
 
 4. **Add the `mappings` tab.** File → Import → Upload `genre-mappings.csv`
    → **Insert new sheet**. Rename the new tab to exactly `mappings`. Check
-   that **A4 reads `Kids & Family`** and **A15 reads `Anime`**. If either
+   that **A4 reads `Kids & Family`** and **A16 reads `Martial Arts`**. If either
    is wrong, delete the tab and import it again. Then right-click the tab →
    Hide sheet.
 
@@ -152,5 +152,5 @@ mistakes that Shopify would otherwise accept silently.
 
 Ask your developer first. Both have to exist in Shopify and in the pipeline
 before a sheet row can use them. A genre typed only into the sheet ends up
-empty on the product. If a film doesn't fit any of the fifteen genres, use
+empty on the product. If a film doesn't fit any of the sixteen genres, use
 the closest one and put the more specific label in **Extra tags**.

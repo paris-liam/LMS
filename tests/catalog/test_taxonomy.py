@@ -27,8 +27,8 @@ class TestCanonicalGenre(unittest.TestCase):
         for label in GENRES:
             self.assertEqual(canonical_genre(label), label)
 
-    def test_fifteen_genres(self):
-        self.assertEqual(len(GENRES), 15)
+    def test_sixteen_genres(self):
+        self.assertEqual(len(GENRES), 16)
 
     def test_case_and_punctuation_insensitive(self):
         self.assertEqual(canonical_genre("sci-fi"), "Sci-Fi")
