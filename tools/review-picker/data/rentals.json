@@ -2726,5 +2726,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/a/a8/Tangled_poster.jpg",
     "overview": "Disney's 2010 animated musical fantasy comedy, loosely based on the fairy tale \"Rapunzel\", about a girl with magically long hair who leaves her tower."
+  },
+  {
+    "handle": "seven-dxm-35mm-bluray-rental-thriller",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/6/68/Seven_%28movie%29_poster.jpg",
+    "overview": "David Fincher's 1995 crime thriller starring Brad Pitt and Morgan Freeman as detectives hunting a killer who uses the seven deadly sins as his motif."
   }
 ]
