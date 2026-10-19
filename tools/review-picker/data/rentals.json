@@ -2678,5 +2678,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/a/aa/Fly_poster.jpg",
     "overview": "David Cronenberg's 1986 science fiction body horror film starring Jeff Goldblum and Geena Davis, about a scientist whose teleportation experiment goes terribly wrong."
+  },
+  {
+    "handle": "pulp-fiction-dxm-35mm-bluray-rental-action",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/3/3b/Pulp_Fiction_%281994%29_poster.jpg",
+    "overview": "Quentin Tarantino's 1994 crime film telling four intertwining tales of crime and violence in Los Angeles."
   }
 ]
