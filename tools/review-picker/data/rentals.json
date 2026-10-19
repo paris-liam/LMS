@@ -2702,5 +2702,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/d/d2/Back_to_the_Future.jpg",
     "overview": "Robert Zemeckis's 1985 science fiction film starring Michael J. Fox and Christopher Lloyd, about a teenager sent back to 1955 in a time-traveling DeLorean. The trilogy continues with Part II and Part III."
+  },
+  {
+    "handle": "jurassic-park-dxm-35mm-bluray-rental-sc-fi",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/e/e7/Jurassic_Park_poster.jpg",
+    "overview": "Steven Spielberg's 1993 science fiction film, based on Michael Crichton's novel, set on an island theme park of cloned dinosaurs that breaks down."
   }
 ]
