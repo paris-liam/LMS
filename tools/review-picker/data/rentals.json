@@ -2696,5 +2696,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/5/5a/It_%282017%29_poster.jpg",
     "overview": "Andy Muschietti's 2017 supernatural horror film, the first part of a two-part adaptation of Stephen King's novel."
+  },
+  {
+    "handle": "back-to-the-future-trilogy-dxm-35mm-4k-rental-sc-fi",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/d/d2/Back_to_the_Future.jpg",
+    "overview": "Robert Zemeckis's 1985 science fiction film starring Michael J. Fox and Christopher Lloyd, about a teenager sent back to 1955 in a time-traveling DeLorean. The trilogy continues with Part II and Part III."
   }
 ]
