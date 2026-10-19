@@ -2608,5 +2608,11 @@
     "choice": "tmdb",
     "poster_path": "/bFsxsZlEDo1rMemCLZiR06z9YlF.jpg",
     "overview": "A young drifter, struggling to makes ends meet, accepts a job to kill a prominent accountant. When he isn't paid for the hit, revenge is now his path."
+  },
+  {
+    "handle": "santas-slay-dvd-rental-horror",
+    "choice": "tmdb",
+    "poster_path": "/sdd0TRVpMjAViiBPq0oufYOHg0m.jpg",
+    "overview": "Santa Claus is actually a demon who lost a bet with an angel, so he became the giver of toys and happiness. But this year the bet is off, and Santa is about to return to his evil ways."
   }
 ]
