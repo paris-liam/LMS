@@ -2744,5 +2744,11 @@
     "choice": "manual",
     "image_src": "",
     "overview": ""
+  },
+  {
+    "handle": "pans-labrynth-dvd-rental-horror",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/6/67/Pan%27s_Labyrinth.jpg",
+    "overview": "Guillermo del Toro's 2006 Spanish-language dark fantasy film."
   }
 ]
