@@ -20,7 +20,9 @@ from catalog.core.plan import Plan, add_approval_args, confirm
 from catalog.core.runs import resolve_run
 from catalog.errors import InputShapeError, NoRunError
 from catalog.libib.columns import READY_COLUMNS, ready_row
-from catalog.libib.diff import BLOCKED_COLUMNS, DRIFT_COLUMNS, ELIGIBLE_COLUMNS, HELD_COLUMNS, ORPHAN_COLUMNS, diff
+from catalog.libib.diff import (
+    BLOCKED_COLUMNS, DRIFT_COLUMNS, ELIGIBLE_COLUMNS, HELD_COLUMNS, ORPHAN_COLUMNS, REPRINT_COLUMNS, diff,
+)
 from catalog.libib.exports import DEFAULT_COLLECTION, load_libib
 from catalog.libib.fields import is_rental, missing_wanted
 from catalog.libib.fix import (
@@ -144,8 +146,9 @@ def run_diff_command(args) -> int:
     write_csv(out / "orphans.csv", ORPHAN_COLUMNS, result.orphans)
     write_csv(out / "blocked.csv", BLOCKED_COLUMNS, result.blocked)
     write_csv(out / "held.csv", HELD_COLUMNS, result.held)
+    write_csv(out / "reprints.csv", REPRINT_COLUMNS, result.reprints)
 
-    if migrated or result.promoted:
+    if migrated or result.promoted or result.refreshed:
         if state_path(sync_dir).exists():
             shutil.copyfile(state_path(sync_dir), out / "state-before.json")
         save_state(sync_dir, state)
@@ -163,7 +166,10 @@ def run_diff_command(args) -> int:
         f"orphans:      {len(result.orphans)} Libib items (no rental / duplicates) -> orphans.csv",
         f"blocked:      {len(result.blocked)} rentals with a bad or shared barcode -> blocked.csv",
         f"held:         {len(result.held)} needs-review rentals not found in Libib (a person decides) -> held.csv",
-        f"state:        {len(result.promoted)} promoted to done, {migrated} poster_src migrated",
+        f"reprints:     {len(result.reprints)} rentals still in Libib under their pre-reprint call number "
+        "(renumbered by fix --drift / sync) -> reprints.csv",
+        f"state:        {len(result.promoted)} promoted to done, {migrated} poster_src migrated, "
+        f"{len(result.refreshed)} call numbers refreshed",
     ]
     (out / "libib-report.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
     for line in lines:
@@ -342,7 +348,8 @@ def run_sync_command(args, exporter=None, importer=None, fixer=run_fixer, downlo
     out = run_dir / "libib"
     rows_by_handle = {r["Handle"]: r for r in load_snapshot(run_dir / "snapshot.json")}
     drift_rows = _read_csv(out / "drift.csv")
-    fields_by_handle, manual = drift_targets(drift_rows, {})
+    remaps = confirmed_remaps(drift_rows, _read_csv(out / "reprints.csv"))
+    fields_by_handle, manual = drift_targets(drift_rows, remaps)
     state = load_state(args.sync_dir)
     eligible = [e for e in _read_csv(out / "eligible.csv")
                 if (state.get(e["handle"]) or {}).get("status") not in HELD][: args.size]
@@ -358,11 +365,12 @@ def run_sync_command(args, exporter=None, importer=None, fixer=run_fixer, downlo
     plan = Plan(
         title="libib sync",
         count=len(fields_by_handle) + len(eligible),
-        summary=[f"fix {len(fields_by_handle)} existing Libib items ({len(drift_rows)} fields) to match Shopify",
+        summary=[f"fix {len(fields_by_handle)} existing Libib items ({len(drift_rows)} fields) to match Shopify"
+                 + (f", renumbering {len(remaps)} reprinted labels (old call number -> Shopify barcode)" if remaps else ""),
                  f"import {len(eligible)} new rentals (CSV import, Force Import Mode), then set their barcode, "
                  "description, tags and poster",
                  "then export Libib again and diff to confirm"],
-        samples=drift_change_lines(drift_rows, fields_by_handle, rows_by_handle, {}) + new_lines,
+        samples=drift_change_lines(drift_rows, fields_by_handle, rows_by_handle, remaps) + new_lines,
         warnings=([f"{len(manual)} drifted call numbers need a person (not touched): {', '.join(manual[:10])}"]
                   if manual else [])
         + [f"{n} {name} — a person decides (not touched; see {out / (name + '.csv')})"
@@ -518,7 +526,9 @@ def run_fix_command(args, fixer=run_fixer, download=None, stdin=None) -> int:
         if not drift_path.exists():
             raise NoRunError(f"no libib diff for run {run_dir.name} — run `python3 -m catalog libib diff …` first")
         drift_rows = _read_csv(drift_path)
-        remaps = confirmed_remaps(drift_rows, _read_call_number_maps(args.call_number_map))
+        reprints_path = run_dir / "libib" / "reprints.csv"
+        reprints = _read_csv(reprints_path) if reprints_path.exists() else []
+        remaps = confirmed_remaps(drift_rows, _read_call_number_maps(args.call_number_map) + reprints)
         fields_by_handle, manual = drift_targets(drift_rows, remaps)
         work_dir = sync_dir / f"drift-{run_dir.name}"
         # Resume: skip what an earlier (e.g. stopped) run on this same diff already fixed.

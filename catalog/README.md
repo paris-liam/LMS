@@ -168,8 +168,15 @@ folder. `mark-imported` remains for a batch imported by hand. Items are matched 
 Shopify barcode = Libib call number (items without a call number fall back to their copy
 barcode; that drift needs a manual fix). Rentals with a bad or shared barcode are `blocked`
 until the audit's barcode findings are fixed. Orphans are listed, never deleted.
-`diff` promotes in-sync handles to `done` in `libib-sync/_state.json` and keeps the previous
-state as `runs/<id>/libib/state-before.json`.
+`diff` promotes in-sync handles to `done` in `libib-sync/_state.json`, refreshes each tracked
+rental's recorded call number from its exact Libib match, and keeps the previous state as
+`runs/<id>/libib/state-before.json`.
+
+**Reprinted labels.** When a rental's Shopify barcode is not in Libib but the call number the
+state last saw it under is (one Libib item, and no other Shopify rental carries that number), the
+label was reprinted: `diff` matches the old item and lists it in `runs/<id>/libib/reprints.csv`
+(the same `handle, old_barcode, new_barcode` shape as a `--call-number-map`). `fix --drift` and
+`sync` read that file and renumber the item to the new barcode instead of importing a duplicate.
 
 ## Running in the cloud
 

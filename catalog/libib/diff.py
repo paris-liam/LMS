@@ -5,6 +5,12 @@ done in `state` (the caller saves it).
 Join key: Shopify Variant Barcode == Libib call_number. An item with no
 call_number is matched on its copy barcode instead, so an item imported
 before call numbers existed is never mistaken for missing and re-imported.
+
+Reprints: when a rental's barcode is not in Libib but the call number `state`
+last saw it under is (one item, owned by no other Shopify rental), the copy's
+label was reprinted. It is matched to that item and listed in `reprints`, so
+the fixer renumbers it instead of a duplicate being imported. To keep that
+working, `state` call numbers are refreshed from every exact match.
 """
 
 from dataclasses import dataclass, field
@@ -21,6 +27,7 @@ ORPHAN_COLUMNS = ["id", "title", "call_number", "barcode", "reason"]
 BLOCKED_COLUMNS = ["handle", "barcode", "reason"]
 ELIGIBLE_COLUMNS = ["handle", "call_number", "title"]
 HELD_COLUMNS = ["handle", "call_number", "note"]
+REPRINT_COLUMNS = ["handle", "old_barcode", "new_barcode"]  # a call number map
 FIXABLE_FIELDS = ("title", "description", "tags", "barcode", "poster")
 _PROMOTABLE = ("queued", "imported", "needs-review")
 
@@ -35,6 +42,8 @@ class DiffResult:
     blocked: list = field(default_factory=list)
     orphans: list = field(default_factory=list)
     promoted: list = field(default_factory=list)
+    reprints: list = field(default_factory=list)
+    refreshed: list = field(default_factory=list)
 
 
 def _orphan(item: dict, reason: str) -> dict:
@@ -108,7 +117,9 @@ def diff(rows: list[dict], items: list[dict], state: dict) -> DiffResult:
         entry = state.get(handle)
         found = by_call.get(call) or by_barcode.get(call) or []
         old_call = ((entry or {}).get("call_number") or "").strip()
-        if not found and old_call and old_call != call and len(by_call.get(old_call) or []) == 1:
+        reprinted = (not found and old_call and old_call != call and len(by_call.get(old_call) or []) == 1
+                     and not owners.get(old_call))
+        if reprinted:
             found = by_call[old_call]  # still in Libib under its pre-reprint call number
         if len(found) > 1:
             for dup in found:
@@ -131,6 +142,11 @@ def diff(rows: list[dict], items: list[dict], state: dict) -> DiffResult:
 
         libib_item = found[0]
         matched.add(libib_item["id"])
+        if reprinted:
+            result.reprints.append({"handle": handle, "old_barcode": old_call, "new_barcode": call})
+        elif entry is not None and libib_item["call_number"] == call and old_call != call:
+            entry["call_number"] = call
+            result.refreshed.append(handle)
         drift = _drift(row, libib_item, entry)
         if drift:
             result.drift.extend(drift)

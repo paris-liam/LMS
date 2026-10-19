@@ -163,5 +163,42 @@ class TestReviewFixes(unittest.TestCase):
         self.assertEqual(len(result.eligible), 1)
 
 
+class TestReprints(unittest.TestCase):
+    """A reprinted label: Shopify has the new barcode, Libib the old call number."""
+
+    def test_reprinted_rental_is_matched_to_its_old_item_and_listed(self):
+        state = {"jaws": {"status": "done", "call_number": "90000380"}}
+        result = diff([rental()], [item("i9", "90000380")], state)
+        self.assertEqual((result.eligible, result.orphans), ([], []))
+        self.assertEqual(result.reprints, [{"handle": "jaws", "old_barcode": "90000380", "new_barcode": "01577790"}])
+        self.assertIn("call_number", fields(result))
+
+    def test_old_call_number_now_on_another_rental_is_not_a_reprint(self):
+        state = {"jaws": {"status": "done", "call_number": "02222222"}}
+        rows = [rental(), rental("heat", "02222222", Title="Heat")]
+        result = diff(rows, [item("i9", "02222222", title="Heat")], state)
+        self.assertEqual(result.reprints, [])
+        self.assertEqual([e["handle"] for e in result.eligible], ["jaws"])
+
+    def test_exact_match_refreshes_a_stale_state_call_number(self):
+        state = {"jaws": {"status": "done", "call_number": "191-VHSJAW-001A", "poster_src": "https://cdn/j.jpg"}}
+        result = diff([rental()], [item()], state)
+        self.assertEqual(result.refreshed, ["jaws"])
+        self.assertEqual(state["jaws"]["call_number"], "01577790")
+        self.assertEqual(result.in_sync, ["jaws"])
+
+    def test_refreshed_call_number_lets_a_later_reprint_be_found(self):
+        state = {"jaws": {"status": "done", "call_number": "191-VHSJAW-001A", "poster_src": "https://cdn/j.jpg"}}
+        diff([rental(barcode="90000380")], [item("i9", "90000380")], state)   # last week: matched exactly
+        result = diff([rental()], [item("i9", "90000380")], state)            # label reprinted since
+        self.assertEqual(result.reprints, [{"handle": "jaws", "old_barcode": "90000380", "new_barcode": "01577790"}])
+        self.assertEqual(result.eligible, [])
+
+    def test_untracked_rental_gets_no_state_entry(self):
+        state = {}
+        result = diff([rental()], [item()], state)
+        self.assertEqual((state, result.refreshed), ({}, []))
+
+
 if __name__ == "__main__":
     unittest.main()

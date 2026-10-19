@@ -279,6 +279,17 @@ class TestFixCommand(LibibCase):
         self.assertEqual([(r["call_number"], r["old_call_number"]) for r in calls[0]["rows"]],
                          [("03333333", "191-ALN-001A")])
 
+    def test_the_diffs_reprints_are_renumbered_without_a_map(self):
+        self.write_call_number_drift()
+        (self.run / "libib" / "reprints.csv").write_text(
+            "handle,old_barcode,new_barcode\nalien,191-ALN-001A,03333333\n", encoding="utf-8")
+        calls = []
+        with self.env(), contextlib.redirect_stdout(io.StringIO()):
+            command.run_fix_command(self.parse("fix", "--drift", "--approve", "ok"), fixer=self.fake_fixer(calls),
+                                    download=fake_download)
+        self.assertEqual([(r["call_number"], r["old_call_number"]) for r in calls[0]["rows"]],
+                         [("03333333", "191-ALN-001A")])  # jaws: not in reprints.csv, still manual
+
     def test_without_a_map_call_number_drift_stays_manual(self):
         self.write_call_number_drift()
         calls = []

@@ -237,6 +237,8 @@ class FullFakeLibib:
     def fixer(self, rows, report_path, email, password, headless):
         self.fixed.append([r["call_number"] for r in rows])
         for r in rows:
+            if r.get("old_call_number"):
+                self.items[r["call_number"]] = self.items.pop(r["old_call_number"])
             self.items[r["call_number"]].update(title=r["title"], tags=r["tags"], description=r["description"])
         return [{"call_number": r["call_number"], "barcode_status": "skipped", "content_status": "updated",
                  "message": "content: changed: title, poster"} for r in rows]
@@ -299,6 +301,22 @@ class TestSyncCommand(unittest.TestCase):
         self.assertEqual(self.libib.items["01111111"]["title"], "Jaws")
         state = json.loads((self.sync / "_state.json").read_text(encoding="utf-8"))
         self.assertEqual(state["heat"]["status"], "done")       # promoted by the confirming diff
+
+    def test_a_reprinted_label_is_renumbered_not_imported_again(self):
+        state = json.loads((self.sync / "_state.json").read_text(encoding="utf-8"))
+        state["heat"] = {"status": "done", "call_number": "90000380", "poster_src": "https://cdn/heat.jpg"}
+        (self.sync / "_state.json").write_text(json.dumps(state), encoding="utf-8")
+        self.libib.items["90000380"] = {"title": "Heat", "tags": "vhs, horror", "description": "Heat."}
+        code, out = self.run_sync("--dry-run")
+        self.assertIn("call number: '90000380' -> '02222222'", out)
+        self.assertNotIn("NEW Libib item", out)
+        code, _ = self.run_sync("--approve", "ok")
+        self.assertEqual(code, 0)
+        self.assertEqual(self.libib.uploads, [])                 # no duplicate imported
+        self.assertNotIn("90000380", self.libib.items)
+        self.assertIn("02222222", self.libib.items)
+        state = json.loads((self.sync / "_state.json").read_text(encoding="utf-8"))
+        self.assertEqual(state["heat"]["call_number"], "02222222")  # refreshed by the confirming diff
 
 
 class TestSelftestCommand(unittest.TestCase):
