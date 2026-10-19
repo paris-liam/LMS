@@ -2708,5 +2708,11 @@
     "choice": "manual",
     "image_src": "https://upload.wikimedia.org/wikipedia/en/e/e7/Jurassic_Park_poster.jpg",
     "overview": "Steven Spielberg's 1993 science fiction film, based on Michael Crichton's novel, set on an island theme park of cloned dinosaurs that breaks down."
+  },
+  {
+    "handle": "badder-santa-dvd-rental-comedy",
+    "choice": "manual",
+    "image_src": "https://upload.wikimedia.org/wikipedia/en/9/9f/Bad_Santa_2_poster.jpg",
+    "overview": "Mark Waters' 2016 Christmas black comedy and sequel to Bad Santa (2003), starring Billy Bob Thornton, Tony Cox, Brett Kelly, and Kathy Bates."
   }
 ]
