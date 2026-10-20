@@ -1,0 +1,106 @@
+LITTLE MOVIE STORE — Libib rental upload sheet: the two formulas
+
+Tab 1 is `Add rentals` (the client types here), tab 2 is `Libib import` (the
+download). Plus the hidden `mappings` tab: import ../genre-mappings.csv
+(16 rows, genre name in A, handle in B), exactly as for the floor sale sheet.
+
+Tab 1 layout:
+  A Title   B Format   C Genre 1   D Genre 2   E Genre 3   F Copies
+  G Description        H Extra tags
+  I Check   (formula 1 below — nothing is typed in I)
+  K1        status line (below)
+
+Python mirror: catalog/client_sheet/libib_rental.py. Answer key for the
+scaffold rows: libib-rental-template.expected.csv. Guide: libib-rental-guide.md.
+
+------------------------------------------------------------------
+FORMULA 1 — PASTE INTO `Add rentals`, CELL I1:
+------------------------------------------------------------------
+
+=VSTACK("Check", BYROW(A2:H, LAMBDA(r, LET(
+  title,   TRIM(TO_TEXT(INDEX(r, 1, 1))),
+  fmt,     TRIM(TO_TEXT(INDEX(r, 1, 2))),
+  genA,    TRIM(TO_TEXT(INDEX(r, 1, 3))),
+  genB,    TRIM(TO_TEXT(INDEX(r, 1, 4))),
+  genC,    TRIM(TO_TEXT(INDEX(r, 1, 5))),
+  copies,  TRIM(TO_TEXT(INDEX(r, 1, 6))),
+  unknown, LAMBDA(g, IF(g = "", "", IF(ISNA(MATCH(g, mappings!$A:$A, 0)), "unknown genre '" & g & "'", ""))),
+  probs,   TEXTJOIN("; ", TRUE,
+             IF(title = "", "no title", ""),
+             IF(ISNA(MATCH(fmt, {"VHS";"DVD";"Blu-Ray";"4K";"Laserdisc";"Betamax"}, 0)), "pick a format", ""),
+             IF(genA & genB & genC = "", "pick a genre", ""),
+             unknown(genA), unknown(genB), unknown(genC),
+             IF(copies = "", "", IF(REGEXMATCH(copies, "^[1-9]\d*$"), "", "copies must be a whole number"))),
+  IF(TEXTJOIN("", TRUE, r) = "", "", IF(probs = "", "OK", probs))
+))))
+
+------------------------------------------------------------------
+STATUS LINE — PASTE INTO `Add rentals`, CELL K1:
+------------------------------------------------------------------
+
+="Ready to import: " & COUNTIF(I2:I, "OK") & "   ·   Held back: " & (COUNTIF(I2:I, "?*") - COUNTIF(I2:I, "OK"))
+
+------------------------------------------------------------------
+FORMULA 2 — PASTE INTO `Libib import`, CELL A1:
+------------------------------------------------------------------
+
+=LET(
+  raw,     IFERROR(FILTER('Add rentals'!A2:H, 'Add rentals'!I2:I = "OK"), ""),
+  empty,   COLUMNS(raw) = 1,
+  src,     IF(empty, {"","","","","","","",""}, raw),
+  ws,      LAMBDA(t, TRIM(REGEXREPLACE(TO_TEXT(t), "[\s\x{00A0}]+", " "))),
+  slug,    LAMBDA(t, REGEXREPLACE(REGEXREPLACE(REGEXREPLACE(LOWER(TRIM(TO_TEXT(t))), "['’]", ""), "[^a-z0-9]+", "-"), "^-+|-+$", "")),
+  gh,      LAMBDA(g, IF(TRIM(g) = "", "", IFERROR(VLOOKUP(TRIM(g), mappings!$A:$B, 2, FALSE), ""))),
+  title,   MAP(INDEX(src,,1), LAMBDA(t, ws(t))),
+  tags,    MAP(INDEX(src,,2), INDEX(src,,3), INDEX(src,,4), INDEX(src,,5), INDEX(src,,8),
+             LAMBDA(f, a, b, c, e, TEXTJOIN(", ", TRUE, UNIQUE(HSTACK(slug(f), gh(a), gh(b), gh(c),
+               IF(TRIM(e) = "", "", ARRAYFORMULA(LOWER(TRIM(SPLIT(e, ",")))))), TRUE)))),
+  copies,  MAP(INDEX(src,,6), LAMBDA(c, IF(TRIM(TO_TEXT(c)) = "", "1", TRIM(TO_TEXT(c))))),
+  descr,   MAP(INDEX(src,,7), LAMBDA(d, ws(d))),
+  konst,   LAMBDA(v, MAP(title, LAMBDA(x, v))),
+  blank,   konst(""),
+  header,  {"title","creators","description","upc_isbn10","ean_isbn13","number_of_discs","ensemble","aspect_ratio","tags","notes","group","price","added","publisher","publish_date","length_of","copies","call_number","ddc","lcc","rating","review","review_created","status","began_date","completed_date"},
+  body,    HSTACK(title, blank, descr, blank, blank, blank, blank, blank, tags, blank, blank, blank, blank, blank, blank, blank, copies, blank, blank, blank, blank, blank, blank, blank, blank, blank),
+  IF(empty, header, VSTACK(header, body))
+)
+
+------------------------------------------------------------------
+NOTES FOR WHOEVER BUILDS THE SHEET
+------------------------------------------------------------------
+
+* Only rows whose Check reads OK reach `Libib import`. A held-back row is
+  fixed on `Add rentals` and appears in the download by itself — nothing to
+  re-run.
+
+* The 26 output columns and their order are Libib's Movie import template
+  (catalog/libib/columns.py:LIBIB_MOVIE_COLUMNS). Do not add, remove or
+  reorder them.
+
+* call_number is blank on purpose. The rental sync app only picks up copies
+  with a `201…` barcode and no Call # (catalog/core/barcodes.py), and Libib
+  gives every new copy its own `201…` barcode. price is blank too: nothing
+  downstream reads it.
+
+* No UPC/EAN: the import never asks Libib to look a movie up, so title,
+  description and tags are exactly what the client typed. Force Import Mode
+  is what lets a row in without one. Posters come from TMDB on the sync page.
+
+* Tags: the format as a slug (`blu-ray`, `4k`), the genre handles from
+  `mappings` (`kids-family`), then each extra tag — all lowercase, repeats
+  dropped. That is the vocabulary rental_sync/transform.py checks, so a
+  ready row can't be set aside by the sync app for its format or genre.
+  (An extra tag that looks like a misspelt genre, e.g. `horor`, still is.)
+
+* Copies: blank means 1. Libib makes that many copies of the one item, each
+  with its own barcode — and the sync app makes each its own Shopify product.
+
+* Same Sheets rules as the other upload sheets: TRIM isn't array-aware
+  outside ARRAYFORMULA, so it's mapped per cell; LET names must not look like
+  cell references (`genA`, never `g1`); `konst` repeats a constant down the
+  rows; SPLIT errors on an empty string, hence the IF around it. UNIQUE(…,
+  TRUE) dedupes across the row.
+
+* Seam test: sheet-export-input.csv (`Add rentals`, with Check) and
+  sheet-export.csv (`Libib import`) are downloads of the live sheet, checked
+  against the Python mirror in tests/catalog/test_libib_rental_sheet.py.
+  After any formula change, re-download both tabs over those two files.

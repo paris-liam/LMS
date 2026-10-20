@@ -4,6 +4,8 @@
 
 Add each rental to the **Rental Library** collection (UPC lookup or typed in).
 
+Adding a batch? The **Libib rental upload sheet** imports many at once and fills these fields for you.
+
 - **Title** — as it should appear on the website. Delete extras like `[VHS]` or `(Widescreen Edition)`.
 - **Tags** — exactly **one format** and **one to three genres**:
   - Formats: `vhs`, `dvd`, `blu-ray`, `4k`, `laserdisc`, `betamax`

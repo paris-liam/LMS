@@ -5,7 +5,8 @@
 Writes template/client-upload-template.expected.csv (tab 2, Shopify),
 template/client-upload-template.libib-expected.csv (tab 3, Libib) and
 template/floor-sale/floor-sale-template.expected.csv (the Floor Sale sheet's
-tab 2). Run after
+tab 2) and template/libib-rental/libib-rental-template.expected.csv (the Libib
+rental sheet's `Libib import` tab). Run after
 any taxonomy change, then re-run the tests. The expected files are the answer
 keys the manual sheet-build pass checks the spreadsheet's tabs against.
 """
@@ -13,6 +14,7 @@ keys the manual sheet-build pass checks the spreadsheet's tabs against.
 import csv
 from pathlib import Path
 
+from catalog.client_sheet import libib_rental
 from catalog.client_sheet.floor_sale import floor_sale_rows_to_import_rows, split_fill_tab
 from catalog.client_sheet.transform import fill_rows_to_import_rows, fill_rows_to_libib_rows
 from catalog.core.columns import FLOOR_SALE_TEMPLATE_COLUMNS, TEMPLATE_COLUMNS
@@ -25,6 +27,9 @@ LIBIB_EXPECTED_CSV = TEMPLATE_DIR / "client-upload-template.libib-expected.csv"
 FLOOR_SALE_DIR = TEMPLATE_DIR / "floor-sale"
 FLOOR_SALE_FILL_CSV = FLOOR_SALE_DIR / "floor-sale-template.csv"
 FLOOR_SALE_EXPECTED_CSV = FLOOR_SALE_DIR / "floor-sale-template.expected.csv"
+LIBIB_RENTAL_DIR = TEMPLATE_DIR / "libib-rental"
+LIBIB_RENTAL_FILL_CSV = LIBIB_RENTAL_DIR / "libib-rental-template.csv"
+LIBIB_RENTAL_EXPECTED_CSV = LIBIB_RENTAL_DIR / "libib-rental-template.expected.csv"
 
 
 def _write(path, columns, rows) -> None:
@@ -47,6 +52,8 @@ def main() -> None:
     floor_sale, batch_date = split_fill_tab(_read(FLOOR_SALE_FILL_CSV))
     _write(FLOOR_SALE_EXPECTED_CSV, FLOOR_SALE_TEMPLATE_COLUMNS,
            floor_sale_rows_to_import_rows(floor_sale, batch_date))
+    _write(LIBIB_RENTAL_EXPECTED_CSV, LIBIB_MOVIE_COLUMNS,
+           libib_rental.fill_rows_to_libib_rows(_read(LIBIB_RENTAL_FILL_CSV)))
 
 
 if __name__ == "__main__":

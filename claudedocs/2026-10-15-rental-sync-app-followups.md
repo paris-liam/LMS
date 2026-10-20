@@ -49,7 +49,9 @@ What's left is optional: the minor issues and later phases below.
 
 - Auto-export from Libib through a GitHub Action (needs the spike: does Libib accept a login from
   GitHub's runners?), replacing the manual upload.
-- A CSV template so the client can bulk-add rentals to Libib.
+- A CSV template so the client can bulk-add rentals to Libib — **drafted 2026-10-18** as a Google
+  Sheet in `catalog/client_sheet/template/libib-rental/` (mirror `catalog/client_sheet/libib_rental.py`);
+  live sheet built and seam-tested 2026-10-19; still needs the developer test import in its guide.
 - Pushing later Libib edits to products that already exist (the app is create-only).
 - Bringing the last ~50 legacy 8-digit rentals into this flow; deciding whether `libib sync`
   retires.
