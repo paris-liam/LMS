@@ -4,11 +4,11 @@ import unittest
 from datetime import date
 from types import SimpleNamespace
 
-from catalog.shopify.barcode_check import read_variants, run_command, shared_barcodes
+from catalog.shopify.barcode_check import floor_sale_without_barcode, read_variants, run_command, shared_barcodes
 
 
-def _variant(barcode, created, handle):
-    return {"barcode": barcode, "created": created, "handle": handle, "title": handle.title(), "tags": []}
+def _variant(barcode, created, handle, tags=()):
+    return {"barcode": barcode, "created": created, "handle": handle, "title": handle.title(), "tags": list(tags)}
 
 
 VARIANTS = [
@@ -19,6 +19,7 @@ VARIANTS = [
     _variant("11111111", "2026-10-19", "unique"),
     _variant("", "2026-10-19", "no-barcode"),
     _variant("", "2026-10-19", "no-barcode-either"),
+    _variant("", "2026-10-21", "floor-sale-flow-missed", ["Floor Sale"]),
 ]
 
 
@@ -30,6 +31,12 @@ class TestSharedBarcodes(unittest.TestCase):
 
     def test_since_keeps_clashes_with_a_new_variant(self):
         self.assertEqual(list(shared_barcodes(VARIANTS, date(2026, 10, 19))), ["34579450"])
+
+
+class TestFloorSaleWithoutBarcode(unittest.TestCase):
+    def test_lists_only_floor_sale_copies_with_no_barcode(self):
+        self.assertEqual([v["handle"] for v in floor_sale_without_barcode(VARIANTS)], ["floor-sale-flow-missed"])
+        self.assertEqual(floor_sale_without_barcode(VARIANTS, date(2026, 10, 22)), [])
 
 
 class TestReadVariants(unittest.TestCase):
@@ -70,8 +77,14 @@ class TestCommand(unittest.TestCase):
         self.assertIn("the-generals-daughter", out)
         self.assertNotIn("71735546", out)
 
-    def test_exit_0_when_nothing_new_clashes(self):
+    def test_lists_a_floor_sale_copy_flow_missed(self):
         code, out = self._run("2026-10-20")
+        self.assertEqual(code, 1)
+        self.assertIn("floor-sale-flow-missed", out)
+        self.assertNotIn("34579450", out)
+
+    def test_exit_0_when_nothing_new(self):
+        code, out = self._run("2026-10-22")
         self.assertEqual(code, 0)
         self.assertIn("no shared barcodes", out)
 

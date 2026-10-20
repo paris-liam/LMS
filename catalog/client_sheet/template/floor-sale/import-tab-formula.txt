@@ -27,7 +27,6 @@ PASTE INTO TAB 2, CELL A1:
   batch,   'Add floor sale'!G2,
   nodate,  IF(batch = "", TRUE, NOT(ISDATE(batch))),
   stamp,   IF(nodate, "", TEXT(batch, "yyyymmdd")),
-  bstamp,  IF(nodate, "", TEXT(batch, "yymmdd")),
   tr,      LAMBDA(col, MAP(col, LAMBDA(x, TRIM(x)))),
   title,   tr(INDEX(src,,1)),
   fmt,     tr(INDEX(src,,2)),
@@ -38,14 +37,13 @@ PASTE INTO TAB 2, CELL A1:
   gh,      LAMBDA(g, IF(g="", "", IFERROR(VLOOKUP(g, mappings!$A:$B, 2, FALSE), ""))),
   base,    MAP(title, fmt, LAMBDA(t, f, slug(t) & "-" & slug(f) & "-floor-sale-" & stamp)),
   handle,  MAP(SEQUENCE(MAX(n, 1)), LAMBDA(i, LET(b, INDEX(base, i), k, COUNTIF(ARRAY_CONSTRAIN(base, i, 1), b), IF(k = 1, b, b & "-" & k)))),
-  barcode, MAP(SEQUENCE(MAX(n, 1)), LAMBDA(i, bstamp & TEXT(i, "000"))),
   konst,   LAMBDA(v, MAP(title, LAMBDA(x, v))),
   tags,    MAP(extra, LAMBDA(e, IF(TRIM(e) = "", "Floor Sale", TEXTJOIN(", ", TRUE, "Floor Sale", ARRAYFORMULA(TRIM(SPLIT(e, ","))))))),
   priceo,  MAP(price, LAMBDA(p, TO_TEXT(p))),
   genreh,  MAP(genre, LAMBDA(g, gh(g))),
-  header,  {"Handle","Title","Vendor","Product Category","Tags","Status","Published","Option1 Name","Option1 Value","Variant Inventory Tracker","Variant Inventory Qty","Variant Inventory Policy","Variant Fulfillment Service","Variant Price","Variant Taxable","Variant Barcode","Genre (product.metafields.shopify.genre)"},
-  oops,    {"ERROR: type the batch date in 'Add floor sale'!G2 (yyyy-mm-dd), then download again","","","","","","","","","","","","","","","",""},
-  body,    HSTACK(handle, title, fmt, konst("Media > Videos"), tags, konst("Active"), konst("FALSE"), konst("Genre"), genre, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, konst("TRUE"), barcode, genreh),
+  header,  {"Handle","Title","Vendor","Product Category","Tags","Status","Published","Option1 Name","Option1 Value","Variant Inventory Tracker","Variant Inventory Qty","Variant Inventory Policy","Variant Fulfillment Service","Variant Price","Variant Taxable","Genre (product.metafields.shopify.genre)"},
+  oops,    {"ERROR: type the batch date in 'Add floor sale'!G2 (yyyy-mm-dd), then download again","","","","","","","","","","","","","","",""},
+  body,    HSTACK(handle, title, fmt, konst("Media > Videos"), tags, konst("Active"), konst("FALSE"), konst("Genre"), genre, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, konst("TRUE"), genreh),
   IF(nodate, VSTACK(header, oops), IF(empty, header, VSTACK(header, body)))
 )
 
@@ -53,7 +51,7 @@ PASTE INTO TAB 2, CELL A1:
 NOTES FOR WHOEVER BUILDS THE SHEET
 ------------------------------------------------------------------
 
-* The 17 output columns and their order are fixed — they are the contract
+* The 16 output columns and their order are fixed — they are the contract
   in catalog/core/columns.py:FLOOR_SALE_TEMPLATE_COLUMNS. Do not add,
   remove or reorder them.
 
@@ -84,15 +82,6 @@ NOTES FOR WHOEVER BUILDS THE SHEET
   there too).
 
 * `Variant Taxable` is TRUE on every row: floor sale is taxable.
-
-* `Variant Barcode` is the batch date as yymmdd, then the row's number in
-  the batch as three digits: the 7th row of the 2026-10-20 batch is
-  261020007. It matches catalog/core/barcodes.py:floor_sale_barcode. Nine
-  digits never equal a Retail Barcode Labels code (8 digits, built from the
-  variant ID's last 8 digits, and those collide) or a Libib one (13). The
-  app then only prints it. Two batches with the same date would reuse the
-  same numbers, which is why the guide says one batch per date, and
-  `check-barcodes` catches it on the store if it happens anyway.
 
 * TRIM is not array-aware outside ARRAYFORMULA, so `tr` maps it over each
   cell; LET names must not look like cell references (`g1`, `o1` …); and

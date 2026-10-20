@@ -30,23 +30,6 @@ def is_new_flow_barcode(value) -> bool:
     return bool(NEW_FLOW_BARCODE.match((value or "").strip()))
 
 
-# Floor Sale (2026-10-20): the Floor Sale sheet writes the barcode itself, as
-# the batch date (yymmdd) then the row's number in the batch (001…999). Nine
-# digits, so it can never equal an 8-digit Retail Barcode Labels code (the
-# app's are the variant ID's last 8 digits and collide) or a 13-digit Libib one.
-FLOOR_SALE_BARCODE = re.compile(r"^[0-9]{9}$")
-FLOOR_SALE_BATCH_LIMIT = 999
-
-
-def floor_sale_barcode(batch_date, number: int) -> str:
-    """The barcode of a batch's `number`th row (1-based)."""
-    return f"{batch_date.strftime('%y%m%d')}{number:03d}"
-
-
-def is_floor_sale_barcode(value) -> bool:
-    return bool(FLOOR_SALE_BARCODE.match((value or "").strip()))
-
-
 def is_new_flow_item(barcode, call_number) -> bool:
     """A Libib copy the rental sync app owns: a 201… barcode and no legacy
     call number (a call number equal to that barcode also counts). A legacy

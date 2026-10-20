@@ -160,17 +160,6 @@ class TestImportTab(_Case):
         self._flags("has no batch date", Handle="speed-dvd-floor-sale-3")
         self._flags("has no batch date", Handle="ERROR: type the batch date in 'Add floor sale'!G2")
 
-    def test_barcode(self):
-        self._flags("no barcode", **{"Variant Barcode": ""})
-        self._flags("is not 9 digits", **{"Variant Barcode": "71735546"})
-        self._flags("is not 9 digits", **{"Variant Barcode": "2610081000"})
-        self._flags("does not start with the batch date", **{"Variant Barcode": "261009002"})
-
-    def test_duplicate_barcode(self):
-        rows = _import_rows()
-        rows[2]["Variant Barcode"] = rows[0]["Variant Barcode"]
-        self.assertFlags("barcode '261008001' is already used on row 2", rows)
-
     def test_duplicate_handle(self):
         rows = _import_rows()
         rows[2]["Handle"] = rows[0]["Handle"]

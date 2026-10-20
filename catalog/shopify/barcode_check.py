@@ -1,20 +1,25 @@
 """`python3 -m catalog check-barcodes` — every barcode on the store that more
-than one variant carries. Read-only.
+than one variant carries, and every Floor Sale copy with no barcode. Read-only.
 
 Retail Barcode Labels builds a barcode from the last 8 digits of the variant
 ID, and on this store every variant ID leaves the same remainder mod 32768, so
 only ~390,000 of the 100 million 8-digit codes can come up: about 1 new
 product in 50 gets a barcode another product already has (29 pairs on
-production, 2026-10-19). Run this after an import and before printing, with
---since set to the batch's date so only the new copies' clashes are listed.
+production, 2026-10-19). Floor Sale barcodes are therefore set by a Shopify
+Flow workflow to the variant's full ID instead
+(claudedocs/2026-10-20-floor-sale-barcodes-shopify-flow.md); a Floor Sale copy
+still without one means the workflow didn't run for it. Run this after an
+import and before printing, with --since set to the batch's date so only the
+new copies are listed.
 
-Exit 0 when no listed barcode is shared, 1 when one is.
+Exit 0 when nothing is listed, 1 when anything is.
 """
 
 from datetime import date
 from pathlib import Path
 
 from catalog import config
+from catalog.client_sheet.floor_sale import FLOOR_SALE_TAG
 from catalog.errors import ShopifyError
 from catalog.shopify.reader import default_executor
 
@@ -60,26 +65,47 @@ def shared_barcodes(variants: list[dict], since: date | None = None) -> dict[str
     }
 
 
+def floor_sale_without_barcode(variants: list[dict], since: date | None = None) -> list[dict]:
+    """Floor Sale copies with no barcode (created on or after `since`), oldest first."""
+    cutoff = since.isoformat() if since else ""
+    return sorted((v for v in variants
+                   if not v["barcode"] and FLOOR_SALE_TAG in v["tags"] and v["created"] >= cutoff),
+                  key=lambda v: v["created"])
+
+
+def _line(v: dict) -> str:
+    return f"{v['created']}  {v['title']}  ({v['handle']})  [{', '.join(v['tags'])}]"
+
+
 def run_command(args, read=read_variants) -> int:
     since = date.fromisoformat(args.since) if args.since else None
-    shared = shared_barcodes(read(args.store), since)
-    scope = f" involving a variant created since {since}" if since else ""
-    if not shared:
-        print(f"✓ no shared barcodes on {args.store}{scope}.")
+    variants = read(args.store)
+    shared = shared_barcodes(variants, since)
+    missing = floor_sale_without_barcode(variants, since)
+    scope = f" (variants created since {since})" if since else ""
+    if not shared and not missing:
+        print(f"✓ no shared barcodes and no Floor Sale copy without one on {args.store}{scope}.")
         return 0
-    print(f"✗ {len(shared)} barcode(s) on more than one product on {args.store}{scope}:\n")
-    for barcode, group in shared.items():
-        print(f"  {barcode}")
-        for v in group:
-            print(f"    {v['created']}  {v['title']}  ({v['handle']})  [{', '.join(v['tags'])}]")
-    print("\nGive the newer copy a new barcode by hand (regenerating in the app gives it the same "
-          "number again), then print its label.")
+    if shared:
+        print(f"✗ {len(shared)} barcode(s) on more than one product on {args.store}{scope}:\n")
+        for barcode, group in shared.items():
+            print(f"  {barcode}")
+            for v in group:
+                print(f"    {_line(v)}")
+        print("\nGive the newer copy a new barcode by hand (regenerating in the app gives it the same "
+              "number again), then print its label.\n")
+    if missing:
+        print(f"✗ {len(missing)} Floor Sale copy(ies) with no barcode on {args.store}{scope}:\n")
+        for v in missing:
+            print(f"    {_line(v)}")
+        print("\nThe Flow workflow didn't set these — check its run history, then type each "
+              "variant's ID in as its barcode. Don't generate them in the app.")
     return 1
 
 
 def register(subparsers) -> None:
-    p = subparsers.add_parser("check-barcodes", help="list barcodes shared by more than one product (read-only)")
+    p = subparsers.add_parser("check-barcodes", help="list shared barcodes and Floor Sale copies with none (read-only)")
     p.add_argument("--store", default=config.DEFAULT_STORE, help=f"store domain (default {config.DEFAULT_STORE})")
     p.add_argument("--since", metavar="YYYY-MM-DD",
-                   help="only clashes involving a variant created on or after this date (e.g. the batch date)")
+                   help="only variants created on or after this date (e.g. the batch date)")
     p.set_defaults(func=lambda args: run_command(args))
