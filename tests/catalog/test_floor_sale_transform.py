@@ -49,6 +49,7 @@ class TestTransform(unittest.TestCase):
             "Variant Fulfillment Service": "manual",
             "Variant Price": "8",
             "Variant Taxable": "TRUE",
+            "Variant Barcode": "261008001",
             GENRE_METAFIELD: "action",
         })
 
@@ -72,6 +73,10 @@ class TestTransform(unittest.TestCase):
             "speed-vhs-floor-sale-20261008",
             "speed-dvd-floor-sale-20261008-3",
         ])
+
+    def test_barcodes_are_the_batch_date_then_the_row_number(self):
+        rows = floor_sale_rows_to_import_rows([SPEED, dict(SPEED), dict(SPEED, Format="VHS")], BATCH)
+        self.assertEqual([r["Variant Barcode"] for r in rows], ["261008001", "261008002", "261008003"])
 
     def test_unknown_genre_leaves_the_metafield_blank_like_the_sheet(self):
         """The sheet's VLOOKUP returns "" through IFERROR; check-upload catches it."""

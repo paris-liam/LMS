@@ -64,6 +64,9 @@ FLOOR_SALE_TEMPLATE_COLUMNS = [
     "Variant Fulfillment Service",
     "Variant Price",
     "Variant Taxable",
+    # Written by the sheet (catalog/core/barcodes.py:floor_sale_barcode), so
+    # Retail Barcode Labels only prints it and never generates one.
+    "Variant Barcode",
     GENRE_METAFIELD,
 ]
 

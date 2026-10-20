@@ -16,7 +16,7 @@ and either tab of the Floor Sale sheet
 (claudedocs/2026-10-08-floor-sale-upload-sheet.md):
 
   floor-sale-fill    the "Add floor sale" tab (5 columns + the batch date in G)
-  floor-sale-import  its "Shopify import" tab (16 columns)
+  floor-sale-import  its "Shopify import" tab (17 columns)
 
 The import shape is the one worth checking for Shopify — it is where a failed
 VLOOKUP shows up as a blank cell rather than an error. The libib shape guards
@@ -36,7 +36,7 @@ import os
 import re
 import sys
 
-from catalog.core.barcodes import is_rental_barcode
+from catalog.core.barcodes import FLOOR_SALE_BATCH_LIMIT, is_floor_sale_barcode, is_rental_barcode
 from catalog.core.columns import FLOOR_SALE_TEMPLATE_COLUMNS, GENRE_METAFIELD, MOVIE_CATEGORY, TEMPLATE_COLUMNS
 from catalog.client_sheet.floor_sale import (
     BATCH_DATE_COLUMN, FLOOR_SALE_FILL_COLUMNS, FLOOR_SALE_FILL_HEADER, FLOOR_SALE_TAG, parse_batch_date,
@@ -60,14 +60,16 @@ LABELS = {
     "floor-sale-fill": "Floor Sale fill tab",
     "floor-sale-import": "Floor Sale Shopify import tab",
 }
-# The column that must be unique per row, and why a repeat is costly.
+# The columns that must be unique per row, and why a repeat is costly.
+_HANDLE_UNIQUE = ("Handle", "handle", "edit one of the two Handle cells to something distinct")
 UNIQUE = {
     # Two rows sharing a handle do not become two products — they become one
     # product with two variants, merging two copies under a single barcode.
-    "import": ("Handle", "handle", "edit one of the two Handle cells to something distinct"),
-    "fill": ("Barcode", "barcode", "two copies can't share a label; check both cases"),
-    "libib": ("call_number", "call number", "two copies can't share a label; check both cases"),
-    "floor-sale-import": ("Handle", "handle", "edit one of the two Handle cells to something distinct"),
+    "import": [_HANDLE_UNIQUE],
+    "fill": [("Barcode", "barcode", "two copies can't share a label; check both cases")],
+    "libib": [("call_number", "call number", "two copies can't share a label; check both cases")],
+    "floor-sale-import": [_HANDLE_UNIQUE, ("Variant Barcode", "barcode",
+                                           "two copies can't share a label — check the tab-2 formula")],
 }
 BARCODE_FIX = ("format the Barcode column as Plain text (a leading 0 is otherwise "
                "dropped) and type all 8 digits from the label")
@@ -125,7 +127,7 @@ def detect_shape(header):
     raise ValueError(
         "header matches none of the upload sheets' tabs (fill 11 columns, Shopify "
         "import 18, Libib import 26, Floor Sale fill 5 + batch date, Floor Sale "
-        f"import 16). Got {len(header)} columns: "
+        f"import 17). Got {len(header)} columns: "
         f"{', '.join(header[:6])}…"
     )
 
@@ -336,9 +338,22 @@ def check_floor_sale_row(row, number, shape):
         bad("inventory not tracked", "an untracked copy never sells out at the counter")
 
     handle = value("Handle")
-    if floor_sale_batch_date(handle) is None:
+    batch_date = floor_sale_batch_date(handle)
+    if batch_date is None:
         bad(f"handle {handle!r} has no batch date",
             "type the batch date in G2 of the Add floor sale tab, then download this tab again")
+
+    # The sheet writes the barcode so Retail Barcode Labels never generates one
+    # (its own codes collide). Blank would leave the app to generate it again.
+    barcode = value("Variant Barcode")
+    if not barcode:
+        bad("no barcode", "the tab-2 formula writes one on every row — paste the current formula into A1")
+    elif not is_floor_sale_barcode(barcode):
+        bad(f"barcode {barcode!r} is not 9 digits",
+            f"a batch holds at most {FLOOR_SALE_BATCH_LIMIT} rows — split it into batches with different dates")
+    elif batch_date and barcode[:6] != batch_date.strftime("%y%m%d"):
+        bad(f"barcode {barcode!r} does not start with the batch date",
+            "the barcode and handle come from the same G2 date — download this tab again")
     return problems
 
 
@@ -406,19 +421,19 @@ def check(path):
             "type the date this batch is uploaded as yyyy-mm-dd; it goes into every handle",
         ))
 
-    column, noun, fix = UNIQUE.get(shape, (None, None, None))
-    seen = {}
-    for offset, row in enumerate(rows if column else []):
-        value = (row.get(column) or "").strip()
-        if not value:
-            continue
-        if value in seen:
-            problems.append(Problem(
-                offset + 2, (row.get("Title") or row.get("title") or "").strip(),
-                f"{noun} {value!r} is already used on row {seen[value]}", fix,
-            ))
-        else:
-            seen[value] = offset + 2
+    for column, noun, fix in UNIQUE.get(shape, []):
+        seen = {}
+        for offset, row in enumerate(rows):
+            value = (row.get(column) or "").strip()
+            if not value:
+                continue
+            if value in seen:
+                problems.append(Problem(
+                    offset + 2, (row.get("Title") or row.get("title") or "").strip(),
+                    f"{noun} {value!r} is already used on row {seen[value]}", fix,
+                ))
+            else:
+                seen[value] = offset + 2
 
     problems.sort(key=lambda p: p.row)
     return shape, rows, problems

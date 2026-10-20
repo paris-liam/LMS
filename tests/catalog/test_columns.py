@@ -29,13 +29,13 @@ class TestTemplateContract(unittest.TestCase):
 
 
 class TestFloorSaleTemplateContract(unittest.TestCase):
-    def test_sixteen_columns_in_the_spec_order(self):
+    def test_seventeen_columns_in_the_spec_order(self):
         self.assertEqual(FLOOR_SALE_TEMPLATE_COLUMNS, [
             "Handle", "Title", "Vendor", "Product Category", "Tags", "Status",
             "Published", "Option1 Name", "Option1 Value",
             "Variant Inventory Tracker", "Variant Inventory Qty",
             "Variant Inventory Policy", "Variant Fulfillment Service",
-            "Variant Price", "Variant Taxable", GENRE_METAFIELD,
+            "Variant Price", "Variant Taxable", "Variant Barcode", GENRE_METAFIELD,
         ])
 
     def test_carries_no_content_columns(self):

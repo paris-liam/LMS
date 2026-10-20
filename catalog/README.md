@@ -210,13 +210,21 @@ matches his copies like its own. Design:
 
 `catalog/client_sheet/template/floor-sale/` is the separate **Floor Sale sheet**: five
 columns plus a typed batch date that goes into every handle
-(`speed-dvd-floor-sale-20261008`), producing a 16-column POS-only, taxable import. Design:
+(`speed-dvd-floor-sale-20261008`) and starts every barcode (`261008001`: yymmdd + row
+number, so Retail Barcode Labels only prints), producing a 17-column POS-only, taxable
+import. Design:
 `claudedocs/2026-10-08-floor-sale-upload-sheet.md`. The audit flags a Floor Sale product
 that is on the Online Store (`floor-sale-online-store`) or not taxable
 (`floor-sale-not-taxable`).
 
     python3 -m catalog check-upload <sheet.csv>     # any tab of either sheet; exit 0 clean (warnings ok), 1 problems, 2 unreadable
     python3 -m catalog.client_sheet.generate_expected   # after a taxonomy change
+    python3 -m catalog check-barcodes [--since YYYY-MM-DD]   # read-only: barcodes on 2+ variants; run after an import, before printing
+
+Retail Barcode Labels' own barcodes are the variant ID's last 8 digits. Every variant ID
+on production leaves the same remainder mod 32768, so only ~390,000 codes can come up and
+about 1 new product in 50 clashes (29 pairs on 2026-10-19) — hence the sheet writes its
+own, and `check-barcodes` lists any clash on the store.
 
 ## Secrets
 

@@ -13,6 +13,7 @@ check-upload is what catches it.
 
 from datetime import date, datetime
 
+from catalog.core.barcodes import floor_sale_barcode
 from catalog.core.columns import FIXED_VALUES, FLOOR_SALE_TEMPLATE_COLUMNS, GENRE_METAFIELD
 from catalog.core.handles import HandleAllocator, derive_floor_sale_handle
 from catalog.core.taxonomy import genre_handle
@@ -57,8 +58,9 @@ def split_fill_tab(rows: list[dict]) -> tuple[list[dict], date | None]:
     return filled, batch_date
 
 
-def fill_row_to_import_row(row: dict, batch_date: date, allocator: HandleAllocator) -> dict:
-    """One tab-1 row -> one tab-2 row, in FLOOR_SALE_TEMPLATE_COLUMNS order."""
+def fill_row_to_import_row(row: dict, batch_date: date, allocator: HandleAllocator, number: int) -> dict:
+    """One tab-1 row -> one tab-2 row, in FLOOR_SALE_TEMPLATE_COLUMNS order.
+    `number` is the row's place in the batch (1-based), for its barcode."""
     title = _cell(row, "Title")
     media_format = _cell(row, "Format")
     genre = _cell(row, "Genre")
@@ -75,11 +77,14 @@ def fill_row_to_import_row(row: dict, batch_date: date, allocator: HandleAllocat
     out["Option1 Value"] = genre
     out["Variant Price"] = _cell(row, "Price")
     out["Variant Taxable"] = "TRUE"
+    out["Variant Barcode"] = floor_sale_barcode(batch_date, number)
     out[GENRE_METAFIELD] = genre_handle(genre) or ""
     return out
 
 
 def floor_sale_rows_to_import_rows(rows: list[dict], batch_date: date) -> list[dict]:
-    """Every tab-1 row, sharing one allocator so copies in a batch get -2 / -3."""
+    """Every tab-1 row, sharing one allocator so copies in a batch get -2 / -3,
+    and numbered in order so each gets its own barcode."""
     allocator = HandleAllocator()
-    return [fill_row_to_import_row(row, batch_date, allocator) for row in rows]
+    return [fill_row_to_import_row(row, batch_date, allocator, number)
+            for number, row in enumerate(rows, start=1)]

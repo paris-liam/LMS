@@ -1,0 +1,85 @@
+"""`python3 -m catalog check-barcodes` — every barcode on the store that more
+than one variant carries. Read-only.
+
+Retail Barcode Labels builds a barcode from the last 8 digits of the variant
+ID, and on this store every variant ID leaves the same remainder mod 32768, so
+only ~390,000 of the 100 million 8-digit codes can come up: about 1 new
+product in 50 gets a barcode another product already has (29 pairs on
+production, 2026-10-19). Run this after an import and before printing, with
+--since set to the batch's date so only the new copies' clashes are listed.
+
+Exit 0 when no listed barcode is shared, 1 when one is.
+"""
+
+from datetime import date
+from pathlib import Path
+
+from catalog import config
+from catalog.errors import ShopifyError
+from catalog.shopify.reader import default_executor
+
+QUERY_PATH = Path(__file__).parent / "queries" / "variant_barcodes.graphql"
+
+
+def read_variants(store: str, execute=None) -> list[dict]:
+    """Every variant as {barcode, created, handle, title, tags}."""
+    if execute is None:
+        execute, _ = default_executor(store)
+    variants, cursor = [], None
+    while True:
+        payload = execute(store, QUERY_PATH, {"cursor": cursor})
+        if payload.get("errors"):
+            raise ShopifyError(f"GraphQL errors from {store}: {payload['errors']}")
+        page = payload.get("data", payload)["productVariants"]
+        for node in page["nodes"]:
+            product = node.get("product") or {}
+            variants.append({
+                "barcode": (node.get("barcode") or "").strip(),
+                "created": (node.get("createdAt") or "")[:10],
+                "handle": product.get("handle", ""),
+                "title": product.get("title", ""),
+                "tags": product.get("tags") or [],
+            })
+        if not page["pageInfo"]["hasNextPage"]:
+            return variants
+        cursor = page["pageInfo"]["endCursor"]
+
+
+def shared_barcodes(variants: list[dict], since: date | None = None) -> dict[str, list[dict]]:
+    """Barcode -> its variants, oldest first, for every barcode on 2+ variants.
+    With `since`, only barcodes at least one of whose variants was created then or later."""
+    by_barcode: dict[str, list[dict]] = {}
+    for variant in variants:
+        if variant["barcode"]:
+            by_barcode.setdefault(variant["barcode"], []).append(variant)
+    cutoff = since.isoformat() if since else ""
+    return {
+        barcode: sorted(group, key=lambda v: v["created"])
+        for barcode, group in sorted(by_barcode.items())
+        if len(group) > 1 and any(v["created"] >= cutoff for v in group)
+    }
+
+
+def run_command(args, read=read_variants) -> int:
+    since = date.fromisoformat(args.since) if args.since else None
+    shared = shared_barcodes(read(args.store), since)
+    scope = f" involving a variant created since {since}" if since else ""
+    if not shared:
+        print(f"✓ no shared barcodes on {args.store}{scope}.")
+        return 0
+    print(f"✗ {len(shared)} barcode(s) on more than one product on {args.store}{scope}:\n")
+    for barcode, group in shared.items():
+        print(f"  {barcode}")
+        for v in group:
+            print(f"    {v['created']}  {v['title']}  ({v['handle']})  [{', '.join(v['tags'])}]")
+    print("\nGive the newer copy a new barcode by hand (regenerating in the app gives it the same "
+          "number again), then print its label.")
+    return 1
+
+
+def register(subparsers) -> None:
+    p = subparsers.add_parser("check-barcodes", help="list barcodes shared by more than one product (read-only)")
+    p.add_argument("--store", default=config.DEFAULT_STORE, help=f"store domain (default {config.DEFAULT_STORE})")
+    p.add_argument("--since", metavar="YYYY-MM-DD",
+                   help="only clashes involving a variant created on or after this date (e.g. the batch date)")
+    p.set_defaults(func=lambda args: run_command(args))

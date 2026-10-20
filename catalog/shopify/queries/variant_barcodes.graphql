@@ -1,0 +1,17 @@
+query VariantBarcodes($cursor: String) {
+  productVariants(first: 250, after: $cursor) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    nodes {
+      barcode
+      createdAt
+      product {
+        handle
+        title
+        tags
+      }
+    }
+  }
+}

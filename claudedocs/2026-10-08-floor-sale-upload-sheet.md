@@ -18,7 +18,7 @@ synced to Shopify, using Libib-generated barcodes) but is specced separately
 |---|---|---|
 | Entered in | Libib, directly | **This sheet** |
 | Reaches Shopify by | Libib → Shopify sync (rental spec, TBD) | Shopify product CSV import |
-| Barcode | Libib-generated | Retail Barcode Labels, after import |
+| Barcode | Libib-generated | **The sheet** (yymmdd + row number, since 2026-10-20); Retail Barcode Labels only prints |
 | Website | (rental spec) | **Never** — POS only |
 
 ## Goal
@@ -104,8 +104,18 @@ Unchanged: the 15-genre table, imported from `genre-mappings.csv`, hidden.
 3. Download `Shopify import` as CSV → Shopify **Products → Import**, with
    **"Overwrite products with matching handles" unchecked**. Summary should
    read all *created*, none *updated*.
-4. In Retail Barcode Labels: create barcodes **saved to the variant**, print,
-   apply.
+4. In Retail Barcode Labels: **print** (don't generate — the import already
+   saved the sheet's barcode on the variant), apply.
+
+**Amended 2026-10-20 — the sheet writes the barcode.** The app's barcode is
+the variant ID's last 8 digits; every production variant ID is ≡ 250 mod
+32768, so only ~390,000 codes are reachable and ~1 in 50 new products
+clashes (29 shared barcodes on production 2026-10-19, 4 of them created that
+day against older Rentals). The import tab now emits `Variant Barcode` =
+batch date `yymmdd` + 3-digit row number (9 digits: never equal to an app
+code or a 13-digit Libib one). One batch per date, at most 999 rows;
+`check-upload` checks format, date prefix and uniqueness within the file,
+and `python3 -m catalog check-barcodes --since <date>` checks the store.
 
 ## Verify on the dev store first
 
