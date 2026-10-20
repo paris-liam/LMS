@@ -13,6 +13,7 @@ query CatalogProducts($cursor: String) {
       status
       templateSuffix
       onlineStoreUrl
+      createdAt
       category {
         fullName
       }
@@ -24,6 +25,7 @@ query CatalogProducts($cursor: String) {
           price
           barcode
           taxable
+          inventoryQuantity
           selectedOptions {
             name
             value

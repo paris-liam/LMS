@@ -76,6 +76,8 @@ def node_to_row(node: dict) -> dict:
         "Variant Barcode": variant.get("barcode") or "",
         "Variant Inventory Tracker": "shopify" if (variant.get("inventoryItem") or {}).get("tracked") else "",
         "Variant Count": str(((node.get("variantsCount") or {}).get("count")) or 0),
+        "Variant Inventory Qty": "" if variant.get("inventoryQuantity") is None else str(variant["inventoryQuantity"]),
+        "Created At": node.get("createdAt") or "",
         "Product Category": (node.get("category") or {}).get("fullName") or "",
         # onlineStoreUrl is null exactly when the product is off the Online Store channel.
         "Published": _flag(bool(node["onlineStoreUrl"])) if "onlineStoreUrl" in node else "",
