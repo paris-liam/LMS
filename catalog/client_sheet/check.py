@@ -15,7 +15,7 @@ Accepts any of the combined sheet's three tabs:
 and either tab of the Floor Sale sheet
 (claudedocs/2026-10-08-floor-sale-upload-sheet.md):
 
-  floor-sale-fill    the "Add floor sale" tab (5 columns + the batch date in G)
+  floor-sale-fill    the "Add floor sale" tab (6 columns + the batch date in G)
   floor-sale-import  its "Shopify import" tab (16 columns)
 
 The import shape is the one worth checking for Shopify — it is where a failed
@@ -124,7 +124,7 @@ def detect_shape(header):
 
     raise ValueError(
         "header matches none of the upload sheets' tabs (fill 11 columns, Shopify "
-        "import 18, Libib import 26, Floor Sale fill 5 + batch date, Floor Sale "
+        "import 18, Libib import 26, Floor Sale fill 6 + batch date, Floor Sale "
         f"import 16). Got {len(header)} columns: "
         f"{', '.join(header[:6])}…"
     )
@@ -294,6 +294,12 @@ def check_floor_sale_row(row, number, shape):
         bad(f"price {raw_price!r}: price must be more than 0",
             "this would ring up at $0.00 (or less) at the counter")
 
+    # A blank Copies cell is one copy; the import tab always spells the number out.
+    raw_copies = value("Copies" if fill else "Variant Inventory Qty")
+    if (raw_copies or not fill) and not (re.fullmatch(r"[0-9]+", raw_copies) and int(raw_copies) >= 1):
+        bad(f"{'Copies' if fill else 'quantity'} {raw_copies!r} is not a whole number of 1 or more",
+            "how many copies of this title + format go on the floor, e.g. 1 or 3")
+
     if fill:
         extra = [t.strip() for t in value("Extra tags").split(",") if t.strip()]
         if "Rental" in extra:
@@ -329,9 +335,6 @@ def check_floor_sale_row(row, number, shape):
         bad(f"Status {value('Status')!r} is not Active", "POS can only sell Active products")
     if value("Variant Taxable").upper() != "TRUE":
         bad("not taxable", "Variant Taxable must be TRUE — check the tab-2 formula")
-    if value("Variant Inventory Qty") != "1":
-        bad(f"quantity {value('Variant Inventory Qty')!r} is not 1",
-            "one row per physical copy — three copies are three rows")
     if value("Variant Inventory Tracker") != "shopify":
         bad("inventory not tracked", "an untracked copy never sells out at the counter")
 

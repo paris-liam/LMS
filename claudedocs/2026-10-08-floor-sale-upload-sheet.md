@@ -5,6 +5,14 @@
 below were confirmed with the developer 2026-10-08. The dev-store checks
 passed 2026-10-15 (see "Verify on the dev store first").
 
+**Changed 2026-10-20: Copies column.** The client moved to one product per
+movie + format with an inventory count. Tab 1 gains **Copies** in column F
+(the old blank spacer; the batch date stays in G), and tab 2's `Variant
+Inventory Qty` is that number (blank = 1). Decision 4 and the `1` in the
+column table below are superseded for this sheet. A later batch still makes
+a new dated product; adding to an existing product's count, and the old
+per-copy Floor Sale products, are separate later work.
+
 **Supersedes**, for Floor Sale only,
 `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md` and the
 Floor Sale half of `catalog/client_sheet/template/`. The rental half of that
@@ -35,7 +43,7 @@ products are sold at the counter only.
 | 1 | Required data: title, format, **one** genre, price, the `Floor Sale` tag. No image, no description. |
 | 2 | Taxable. |
 | 3 | Published to **Point of Sale only**, never the Online Store. |
-| 4 | **One product per physical copy** (closes CHECKLIST item 8's open question for new uploads). Quantity is always 1. |
+| 4 | ~~**One product per physical copy** (closes CHECKLIST item 8's open question for new uploads). Quantity is always 1.~~ Superseded 2026-10-20: one product per movie + format, quantity from Copies. |
 | 5 | Handles carry the **batch date**, so a later batch can never collide with an earlier one. The client also leaves "Overwrite products with matching handles" **unchecked** on import (belt and braces). |
 | 6 | One genre only (Genre 2/3 dropped). |
 | 7 | Variant option stays as it is today (`Option1 Name = Genre`, value = the genre name). |

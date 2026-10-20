@@ -15,12 +15,13 @@ SPEED = {
     "Genre": "Action",
     "Price": "8",
     "Extra tags": "",
+    "Copies": "",
 }
 
 
 class TestFillColumns(unittest.TestCase):
-    def test_five_data_columns_in_order(self):
-        self.assertEqual(FLOOR_SALE_FILL_COLUMNS, ["Title", "Format", "Genre", "Price", "Extra tags"])
+    def test_six_data_columns_in_order(self):
+        self.assertEqual(FLOOR_SALE_FILL_COLUMNS, ["Title", "Format", "Genre", "Price", "Extra tags", "Copies"])
 
     def test_batch_date_sits_in_column_g(self):
         self.assertEqual(FLOOR_SALE_FILL_HEADER.index("Batch date"), 6)
@@ -64,7 +65,15 @@ class TestTransform(unittest.TestCase):
         self.assertEqual(out["Handle"], "speed-dvd-floor-sale-20261008")
         self.assertEqual(out["Variant Price"], "8")
 
-    def test_copies_in_one_batch_get_counted_handles(self):
+    def test_copies_become_the_inventory_quantity(self):
+        out = floor_sale_rows_to_import_rows([dict(SPEED, Copies=" 3 ")], BATCH)[0]
+        self.assertEqual(out["Variant Inventory Qty"], "3")
+
+    def test_blank_copies_is_one(self):
+        out = floor_sale_rows_to_import_rows([dict(SPEED, Copies="  ")], BATCH)[0]
+        self.assertEqual(out["Variant Inventory Qty"], "1")
+
+    def test_repeated_title_and_format_rows_get_counted_handles(self):
         rows = floor_sale_rows_to_import_rows([SPEED, dict(SPEED), dict(SPEED, Format="VHS"), dict(SPEED)], BATCH)
         self.assertEqual([r["Handle"] for r in rows], [
             "speed-dvd-floor-sale-20261008",
@@ -91,9 +100,9 @@ class TestBatchDate(unittest.TestCase):
 
     def test_split_fill_tab_reads_g2_and_drops_blank_rows(self):
         rows = [
-            dict(SPEED, **{"": "", "Batch date": "2026-10-08"}),
-            {"Title": "", "Format": "", "Genre": "", "Price": "", "Extra tags": "", "": "", "Batch date": ""},
-            dict(SPEED, Title="Heat", **{"": "", "Batch date": ""}),
+            dict(SPEED, **{"Batch date": "2026-10-08"}),
+            {"Title": "", "Format": "", "Genre": "", "Price": "", "Extra tags": "", "Copies": "", "Batch date": ""},
+            dict(SPEED, Title="Heat", **{"Batch date": ""}),
         ]
         filled, batch_date = split_fill_tab(rows)
         self.assertEqual(batch_date, BATCH)
@@ -101,7 +110,7 @@ class TestBatchDate(unittest.TestCase):
         self.assertEqual(list(filled[0]), FLOOR_SALE_FILL_COLUMNS)
 
     def test_split_fill_tab_with_only_a_date(self):
-        rows = [{"Title": "", "Format": "", "Genre": "", "Price": "", "Extra tags": "", "": "",
+        rows = [{"Title": "", "Format": "", "Genre": "", "Price": "", "Extra tags": "", "Copies": "",
                  "Batch date": "2026-10-08"}]
         self.assertEqual(split_fill_tab(rows), ([], BATCH))
 

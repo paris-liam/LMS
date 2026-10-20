@@ -2,12 +2,11 @@ LITTLE MOVIE STORE — Floor Sale sheet, tab 2 ("Shopify import")
 
 Paste the formula below into cell A1 of tab 2. Nothing else goes on that
 tab. It reads tab 1 ("Add floor sale") and emits the header row plus one row
-per filled-in copy — it grows and shrinks on its own, so there is never
-anything to drag down.
+per filled-in title + format — it grows and shrinks on its own, so there is
+never anything to drag down.
 
 Tab 1 layout:
-  A Title   B Format   C Genre   D Price   E Extra tags
-  F (blank)
+  A Title   B Format   C Genre   D Price   E Extra tags   F Copies
   G1 the label "Batch date", G2 the batch date (typed, yyyy-mm-dd)
 
 The `mappings` tab is the same as the old upload sheet's: import
@@ -20,9 +19,9 @@ PASTE INTO TAB 2, CELL A1:
 ------------------------------------------------------------------
 
 =LET(
-  raw,     IFERROR(FILTER('Add floor sale'!A2:E, 'Add floor sale'!A2:A<>""), ""),
+  raw,     IFERROR(FILTER('Add floor sale'!A2:F, 'Add floor sale'!A2:A<>""), ""),
   empty,   COLUMNS(raw) = 1,
-  src,     IF(empty, {"","","","",""}, raw),
+  src,     IF(empty, {"","","","","",""}, raw),
   n,       IF(empty, 0, ROWS(src)),
   batch,   'Add floor sale'!G2,
   nodate,  IF(batch = "", TRUE, NOT(ISDATE(batch))),
@@ -33,6 +32,7 @@ PASTE INTO TAB 2, CELL A1:
   genre,   tr(INDEX(src,,3)),
   price,   tr(INDEX(src,,4)),
   extra,   INDEX(src,,5),
+  copies,  INDEX(src,,6),
   slug,    LAMBDA(t, REGEXREPLACE(REGEXREPLACE(REGEXREPLACE(LOWER(TRIM(TO_TEXT(t))), "['’]", ""), "[^a-z0-9]+", "-"), "^-+|-+$", "")),
   gh,      LAMBDA(g, IF(g="", "", IFERROR(VLOOKUP(g, mappings!$A:$B, 2, FALSE), ""))),
   base,    MAP(title, fmt, LAMBDA(t, f, slug(t) & "-" & slug(f) & "-floor-sale-" & stamp)),
@@ -41,9 +41,10 @@ PASTE INTO TAB 2, CELL A1:
   tags,    MAP(extra, LAMBDA(e, IF(TRIM(e) = "", "Floor Sale", TEXTJOIN(", ", TRUE, "Floor Sale", ARRAYFORMULA(TRIM(SPLIT(e, ","))))))),
   priceo,  MAP(price, LAMBDA(p, TO_TEXT(p))),
   genreh,  MAP(genre, LAMBDA(g, gh(g))),
+  qty,     MAP(copies, LAMBDA(c, IF(TRIM(TO_TEXT(c)) = "", "1", TRIM(TO_TEXT(c))))),
   header,  {"Handle","Title","Vendor","Product Category","Tags","Status","Published","Option1 Name","Option1 Value","Variant Inventory Tracker","Variant Inventory Qty","Variant Inventory Policy","Variant Fulfillment Service","Variant Price","Variant Taxable","Genre (product.metafields.shopify.genre)"},
   oops,    {"ERROR: type the batch date in 'Add floor sale'!G2 (yyyy-mm-dd), then download again","","","","","","","","","","","","","","",""},
-  body,    HSTACK(handle, title, fmt, konst("Media > Videos"), tags, konst("Active"), konst("FALSE"), konst("Genre"), genre, konst("shopify"), konst("1"), konst("deny"), konst("manual"), priceo, konst("TRUE"), genreh),
+  body,    HSTACK(handle, title, fmt, konst("Media > Videos"), tags, konst("Active"), konst("FALSE"), konst("Genre"), genre, konst("shopify"), qty, konst("deny"), konst("manual"), priceo, konst("TRUE"), genreh),
   IF(nodate, VSTACK(header, oops), IF(empty, header, VSTACK(header, body)))
 )
 
@@ -62,8 +63,14 @@ NOTES FOR WHOEVER BUILDS THE SHEET
   an undated batch can't be imported by accident (check-upload flags it
   too).
 
+* Copies (F) becomes `Variant Inventory Qty`: one product per title +
+  format, stocked with that many copies. A blank Copies cell is 1. Data
+  validation on F2:F (custom formula `=AND(ISNUMBER(F2), F2=INT(F2),
+  F2>=1)`) keeps it a whole number of 1 or more; check-upload catches
+  anything that gets past it.
+
 * Handles: `slug(title)-slug(format)-floor-sale-YYYYMMDD`, then -2, -3 …
-  for further copies of the same title + format in the batch. The date is
+  when the same title + format is on more than one row in the batch. The date is
   what keeps a later batch from reusing (and on import, overwriting) an
   earlier batch's product. `slug` matches
   catalog/core/handles.py:slugify exactly — apostrophes deleted, every

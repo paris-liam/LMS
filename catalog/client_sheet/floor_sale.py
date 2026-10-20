@@ -18,10 +18,10 @@ from catalog.core.handles import HandleAllocator, derive_floor_sale_handle
 from catalog.core.taxonomy import genre_handle
 
 FLOOR_SALE_TAG = "Floor Sale"
-FLOOR_SALE_FILL_COLUMNS = ["Title", "Format", "Genre", "Price", "Extra tags"]
-# Tab 1 as downloaded: the five data columns, blank F, then the batch date's
-# label in G1 (its value, typed once per batch, is G2 — the first data row).
-FLOOR_SALE_FILL_HEADER = FLOOR_SALE_FILL_COLUMNS + ["", "Batch date"]
+FLOOR_SALE_FILL_COLUMNS = ["Title", "Format", "Genre", "Price", "Extra tags", "Copies"]
+# Tab 1 as downloaded: the six data columns, then the batch date's label in
+# G1 (its value, typed once per batch, is G2 — the first data row).
+FLOOR_SALE_FILL_HEADER = FLOOR_SALE_FILL_COLUMNS + ["Batch date"]
 BATCH_DATE_COLUMN = "Batch date"
 # The sheet formats G2 as yyyy-mm-dd; a US-locale sheet may still show m/d/yyyy.
 _BATCH_DATE_FORMATS = ("%Y-%m-%d", "%m/%d/%Y")
@@ -74,12 +74,14 @@ def fill_row_to_import_row(row: dict, batch_date: date, allocator: HandleAllocat
     out["Published"] = "FALSE"
     out["Option1 Value"] = genre
     out["Variant Price"] = _cell(row, "Price")
+    # One product per title + format; Copies is how many go on the floor.
+    out["Variant Inventory Qty"] = _cell(row, "Copies") or "1"
     out["Variant Taxable"] = "TRUE"
     out[GENRE_METAFIELD] = genre_handle(genre) or ""
     return out
 
 
 def floor_sale_rows_to_import_rows(rows: list[dict], batch_date: date) -> list[dict]:
-    """Every tab-1 row, sharing one allocator so copies in a batch get -2 / -3."""
+    """Every tab-1 row, sharing one allocator so a title + format repeated in a batch gets -2 / -3."""
     allocator = HandleAllocator()
     return [fill_row_to_import_row(row, batch_date, allocator) for row in rows]

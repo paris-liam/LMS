@@ -38,6 +38,9 @@ class TestScaffold(unittest.TestCase):
         rows, batch_date = split_fill_tab(_read(FILL_CSV))
         self.assertEqual(_read(EXPECTED_CSV), floor_sale_rows_to_import_rows(rows, batch_date))
 
+    def test_scaffold_shows_a_multi_copy_row(self):
+        self.assertTrue(any(int(r["Variant Inventory Qty"]) > 1 for r in _read(EXPECTED_CSV)))
+
     def test_shipped_files_pass_check_upload(self):
         for path in (FILL_CSV, EXPECTED_CSV, SHEET_INPUT_CSV, SHEET_EXPORT_CSV):
             _, _, problems = check(path)

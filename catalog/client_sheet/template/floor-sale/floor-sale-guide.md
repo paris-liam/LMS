@@ -1,6 +1,6 @@
 # Little Movie Store — floor sale sheet
 
-This sheet turns a list of floor-sale copies into a file Shopify can import.
+This sheet turns a list of floor-sale movies into a file Shopify can import.
 You fill in one tab, and the other tab builds the file for you.
 
 Floor sale is sold **at the counter only**. These products never appear on
@@ -15,13 +15,14 @@ a product happens in the Shopify admin.
 
 1. **Start a batch.** Make a copy of the master sheet, clear out the old
    rows, and type today's date into the **Batch date** cell (G2).
-2. **Fill in one row per copy.** Three copies of the same film means three
-   rows.
+2. **Fill in one row per movie and format.** Three copies of the same film
+   on DVD is one row with **3** in Copies.
 3. **Import into Shopify.** Download the `Shopify import` tab and import it,
    with "Overwrite products with matching handles" **unticked**. The new
    products land on Point of Sale on their own, ready to ring up.
-4. **Print the labels** in Retail Barcode Labels and stick them on. Shopify
-   gives every new copy its barcode on its own, so the app only prints.
+4. **Print the labels** in Retail Barcode Labels, one per copy, and stick
+   them on. Shopify gives every new product its barcode on its own, so the
+   app only prints.
 
 Each step is described below.
 
@@ -33,8 +34,8 @@ Do this once, on your master copy.
 
 1. **Create the sheet.** In Google Sheets: File → Import → Upload
    `floor-sale-template.csv` → "Replace spreadsheet". Rename the tab that
-   appears to exactly **`Add floor sale`**. It has the five columns you fill
-   in (A–E), the **Batch date** label in G1 and an example date in G2, and
+   appears to exactly **`Add floor sale`**. It has the six columns you fill
+   in (A–F), the **Batch date** label in G1 and an example date in G2, and
    three example rows. Look at them, then delete the rows (not the date)
    before your first real batch.
 
@@ -46,7 +47,12 @@ Do this once, on your master copy.
    → **Greater than** `0` → **Reject the input**. A blank or $0 price
    can't be typed.
 
-4. **Add the `mappings` tab.** File → Import → Upload `genre-mappings.csv`
+4. **Make Copies a whole number.** Select `F2:F` → Data → Data validation
+   → **Custom formula is** `=AND(ISNUMBER(F2), F2=INT(F2), F2>=1)` →
+   **Reject the input**. A `0`, `2.5` or `three` can't be typed. A blank
+   Copies cell is allowed and counts as one copy.
+
+5. **Add the `mappings` tab.** File → Import → Upload `genre-mappings.csv`
    → **Insert new sheet**. Rename the new tab to exactly `mappings`. Check
    that **A4 reads `Kids & Family`** and **A16 reads `Martial Arts`**. If either
    is wrong, delete the tab and import it again. Then right-click the tab →
@@ -56,11 +62,11 @@ Do this once, on your master copy.
    still imports, but with its genre silently left empty. That's why the
    tab is imported, not typed.
 
-5. **Add the `Shopify import` tab.** Add a sheet, name it exactly
+6. **Add the `Shopify import` tab.** Add a sheet, name it exactly
    `Shopify import`, and paste the formula from `import-tab-formula.txt`
    into cell **A1**. Nothing else goes on this tab.
 
-6. **Add the dropdowns** on `Add floor sale`. Select from **row 2 down**,
+7. **Add the dropdowns** on `Add floor sale`. Select from **row 2 down**,
    then Data → Data validation → Dropdown:
 
    - **Format** (`B2:B`): `VHS`, `DVD`, `Blu-Ray`, `4K`, `Laserdisc`, `Betamax`
@@ -86,7 +92,7 @@ instead of your products. Fill in G2 and it fixes itself.
 
 ---
 
-## Step 2 — Fill in one row per copy
+## Step 2 — Fill in one row per movie and format
 
 | Column | What goes in it |
 |---|---|
@@ -95,12 +101,17 @@ instead of your products. Fill in G2 and it fixes itself.
 | Genre | Pick from the dropdown. It prints on the barcode label |
 | Price | The shelf price, e.g. `8` or `12.50`. Must be more than 0 |
 | Extra tags | Optional. Curation labels, comma-separated, e.g. `Criterion Collection, Rare Finds` |
+| Copies | How many copies of this movie in this format, e.g. `3`. Leave blank for one |
 
 No description or poster is needed, since these never go on the website.
 
-**Restocking a title you've sold before?** Add a new row in a new batch.
-Don't change the quantity on the old product. Every copy is its own
-product.
+**Several copies of one movie?** Put them on one row and type the number
+in Copies. All of them become one product with that many in stock, sharing
+one price and one barcode. The same movie in another format (Speed on DVD
+and on VHS) is a separate row.
+
+**Restocking a title you've sold before?** For now, add a new row in a new
+batch. It becomes a new product next to the old one, which is left alone.
 
 Always pick from the dropdowns rather than typing. `Blu-Ray` and `BLU-RAY`
 typed by hand count as two different formats.
@@ -129,9 +140,10 @@ nothing new.
 
 ## Step 4 — Print the labels
 
-A few seconds after the import, Shopify gives each new copy its own barcode
-automatically. In **Retail Barcode Labels**, pick the new products and
-**print** their labels, then stick them on.
+A few seconds after the import, Shopify gives each new product its own
+barcode automatically. In **Retail Barcode Labels**, pick the new products
+and **print** their labels, **one per copy** (a product with Copies 3 needs
+three labels, all the same barcode), then stick them on.
 
 **Don't create (generate) barcodes in the app.** The app makes its barcodes
 from the last 8 digits of Shopify's internal number, and on this store about
@@ -148,7 +160,8 @@ tell your developer before printing more.
 ## Having a file checked
 
 Before importing, you can send either tab's download to your developer to
-run through a checker. It catches a missing genre, a $0 price, a product
+run through a checker. It catches a missing genre, a $0 price, a Copies
+cell that isn't a whole number, a product
 accidentally set to show on the website, a missing batch date and similar
 mistakes that Shopify would otherwise accept silently.
 

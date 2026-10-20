@@ -12,10 +12,10 @@ from catalog.client_sheet.floor_sale import FLOOR_SALE_FILL_HEADER, floor_sale_r
 from catalog.core.columns import FLOOR_SALE_TEMPLATE_COLUMNS, GENRE_METAFIELD
 
 FILL = [
-    {"Title": "Speed", "Format": "DVD", "Genre": "Action", "Price": "8", "Extra tags": ""},
-    {"Title": "Speed", "Format": "DVD", "Genre": "Action", "Price": "8", "Extra tags": ""},
+    {"Title": "Speed", "Format": "DVD", "Genre": "Action", "Price": "8", "Extra tags": "", "Copies": "3"},
+    {"Title": "Speed", "Format": "VHS", "Genre": "Action", "Price": "4", "Extra tags": "", "Copies": ""},
     {"Title": "Heat", "Format": "Blu-Ray", "Genre": "Thriller", "Price": "12.50",
-     "Extra tags": "Criterion Collection"},
+     "Extra tags": "Criterion Collection", "Copies": "1"},
 ]
 BATCH = date(2026, 10, 8)
 
@@ -34,7 +34,7 @@ def _import_rows():
 
 
 def _fill_rows(batch_date="2026-10-08"):
-    rows = [dict(r, **{"": "", "Batch date": ""}) for r in FILL]
+    rows = [dict(r, **{"Batch date": ""}) for r in FILL]
     rows[0]["Batch date"] = batch_date
     return rows
 
@@ -81,7 +81,7 @@ class TestCleanFiles(_Case):
         self.assertEqual(problems, [])
 
     def test_a_date_only_row_is_not_a_blank_movie(self):
-        rows = [{"Title": "", "Format": "", "Genre": "", "Price": "", "Extra tags": "", "": "",
+        rows = [{"Title": "", "Format": "", "Genre": "", "Price": "", "Extra tags": "", "Copies": "",
                  "Batch date": "2026-10-08"}] + _fill_rows("")
         self.assertEqual(self.errors(rows, FLOOR_SALE_FILL_HEADER), [])
 
@@ -110,6 +110,16 @@ class TestFillTab(_Case):
         self._flags("is not a number", Price="eight")
         self._flags("price must be more than 0", Price="0")
         self._flags("price must be more than 0", Price="-3")
+
+    def test_copies_must_be_a_whole_number_of_one_or_more(self):
+        for copies in ("0", "-1", "2.5", "three"):
+            self._flags("is not a whole number of 1 or more", Copies=copies)
+
+    def test_blank_or_counted_copies_are_clean(self):
+        for copies in ("", "1", "12"):
+            rows = _fill_rows()
+            rows[1]["Copies"] = copies
+            self.assertEqual(self.errors(rows, FLOOR_SALE_FILL_HEADER), [], copies)
 
     def test_a_type_tag_in_extra_tags(self):
         self._flags("'Rental' in Extra tags", **{"Extra tags": "Rental"})
@@ -149,7 +159,8 @@ class TestImportTab(_Case):
 
     def test_taxable_quantity_and_tracking(self):
         self._flags("not taxable", **{"Variant Taxable": "FALSE"})
-        self._flags("quantity '2' is not 1", **{"Variant Inventory Qty": "2"})
+        for qty in ("", "0", "2.5", "three"):
+            self._flags("is not a whole number of 1 or more", **{"Variant Inventory Qty": qty})
         self._flags("inventory not tracked", **{"Variant Inventory Tracker": ""})
 
     def test_tags(self):
