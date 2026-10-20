@@ -217,6 +217,14 @@ that is on the Online Store (`floor-sale-online-store`) or not taxable
 
     python3 -m catalog check-upload <sheet.csv>     # any tab of either sheet; exit 0 clean (warnings ok), 1 problems, 2 unreadable
     python3 -m catalog.client_sheet.generate_expected   # after a taxonomy change
+    python3 -m catalog check-barcodes [--since YYYY-MM-DD]   # read-only: shared barcodes + Floor Sale copies with none; run after an import, before printing
+
+Retail Barcode Labels' own barcodes are the variant ID's last 8 digits. Every variant ID
+on production leaves the same remainder mod 32768, so only ~390,000 codes can come up and
+about 1 new product in 50 clashes (29 pairs on 2026-10-19). Floor Sale barcodes are
+instead set by a Shopify Flow workflow to the variant's full ID
+(`claudedocs/2026-10-20-floor-sale-barcodes-shopify-flow.md`); `check-barcodes` lists any
+clash on the store and any Floor Sale copy the workflow missed.
 
 ## Secrets
 

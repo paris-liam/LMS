@@ -20,7 +20,8 @@ a product happens in the Shopify admin.
 3. **Import into Shopify.** Download the `Shopify import` tab and import it,
    with "Overwrite products with matching handles" **unticked**. The new
    products land on Point of Sale on their own, ready to ring up.
-4. **Print the barcodes** in Retail Barcode Labels and stick them on.
+4. **Print the labels** in Retail Barcode Labels and stick them on. Shopify
+   gives every new copy its barcode on its own, so the app only prints.
 
 Each step is described below.
 
@@ -126,16 +127,21 @@ nothing new.
 
 ---
 
-## Step 4 — Barcodes
+## Step 4 — Print the labels
 
-In **Retail Barcode Labels**, create barcodes for the new products and make
-sure they're **saved to the product** (the variant). A barcode that isn't
-saved prints fine but scans as nothing at the counter. Then print the labels
-and stick them on.
+A few seconds after the import, Shopify gives each new copy its own barcode
+automatically. In **Retail Barcode Labels**, pick the new products and
+**print** their labels, then stick them on.
 
-**If a scan rings up the wrong item**, tell your developer. The app builds
-barcodes from the last 8 digits of Shopify's internal number, and two
-products can occasionally end up with the same one.
+**Don't create (generate) barcodes in the app.** The app makes its barcodes
+from the last 8 digits of Shopify's internal number, and on this store about
+1 product in 50 gets a number another product already has. Two products
+with one barcode means a scan can ring up the wrong movie. If the app ever
+insists on generating, choose **only products without barcodes**, so the
+ones Shopify set are left alone.
+
+**If a label prints with no barcode**, or a scan rings up the wrong item,
+tell your developer before printing more.
 
 ---
 
@@ -145,6 +151,9 @@ Before importing, you can send either tab's download to your developer to
 run through a checker. It catches a missing genre, a $0 price, a product
 accidentally set to show on the website, a missing batch date and similar
 mistakes that Shopify would otherwise accept silently.
+
+After importing, your developer can also check the store for any barcode
+that's on more than one product, before you print.
 
 ---
 
