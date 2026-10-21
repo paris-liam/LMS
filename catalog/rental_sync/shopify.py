@@ -1,5 +1,6 @@
 """The rental sync app's Shopify access: the reads behind the barcode diff and
-setup checks, the last-run metafield, and the writes create.py makes.
+setup checks, the last-run metafield, and the writes create.py and
+add_copy.py make.
 
 Uses the same Dev Dashboard custom app as the pipeline (client credentials
 grant). A Vercel instance that stays warm reuses its token; a cold one asks
@@ -82,6 +83,27 @@ query($id: ID!) {
     media(first: 5) { nodes { status } }
   }
 }"""
+PRODUCT_FOR_COPY = """
+query($id: ID!) {
+  product(id: $id) {
+    id handle title vendor tags
+    options { name values }
+    variants(first: 100) { nodes { id barcode taxable inventoryQuantity inventoryItem { tracked }
+      selectedOptions { name value } } }
+  }
+}"""
+ADD_OPTION = """
+mutation($id: ID!, $options: [OptionCreateInput!]!) {
+  productOptionsCreate(productId: $id, options: $options, variantStrategy: LEAVE_AS_IS) {
+    userErrors { field message }
+  }
+}"""
+ADD_VARIANTS = """
+mutation($id: ID!, $variants: [ProductVariantsBulkInput!]!) {
+  productVariantsBulkCreate(productId: $id, variants: $variants) { userErrors { field message } }
+}"""
+ADD_TAGS = """
+mutation($id: ID!, $tags: [String!]!) { tagsAdd(id: $id, tags: $tags) { userErrors { field message } } }"""
 
 
 class RentalShop:
@@ -174,6 +196,13 @@ class RentalShop:
     def read_back(self, product_id: str) -> dict:
         return self.gql(READ_BACK, id=product_id)["product"]
 
+    def product_for_copy(self, product_id: str) -> dict | None:
+        node = self.gql(PRODUCT_FOR_COPY, id=product_id)["product"]
+        if node is None:
+            return None
+        return {**node, "vendor": node.get("vendor") or "", "tags": list(node.get("tags") or []),
+                "variants": node["variants"]["nodes"]}
+
     # writes
 
     def save_last_run(self, summary: dict) -> None:
@@ -187,6 +216,16 @@ class RentalShop:
 
     def publish(self, product_id: str, publication_id: str) -> None:
         self.mutate(PUBLISH, "publishablePublish", id=product_id, input=[{"publicationId": publication_id}])
+
+    def add_copy_option(self, product_id: str) -> None:
+        self.mutate(ADD_OPTION, "productOptionsCreate", id=product_id,
+                    options=[{"name": "Copy", "position": 2, "values": [{"name": "Copy 1"}]}])
+
+    def add_variant(self, product_id: str, variant_input: dict) -> None:
+        self.mutate(ADD_VARIANTS, "productVariantsBulkCreate", id=product_id, variants=[variant_input])
+
+    def add_tags(self, product_id: str, tags: list[str]) -> None:
+        self.mutate(ADD_TAGS, "tagsAdd", id=product_id, tags=tags)
 
 
 def shop_from_env(env: dict) -> RentalShop:

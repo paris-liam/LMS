@@ -126,6 +126,36 @@ class TestWrites(unittest.TestCase):
         s.publish("gid://p/1", "gid://pub/1")
         self.assertEqual(execute.calls[0][1], {"id": "gid://p/1", "input": [{"publicationId": "gid://pub/1"}]})
 
+    def test_add_copy_option_leaves_variants_as_is(self):
+        s, execute = shop([("productOptionsCreate", data({"productOptionsCreate": {"userErrors": []}}))])
+        s.add_copy_option("gid://p/1")
+        self.assertIn("variantStrategy: LEAVE_AS_IS", execute.calls[0][0])
+        self.assertEqual(execute.calls[0][1], {"id": "gid://p/1", "options": [
+            {"name": "Copy", "position": 2, "values": [{"name": "Copy 1"}]}]})
+
+    def test_add_variant_and_tags(self):
+        s, execute = shop([("productVariantsBulkCreate", data({"productVariantsBulkCreate": {"userErrors": []}})),
+                           ("tagsAdd", data({"tagsAdd": {"userErrors": []}}))])
+        s.add_variant("gid://p/1", {"barcode": "2010000000014"})
+        s.add_tags("gid://p/1", ["Barcode Not Printed"])
+        self.assertEqual(execute.calls[0][1], {"id": "gid://p/1", "variants": [{"barcode": "2010000000014"}]})
+        self.assertEqual(execute.calls[1][1], {"id": "gid://p/1", "tags": ["Barcode Not Printed"]})
+
+    def test_add_variant_user_errors_raise(self):
+        s, _ = shop([("productVariantsBulkCreate", data({"productVariantsBulkCreate": {
+            "userErrors": [{"field": ["variants"], "message": "Option value already exists"}]}}))])
+        with self.assertRaisesRegex(ShopifyError, "Option value already exists"):
+            s.add_variant("gid://p/1", {})
+
+    def test_product_for_copy(self):
+        node = {"id": "gid://p/1", "handle": "h", "title": "Jaws", "vendor": None, "tags": ["Rental"],
+                "options": [{"name": "Genre", "values": ["Horror"]}],
+                "variants": {"nodes": [{"id": "gid://v/1", "barcode": "2010000000014"}]}}
+        s, _ = shop([("product(id:", lambda v: data({"product": node if v["id"] == "gid://p/1" else None}))])
+        found = s.product_for_copy("gid://p/1")
+        self.assertEqual((found["vendor"], found["variants"]), ("", [{"id": "gid://v/1", "barcode": "2010000000014"}]))
+        self.assertIsNone(s.product_for_copy("gid://p/2"))
+
 
 class TestErrors(unittest.TestCase):
     def test_access_denied_is_setup(self):
