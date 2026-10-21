@@ -131,13 +131,16 @@ def add_copy(shop, item: dict, product_id: str) -> dict:
     old_barcodes = list(_by_barcode(product))
     try:
         location = shop.location_id()
+    except ShopifyError as exc:
+        return {**result, "message": str(exc)}
+    try:
         if not copies:
             shop.add_copy_option(product_id)
         shop.add_variant(product_id, variant_input(copy, _option(product, GENRE_OPTION)["values"][0],
                                                    copy_value, location))
         result["print"] = [copy["barcode"]]
         shop.add_tags(product_id, [NOT_PRINTED])
-    except ShopifyError as exc:
+    except CatalogError as exc:
         return {**result, "message": f"{exc} — it may have been partly added; run the sync again (an existing "
                                      f"copy is checked, not duplicated) or look in Shopify admin"}
     try:

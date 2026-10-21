@@ -5,7 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from tests_rental_sync_fakes import FakeShop  # noqa: E402
 
-from catalog.errors import ShopifyError  # noqa: E402
+from catalog.errors import SetupError, ShopifyError  # noqa: E402
 from catalog.rental_sync.add_copy import add_copy, next_copy_number  # noqa: E402
 
 PID = "gid://shopify/Product/7"
@@ -180,6 +180,25 @@ class TestAddCopy(unittest.TestCase):
         result = add_copy(shop, item(), PID)
         self.assertEqual(result["status"], "failed")
         self.assertIn("boom", result["message"])
+
+    def test_setup_error_after_the_variant_says_it_may_be_partly_added(self):
+        class NoTagScopeShop(FakeShop):
+            def add_tags(self, product_id, tags):
+                raise SetupError("missing permission write_products")
+        shop = NoTagScopeShop()
+        shop.add_rental(PID, [OLD])
+        result = add_copy(shop, item(), PID)
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("missing permission", result["message"])
+        self.assertIn("may have been partly added", result["message"])
+        self.assertEqual(result["print"], [NEW])
+
+    def test_setup_error_before_any_write_propagates(self):
+        shop = FakeShop(location_error=SetupError("found 2 locations"))
+        shop.add_rental(PID, [OLD])
+        with self.assertRaises(SetupError):
+            add_copy(shop, item(), PID)
+        self.assertEqual(shop.writes, [])
 
 
 class TestPrint(unittest.TestCase):
