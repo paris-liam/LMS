@@ -6,6 +6,8 @@ from catalog.rental_sync.create import admin_url
 
 SEVERAL_PRODUCTS = "This Libib item is on several Shopify products — combine them first"
 
+NOT_FOUND = "This Libib item is already in Shopify, but its product couldn't be found — try the sync again in a few minutes."
+
 
 def attach_matches(result: dict, shop, store: str) -> dict:
     owners: dict[str, dict | None] = {}
@@ -31,6 +33,10 @@ def attach_matches(result: dict, shop, store: str) -> dict:
             continue
         if ids and summary(ids[0]):
             copy["match"] = {**summary(ids[0]), "admin_url": admin_url(store, ids[0])}
+        elif copy["siblings_in_shopify"]:
+            copy["set_aside"].append(NOT_FOUND)
+            result["set_aside"].append(copy)
+            continue
         ready.append(copy)
     result["ready"] = ready
     return result

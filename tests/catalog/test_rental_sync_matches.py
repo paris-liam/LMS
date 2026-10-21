@@ -5,7 +5,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from tests_rental_sync_fakes import FakeShop  # noqa: E402
 
-from catalog.rental_sync.matches import SEVERAL_PRODUCTS, attach_matches  # noqa: E402
+from catalog.rental_sync.matches import NOT_FOUND, SEVERAL_PRODUCTS, attach_matches  # noqa: E402
 
 
 def copy(barcode, siblings):
@@ -44,6 +44,21 @@ class TestAttachMatches(unittest.TestCase):
         aside = result["set_aside"][0]
         self.assertIn(SEVERAL_PRODUCTS, aside["set_aside"])
         self.assertEqual(len(aside["products"]), 2)
+
+    def test_unresolved_owner_set_aside(self):
+        shop = shop_with()
+        result = attach_matches({"ready": [copy("2010000000045", ["2010000000014"])], "set_aside": []},
+                                shop, shop.store)
+        self.assertEqual(result["ready"], [])
+        self.assertIn(NOT_FOUND, result["set_aside"][0]["set_aside"])
+
+    def test_missing_summary_set_aside(self):
+        shop = shop_with("2010000000014")
+        shop.products.clear()
+        result = attach_matches({"ready": [copy("2010000000045", ["2010000000014"])], "set_aside": []},
+                                shop, shop.store)
+        self.assertEqual(result["ready"], [])
+        self.assertIn(NOT_FOUND, result["set_aside"][0]["set_aside"])
 
     def test_owner_lookup_cached(self):
         shop = shop_with("2010000000014")
