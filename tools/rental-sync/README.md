@@ -34,6 +34,25 @@ Capture the two Libib export screenshots the upload guide shows:
 Export Barcode Data / Export Collection Data with Rental Library selected; crop out the account
 email; never click anything else on that page — it also holds Delete Collections).
 
+## Endpoints
+
+`POST /api/rental_sync/<route>` (all but `status`, which is GET), all behind the session cookie.
+
+- `create` — body `{items: [...], poster}`: `items` is every Libib copy of one movie (1 to
+  `CREATE_ITEMS_MAX`), `poster` is `{url, alt}` or omitted. Creates one product with a variant per
+  copy.
+- `add_copy` — body `{item, product_id}`: adds one Libib copy as a new variant of an existing rental
+  product (same Vendor), tags it `Barcode Not Printed`, and verifies the result. A barcode already on
+  a variant returns `skipped_exists`.
+
+Design: `docs/superpowers/specs/2026-10-21-rental-sync-duplicates-design.md`.
+
+## Testing on the dev store
+
+In Vercel, point the **Preview** environment's `SHOPIFY_STORE` at `lms-sandbox-lutsfahz.myshopify.com`
+and keep **Production** on `p0wkgv-wy.myshopify.com`. Deploy the branch as a preview and upload the
+test Libib account's exports, never the real ones.
+
 ## Password and sessions
 
 Sessions are signed with `SESSION_SECRET` and last 12 hours. Changing `SYNC_PASSWORD` does not

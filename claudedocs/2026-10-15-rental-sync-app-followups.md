@@ -16,6 +16,17 @@ as static files — expected, since the repo is public.
 
 What's left is optional: the minor issues and later phases below.
 
+## Duplicates and copies (built 2026-10-21, not live)
+
+Spec `docs/superpowers/specs/2026-10-21-rental-sync-duplicates-design.md`, plan
+`docs/superpowers/plans/2026-10-21-rental-sync-duplicates.md`. **Go-live waits on the separate
+duplicate-cleanup project** (dedupe production and the real Libib first). Tested on the dev store only.
+
+Not yet verified against real Shopify:
+- `productOptionsCreate` with `LEAVE_AS_IS` assigning "Copy 1" to the existing variant.
+- Whether Retail Barcode Labels can print a single variant. The client guide currently says to print
+  only the barcodes listed on the results page (one paragraph in section 3); change it if this fails.
+
 ## Known minor issues (reviewed, deliberately left)
 
 - `prepare.py` `_header`: a wrong file whose first line is over 128 KB raises a raw `csv.Error`
