@@ -75,6 +75,16 @@ def _run(args) -> int:
     return run_backup(args, default_deps(args))
 
 
+def _compare(args) -> int:
+    from catalog.backup.compare import compare_exports  # local-only tool
+    lines = compare_exports(Path(args.ours), Path(args.theirs), set(args.ignore))
+    for line in lines:
+        print(line)
+    if not lines:
+        print("No differences.")
+    return 1 if lines else 0
+
+
 def register(subparsers) -> None:
     p = subparsers.add_parser("backup", help="back up Libib and Shopify data to CSV files")
     p.add_argument("--out", required=True, help="folder to write libib/ and shopify/ into")
@@ -85,3 +95,9 @@ def register(subparsers) -> None:
     p.add_argument("--date", type=_date, default=datetime.now(timezone.utc).date(),
                    help="day for the message, YYYY-MM-DD (default today, UTC)")
     p.set_defaults(func=_run)
+
+    c = subparsers.add_parser("backup-compare", help="compare a backup products.csv with a Shopify admin export (local use only: prints values)")
+    c.add_argument("ours", help="products.csv written by backup")
+    c.add_argument("theirs", help="CSV from Shopify admin Products > Export")
+    c.add_argument("--ignore", action="append", default=[], metavar="COLUMN", help="skip this column (repeatable)")
+    c.set_defaults(func=_compare)
