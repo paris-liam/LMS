@@ -1,6 +1,6 @@
 # Daily Libib + Shopify backup (design, 2026-10-21)
 
-**Status:** built 2026-10-21 (code + format check against a fresh production export); not deployed yet. Decisions confirmed with the developer 2026-10-20/21.
+**Status:** built 2026-10-21 (code + format check against a fresh production export); live in `paris-liam/LMS-data` since 2026-10-21 (first manual runs: one Libib timeout, then two clean runs). Decisions confirmed with the developer 2026-10-20/21.
 
 ## Why
 

@@ -275,8 +275,8 @@ backup. Each source runs even if the other fails; exit is `0` only if all select
 succeeded. `--message-file` gets a one-line commit message such as
 `Backup 2026-10-22 — libib 3962/3962 rows, shopify 7031 products`. Needs `LIBIB_EMAIL`,
 `LIBIB_PASSWORD`, `SHOPIFY_CLIENT_ID` and `SHOPIFY_CLIENT_SECRET` (only those for the selected
-sources). Designed to run daily from a GitHub Action in the private `paris-liam/LMS-data` repo, which
-would commit whatever changed; not deployed yet. Spec: `docs/superpowers/specs/2026-10-21-daily-data-backup-design.md`.
+sources). Runs daily at 08:00 UTC from a GitHub Action in the private `paris-liam/LMS-data` repo, which
+commits whatever changed (live since 2026-10-21). Spec: `docs/superpowers/specs/2026-10-21-daily-data-backup-design.md`.
 
 ## Secrets
 
