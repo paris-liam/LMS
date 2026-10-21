@@ -26,7 +26,7 @@ The Shopify-side collection pages will be hidden, which is separate work and not
 
 1. **"Rental Library" in the header and footer, and the hero's "BROWSE THE LIBRARY" button,** link to `https://www.libib.com/u/littlemoviestore`.
 2. **The New Arrivals rail's buttons go to the same Libib page.** These are "View all" and "+ N more" in `sections/lms-new-releases.liquid`.
-3. **Each movie poster on the homepage opens that movie's Libib item**, at `https://www.libib.com/u/littlemoviestore?id=<join_id>`. Two sections have posters:
+3. **Each movie poster on the homepage opens that movie's Libib item**, at `https://www.libib.com/u/littlemoviestore?solo=<join_id>`. Two sections have posters:
    - the New Arrivals rail (`sections/lms-new-releases.liquid`)
    - Community Picks (`sections/lms-staff-picks.liquid`)
 4. **The daily job stores each homepage movie's Libib link.** `python3 -m catalog libib tags` already matches every `new-arrival` and `community-pick` product to its Libib item. It also looks up that item's `join_id` and writes it to a product metafield. Those two tags are exactly the products the homepage sections can show.
@@ -81,7 +81,7 @@ The Shopify-side collection pages will be hidden, which is separate work and not
 
 #### Shared
 
-- **One place builds the Libib URL.** For example, a `snippets/lms-libib-url.liquid` that takes an optional `join_id` and outputs the base URL, or `?id=<join_id>` when one is given. The card snippet and both sections use it, so the base URL lives in one spot.
+- **One place builds the Libib URL.** For example, a `snippets/lms-libib-url.liquid` that takes an optional `join_id` and outputs the base URL, or `?solo=<join_id>` when one is given. The card snippet and both sections use it, so the base URL lives in one spot.
 - **Base URL** `https://www.libib.com/u/littlemoviestore`. *(Builder's call:)* hardcode it in that snippet, or make it a theme setting next to `lms_known_formats`.
 - **Same tab** *(my call)*. Libib's "Website Link" brings customers back.
 

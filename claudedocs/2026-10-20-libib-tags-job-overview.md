@@ -11,7 +11,7 @@ Libib has no item API, but customers see tags both on its public page (`libib.co
 | New arrival | `new-arrival` | `new arrival` | The **newest 50 titles**. A title is a movie + format, keyed by `normalize_title` + `title_year` + canonical Vendor format from `catalog/duplicates/match.py`. Its age is the earliest `createdAt` among its copies. Only products tagged `Rental` whose barcode matches exactly one Libib copy qualify. Every copy of a chosen title gets the tag, everything else loses it, and old titles rotate out as new ones arrive. |
 | Community pick | `community-pick` | `community pick` | The product of every **Active** `community_pick` metaobject entry. In Libib, only that exact copy is tagged. A non-rental pick gets only the Shopify tag. |
 
-**Homepage Libib links (added 2026-10-21):** the job also stores each new-arrival and Community Pick rental's public Libib link in the product metafield `custom.libib_join_id`. The homepage posters open `libib.com/u/littlemoviestore?id=<join_id>`. The design is `docs/superpowers/specs/2026-10-20-libib-poster-links-design.md`.
+**Homepage Libib links (added 2026-10-21):** the job also stores each new-arrival and Community Pick rental's public Libib link in the product metafield `custom.libib_join_id`. The homepage posters open `libib.com/u/littlemoviestore?solo=<join_id>`. The design is `docs/superpowers/specs/2026-10-20-libib-poster-links-design.md`.
 
 The job adds or removes only these tags and never touches any other Libib tag or field. It writes Shopify with `tagsAdd`/`tagsRemove` and writes Libib through the item Edit form in a Playwright browser.
 

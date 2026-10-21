@@ -3,7 +3,7 @@
 Spec: docs/superpowers/specs/2026-10-20-libib-poster-links-design.md.
 
 The homepage's New Arrivals and Community Picks posters open the movie's
-item on the public Libib page, `…/u/littlemoviestore?id=<join_id>`. The
+item on the public Libib page, `…/u/littlemoviestore?solo=<join_id>`. The
 join_id isn't in Libib's exports, so the daily job looks it up on the
 published site's own search, which matches copy barcodes. That endpoint is
 undocumented and may change without notice: a failed lookup keeps the stored

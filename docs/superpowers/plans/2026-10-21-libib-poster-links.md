@@ -18,7 +18,7 @@
 
 - **Libib URLs:**
   - Libib base URL: `https://www.libib.com/u/littlemoviestore`
-  - item URL: `https://www.libib.com/u/littlemoviestore?id=<join_id>`
+  - item URL: `https://www.libib.com/u/littlemoviestore?solo=<join_id>`
   - lookup: `POST https://www.libib.com/u/littlemoviestore/search` with form fields `keywords=<copy barcode>&library_id=2603141&offset=0&limit=50`. Join ids are the unique `data-join-id="(\d+)"` values in the response's `item-info`.
 - **Metafield:** `custom.libib_join_id`, type `number_integer`, storefront `PUBLIC_READ`.
 - **No barcode or call number in anything printed, logged, raised, reported or committed.** The repo and its Actions logs are public. Identify items by product title, Libib item id and `join_id`.
@@ -243,7 +243,7 @@ Link writes don't count toward the unattended limit.
 
 **Interfaces:**
 - Produces:
-  - `{% render 'lms-libib-url', join_id: <int or blank> %}` outputs `https://www.libib.com/u/littlemoviestore`, plus `?id=<join_id>` when `join_id` isn't blank. No whitespace: use `{%- -%}`. The base URL is hardcoded in this one snippet.
+  - `{% render 'lms-libib-url', join_id: <int or blank> %}` outputs `https://www.libib.com/u/littlemoviestore`, plus `?solo=<join_id>` when `join_id` isn't blank. No whitespace: use `{%- -%}`. The base URL is hardcoded in this one snippet.
   - Card parameter `link_to_libib` (boolean, default false). When it's true, the href is `{% render 'lms-libib-url', join_id: card_product.metafields.custom.libib_join_id.value %}`.
 
 - [ ] **Step 1: Check for drift on production.** Pull the four existing files from production into a scratch dir:
@@ -301,7 +301,7 @@ There's no code in this task. Every step is a production write, so state the tar
 
   Show the user the summary and warnings.
 
-- [ ] **Step 3: Approved run.** `--approve <code>`. Then spot-check 3 products in the admin. Each value should open the right movie at `https://www.libib.com/u/littlemoviestore?id=<value>`.
+- [ ] **Step 3: Approved run.** `--approve <code>`. Then spot-check 3 products in the admin. Each value should open the right movie at `https://www.libib.com/u/littlemoviestore?solo=<value>`.
 
 - [ ] **Step 4: Theme push.**
   - Run `shopify theme list` and confirm `166751961338` is `[live]`.
@@ -313,7 +313,7 @@ There's no code in this task. Every step is a production write, so state the tar
 
 - [ ] **Step 5: Verify the storefront.**
   - Fetch the production homepage with password `shaoff`.
-  - Expected: New Arrivals and Community Picks posters link to `…?id=<digits>`, except Floor Sale picks, which link to the base URL. The hero, footer and New Arrivals buttons link to the base URL.
+  - Expected: New Arrivals and Community Picks posters link to `…?solo=<digits>`, except Floor Sale picks, which link to the base URL. The hero, footer and New Arrivals buttons link to the base URL.
 
 - [ ] **Step 6: Menu (manual).** In admin, Content → Menus → Main menu, change "Rental Library" to `https://www.libib.com/u/littlemoviestore`. The user or client does this by hand, not through the API. Then re-fetch the homepage and check the header link.
 
