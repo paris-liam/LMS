@@ -1,0 +1,23 @@
+{
+  products {
+    edges { node {
+      __typename id handle title descriptionHtml vendor productType tags status isGiftCard
+      category { fullName }
+      seo { title description }
+      published: publishedOnPublication(publicationId: "%(publication_id)s")
+      options { name position linkedMetafield { namespace key } optionValues { name linkedMetafieldValue } }
+      variants { edges { node {
+        __typename id position sku price compareAtPrice taxable barcode inventoryQuantity inventoryPolicy
+        selectedOptions { name value }
+        image { url }
+        unitPriceMeasurement { quantityValue quantityUnit referenceValue referenceUnit }
+        inventoryItem { tracked requiresShipping unitCost { amount } measurement { weight { unit value } } }
+      } } }
+      media { edges { node { __typename ... on MediaImage { id image { url altText } } } } }
+      metafields { edges { node {
+        __typename id namespace key type value
+        references { edges { node { __typename ... on Metaobject { id handle } ... on Product { id handle } } } }
+      } } }
+    } }
+  }
+}
