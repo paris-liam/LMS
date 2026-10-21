@@ -41,6 +41,12 @@ class TestLibibChanges(unittest.TestCase):
         state = ShopifyState((), (product("p1", ("999",), tags=("Floor Sale",)),), ())
         self.assertEqual(libib_changes([], state), ([], []))
 
+    def test_non_rental_new_arrival_is_ignored(self):
+        # Spec goal 1: only rentals mirror new-arrival — a hand-tagged Floor Sale whose
+        # 8-digit barcode collides with a legacy Libib copy must not tag that copy.
+        floor = product("p1", ("111",), tags=("Floor Sale", "new-arrival"))
+        self.assertEqual(libib_changes([item("a", "111", "vhs")], ShopifyState((floor,), (), ())), ([], []))
+
     def test_rental_with_no_libib_item_is_unmatched(self):
         _, unmatched = libib_changes([], ShopifyState((product("p1", ("111",), title="Bottoms"),), (), ()))
         self.assertEqual(unmatched, [Unmatched("Bottoms", "no Libib item has this barcode")])

@@ -319,6 +319,69 @@ class TestSyncCommand(unittest.TestCase):
         self.assertEqual(state["heat"]["call_number"], "02222222")  # refreshed by the confirming diff
 
 
+class FakeLocator:
+    """Every element exists and every field reads `value`."""
+
+    def __init__(self, value):
+        self.value = value
+        self.first = self
+
+    def locator(self, *_args, **_kwargs):
+        return self
+
+    def nth(self, _index):
+        return self
+
+    def wait_for(self, **_kwargs):
+        pass
+
+    def click(self):
+        pass
+
+    def count(self):
+        return 1
+
+    def input_value(self):
+        return self.value
+
+
+class FakePage:
+    def __init__(self, value):
+        self.value = value
+
+    def locator(self, *_args, **_kwargs):
+        return FakeLocator(self.value)
+
+    def goto(self, _url):
+        pass
+
+
+class TestSelftestFailureMessages(unittest.TestCase):
+    """The daily Actions run prints check details into public logs: a
+    mismatch must not echo the call number (it is the shelf barcode)."""
+
+    def check(self, name):
+        import sys
+        import types
+        from catalog.libib.selftest import build_checks
+        # browser.py needs Playwright at import; these checks only touch the fake page.
+        fake_browser = types.SimpleNamespace(open_item=lambda page, call: None, LIBIB_SETTINGS_URL="x")
+        with mock.patch.dict(sys.modules, {"catalog.libib.browser": fake_browser}):
+            return dict(build_checks("01111111", include_import_page=False))[name]
+
+    def assert_hides_numbers(self, name):
+        with self.assertRaises(AssertionError) as ctx:
+            self.check(name)(FakePage("02222222"), {})
+        self.assertNotIn("01111111", str(ctx.exception))
+        self.assertNotIn("02222222", str(ctx.exception))
+
+    def test_copies_panel_mismatch(self):
+        self.assert_hides_numbers("copies panel")
+
+    def test_edit_sections_mismatch(self):
+        self.assert_hides_numbers("edit form sections")
+
+
 class TestSelftestCommand(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()

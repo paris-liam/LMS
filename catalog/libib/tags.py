@@ -93,7 +93,7 @@ def libib_changes(items: list[dict], state: ShopifyState) -> tuple[list[LibibCha
             for item_id in ids - excluded:
                 desired[item_id].add(tag)
 
-    want(state.new_arrivals, LIBIB_NEW_ARRIVAL)
+    want((p for p in state.new_arrivals if p.is_rental), LIBIB_NEW_ARRIVAL)
     want((p for p in state.picked if p.is_rental), LIBIB_COMMUNITY_PICK)
 
     changes = []

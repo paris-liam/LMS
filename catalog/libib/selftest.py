@@ -69,7 +69,7 @@ def build_checks(call_number: str, include_import_page: bool, barcode: str | Non
         row = page.locator("table tbody tr").first
         value = row.locator(".copy-barcode-value input").input_value()
         if value != call_number:
-            raise AssertionError(f"copy barcode reads {value!r}, expected {call_number!r}")
+            raise AssertionError("copy barcode does not match the item's call number")  # no numbers: public CI logs
         if row.locator(".copy-barcode-value .lock-icon, .copy-lock-icon .lock-icon").count() == 0:
             raise AssertionError("barcode lock icon not found (the fixer unlocks the barcode with it)")
         if row.locator(".save-copy-button").count() == 0:
@@ -98,7 +98,7 @@ def build_checks(call_number: str, include_import_page: bool, barcode: str | Non
         _visible(page, "input[name='call_number']", 5000)
         value = page.locator("input[name='call_number']").first.input_value().strip()
         if value != call_number:
-            raise AssertionError(f"call number field reads {value!r}, expected {call_number!r}")
+            raise AssertionError("call number field does not match the item searched for")  # no numbers: public CI logs
         page.goto(browser.LIBIB_SETTINGS_URL)  # leave the form without saving
 
     def exports(page, ctx):
