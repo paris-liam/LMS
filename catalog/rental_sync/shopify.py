@@ -76,7 +76,8 @@ READ_BACK = """
 query($id: ID!) {
   product(id: $id) {
     id handle tags
-    variants(first: 5) { nodes { barcode taxable inventoryQuantity inventoryItem { tracked } } }
+    variants(first: 100) { nodes { barcode taxable inventoryQuantity inventoryItem { tracked }
+      selectedOptions { name value } } }
     resourcePublicationsV2(first: 20, onlyPublished: true) { nodes { publication { id name } } }
     media(first: 5) { nodes { status } }
   }

@@ -78,7 +78,8 @@ class FakeShop:
             raise self.set_error
         self.created.append(product_input)
         pid = f"gid://shopify/Product/{100 + len(self.created)}"
-        self.barcodes[product_input["variants"][0]["barcode"]] = {"id": pid, "handle": product_input["handle"]}
+        for variant in product_input["variants"]:
+            self.barcodes[variant["barcode"]] = {"id": pid, "handle": product_input["handle"]}
         self.handles.add(product_input["handle"])
         self.nodes[pid] = product_input
         return {"id": pid, "handle": product_input["handle"]}
@@ -91,7 +92,6 @@ class FakeShop:
     def read_back(self, product_id):
         self.reads += 1
         p = self.nodes[product_id]
-        v = p["variants"][0]
         status = self.media[min(self.reads - 1, len(self.media) - 1)]
         pubs = [{"publication": {"id": pub, "name": "Online Store"}} for prod, pub in self.published if prod == product_id]
         pubs += [{"publication": {"id": POS_ID, "name": name}} for name in self.extra_channels]
@@ -101,13 +101,17 @@ class FakeShop:
             "tags": [] if "tags" in self.lose else list(p["tags"]),
             "variants": {"nodes": [{
                 "barcode": v["barcode"],
-                "taxable": True if "taxable" in self.lose else v["taxable"],
-                "inventoryQuantity": 0 if "quantity" in self.lose else v["inventoryQuantities"][0]["quantity"],
+                "taxable": True if self._lost("taxable", v) else v["taxable"],
+                "inventoryQuantity": 0 if self._lost("quantity", v) else v["inventoryQuantities"][0]["quantity"],
                 "inventoryItem": {"tracked": v["inventoryItem"]["tracked"]},
-            }]},
+            } for v in p["variants"]]},
             "resourcePublicationsV2": {"nodes": pubs},
             "media": {"nodes": [{"status": status}] if p.get("files") else []},
         }
+
+    def _lost(self, kind, variant):
+        """lose holds kinds that fail on every variant, or (kind, barcode) for one."""
+        return kind in self.lose or (kind, variant["barcode"]) in self.lose
 
     def new_flow_barcodes(self):
         if self.barcodes_error:

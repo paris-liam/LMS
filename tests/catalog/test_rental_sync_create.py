@@ -7,7 +7,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from tests_rental_sync_fakes import ONLINE_STORE_ID, FakeShop  # noqa: E402
 
 from catalog.errors import SetupError, ShopifyError  # noqa: E402
-from catalog.rental_sync.create import admin_url, create_copy, description_html, handle_for  # noqa: E402
+from catalog.rental_sync.create import admin_url, create_item, description_html, handle_for  # noqa: E402
 from catalog.rental_sync.transform import transform  # noqa: E402
 
 POSTER = {"url": "https://image.tmdb.org/t/p/w1280/jaws.jpg", "alt": "Jaws (1975) poster"}
@@ -22,7 +22,7 @@ def item(**overrides):
 
 def run(shop, poster=POSTER, **overrides):
     sleeps = []
-    result = create_copy(shop, item(**overrides), poster, sleep=sleeps.append)
+    result = create_item(shop, [item(**overrides)], poster, sleep=sleeps.append)
     return result, sleeps
 
 
@@ -38,6 +38,13 @@ class TestHelpers(unittest.TestCase):
     def test_admin_url(self):
         self.assertEqual(admin_url("lms-sandbox-lutsfahz.myshopify.com", "gid://shopify/Product/42"),
                          "https://admin.shopify.com/store/lms-sandbox-lutsfahz/products/42")
+
+
+def two(shop, poster=POSTER, **overrides):
+    items = [item(id="7", barcode="2010000000021"), item(id="7", barcode="2010000000014")]
+    for i in items:
+        i.update(overrides)
+    return create_item(shop, items, poster, sleep=lambda s: None)
 
 
 class TestCreate(unittest.TestCase):
@@ -245,6 +252,55 @@ class TestCreate(unittest.TestCase):
         self.assertEqual(result["status"], "failed")
         self.assertIn("could not be read back", result["message"])
         self.assertIn("created in Shopify but not finished", result["message"])
+
+    def test_two_copies_one_product(self):
+        shop = FakeShop()
+        result = two(shop)
+        self.assertEqual(result["status"], "created", result)
+        self.assertEqual(result["barcodes"], ["2010000000014", "2010000000021"])
+        self.assertEqual(result["barcode"], "2010000000014")
+        self.assertEqual(len(shop.created), 1)
+        sent = shop.created[0]
+        self.assertEqual(sent["handle"], "jaws-vhs-rental-2010000000014")
+        self.assertEqual([o["name"] for o in sent["productOptions"]], ["Genre", "Copy"])
+        self.assertEqual(sent["productOptions"][1]["values"], [{"name": "Copy 1"}, {"name": "Copy 2"}])
+        self.assertEqual([v["barcode"] for v in sent["variants"]], ["2010000000014", "2010000000021"])
+        self.assertEqual(sent["variants"][1]["optionValues"],
+                         [{"optionName": "Genre", "name": "Horror"}, {"optionName": "Copy", "name": "Copy 2"}])
+
+    def test_one_copy_keeps_single_option(self):
+        shop = FakeShop()
+        run(shop)
+        self.assertEqual([o["name"] for o in shop.created[0]["productOptions"]], ["Genre"])
+        self.assertEqual(len(shop.created[0]["variants"]), 1)
+
+    def test_mixed_item_ids_refused(self):
+        shop = FakeShop()
+        result = create_item(shop, [item(id="7"), item(id="8", barcode="2010000000021")], POSTER,
+                             sleep=lambda s: None)
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("not ready", result["message"])
+        self.assertEqual(shop.created, [])
+
+    def test_partly_in_shopify_fails(self):
+        shop = FakeShop(barcodes=["2010000000014"])
+        result = two(shop)
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("added as copies", result["message"])
+        self.assertEqual(shop.created, [])
+
+    def test_all_in_shopify_skipped(self):
+        shop = FakeShop()
+        self.assertEqual(two(shop)["status"], "created")
+        again = two(shop)
+        self.assertEqual(again["status"], "skipped_exists", again)
+        self.assertEqual(len(shop.created), 1)
+
+    def test_verify_checks_each_variant(self):
+        shop = FakeShop(lose=[("quantity", "2010000000021")])
+        result = two(shop)
+        self.assertEqual(result["status"], "failed")
+        self.assertEqual(result["problems"], ["2010000000021: quantity is 0, not 1"])
 
 
 if __name__ == "__main__":

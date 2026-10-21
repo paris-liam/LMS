@@ -17,7 +17,7 @@ from typing import Callable
 
 from catalog.errors import CatalogError, InputShapeError, SetupError, ShopifyError
 from catalog.rental_sync.auth import new_session, password_matches, session_cookie, session_valid
-from catalog.rental_sync.create import create_copy
+from catalog.rental_sync.create import create_item
 from catalog.rental_sync.matches import attach_matches
 from catalog.rental_sync.posters import lookup_poster
 from catalog.rental_sync.prepare import decode_upload, load_uploads, prepare
@@ -113,7 +113,7 @@ def _create(payload: dict, deps: Deps) -> Response:
         if not url.startswith("https://"):
             raise InputShapeError("Poster links must start with https://")
         poster = {"url": url, "alt": str(poster.get("alt") or "")}
-    result = create_copy(deps.shop(deps.env), item, poster, sleep=deps.sleep)
+    result = create_item(deps.shop(deps.env), [item], poster, sleep=deps.sleep)
     deps.log(f"create {result['barcode']} {result['status']} {result['title']!r} {result['message']}".rstrip())
     return _json(200, result)
 
