@@ -135,7 +135,7 @@ The PDP shows: poster, description, attribute chips, and an in-stock indicator .
 - Events: `lms-events-calendar`, `lms-events-full`, `lms-events-membership` sections, plus a dedicated events page/template, backed by the `event` metaobject (see `claudedocs/events-and-staff-picks-setup.md`)
 - Membership page (`templates/page.membership.json`, `lms-shop-membership` section)
 - Movie catalogue pipeline (`catalog/`, rebuilt 2026-09-25): read-only Shopify audit, TMDB auto-fill, hosted review picker, narrow import CSVs, and Libib diff/prepare/fix
-- Daily tag job `python3 -m catalog libib tags` (2026-10-20, `.github/workflows/libib-tags.yml`): the newest 50 titles get `new-arrival` (Shopify) / `new arrival` (Libib), and Community Picks get `community-pick` / `community pick`. Settings live in `catalog/libib/tag_settings.json`. **Both New Arrival Flows are OFF** on production, because the job owns the tag. Overview: `claudedocs/2026-10-20-libib-tags-job-overview.md`
+- Daily tag job `python3 -m catalog libib tags` (2026-10-20, `.github/workflows/libib-tags.yml`): the newest 50 titles get `new-arrival` (Shopify) / `new arrival` (Libib), and Community Picks get `community-pick` / `community pick`. Settings live in `catalog/libib/tag_settings.json`. **Both New Arrival Flows are OFF** on production, because the job owns the tag. The job also keeps `custom.libib_join_id` on those products (2026-10-21). The homepage posters use it to open the movie's Libib item (`?solo=`, never `?id=`), and the homepage's Rental Library links go to `libib.com/u/littlemoviestore`. Overview: `claudedocs/2026-10-20-libib-tags-job-overview.md`
 
 ### In progress
 

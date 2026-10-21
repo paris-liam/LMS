@@ -1,6 +1,6 @@
 """`libib tags` — each homepage movie's public Libib link (its join_id).
 
-Spec: docs/superpowers/specs/2026-10-20-libib-poster-links-design.md.
+Overview: claudedocs/2026-10-20-libib-tags-job-overview.md ("Homepage Libib links").
 
 The homepage's New Arrivals and Community Picks posters open the movie's
 item on the public Libib page, `…/u/littlemoviestore?solo=<join_id>`. The
@@ -8,7 +8,7 @@ join_id isn't in Libib's exports, so the daily job looks it up on the
 published site's own search, which matches copy barcodes. That endpoint is
 undocumented and may change without notice: a failed lookup keeps the stored
 value, and stored values are only cleared when the same run shows the
-endpoint works (claudedocs/2026-10-13-libib-item-links-join-id.md).
+endpoint works.
 
 The barcode is sent to libib.com and nowhere else: it is never printed,
 raised or reported (the repo's logs are public).

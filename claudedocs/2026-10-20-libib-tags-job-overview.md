@@ -11,7 +11,7 @@ Libib has no item API, but customers see tags both on its public page (`libib.co
 | New arrival | `new-arrival` | `new arrival` | The **newest 50 titles**. A title is a movie + format, keyed by `normalize_title` + `title_year` + canonical Vendor format from `catalog/duplicates/match.py`. Its age is the earliest `createdAt` among its copies. Only products tagged `Rental` whose barcode matches exactly one Libib copy qualify. Every copy of a chosen title gets the tag, everything else loses it, and old titles rotate out as new ones arrive. |
 | Community pick | `community-pick` | `community pick` | The product of every **Active** `community_pick` metaobject entry. In Libib, only that exact copy is tagged. A non-rental pick gets only the Shopify tag. |
 
-**Homepage Libib links (added 2026-10-21):** the job also stores each new-arrival and Community Pick rental's public Libib link in the product metafield `custom.libib_join_id`. The homepage posters open `libib.com/u/littlemoviestore?solo=<join_id>`. The design is `docs/superpowers/specs/2026-10-20-libib-poster-links-design.md`.
+The job also keeps each homepage movie's **Libib link** up to date (added 2026-10-21; see "Homepage Libib links" below).
 
 The job adds or removes only these tags and never touches any other Libib tag or field. It writes Shopify with `tagsAdd`/`tagsRemove` and writes Libib through the item Edit form in a Playwright browser.
 
@@ -37,6 +37,43 @@ The job adds or removes only these tags and never touches any other Libib tag or
    - saves, reloads and checks the result
    - retries failed items 3 times
 7. **Report.** It writes the report to `libib-tags/<timestamp>.csv` (gitignored, no barcode column). It exits 1 if anything errored.
+
+## Homepage Libib links (live 2026-10-21)
+
+The public Libib page (`https://www.libib.com/u/littlemoviestore`) is where customers browse rentals and check availability, and the Shopify homepage points there. Only the homepage sends people to Libib; every other page keeps its Shopify links. The Shopify collection pages are being hidden separately.
+
+### Where the links are
+
+- **Posters:** the New Arrivals rail and the Community Picks section open their movie's Libib item.
+- **Library page:** these go to the Libib library itself:
+  - "View all" and "+ N more" on the rail
+  - the hero's "BROWSE THE LIBRARY" (`templates/index.json`)
+  - the footer's "Rental Library" (`sections/footer-group.json`)
+  - the header's "Rental Library" (a main-menu item, changed by hand in the admin)
+
+### The `join_id`
+
+- **What it is:** a Libib item's public link number. It's the row joining the item to `Rental Library` (`library_id` 2603141). It isn't in either CSV export.
+- **Where it's kept:** the product metafield `custom.libib_join_id` (`number_integer`, storefront `PUBLIC_READ`; definition created on production 2026-10-21).
+- **What the job stores:** links only for products tagged `new-arrival` or `community-pick`. A value stays when its product loses the tag.
+- **The link format:** `?solo=<join_id>`, which is the same link Libib's own "Copy Link" makes. Don't use `?id=`: on a direct visit, Libib 302-redirects it to the bare library page. The page only reads `id` when you go back or forward inside it.
+- **There's no search link.** The public page can't be opened with a search already run, because search is a POST fired by the Enter key. That's why the links point at single items.
+- **It changes if the item moves:** removing an item from the collection and re-adding it, or moving it to another collection, gives it a new `join_id`. Tag edits keep it (Bottoms kept `170093045` through the 2026-10-20 run). The daily lookup refreshes any value that changes.
+- **Ruled out:** Libib collections for New Arrivals and Community Picks. An item lives in only one collection, items that are checked out can't be moved, and moving an item changes its link.
+
+### Lookup
+
+- **The endpoint:** `catalog/libib/links.py` calls the published site's own search, `POST https://www.libib.com/u/littlemoviestore/search` with `keywords=<copy barcode>&library_id=2603141&offset=0&limit=50`. It parses `data-join-id` out of the reply's `item-info`.
+- **It's undocumented**, so the selftest's "join_id lookup" check runs it every day.
+- **Errors:** every error becomes `LookupFailed`, which keeps the stored value. Messages are fixed text, so a barcode can't leak.
+- **No title check on a single hit** (decided 2026-10-21). The search is by exact barcode and a search that finds several items is refused, so a wrong link is unlikely. If one does happen, it lasts until the next run.
+
+### Theme
+
+- `snippets/lms-libib-url.liquid` builds the link: the base URL, or `?solo=<join_id>` when it's given an id.
+- `snippets/lms-product-card.liquid` takes `link_to_libib: true` (only `sections/lms-new-releases.liquid` passes it).
+- `sections/lms-staff-picks.liquid` uses the snippet directly.
+- A poster with no `join_id` links to the Libib library. This covers Floor Sale picks, which aren't in Libib.
 
 ## Settings (`catalog/libib/tag_settings.json`)
 
@@ -70,7 +107,7 @@ The user and client are still deciding how many titles, rotate versus batch drop
 - **The repo is public, and so are its Actions logs.** Never print a barcode or call number: they're the internal shelf serials. Items are identified by title + Libib item id. Tests check this (`test_output_never_contains_barcodes`, `TestSelftestFailureMessages`). Don't upload screenshots as artifacts.
 - **No Libib CSV re-import.** It only creates items, so a re-import makes duplicates. Edit through the browser.
 - **Both New Arrival Flows are OFF on production.** That's "New Arrival auto-tag" and the 7-day expiry sweep. The job owns the tag, so don't turn them back on. Hand edits to these four tags are undone the next day: change the settings instead.
-- **The join_id lookup uses an undocumented endpoint** (`POST /u/littlemoviestore/search`). The selftest's "join_id lookup" check catches a break. Stored links keep working, because they use Libib's own Copy Link format.
+- **The join_id lookup uses an undocumented endpoint** (`POST /u/littlemoviestore/search`). The selftest's "join_id lookup" check catches a break. Stored links keep working if it breaks.
 - **Libib changes its UI without notice.** That happened twice in one week in September. The selftest runs first in every workflow run. When a selector breaks, fix it in `browser.py` and add it to `selftest.build_checks`.
 - **Every write needs approval** (`Plan`/`confirm`, no `--yes`). The only exception is `--unattended`, which is capped.
 - **Branch work happens in a git worktree** (`.worktrees/<name>`), never with `git checkout` in the main folder: other sessions share it.
