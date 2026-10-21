@@ -46,7 +46,8 @@ This card means a new movie looks like one that's already an item in Libib (same
 This card means another copy of the same Libib item is already in Shopify. You have to choose one
 before you can continue:
 - **Add as a copy** — this copy is added to the existing Shopify product.
-- **Skip this run** — nothing happens now. The copy shows up again next time you sync.
+- **Skip this run** — the copy is set aside. If it isn't the same movie, move it to its own item
+  in Libib. Otherwise it is offered again next time you sync.
 
 If something failed, fix what the message says and run the sync again — products already created
 are never duplicated.
