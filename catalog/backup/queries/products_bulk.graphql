@@ -5,7 +5,7 @@
       category { fullName }
       seo { title description }
       published: publishedOnPublication(publicationId: "%(publication_id)s")
-      options { name position linkedMetafield { namespace key } }
+      options { name position linkedMetafield { namespace key } optionValues { name linkedMetafieldValue } }
       variants { edges { node {
         __typename id position sku price compareAtPrice taxable barcode inventoryQuantity inventoryPolicy
         selectedOptions { name value }

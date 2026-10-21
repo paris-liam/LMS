@@ -152,6 +152,31 @@ class TestRows(unittest.TestCase):
         self.assertEqual(row["Variant Image"], "https://cdn.example.com/v.jpg")
         self.assertEqual(row["Variant Barcodes"], "123")
 
+    def test_null_quantity_unit_blanks_all_unit_price_columns(self):
+        measure = {"quantityValue": 0.0, "quantityUnit": None, "referenceValue": 0, "referenceUnit": None}
+        row = product_rows(_product(variants=[_variant(1, unitPriceMeasurement=measure)]), [])[0]
+        for column in ("Unit Price Total Measure", "Unit Price Total Measure Unit",
+                       "Unit Price Base Measure", "Unit Price Base Measure Unit"):
+            self.assertEqual(row[column], "")
+
+    def _linked_size(self, references):
+        option = {"name": "Size", "position": 1, "linkedMetafield": {"namespace": "shopify", "key": "size"},
+                  "optionValues": [{"name": "S", "linkedMetafieldValue": "gid://shopify/Metaobject/1"},
+                                   {"name": "M", "linkedMetafieldValue": "gid://shopify/Metaobject/2"}]}
+        meta = _meta("list.metaobject_reference", '["gid://shopify/Metaobject/1"]', namespace="shopify", key="size")
+        meta["references"] = references
+        return _product(options=[option], variants=[_variant(1, size="S", option="Size")], metafields=[meta])
+
+    def test_linked_option_value_is_metaobject_handle(self):
+        refs = [{"id": "gid://shopify/Metaobject/1", "handle": "s"}]
+        row = product_rows(self._linked_size(refs), [])[0]
+        self.assertEqual(row["Option1 Value"], "s")
+
+    def test_linked_option_value_falls_back_when_reference_missing(self):
+        refs = [{"id": "gid://shopify/Metaobject/9", "handle": "xl"}]
+        row = product_rows(self._linked_size(refs), [])[0]
+        self.assertEqual(row["Option1 Value"], "S")
+
     def test_media_image_without_image_is_skipped(self):
         pending = {"__typename": "MediaImage", "id": "p", "image": None}
         rows = product_rows(_product(media=[pending, _image(1), pending, _image(2)]), [])

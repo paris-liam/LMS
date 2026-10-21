@@ -84,7 +84,7 @@ def _unit_price(variant: dict) -> dict:
     blank = {"Unit Price Total Measure": "", "Unit Price Total Measure Unit": "",
              "Unit Price Base Measure": "", "Unit Price Base Measure Unit": ""}
     measure = variant.get("unitPriceMeasurement")
-    if not measure or measure.get("quantityValue") is None:
+    if not measure or not measure.get("quantityUnit"):
         return blank
     return {"Unit Price Total Measure": str(measure["quantityValue"]),
             "Unit Price Total Measure Unit": (measure.get("quantityUnit") or "").lower(),
@@ -92,7 +92,23 @@ def _unit_price(variant: dict) -> dict:
             "Unit Price Base Measure Unit": (measure.get("referenceUnit") or "").lower()}
 
 
-def _variant_fields(variant: dict, options: list[dict]) -> dict:
+def _option_value(option: dict, chosen: dict, metafields: list[dict]) -> str:
+    value = chosen.get(option["name"], "")
+    link = option.get("linkedMetafield")
+    if not link:
+        return value
+    gid = next((v.get("linkedMetafieldValue") for v in option.get("optionValues") or []
+                if v.get("name") == value), None)
+    metafield = next((m for m in metafields
+                      if (m["namespace"], m["key"]) == (link["namespace"], link["key"])), None)
+    if gid and metafield:
+        for ref in metafield.get("references") or []:
+            if ref.get("id") == gid and ref.get("handle"):
+                return ref["handle"]
+    return value
+
+
+def _variant_fields(variant: dict, options: list[dict], metafields: list[dict]) -> dict:
     item = variant.get("inventoryItem") or {}
     grams, unit = _weight(variant)
     chosen = {o["name"]: o["value"] for o in variant.get("selectedOptions") or []}
@@ -110,7 +126,7 @@ def _variant_fields(variant: dict, options: list[dict]) -> dict:
         **_unit_price(variant),
     }
     for n, option in enumerate(options[:3], start=1):
-        fields[f"Option{n} Value"] = chosen.get(option["name"], "")
+        fields[f"Option{n} Value"] = _option_value(option, chosen, metafields)
     return fields
 
 
@@ -149,7 +165,7 @@ def product_rows(product: dict, columns: list[MetafieldColumn]) -> list[dict]:
         if k == 0:
             row.update(_product_fields(product, options, columns))
         if k < len(variants):
-            row.update(_variant_fields(variants[k], options))
+            row.update(_variant_fields(variants[k], options, product.get("metafields") or []))
         if k < len(images):
             row.update({"Image Src": images[k]["url"], "Image Position": str(k + 1),
                         "Image Alt Text": images[k].get("altText") or ""})
