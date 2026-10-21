@@ -66,7 +66,7 @@ The Shopify-side collection pages will be hidden, which is separate work and not
 - **Several hits:** keep any stored value, and report the product by title and Libib item id.
 - **Zero hits with a value stored** *(my call)*: clear it, but only when the zero is definitive:
   - the request succeeded and parsed
-  - the selftest's known-item lookup in the same run returned exactly one hit
+  - at least one other lookup in the same run returned exactly one hit, which shows the endpoint works (the selftest also checks it separately)
   - no more than 10 products would be cleared in this run
 
   Otherwise keep every stored value and report it, so a broken endpoint can't wipe links in bulk.
