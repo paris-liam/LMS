@@ -16,6 +16,7 @@ from pathlib import Path
 from catalog.core.barcodes import is_new_flow_item
 from catalog.errors import InputShapeError
 from catalog.libib.exports import load_libib
+from catalog.rental_sync.libib_duplicates import find_libib_duplicates
 from catalog.rental_sync.transform import transform
 
 MAX_FILE_BYTES = 5 * 1024 * 1024
@@ -70,6 +71,12 @@ def _order(item: dict) -> tuple[str, str]:
 def prepare(items: list[dict], shopify_barcodes: set[str]) -> dict:
     new_flow = [i for i in items if is_new_flow_item(i.get("barcode"), i.get("call_number"))]
     counts = Counter(i["barcode"] for i in new_flow)
+    siblings: dict[str, list[str]] = {}
+    for item in new_flow:
+        if item["barcode"] in shopify_barcodes:
+            siblings.setdefault(item["id"], []).append(item["barcode"])
+    new_ids = {i["id"] for i in new_flow if i["barcode"] not in shopify_barcodes}
+    duplicates = find_libib_duplicates(items, new_ids - set(siblings))
     ready, set_aside, in_shopify = [], [], 0
     for item in sorted(new_flow, key=_order):
         if item["barcode"] in shopify_barcodes:
@@ -78,6 +85,8 @@ def prepare(items: list[dict], shopify_barcodes: set[str]) -> dict:
         copy = transform(item)
         if counts[item["barcode"]] > 1:
             copy["set_aside"].append(f"barcode {item['barcode']} is on {counts[item['barcode']]} Libib copies")
+        copy.update(item_id=item["id"], siblings_in_shopify=list(siblings.get(item["id"], [])),
+                    libib_duplicate=None if copy["set_aside"] else duplicates.get(item["id"]), match=None)
         (set_aside if copy["set_aside"] else ready).append(copy)
     return {"ready": ready, "set_aside": set_aside, "already_in_shopify": in_shopify,
             "not_new_flow": len(items) - len(new_flow)}

@@ -10,7 +10,7 @@ import re
 from catalog.core.handles import slugify
 from catalog.core.taxonomy import FORMATS, GENRES, canonical_format, canonical_genre
 
-LIBIB_FIELDS = ("barcode", "title", "tags", "description", "created")
+LIBIB_FIELDS = ("id", "barcode", "title", "tags", "description", "created")
 FORMAT_BY_TAG = {slugify(f): f for f in FORMATS}
 GENRE_NAME_BY_HANDLE = {handle: name for name, handle in GENRES.items()}
 VOCABULARY = sorted(set(FORMAT_BY_TAG) | set(GENRE_NAME_BY_HANDLE))

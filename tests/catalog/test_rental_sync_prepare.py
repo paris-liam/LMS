@@ -115,6 +115,28 @@ class TestPrepare(unittest.TestCase):
         self.assertNotIn("2010000000045", barcodes)
         self.assertEqual(result["not_new_flow"], 2)
 
+    def test_copy_carries_item_id(self):
+        result = prepare(self.items, set())
+        self.assertEqual(result["ready"][1]["item_id"], "a1")
+        self.assertEqual(result["ready"][1]["siblings_in_shopify"], [])
+        self.assertIsNone(result["ready"][1]["match"])
+
+    def test_new_copy_of_synced_item_lists_siblings(self):
+        extra = dict(self.items[3], barcode="2010000000045")
+        result = prepare(self.items + [extra], {"2010000000038"})
+        copy = next(c for c in result["ready"] if c["barcode"] == "2010000000045")
+        self.assertEqual(copy["item_id"], "a4")
+        self.assertEqual(copy["siblings_in_shopify"], ["2010000000038"])
+        self.assertIsNone(copy["libib_duplicate"])
+
+    def test_duplicate_item_flagged(self):
+        twin = dict(self.items[0], id="b1", barcode="2010000000052", created="2026-10-20")
+        result = prepare(self.items + [twin], set())
+        copy = next(c for c in result["ready"] if c["item_id"] == "b1")
+        self.assertEqual(copy["libib_duplicate"]["item_id"], "a1")
+        original = next(c for c in result["ready"] if c["item_id"] == "a1")
+        self.assertIsNone(original["libib_duplicate"])
+
     def test_nothing_new(self):
         result = prepare(self.items, {"2010000000014", "2010000000021", "2010000000038"})
         self.assertEqual((result["ready"], result["set_aside"], result["already_in_shopify"]), ([], [], 3))

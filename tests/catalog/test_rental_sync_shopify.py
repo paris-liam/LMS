@@ -44,6 +44,19 @@ class TestReads(unittest.TestCase):
         s2, _ = shop([("productVariants(first: 10", data({"productVariants": {"nodes": []}}))])
         self.assertIsNone(s2.barcode_owner("2010000000014"))
 
+    def test_product_summary_counts_variants(self):
+        s, _ = shop([("variantsCount", data({"product": {
+            "id": "gid://shopify/Product/1", "handle": "jaws", "title": "Jaws", "vendor": "VHS",
+            "tags": ["Rental"], "featuredMedia": {"preview": {"image": {"url": "https://x/p.jpg"}}},
+            "variantsCount": {"count": 2}}}))])
+        self.assertEqual(s.product_summary("gid://shopify/Product/1"), {
+            "id": "gid://shopify/Product/1", "handle": "jaws", "title": "Jaws", "vendor": "VHS",
+            "tags": ["Rental"], "image": "https://x/p.jpg", "copies": 2})
+
+    def test_product_summary_missing_product(self):
+        s, _ = shop([("variantsCount", data({"product": None}))])
+        self.assertIsNone(s.product_summary("gid://shopify/Product/1"))
+
     def test_handle_taken_uses_a_direct_lookup(self):
         found, execute = shop([("productByIdentifier", data({"productByIdentifier": {"id": "gid://shopify/Product/1"}}))])
         self.assertTrue(found.handle_taken("jaws-vhs-rental-2010000000014"))

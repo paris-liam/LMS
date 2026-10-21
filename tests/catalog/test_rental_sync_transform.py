@@ -5,7 +5,7 @@ from catalog.rental_sync.transform import edit_distance, misspelling_of, transfo
 
 
 def item(**overrides):
-    base = {"barcode": "2010000000014", "title": "Jaws", "tags": "horror, vhs",
+    base = {"id": "a1", "barcode": "2010000000014", "title": "Jaws", "tags": "horror, vhs",
             "description": "A shark.", "created": "2026-10-14 10:00:00"}
     base.update(overrides)
     return base

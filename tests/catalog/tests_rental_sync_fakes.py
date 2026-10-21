@@ -39,6 +39,8 @@ class FakeShop:
         self.last = last
         self.created, self.published, self.saved = [], [], []
         self.nodes = {}
+        self.products = {}
+        self.owner_calls = []
         self.reads = 0
         for barcode in barcodes:
             pid = f"gid://shopify/Product/existing-{barcode}"
@@ -51,7 +53,11 @@ class FakeShop:
                 self.published.append((pid, ONLINE_STORE_ID))
 
     def barcode_owner(self, barcode):
+        self.owner_calls.append(barcode)
         return self.barcodes.get(barcode)
+
+    def product_summary(self, product_id):
+        return self.products.get(product_id)
 
     def handle_taken(self, handle):
         return handle in self.handles

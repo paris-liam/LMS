@@ -64,6 +64,14 @@ PUBLISH = """
 mutation($id: ID!, $input: [PublicationInput!]!) {
   publishablePublish(id: $id, input: $input) { userErrors { field message } }
 }"""
+PRODUCT_SUMMARY = """
+query($id: ID!) {
+  product(id: $id) {
+    id handle title vendor tags
+    featuredMedia { preview { image { url } } }
+    variantsCount { count }
+  }
+}"""
 READ_BACK = """
 query($id: ID!) {
   product(id: $id) {
@@ -117,6 +125,15 @@ class RentalShop:
         nodes = self.gql(VARIANTS_BY_BARCODE, q=f"barcode:{barcode}")["productVariants"]["nodes"]
         return next(({"id": n["product"]["id"], "handle": n["product"]["handle"]}
                      for n in nodes if (n.get("barcode") or "").strip() == barcode), None)
+
+    def product_summary(self, product_id: str) -> dict | None:
+        node = self.gql(PRODUCT_SUMMARY, id=product_id)["product"]
+        if node is None:
+            return None
+        image = ((node.get("featuredMedia") or {}).get("preview") or {}).get("image") or {}
+        return {"id": node["id"], "handle": node["handle"], "title": node["title"],
+                "vendor": node.get("vendor") or "", "tags": list(node.get("tags") or []),
+                "image": image.get("url") or "", "copies": (node.get("variantsCount") or {}).get("count", 0)}
 
     def handle_taken(self, handle: str) -> bool:
         return self.gql(PRODUCT_BY_HANDLE, h=handle)["productByIdentifier"] is not None

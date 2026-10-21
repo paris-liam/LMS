@@ -18,6 +18,7 @@ from typing import Callable
 from catalog.errors import CatalogError, InputShapeError, SetupError, ShopifyError
 from catalog.rental_sync.auth import new_session, password_matches, session_cookie, session_valid
 from catalog.rental_sync.create import create_copy
+from catalog.rental_sync.matches import attach_matches
 from catalog.rental_sync.posters import lookup_poster
 from catalog.rental_sync.prepare import decode_upload, load_uploads, prepare
 from catalog.rental_sync.transform import LIBIB_FIELDS, transform, vocabulary
@@ -88,7 +89,8 @@ def _prepare(payload: dict, deps: Deps) -> Response:
     barcodes = decode_upload(_text(payload, "barcodes"), "Barcodes export")
     library = decode_upload(_text(payload, "library"), "Library export")
     items = load_uploads(barcodes, library)
-    result = prepare(items, deps.shop(deps.env).new_flow_barcodes())
+    shop = deps.shop(deps.env)
+    result = attach_matches(prepare(items, shop.new_flow_barcodes()), shop, shop.store)
     deps.log(f"prepare: {len(result['ready'])} ready, {len(result['set_aside'])} set aside, "
              f"{result['already_in_shopify']} already in Shopify")
     return _json(200, {**result, "vocabulary": vocabulary()})
