@@ -226,3 +226,33 @@ class TestEditWithRetries(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestLinkTargets(unittest.TestCase):
+    def test_new_arrivals_and_picks_are_targets(self):
+        items = [item("a", "1", title="New"), item("b", "2", title="Pick")]
+        new = product("pNew", ("1",), created="2026-10-10T00:00:00Z")
+        pick = product("pPick", ("2",), created="2025-01-01T00:00:00Z")
+        p = plan(items, state([new, pick], picked=[pick]), count=1)
+        self.assertEqual({(t.product_id, t.item_id, t.barcode) for t in p.link_targets},
+                         {("pNew", "a", "1"), ("pPick", "b", "2")})
+
+    def test_product_in_both_lists_is_one_target(self):
+        both = product("pBoth", ("1",))
+        p = plan([item("a", "1")], state([both], picked=[both]))
+        self.assertEqual([t.product_id for t in p.link_targets], ["pBoth"])
+
+    def test_floor_sale_pick_is_not_a_target(self):
+        floor = product("pFloor", ("1",), tags=("Floor Sale",))
+        p = plan([item("a", "1")], state([product("pOther", ("9",))], picked=[floor]), count=0)
+        self.assertEqual(p.link_targets, ())
+
+    def test_unmatched_pick_is_not_a_target(self):
+        lost = product("pLost", ("8",))
+        p = plan([item("a", "1")], state([lost], picked=[lost]), count=0)
+        self.assertEqual(p.link_targets, ())
+
+    def test_stored_value_is_carried(self):
+        stored = Product("pA", "pA", ("Rental",), ("1",), "VHS", "2026-10-01T00:00:00Z", 42)
+        p = plan([item("a", "1")], state([stored]))
+        self.assertEqual([t.stored for t in p.link_targets], [42])
