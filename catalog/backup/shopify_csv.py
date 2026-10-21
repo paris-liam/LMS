@@ -55,6 +55,8 @@ def build_header(columns: list[MetafieldColumn]) -> list[str]:
 def format_metafield(metafield: dict) -> str:
     kind = metafield.get("type") or ""
     value = metafield.get("value")
+    if value is None:
+        return ""
     if kind.endswith(REFERENCE_SUFFIXES):
         return "; ".join(ref["handle"] for ref in metafield.get("references") or [])
     if kind.startswith("list."):
@@ -75,7 +77,7 @@ def _weight(variant: dict) -> tuple[str, str]:
     weight = measurement.get("weight")
     if not weight:
         return "", ""
-    return str(round(weight["value"] * GRAMS_PER_UNIT[weight["unit"]], 1)), WEIGHT_UNITS[weight["unit"]]
+    return str(round(float(weight["value"] * GRAMS_PER_UNIT[weight["unit"]]), 1)), WEIGHT_UNITS[weight["unit"]]
 
 
 def _unit_price(variant: dict) -> dict:
@@ -97,7 +99,7 @@ def _variant_fields(variant: dict, options: list[dict]) -> dict:
     fields = {
         "Variant SKU": variant.get("sku") or "", "Variant Grams": grams,
         "Variant Inventory Tracker": "shopify" if item.get("tracked") else "",
-        "Variant Inventory Qty": str(variant["inventoryQuantity"]),
+        "Variant Inventory Qty": "" if variant.get("inventoryQuantity") is None else str(variant["inventoryQuantity"]),
         "Variant Inventory Policy": variant["inventoryPolicy"].lower(),
         "Variant Fulfillment Service": "manual", "Variant Price": _money(variant.get("price")),
         "Variant Compare At Price": _money(variant.get("compareAtPrice")),
@@ -138,7 +140,8 @@ def product_rows(product: dict, columns: list[MetafieldColumn]) -> list[dict]:
     header = build_header(columns)
     options = sorted(product.get("options") or [], key=lambda o: o["position"])
     variants = sorted(product.get("variants") or [], key=lambda v: v["position"])
-    images = [m["image"] for m in product.get("media") or [] if m.get("__typename") == "MediaImage"]
+    images = [m["image"] for m in product.get("media") or []
+              if m.get("__typename") == "MediaImage" and m.get("image")]
     rows = []
     for k in range(max(len(variants), len(images), 1)):
         row = dict.fromkeys(header, "")

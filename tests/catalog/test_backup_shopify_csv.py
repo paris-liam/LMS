@@ -152,6 +152,22 @@ class TestRows(unittest.TestCase):
         self.assertEqual(row["Variant Image"], "https://cdn.example.com/v.jpg")
         self.assertEqual(row["Variant Barcodes"], "123")
 
+    def test_media_image_without_image_is_skipped(self):
+        pending = {"__typename": "MediaImage", "id": "p", "image": None}
+        rows = product_rows(_product(media=[pending, _image(1), pending, _image(2)]), [])
+        self.assertEqual([(r["Image Src"], r["Image Position"]) for r in rows],
+                         [("https://cdn.example.com/img1.jpg", "1"), ("https://cdn.example.com/img2.jpg", "2")])
+
+    def test_null_inventory_quantity_is_blank(self):
+        row = product_rows(_product(variants=[_variant(1, inventoryQuantity=None)]), [])[0]
+        self.assertEqual(row["Variant Inventory Qty"], "")
+
+    def test_integer_gram_weight_keeps_decimal(self):
+        item = {"tracked": True, "requiresShipping": True, "unitCost": None,
+                "measurement": {"weight": {"unit": "GRAMS", "value": 100}}}
+        row = product_rows(_product(variants=[_variant(1, inventoryItem=item)]), [])[0]
+        self.assertEqual(row["Variant Grams"], "100.0")
+
     def test_missing_category_is_blank(self):
         self.assertEqual(product_rows(_product(category=None), [])[0]["Product Category"], "")
 
@@ -186,6 +202,10 @@ class TestFormatMetafield(unittest.TestCase):
 
     def test_text_list_joins_with_semicolons(self):
         self.assertEqual(format_metafield(_meta("list.single_line_text_field", '["a","b"]')), "a; b")
+
+    def test_null_value_is_blank(self):
+        self.assertEqual(format_metafield(_meta("single_line_text_field", None)), "")
+        self.assertEqual(format_metafield(_meta("list.single_line_text_field", None)), "")
 
     def test_unknown_metafield_type_writes_raw_value(self):
         self.assertEqual(format_metafield(_meta("rating", '{"value":"4.5"}')), '{"value":"4.5"}')
