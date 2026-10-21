@@ -123,7 +123,8 @@ class TestRoutes(unittest.TestCase):
 
     def test_create(self):
         h = Harness()
-        item = {"barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror", "description": "", "created": ""}
+        item = {"id": "1", "barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror", "description": "",
+                "created": ""}
         status, _, body = h.call("create", {"items": [item], "poster": None})
         self.assertEqual((status, body["status"]), (200, "created"))
         self.assertTrue(any("2010000000014" in line and "created" in line for line in h.logs))
@@ -177,7 +178,8 @@ class TestRoutes(unittest.TestCase):
 
     def test_create_setup_error(self):
         h = Harness(shop=FakeShop(location_error=SetupError("found 2 locations")))
-        item = {"barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror", "description": "", "created": ""}
+        item = {"id": "1", "barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror", "description": "",
+                "created": ""}
         status, _, body = h.call("create", {"items": [item], "poster": None})
         self.assertEqual((status, body["error"]["kind"]), (500, "setup"))
         self.assertIn("contact Liam", body["error"]["message"])

@@ -14,7 +14,7 @@ POSTER = {"url": "https://image.tmdb.org/t/p/w1280/jaws.jpg", "alt": "Jaws (1975
 
 
 def item(**overrides):
-    base = {"barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror, thriller, criterion",
+    base = {"id": "7", "barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror, thriller, criterion",
             "description": "A shark.", "created": "2026-10-14"}
     base.update(overrides)
     return base
@@ -281,6 +281,22 @@ class TestCreate(unittest.TestCase):
         self.assertEqual(result["status"], "failed")
         self.assertIn("not ready", result["message"])
         self.assertEqual(shop.created, [])
+
+    def test_repeated_barcode_refused(self):
+        shop = FakeShop()
+        result = create_item(shop, [item(), item()], POSTER, sleep=lambda s: None)
+        self.assertEqual(result["status"], "failed")
+        self.assertIn("not ready", result["message"])
+        self.assertIn("2010000000014", result["message"])
+        self.assertEqual(shop.created, [])
+
+    def test_empty_item_id_refused(self):
+        for items in ([item(id="")], [item(id=""), item(id="", barcode="2010000000021")]):
+            shop = FakeShop()
+            result = create_item(shop, items, POSTER, sleep=lambda s: None)
+            self.assertEqual(result["status"], "failed", items)
+            self.assertIn("not ready", result["message"])
+            self.assertEqual(shop.created, [])
 
     def test_partly_in_shopify_fails(self):
         shop = FakeShop(barcodes=["2010000000014"])

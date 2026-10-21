@@ -14,6 +14,7 @@ succeeds, even if a later step fails), so their labels get printed.
 import html
 import json
 import time
+from collections import Counter
 
 from catalog.core.barcodes import is_new_flow_barcode
 from catalog.core.handles import slugify
@@ -174,8 +175,13 @@ def create_item(shop, items: list[dict], poster: dict | None, sleep=time.sleep) 
     copies = sorted((transform(i) for i in items), key=lambda c: c["barcode"])
     result = {**result, "barcode": copies[0]["barcode"], "barcodes": [c["barcode"] for c in copies],
               "title": copies[0]["title"]}
+    if not all(i.get("id") for i in items):
+        return {**result, "message": "not ready: a copy has no Libib item id"}
     if len({i.get("id") for i in items}) > 1:
         return {**result, "message": "not ready: these copies are not all from the same Libib item"}
+    repeated = sorted(b for b, n in Counter(c["barcode"] for c in copies).items() if n > 1)
+    if repeated:
+        return {**result, "message": "not ready: barcode " + ", ".join(repeated) + " was sent more than once"}
     for copy in copies:
         if not is_new_flow_barcode(copy["barcode"]):
             return {**result, "message": "not ready: barcode is not a 13-digit 201… Libib barcode"}
