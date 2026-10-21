@@ -41,12 +41,21 @@ def _header(path) -> list[str]:
         return next(csv.reader(f))
 
 
-def build_checks(call_number: str, include_import_page: bool):
-    """Ordered (name, fn(page, ctx)) pairs; each raises on failure."""
+def build_checks(call_number: str, include_import_page: bool, barcode: str | None = None):
+    """Ordered (name, fn(page, ctx)) pairs; each raises on failure. `barcode`
+    is the copy barcode the tag job's barcode search is tried with (default:
+    the call number, which legacy items also carry as their barcode)."""
     from catalog.libib import browser, transfer
+
+    barcode = barcode or call_number
 
     def search(page, ctx):
         err = browser.open_item(page, call_number)
+        if err:
+            raise AssertionError(err[1])
+
+    def barcode_search(page, ctx):
+        err = browser.open_item_by_barcode(page, barcode, verify=True)
         if err:
             raise AssertionError(err[1])
 
@@ -60,7 +69,7 @@ def build_checks(call_number: str, include_import_page: bool):
         row = page.locator("table tbody tr").first
         value = row.locator(".copy-barcode-value input").input_value()
         if value != call_number:
-            raise AssertionError(f"copy barcode reads {value!r}, expected {call_number!r}")
+            raise AssertionError("copy barcode does not match the item's call number")  # no numbers: public CI logs
         if row.locator(".copy-barcode-value .lock-icon, .copy-lock-icon .lock-icon").count() == 0:
             raise AssertionError("barcode lock icon not found (the fixer unlocks the barcode with it)")
         if row.locator(".save-copy-button").count() == 0:
@@ -89,7 +98,7 @@ def build_checks(call_number: str, include_import_page: bool):
         _visible(page, "input[name='call_number']", 5000)
         value = page.locator("input[name='call_number']").first.input_value().strip()
         if value != call_number:
-            raise AssertionError(f"call number field reads {value!r}, expected {call_number!r}")
+            raise AssertionError("call number field does not match the item searched for")  # no numbers: public CI logs
         page.goto(browser.LIBIB_SETTINGS_URL)  # leave the form without saving
 
     def exports(page, ctx):
@@ -133,7 +142,8 @@ def build_checks(call_number: str, include_import_page: bool):
             raise AssertionError("; ".join(problems))
         page.goto(browser.LIBIB_SETTINGS_URL)  # abandon the upload
 
-    checks = [("search by call number", search), ("item page", item_page), ("copies panel", copies_panel),
+    checks = [("search by call number", search), ("search by barcode", barcode_search),
+              ("search by call number again", search), ("item page", item_page), ("copies panel", copies_panel),
               ("edit form fields", edit_form), ("edit form sections", edit_sections),
               ("exports", exports), ("CSV import page", import_page)]
     if include_import_page:
@@ -142,7 +152,7 @@ def build_checks(call_number: str, include_import_page: bool):
 
 
 def run_selftest(email: str, password: str, call_number: str, evidence_dir, headless: bool = True,
-                 include_import_page: bool = True) -> list[Check]:
+                 include_import_page: bool = True, barcode: str | None = None) -> list[Check]:
     sync_playwright = venv.sync_playwright("selftest")
     from catalog.libib import browser
 
@@ -162,7 +172,7 @@ def run_selftest(email: str, password: str, call_number: str, evidence_dir, head
                 _screenshot(page, evidence_dir, "login")
                 return results
             ctx = {"tmp": tmp}
-            for name, fn in build_checks(call_number, include_import_page):
+            for name, fn in build_checks(call_number, include_import_page, barcode):
                 started = time.monotonic()
                 try:
                     detail = fn(page, ctx) or ""

@@ -29,7 +29,7 @@ from catalog.libib.fix import (
     apply_report, archive_report, completed_calls, confirmed_remaps, drift_ready_rows, drift_targets, read_ready,
     run_fixer, run_login_check,
 )
-from catalog.libib import transfer
+from catalog.libib import tags_command, transfer
 from catalog.libib.prepare import download_posters, next_batch_id, write_batch
 from catalog.libib.state import (
     HELD, counts_by_status, load_state, migrate_poster_src, save_state, set_status, state_path,
@@ -109,12 +109,15 @@ def register(subparsers) -> None:
 
     p = sub.add_parser("selftest", help="read-only: check every Libib page step the pipeline uses still works")
     p.add_argument("--call-number", help="item to exercise (default: one already synced)")
+    p.add_argument("--barcode", help="copy barcode for the barcode-search check (default: the call number)")
     p.add_argument("--skip-import-matching", action="store_true",
                    help="don't upload a sample file to reach the import column-matching page")
     p.add_argument("--evidence-dir", default="libib-selftest",
                    help="where screenshots of failing steps go (default libib-selftest/)")
     _common(p, needs_run=False)
     p.set_defaults(func=run_selftest_command)
+
+    tags_command.register(sub)
 
     p = sub.add_parser("status", help="count tracked handles per state")
     _common(p, needs_run=False)
@@ -405,8 +408,9 @@ def run_selftest_command(args, runner=None) -> int:
          if e.get("status") == "done" and e.get("call_number")), None)
     if not call_number:
         raise InputShapeError("no synced item to exercise — pass --call-number")
-    log.header(f"libib selftest — item {call_number} (read-only)")
-    results = runner(*_libib_credentials(), call_number, args.evidence_dir, True, not args.skip_import_matching)
+    log.header("libib selftest (read-only)")
+    extra = {"barcode": args.barcode} if args.barcode else {}
+    results = runner(*_libib_credentials(), call_number, args.evidence_dir, True, not args.skip_import_matching, **extra)
     for r in results:
         log.summary(f"  {'PASS' if r.ok else 'FAIL'}  {r.name:<28} {r.seconds:5.1f}s  {r.detail}")
     failed = [r for r in results if not r.ok]

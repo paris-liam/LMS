@@ -319,6 +319,69 @@ class TestSyncCommand(unittest.TestCase):
         self.assertEqual(state["heat"]["call_number"], "02222222")  # refreshed by the confirming diff
 
 
+class FakeLocator:
+    """Every element exists and every field reads `value`."""
+
+    def __init__(self, value):
+        self.value = value
+        self.first = self
+
+    def locator(self, *_args, **_kwargs):
+        return self
+
+    def nth(self, _index):
+        return self
+
+    def wait_for(self, **_kwargs):
+        pass
+
+    def click(self):
+        pass
+
+    def count(self):
+        return 1
+
+    def input_value(self):
+        return self.value
+
+
+class FakePage:
+    def __init__(self, value):
+        self.value = value
+
+    def locator(self, *_args, **_kwargs):
+        return FakeLocator(self.value)
+
+    def goto(self, _url):
+        pass
+
+
+class TestSelftestFailureMessages(unittest.TestCase):
+    """The daily Actions run prints check details into public logs: a
+    mismatch must not echo the call number (it is the shelf barcode)."""
+
+    def check(self, name):
+        import sys
+        import types
+        from catalog.libib.selftest import build_checks
+        # browser.py needs Playwright at import; these checks only touch the fake page.
+        fake_browser = types.SimpleNamespace(open_item=lambda page, call: None, LIBIB_SETTINGS_URL="x")
+        with mock.patch.dict(sys.modules, {"catalog.libib.browser": fake_browser}):
+            return dict(build_checks("01111111", include_import_page=False))[name]
+
+    def assert_hides_numbers(self, name):
+        with self.assertRaises(AssertionError) as ctx:
+            self.check(name)(FakePage("02222222"), {})
+        self.assertNotIn("01111111", str(ctx.exception))
+        self.assertNotIn("02222222", str(ctx.exception))
+
+    def test_copies_panel_mismatch(self):
+        self.assert_hides_numbers("copies panel")
+
+    def test_edit_sections_mismatch(self):
+        self.assert_hides_numbers("edit form sections")
+
+
 class TestSelftestCommand(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -333,14 +396,14 @@ class TestSelftestCommand(unittest.TestCase):
         log.setup_logging(None, 0, io.StringIO())
         self.tmp.cleanup()
 
-    def run_selftest(self, results):
+    def run_selftest(self, results, extra=()):
         from catalog.libib.selftest import Check
         seen = []
 
-        def runner(email, password, call, evidence, headless, include_import):
-            seen.append((call, include_import))
+        def runner(email, password, call, evidence, headless, include_import, barcode=None):
+            seen.append((call, include_import) if barcode is None else (call, include_import, barcode))
             return [Check(name, ok) for name, ok in results]
-        args = build_parser().parse_args(["libib", "selftest", "--sync-dir", str(self.sync), "-q"])
+        args = build_parser().parse_args(["libib", "selftest", "--sync-dir", str(self.sync), "-q", *extra])
         with contextlib.redirect_stdout(io.StringIO()) as out:
             code = command.run_selftest_command(args, runner=runner)
         return code, out.getvalue(), seen
@@ -350,6 +413,16 @@ class TestSelftestCommand(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual(seen, [("01111111", True)])
         self.assertIn("OK: all 2 steps work", out)
+
+    def test_output_never_shows_the_call_number(self):
+        # The daily tag job runs this on GitHub Actions, whose logs are public.
+        _, out, _ = self.run_selftest([("login", True)])
+        self.assertNotIn("01111111", out)
+
+    def test_barcode_option_reaches_the_runner(self):
+        code, _, seen = self.run_selftest([("login", True)], extra=["--barcode", "2010000002155"])
+        self.assertEqual(code, 0)
+        self.assertEqual(seen, [("01111111", True, "2010000002155")])
 
     def test_any_failing_step_exits_1_and_says_which(self):
         code, out, _ = self.run_selftest([("login", True), ("copies panel", False)])

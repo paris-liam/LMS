@@ -1,0 +1,45 @@
+name: Libib tags
+
+# Tags the newest titles as new arrivals and mirrors Community Picks, in Shopify
+# and Libib (python3 -m catalog libib tags; numbers in catalog/libib/tag_settings.json).
+# The repo is public: these logs are too, so the command never prints
+# barcodes, and failure screenshots are never uploaded.
+
+on:
+  schedule:
+    - cron: "0 12 * * *"   # daily 12:00 UTC; GitHub cron is always UTC
+  workflow_dispatch:         # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: read
+
+concurrency:
+  group: libib               # never two Libib logins at once from Actions
+  cancel-in-progress: false
+
+jobs:
+  tags:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120      # a full new-arrivals rotation is ~100 Libib edits at 20–30 s each
+    env:
+      LIBIB_EMAIL: ${{ secrets.LIBIB_EMAIL }}
+      LIBIB_PASSWORD: ${{ secrets.LIBIB_PASSWORD }}
+      SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+      SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Playwright + Chromium
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Libib selftest (read-only)
+        run: python -m catalog libib selftest --skip-import-matching
+
+      - name: Libib tags
+        run: python -m catalog libib tags --unattended --headless

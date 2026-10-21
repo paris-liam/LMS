@@ -36,3 +36,6 @@ libib-login-check.png
 
 # libib selftest failure screenshots
 libib-selftest/
+
+# libib tags run reports
+libib-tags/

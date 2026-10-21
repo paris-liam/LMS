@@ -36,6 +36,19 @@ The homepage section reads a fixed smart collection, handle `new-arrivals`. A pr
 
 No one ever edits this collection directly — it's rule-driven.
 
+### Current rule: the newest 50 titles (since 2026-10-20)
+
+The daily `libib tags` job (`.github/workflows/libib-tags.yml`) now decides what's new, in both Shopify and Libib:
+
+- The **newest 50 titles** carry `new-arrival` in Shopify and `new arrival` on the Libib public page. A title is a movie + format, and all its copies get the tag. Its age is its first copy's creation date, so an extra copy of an older title doesn't make it new.
+- As new titles arrive, the oldest drop out. There's no 7-day expiry anymore unless `max_age_days` is set.
+- Only products tagged `Rental` that are in Libib qualify. The job takes `new-arrival` off anything else.
+- The numbers live in `catalog/libib/tag_settings.json`: `new_arrivals.count`, the optional `new_arrivals.max_age_days`, and `max_changes`, the job's safety limit (keep it at about 2 × count). Change them with a one-line commit.
+- **Flow 2 below (the 7-day expiry sweep) must be OFF**, otherwise it fights the job. Flow 1 can stay on: it tags a new rental straight away, and the job trims back to 50 on its next run.
+- Removing the tag from a product by hand is undone the next day. Change the settings instead.
+
+The history below explains how the Flows came about.
+
 ### Decision: tagging is fully automatic (reversed 2026-09-09)
 
 Originally we auto-tagged nothing and had the client apply `new-arrival` by hand, specifically to avoid a bulk upload of older backlog titles flooding the rail for a week, indistinguishable from genuinely new stock. **That decision was reversed on 2026-09-09** — both tagging and untagging are now automatic via two Shopify Flow workflows on production. The bulk-upload flooding risk this originally guarded against is a known, accepted tradeoff of the reversal, not an oversight.
@@ -56,7 +69,7 @@ Two Flow workflows, both **live on production** as of 2026-09-09:
 
 Note: Shopify Flow has no "tag added" trigger for products (only Customer has tag-added/removed triggers), which is why expiry is a daily scheduled sweep rather than an event-driven workflow — since Workflow 1 tags on creation, tag age and product age are the same thing, so sweeping on `Created at` is equivalent.
 
-No client action needed day-to-day — tagging is automatic. To pull a title off New Arrivals sooner, delete the `new-arrival` tag from the product manually.
+No client action needed day-to-day — tagging is automatic (see "Current rule" above; the job, not these Flows, now decides what stays tagged).
 
 Note: only works for rental movies (already tagged `Rental`, category Videos) — tagging a piece of merch `new-arrival` won't make it appear here.
 
@@ -119,9 +132,9 @@ There's also 1 entry left in **Draft** status (`copy-of-i-really-love-this-movie
 4. **Community Name** (optional) — who picked it.
 5. **Community Link** (optional) — a link for that name (e.g. their Instagram), only shows if a name is also set.
 6. Save and make sure the entry's status is **Active**, not Draft.
-7. **Also add the `community-pick` tag to the product itself** (Admin → Products → that product → Tags field). This is a separate step from the metaobject entry above — it's what makes the "Community picks" filter toggle appear on the shop-all browsing page. Skipping this doesn't break the homepage section, but the filter toggle silently won't show up (confirmed on dev: it was broken until this tag was applied — Shopify's filter only appears once at least one product carries the tag).
+7. **No tagging needed.** The `community-pick` product tag (it makes the "Community picks" filter toggle appear on the shop-all page) and the `community pick` tag on the Libib public page are added automatically within a day by the daily `libib tags` job (`.github/workflows/libib-tags.yml`, since 2026-10-20). Don't add them by hand — the job removes the tag from any product that isn't an Active Community Pick.
 
-To remove a pick from the homepage without deleting the record, either set it to Draft or clear the Product field. To remove it from the shop-all filter too, also remove the `community-pick` tag from the product.
+To remove a pick from the homepage without deleting the record, either set it to Draft or clear the Product field. The shop-all filter tag and the Libib tag come off automatically within a day.
 
 ### Production status
 
