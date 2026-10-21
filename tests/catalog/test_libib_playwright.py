@@ -4,7 +4,7 @@ from pathlib import Path
 from unittest import mock
 
 from catalog.errors import CatalogError
-from catalog.libib import fix, selftest, transfer
+from catalog.libib import fix, selftest, tag_editor, transfer
 
 
 def no_playwright():
@@ -39,6 +39,10 @@ class TestWithoutPlaywright(unittest.TestCase):
     def test_fix(self):
         self.assert_names_the_venv(
             "fix", lambda: fix.run_fixer([{"call_number": "01111111"}], Path("/tmp/r.csv"), "e", "p", True))
+
+    def test_tags(self):
+        self.assert_names_the_venv(
+            "tags", lambda: tag_editor.run_tag_editor([], Path("/tmp/r.csv"), "e", "p", True))
 
 
 if __name__ == "__main__":

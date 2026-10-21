@@ -72,17 +72,21 @@ def ensure_rental_library_scope(page: Page) -> None:
 def open_item(page: Page, call_number: str):
     """Searches and opens the item detail page. Returns None on success,
     or a (status, message) error tuple."""
+    return _open_search(page, f"call:{call_number}", "call number")
+
+
+def _open_search(page: Page, query: str, what: str):
     page.goto("https://www.libib.com/library")
     ensure_rental_library_scope(page)
     search = page.locator("#search")
-    search.fill(f"call:{call_number}")
+    search.fill(query)
     search.press("Enter")
 
     items = page.locator(".item-title")
     try:
         items.first.wait_for(state="visible", timeout=PAGE_WAIT_MS)
     except PlaywrightTimeoutError:
-        return "error", "no item found for this call number"
+        return "error", f"no item found for this {what}"
     # A slow Libib shows the unfiltered library for a while before the search
     # applies (seen 2026-09-30), so give it time to narrow to one hit.
     count = items.count()
@@ -92,7 +96,7 @@ def open_item(page: Page, call_number: str):
         page.wait_for_timeout(500)
         count = items.count()
     if count > 1:
-        return "error", f"{count} items matched this call number -- ambiguous"
+        return "error", f"{count} items matched this {what} -- ambiguous"
 
     items.first.click()
     try:
@@ -100,6 +104,76 @@ def open_item(page: Page, call_number: str):
     except PlaywrightTimeoutError:
         return "error", "item page did not load"
     return None
+
+
+# How a copy barcode is typed into the library search. Rental sync items have
+# a 201… barcode and no call number, so they can't be found with call:.
+BARCODE_SEARCH = "{barcode}"
+
+
+def open_item_by_barcode(page: Page, barcode: str, verify: bool = True):
+    """Searches the copy barcode and opens the one hit. With `verify`, also
+    checks the opened item's copy barcode really is `barcode` (a search can
+    match other fields). Returns None on success, or a (status, message)
+    error tuple. Messages never carry the barcode: the tag job's logs are public."""
+    err = _open_search(page, BARCODE_SEARCH.format(barcode=barcode), "barcode")
+    if err or not verify:
+        return err
+    copies = page.locator(".li-copies a").first
+    try:
+        copies.wait_for(state="visible", timeout=PAGE_WAIT_MS)
+    except PlaywrightTimeoutError:
+        return "error", "no Copies link on item page"
+    copies.click()
+    rows = page.locator("table tbody tr")
+    try:
+        rows.first.wait_for(state="visible", timeout=PAGE_WAIT_MS)
+    except PlaywrightTimeoutError:
+        return "error", "no copy rows found after expanding Copies"
+    values = [rows.nth(i).locator(".copy-barcode-value input").input_value().strip() for i in range(rows.count())]
+    if barcode not in values:
+        return "error", "search hit is a different item"
+    return None
+
+
+def set_item_tags(page: Page, barcode: str, add: frozenset, remove: frozenset):
+    """Adds/removes only the given tags on the item with this copy barcode,
+    keeping every other tag. Returns (status, message); status is
+    updated/skipped/error."""
+    from catalog.libib.fields import normalized_tag_set
+    from catalog.libib.tags import apply_tag_change
+
+    tags_selector = "input.tags-autocomplete[name='tags']"
+    err = open_item_by_barcode(page, barcode)
+    if err:
+        return err
+    # Re-open cleanly: after the Copies panel the Edit button isn't reliable (see sync_item).
+    err = open_item_by_barcode(page, barcode, verify=False)
+    if err:
+        return "error", f"could not reopen item: {err[1]}"
+    field = _open_edit_section(page, tags_selector, "tng-section")
+    if isinstance(field, str):
+        return "error", field
+    current = field.input_value()
+    new = apply_tag_change(current, add, remove)
+    if normalized_tag_set(new) == normalized_tag_set(current):
+        page.goto(LIBIB_SETTINGS_URL)  # leave the form without saving
+        return "skipped", "tags already correct"
+    field.fill(new)
+    page.locator("input#edit-item-submit").click()
+    page.wait_for_timeout(1000)
+
+    err = open_item_by_barcode(page, barcode, verify=False)
+    if err:
+        return "error", f"could not reload item after save: {err[1]}"
+    field = _open_edit_section(page, tags_selector, "tng-section")
+    if isinstance(field, str):
+        return "error", f"after save: {field}"
+    saved = field.input_value()
+    page.goto(LIBIB_SETTINGS_URL)
+    if normalized_tag_set(saved) != normalized_tag_set(new):
+        return "error", f"tags did not persist -- reloaded value is {saved!r}"
+    return "updated", f"tags now {saved!r}"
 
 
 def fix_barcode(page: Page, call_number: str):

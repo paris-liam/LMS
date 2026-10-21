@@ -333,14 +333,14 @@ class TestSelftestCommand(unittest.TestCase):
         log.setup_logging(None, 0, io.StringIO())
         self.tmp.cleanup()
 
-    def run_selftest(self, results):
+    def run_selftest(self, results, extra=()):
         from catalog.libib.selftest import Check
         seen = []
 
-        def runner(email, password, call, evidence, headless, include_import):
-            seen.append((call, include_import))
+        def runner(email, password, call, evidence, headless, include_import, barcode=None):
+            seen.append((call, include_import) if barcode is None else (call, include_import, barcode))
             return [Check(name, ok) for name, ok in results]
-        args = build_parser().parse_args(["libib", "selftest", "--sync-dir", str(self.sync), "-q"])
+        args = build_parser().parse_args(["libib", "selftest", "--sync-dir", str(self.sync), "-q", *extra])
         with contextlib.redirect_stdout(io.StringIO()) as out:
             code = command.run_selftest_command(args, runner=runner)
         return code, out.getvalue(), seen
@@ -350,6 +350,16 @@ class TestSelftestCommand(unittest.TestCase):
         self.assertEqual(code, 0)
         self.assertEqual(seen, [("01111111", True)])
         self.assertIn("OK: all 2 steps work", out)
+
+    def test_output_never_shows_the_call_number(self):
+        # The daily tag job runs this on GitHub Actions, whose logs are public.
+        _, out, _ = self.run_selftest([("login", True)])
+        self.assertNotIn("01111111", out)
+
+    def test_barcode_option_reaches_the_runner(self):
+        code, _, seen = self.run_selftest([("login", True)], extra=["--barcode", "2010000002155"])
+        self.assertEqual(code, 0)
+        self.assertEqual(seen, [("01111111", True, "2010000002155")])
 
     def test_any_failing_step_exits_1_and_says_which(self):
         code, out, _ = self.run_selftest([("login", True), ("copies panel", False)])

@@ -112,5 +112,28 @@ class TestProduct(unittest.TestCase):
         self.assertFalse(product("p", (), tags=("Floor Sale",)).is_rental)
 
 
+class TestEditWithRetries(unittest.TestCase):
+    def change(self):
+        return LibibChange("a", "T", "111", frozenset({"new arrival"}), frozenset())
+
+    def test_retries_errors_then_returns_success(self):
+        from catalog.libib.tag_editor import edit_with_retries
+        answers = iter([("error", "slow"), RuntimeError("boom"), ("updated", "ok")])
+        pauses = []
+
+        def edit(page, barcode, add, remove):
+            answer = next(answers)
+            if isinstance(answer, Exception):
+                raise answer
+            return answer
+        self.assertEqual(edit_with_retries(edit, None, self.change(), pause=lambda: pauses.append(1)), ("updated", "ok"))
+        self.assertEqual(len(pauses), 2)
+
+    def test_gives_up_after_the_last_attempt(self):
+        from catalog.libib.tag_editor import edit_with_retries
+        result = edit_with_retries(lambda *a: ("error", "slow"), None, self.change(), pause=lambda: None, attempts=2)
+        self.assertEqual(result, ("error", "slow"))
+
+
 if __name__ == "__main__":
     unittest.main()
