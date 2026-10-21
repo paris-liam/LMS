@@ -59,7 +59,7 @@ Not code. The developer does this in the dev store admin; the implementer stops 
   - `same_title(a: str, b: str) -> bool`
   - `find_libib_duplicates(items: list[dict], candidate_ids: set[str]) -> dict[str, dict]` — maps a flagged item id to the other item's summary `{"item_id", "title", "format", "genres": [names], "copies": int, "created"}`.
 
-Rules: `same_title` is true when `editions` and `is_box_set` agree, bracketed years don't conflict (both present and different → false), and normalized titles are equal or `fuzzy_match`. An item = all rows sharing `id`; its title/tags/format come from its first row, `created` = earliest row. Only items in `candidate_ids` can be flagged; they're compared with every **other** item in `items` (any barcode, synced or not) of the same format. Items whose `transform` has set-aside reasons are never flagged. If the other item is also a candidate, only the later one (by `created`, then `id`) is flagged. Several matches → the earliest-created other item.
+Rules: `same_title` first moves a trailing `, The` / `, A` / `, An` to the front (Libib's sorted-title form), then is true when `editions` and `is_box_set` agree, bracketed years don't conflict (both present and different → false), and normalized titles are equal or `fuzzy_match`. An item = all rows sharing `id`; its title/tags/format come from its first row, `created` = earliest row. Only items in `candidate_ids` can be flagged; they're compared with every **other** item in `items` (any barcode, synced or not) of the same format. Items whose `transform` has set-aside reasons are never flagged. If the other item is also a candidate, only the later one (by `created`, then `id`) is flagged. Several matches → the earliest-created other item.
 
 - [ ] **Step 1: Write the failing tests**
 
@@ -67,6 +67,7 @@ Rules: `same_title` is true when `editions` and `is_box_set` agree, bracketed ye
 class TestSameTitle(unittest.TestCase):
     def test_exact_and_normalized(self):
         self.assertTrue(same_title("The Godfather", "Godfather"))
+        self.assertTrue(same_title("The Godfather", "Godfather, The"))
         self.assertTrue(same_title("Jaws", "JAWS"))
     def test_fuzzy_typo(self):
         self.assertTrue(same_title("Terminator 2 Judgment Day", "Terminator 2 Judgement Day"))
