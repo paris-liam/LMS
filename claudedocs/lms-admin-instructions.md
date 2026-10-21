@@ -56,7 +56,7 @@ Two Flow workflows, both **live on production** as of 2026-09-09:
 
 Note: Shopify Flow has no "tag added" trigger for products (only Customer has tag-added/removed triggers), which is why expiry is a daily scheduled sweep rather than an event-driven workflow — since Workflow 1 tags on creation, tag age and product age are the same thing, so sweeping on `Created at` is equivalent.
 
-No client action needed day-to-day — tagging is automatic. To pull a title off New Arrivals sooner, delete the `new-arrival` tag from the product manually.
+No client action needed day-to-day — tagging is automatic. The Libib public page mirrors it as the `new arrival` tag, within a day (daily `libib tags` job). To pull a title off New Arrivals sooner, delete the `new-arrival` tag from the product manually.
 
 Note: only works for rental movies (already tagged `Rental`, category Videos) — tagging a piece of merch `new-arrival` won't make it appear here.
 
@@ -119,9 +119,9 @@ There's also 1 entry left in **Draft** status (`copy-of-i-really-love-this-movie
 4. **Community Name** (optional) — who picked it.
 5. **Community Link** (optional) — a link for that name (e.g. their Instagram), only shows if a name is also set.
 6. Save and make sure the entry's status is **Active**, not Draft.
-7. **Also add the `community-pick` tag to the product itself** (Admin → Products → that product → Tags field). This is a separate step from the metaobject entry above — it's what makes the "Community picks" filter toggle appear on the shop-all browsing page. Skipping this doesn't break the homepage section, but the filter toggle silently won't show up (confirmed on dev: it was broken until this tag was applied — Shopify's filter only appears once at least one product carries the tag).
+7. **No tagging needed.** The `community-pick` product tag (it makes the "Community picks" filter toggle appear on the shop-all page) and the `community pick` tag on the Libib public page are added automatically within a day by the daily `libib tags` job (`.github/workflows/libib-tags.yml`, since 2026-10-20). Don't add them by hand — the job removes the tag from any product that isn't an Active Community Pick.
 
-To remove a pick from the homepage without deleting the record, either set it to Draft or clear the Product field. To remove it from the shop-all filter too, also remove the `community-pick` tag from the product.
+To remove a pick from the homepage without deleting the record, either set it to Draft or clear the Product field. The shop-all filter tag and the Libib tag come off automatically within a day.
 
 ### Production status
 
