@@ -22,7 +22,9 @@ reads `data-join-id` from each item and pushes `?id=<join_id>`; opening a
 link POSTs `join_id` to `/u/littlemoviestore/item-details-view`. The page
 reads only two URL parameters: `id` (opens the detail panel over the grid)
 and `solo` (the "Copy Link" button's single-item view,
-`…/u/littlemoviestore?solo=<join_id>`). There is **no search URL
+`…/u/littlemoviestore?solo=<join_id>`).
+
+**Correction (2026-10-21):** use `?solo=` for links from other sites. On a direct visit, the server answers `?id=` with a 302 redirect to the bare `/u/littlemoviestore`, which drops the id. The page also reads `id` only on back/forward inside the page. `?solo=<join_id>` loads with no redirect and opens the item, with its availability. There is **no search URL
 parameter**, so we can't link by barcode or title — we need the join_id.
 
 The public search endpoint returns it:

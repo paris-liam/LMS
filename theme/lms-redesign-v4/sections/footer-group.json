@@ -241,7 +241,7 @@
             "links": {
               "type": "text",
               "settings": {
-                "text": "<p><a href=\"https://maps.app.goo.gl/xLWfHPt4MYzszyDs9\" title=\"https://maps.app.goo.gl/xLWfHPt4MYzszyDs9\">2001 S. 10th Street Philly, PA</a><br/>Thur–Sat: Noon-7pm | Sun: 10am-6pm<br/><a href=\"/pages/events\">Events calendar</a></p>",
+                "text": "<p><a href=\"https://maps.app.goo.gl/xLWfHPt4MYzszyDs9\" title=\"https://maps.app.goo.gl/xLWfHPt4MYzszyDs9\">2001 S. 10th Street Philly, PA</a><br/>Thur–Sat: Noon-7pm | Sun: 10am-4pm<br/><a href=\"/pages/events\">Events calendar</a></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -336,7 +336,7 @@
             "links": {
               "type": "text",
               "settings": {
-                "text": "<p><a href=\"/pages/membership\">Join the Club</a></p><p><a href=\"/collections/all-movies\" title=\"/collections/all-movies\">Rental Library</a><br/></p>",
+                "text": "<p><a href=\"/pages/membership\">Join the Club</a></p><p><a href=\"https://www.libib.com/u/littlemoviestore\">Rental Library</a><br/></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",

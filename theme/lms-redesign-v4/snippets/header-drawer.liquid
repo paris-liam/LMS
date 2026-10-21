@@ -93,12 +93,21 @@
         class="menu-drawer__quick-links menu-drawer__animated-element"
         style="--menu-drawer-animation-index: 0;"
       >
-        <a
-          href="{{ section.settings.join_club_url | default: '/pages/membership' }}"
-          class="menu-drawer__account"
-        >
-          {{ section.settings.join_club_label | default: 'Join the Club' }}
-        </a>
+        {% if customer and customer.tags contains 'LMS-MEMBER' %}
+          <a
+            href="{{ routes.account_url }}"
+            class="menu-drawer__account"
+          >
+            {{ section.settings.manage_membership_label | default: 'Manage Membership' }}
+          </a>
+        {% else %}
+          <a
+            href="{{ section.settings.join_club_url | default: '/pages/membership' }}"
+            class="menu-drawer__account"
+          >
+            {{ section.settings.join_club_label | default: 'Join the Club' }}
+          </a>
+        {% endif %}
 
         {% if shop.customer_accounts_enabled %}
           <a

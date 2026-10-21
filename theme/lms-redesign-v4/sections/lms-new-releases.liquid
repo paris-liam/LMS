@@ -3,10 +3,10 @@
   Data source is the fixed `new-arrivals` smart collection (Category = Media
   > Videos AND tag = Rental AND tag = new-arrival), kept in sync by
   the daily `libib tags` job (see docs/superpowers/specs/2026-10-20-libib-tag-sync-design.md).
-  Top-right "View all" links to the shop-all/search page unfiltered. The
-  "+N more" button below the grid links to the same page with the New
-  Arrivals toggle pre-set (filter.p.tag=new-arrival), hidden when there are
-  no more to show.
+  Posters, the top-right "View all" and the "+N more" button below the grid
+  (hidden when there are no more to show) all go to the public Libib page:
+  each poster to its movie's item (custom.libib_join_id), the buttons to the
+  library (docs/superpowers/specs/2026-10-20-libib-poster-links-design.md).
   Desktop: 5-up grid. Tablet: 3-up. Mobile: horizontal scroll-snap row.
 {% endcomment %}
 
@@ -19,8 +19,8 @@
     assign new_arrivals_count = collection.products_count
     assign remaining = new_arrivals_count | minus: limit
   endif
-  assign all_movies_url = collections['all-movies'].url
 -%}
+{%- capture libib_url -%}{% render 'lms-libib-url' %}{%- endcapture -%}
 
 {% render 'contrast-override', background_color: section.settings.background_color, section_id: section.id %}
 <div class="lms-new-releases color-custom-{{ section.id }}"
@@ -35,17 +35,15 @@
           <h2 class="lms-new-releases__heading">{{ section.settings.heading }}</h2>
         {%- endif -%}
       </div>
-      {%- if all_movies_url != blank -%}
-        <a href="{{ all_movies_url }}" class="lms-btn lms-btn--outline lms-btn--sm">
-          View all
-        </a>
-      {%- endif -%}
+      <a href="{{ libib_url }}" class="lms-btn lms-btn--outline lms-btn--sm">
+        View all
+      </a>
     </div>
 
     <div class="lms-new-releases__grid">
       {%- if new_arrivals_count > 0 -%}
         {%- for product in collection.products limit: limit -%}
-          {% render 'lms-product-card', card_product: product %}
+          {% render 'lms-product-card', card_product: product, link_to_libib: true %}
         {%- endfor -%}
       {%- else -%}
         <div class="lms-new-releases__empty">
@@ -54,9 +52,9 @@
       {%- endif -%}
     </div>
 
-    {%- if remaining > 0 and all_movies_url != blank -%}
+    {%- if remaining > 0 -%}
       <div class="lms-new-releases__footer">
-        <a href="{{ all_movies_url }}?filter.p.tag=new-arrival" class="lms-btn lms-btn--outline lms-btn--sm">
+        <a href="{{ libib_url }}" class="lms-btn lms-btn--outline lms-btn--sm">
           + {{ remaining }} more
         </a>
       </div>

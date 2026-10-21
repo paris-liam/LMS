@@ -12,6 +12,9 @@ Spec: docs/superpowers/specs/2026-10-20-libib-tag-sync-design.md.
 
 Matching is one Shopify variant barcode to one Libib copy barcode. Pure: no
 Shopify or Libib calls here.
+
+The plan also lists each new-arrival and Community Pick rental's Libib item
+(`link_targets`), for the homepage's Libib links (catalog/libib/links.py).
 """
 
 from collections import defaultdict
@@ -38,6 +41,7 @@ class Product:
     barcodes: tuple[str, ...]
     vendor: str = ""
     created_at: str = ""   # Shopify createdAt, ISO 8601
+    libib_join_id: int | None = None   # custom.libib_join_id: the item's public Libib link
 
     @property
     def is_rental(self) -> bool:
@@ -76,11 +80,21 @@ class Unmatched:
 
 
 @dataclass(frozen=True)
+class LinkTarget:
+    product_id: str
+    title: str
+    item_id: str
+    barcode: str      # looked up on Libib's public page; never printed
+    stored: int | None
+
+
+@dataclass(frozen=True)
 class TagPlan:
     libib: list[LibibChange]
     shopify: list[ShopifyChange]
     unmatched: list[Unmatched]
     new_arrival_titles: int
+    link_targets: tuple[LinkTarget, ...] = ()
 
 
 def title_key(p: Product) -> tuple[str, str, str]:
@@ -145,10 +159,13 @@ def plan_tags(items: list[dict], state: ShopifyState, settings: TagSettings, now
     unmatched = list(libib.unmatched)
     desired: dict[str, set[str]] = defaultdict(set)
 
+    linked: dict[str, tuple[Product, str]] = {}
+
     eligible = [p for p in state.rentals if p.is_rental and libib.item_for(p)]
     arrivals, title_count = _newest_titles(eligible, settings, now)
     for p in arrivals:
         desired[libib.item_for(p)].add(LIBIB_NEW_ARRIVAL)
+        linked[p.id] = (p, libib.item_for(p))
 
     for p in (p for p in state.picked if p.is_rental):
         if not p.barcodes:
@@ -159,6 +176,7 @@ def plan_tags(items: list[dict], state: ShopifyState, settings: TagSettings, now
         item_id = libib.item_for(p)
         if item_id:
             desired[item_id].add(LIBIB_COMMUNITY_PICK)
+            linked[p.id] = (p, item_id)
 
     libib_changes = []
     for item_id, it in libib.by_id.items():
@@ -175,7 +193,9 @@ def plan_tags(items: list[dict], state: ShopifyState, settings: TagSettings, now
         _shopify_tag(SHOPIFY_NEW_ARRIVAL, {p.id: p for p in arrivals}, [*state.tagged_new_arrivals, *state.rentals])
         + _shopify_tag(SHOPIFY_COMMUNITY_PICK, {p.id: p for p in state.picked}, state.tagged_picks))
     shopify_changes.sort(key=lambda c: (c.title.lower(), c.product_id, c.tag))
-    return TagPlan(libib_changes, shopify_changes, unmatched, title_count)
+    targets = sorted((LinkTarget(p.id, p.title, item_id, libib.by_id[item_id]["barcode"], p.libib_join_id)
+                      for p, item_id in linked.values()), key=lambda t: (t.title.lower(), t.product_id))
+    return TagPlan(libib_changes, shopify_changes, unmatched, title_count, tuple(targets))
 
 
 def apply_tag_change(current: str, add: Iterable[str], remove: Iterable[str]) -> str:

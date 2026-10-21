@@ -75,6 +75,7 @@
     "cart_price_font": "subheading",
     "show_cart_note": true,
     "show_add_discount_code": true,
+    "empty_cart_button_link": "shopify://collections/all-movies",
     "drawer_background_color": "{{ settings.color_palette.background }}",
     "drawer_text_color": "{{ settings.color_palette.foreground }}",
     "drawer_border_color": "{{ settings.color_palette.color3 }}",
@@ -85,6 +86,7 @@
     "input_border_width": 1,
     "inputs_border_radius": 4,
     "popover_border_radius": 8,
+    "quick_add": false,
     "show_second_image_on_hover": false,
     "product_card_carousel": false,
     "product_corner_radius": 0,
@@ -100,23 +102,10 @@
     "popover_border": "none",
     "content_for_index": [],
     "blocks": {
-      "5699156801985690058": {
-        "type": "shopify://apps/supercycle/blocks/supercycle/7b3228ed-a72a-4935-9fee-0cebe8daa0aa",
+      "5958325610427746679": {
+        "type": "shopify://apps/searchgro-search-filter/blocks/search-filter/88e24ea2-237e-4897-9894-0fe383246073",
         "disabled": false,
-        "settings": {
-          "availability_filter_url": false,
-          "locale_override": "",
-          "buttonClass": "button",
-          "color_background": "#ffffff",
-          "color_border": "#cccccc",
-          "color_text": "#000000",
-          "color_input_background": "#ffffff",
-          "color_input_label": "#000000",
-          "container_radius": 8,
-          "input_radius": 8,
-          "input_opacitiy": 50,
-          "space": 20
-        }
+        "settings": {}
       }
     },
     "color_palette": {

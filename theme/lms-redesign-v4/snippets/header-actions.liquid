@@ -137,12 +137,21 @@
     </a>
   {% endif %}
 
-  <a
-    href="{{ section.settings.join_club_url | default: '/pages/membership' }}"
-    class="lms-btn lms-btn--primary lms-btn--sm header-actions__action header-actions__join-club{% if display_style == 'text' %} header-actions__text-style{% endif %}"
-  >
-    {{ section.settings.join_club_label | default: 'Join the Club' }}
-  </a>
+  {% if customer and customer.tags contains 'LMS-MEMBER' %}
+    <a
+      href="{{ routes.account_url }}"
+      class="lms-btn lms-btn--primary lms-btn--sm header-actions__action header-actions__join-club{% if display_style == 'text' %} header-actions__text-style{% endif %}"
+    >
+      {{ section.settings.manage_membership_label | default: 'Manage Membership' }}
+    </a>
+  {% else %}
+    <a
+      href="{{ section.settings.join_club_url | default: '/pages/membership' }}"
+      class="lms-btn lms-btn--primary lms-btn--sm header-actions__action header-actions__join-club{% if display_style == 'text' %} header-actions__text-style{% endif %}"
+    >
+      {{ section.settings.join_club_label | default: 'Join the Club' }}
+    </a>
+  {% endif %}
 
   <span
     ref="liveRegion"

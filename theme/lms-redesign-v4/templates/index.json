@@ -15,7 +15,7 @@
         "slide_1": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/WHAT_IS_LMS_2.png"
+            "image": "shopify://shop_images/398F3990-20B2-4C34-9D3A-7BF852DD4B4B.png"
           }
         },
         "button_primary": {
@@ -30,7 +30,7 @@
           "type": "button",
           "settings": {
             "label": "BROWSE THE LIBRARY",
-            "link": "shopify://collections/all-movies",
+            "link": "https://www.libib.com/u/littlemoviestore",
             "style": "outline"
           }
         },
@@ -45,7 +45,7 @@
           "type": "info_item",
           "settings": {
             "label": "Hours",
-            "value": "TBD ;)"
+            "value": "Thur–Sat: Noon-7pm | Sun: 10am-4pm"
           }
         },
         "info_membership": {
@@ -65,7 +65,7 @@
         "info_membership"
       ],
       "settings": {
-        "eyebrow": "OPENING SOON // IRL",
+        "eyebrow": "OPENING OCTOBER 24th // IRL",
         "heading": "MOVIES YOU CAN",
         "heading_accent": "Feel.",
         "body": "<p><strong>Retail & Rental Movie Store</strong><br/><br/>New & Used VHS, DVD, Blu-ray, 4K & More | Shop or join the Little Movie Club to access our rental library. It's a real, actual, physical place.</p>",

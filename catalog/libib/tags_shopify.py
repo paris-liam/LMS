@@ -1,6 +1,7 @@
 """`libib tags` — the Shopify side: read every rental (with createdAt and
 format), the products tagged new-arrival / community-pick, and the Community
-Pick entries; add/remove those two product tags.
+Pick entries; add/remove those two product tags; set or clear each homepage
+product's custom.libib_join_id (its public Libib link, catalog/libib/links.py).
 
 Uses the pipeline's Dev Dashboard custom app (client credentials grant).
 Scopes needed: read_products, write_products, read_metaobjects. Any GraphQL
@@ -12,6 +13,7 @@ from typing import Callable
 
 from catalog import config
 from catalog.errors import InputShapeError
+from catalog.libib.links import JoinIdChange
 from catalog.libib.tags import SHOPIFY_COMMUNITY_PICK, SHOPIFY_NEW_ARRIVAL, Product, ShopifyChange, ShopifyState
 from catalog.shopify import api
 from catalog.shopify.writer import ApiStore
@@ -21,7 +23,8 @@ Gql = Callable[..., dict]
 PRODUCTS = """
 query($q: String!, $after: String) {
   products(first: 250, after: $after, query: $q) {
-    nodes { id title tags vendor createdAt variants(first: 5) { nodes { barcode } } }
+    nodes { id title tags vendor createdAt variants(first: 5) { nodes { barcode } }
+             libibJoinId: metafield(namespace: "custom", key: "libib_join_id") { value } }
     pageInfo { hasNextPage endCursor }
   }
 }"""
@@ -31,7 +34,8 @@ query($after: String) {
     nodes {
       capabilities { publishable { status } }
       field(key: "product") {
-        reference { ... on Product { id title tags vendor createdAt variants(first: 5) { nodes { barcode } } } }
+        reference { ... on Product { id title tags vendor createdAt variants(first: 5) { nodes { barcode } }
+             libibJoinId: metafield(namespace: "custom", key: "libib_join_id") { value } } }
       }
     }
     pageInfo { hasNextPage endCursor }
@@ -41,6 +45,13 @@ TAGS_ADD = """
 mutation($id: ID!, $tags: [String!]!) { tagsAdd(id: $id, tags: $tags) { userErrors { message } } }"""
 TAGS_REMOVE = """
 mutation($id: ID!, $tags: [String!]!) { tagsRemove(id: $id, tags: $tags) { userErrors { message } } }"""
+METAFIELDS_SET = """
+mutation($metafields: [MetafieldsSetInput!]!) { metafieldsSet(metafields: $metafields) { userErrors { message } } }"""
+METAFIELDS_DELETE = """
+mutation($metafields: [MetafieldIdentifierInput!]!) {
+  metafieldsDelete(metafields: $metafields) { userErrors { message } }
+}"""
+JOIN_ID = {"namespace": "custom", "key": "libib_join_id"}
 
 
 def _pages(gql: Gql, query: str, root: str, **variables):
@@ -55,8 +66,9 @@ def _pages(gql: Gql, query: str, root: str, **variables):
 
 def _product(node: dict) -> Product:
     barcodes = tuple(b.strip() for b in (v.get("barcode") for v in node["variants"]["nodes"]) if b and b.strip())
+    join_id = ((node.get("libibJoinId") or {}).get("value") or "").strip()
     return Product(node["id"], node["title"], tuple(node["tags"]), barcodes, node.get("vendor") or "",
-                   node.get("createdAt") or "")
+                   node.get("createdAt") or "", int(join_id) if join_id.isdigit() else None)
 
 
 def _tagged(gql: Gql, tag: str) -> tuple[Product, ...]:
@@ -99,6 +111,25 @@ def write_changes(gql: Gql, changes: list[ShopifyChange]) -> list[dict]:
             status, message = "error", f"{type(exc).__name__}: {exc}"
         results.append({"title": change.title, "tag": change.tag, "action": change.action, "status": status,
                         "message": message})
+    return results
+
+
+def write_join_ids(gql: Gql, changes: list[JoinIdChange]) -> list[dict]:
+    results = []
+    for change in changes:
+        owner = {"ownerId": change.product_id} | JOIN_ID
+        if change.new is None:
+            action, query, root, metafield = "clear", METAFIELDS_DELETE, "metafieldsDelete", owner
+        else:
+            action, query, root = "set", METAFIELDS_SET, "metafieldsSet"
+            metafield = owner | {"type": "number_integer", "value": str(change.new)}
+        try:
+            errors = gql(query, metafields=[metafield])[root]["userErrors"]
+            status, message = ("error", "; ".join(e["message"] for e in errors)) if errors else ("updated", "ok")
+        except Exception as exc:  # keep going; the run reports the failure
+            status, message = "error", f"{type(exc).__name__}: {exc}"
+        results.append({"title": change.title, "tag": "libib_join_id", "action": action, "status": status,
+                         "message": message})
     return results
 
 
