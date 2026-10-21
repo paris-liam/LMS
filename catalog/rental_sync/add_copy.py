@@ -75,8 +75,21 @@ def verify(product: dict, barcode: str, copy_value: str, old_barcodes: list[str]
     return problems
 
 
-def _existing(product: dict, barcode: str, result: dict) -> dict:
+def _existing(shop, product: dict, barcode: str, result: dict) -> dict:
     problems = verify(product, barcode, "", [])
+    missing_tag = f"missing tag: {NOT_PRINTED}"
+    if problems == [missing_tag]:
+        try:
+            shop.add_tags(product["id"], [NOT_PRINTED])
+            node = shop.product_for_copy(product["id"])
+        except CatalogError as exc:
+            return {**result, "problems": problems,
+                    "message": f"already on this product, but the {NOT_PRINTED} tag could not be added ({exc}) "
+                               f"— run the sync again or add it in Shopify admin"}
+        problems = verify(node, barcode, "", []) if node else ["could not be read back"]
+        if not problems:
+            return {**result, "status": "skipped_exists",
+                    "message": f"already a copy on {product['handle']}; added the missing {NOT_PRINTED} tag"}
     if problems:
         return {**result, "problems": problems,
                 "message": "already on this product but needs attention: " + "; ".join(problems)
@@ -105,7 +118,7 @@ def add_copy(shop, item: dict, product_id: str) -> dict:
         return {**result, "message": "That Shopify product no longer exists"}
     result["handle"] = product["handle"]
     if copy["barcode"] in _by_barcode(product):
-        return _existing(product, copy["barcode"], result)
+        return _existing(shop, product, copy["barcode"], result)
     mismatch = _mismatch(product, copy)
     if mismatch:
         return {**result, "message": mismatch}

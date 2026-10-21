@@ -151,6 +151,26 @@ class TestAddCopy(unittest.TestCase):
         self.assertEqual(result["status"], "failed")
         self.assertIn("charges tax", result["problems"])
 
+    def test_rerun_adds_tag_a_failed_run_left_off(self):
+        class FlakyTagShop(FakeShop):
+            failures = 1
+
+            def add_tags(self, product_id, tags):
+                if self.failures:
+                    self.failures -= 1
+                    raise ShopifyError("Shopify returned an error: tags timed out")
+                super().add_tags(product_id, tags)
+        shop = FlakyTagShop()
+        shop.add_rental(PID, [OLD], tags=("Rental",))
+        first = add_copy(shop, item(), PID)
+        self.assertEqual(first["status"], "failed")
+        self.assertIn("run the sync again", first["message"])
+        result = add_copy(shop, item(), PID)
+        self.assertEqual(result["status"], "skipped_exists", result)
+        self.assertIn("Barcode Not Printed", result["message"])
+        self.assertIn("Barcode Not Printed", shop.copy_products[PID]["tags"])
+        self.assertEqual([v["barcode"] for v in shop.copy_products[PID]["variants"]].count(NEW), 1)
+
     def test_write_error_fails_with_message(self):
         class BrokenShop(FakeShop):
             def add_variant(self, product_id, variant_input):
