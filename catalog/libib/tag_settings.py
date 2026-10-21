@@ -4,8 +4,9 @@
 - new_arrivals.count         how many titles are new arrivals at once
 - new_arrivals.max_age_days  null = off; else a title stops being new this
                              many days after it arrived, even inside `count`
-- max_changes                the unattended run's change limit; keep it at
-                             about 2 × count (a full rotation) + Community Picks
+- max_changes                the unattended run's limit on Libib edits; keep it
+                             at about 2 × count (a full rotation: count off,
+                             count on) + room for Community Picks
 """
 
 import json

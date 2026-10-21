@@ -44,7 +44,7 @@ Shopify is the source of truth. A daily job makes Libib (and the Shopify `commun
   |---|---|---|
   | `new_arrivals.count` | `50` | how many titles are new arrivals at once |
   | `new_arrivals.max_age_days` | `null` (off) | optional: a title stops being new this many days after it arrived, even if it's still in the newest `count`. Setting it makes a whole batch drop out together. |
-  | `max_changes` | `125` | the unattended run's change limit: about 2 × `count` (a full rotation out and in) plus room for Community Picks. Raise it with `count`. |
+  | `max_changes` | `125` | the unattended run's limit on **Libib edits** (Shopify tag writes aren't counted: Flow 1 tags every upload, so trims grow with volume, and the next run corrects a bad one; final review 2026-10-20): about 2 × `count` (a full rotation out and in) plus room for Community Picks. Raise it with `count`. |
 
   Rotating versus dropping out together is covered by `count` plus `max_age_days`. A separate mode setting would only be added if the client wants something those can't express.
 - **Flows (my call):** at rollout, turn off "New Arrival tag auto-expiry (daily sweep)". Otherwise it removes tags from titles that are still in the newest 50 after 7 days, and fights the job. "New Arrival auto-tag" can stay on: it tags a rental the moment it's created, the homepage gets it straight away, and the daily job trims to `count`.
@@ -83,7 +83,7 @@ Shopify is the source of truth. A daily job makes Libib (and the Shopify `commun
 - **Where it runs.** My call: GitHub Actions on a daily schedule plus a manual "Run workflow" button, following the draft in `claudedocs/2026-09-29-libib-selftest-github-actions.md` (secrets `LIBIB_EMAIL`, `LIBIB_PASSWORD`, plus the Shopify client credentials, and `concurrency: libib` so it never overlaps another Libib login). Use the existing scheduled cloud session if Actions turns out to be blocked.
 - **Time of day.** It should run after the Flow daily expiry sweep, so check that Flow's scheduled time on production.
 - **Selftest first.** My call: run the selftest steps at the start of each job and stop before any edit if they fail.
-- **Safety limit.** My call: if a run wants to change more than `max_changes` items, it does nothing and fails loudly. This started at 25, which the dry run showed is too low for the client's upload volume (20–180 rentals per upload day). It's now set in the settings file, at 125. A manual run with `--approve` covers a first backfill or a deliberate large change.
+- **Safety limit.** My call: if a run wants to make more than `max_changes` Libib edits, it does nothing and fails loudly. This started at 25, which the dry run showed is too low for the client's upload volume (20–180 rentals per upload day). It's now set in the settings file, at 125. A manual run with `--approve` covers a first backfill or a deliberate large change.
 - **First run.** Today no Libib item carries either tag (checked in the 2026-10-20 export). The first run trims Shopify's ~391 `new-arrival` products down to the newest 50 titles and tags those in Libib. That's well over the limit, so it's a manual `--approve` run.
 - **Failure notice.** My call: GitHub's default email on a failed workflow run is enough. A run that hits items it can't match (no Libib item for a barcode, or several) still succeeds, but lists them in its log/summary.
 - **Dry run.** A `--dry-run` that prints the planned adds and removes without opening the Edit form, to use while building and before the first real run.

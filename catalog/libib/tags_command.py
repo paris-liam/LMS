@@ -7,9 +7,9 @@ in catalog/libib/tag_settings.json.
 Shopify is read first (a failed read stops the run before Libib is opened),
 then Libib is exported, then every change is listed in one Plan. Like every
 writing command it needs approval — except `--unattended`, the daily
-GitHub Actions run, which may make at most --max-changes changes; a bigger
-list changes nothing and exits 2 until someone reviews it with --dry-run and
-re-runs with --approve <code>.
+GitHub Actions run, which may make at most max_changes Libib edits (Shopify
+tag writes aren't counted); a bigger list changes nothing and exits 2 until
+someone reviews it with --dry-run and re-runs with --approve <code>.
 
 Nothing printed here carries a barcode or call number: the Actions logs
 are public. Items are named by title and Libib item id.
@@ -51,7 +51,7 @@ def register(sub) -> None:
     approval.add_argument("--unattended", action="store_true",
                           help="scheduled run: no prompt, but at most --max-changes changes")
     p.add_argument("--max-changes", type=int, default=None,
-                   help="with --unattended: refuse a bigger change list (default: max_changes in the settings file)")
+                   help="with --unattended: refuse more Libib edits than this (default: max_changes in the settings file)")
     p.add_argument("--settings", default=str(SETTINGS_PATH), help="settings file (default catalog/libib/tag_settings.json)")
     p.add_argument("--store", default=config.DEFAULT_STORE, help=f"Shopify store (default {config.DEFAULT_STORE})")
     p.add_argument("--headless", action="store_true", help="no visible browser window")
@@ -113,10 +113,13 @@ def run_tags_command(args, deps: TagDeps | None = None, stdin=None) -> int:
         warnings=[f"unmatched: {u.title} — {u.reason}" for u in tags.unmatched],
     )
 
-    if args.unattended and count > max_changes:
+    # The limit counts Libib edits only: a rotation keeps them under ~2 × count, while
+    # Shopify trims grow with upload volume (Flow 1 tags every new rental) and are
+    # quick API writes the next run corrects if a read was ever wrong.
+    if args.unattended and len(to_libib) > max_changes:
         for line in plan.render().splitlines():
             log.summary(line)
-        log.summary(f"{count} changes is over the unattended limit of {max_changes} — nothing changed. "
+        log.summary(f"{len(to_libib)} Libib edits is over the unattended limit of {max_changes} — nothing changed. "
                     "Review with --dry-run and re-run with --approve <code>.")
         return 2
     if not confirm(plan, dry_run=args.dry_run, approve=args.approve, stdin=stdin, preapproved=args.unattended):

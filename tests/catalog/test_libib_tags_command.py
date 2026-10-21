@@ -80,6 +80,34 @@ class Fakes:
         return tags_command.TagDeps(self.read_shopify, self.export_libib, self.write_shopify, self.edit_libib)
 
 
+class RotationFakes(Fakes):
+    """A big upload day: 50 new titles push out the 50 that Libib and Shopify
+    tag today, and Flow 1 has also tagged 100 more uploads outside the window."""
+
+    def __init__(self, **options):
+        super().__init__(changes=100, **options)
+
+    def read_shopify(self):
+        self.calls.append("read_shopify")
+        tagged = ("Rental", "new-arrival")
+        rentals = [Product(f"gid://p/{i}", f"Movie {i}", tagged, (barcode(i),), "VHS",
+                           f"2026-10-{'01' if i < 50 else '20'}T{i % 24:02d}:00:00Z") for i in range(100)]
+        rentals += [Product(f"gid://x/{i}", f"Extra {i}", tagged, (f"5555{i:04d}",), "VHS", "2026-10-20T00:00:00Z")
+                    for i in range(100)]
+        return ShopifyState(tuple(rentals), (), (), tuple(rentals))
+
+    def export_libib(self, dest):
+        barcodes, library = super().export_libib(dest)
+        rows = list(csv.DictReader(open(barcodes, encoding="utf-8")))
+        for row in rows[:50]:
+            row["tags"] = "vhs, new arrival"
+        with open(barcodes, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=list(BARCODE_REQUIRED))
+            w.writeheader()
+            w.writerows(rows)
+        return barcodes, library
+
+
 class TestTagsCommand(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -107,7 +135,7 @@ class TestTagsCommand(unittest.TestCase):
         self.assertEqual(self.run_tags(["--unattended", "--max-changes", "2"], changes=3), 2)
         self.assertNotIn("edit_libib", self.fakes.calls)
         self.assertNotIn("write_shopify", self.fakes.calls)
-        self.assertIn("over the unattended limit of 2", self.out)
+        self.assertIn("3 Libib edits is over the unattended limit of 2", self.out)
 
     def test_max_changes_default_comes_from_settings(self):
         settings = Path(self.tmp.name) / "tag_settings.json"
@@ -117,7 +145,14 @@ class TestTagsCommand(unittest.TestCase):
         self.assertEqual(self.run_tags(["--unattended", "--settings", str(settings)], changes=2), 0)
 
     def test_shipped_settings_allow_a_full_rotation(self):
-        self.assertEqual(self.run_tags(["--unattended"], changes=50), 0)
+        # 100 Libib edits + 150 Shopify trims: the limit counts Libib edits only, since
+        # Shopify trims grow with upload volume and the next run corrects any bad one.
+        self.fakes = RotationFakes()
+        args = build_parser().parse_args(["libib", "tags", "--unattended", "--report-dir", self.tmp.name, "-q"])
+        with contextlib.redirect_stdout(io.StringIO()):
+            code = tags_command.run_tags_command(args, self.fakes.deps())
+        self.assertEqual(code, 0)
+        self.assertIn("edit_libib", self.fakes.calls)
 
     def test_summary_names_the_new_arrival_rule(self):
         self.run_tags(["--dry-run"], changes=1)

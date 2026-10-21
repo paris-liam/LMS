@@ -191,7 +191,8 @@ opened by barcode search (rental sync items have no call number) and only those 
 change — every other tag is kept, and each save is re-read. Shopify is read before Libib, so a
 failed read changes nothing; products with no Libib item are listed as `unmatched`.
 Zero `Rental` products from Shopify is treated as a bad read and changes nothing.
-`--unattended` skips the prompt but refuses more than `max_changes` changes (125 now):
+`--unattended` skips the prompt but refuses more than `max_changes` Libib edits (125 now; Shopify tag
+writes aren't counted, since Flow 1 tags every upload and the next run corrects any wrong one):
 it exits 2 and changes nothing, and the list then needs `--dry-run` -> `--approve <code>`.
 Reports go to `libib-tags/`. Output never shows barcodes or call numbers — the Actions logs
 are public. Needs `LIBIB_EMAIL` / `LIBIB_PASSWORD` and `SHOPIFY_CLIENT_ID` / `SHOPIFY_CLIENT_SECRET`
