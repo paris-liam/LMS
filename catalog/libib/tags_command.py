@@ -1,5 +1,8 @@
-"""`python3 -m catalog libib tags` — make Libib's `new arrival` / `community
-pick` tags and Shopify's `community-pick` product tag match Shopify.
+"""`python3 -m catalog libib tags` — tag the newest titles as new arrivals and
+mirror Community Picks: Libib's `new arrival` / `community pick` and
+Shopify's `new-arrival` / `community-pick` product tags. The numbers
+(how many titles, an optional age limit, the unattended change limit) live
+in catalog/libib/tag_settings.json.
 
 Shopify is read first (a failed read stops the run before Libib is opened),
 then Libib is exported, then every change is listed in one Plan. Like every
@@ -13,8 +16,8 @@ are public. Items are named by title and Libib item id.
 """
 
 import tempfile
-from dataclasses import dataclass
-from datetime import datetime
+from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
 
@@ -23,11 +26,9 @@ from catalog.core import log
 from catalog.core.plan import Plan, add_approval_args, confirm
 from catalog.errors import InputShapeError
 from catalog.libib.exports import load_libib
-from catalog.libib.tags import (
-    SHOPIFY_COMMUNITY_PICK, LibibChange, ShopifyChange, ShopifyState, libib_changes, shopify_changes,
-)
+from catalog.libib.tag_settings import SETTINGS_PATH, load_settings
+from catalog.libib.tags import LibibChange, ShopifyChange, ShopifyState, plan_tags
 
-DEFAULT_MAX_CHANGES = 25
 DEFAULT_REPORT_DIR = "libib-tags"
 
 
@@ -37,6 +38,7 @@ class TagDeps:
     export_libib: Callable[[Path], tuple[Path, Path]]
     write_shopify: Callable[[list[ShopifyChange]], list[dict]]
     edit_libib: Callable[[list[LibibChange], Path], list[dict]]
+    now: Callable[[], datetime] = field(default=lambda: datetime.now(timezone.utc))
 
 
 def register(sub) -> None:
@@ -48,8 +50,9 @@ def register(sub) -> None:
                           help="make the changes a --dry-run listed (the code it printed); refuses if they differ")
     approval.add_argument("--unattended", action="store_true",
                           help="scheduled run: no prompt, but at most --max-changes changes")
-    p.add_argument("--max-changes", type=int, default=DEFAULT_MAX_CHANGES,
-                   help=f"with --unattended: refuse a bigger change list (default {DEFAULT_MAX_CHANGES})")
+    p.add_argument("--max-changes", type=int, default=None,
+                   help="with --unattended: refuse a bigger change list (default: max_changes in the settings file)")
+    p.add_argument("--settings", default=str(SETTINGS_PATH), help="settings file (default catalog/libib/tag_settings.json)")
     p.add_argument("--store", default=config.DEFAULT_STORE, help=f"Shopify store (default {config.DEFAULT_STORE})")
     p.add_argument("--headless", action="store_true", help="no visible browser window")
     p.add_argument("--report-dir", default=DEFAULT_REPORT_DIR,
@@ -77,12 +80,14 @@ def _libib_line(c: LibibChange) -> str:
 
 
 def _shopify_line(c: ShopifyChange) -> str:
-    return f"shopify  {'+' if c.action == 'add' else '-'} {SHOPIFY_COMMUNITY_PICK:<32} {c.title}"
+    return f"shopify  {'+' if c.action == 'add' else '-'} {c.tag:<32} {c.title}"
 
 
 def run_tags_command(args, deps: TagDeps | None = None, stdin=None) -> int:
     log.setup_logging(None, log.verbosity(args))
     log.header(f"libib tags — {args.store}")
+    settings = load_settings(args.settings)
+    max_changes = args.max_changes if args.max_changes is not None else settings.max_changes
     deps = deps or default_deps(args)
 
     state = deps.read_shopify()
@@ -92,23 +97,26 @@ def run_tags_command(args, deps: TagDeps | None = None, stdin=None) -> int:
     if not items:
         raise InputShapeError("Libib export has no Rental Library items — not changing anything")
 
-    to_libib, unmatched = libib_changes(items, state)
-    to_shopify = shopify_changes(state)
+    tags = plan_tags(items, state, settings, deps.now())
+    to_libib, to_shopify = tags.libib, tags.shopify
     count = len(to_libib) + len(to_shopify)
+    age = settings.new_arrivals_max_age_days
+    rule = f"newest {settings.new_arrivals_count} titles" + (f", at most {age} days old" if age else "")
     plan = Plan(
         title="libib tags",
         count=count,
-        summary=[f"Shopify: {len(state.new_arrivals)} new arrivals, {len(state.picked)} Community Picks",
+        summary=[f"New arrivals: the {rule} — {tags.new_arrival_titles} titles qualify",
+                 f"Shopify: {len(state.rentals)} rentals, {len(state.picked)} Community Picks",
                  f"Libib: {len(items)} items, {len(to_libib)} to retag",
-                 f"Shopify community-pick tag: {len(to_shopify)} to change"],
+                 f"Shopify tags: {len(to_shopify)} to change"],
         samples=[*map(_libib_line, to_libib), *map(_shopify_line, to_shopify)],
-        warnings=[f"unmatched: {u.title} — {u.reason}" for u in unmatched],
+        warnings=[f"unmatched: {u.title} — {u.reason}" for u in tags.unmatched],
     )
 
-    if args.unattended and count > args.max_changes:
+    if args.unattended and count > max_changes:
         for line in plan.render().splitlines():
             log.summary(line)
-        log.summary(f"{count} changes is over the unattended limit of {args.max_changes} — nothing changed. "
+        log.summary(f"{count} changes is over the unattended limit of {max_changes} — nothing changed. "
                     "Review with --dry-run and re-run with --approve <code>.")
         return 2
     if not confirm(plan, dry_run=args.dry_run, approve=args.approve, stdin=stdin, preapproved=args.unattended):

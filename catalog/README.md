@@ -179,14 +179,19 @@ see on the public Libib page:
     .venv-libib/bin/python -m catalog libib tags --approve <code> --headless
     python -m catalog libib tags --unattended --headless                   # the daily GitHub Actions run
 
-A Libib item gets `new arrival` while its Shopify product has `new-arrival` (the Flows decide
-that), and `community pick` while its product is the product of an Active Community Pick
-entry. The same entries set the Shopify `community-pick` product tag (added and removed).
-Matching is Shopify variant barcode = Libib copy barcode; only that copy is tagged. Items are
+New arrivals: the newest `new_arrivals.count` titles (movie + format; a title's age is its first
+copy's Shopify `createdAt`) among `Rental` products that are in Libib get `new-arrival` in Shopify
+and `new arrival` in Libib, on every copy; everything else loses the tag, so old titles rotate out
+as new ones arrive. Optional `new_arrivals.max_age_days` also drops titles older than that.
+Community Picks: a Libib item gets `community pick` while its product is the product of an Active
+Community Pick entry (only that copy), and the same entries set the Shopify `community-pick` tag.
+Matching is Shopify variant barcode = Libib copy barcode. The numbers, including `max_changes`,
+live in `catalog/libib/tag_settings.json` (override with `--settings`, or `--max-changes`). Items are
 opened by barcode search (rental sync items have no call number) and only those two tags
 change — every other tag is kept, and each save is re-read. Shopify is read before Libib, so a
 failed read changes nothing; products with no Libib item are listed as `unmatched`.
-`--unattended` skips the prompt but refuses more than `--max-changes` changes (default 25):
+Zero `Rental` products from Shopify is treated as a bad read and changes nothing.
+`--unattended` skips the prompt but refuses more than `max_changes` changes (125 now):
 it exits 2 and changes nothing, and the list then needs `--dry-run` -> `--approve <code>`.
 Reports go to `libib-tags/`. Output never shows barcodes or call numbers — the Actions logs
 are public. Needs `LIBIB_EMAIL` / `LIBIB_PASSWORD` and `SHOPIFY_CLIENT_ID` / `SHOPIFY_CLIENT_SECRET`

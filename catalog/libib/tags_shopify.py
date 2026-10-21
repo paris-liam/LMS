@@ -1,14 +1,17 @@
-"""`libib tags` — the Shopify side: read which products are new arrivals and
-Community Picks, and add/remove the `community-pick` product tag.
+"""`libib tags` — the Shopify side: read every rental (with createdAt and
+format), the products tagged new-arrival / community-pick, and the Community
+Pick entries; add/remove those two product tags.
 
 Uses the pipeline's Dev Dashboard custom app (client credentials grant).
 Scopes needed: read_products, write_products, read_metaobjects. Any GraphQL
-error while reading raises, so a bad read never turns into tag removals.
+error while reading raises, and so does a read with no rentals at all, so a
+bad read never turns into tag removals.
 """
 
 from typing import Callable
 
 from catalog import config
+from catalog.errors import InputShapeError
 from catalog.libib.tags import SHOPIFY_COMMUNITY_PICK, SHOPIFY_NEW_ARRIVAL, Product, ShopifyChange, ShopifyState
 from catalog.shopify import api
 from catalog.shopify.writer import ApiStore
@@ -18,7 +21,7 @@ Gql = Callable[..., dict]
 PRODUCTS = """
 query($q: String!, $after: String) {
   products(first: 250, after: $after, query: $q) {
-    nodes { id title tags variants(first: 10) { nodes { barcode } } }
+    nodes { id title tags vendor createdAt variants(first: 5) { nodes { barcode } } }
     pageInfo { hasNextPage endCursor }
   }
 }"""
@@ -28,7 +31,7 @@ query($after: String) {
     nodes {
       capabilities { publishable { status } }
       field(key: "product") {
-        reference { ... on Product { id title tags variants(first: 10) { nodes { barcode } } } }
+        reference { ... on Product { id title tags vendor createdAt variants(first: 5) { nodes { barcode } } } }
       }
     }
     pageInfo { hasNextPage endCursor }
@@ -52,7 +55,8 @@ def _pages(gql: Gql, query: str, root: str, **variables):
 
 def _product(node: dict) -> Product:
     barcodes = tuple(b.strip() for b in (v.get("barcode") for v in node["variants"]["nodes"]) if b and b.strip())
-    return Product(node["id"], node["title"], tuple(node["tags"]), barcodes)
+    return Product(node["id"], node["title"], tuple(node["tags"]), barcodes, node.get("vendor") or "",
+                   node.get("createdAt") or "")
 
 
 def _tagged(gql: Gql, tag: str) -> tuple[Product, ...]:
@@ -72,8 +76,16 @@ def _active_picks(gql: Gql) -> tuple[Product, ...]:
     return tuple(picked)
 
 
+def _rentals(gql: Gql) -> tuple[Product, ...]:
+    rentals = tuple(p for p in map(_product, _pages(gql, PRODUCTS, "products", q="tag:Rental")) if p.is_rental)
+    if not rentals:
+        raise InputShapeError("Shopify returned no Rental products — not changing anything")
+    return rentals
+
+
 def read_state(gql: Gql) -> ShopifyState:
-    return ShopifyState(_tagged(gql, SHOPIFY_NEW_ARRIVAL), _active_picks(gql), _tagged(gql, SHOPIFY_COMMUNITY_PICK))
+    return ShopifyState(_rentals(gql), _active_picks(gql), _tagged(gql, SHOPIFY_COMMUNITY_PICK),
+                        _tagged(gql, SHOPIFY_NEW_ARRIVAL))
 
 
 def write_changes(gql: Gql, changes: list[ShopifyChange]) -> list[dict]:
@@ -81,11 +93,12 @@ def write_changes(gql: Gql, changes: list[ShopifyChange]) -> list[dict]:
     for change in changes:
         query, root = (TAGS_ADD, "tagsAdd") if change.action == "add" else (TAGS_REMOVE, "tagsRemove")
         try:
-            errors = gql(query, id=change.product_id, tags=[SHOPIFY_COMMUNITY_PICK])[root]["userErrors"]
+            errors = gql(query, id=change.product_id, tags=[change.tag])[root]["userErrors"]
             status, message = ("error", "; ".join(e["message"] for e in errors)) if errors else ("updated", "ok")
         except Exception as exc:  # keep going; the run reports the failure
             status, message = "error", f"{type(exc).__name__}: {exc}"
-        results.append({"title": change.title, "action": change.action, "status": status, "message": message})
+        results.append({"title": change.title, "tag": change.tag, "action": change.action, "status": status,
+                        "message": message})
     return results
 
 

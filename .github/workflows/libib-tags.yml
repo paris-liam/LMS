@@ -1,7 +1,7 @@
 name: Libib tags
 
-# Mirrors Shopify's new-arrival / Community Pick tags into Libib and sets the
-# Shopify community-pick product tag (python3 -m catalog libib tags).
+# Tags the newest titles as new arrivals and mirrors Community Picks, in Shopify
+# and Libib (python3 -m catalog libib tags; numbers in catalog/libib/tag_settings.json).
 # The repo is public: these logs are too, so the command never prints
 # barcodes, and failure screenshots are never uploaded.
 
@@ -20,7 +20,7 @@ concurrency:
 jobs:
   tags:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 120      # a full new-arrivals rotation is ~100 Libib edits at 20–30 s each
     env:
       LIBIB_EMAIL: ${{ secrets.LIBIB_EMAIL }}
       LIBIB_PASSWORD: ${{ secrets.LIBIB_PASSWORD }}

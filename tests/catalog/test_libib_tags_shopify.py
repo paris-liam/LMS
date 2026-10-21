@@ -1,11 +1,12 @@
 import unittest
 
+from catalog.errors import InputShapeError
 from catalog.libib.tags import ShopifyChange
 from catalog.libib.tags_shopify import read_state, write_changes
 
 
-def node(id, tags=("Rental",), barcodes=("111",), title=None):
-    return {"id": id, "title": title or id, "tags": list(tags),
+def node(id, tags=("Rental",), barcodes=("111",), title=None, vendor="VHS", created="2026-10-01T00:00:00Z"):
+    return {"id": id, "title": title or id, "tags": list(tags), "vendor": vendor, "createdAt": created,
             "variants": {"nodes": [{"barcode": b} for b in barcodes]}}
 
 
@@ -19,12 +20,14 @@ def page(nodes, next_cursor=None):
 
 
 class FakeGql:
-    """Answers the three reads by query text; records mutations."""
+    """Answers the reads by query text and search string; records mutations."""
 
-    def __init__(self, new_arrivals=None, tagged=None, picks=None, user_error_for=None, pages=None):
-        self.products = {"tag:new-arrival": [page(new_arrivals or [])], "tag:community-pick": [page(tagged or [])]}
-        if pages:
-            self.products["tag:new-arrival"] = pages
+    def __init__(self, rentals=None, new_arrivals=None, tagged=None, picks=None, user_error_for=None,
+                 rental_pages=None):
+        if rentals is None and rental_pages is None:
+            rentals = [node("r0")]
+        self.products = {"tag:Rental": rental_pages or [page(rentals)], "tag:new-arrival": [page(new_arrivals or [])],
+                         "tag:community-pick": [page(tagged or [])]}
         self.picks = [page(picks or [])]
         self.user_error_for = user_error_for
         self.mutations = []
@@ -42,22 +45,30 @@ class FakeGql:
 
 
 class TestReadState(unittest.TestCase):
+    def test_reads_rentals_with_exact_tag_only(self):
+        state = read_state(FakeGql(rentals=[node("p1", tags=["rental", "VHS"]), node("p2", tags=["Rentals"])]))
+        self.assertEqual([p.id for p in state.rentals], ["p1"])
+
+    def test_reads_vendor_and_created_at(self):
+        p = read_state(FakeGql(rentals=[node("p1", vendor="Blu-Ray", created="2026-10-19T08:00:00Z")])).rentals[0]
+        self.assertEqual((p.vendor, p.created_at, p.barcodes), ("Blu-Ray", "2026-10-19T08:00:00Z", ("111",)))
+
+    def test_zero_rentals_raises(self):
+        with self.assertRaises(InputShapeError):
+            read_state(FakeGql(rentals=[]))
+
     def test_reads_new_arrivals_with_exact_tag_only(self):
-        state = read_state(FakeGql(new_arrivals=[node("p1", tags=["Rental", "new-arrival"], barcodes=["111"]),
+        state = read_state(FakeGql(new_arrivals=[node("p1", tags=["Floor Sale", "new-arrival"]),
                                                  node("p2", tags=["Rental", "new-arrival-old"])]))
-        self.assertEqual([p.id for p in state.new_arrivals], ["p1"])
-        self.assertEqual(state.new_arrivals[0].barcodes, ("111",))
-        self.assertEqual(state.new_arrivals[0].tags, ("Rental", "new-arrival"))
+        self.assertEqual([p.id for p in state.tagged_new_arrivals], ["p1"])
 
     def test_blank_barcodes_are_dropped(self):
-        state = read_state(FakeGql(new_arrivals=[node("p1", tags=["new-arrival"], barcodes=["", None, " 222 "])]))
-        self.assertEqual(state.new_arrivals[0].barcodes, ("222",))
+        state = read_state(FakeGql(rentals=[node("p1", barcodes=["", None, " 222 "])]))
+        self.assertEqual(state.rentals[0].barcodes, ("222",))
 
     def test_paginates_products(self):
-        pages = [page([node("p1", tags=["new-arrival"])], next_cursor="1"),
-                 page([node("p2", tags=["new-arrival"])])]
-        state = read_state(FakeGql(pages=pages))
-        self.assertEqual([p.id for p in state.new_arrivals], ["p1", "p2"])
+        state = read_state(FakeGql(rental_pages=[page([node("p1")], next_cursor="1"), page([node("p2")])]))
+        self.assertEqual([p.id for p in state.rentals], ["p1", "p2"])
 
     def test_reads_tagged_picks(self):
         state = read_state(FakeGql(tagged=[node("p9", tags=["community-pick"])]))
@@ -80,15 +91,16 @@ class TestReadState(unittest.TestCase):
 
 
 class TestWriteChanges(unittest.TestCase):
-    def test_write_uses_tags_add_and_tags_remove(self):
+    def test_writes_change_tag(self):
         gql = FakeGql()
-        write_changes(gql, [ShopifyChange("p1", "A", "add"), ShopifyChange("p2", "B", "remove")])
-        self.assertEqual(gql.mutations,
-                         [("tagsAdd", "p1", ["community-pick"]), ("tagsRemove", "p2", ["community-pick"])])
+        write_changes(gql, [ShopifyChange("p1", "A", "new-arrival", "add"),
+                            ShopifyChange("p2", "B", "community-pick", "remove")])
+        self.assertEqual(gql.mutations, [("tagsAdd", "p1", ["new-arrival"]), ("tagsRemove", "p2", ["community-pick"])])
 
     def test_write_records_user_errors_and_continues(self):
         results = write_changes(FakeGql(user_error_for="p1"),
-                                [ShopifyChange("p1", "A", "add"), ShopifyChange("p2", "B", "add")])
+                                [ShopifyChange("p1", "A", "new-arrival", "add"),
+                                 ShopifyChange("p2", "B", "new-arrival", "add")])
         self.assertEqual([r["status"] for r in results], ["error", "updated"])
         self.assertEqual(results[0]["title"], "A")
         self.assertIn("nope", results[0]["message"])
@@ -96,8 +108,7 @@ class TestWriteChanges(unittest.TestCase):
     def test_write_records_exceptions_and_continues(self):
         def boom(query, **variables):
             raise RuntimeError("HTTP 500")
-        results = write_changes(boom, [ShopifyChange("p1", "A", "add")])
-        self.assertEqual(results[0]["status"], "error")
+        self.assertEqual(write_changes(boom, [ShopifyChange("p1", "A", "new-arrival", "add")])[0]["status"], "error")
 
 
 if __name__ == "__main__":

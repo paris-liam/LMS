@@ -30,7 +30,7 @@ def barcode(i):
 
 
 class Fakes:
-    """`changes` rentals tagged new-arrival in Shopify whose Libib items lack the tag."""
+    """`changes` new rentals, already tagged new-arrival in Shopify, whose Libib items lack the tag."""
 
     def __init__(self, changes=0, libib_rows=None, shopify_error=False, libib_statuses=None, unmatched=0, picks=0):
         self.changes, self.shopify_error, self.unmatched, self.picks = changes, shopify_error, unmatched, picks
@@ -42,12 +42,13 @@ class Fakes:
         self.calls.append("read_shopify")
         if self.shopify_error:
             raise RuntimeError("[{'message': 'Throttled'}]")
-        products = [Product(f"gid://p/{i}", f"Movie {i}", ("Rental", "new-arrival"), (barcode(i),))
-                    for i in range(self.changes)]
-        products += [Product(f"gid://u/{i}", f"Lost {i}", ("Rental", "new-arrival"), (f"7777{i:04d}",))
-                     for i in range(self.unmatched)]
+        rentals = [Product(f"gid://p/{i}", f"Movie {i}", ("Rental", "new-arrival"), (barcode(i),), "VHS",
+                           f"2026-10-{1 + i % 28:02d}T{i // 28:02d}:00:00Z") for i in range(self.changes)]
+        # Shopify always has rentals (zero is refused as a bad read); this one isn't in Libib.
+        rentals.append(Product("gid://p/x", "Not In Libib", ("Rental",), ("55550000",), "VHS", "2026-01-01T00:00:00Z"))
         picked = [Product(f"gid://f/{i}", f"Floor {i}", ("Floor Sale",), ()) for i in range(self.picks)]
-        return ShopifyState(tuple(products), tuple(picked), ())
+        picked += [Product(f"gid://u/{i}", f"Lost {i}", ("Rental",), (f"7777{i:04d}",)) for i in range(self.unmatched)]
+        return ShopifyState(tuple(rentals), tuple(picked), (), tuple(rentals[:self.changes]))
 
     def export_libib(self, dest):
         self.calls.append("export_libib")
@@ -108,9 +109,19 @@ class TestTagsCommand(unittest.TestCase):
         self.assertNotIn("write_shopify", self.fakes.calls)
         self.assertIn("over the unattended limit of 2", self.out)
 
-    def test_default_limit_is_25(self):
-        self.assertEqual(self.run_tags(["--unattended"], changes=26), 2)
-        self.assertEqual(self.run_tags(["--unattended"], changes=25), 0)
+    def test_max_changes_default_comes_from_settings(self):
+        settings = Path(self.tmp.name) / "tag_settings.json"
+        settings.write_text('{"new_arrivals": {"count": 50, "max_age_days": null}, "max_changes": 2}',
+                            encoding="utf-8")
+        self.assertEqual(self.run_tags(["--unattended", "--settings", str(settings)], changes=3), 2)
+        self.assertEqual(self.run_tags(["--unattended", "--settings", str(settings)], changes=2), 0)
+
+    def test_shipped_settings_allow_a_full_rotation(self):
+        self.assertEqual(self.run_tags(["--unattended"], changes=50), 0)
+
+    def test_summary_names_the_new_arrival_rule(self):
+        self.run_tags(["--dry-run"], changes=1)
+        self.assertIn("newest 50 titles", self.out)
 
     def test_over_limit_proceeds_with_approval_code(self):
         self.assertEqual(self.run_tags(["--approve", "ok"], changes=30), 0)
