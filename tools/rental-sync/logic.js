@@ -144,11 +144,9 @@
       failed: summary.failed.length, set_aside: setAsideCount };
   }
 
+  // the server lists in `print` every barcode it wrote to Shopify, even on a failed row
   function barcodesToPrint(results) {
-    return results.flatMap((r) => {
-      if (r.status === 'created') return r.barcodes;
-      return r.status === 'added' ? [r.barcode] : [];
-    });
+    return results.flatMap((r) => r.print || []);
   }
 
   function printBarcodesUrl(store) {

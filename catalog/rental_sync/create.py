@@ -6,7 +6,9 @@ created twice. A barcode hit is read back and verified like a new product, so
 only a clean one counts as skipped; one a previous run left unfinished is
 reported as needing attention. The handle check is a direct lookup,
 so it is never behind a just-created product. Shopify fields are always
-derived here from the Libib values, never taken from the browser.
+derived here from the Libib values, never taken from the browser. `print`
+lists the barcodes written to Shopify (all of them once productSet
+succeeds, even if a later step fails), so their labels get printed.
 """
 
 import html
@@ -166,7 +168,7 @@ def _existing(shop, copies: list[dict], owner: dict, result: dict) -> dict:
 
 def create_item(shop, items: list[dict], poster: dict | None, sleep=time.sleep) -> dict:
     result = {"status": "failed", "barcode": "", "barcodes": [], "title": "", "handle": "",
-              "admin_url": "", "poster": "none", "message": "", "problems": []}
+              "admin_url": "", "poster": "none", "message": "", "problems": [], "print": []}
     if not items:
         return {**result, "message": "not ready: no copies were sent"}
     copies = sorted((transform(i) for i in items), key=lambda c: c["barcode"])
@@ -206,6 +208,7 @@ def create_item(shop, items: list[dict], poster: dict | None, sleep=time.sleep) 
                                      f"copy is checked, not duplicated) or look in Shopify admin"}
 
     result["admin_url"] = admin_url(shop.store, product["id"])
+    result["print"] = result["barcodes"]
     if product["handle"] != handle:
         return {**result, "message": f"Shopify created this as {product['handle']} instead of {handle}, so it is "
                                      f"probably a duplicate of a product created moments ago — check both in "

@@ -303,5 +303,26 @@ class TestCreate(unittest.TestCase):
         self.assertEqual(result["problems"], ["2010000000021: quantity is 0, not 1"])
 
 
+class TestPrint(unittest.TestCase):
+    """`print` lists the barcodes written to Shopify, so their labels get printed."""
+
+    def test_created_prints_every_copy(self):
+        self.assertEqual(two(FakeShop())["print"], ["2010000000014", "2010000000021"])
+
+    def test_written_but_not_finished_still_prints(self):
+        result, _ = run(FakeShop(publish_error=ShopifyError("Publication not found")))
+        self.assertEqual((result["status"], result["print"]), ("failed", ["2010000000014"]))
+
+    def test_written_but_needs_checking_still_prints(self):
+        result = two(FakeShop(lose=[("quantity", "2010000000021")]))
+        self.assertEqual((result["status"], result["print"]), ("failed", ["2010000000014", "2010000000021"]))
+
+    def test_nothing_written_prints_nothing(self):
+        self.assertEqual(run(FakeShop(set_error=ShopifyError("boom")))[0]["print"], [])
+        self.assertEqual(run(FakeShop(barcodes=["2010000000014"]))[0]["print"], [])
+        self.assertEqual(run(FakeShop(), barcode="2010000000099", tags="vhs, nope")[0]["print"], [])
+        self.assertEqual(create_item(FakeShop(), [], None)["print"], [])
+
+
 if __name__ == "__main__":
     unittest.main()

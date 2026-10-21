@@ -391,7 +391,7 @@
       return el('li', {}, mark, ' ', job.row);
     }));
     const failedRow = (job, message, detail = '') => ({ status: 'failed', barcode: job.key, barcodes: job.barcodes,
-      title: job.title, admin_url: job.adminUrl, poster: 'none', message, detail, problems: [] });
+      title: job.title, admin_url: job.adminUrl, poster: 'none', message, detail, problems: [], print: [] });
     const markRow = (job, result) => {
       const mark = marks.get(job.key);
       mark.textContent = result.status === 'failed' ? '✗' : '✓';
@@ -459,8 +459,9 @@
       group('Already in Shopify — skipped', summary.skipped, (r) => el('li', {}, r.title, ' ', el('span', { class: 'muted small' }, r.message))),
       finishError ? el('p', { class: 'error small' }, `The products are done, but the "last sync" time wasn't saved: ${finishError.message}`) : null);
     $('print-link').href = L.printBarcodesUrl(state.store);
-    $('print-barcodes').replaceChildren(...L.barcodesToPrint(state.results).map((b) => el('li', {}, b)));
-    $('print-block').hidden = !(summary.created.length || summary.added.length);
+    const toPrint = L.barcodesToPrint(state.results);
+    $('print-barcodes').replaceChildren(...toPrint.map((b) => el('li', {}, b)));
+    $('print-block').hidden = !toPrint.length;
     $('restart').hidden = false;
   }
   $('restart').addEventListener('click', () => window.location.reload());

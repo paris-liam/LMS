@@ -182,5 +182,46 @@ class TestAddCopy(unittest.TestCase):
         self.assertIn("boom", result["message"])
 
 
+class TestPrint(unittest.TestCase):
+    """`print` lists the barcode once it is written to Shopify, so its label gets printed."""
+
+    def test_added_prints_the_barcode(self):
+        self.assertEqual(add_copy(shop_with(), item(), PID)["print"], [NEW])
+
+    def test_written_but_needs_checking_still_prints(self):
+        shop = shop_with()
+        shop.lose.add(("taxable", NEW))
+        result = add_copy(shop, item(), PID)
+        self.assertEqual((result["status"], result["print"]), ("failed", [NEW]))
+
+    def test_tag_failure_after_the_variant_still_prints_and_the_repair_prints(self):
+        class FlakyTagShop(FakeShop):
+            failures = 1
+
+            def add_tags(self, product_id, tags):
+                if self.failures:
+                    self.failures -= 1
+                    raise ShopifyError("Shopify returned an error: tags timed out")
+                super().add_tags(product_id, tags)
+        shop = FlakyTagShop()
+        shop.add_rental(PID, [OLD], tags=("Rental",))
+        first = add_copy(shop, item(), PID)
+        self.assertEqual((first["status"], first["print"]), ("failed", [NEW]))
+        again = add_copy(shop, item(), PID)
+        self.assertEqual((again["status"], again["print"]), ("skipped_exists", [NEW]))
+
+    def test_nothing_written_prints_nothing(self):
+        class BrokenShop(FakeShop):
+            def add_variant(self, product_id, variant_input):
+                raise ShopifyError("Shopify returned an error: boom")
+        broken = BrokenShop()
+        broken.add_rental(PID, [OLD])
+        self.assertEqual(add_copy(broken, item(), PID)["print"], [])
+        shop = shop_with()
+        add_copy(shop, item(), PID)
+        self.assertEqual(add_copy(shop, item(), PID)["print"], [])
+        self.assertEqual(add_copy(shop_with(), item(), "gid://shopify/Product/404")["print"], [])
+
+
 if __name__ == "__main__":
     unittest.main()

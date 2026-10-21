@@ -54,6 +54,7 @@ are never duplicated.
 ## 3. In Shopify
 
 Click **Print barcodes in Shopify** and print the labels with Retail Barcode Labels. The last page
-lists **Print labels for these barcodes only**. Print just those barcodes: a movie that gained a copy
+lists **Print labels for these barcodes only** (it includes copies that reached Shopify but
+failed a later step). Print just those barcodes: a movie that gained a copy
 already has labelled copies on the shelf, so don't reprint its other labels. Stick each label on its
 copy, then remove the **Barcode Not Printed** tag from the products you labelled.

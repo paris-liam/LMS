@@ -7,6 +7,8 @@ becomes the next `Copy N` value (Option 2); the first added copy also gives the
 product its Copy option, with the existing variant as `Copy 1`. Title,
 description, Vendor, genre metafield, image and the existing variants are never
 changed. Rerun-safe: a barcode already on the product is verified, not re-added.
+`print` holds the barcode once it is written (the variant, or a missing
+Barcode Not Printed tag added on a rerun), so its label gets printed.
 """
 
 import re
@@ -81,6 +83,7 @@ def _existing(shop, product: dict, barcode: str, result: dict) -> dict:
     if problems == [missing_tag]:
         try:
             shop.add_tags(product["id"], [NOT_PRINTED])
+            result = {**result, "print": [barcode]}
             node = shop.product_for_copy(product["id"])
         except CatalogError as exc:
             return {**result, "problems": problems,
@@ -100,7 +103,7 @@ def _existing(shop, product: dict, barcode: str, result: dict) -> dict:
 def add_copy(shop, item: dict, product_id: str) -> dict:
     copy = transform(item)
     result = {"status": "failed", "barcode": copy["barcode"], "title": copy["title"], "handle": "",
-              "admin_url": admin_url(shop.store, product_id), "message": "", "problems": []}
+              "admin_url": admin_url(shop.store, product_id), "message": "", "problems": [], "print": []}
     if not is_new_flow_barcode(copy["barcode"]):
         return {**result, "message": "not ready: barcode is not a 13-digit 201… Libib barcode"}
     if copy["set_aside"]:
@@ -132,6 +135,7 @@ def add_copy(shop, item: dict, product_id: str) -> dict:
             shop.add_copy_option(product_id)
         shop.add_variant(product_id, variant_input(copy, _option(product, GENRE_OPTION)["values"][0],
                                                    copy_value, location))
+        result["print"] = [copy["barcode"]]
         shop.add_tags(product_id, [NOT_PRINTED])
     except ShopifyError as exc:
         return {**result, "message": f"{exc} — it may have been partly added; run the sync again (an existing "

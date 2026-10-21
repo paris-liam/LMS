@@ -146,13 +146,15 @@ test('summarize and finishPayload', () => {
   assert.deepEqual(L.finishPayload(s, 4), { created: 2, added: 1, skipped: 1, failed: 1, set_aside: 4 });
 });
 
-test('barcodesToPrint lists every created copy and every added copy', () => {
+test('barcodesToPrint lists every barcode the server wrote, whatever the status', () => {
   assert.deepEqual(L.barcodesToPrint([
-    { status: 'created', barcode: '11', barcodes: ['11', '12'] },
-    { status: 'skipped_exists', barcode: '21', barcodes: ['21'] },
-    { status: 'failed', barcode: '31', barcodes: ['31'] },
-    { status: 'added', barcode: '41' },
-    { status: 'skipped_exists', barcode: '51' }]), ['11', '12', '41']);
+    { status: 'created', barcode: '11', barcodes: ['11', '12'], print: ['11', '12'] },
+    { status: 'skipped_exists', barcode: '21', barcodes: ['21'], print: [] },
+    { status: 'failed', barcode: '31', barcodes: ['31'], print: ['31'] },
+    { status: 'failed', barcode: '35', barcodes: ['35'], print: [] },
+    { status: 'added', barcode: '41', print: ['41'] },
+    { status: 'skipped_exists', barcode: '51', print: ['51'] },
+    { status: 'failed', barcode: '61', barcodes: ['61'] }]), ['11', '12', '31', '41', '51']);
   assert.deepEqual(L.barcodesToPrint([]), []);
 });
 

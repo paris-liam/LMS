@@ -45,6 +45,10 @@ email; never click anything else on that page — it also holds Delete Collectio
   product (same Vendor), tags it `Barcode Not Printed`, and verifies the result. A barcode already on
   a variant returns `skipped_exists`.
 
+Both return a result with `print`: the barcodes actually written to Shopify (also on a failed result
+whose write landed, and on a rerun that added a missing `Barcode Not Printed` tag). The results page
+lists these under "Print labels for these barcodes only".
+
 Design: `docs/superpowers/specs/2026-10-21-rental-sync-duplicates-design.md`.
 
 ## Testing on the dev store
