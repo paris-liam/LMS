@@ -1,6 +1,6 @@
 # Daily Libib + Shopify backup (design, 2026-10-21)
 
-**Status:** design, not built. Decisions confirmed with the developer 2026-10-20/21.
+**Status:** built 2026-10-21 (code + format check against a fresh production export); not deployed yet. Decisions confirmed with the developer 2026-10-20/21.
 
 ## Why
 

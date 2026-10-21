@@ -23,6 +23,7 @@ def check_csv(path: Path, required: tuple[str, ...]) -> int:
     """Return the data-row count; raise InputShapeError if the file is not a
     UTF-8 CSV with every required column and at least one data row. Messages
     never include row contents."""
+    csv.field_size_limit(max(csv.field_size_limit(), 32 * 1024 * 1024))  # one huge Body (HTML) must not refuse the file
     try:
         with open(path, newline="", encoding="utf-8-sig") as f:
             reader = csv.reader(f)

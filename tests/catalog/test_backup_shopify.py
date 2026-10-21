@@ -8,7 +8,6 @@ from pathlib import Path
 from catalog.backup.bulk import QUERIES
 from catalog.backup.guard import SourceResult
 from catalog.backup.shopify import backup_shopify, read_store, write_products
-from catalog.backup.shopify_csv import MetafieldColumn, build_header
 from catalog.errors import ShopifyError
 
 STORE = "shop.myshopify.com"
@@ -73,6 +72,17 @@ class TestReadStore(unittest.TestCase):
         self.assertEqual([c.key for c in kept], ["genre"])
         self.assertEqual([c.key for c in left_out], ["methods"])
         self.assertEqual(len(products[0]["variants"]), 1)
+
+    def test_product_without_variants_is_an_error(self):
+        class NoVariants(FakeShopify):
+            def urlopen(self, url, timeout=None):
+                lines = [l for l in _products_jsonl(self.handles).splitlines() if '"ProductVariant"' not in l]
+                return io.BytesIO(("\n".join(lines) + "\n").encode())
+
+        with self.assertRaises(ShopifyError) as cm:
+            _read(NoVariants())
+        self.assertIn("2 products", str(cm.exception))
+        self.assertIn("a-movie", str(cm.exception))
 
     def test_read_store_needs_one_online_store(self):
         for pubs in ([], [{"id": "a", "name": "Online Store"}, {"id": "b", "name": "Online Store"}]):
@@ -142,6 +152,14 @@ class TestWriteProducts(unittest.TestCase):
 
 
 class TestBackupShopify(unittest.TestCase):
+    def test_non_catalog_error_keeps_type_name(self):
+        def read():
+            raise KeyError("unit")
+        with tempfile.TemporaryDirectory() as tmp:
+            result = backup_shopify(Path(tmp), read)
+        self.assertFalse(result.ok)
+        self.assertTrue(result.error.startswith("KeyError"), result.error)
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.out = Path(self.tmp.name)

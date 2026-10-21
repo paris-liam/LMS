@@ -11,8 +11,8 @@ from typing import Callable
 
 from catalog.backup.bulk import QUERIES, assemble_products, run_bulk_query
 from catalog.backup.guard import SHOPIFY_REQUIRED, SourceResult, check_csv
-from catalog.backup.shopify_csv import MetafieldColumn, build_header, product_rows, split_definitions
-from catalog.errors import ShopifyError
+from catalog.backup.shopify_csv import build_header, product_rows, split_definitions
+from catalog.errors import CatalogError, ShopifyError
 
 MAX_BYTES = 15_000_000
 ONLINE_STORE = "Online Store"
@@ -53,6 +53,10 @@ def read_store(execute, store: str, **bulk_kwargs):
     query = (QUERIES / "products_bulk.graphql").read_text(encoding="utf-8") % {"publication_id": publication_id}
     products = assemble_products(run_bulk_query(execute, store, query, **bulk_kwargs))
     products.sort(key=lambda p: p["handle"])
+    empty = [p["handle"] for p in products if not p["variants"]]
+    if empty:
+        raise ShopifyError(f"{len(empty)} products have no variants (first: {empty[0]}); "
+                           "the bulk export shape may have changed")
     return products, kept, left_out
 
 
@@ -113,6 +117,8 @@ def backup_shopify(out_dir: Path, read: Callable) -> SourceResult:
         return SourceResult("shopify", True, f"{len(products)} products")
     except Exception as exc:
         message = " ".join(str(exc).split())
+        if not isinstance(exc, CatalogError):
+            message = f"{type(exc).__name__}: {message}" if message else type(exc).__name__
         return SourceResult("shopify", False, "FAILED", message or type(exc).__name__)
     finally:
         if temp is not None:

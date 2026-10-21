@@ -105,6 +105,26 @@ class RunBackupTest(unittest.TestCase):
             self.assertEqual(len([l for l in lines if re.match(rf"^{name}: ", l)]), 1)
 
 
+class DefaultDepsTest(unittest.TestCase):
+    def test_shopify_bulk_timeout_is_well_under_job_timeout(self):
+        from unittest import mock
+        args = build_parser().parse_args(["backup", "--out", "x"])
+        seen = {}
+
+        def fake_read_store(execute, store, **kwargs):
+            seen.update(kwargs)
+            return [], [], []
+
+        with mock.patch.dict("os.environ", {"SHOPIFY_CLIENT_ID": "i", "SHOPIFY_CLIENT_SECRET": "s"}), \
+                mock.patch("catalog.shopify.api.request_token", return_value="tok"), \
+                mock.patch("catalog.shopify.api.make_executor", return_value=lambda *a: None), \
+                mock.patch.object(command, "read_store", fake_read_store), \
+                mock.patch.object(command, "backup_shopify", lambda out, read: (read(), SHOPIFY_OK)[1]):
+            command.default_deps(args).shopify(Path("x"))
+        self.assertEqual(seen.get("timeout_seconds"), 900)
+        self.assertEqual(command.BULK_TIMEOUT_SECONDS, 900)
+
+
 class ParserTest(unittest.TestCase):
     def test_parser_registers_backup(self):
         args = build_parser().parse_args(["backup", "--out", "x"])

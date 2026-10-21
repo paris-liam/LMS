@@ -23,6 +23,11 @@ class CheckCsvTests(unittest.TestCase):
             p = _write(tmp, "id,barcode,title\n1,a,A\n2,b,B\n3,c,C\n")
             self.assertEqual(check_csv(p, LIBIB_BARCODES_REQUIRED), 3)
 
+    def test_field_larger_than_csv_default_limit(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p = _write(tmp, 'Handle,Title,Status,Body (HTML)\nh,T,active,"' + "x" * 140_000 + '"\n')
+            self.assertEqual(check_csv(p, SHOPIFY_REQUIRED), 1)
+
     def test_missing_required_column_raises(self):
         with tempfile.TemporaryDirectory() as tmp:
             p = _write(tmp, "id,title\n1,A\n")

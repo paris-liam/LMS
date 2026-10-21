@@ -14,6 +14,7 @@ from catalog.errors import CatalogError
 from catalog.backup.shopify import backup_shopify, read_store
 
 SOURCES = ("libib", "shopify")
+BULK_TIMEOUT_SECONDS = 900  # must stay well under the workflow's 30-minute job timeout
 
 
 @dataclass
@@ -62,7 +63,7 @@ def default_deps(args) -> BackupDeps:
         client_id = config.require_env(config.ENV_SHOPIFY_CLIENT_ID)
         client_secret = config.require_env(config.ENV_SHOPIFY_CLIENT_SECRET)
         execute = api.make_executor(args.store, api.request_token(args.store, client_id, client_secret))
-        return backup_shopify(out_dir, lambda: read_store(execute, args.store))
+        return backup_shopify(out_dir, lambda: read_store(execute, args.store, timeout_seconds=BULK_TIMEOUT_SECONDS))
 
     return BackupDeps(libib, shopify)
 
