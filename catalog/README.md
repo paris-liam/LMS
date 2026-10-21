@@ -237,6 +237,20 @@ instead set by a Shopify Flow workflow to the variant's full ID
 (`claudedocs/2026-10-20-floor-sale-barcodes-shopify-flow.md`); `check-barcodes` lists any
 clash on the store and any Floor Sale copy the workflow missed.
 
+## Backup
+
+    python3 -m catalog backup --out ../data [--only libib|shopify] [--headless] [--message-file PATH] [--store S] [--date YYYY-MM-DD]
+
+Writes `libib/` (the barcodes and library exports, copied as-is after a sanity check) and
+`shopify/products.csv` (admin-format export of every product, split into `products-N.csv`
+parts when large) under `--out`. An empty or malformed export never replaces the previous
+backup. Each source runs even if the other fails; exit is `0` only if all selected sources
+succeeded. `--message-file` gets a one-line commit message such as
+`Backup 2026-10-22 — libib 3962/3962 rows, shopify 7031 products`. Needs `LIBIB_EMAIL`,
+`LIBIB_PASSWORD`, `SHOPIFY_CLIENT_ID` and `SHOPIFY_CLIENT_SECRET` (only those for the selected
+sources). Runs daily from a GitHub Action in the private `paris-liam/LMS-data` repo, which
+commits whatever changed. Spec: `docs/superpowers/specs/2026-10-21-daily-data-backup-design.md`.
+
 ## Secrets
 
 `TMDB_API_KEY`, `LIBIB_EMAIL` and `LIBIB_PASSWORD` are read from the gitignored `.env` at the
