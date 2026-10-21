@@ -30,7 +30,7 @@
           "type": "button",
           "settings": {
             "label": "BROWSE THE LIBRARY",
-            "link": "shopify://collections/all-movies",
+            "link": "https://www.libib.com/u/littlemoviestore",
             "style": "outline"
           }
         },
