@@ -56,27 +56,91 @@ test('acceptSuggestion and pastedPoster', () => {
   assert.equal(L.pastedPoster(pasted, 'http://x/p.jpg').note, 'Links must start with https://');
 });
 
-test('createPayload only sends https posters', () => {
-  const copy = { libib: { barcode: 'b', title: 'Jaws', tags: 'vhs, horror', description: '', created: '' } };
-  assert.deepEqual(L.createPayload(copy, L.initialPoster(confident)),
-    { item: copy.libib, poster: { url: 'https://t/j.jpg', alt: 'Jaws (1975) poster' } });
-  assert.deepEqual(L.createPayload(copy, L.initialPoster(unsure)), { item: copy.libib, poster: null });
-  assert.deepEqual(L.createPayload(copy, { url: 'http://x', alt: '' }), { item: copy.libib, poster: null });
-  assert.deepEqual(L.createPayload(copy, undefined), { item: copy.libib, poster: null });
+function copyOf(barcode, itemId, extra = {}) {
+  return { barcode, item_id: itemId, title: `T${itemId}`, set_aside: [], libib_duplicate: null, match: null,
+    libib: { id: itemId, barcode, title: `T${itemId}`, tags: 'vhs, horror', description: '', created: '' }, ...extra };
+}
+const dupeOf = (title) => ({ item_id: 'old', title, format: 'VHS', genres: ['Horror'], copies: 1, created: '2025-01-01' });
+const matchOf = (id) => ({ id: `gid://shopify/Product/${id}`, handle: 'h', title: 'Jaws', vendor: 'VHS', tags: ['Rental'],
+  image: '', copies: 1, admin_url: `https://admin.shopify.com/store/s/products/${id}` });
+
+test('groupForCreate groups by Libib item in first-seen order', () => {
+  const a1 = copyOf('2010000000031', 'a'), b1 = copyOf('2010000000017', 'b'), a2 = copyOf('2010000000024', 'a');
+  assert.deepEqual(L.groupForCreate([a1, b1, a2]), [{ item_id: 'a', copies: [a1, a2] }, { item_id: 'b', copies: [b1] }]);
+  assert.deepEqual(L.groupForCreate([]), []);
+});
+
+test('groupKey is the lowest barcode, matching the server result barcode', () => {
+  const group = { item_id: 'a', copies: [copyOf('2010000000031', 'a'), copyOf('2010000000024', 'a')] };
+  assert.equal(L.groupKey(group), '2010000000024');
+});
+
+test('choiceState blocks while any match lacks a choice', () => {
+  const plain = copyOf('1', 'a'), dupe = copyOf('2', 'b', { libib_duplicate: dupeOf('Jaws') });
+  const m1 = copyOf('3', 'c', { match: matchOf(1) }), m2 = copyOf('4', 'd', { match: matchOf(2) });
+  const copies = [plain, dupe, m1, m2];
+  const none = L.choiceState(copies, new Map());
+  assert.deepEqual(none.dupes, [dupe]);
+  assert.deepEqual(none.matches, [m1, m2]);
+  assert.equal(none.blocked, true);
+  assert.equal(L.choiceState(copies, new Map([['3', 'add']])).blocked, true);
+  assert.equal(L.choiceState(copies, new Map([['3', 'add'], ['4', 'skip']])).blocked, false);
+  assert.equal(L.choiceState([plain, dupe], new Map()).blocked, false);   // an undismissed duplicate never blocks
+});
+
+test('applyChoices routes copies and writes the set-aside texts', () => {
+  const plain = copyOf('1', 'a');
+  const dupe = copyOf('2', 'b', { title: 'Jaws 2', libib_duplicate: dupeOf('Jaws, The') });
+  const kept = copyOf('3', 'c', { libib_duplicate: dupeOf('Halloween') });
+  const add = copyOf('4', 'd', { match: matchOf(1) }), skip = copyOf('5', 'e', { match: matchOf(2) });
+  const out = L.applyChoices([plain, dupe, kept, add, skip], new Map([['3', 'not_duplicate'], ['4', 'add'], ['5', 'skip']]));
+  assert.deepEqual(out.create, [plain, kept]);
+  assert.deepEqual(out.add, [add]);
+  assert.deepEqual(out.setAside.map((c) => [c.barcode, c.set_aside]), [
+    ['2', ['In Libib, delete “Jaws 2” and add this copy to “Jaws, The” instead. It will show up next time you sync.']],
+    ['5', ["If this copy isn't the same movie, move it to its own item in Libib."]],
+  ]);
+  assert.deepEqual(dupe.set_aside, []);   // the input copy is not changed
+});
+
+test('createPayload sends every copy of the group and only https posters', () => {
+  const group = { item_id: 'a', copies: [copyOf('2010000000024', 'a'), copyOf('2010000000031', 'a')] };
+  const items = group.copies.map((c) => c.libib);
+  assert.deepEqual(L.createPayload(group, L.initialPoster(confident)),
+    { items, poster: { url: 'https://t/j.jpg', alt: 'Jaws (1975) poster' } });
+  assert.deepEqual(L.createPayload(group, L.initialPoster(unsure)), { items, poster: null });
+  assert.deepEqual(L.createPayload(group, { url: 'http://x', alt: '' }), { items, poster: null });
+  assert.deepEqual(L.createPayload(group, undefined), { items, poster: null });
 });
 
 test('createPayload sends the normalised poster URL so an upper-case scheme still passes the server check', () => {
-  const copy = { libib: { barcode: 'b', title: 'Jaws', tags: 'vhs, horror', description: '', created: '' } };
-  assert.deepEqual(L.createPayload(copy, { url: ' HTTPS://Mine.example/p.jpg ', alt: '' }),
-    { item: copy.libib, poster: { url: 'https://mine.example/p.jpg', alt: '' } });
+  const group = { item_id: 'a', copies: [copyOf('2010000000024', 'a')] };
+  assert.deepEqual(L.createPayload(group, { url: ' HTTPS://Mine.example/p.jpg ', alt: '' }),
+    { items: [group.copies[0].libib], poster: { url: 'https://mine.example/p.jpg', alt: '' } });
+});
+
+test('addCopyPayload sends the Libib copy and the matched product id', () => {
+  const copy = copyOf('2010000000024', 'a', { match: matchOf(7) });
+  assert.deepEqual(L.addCopyPayload(copy), { item: copy.libib, product_id: 'gid://shopify/Product/7' });
 });
 
 test('summarize and finishPayload', () => {
   const s = L.summarize([
     { status: 'created', poster: 'ok' }, { status: 'created', poster: 'failed' },
-    { status: 'skipped_exists' }, { status: 'failed' }]);
-  assert.deepEqual([s.created.length, s.posterFailed.length, s.skipped.length, s.failed.length], [2, 1, 1, 1]);
-  assert.deepEqual(L.finishPayload(s, 4), { created: 2, skipped: 1, failed: 1, set_aside: 4 });
+    { status: 'skipped_exists' }, { status: 'failed' }, { status: 'added' }]);
+  assert.deepEqual([s.created.length, s.posterFailed.length, s.skipped.length, s.failed.length, s.added.length],
+    [2, 1, 1, 1, 1]);
+  assert.deepEqual(L.finishPayload(s, 4), { created: 2, added: 1, skipped: 1, failed: 1, set_aside: 4 });
+});
+
+test('barcodesToPrint lists every created copy and every added copy', () => {
+  assert.deepEqual(L.barcodesToPrint([
+    { status: 'created', barcode: '11', barcodes: ['11', '12'] },
+    { status: 'skipped_exists', barcode: '21', barcodes: ['21'] },
+    { status: 'failed', barcode: '31', barcodes: ['31'] },
+    { status: 'added', barcode: '41' },
+    { status: 'skipped_exists', barcode: '51' }]), ['11', '12', '41']);
+  assert.deepEqual(L.barcodesToPrint([]), []);
 });
 
 test('printBarcodesUrl', () => {

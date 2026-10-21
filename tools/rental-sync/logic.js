@@ -72,18 +72,63 @@
     return { ...poster, url, alt: '', note: isHttpsUrl(url) ? '' : 'Links must start with https://' };
   }
 
-  function createPayload(copy, poster) {
+  function groupForCreate(copies) {
+    const groups = new Map();
+    for (const copy of copies) {
+      if (!groups.has(copy.item_id)) groups.set(copy.item_id, { item_id: copy.item_id, copies: [] });
+      groups.get(copy.item_id).copies.push(copy);
+    }
+    return [...groups.values()];
+  }
+
+  // the server sorts a group's barcodes and reports the lowest as the result's barcode
+  function groupKey(group) {
+    return group.copies.map((c) => c.barcode).sort()[0];
+  }
+
+  function choiceState(copies, choices) {
+    const dupes = copies.filter((c) => c.libib_duplicate);
+    const matches = copies.filter((c) => c.match);
+    return { dupes, matches, blocked: matches.some((c) => !['add', 'skip'].includes(choices.get(c.barcode))) };
+  }
+
+  function applyChoices(copies, choices) {
+    const out = { create: [], add: [], setAside: [] };
+    const aside = (copy, reason) => out.setAside.push({ ...copy, set_aside: [...copy.set_aside, reason] });
+    for (const copy of copies) {
+      const choice = choices.get(copy.barcode);
+      if (copy.match) {
+        if (choice === 'add') out.add.push(copy);
+        else aside(copy, "If this copy isn't the same movie, move it to its own item in Libib.");
+      } else if (copy.libib_duplicate && choice !== 'not_duplicate') {
+        aside(copy, `In Libib, delete “${copy.title}” and add this copy to “${copy.libib_duplicate.title}” instead. `
+          + 'It will show up next time you sync.');
+      } else {
+        out.create.push(copy);
+      }
+    }
+    return out;
+  }
+
+  function createPayload(group, poster) {
     const usable = poster && isHttpsUrl(poster.url);
     // URL-normalised (lower-case scheme) because the server requires a literal "https://" prefix
-    return { item: copy.libib, poster: usable ? { url: new URL(poster.url.trim()).href, alt: poster.alt || '' } : null };
+    return { items: group.copies.map((c) => c.libib),
+      poster: usable ? { url: new URL(poster.url.trim()).href, alt: poster.alt || '' } : null };
+  }
+
+  function addCopyPayload(copy) {
+    return { item: copy.libib, product_id: copy.match.id };
   }
 
   function summarize(results) {
-    const out = { created: [], skipped: [], failed: [], posterFailed: [] };
+    const out = { created: [], added: [], skipped: [], failed: [], posterFailed: [] };
     for (const r of results) {
       if (r.status === 'created') {
         out.created.push(r);
         if (r.poster === 'failed') out.posterFailed.push(r);
+      } else if (r.status === 'added') {
+        out.added.push(r);
       } else if (r.status === 'skipped_exists') {
         out.skipped.push(r);
       } else {
@@ -94,8 +139,15 @@
   }
 
   function finishPayload(summary, setAsideCount) {
-    return { created: summary.created.length, skipped: summary.skipped.length,
+    return { created: summary.created.length, added: summary.added.length, skipped: summary.skipped.length,
       failed: summary.failed.length, set_aside: setAsideCount };
+  }
+
+  function barcodesToPrint(results) {
+    return results.flatMap((r) => {
+      if (r.status === 'created') return r.barcodes;
+      return r.status === 'added' ? [r.barcode] : [];
+    });
   }
 
   function printBarcodesUrl(store) {
@@ -143,6 +195,7 @@
   }
 
   return { MAX_FILE_BYTES, POSTER_BATCH_SIZE, gzipBase64, fileProblem, batches, byCreatedThenTitle, shortDate,
-    isHttpsUrl, initialPoster, acceptSuggestion, pastedPoster, createPayload, summarize, finishPayload,
-    printBarcodesUrl, describeLastRun, makeApi };
+    isHttpsUrl, initialPoster, acceptSuggestion, pastedPoster, groupForCreate, groupKey, choiceState, applyChoices,
+    createPayload, addCopyPayload, summarize, finishPayload, barcodesToPrint, printBarcodesUrl, describeLastRun,
+    makeApi };
 });

@@ -61,6 +61,17 @@
     </section>
 
     <section data-step="3" hidden>
+      <div id="dupes" hidden>
+        <h2>Possible duplicates in Libib</h2>
+        <p>Each of these looks like a movie that's already an item in Libib. If it's the same movie, fix it in Libib
+          and it will sync next time. If it's a different movie (a remake, say), click <strong>Not a duplicate</strong>.</p>
+        <div id="dupe-cards" class="cards"></div>
+      </div>
+      <div id="matches" hidden>
+        <h2>Already in Shopify?</h2>
+        <p>Another copy of each of these Libib items is already in Shopify. Add this copy to that product, or skip it this time.</p>
+        <div id="match-cards" class="cards"></div>
+      </div>
       <div id="set-aside" class="set-aside" hidden>
         <h2>Set aside — fix these in Libib</h2>
         <p>These won't sync this time. Fix them in Libib and they'll show up next time you sync.</p>
@@ -73,9 +84,10 @@
       <h2 id="ready-heading">Ready to sync</h2>
       <p class="muted small">These details come from Libib. To change one, edit it in Libib and start again.</p>
       <div id="ready-cards" class="cards"></div>
+      <p id="details-hint" class="muted small hint"></p>
       <div class="actions">
         <button id="details-back" type="button" class="secondary">Back</button>
-        <button id="details-continue" type="button">Looks good</button>
+        <button id="details-continue" type="button" aria-describedby="details-hint">Looks good</button>
       </div>
     </section>
 
@@ -99,9 +111,12 @@
         <h3>Next: print and apply barcodes</h3>
         <ol>
           <li>Open the products tagged <strong>Barcode Not Printed</strong> in Shopify.</li>
-          <li>Print their labels with Retail Barcode Labels and stick each on its copy.</li>
+          <li>Print labels with Retail Barcode Labels for the barcodes listed below, and stick each on its copy.
+            Products that gained a copy already have labelled copies on the shelf.</li>
           <li>Remove the <strong>Barcode Not Printed</strong> tag from each product you labelled.</li>
         </ol>
+        <h4>Print labels for these barcodes only</h4>
+        <ul id="print-barcodes" class="print-barcodes mono"></ul>
         <a id="print-link" class="button" target="_blank" rel="noopener">Print barcodes in Shopify</a>
       </div>
       <div class="actions">

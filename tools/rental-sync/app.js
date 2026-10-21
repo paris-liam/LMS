@@ -5,7 +5,8 @@
   const L = window.RentalSyncLogic;
   const $ = (id) => document.getElementById(id);
   const state = { store: '', vocabulary: { formats: [], genres: [] }, found: [], selected: new Set(),
-    ready: [], setAside: [], posters: new Map(), results: [], creating: false };
+    candidates: [], setAside: [], choices: new Map(), plan: { create: [], add: [], setAside: [] }, groups: [], adds: [],
+    setAsideCount: 0, posterCopies: [], posters: new Map(), results: [], creating: false };
 
   function el(tag, props, ...children) {
     const node = document.createElement(tag);
@@ -101,6 +102,7 @@
       state.vocabulary = data.vocabulary;
       state.found = [...data.ready, ...data.set_aside].sort(L.byCreatedThenTitle);
       state.selected = new Set(state.found.map((c) => c.barcode));
+      state.choices = new Map();
       posterBuild = null;
       renderFound();
       showStep(2);
@@ -139,51 +141,151 @@
   $('found-continue').addEventListener('click', () => { renderDetails(); showStep(3); });
 
   // --- step 3: details --------------------------------------------------------
+  const field = (label, value) => [el('dt', {}, label), el('dd', {}, value || '—')];
+  const genreNames = (copy) => copy.genres.map((g) => g.name).join(', ');
+  const adminLink = (url, text) => (L.isHttpsUrl(url) ? el('a', { href: url, target: '_blank', rel: 'noopener' }, text) : text);
   function copyCard(copy, isAside) {
-    const field = (label, value) => [el('dt', {}, label), el('dd', {}, value || '—')];
     return el('article', { class: isAside ? 'card aside' : 'card' },
       el('h3', {}, copy.title || '(no title)', ' ', el('span', { class: 'mono muted' }, copy.barcode)),
       isAside ? el('ul', { class: 'reasons' }, copy.set_aside.map((r) => el('li', {}, r))) : null,
+      isAside && copy.products && copy.products.length
+        ? el('ul', {}, copy.products.map((url, i) => el('li', {}, adminLink(url, `Shopify product ${i + 1}`)))) : null,
       el('dl', {},
         field('Format', copy.format),
-        field('Genre', copy.genres.map((g) => g.name).join(', ')),
+        field('Genre', genreNames(copy)),
         field('Extra tags', copy.extra_tags.join(', ')),
         field('Description', copy.description)),
       copy.warnings.length ? el('ul', { class: 'warnings' }, copy.warnings.map((w) => el('li', {}, w))) : null);
   }
+
+  // dupe and match cards: barcode -> update(choice, setAsideReason)
+  const choiceCards = new Map();
+  function choose(barcode, choice) {
+    if (choice) state.choices.set(barcode, choice); else state.choices.delete(barcode);
+    updateChoices();
+  }
+  function choiceButton(label, onclick) {
+    return el('button', { type: 'button', class: 'secondary choice', 'aria-pressed': 'false', onclick }, label);
+  }
+  function side(heading, ...children) {
+    return el('div', { class: 'side' }, el('h4', {}, heading), ...children);
+  }
+  function dupeCard(copy) {
+    const other = copy.libib_duplicate;
+    const copies = state.found.filter((c) => c.item_id === copy.item_id).length;
+    const status = el('p', { class: 'note', 'aria-live': 'polite' });
+    const button = choiceButton('Not a duplicate',
+      () => choose(copy.barcode, state.choices.get(copy.barcode) === 'not_duplicate' ? null : 'not_duplicate'));
+    const card = el('article', { class: 'card choice-card' },
+      el('div', { class: 'sides' },
+        side('New in Libib', el('dl', {}, field('Title', copy.title), field('Barcode', copy.barcode),
+          field('Format', copy.format), field('Genre', genreNames(copy)), field('Copies', String(copies)),
+          field('Added', L.shortDate(copy.created)))),
+        side('Already in Libib', el('dl', {}, field('Title', other.title), field('Format', other.format),
+          field('Genre', other.genres.join(', ')), field('Copies', String(other.copies)),
+          field('Added', L.shortDate(other.created))))),
+      status, el('div', { class: 'choices' }, button));
+    choiceCards.set(copy.barcode, (choice, reason) => {
+      const dismissed = choice === 'not_duplicate';
+      button.setAttribute('aria-pressed', String(dismissed));
+      card.classList.toggle('aside', !dismissed);
+      status.textContent = dismissed ? 'Not a duplicate — it will become its own product.' : reason;
+    });
+    return card;
+  }
+  function matchCard(copy) {
+    const product = copy.match;
+    const status = el('p', { class: 'note', 'aria-live': 'polite' });
+    const add = choiceButton('Add as a copy', () => choose(copy.barcode, 'add'));
+    const skip = choiceButton('Skip this run', () => choose(copy.barcode, 'skip'));
+    const poster = L.isHttpsUrl(product.image)
+      ? el('img', { src: product.image, alt: `Poster for ${product.title}` })
+      : el('div', { class: 'poster-empty' }, 'No poster');
+    const card = el('article', { class: 'card choice-card' },
+      el('div', { class: 'sides' },
+        side('New copy in Libib', el('dl', {}, field('Title', copy.title), field('Barcode', copy.barcode),
+          field('Format', copy.format), field('Genre', genreNames(copy)), field('Added', L.shortDate(copy.created)))),
+        side('Product in Shopify', el('div', { class: 'match-product' }, el('div', { class: 'poster' }, poster),
+          el('div', {}, el('dl', {}, field('Title', product.title), field('Format', product.vendor),
+            field('Copies', String(product.copies))),
+          el('p', { class: 'small' }, adminLink(product.admin_url, 'Open it in Shopify admin')))))),
+      status, el('div', { class: 'choices' }, add, skip));
+    choiceCards.set(copy.barcode, (choice, reason) => {
+      add.setAttribute('aria-pressed', String(choice === 'add'));
+      skip.setAttribute('aria-pressed', String(choice === 'skip'));
+      card.classList.toggle('aside', choice === 'skip');
+      status.textContent = choice === 'add' ? `This copy will be added to “${product.title}” in Shopify.`
+        : choice === 'skip' ? reason : 'Choose one to continue.';
+    });
+    return card;
+  }
   function renderDetails() {
     const chosen = state.found.filter((c) => state.selected.has(c.barcode));
-    state.ready = chosen.filter((c) => !c.set_aside.length);
+    state.candidates = chosen.filter((c) => !c.set_aside.length);
     state.setAside = chosen.filter((c) => c.set_aside.length);
+    const { dupes, matches } = L.choiceState(state.candidates, state.choices);
+    choiceCards.clear();
+    $('dupes').hidden = !dupes.length;
+    $('dupe-cards').replaceChildren(...dupes.map(dupeCard));
+    $('matches').hidden = !matches.length;
+    $('match-cards').replaceChildren(...matches.map(matchCard));
     $('set-aside').hidden = !state.setAside.length;
     $('vocab-formats').textContent = state.vocabulary.formats.join(', ');
     $('vocab-genres').textContent = state.vocabulary.genres.join(', ');
     $('set-aside-cards').replaceChildren(...state.setAside.map((c) => copyCard(c, true)));
-    $('ready-heading').textContent = state.ready.length ? `${state.ready.length} ready to sync` : 'Nothing ready to sync';
-    $('ready-cards').replaceChildren(...state.ready.map((c) => copyCard(c, false)));
-    $('details-continue').disabled = !state.ready.length;
+    const plain = state.candidates.filter((c) => !c.libib_duplicate && !c.match);
+    $('ready-cards').replaceChildren(...plain.map((c) => copyCard(c, false)));
+    updateChoices();
+  }
+  function updateChoices() {
+    const { blocked } = L.choiceState(state.candidates, state.choices);
+    state.plan = L.applyChoices(state.candidates, state.choices);
+    const reasons = new Map(state.plan.setAside.map((c) => [c.barcode, c.set_aside[c.set_aside.length - 1]]));
+    choiceCards.forEach((update, barcode) => update(state.choices.get(barcode), reasons.get(barcode)));
+    const n = state.plan.create.length + state.plan.add.length;
+    $('ready-heading').textContent = n ? `${n} ready to sync` : 'Nothing ready to sync';
+    $('details-continue').disabled = blocked || !n;
+    $('details-hint').textContent = blocked ? 'Answer every “Already in Shopify?” card to continue.' : '';
   }
   $('details-back').addEventListener('click', () => showStep(2));
   $('details-continue').addEventListener('click', () => {
-    const key = state.ready.map((c) => c.barcode).join('\n');
-    if (posterBuild && posterBuild.key === key && posterBuild.done) { showStep(4); return; }
+    state.groups = L.groupForCreate(state.plan.create);
+    state.adds = state.plan.add;
+    state.setAsideCount = state.setAside.length + state.plan.setAside.length;
+    if (!state.groups.length) { startCreate(); return; }
+    const key = state.plan.create.map((c) => c.barcode).join('\n');
+    if (posterBuild && posterBuild.key === key && posterBuild.done) {
+      $('posters-continue').textContent = createLabel();
+      showStep(4);
+      return;
+    }
     buildPosterCards();
     posterBuild = { key, done: false };
     showStep(4);
     startPosters(posterBuild);
   });
 
-  // --- step 4: posters --------------------------------------------------------
+  // --- step 4: posters (one per new product, keyed by its group's lowest barcode) ---
   const posterCards = new Map();
   const editedPosters = new Set(); // barcodes the user pasted into or accepted: lookups must not overwrite them
   let posterRun = 0;
   let posterBuild = null; // { key, done } for the poster cards currently built
+  const keyCopy = (group) => group.copies.find((c) => c.barcode === L.groupKey(group));
+  function createLabel() {
+    const p = state.groups.length;
+    const a = state.adds.length;
+    const adds = a ? ` and add ${a} ${a === 1 ? 'copy' : 'copies'}` : '';
+    return `Create ${p} ${p === 1 ? 'product' : 'products'}${adds} in Shopify`;
+  }
   function buildPosterCards() {
     posterCards.clear();
     editedPosters.clear();
-    state.posters = new Map(state.ready.map((c) => [c.barcode, { url: '', alt: '', original: { url: '', alt: '' },
+    state.posterCopies = state.groups.map(keyCopy);
+    state.posters = new Map(state.posterCopies.map((c) => [c.barcode, { url: '', alt: '', original: { url: '', alt: '' },
       suggestion: null, note: 'Looking up…' }]));
-    $('poster-cards').replaceChildren(...state.ready.map((copy) => {
+    $('poster-cards').replaceChildren(...state.groups.map((group) => {
+      const copy = keyCopy(group);
+      const count = group.copies.length > 1 ? ` · ${group.copies.length} copies` : '';
       const note = el('p', { class: 'note' });
       const img = el('img', { alt: `Poster for ${copy.title}`, hidden: true });
       const empty = el('div', { class: 'poster-empty' }, 'No poster');
@@ -206,10 +308,10 @@
       return el('article', { class: 'card poster-card' },
         el('div', { class: 'poster' }, img, empty),
         el('div', {}, el('h3', {}, copy.title),
-          el('p', { class: 'muted small' }, `${copy.format} · ${copy.genres.map((g) => g.name).join(', ')}`),
+          el('p', { class: 'muted small' }, `${copy.format} · ${genreNames(copy)}${count}`),
           note, useIt, input));
     }));
-    state.ready.forEach((c) => updatePosterCard(c.barcode));
+    state.posterCopies.forEach((c) => updatePosterCard(c.barcode));
   }
   function updatePosterCard(barcode) {
     const poster = state.posters.get(barcode);
@@ -232,7 +334,7 @@
     const button = $('posters-continue');
     button.disabled = true;
     button.textContent = 'Looking up posters…';
-    for (const batch of L.batches(state.ready)) {
+    for (const batch of L.batches(state.posterCopies)) {
       let results = null;
       try {
         results = (await api('posters', { copies: batch })).posters;
@@ -251,15 +353,28 @@
     }
     build.done = true;
     button.disabled = false;
-    button.textContent = `Create ${state.ready.length} ${state.ready.length === 1 ? 'product' : 'products'} in Shopify`;
+    button.textContent = createLabel();
   }
   $('posters-back').addEventListener('click', () => showStep(3));
   $('posters-continue').addEventListener('click', startCreate);
 
-  // --- step 5: create -----------------------------------------------------
+  // --- step 5: create products, then add copies --------------------------------
   function setProgress(done, total) {
     $('progress-bar').style.width = `${total ? Math.round((done / total) * 100) : 100}%`;
     $('progress-text').textContent = `${done} of ${total} done`;
+  }
+  function createJobs() {
+    const creates = state.groups.map((group) => {
+      const copy = keyCopy(group);
+      const n = group.copies.length;
+      return { key: copy.barcode, title: copy.title, barcodes: group.copies.map((c) => c.barcode).sort(), adminUrl: '',
+        row: n > 1 ? `${copy.title} (${n} copies)` : copy.title,
+        send: () => api('create', L.createPayload(group, state.posters.get(copy.barcode))) };
+    });
+    const adds = state.adds.map((copy) => ({ key: copy.barcode, title: copy.title, barcodes: [copy.barcode],
+      adminUrl: copy.match.admin_url, row: `${copy.title} — add as a copy`,
+      send: () => api('add_copy', L.addCopyPayload(copy)) }));
+    return [...creates, ...adds];
   }
   async function startCreate() {
     if (state.creating) return;
@@ -267,37 +382,38 @@
     $('posters-continue').disabled = true;
     showStep(5);
     state.results = [];
+    const jobs = createJobs();
     const marks = new Map();
-    $('create-rows').replaceChildren(...state.ready.map((copy) => {
+    $('create-rows').replaceChildren(...jobs.map((job) => {
       const mark = el('span', { class: 'status' }, '…');
-      marks.set(copy.barcode, mark);
-      return el('li', {}, mark, ' ', copy.title);
+      marks.set(job.key, mark);
+      return el('li', {}, mark, ' ', job.row);
     }));
-    const failedRow = (copy, message, detail = '') => ({ status: 'failed', barcode: copy.barcode, title: copy.title,
-      admin_url: '', poster: 'none', message, detail, problems: [] });
-    const markRow = (copy, result) => {
-      const mark = marks.get(copy.barcode);
+    const failedRow = (job, message, detail = '') => ({ status: 'failed', barcode: job.key, barcodes: job.barcodes,
+      title: job.title, admin_url: job.adminUrl, poster: 'none', message, detail, problems: [] });
+    const markRow = (job, result) => {
+      const mark = marks.get(job.key);
       mark.textContent = result.status === 'failed' ? '✗' : '✓';
       mark.className = `status ${result.status}`;
     };
     let setupError = null;
-    for (const [i, copy] of state.ready.entries()) {
-      setProgress(i, state.ready.length);
+    for (const [i, job] of jobs.entries()) {
+      setProgress(i, jobs.length);
       let result;
       try {
-        result = await api('create', L.createPayload(copy, state.posters.get(copy.barcode)));
+        result = await job.send();
       } catch (error) {
-        result = failedRow(copy, `${error.message} Run the sync again to check it.`, error.detail);
+        result = failedRow(job, `${error.message} Run the sync again to check it.`, error.detail);
         if (error.kind === 'setup') {
           setupError = error;
-          result = failedRow(copy, error.message, error.detail);
+          result = failedRow(job, error.message, error.detail);
         }
       }
       state.results.push(result);
-      markRow(copy, result);
+      markRow(job, result);
       if (setupError) {
         // a setup problem will fail every remaining copy the same way: stop and say so
-        for (const rest of state.ready.slice(i + 1)) {
+        for (const rest of jobs.slice(i + 1)) {
           const skipped = failedRow(rest, 'Not attempted — the app setup needs fixing first.');
           state.results.push(skipped);
           markRow(rest, skipped);
@@ -305,7 +421,7 @@
         break;
       }
     }
-    setProgress(state.ready.length, state.ready.length);
+    setProgress(jobs.length, jobs.length);
     if (setupError) {
       state.creating = false;
       renderResults(L.summarize(state.results), null, setupError);
@@ -314,7 +430,7 @@
     const summary = L.summarize(state.results);
     let finishError = null;
     try {
-      await api('finish', L.finishPayload(summary, state.setAside.length));
+      await api('finish', L.finishPayload(summary, state.setAsideCount));
     } catch (error) {
       finishError = error;
     }
@@ -325,21 +441,25 @@
     const setupBox = setupError ? el('div', { class: 'setup-error' }) : null;
     if (setupError) showError(setupBox, setupError);
     const link = (r) => (r.admin_url ? el('a', { href: r.admin_url, target: '_blank', rel: 'noopener' }, r.title) : r.title);
+    const copies = (r) => (r.barcodes && r.barcodes.length > 1 ? ` (${r.barcodes.length} copies)` : '');
     const group = (title, items, render) => (items.length
       ? el('section', { class: 'result-group' }, el('h3', {}, `${title} (${items.length})`), el('ul', {}, items.map(render)))
       : null);
     fill($('results'),
       setupBox,
-      el('p', { class: 'last-run' }, `${summary.created.length} created, ${summary.skipped.length} already in Shopify, ${summary.failed.length} failed.`),
+      el('p', { class: 'last-run' }, `${summary.created.length} created, ${summary.added.length} added as a copy, `
+        + `${summary.skipped.length} already in Shopify, ${summary.failed.length} failed.`),
       group('Failed', summary.failed, (r) => el('li', {}, link(r), ' ', el('span', { class: 'mono muted' }, r.barcode),
         el('p', { class: 'error small' }, r.message), detailsBlock(r.detail))),
-      summary.failed.length ? el('p', {}, "Fix the issue and run the sync again — products already created won't be duplicated.") : null,
+      summary.failed.length ? el('p', {}, "Fix the issue and run the sync again — products and copies already in Shopify won't be duplicated.") : null,
       group("Created, but the poster didn't load — add it in Shopify admin", summary.posterFailed, (r) => el('li', {}, link(r))),
-      group('Created', summary.created, (r) => el('li', {}, link(r))),
+      group('Created', summary.created, (r) => el('li', {}, link(r), copies(r))),
+      group('Added as a copy', summary.added, (r) => el('li', {}, link(r), ' ', el('span', { class: 'mono muted' }, r.barcode))),
       group('Already in Shopify — skipped', summary.skipped, (r) => el('li', {}, r.title, ' ', el('span', { class: 'muted small' }, r.message))),
       finishError ? el('p', { class: 'error small' }, `The products are done, but the "last sync" time wasn't saved: ${finishError.message}`) : null);
     $('print-link').href = L.printBarcodesUrl(state.store);
-    $('print-block').hidden = !summary.created.length;
+    $('print-barcodes').replaceChildren(...L.barcodesToPrint(state.results).map((b) => el('li', {}, b)));
+    $('print-block').hidden = !(summary.created.length || summary.added.length);
     $('restart').hidden = false;
   }
   $('restart').addEventListener('click', () => window.location.reload());
