@@ -68,6 +68,25 @@ class RunBackupTest(unittest.TestCase):
         self.assertIn("shopify: 7031 products", buf.getvalue())
         self.assertIn("libib: FAILED — LIBIB_EMAIL is not set.", buf.getvalue())
 
+    def test_non_catalog_error_still_writes_message_file(self):
+        args = build_parser().parse_args(["backup", "--out", self.tmp.name, "--message-file", str(self.message),
+                                          "--date", "2026-10-22"])
+        calls = []
+
+        def libib(out):
+            calls.append("libib")
+            return LIBIB_OK
+
+        def boom(out):
+            raise TimeoutError("read timed out")
+
+        with contextlib.redirect_stdout(io.StringIO()) as buf:
+            code = command.run_backup(args, command.BackupDeps(libib, boom))
+        self.assertEqual(code, 1)
+        self.assertEqual(calls, ["libib"])
+        self.assertIn("shopify FAILED", self.message.read_text())
+        self.assertIn("shopify: FAILED — TimeoutError: read timed out", buf.getvalue())
+
     def test_all_ok_returns_zero(self):
         code, _, out = self.run_cmd(LIBIB_OK, SHOPIFY_OK)
         self.assertEqual(code, 0)

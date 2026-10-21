@@ -34,8 +34,11 @@ def run_backup(args, deps: BackupDeps) -> int:
     for name in selected:
         try:
             result = getattr(deps, name)(out_dir)
-        except CatalogError as exc:  # e.g. a missing env var: report it, still run the other source
-            result = SourceResult(name, False, "FAILED", " ".join(str(exc).split()))
+        except Exception as exc:  # any failure (missing env, network): report it, still run the other source
+            text = " ".join(str(exc).split())
+            if not isinstance(exc, CatalogError):
+                text = f"{type(exc).__name__}: {text}" if text else type(exc).__name__
+            result = SourceResult(name, False, "FAILED", text)
         results.append(result)
         print(f"{name}: {result.summary}" if result.ok else f"{name}: FAILED — {result.error}")
     if args.message_file:
