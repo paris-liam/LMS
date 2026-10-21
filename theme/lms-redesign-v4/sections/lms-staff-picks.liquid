@@ -2,7 +2,9 @@
   lms-staff-picks — side panel (left) + scrollable picks row (right).
 
   Picks are driven by a `community_pick` metaobject (Admin → Content):
-    - product     Product reference (poster, title, and link come from it)
+    - product     Product reference (poster and title come from it; the
+                  poster links to its public Libib item, custom.libib_join_id,
+                  or the Libib library when it has none)
     - quote       Multi-line text (the shelf note)
     - staff_name  Single-line text
     - staff_link  URL (optional link for the "Picked by" author name)
@@ -43,7 +45,7 @@
           {%- if pick_product -%}
             {%- assign shown = shown | plus: 1 -%}
             <div class="lms-staff__pick">
-              <a href="{{ pick_product.url }}" class="lms-staff__poster">
+              <a href="{% render 'lms-libib-url', join_id: pick_product.metafields.custom.libib_join_id.value %}" class="lms-staff__poster">
                 {%- if pick_product.featured_image -%}
                   {{ pick_product.featured_image
                     | image_url: width: 450

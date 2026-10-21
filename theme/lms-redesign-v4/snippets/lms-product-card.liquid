@@ -3,6 +3,9 @@
 
   Accepts:
   - card_product: {Object} required. A product object.
+  - link_to_libib: {Boolean} optional, default false. Link to the movie's
+    public Libib item (custom.libib_join_id) instead of the Shopify product
+    page, or to the Libib library when it has none. Homepage rails only.
 
   Data contract (dynamic sources — nothing here is a theme setting):
   - Poster:     card_product.featured_image
@@ -18,6 +21,7 @@
 
   Usage:
   {% render 'lms-product-card', card_product: product %}
+  {% render 'lms-product-card', card_product: product, link_to_libib: true %}
 {% endcomment %}
 
 {%- liquid
@@ -51,10 +55,14 @@
   for genre_item in card_product.metafields.shopify.genre.value limit: 1
     assign genre_label = genre_item.label
   endfor
+  assign card_url = card_product.url
 -%}
+{%- if link_to_libib -%}
+  {%- capture card_url -%}{% render 'lms-libib-url', join_id: card_product.metafields.custom.libib_join_id.value %}{%- endcapture -%}
+{%- endif -%}
 
 {%- if card_product and card_product != empty -%}
-  <a href="{{ card_product.url }}" class="lms-product-card">
+  <a href="{{ card_url }}" class="lms-product-card">
     <div class="lms-product-card__media">
       {%- if card_product.featured_image -%}
         {{ card_product.featured_image

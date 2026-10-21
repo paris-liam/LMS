@@ -1,0 +1,17 @@
+{%- comment -%}
+  lms-libib-url — the public Libib rental library URL (libib.com/u/littlemoviestore).
+
+  Accepts:
+  - join_id: {Number} optional. A Libib item's join_id
+    (product.metafields.custom.libib_join_id, kept by the daily `libib tags`
+    job). With it, the URL opens that movie's item; without it, the library.
+
+  Usage:
+  <a href="{% render 'lms-libib-url', join_id: product.metafields.custom.libib_join_id.value %}">
+{%- endcomment -%}
+{%- liquid
+  echo 'https://www.libib.com/u/littlemoviestore'
+  if join_id != blank
+    echo '?id=' | append: join_id
+  endif
+-%}
