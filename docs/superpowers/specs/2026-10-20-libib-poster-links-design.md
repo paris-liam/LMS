@@ -62,7 +62,7 @@ The Shopify-side collection pages will be hidden, which is separate work and not
 - **No login, no browser.** It's plain HTTP, so it can run before the Playwright session.
 - **Which products:** every product the job's final plan leaves tagged `new-arrival` or `community-pick` that has a matched Libib item, using that item's copy barcode. That's about 54 today.
 - **Every run, throttled.** Look up all of them each day, not only missing ones, so moved or re-added items get their new link. Throttle the requests because the endpoint is undocumented.
-- **Exactly one hit:** use it. *(Builder's call:)* also check that the hit's title matches the Libib export title.
+- **Exactly one hit:** use it. *(Decided 2026-10-21, no title check:)* the search is on the copy's exact barcode within `Rental Library`, and a search that returns several items is already refused. The leftover risk is that the right item isn't searchable while another item matches the barcode text. In that case the poster opens the wrong movie until the next daily run.
 - **Several hits:** keep any stored value, and report the product by title and Libib item id.
 - **Zero hits with a value stored** *(my call)*: clear it, but only when the zero is definitive:
   - the request succeeded and parsed

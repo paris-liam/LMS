@@ -47,9 +47,13 @@ class JoinIdChange:
 
 
 def parse_join_ids(payload: dict) -> list[str]:
+    # Fixed messages only: the reply is server text and could echo the barcode.
     if payload.get("outcome") != "success":
-        raise LookupFailed(f"search outcome {payload.get('outcome')!r}")
-    return list(dict.fromkeys(_JOIN_ID.findall(payload.get("item-info") or "")))
+        raise LookupFailed("search outcome was not success")
+    info = payload.get("item-info") or ""
+    if not isinstance(info, str):
+        raise LookupFailed("search reply has no item list")
+    return list(dict.fromkeys(_JOIN_ID.findall(info)))
 
 
 def lookup_join_ids(barcode: str, urlopen=urllib.request.urlopen) -> list[str]:
@@ -61,7 +65,7 @@ def lookup_join_ids(barcode: str, urlopen=urllib.request.urlopen) -> list[str]:
             payload = json.loads(response.read())
     except urllib.error.HTTPError as exc:
         raise LookupFailed(f"HTTPError {exc.code}") from None
-    except (OSError, ValueError) as exc:   # URLError, timeouts, bad JSON — the message may echo the request
+    except Exception as exc:   # URLError, timeouts, dropped connections, bad JSON — the message may echo the request
         raise LookupFailed(type(exc).__name__) from None
     if not isinstance(payload, dict):
         raise LookupFailed("reply is not a JSON object")

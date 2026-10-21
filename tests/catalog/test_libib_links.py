@@ -1,3 +1,4 @@
+import http.client
 import io
 import unittest
 import urllib.error
@@ -44,6 +45,21 @@ class TestParse(unittest.TestCase):
     def test_non_json_reply_is_a_failure(self):
         with self.assertRaises(LookupFailed):
             lookup_join_ids("92021234", urlopen=lambda *a, **k: FakeResponse(b"<html>"))
+
+    def test_dropped_connection_is_a_failure(self):
+        def urlopen(*a, **k):
+            raise http.client.IncompleteRead(b"")
+        with self.assertRaises(LookupFailed):
+            lookup_join_ids("92021234", urlopen=urlopen)
+
+    def test_item_info_of_wrong_type_is_a_failure(self):
+        with self.assertRaises(LookupFailed):
+            parse_join_ids({"outcome": "success", "item-info": ["not", "html"]})
+
+    def test_error_outcome_text_is_not_echoed(self):
+        with self.assertRaises(LookupFailed) as caught:
+            parse_join_ids({"outcome": "no results for 92021234"})
+        self.assertNotIn("92021234", str(caught.exception))
 
     def test_errors_never_contain_the_barcode(self):
         def urlopen(*a, **k):
