@@ -50,7 +50,7 @@ reading each product back.
   new rentals imported and filled (incl. Swashbuckler). Diff on audit
   `runs/2026-09-30-3`: **3,226 in sync, 0 drift, 0 eligible, 0 orphans,
   0 blocked, 0 held** — the orphan/held backlog listed in
-  `2026-09-28-cloud-next-steps.md` is cleared. 118 rentals stay out of Libib
+  `2026-09-28-cloud-next-steps.md` (removed 2026-10-20; in git history) is cleared. 118 rentals stay out of Libib
   until they are complete in Shopify (description/poster — picker queue).
 - Audit `runs/2026-09-30-3`: manual bucket **31** products — the 29 untyped
   and 2 $0 floor-sale items below.

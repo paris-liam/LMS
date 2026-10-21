@@ -132,7 +132,7 @@ Verified against dev-store product metafield definitions (2026-08-07): the only 
 
 ### Collections and filters
 
-- `all-movies` smart collection: `Category = Media > Videos AND tag = Rental` (per `docs/superpowers/plans/2026-07-15-rental-scoped-catalogue-and-filters.md`). Against production data that rule matches **1 product** — 1,042 are tagged `Rental`, but only 1 of them has the category set.
+- `all-movies` smart collection: `Category = Media > Videos AND tag = Rental` (per `docs/superpowers/plans/2026-07-15-rental-scoped-catalogue-and-filters.md` (removed 2026-10-20; in git history)). Against production data that rule matches **1 product** — 1,042 are tagged `Rental`, but only 1 of them has the category set.
 - `new-arrivals` smart collection: the same rules plus `tag = new-arrival`, kept current by Shopify Flow on product-created.
 - Facets are configured in the **Search & Discovery** admin app, not in the theme; `blocks/filters.liquid` just renders `results.filters` generically. The PDP chip URLs assume facets named `filter.p.m.shopify.genre` and `filter.p.m.shopify.media-format` exist.
 

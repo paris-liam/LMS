@@ -3,7 +3,7 @@
 **Date:** 2026-09-19
 **Scope:** Libib Pro account for LMS. Area #2 (Lending) of the Libib setup; areas #4 (Kiosk/Barcodes) and #5 (Published site) to follow.
 **Sources:** support.libib.com — `libib/website/lending`, `libib/website/settings`, `libib/website/publish`, `getting-started/quickstart-for-patrons`, `libib/mobile-app/lending/*`, `faqs`. Fetched 2026-09-19.
-**Related:** `docs/superpowers/specs/2026-09-13-membership-system-design.md` (patron creation via Flow → REST API), `claudedocs/2026-09-12-libib-vs-supercycle-assessment.md`.
+**Related:** `docs/superpowers/specs/2026-09-13-membership-system-design.md` (patron creation via Flow → REST API), `claudedocs/2026-09-12-libib-vs-supercycle-assessment.md` (removed 2026-10-20; in git history).
 
 ---
 

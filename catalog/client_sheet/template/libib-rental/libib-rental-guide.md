@@ -161,7 +161,7 @@ three example rows) into the **Rental Library** and confirm:
 1. **Copies → barcodes.** A row with Copies = 2 becomes one item with two
    copies, each with its own `201…` barcode, and both appear in the
    Barcodes export. (Imported copies did get `201…` barcodes in the
-   2026-09 legacy import — `claudedocs/2026-09-25-libib-acceptance.md`.)
+   2026-09 legacy import — `claudedocs/2026-09-25-libib-acceptance.md` (removed 2026-10-20; in git history).)
 2. **Column matching.** Libib auto-matches title, description, tags and
    copies to the right fields.
 3. **Tags.** Arrive lowercase and split on commas (`vhs`, `horror`,

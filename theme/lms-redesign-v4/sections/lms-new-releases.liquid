@@ -1,8 +1,8 @@
 {% comment %}
   lms-new-releases — "New Arrivals" rail: the 5 most recent Rental movies.
   Data source is the fixed `new-arrivals` smart collection (Category = Media
-  > Videos AND tag = Rental AND tag = new-arrival), kept in sync by a
-  Shopify Flow (see docs/superpowers/plans/2026-07-15-rental-scoped-catalogue-and-filters.md).
+  > Videos AND tag = Rental AND tag = new-arrival), kept in sync by
+  the daily `libib tags` job (see docs/superpowers/specs/2026-10-20-libib-tag-sync-design.md).
   Top-right "View all" links to the shop-all/search page unfiltered. The
   "+N more" button below the grid links to the same page with the New
   Arrivals toggle pre-set (filter.p.tag=new-arrival), hidden when there are

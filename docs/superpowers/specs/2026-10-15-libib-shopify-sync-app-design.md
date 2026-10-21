@@ -2,9 +2,9 @@
 
 **Status: spec, not built.** Decisions confirmed with the developer
 2026-10-15 in a brainstorming session, starting from the loose flow in
-`Proposal for Libib to Shopify Sync App.md` (repo root).
+`Proposal for Libib to Shopify Sync App.md` (removed 2026-10-20; in git history) (repo root).
 
-**Supersedes** `claudedocs/2026-10-15-rental-libib-to-shopify-action.md` (the
+**Supersedes** `claudedocs/2026-10-15-rental-libib-to-shopify-action.md` (removed 2026-10-20; in git history) (the
 daily GitHub Action, never built). Carried over from it: the Libib
 conventions for the client, the transform rules, the product field mapping,
 the handle rule and the pipeline changes. Dropped: the schedule, GitHub-issue

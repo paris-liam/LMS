@@ -3,7 +3,7 @@
 Date: 2026-09-25
 Status: approved in brainstorming, pending written-spec review
 Replaces: `formatting-scripts/` (and its README), `tests/formatting_scripts/`, `tests/data_cleanup/`
-Supersedes as the operating process: `docs/superpowers/specs/2026-08-11-catalogue-format-script-design.md`,
+Supersedes as the operating process: `docs/superpowers/specs/2026-08-11-catalogue-format-script-design.md` (removed 2026-10-20; in git history),
 `docs/superpowers/specs/2026-08-30-hosted-review-picker-design.md` (picker behaviour carries over, its generator moves)
 
 ## 1. Purpose
@@ -469,7 +469,7 @@ history; rotating them is the owner's decision and is outside this work.
 - The Playwright fixer is verified manually with `libib fix <batch> --limit 1`.
 - **Acceptance:** one read-only `audit` against production, with results compared to the
   known counts **on their own scopes** — 133 rentals missing a poster and 118 missing a
-  description (rental catalogue, 2026-09-16, `LIBIB_MIGRATION_PROGRESS.md`); 13 duplicate-
+  description (rental catalogue, 2026-09-16, `LIBIB_MIGRATION_PROGRESS.md` (removed 2026-10-20; in git history)); 13 duplicate-
   barcode pairs (2026-09-19, not rental-scoped). Differences are explained, not forced to match.
 
 ## 11. Future work (not in this build)
@@ -478,5 +478,5 @@ history; rotating them is the owner's decision and is outside this work.
   client imports it. The rules are loader-agnostic, so this is a new loader + command.
 - **Picker fields**: genre/type/format/price picks via `fields` (needs the `/api/save-pick`
   allowlist change and apply support).
-- Libib lending status → Shopify stock (see `LIBIB_AUTOMATION_ROADMAP.md` #2).
+- Libib lending status → Shopify stock (see `LIBIB_AUTOMATION_ROADMAP.md` (removed 2026-10-20; in git history) #2).
 - Running `libib fix` in CI/cloud.

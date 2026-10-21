@@ -129,8 +129,8 @@ old record would be lost).
 ## 5. Not measured by the audit
 
 - [ ] **Duplicate copies.** The periodic dedupe + consolidate pass has not been run on the
-      ~8,000-product catalogue. Plans: `2026-07-15-duplicate-product-cleanup-checklist.md`,
-      `2026-07-15-circaos-same-format-copy-consolidation.md`. Biggest remaining job.
+      ~8,000-product catalogue. Find the copy groups with `python3 -m catalog duplicates`; the old 2026-07-15 merge plans were
+      deleted 2026-10-20 (they targeted the removed `formatting-scripts/`). Biggest remaining job.
 - [x] **Retire the old picker groups** `floor-sale-01`–`08` (749 cards from before Floor Sale
       stopped needing posters and descriptions). Done 2026-10-19: hidden from the launcher (no
       picks had been made in any of them) and their handles dropped from the registry, so a copy

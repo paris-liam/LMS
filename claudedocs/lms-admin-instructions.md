@@ -1,6 +1,6 @@
 # LMS admin instructions (running doc)
 
-How-to instructions for content the client (or whoever's running day-to-day admin) needs to manage in Shopify Admin. Built up section by section as we work through the site audit — see `claudedocs/2026-08-28-dev-site-audit-checklist.md` for the full punch list this is drawn from.
+How-to instructions for content the client (or whoever's running day-to-day admin) needs to manage in Shopify Admin. Built up section by section as we work through the site audit (the original audit punch list, `claudedocs/2026-08-28-dev-site-audit-checklist.md`, was removed 2026-10-20; it's in git history).
 
 Everything below currently describes the **dev store** (`lms-sandbox-lutsfahz.myshopify.com`). Each section notes what still needs to happen on **production** (`p0wkgv-wy.myshopify.com`) before these instructions apply there too.
 

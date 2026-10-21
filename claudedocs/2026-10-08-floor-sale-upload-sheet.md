@@ -14,7 +14,7 @@ a new dated product; adding to an existing product's count, and the old
 per-copy Floor Sale products, are separate later work.
 
 **Supersedes**, for Floor Sale only,
-`claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md` and the
+`claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md` (removed 2026-10-20; in git history) and the
 Floor Sale half of `catalog/client_sheet/template/`. The rental half of that
 sheet is also going away (rentals will be uploaded to Libib directly, then
 synced to Shopify, using Libib-generated barcodes) but is specced separately

@@ -1,6 +1,6 @@
 # Rental sync app — follow-ups after the build (2026-10-15)
 
-Built from the plan `docs/superpowers/plans/2026-10-15-libib-shopify-sync-app.md`.
+Built from the plan `docs/superpowers/plans/2026-10-15-libib-shopify-sync-app.md` (removed 2026-10-20; in git history).
 
 ## Status: live on production (2026-10-16)
 

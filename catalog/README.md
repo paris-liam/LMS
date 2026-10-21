@@ -244,7 +244,7 @@ output formulas (tab 2 `Shopify import`, tab 3 `Libib import`), `genre-mappings.
 and the client guide. The client imports into both Shopify and Libib himself; the
 barcode he types in after printing becomes the Libib call number, so `libib sync`
 matches his copies like its own. Design:
-`claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md`.
+`claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md` (removed 2026-10-20; in git history).
 
 `catalog/client_sheet/template/floor-sale/` is the separate **Floor Sale sheet**: five
 columns plus a typed batch date that goes into every handle

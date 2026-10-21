@@ -28,7 +28,7 @@ Shopify is the source of truth. A daily job makes Libib (and the Shopify `commun
 ## Anti-goals (this would be a failure even if it ran)
 
 - Changing more than the two tags on any Libib item, or wiping an item's other tags.
-- Re-importing items through Libib CSV import. Import is create-only, so it would create duplicates (`claudedocs/2026-09-14-libib-bulk-upload-plan.md`).
+- Re-importing items through Libib CSV import. Import is create-only, so it would create duplicates (`claudedocs/2026-09-14-libib-bulk-upload-plan.md` (removed 2026-10-20; in git history)).
 - Failing silently. If Libib's pages change and the job breaks, someone has to find out.
 - Making a large number of edits because of a bad read. Example: Shopify returns zero `new-arrival` products because of an API error, and the job strips every tag.
 
@@ -80,7 +80,7 @@ Shopify is the source of truth. A daily job makes Libib (and the Shopify `commun
 
 ## Left to the builder
 
-- **Where it runs.** My call: GitHub Actions on a daily schedule plus a manual "Run workflow" button, following the draft in `claudedocs/2026-09-29-libib-selftest-github-actions.md` (secrets `LIBIB_EMAIL`, `LIBIB_PASSWORD`, plus the Shopify client credentials, and `concurrency: libib` so it never overlaps another Libib login). Use the existing scheduled cloud session if Actions turns out to be blocked.
+- **Where it runs.** My call: GitHub Actions on a daily schedule plus a manual "Run workflow" button, following a since-deleted selftest-on-Actions draft (now `.github/workflows/libib-tags.yml`) (secrets `LIBIB_EMAIL`, `LIBIB_PASSWORD`, plus the Shopify client credentials, and `concurrency: libib` so it never overlaps another Libib login). Use the existing scheduled cloud session if Actions turns out to be blocked.
 - **Time of day.** It should run after the Flow daily expiry sweep, so check that Flow's scheduled time on production.
 - **Selftest first.** My call: run the selftest steps at the start of each job and stop before any edit if they fail.
 - **Safety limit.** My call: if a run wants to make more than `max_changes` Libib edits, it does nothing and fails loudly. This started at 25, which the dry run showed is too low for the client's upload volume (20–180 rentals per upload day). It's now set in the settings file, at 125. A manual run with `--approve` covers a first backfill or a deliberate large change.

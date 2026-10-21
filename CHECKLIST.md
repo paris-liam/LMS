@@ -67,7 +67,7 @@ Standing rules:
   *(Done 2026-10-02 — built and tested end to end (4a seam, 4b dev-store
   Shopify import, 4c throwaway Libib import). See the notes of that date.)*
   **Redesigned 2026-10-01 — follow
-  `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md`**, which
+  `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md` (removed 2026-10-20; in git history)**, which
   also covers items 4 and 14. The client imports to both Shopify and Libib
   himself: he types each barcode into the sheet after printing, and a new
   `Libib import` tab writes it as the call number. The text below is the
@@ -85,14 +85,14 @@ Standing rules:
   poster until the TMDB fill. So the sheet's Libib tab would give a partial
   item; decide whether that's worth it versus letting `libib sync` pick new
   rentals up (possibly on a schedule, item 12). Also review the sheet against
-  the spec (`docs/superpowers/specs/2026-09-09-client-upload-template-rebuild-design.md`)
+  the spec (`docs/superpowers/specs/2026-09-09-client-upload-template-rebuild-design.md` (removed 2026-10-20; in git history))
   and check a real filled export with `python3 -m catalog check-upload <csv>`.
 
 - [x] **14. Stop the sheet writing format and genre tags.** *(Repo side done
   2026-10-02 — see the note of that date. Left: paste the new tab-2 formula
   into the client's live sheet, part of item 5.)*
   Part of removing format/genre tags from every product (plan:
-  `genre-format-tag-removal.md`, branch `feat/genre-from-metafield`). The audit
+  `genre-format-tag-removal.md` (removed 2026-10-20; in git history), branch `feat/genre-from-metafield`). The audit
   side is done: the `format-genre-tag` auto-fix strips them, and genres now
   resolve from Option1 + `shopify.genre`, so no secondary genre is lost. But
   the sheet still writes `Type, Format, Genre 1-3, Extra tags` into Tags, so
@@ -170,7 +170,7 @@ Standing rules:
 
 - [ ] **12. GitHub Actions that run the audit and the Libib sync on a schedule.**
   So the catalogue stays in step without anyone remembering to run it.
-  Starting point: `claudedocs/2026-09-29-libib-selftest-github-actions.md`
+  Starting point: `.github/workflows/libib-tags.yml` (the daily tag job runs the selftest first)
   (the selftest workflow is written out there, not yet added).
   *Design questions:*
   - Secrets needed: `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET`, the TMDB
@@ -373,7 +373,7 @@ Standing rules:
   picks). `picker push` now files new products by type. Item 6 can work on these groups.
 - 2026-10-02 — **Upload sheet redesign, repo side DONE (items 5 + 14; item 4
   is a live-sheet step).** Per
-  `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md`:
+  `claudedocs/2026-10-01-client-upload-sheet-shopify-and-libib.md` (removed 2026-10-20; in git history):
   `Add movies` gains column K `Barcode`; tab 2 writes Tags = Type + Extra
   tags only; new tab 3 `Libib import` (`libib-tab-formula.txt`) emits one
   Libib row per Rental with a barcode, barcode → call number, built to match
