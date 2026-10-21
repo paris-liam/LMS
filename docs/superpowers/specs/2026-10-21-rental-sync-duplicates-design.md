@@ -119,7 +119,10 @@ another copy of the *same Libib item* has its barcode on a Shopify variant,
 that variant's product is the match. The client chooses:
 
 - **Add as a copy of this product**, or
-- **Create a new product** (not the same movie).
+- **Skip this run** — the copy is set aside with "If this copy isn't the same
+  movie, move it to its own item in Libib." (Creating a separate product here
+  would split one Libib item across two products and break decision 4; changed
+  from "Create a new product" when the fuzzy search was dropped.)
 
 If the siblings' barcodes are spread over **more than one** product, the
 cleanup assumption (decision 4) is broken: set the copy aside with "This Libib
