@@ -424,11 +424,11 @@ git commit -m "libib tags: daily GitHub Actions run and client docs"
 
 ---
 
-### Task 6: Production rollout (needs the user, writes to production)
+### Task 6: Production rollout (needs the user, writes to production) — run AFTER Task 9
 
 Each write step needs the user's go-ahead in the moment.
 
-- [ ] **Step 1: The user checks** the "New Arrival tag auto-expiry (daily sweep)" Flow's scheduled time in Shopify admin. Set the workflow cron to at least one hour after it, in UTC, and commit if it changed.
+- [ ] **Step 1: The user turns off** the "New Arrival tag auto-expiry (daily sweep)" Flow on production, because the job now owns expiry (spec "New arrivals"). "New Arrival auto-tag" stays on. Keep the cron at 12:00 UTC.
 - [ ] **Step 2: Check the Shopify app's scopes.** The app behind `SHOPIFY_CLIENT_ID` must have `write_products` and `read_metaobjects` (`config.py` calls the pipeline app read-only, while `tools/rental-sync/README.md` lists writes). If unsure, run Step 4 on one Shopify change first. A 403 means adding the scope in the Dev Dashboard.
 - [ ] **Step 3: Record a `join_id`.** Pick one item from the dry-run list and record its `join_id` via the public search (`claudedocs/2026-10-13-libib-item-links-join-id.md`).
 - [ ] **Step 4: First real run, locally.** Run `--dry-run`, show the list to the user, then run `--approve <code>` after they agree.
@@ -440,3 +440,92 @@ Each write step needs the user's go-ahead in the moment.
 - [ ] **Step 6: Merge.** The user adds the four repo secrets (Settings → Secrets and variables → Actions). Merge the branch to `main`, since scheduled workflows run only from the default branch. Then Actions → "Libib tags" → Run workflow.
   Expected: green, and the log ends with nothing to change or a small update count.
 - [ ] **Step 7: Tell the user** that GitHub disables scheduled workflows after 60 days with no repo activity, and that the failure email goes to whoever last edited the workflow file.
+
+---
+
+## Part 2 — newest titles, adjustable settings (revised 2026-10-20)
+
+The spec's "New arrivals" section replaces Goal 1's mirroring: the job picks the newest `count` titles itself, in both Shopify and Libib. Tasks 7–9 change Tasks 1, 2 and 4's code. Task 6 runs after them.
+
+### Task 7: Settings file
+
+**Files:**
+- Create: `catalog/libib/tag_settings.json`, `catalog/libib/tag_settings.py`
+- Test: `tests/catalog/test_libib_tag_settings.py`
+
+**Interfaces:**
+- Produces: `@dataclass(frozen=True) class TagSettings: new_arrivals_count: int; new_arrivals_max_age_days: int | None; max_changes: int`; `SETTINGS_PATH = Path(__file__).with_name("tag_settings.json")`; `load_settings(path=SETTINGS_PATH) -> TagSettings`.
+- JSON shape: `{"new_arrivals": {"count": 50, "max_age_days": null}, "max_changes": 125}`.
+
+- [ ] **Step 1: Write the failing tests.**
+  - `test_shipped_file_loads` gives `TagSettings(50, None, 125)`.
+  - `test_max_age_days_number` gives `7`.
+  - `test_rejects_zero_count`, `test_rejects_non_integer_count` (`"50"`), `test_rejects_negative_max_age`, `test_rejects_missing_key` and `test_rejects_bad_json` each raise `InputShapeError`, with a message naming the file and the key.
+- [ ] **Step 2: Run the tests and confirm they fail:** `python3 -m unittest tests.catalog.test_libib_tag_settings -v`. Expected: ERROR, module not found.
+- [ ] **Step 3: Implement.** `bool` is not accepted as an int.
+- [ ] **Step 4: Run the tests and confirm they pass:** the same command passes.
+- [ ] **Step 5: Commit** with "libib tags: adjustable settings file".
+
+### Task 8: Newest-titles logic
+
+**Files:**
+- Modify: `catalog/libib/tags.py`, `tests/catalog/test_libib_tags.py`
+
+**Interfaces:**
+- Consumes: `TagSettings` (Task 7). From `catalog.duplicates.match`: `normalize_title`, `title_year`, `product_format`.
+- Produces:
+  - `Product` gains `vendor: str = ""` and `created_at: str = ""` (ISO 8601 from Shopify), added after `barcodes`.
+  - `ShopifyState(rentals, picked, tagged_picks, tagged_new_arrivals=())`. `rentals` holds every `Rental` product and replaces `new_arrivals`.
+  - `ShopifyChange(product_id, title, tag, action)` gains a `tag` field.
+  - `title_key(p: Product) -> tuple[str, str, str]`
+  - `@dataclass(frozen=True) class TagPlan: libib: list[LibibChange]; shopify: list[ShopifyChange]; unmatched: list[Unmatched]; new_arrival_titles: int`
+  - `plan_tags(items: list[dict], state: ShopifyState, settings: TagSettings, now: datetime) -> TagPlan`. This replaces `libib_changes`/`shopify_changes` as the entry point; both may stay as helpers.
+
+- [ ] **Step 1: Update and write tests.** Rewrite the existing new-arrival tests against `plan_tags` with `TagSettings(count, None, 125)`, and add these:
+  - `test_newest_titles_are_tagged_in_both_places`: 3 eligible titles, count 2. The two newest get Libib `+ new arrival` and Shopify `+ new-arrival`. The oldest gets nothing.
+  - `test_copies_count_as_one_title`: 3 copies of "Legend" (VHS) plus 1 "Alien" (VHS), count 2. All 4 products are tagged.
+  - `test_format_and_year_separate_titles`: "Legend" VHS and "Legend" DVD are 2 titles; "Halloween (1978)" and "Halloween (2018)" are 2 titles.
+  - `test_title_age_is_its_first_copy`: an old title gets a new copy. It isn't among the newest, and its new copy isn't tagged.
+  - `test_old_title_drops_out_when_newer_arrive`: a currently tagged item and product outside the top `count` get removals.
+  - `test_not_in_libib_or_not_rental_loses_shopify_tag`: `tagged_new_arrivals` contains a Floor Sale product and a rental with no Libib item, and both get Shopify `- new-arrival`. Neither takes a slot.
+  - `test_max_age_days_drops_old_titles`: with `now` fixed, `max_age_days=7` and count 50, a title created 8 days ago isn't tagged and one created 6 days ago is.
+  - `test_ambiguous_barcode_rental_is_not_eligible`.
+  - `test_rentals_missing_from_libib_are_not_listed_unmatched`, to avoid noise from the whole catalogue.
+  - Update the Shopify Community Pick tests for `ShopifyChange`'s new `tag` field.
+- [ ] **Step 2: Run the tests and confirm the new ones fail:** `python3 -m unittest tests.catalog.test_libib_tags -v`.
+- [ ] **Step 3: Implement.**
+  - **Eligible:** an `is_rental` product with a barcode that maps to exactly one, non-excluded Libib item.
+  - **Group:** by `title_key`. Arrival = `min(created_at)` across the group.
+  - **Filter and sort:** drop groups older than `max_age_days` when it's set. Sort the rest by arrival, newest first, ties broken by key, and take `count`.
+  - **Desired sets:** the Shopify desired set is those groups' product ids. The Libib desired set is their item ids.
+  - **Community Picks:** keep the existing rules. The two Shopify tags are separate `ShopifyChange`s.
+  - **Order:** keep sorting by title, then id.
+- [ ] **Step 4: Run the full suite and confirm it passes:** `python3 -m unittest discover -s tests/catalog -p "test_*.py"`. Expected: OK. The command and Shopify tests are updated in Task 9, so run this after Task 9 if the signatures break them first.
+- [ ] **Step 5: Commit** with "libib tags: newest N titles are new arrivals, in Shopify and Libib".
+
+### Task 9: Shopify reads, command, workflow, docs
+
+**Files:**
+- Modify: `catalog/libib/tags_shopify.py`, `catalog/libib/tags_command.py`, `.github/workflows/libib-tags.yml`, `catalog/README.md`, `claudedocs/lms-admin-instructions.md`
+- Test: `tests/catalog/test_libib_tags_shopify.py`, `tests/catalog/test_libib_tags_command.py`
+
+**Interfaces:**
+- Consumes: Tasks 7–8.
+- Produces:
+  - `read_state(gql) -> ShopifyState` reads `tag:Rental`, keeping exact `Rental` matches compared case-insensitively. It also reads `vendor` and `createdAt`, plus `tag:new-arrival` and the picks. Zero rentals raises `InputShapeError("Shopify returned no Rental products — not changing anything")`.
+  - `write_changes` writes `change.tag`.
+  - `TagDeps` gains `now: Callable[[], datetime]`, defaulting to UTC now.
+  - The `--max-changes` default comes from `load_settings().max_changes`. A new `--settings PATH` option overrides the settings file.
+
+- [ ] **Step 1: Write and update the tests.**
+  - `test_zero_rentals_raises`, `test_reads_vendor_and_created_at`, `test_writes_change_tag`.
+  - The command tests switch to `rentals=...`.
+  - `test_max_changes_default_comes_from_settings` uses a temp settings file with `max_changes: 2`, 3 changes and `--unattended`, and expects exit 2.
+  - `test_summary_names_the_new_arrival_rule` expects output containing `newest 50 titles`.
+- [ ] **Step 2: Run the tests and confirm they fail.**
+- [ ] **Step 3: Implement.**
+  - The workflow gets `timeout-minutes: 120`.
+  - README: the new rule and the settings file.
+  - Admin instructions, New Arrivals section: "the newest 50 titles (set in `catalog/libib/tag_settings.json`), all copies; older titles drop out as new ones arrive; the 7-day expiry Flow is off."
+- [ ] **Step 4: Run the full suite, then a read-only production dry run:** `.venv-libib/bin/python -m catalog libib tags --dry-run --headless`. Expected: the dry run says the newest 50 titles get `new arrival`, and lists the Shopify `- new-arrival` removals.
+- [ ] **Step 5: Commit** with "libib tags: settings-driven new arrivals in the command, workflow and docs".
