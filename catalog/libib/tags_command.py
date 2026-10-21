@@ -11,11 +11,17 @@ GitHub Actions run, which may make at most max_changes Libib edits (Shopify
 tag writes aren't counted); a bigger list changes nothing and exits 2 until
 someone reviews it with --dry-run and re-runs with --approve <code>.
 
+The same run looks up each new-arrival and Community Pick rental's public
+Libib link (its join_id, catalog/libib/links.py) and lists any change to the
+products' custom.libib_join_id in the Plan; the homepage posters link there.
+Those metafield writes aren't counted toward the limit either.
+
 Nothing printed here carries a barcode or call number: the Actions logs
 are public. Items are named by title and Libib item id.
 """
 
 import tempfile
+import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -26,6 +32,7 @@ from catalog.core import log
 from catalog.core.plan import Plan, add_approval_args, confirm
 from catalog.errors import InputShapeError
 from catalog.libib.exports import load_libib
+from catalog.libib.links import JoinIdChange, plan_join_ids
 from catalog.libib.tag_settings import SETTINGS_PATH, load_settings
 from catalog.libib.tags import LibibChange, ShopifyChange, ShopifyState, plan_tags
 
@@ -38,7 +45,10 @@ class TagDeps:
     export_libib: Callable[[Path], tuple[Path, Path]]
     write_shopify: Callable[[list[ShopifyChange]], list[dict]]
     edit_libib: Callable[[list[LibibChange], Path], list[dict]]
+    lookup_join_id: Callable[[str], list[str]]
+    write_join_ids: Callable[[list[JoinIdChange]], list[dict]]
     now: Callable[[], datetime] = field(default=lambda: datetime.now(timezone.utc))
+    sleep: Callable[[float], None] = time.sleep
 
 
 def register(sub) -> None:
@@ -62,7 +72,7 @@ def register(sub) -> None:
 
 
 def default_deps(args) -> TagDeps:
-    from catalog.libib import tag_editor, transfer, tags_shopify
+    from catalog.libib import links, tag_editor, transfer, tags_shopify
 
     store = tags_shopify.store_from_env(args.store)
     email, password = config.require_env(config.ENV_LIBIB_EMAIL), config.require_env(config.ENV_LIBIB_PASSWORD)
@@ -71,6 +81,8 @@ def default_deps(args) -> TagDeps:
         export_libib=lambda dest: transfer.run_browser_export(email, password, dest, args.headless),
         write_shopify=lambda changes: tags_shopify.write_changes(store.gql, changes),
         edit_libib=lambda changes, report: tag_editor.run_tag_editor(changes, report, email, password, args.headless),
+        lookup_join_id=links.lookup_join_ids,
+        write_join_ids=lambda changes: tags_shopify.write_join_ids(store.gql, changes),
     )
 
 
@@ -81,6 +93,11 @@ def _libib_line(c: LibibChange) -> str:
 
 def _shopify_line(c: ShopifyChange) -> str:
     return f"shopify  {'+' if c.action == 'add' else '-'} {c.tag:<32} {c.title}"
+
+
+def _link_line(c: JoinIdChange) -> str:
+    action = f"set {c.new:<28}" if c.new is not None else f"clear{'':<27}"
+    return f"link     {action} {c.title}  [item {c.item_id}]"
 
 
 def run_tags_command(args, deps: TagDeps | None = None, stdin=None) -> int:
@@ -99,7 +116,8 @@ def run_tags_command(args, deps: TagDeps | None = None, stdin=None) -> int:
 
     tags = plan_tags(items, state, settings, deps.now())
     to_libib, to_shopify = tags.libib, tags.shopify
-    count = len(to_libib) + len(to_shopify)
+    links, link_warnings = plan_join_ids(tags.link_targets, deps.lookup_join_id, sleep=deps.sleep)
+    count = len(to_libib) + len(to_shopify) + len(links)
     age = settings.new_arrivals_max_age_days
     rule = f"newest {settings.new_arrivals_count} titles" + (f", at most {age} days old" if age else "")
     plan = Plan(
@@ -108,9 +126,11 @@ def run_tags_command(args, deps: TagDeps | None = None, stdin=None) -> int:
         summary=[f"New arrivals: the {rule} — {tags.new_arrival_titles} titles qualify",
                  f"Shopify: {len(state.rentals)} rentals, {len(state.picked)} Community Picks",
                  f"Libib: {len(items)} items, {len(to_libib)} to retag",
-                 f"Shopify tags: {len(to_shopify)} to change"],
-        samples=[*map(_libib_line, to_libib), *map(_shopify_line, to_shopify)],
-        warnings=[f"unmatched: {u.title} — {u.reason}" for u in tags.unmatched],
+                 f"Shopify tags: {len(to_shopify)} to change",
+                 f"Libib links: {len(tags.link_targets)} looked up, {len(links)} to change"],
+        samples=[*map(_libib_line, to_libib), *map(_shopify_line, to_shopify), *map(_link_line, links)],
+        warnings=[*(f"unmatched: {u.title} — {u.reason}" for u in tags.unmatched),
+                  *(f"link: {u.title} — {u.reason}" for u in link_warnings)],
     )
 
     # The limit counts Libib edits only: a rotation keeps them under ~2 × count, while
@@ -126,6 +146,8 @@ def run_tags_command(args, deps: TagDeps | None = None, stdin=None) -> int:
         return 0
 
     results = deps.write_shopify(to_shopify) if to_shopify else []
+    if links:
+        results += deps.write_join_ids(links)
     if to_libib:
         report = Path(args.report_dir) / f"{datetime.now():%Y-%m-%d-%H%M%S}.csv"
         results += deps.edit_libib(to_libib, report)

@@ -11,6 +11,8 @@ Libib has no item API, but customers see tags both on its public page (`libib.co
 | New arrival | `new-arrival` | `new arrival` | The **newest 50 titles**. A title is a movie + format, keyed by `normalize_title` + `title_year` + canonical Vendor format from `catalog/duplicates/match.py`. Its age is the earliest `createdAt` among its copies. Only products tagged `Rental` whose barcode matches exactly one Libib copy qualify. Every copy of a chosen title gets the tag, everything else loses it, and old titles rotate out as new ones arrive. |
 | Community pick | `community-pick` | `community pick` | The product of every **Active** `community_pick` metaobject entry. In Libib, only that exact copy is tagged. A non-rental pick gets only the Shopify tag. |
 
+**Homepage Libib links (added 2026-10-21):** the job also stores each new-arrival and Community Pick rental's public Libib link in the product metafield `custom.libib_join_id`. The homepage posters open `libib.com/u/littlemoviestore?id=<join_id>`. The design is `docs/superpowers/specs/2026-10-20-libib-poster-links-design.md`.
+
 The job adds or removes only these tags and never touches any other Libib tag or field. It writes Shopify with `tagsAdd`/`tagsRemove` and writes Libib through the item Edit form in a Playwright browser.
 
 ## How a run works
@@ -20,12 +22,16 @@ The job adds or removes only these tags and never touches any other Libib tag or
 1. **Load settings** from `catalog/libib/tag_settings.json` (`--settings` overrides the file).
 2. **Read Shopify** (`tags_shopify.read_state`): every `Rental` product (title, vendor, `createdAt`, tags, barcodes), products tagged `new-arrival` or `community-pick`, and Community Pick entries. A GraphQL error, or **zero rentals**, stops the run before Libib is opened.
 3. **Export Libib** (both CSVs, into a temp dir) and load the `Rental Library` items. An empty export stops the run.
-4. **Compute the changes** with `tags.plan_tags(items, state, settings, now)`, which is pure and has no I/O. It returns `TagPlan(libib, shopify, unmatched, new_arrival_titles)`.
+4. **Compute the changes** with `tags.plan_tags(items, state, settings, now)`, which is pure and has no I/O. It returns `TagPlan(libib, shopify, unmatched, new_arrival_titles, link_targets)`.
+   - **Look up Libib links:** `links.plan_join_ids(link_targets, lookup)`. It searches the public Libib page by each target's copy barcode, over plain HTTP with no login, waiting 0.5 s between requests.
+     - Exactly one hit sets or updates `custom.libib_join_id`.
+     - Several hits, or a failed request, keep the stored value and add a warning.
+     - Zero hits clear a stored value, but only if another lookup in the same run worked and at most 10 values would be cleared. Otherwise nothing is cleared.
 5. **Approve.** One `Plan` lists every change, and `catalog/core/plan.confirm` gates it. The options:
    - `--dry-run` prints the changes and an approval code.
    - `--approve <code>` makes exactly those changes.
    - `--unattended` is the daily run. It skips the prompt but refuses more than `max_changes` **Libib edits** (Shopify writes aren't counted), exiting 2 without changing anything.
-6. **Write Shopify tags, then edit Libib** (`tag_editor.run_tag_editor` → `browser.set_item_tags`). Each Libib item is found by **copy-barcode search**: rental-sync items have no call number. The job then:
+6. **Write Shopify tags and Libib links (`metafieldsSet`/`metafieldsDelete`), then edit Libib** (`tag_editor.run_tag_editor` → `browser.set_item_tags`). Each Libib item is found by **copy-barcode search**: rental-sync items have no call number. The job then:
    - checks that the opened item's copy barcode really matches
    - reads the live tags and changes only ours (`tags.apply_tag_change`)
    - saves, reloads and checks the result
@@ -49,7 +55,8 @@ The user and client are still deciding how many titles, rotate versus batch drop
 | File | Role |
 |---|---|
 | `catalog/libib/tags.py` | Pure logic: `Product`, `ShopifyState`, `LibibChange`, `ShopifyChange(product_id, title, tag, action)`, `TagPlan`, `title_key`, `plan_tags`, `apply_tag_change` |
-| `catalog/libib/tags_shopify.py` | GraphQL reads and writes, `store_from_env(store)` (client credentials grant) |
+| `catalog/libib/tags_shopify.py` | GraphQL reads and writes (tags, plus `custom.libib_join_id` via `write_join_ids`), `store_from_env(store)` (client credentials grant) |
+| `catalog/libib/links.py` | Public Libib join_id lookup (`lookup_join_ids`) and pure change planning (`plan_join_ids`, `JoinIdChange`) |
 | `catalog/libib/tag_settings.py` + `.json` | Settings |
 | `catalog/libib/tags_command.py` | CLI `libib tags`, `TagDeps` (injectable for tests), the approval and limit logic |
 | `catalog/libib/tag_editor.py` | Browser loop and CSV report |
@@ -63,6 +70,7 @@ The user and client are still deciding how many titles, rotate versus batch drop
 - **The repo is public, and so are its Actions logs.** Never print a barcode or call number: they're the internal shelf serials. Items are identified by title + Libib item id. Tests check this (`test_output_never_contains_barcodes`, `TestSelftestFailureMessages`). Don't upload screenshots as artifacts.
 - **No Libib CSV re-import.** It only creates items, so a re-import makes duplicates. Edit through the browser.
 - **Both New Arrival Flows are OFF on production.** That's "New Arrival auto-tag" and the 7-day expiry sweep. The job owns the tag, so don't turn them back on. Hand edits to these four tags are undone the next day: change the settings instead.
+- **The join_id lookup uses an undocumented endpoint** (`POST /u/littlemoviestore/search`). The selftest's "join_id lookup" check catches a break. Stored links keep working, because they use Libib's own Copy Link format.
 - **Libib changes its UI without notice.** That happened twice in one week in September. The selftest runs first in every workflow run. When a selector breaks, fix it in `browser.py` and add it to `selftest.build_checks`.
 - **Every write needs approval** (`Plan`/`confirm`, no `--yes`). The only exception is `--unattended`, which is capped.
 - **Branch work happens in a git worktree** (`.worktrees/<name>`), never with `git checkout` in the main folder: other sessions share it.

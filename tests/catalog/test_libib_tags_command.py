@@ -32,8 +32,11 @@ def barcode(i):
 class Fakes:
     """`changes` new rentals, already tagged new-arrival in Shopify, whose Libib items lack the tag."""
 
-    def __init__(self, changes=0, libib_rows=None, shopify_error=False, libib_statuses=None, unmatched=0, picks=0):
+    def __init__(self, changes=0, libib_rows=None, shopify_error=False, libib_statuses=None, unmatched=0, picks=0,
+                 join_ids=None):
         self.changes, self.shopify_error, self.unmatched, self.picks = changes, shopify_error, unmatched, picks
+        self.join_ids = join_ids or {}
+        self.lookups, self.link_writes = [], []
         self.libib_rows = changes if libib_rows is None else libib_rows
         self.libib_statuses = libib_statuses
         self.calls = []
@@ -76,8 +79,17 @@ class Fakes:
         statuses = self.libib_statuses or ["updated"] * len(changes)
         return [{"item_id": c.item_id, "title": c.title, "status": s, "message": "ok"} for c, s in zip(changes, statuses)]
 
+    def lookup_join_id(self, code):
+        self.lookups.append(code)
+        return self.join_ids.get(code, [])
+
+    def write_join_ids(self, changes):
+        self.link_writes += changes
+        return [{"title": c.title, "action": "set", "status": "updated", "message": "ok"} for c in changes]
+
     def deps(self):
-        return tags_command.TagDeps(self.read_shopify, self.export_libib, self.write_shopify, self.edit_libib)
+        return tags_command.TagDeps(self.read_shopify, self.export_libib, self.write_shopify, self.edit_libib,
+                                    self.lookup_join_id, self.write_join_ids, sleep=lambda s: None)
 
 
 class RotationFakes(Fakes):
@@ -108,6 +120,19 @@ class RotationFakes(Fakes):
         return barcodes, library
 
 
+class TaggedFakes(Fakes):
+    """Like Fakes, but Libib already carries `new arrival` on every item."""
+
+    def export_libib(self, dest):
+        barcodes, library = super().export_libib(dest)
+        rows = list(csv.DictReader(open(barcodes, encoding="utf-8")))
+        with open(barcodes, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=list(BARCODE_REQUIRED))
+            w.writeheader()
+            w.writerows(row | {"tags": "vhs, new arrival"} for row in rows)
+        return barcodes, library
+
+
 class TestTagsCommand(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -116,8 +141,8 @@ class TestTagsCommand(unittest.TestCase):
         log.setup_logging(None, 0, io.StringIO())
         self.tmp.cleanup()
 
-    def run_tags(self, flags, stdin=None, **fake_options):
-        self.fakes = Fakes(**fake_options)
+    def run_tags(self, flags, stdin=None, fakes_class=None, **fake_options):
+        self.fakes = (fakes_class or Fakes)(**fake_options)
         args = build_parser().parse_args(["libib", "tags", *flags, "--report-dir", self.tmp.name, "-q"])
         with contextlib.redirect_stdout(io.StringIO()) as out:
             try:
@@ -205,9 +230,28 @@ class TestTagsCommand(unittest.TestCase):
         self.assertIn("Lost 0", self.out)
 
     def test_output_never_contains_barcodes(self):
-        self.run_tags(["--dry-run"], changes=2, unmatched=1)
-        for code in (barcode(0), barcode(1), "77770000"):
+        self.run_tags(["--dry-run"], changes=3, unmatched=1, join_ids={barcode(0): ["555"], barcode(1): ["6", "7"]})
+        self.assertEqual(len(self.fakes.lookups), 3)
+        for code in (barcode(0), barcode(1), barcode(2), "77770000"):
             self.assertNotIn(code, self.out)
+
+    def test_dry_run_lists_link_changes_without_writing(self):
+        self.assertEqual(self.run_tags(["--dry-run"], changes=1, join_ids={barcode(0): ["555"]}), 0)
+        self.assertIn("link     set 555", self.out)
+        self.assertIn("Libib links: 1 looked up, 1 to change", self.out)
+        self.assertEqual(self.fakes.link_writes, [])
+
+    def test_approved_run_writes_links(self):
+        self.assertEqual(self.run_tags(["--approve", "ok"], changes=1, join_ids={barcode(0): ["555"]}), 0)
+        self.assertEqual([c.new for c in self.fakes.link_writes], [555])
+
+    def test_unattended_limit_ignores_link_writes(self):
+        # Libib and Shopify already carry the tag, so the only change is the link.
+        code = self.run_tags(["--unattended", "--max-changes", "0"], fakes_class=TaggedFakes, changes=1,
+                             join_ids={barcode(0): ["555"]})
+        self.assertEqual(code, 0)
+        self.assertNotIn("edit_libib", self.fakes.calls)
+        self.assertEqual([c.new for c in self.fakes.link_writes], [555])
 
     def test_plan_lists_title_item_and_tag(self):
         self.run_tags(["--dry-run"], changes=1)
