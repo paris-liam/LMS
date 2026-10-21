@@ -4,7 +4,8 @@ Libib changes its UI without notice (twice in the week of 2026-09-21, each
 time breaking the fixer mid-run). This walks every selector the fixer,
 export and import rely on, READ-ONLY: it opens things and looks, and never
 clicks Save, Upload-to-import's final Process Import, or anything on the
-settings page other than the two Export buttons. Run it on a schedule, and
+settings page other than the two Export buttons. The "join_id lookup" check
+is a plain HTTP search on the public Libib page (catalog/libib/links.py). Run it on a schedule, and
 before any big Libib run; a failure names the step and saves a screenshot.
 """
 
@@ -45,7 +46,7 @@ def build_checks(call_number: str, include_import_page: bool, barcode: str | Non
     """Ordered (name, fn(page, ctx)) pairs; each raises on failure. `barcode`
     is the copy barcode the tag job's barcode search is tried with (default:
     the call number, which legacy items also carry as their barcode)."""
-    from catalog.libib import browser, transfer
+    from catalog.libib import browser, links, transfer
 
     barcode = barcode or call_number
 
@@ -58,6 +59,13 @@ def build_checks(call_number: str, include_import_page: bool, barcode: str | Non
         err = browser.open_item_by_barcode(page, barcode, verify=True)
         if err:
             raise AssertionError(err[1])
+
+    def join_id_lookup(page, ctx):
+        # The tag job's Libib link lookup: plain HTTP on the public page, no browser.
+        ids = links.lookup_join_ids(barcode)
+        if len(ids) != 1:
+            raise AssertionError(f"public search returned {len(ids)} items, expected 1")
+        return "1 item"
 
     def item_page(page, ctx):
         _visible(page, ".item-edit-button")
@@ -143,6 +151,7 @@ def build_checks(call_number: str, include_import_page: bool, barcode: str | Non
         page.goto(browser.LIBIB_SETTINGS_URL)  # abandon the upload
 
     checks = [("search by call number", search), ("search by barcode", barcode_search),
+              ("join_id lookup", join_id_lookup),
               ("search by call number again", search), ("item page", item_page), ("copies panel", copies_panel),
               ("edit form fields", edit_form), ("edit form sections", edit_sections),
               ("exports", exports), ("CSV import page", import_page)]

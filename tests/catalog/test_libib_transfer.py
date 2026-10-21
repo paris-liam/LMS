@@ -381,6 +381,17 @@ class TestSelftestFailureMessages(unittest.TestCase):
     def test_edit_sections_mismatch(self):
         self.assert_hides_numbers("edit form sections")
 
+    def test_join_id_lookup_check_passes_on_one_hit(self):
+        with mock.patch("catalog.libib.links.lookup_join_ids", return_value=["1"]) as lookup:
+            self.assertEqual(self.check("join_id lookup")(None, {}), "1 item")
+        lookup.assert_called_once_with("01111111")
+
+    def test_join_id_lookup_check_fails_on_zero(self):
+        with mock.patch("catalog.libib.links.lookup_join_ids", return_value=[]):
+            with self.assertRaises(AssertionError) as ctx:
+                self.check("join_id lookup")(None, {})
+        self.assertNotIn("01111111", str(ctx.exception))
+
 
 class TestSelftestCommand(unittest.TestCase):
     def setUp(self):
