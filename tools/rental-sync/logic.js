@@ -86,8 +86,10 @@
     return group.copies.map((c) => c.barcode).sort()[0];
   }
 
+  // duplicate choices are keyed by Libib item (one card per item), match choices by barcode
   function choiceState(copies, choices) {
-    const dupes = copies.filter((c) => c.libib_duplicate);
+    const flagged = copies.filter((c) => c.libib_duplicate);
+    const dupes = flagged.filter((c, i) => flagged.findIndex((d) => d.item_id === c.item_id) === i);
     const matches = copies.filter((c) => c.match);
     return { dupes, matches, blocked: matches.some((c) => !['add', 'skip'].includes(choices.get(c.barcode))) };
   }
@@ -96,11 +98,10 @@
     const out = { create: [], add: [], setAside: [] };
     const aside = (copy, reason) => out.setAside.push({ ...copy, set_aside: [...copy.set_aside, reason] });
     for (const copy of copies) {
-      const choice = choices.get(copy.barcode);
       if (copy.match) {
-        if (choice === 'add') out.add.push(copy);
+        if (choices.get(copy.barcode) === 'add') out.add.push(copy);
         else aside(copy, "If this copy isn't the same movie, move it to its own item in Libib.");
-      } else if (copy.libib_duplicate && choice !== 'not_duplicate') {
+      } else if (copy.libib_duplicate && choices.get(copy.item_id) !== 'not_duplicate') {
         aside(copy, `In Libib, delete “${copy.title}” and add this copy to “${copy.libib_duplicate.title}” instead. `
           + 'It will show up next time you sync.');
       } else {

@@ -158,10 +158,10 @@
       copy.warnings.length ? el('ul', { class: 'warnings' }, copy.warnings.map((w) => el('li', {}, w))) : null);
   }
 
-  // dupe and match cards: barcode -> update(choice, setAsideReason)
+  // dupe cards keyed by Libib item, match cards by barcode: key -> update(choice, setAsideReason)
   const choiceCards = new Map();
-  function choose(barcode, choice) {
-    if (choice) state.choices.set(barcode, choice); else state.choices.delete(barcode);
+  function choose(key, choice) {
+    if (choice) state.choices.set(key, choice); else state.choices.delete(key);
     updateChoices();
   }
   function choiceButton(label, onclick) {
@@ -172,20 +172,21 @@
   }
   function dupeCard(copy) {
     const other = copy.libib_duplicate;
-    const copies = state.found.filter((c) => c.item_id === copy.item_id).length;
+    const copies = state.candidates.filter((c) => c.item_id === copy.item_id);
     const status = el('p', { class: 'note', 'aria-live': 'polite' });
     const button = choiceButton('Not a duplicate',
-      () => choose(copy.barcode, state.choices.get(copy.barcode) === 'not_duplicate' ? null : 'not_duplicate'));
+      () => choose(copy.item_id, state.choices.get(copy.item_id) === 'not_duplicate' ? null : 'not_duplicate'));
     const card = el('article', { class: 'card choice-card' },
       el('div', { class: 'sides' },
-        side('New in Libib', el('dl', {}, field('Title', copy.title), field('Barcode', copy.barcode),
-          field('Format', copy.format), field('Genre', genreNames(copy)), field('Copies', String(copies)),
+        side('New in Libib', el('dl', {}, field('Title', copy.title),
+          field(copies.length > 1 ? 'Barcodes' : 'Barcode', copies.map((c) => c.barcode).join(', ')),
+          field('Format', copy.format), field('Genre', genreNames(copy)), field('Copies', String(copies.length)),
           field('Added', L.shortDate(copy.created)))),
         side('Already in Libib', el('dl', {}, field('Title', other.title), field('Format', other.format),
           field('Genre', other.genres.join(', ')), field('Copies', String(other.copies)),
           field('Added', L.shortDate(other.created))))),
       status, el('div', { class: 'choices' }, button));
-    choiceCards.set(copy.barcode, (choice, reason) => {
+    choiceCards.set(copy.item_id, (choice, reason) => {
       const dismissed = choice === 'not_duplicate';
       button.setAttribute('aria-pressed', String(dismissed));
       card.classList.toggle('aside', !dismissed);
@@ -240,8 +241,8 @@
   function updateChoices() {
     const { blocked } = L.choiceState(state.candidates, state.choices);
     state.plan = L.applyChoices(state.candidates, state.choices);
-    const reasons = new Map(state.plan.setAside.map((c) => [c.barcode, c.set_aside[c.set_aside.length - 1]]));
-    choiceCards.forEach((update, barcode) => update(state.choices.get(barcode), reasons.get(barcode)));
+    const reasons = new Map(state.plan.setAside.map((c) => [c.match ? c.barcode : c.item_id, c.set_aside[c.set_aside.length - 1]]));
+    choiceCards.forEach((update, key) => update(state.choices.get(key), reasons.get(key)));
     const n = state.plan.create.length + state.plan.add.length;
     $('ready-heading').textContent = n ? `${n} ready to sync` : 'Nothing ready to sync';
     $('details-continue').disabled = blocked || !n;

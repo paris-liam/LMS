@@ -93,7 +93,7 @@ test('applyChoices routes copies and writes the set-aside texts', () => {
   const dupe = copyOf('2', 'b', { title: 'Jaws 2', libib_duplicate: dupeOf('Jaws, The') });
   const kept = copyOf('3', 'c', { libib_duplicate: dupeOf('Halloween') });
   const add = copyOf('4', 'd', { match: matchOf(1) }), skip = copyOf('5', 'e', { match: matchOf(2) });
-  const out = L.applyChoices([plain, dupe, kept, add, skip], new Map([['3', 'not_duplicate'], ['4', 'add'], ['5', 'skip']]));
+  const out = L.applyChoices([plain, dupe, kept, add, skip], new Map([['c', 'not_duplicate'], ['4', 'add'], ['5', 'skip']]));
   assert.deepEqual(out.create, [plain, kept]);
   assert.deepEqual(out.add, [add]);
   assert.deepEqual(out.setAside.map((c) => [c.barcode, c.set_aside]), [
@@ -101,6 +101,19 @@ test('applyChoices routes copies and writes the set-aside texts', () => {
     ['5', ["If this copy isn't the same movie, move it to its own item in Libib."]],
   ]);
   assert.deepEqual(dupe.set_aside, []);   // the input copy is not changed
+});
+
+test('a duplicate choice covers every copy of the Libib item, and the item gets one card', () => {
+  const flag = { libib_duplicate: dupeOf('Halloween') };
+  const c1 = copyOf('2010000000024', 'h', flag), c2 = copyOf('2010000000031', 'h', flag);
+  const other = copyOf('2010000000048', 'j', { libib_duplicate: dupeOf('Jaws') });
+  assert.deepEqual(L.choiceState([c1, c2, other], new Map()).dupes, [c1, other]);
+  const out = L.applyChoices([c1, c2, other], new Map([['h', 'not_duplicate']]));
+  assert.deepEqual(out.create, [c1, c2]);
+  assert.deepEqual(L.groupForCreate(out.create), [{ item_id: 'h', copies: [c1, c2] }]);
+  assert.deepEqual(out.setAside.map((c) => c.barcode), ['2010000000048']);
+  // a barcode key is not a dismissal
+  assert.deepEqual(L.applyChoices([c1, c2], new Map([['2010000000024', 'not_duplicate']])).create, []);
 });
 
 test('createPayload sends every copy of the group and only https posters', () => {
