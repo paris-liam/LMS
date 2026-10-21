@@ -8,6 +8,7 @@ in "detail" (shown behind "Show details") and the function log.
 
 import json
 import os
+import re
 import time
 import traceback
 from dataclasses import dataclass, field
@@ -16,6 +17,7 @@ from http.server import BaseHTTPRequestHandler
 from typing import Callable
 
 from catalog.errors import CatalogError, InputShapeError, SetupError, ShopifyError
+from catalog.rental_sync.add_copy import add_copy
 from catalog.rental_sync.auth import new_session, password_matches, session_cookie, session_valid
 from catalog.rental_sync.create import create_item
 from catalog.rental_sync.matches import attach_matches
@@ -27,6 +29,8 @@ REQUIRED_SETTINGS = ("SYNC_PASSWORD", "SESSION_SECRET", "SHOPIFY_STORE", "SHOPIF
                      "SHOPIFY_CLIENT_SECRET", "TMDB_API_KEY")
 MAX_BODY_BYTES = 4 * 1024 * 1024
 POSTER_BATCH_MAX = 5
+CREATE_ITEMS_MAX = 50
+PRODUCT_ID = re.compile(r"gid://shopify/Product/\d+")
 FAILED_LOGIN_DELAY_SECONDS = 2
 SETUP_MESSAGE = "Something's wrong with the app setup — contact Liam."
 SHOPIFY_MESSAGE = "Shopify didn't respond — try again in a few minutes. Nothing has been changed."
@@ -106,21 +110,34 @@ def _posters(payload: dict, deps: Deps) -> Response:
 
 
 def _create(payload: dict, deps: Deps) -> Response:
-    item = _item(payload.get("item"))
+    items = payload.get("items")
+    if not isinstance(items, list) or not 1 <= len(items) <= CREATE_ITEMS_MAX:
+        raise InputShapeError(f"Send between 1 and {CREATE_ITEMS_MAX} copies of one Libib item.")
+    items = [_item(i) for i in items]
     poster = payload.get("poster")
     if poster is not None:
         url = str((poster or {}).get("url") or "").strip() if isinstance(poster, dict) else ""
         if not url.startswith("https://"):
             raise InputShapeError("Poster links must start with https://")
         poster = {"url": url, "alt": str(poster.get("alt") or "")}
-    result = create_item(deps.shop(deps.env), [item], poster, sleep=deps.sleep)
+    result = create_item(deps.shop(deps.env), items, poster, sleep=deps.sleep)
     deps.log(f"create {result['barcode']} {result['status']} {result['title']!r} {result['message']}".rstrip())
+    return _json(200, result)
+
+
+def _add_copy(payload: dict, deps: Deps) -> Response:
+    item = _item(payload.get("item"))
+    product_id = payload.get("product_id")
+    if not isinstance(product_id, str) or not PRODUCT_ID.fullmatch(product_id):
+        raise InputShapeError("That product link isn't valid \u2014 reload the page and start again.")
+    result = add_copy(deps.shop(deps.env), item, product_id)
+    deps.log(f"add_copy {result['barcode']} {result['status']} {result['title']!r} {result['message']}".rstrip())
     return _json(200, result)
 
 
 def _finish(payload: dict, deps: Deps) -> Response:
     try:
-        counts = {k: int(payload.get(k) or 0) for k in ("created", "skipped", "failed", "set_aside")}
+        counts = {k: int(payload.get(k) or 0) for k in ("created", "added", "skipped", "failed", "set_aside")}
     except (TypeError, ValueError):
         raise InputShapeError("The run summary was malformed.") from None
     summary = {**counts, "finished_at": datetime.fromtimestamp(deps.now(), timezone.utc).isoformat(timespec="seconds")}
@@ -129,7 +146,7 @@ def _finish(payload: dict, deps: Deps) -> Response:
 
 
 ROUTES = {"login": _login, "status": _status, "prepare": _prepare, "posters": _posters,
-          "create": _create, "finish": _finish}
+          "create": _create, "add_copy": _add_copy, "finish": _finish}
 
 
 def respond(route: str, method: str, headers: dict, body: bytes, deps: Deps) -> Response:

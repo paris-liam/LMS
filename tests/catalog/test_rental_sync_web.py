@@ -58,7 +58,7 @@ class TestGuards(unittest.TestCase):
 
     def test_every_route_but_login_needs_a_session(self):
         h = Harness()
-        for route in ("status", "prepare", "posters", "create", "finish"):
+        for route in ("status", "prepare", "posters", "create", "add_copy", "finish"):
             status, _, body = h.call(route, {}, cookie=False)
             self.assertEqual((status, body["error"]["kind"]), (401, "auth"), route)
 
@@ -124,16 +124,61 @@ class TestRoutes(unittest.TestCase):
     def test_create(self):
         h = Harness()
         item = {"barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror", "description": "", "created": ""}
-        status, _, body = h.call("create", {"item": item, "poster": None})
+        status, _, body = h.call("create", {"items": [item], "poster": None})
         self.assertEqual((status, body["status"]), (200, "created"))
         self.assertTrue(any("2010000000014" in line and "created" in line for line in h.logs))
-        bad = h.call("create", {"item": item, "poster": {"url": "http://x/p.jpg", "alt": ""}})
+        bad = h.call("create", {"items": [item], "poster": {"url": "http://x/p.jpg", "alt": ""}})
         self.assertEqual(bad[0], 400)
+
+    def test_create_takes_items_list(self):
+        h = Harness()
+        a = {"id": "1", "barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror", "description": "", "created": ""}
+        b = {**a, "barcode": "2010000000021"}
+        status, _, body = h.call("create", {"items": [a, b], "poster": None})
+        self.assertEqual((status, body["status"]), (200, "created"))
+        self.assertEqual(body["barcodes"], ["2010000000014", "2010000000021"])
+
+    def test_create_rejects_empty_items(self):
+        h = Harness()
+        item = {"barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror"}
+        for bad in ([], "x", None, [item] * 51, [None]):
+            status, _, body = h.call("create", {"items": bad, "poster": None})
+            self.assertEqual((status, body["error"]["kind"]), (400, "input"), bad)
+        self.assertEqual(h.call("create", {"item": item})[0], 400)
+
+    def test_add_copy_route(self):
+        shop = FakeShop()
+        shop.add_rental("gid://shopify/Product/9", ["2010000000014"])
+        h = Harness(shop=shop)
+        item = {"barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror", "description": "", "created": ""}
+        status, _, body = h.call("add_copy", {"item": item, "product_id": "gid://shopify/Product/9"})
+        self.assertEqual((status, body["status"]), (200, "skipped_exists"))
+        self.assertTrue(any("2010000000014" in line and "skipped_exists" in line for line in h.logs))
+
+    def test_add_copy_rejects_bad_product_id(self):
+        h = Harness()
+        item = {"barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror"}
+        for bad in ("gid://shopify/Product/9x", "gid://shopify/Product/", "x gid://shopify/Product/9",
+                    "gid://shopify/Product/9\n", "gid://shopify/Variant/9", None, 9):
+            status, _, body = h.call("add_copy", {"item": item, "product_id": bad})
+            self.assertEqual(status, 400, bad)
+            self.assertEqual(body["error"]["message"],
+                             "That product link isn't valid \u2014 reload the page and start again.")
+
+    def test_add_copy_requires_login(self):
+        status, _, body = Harness().call("add_copy", {}, cookie=False)
+        self.assertEqual((status, body["error"]["kind"]), (401, "auth"))
+
+    def test_finish_counts_added(self):
+        h = Harness()
+        h.call("finish", {"created": 1, "added": 2})
+        self.assertEqual(h.shop.saved[0]["added"], 2)
+        self.assertEqual(h.call("finish", {"added": "lots"})[0], 400)
 
     def test_create_setup_error(self):
         h = Harness(shop=FakeShop(location_error=SetupError("found 2 locations")))
         item = {"barcode": "2010000000014", "title": "Jaws", "tags": "vhs, horror", "description": "", "created": ""}
-        status, _, body = h.call("create", {"item": item, "poster": None})
+        status, _, body = h.call("create", {"items": [item], "poster": None})
         self.assertEqual((status, body["error"]["kind"]), (500, "setup"))
         self.assertIn("contact Liam", body["error"]["message"])
 
@@ -141,7 +186,7 @@ class TestRoutes(unittest.TestCase):
         h = Harness()
         status, _, body = h.call("finish", {"created": 2, "skipped": 1, "failed": 0, "set_aside": 3})
         self.assertEqual(status, 200)
-        self.assertEqual(h.shop.saved[0], {"created": 2, "skipped": 1, "failed": 0, "set_aside": 3,
+        self.assertEqual(h.shop.saved[0], {"created": 2, "added": 0, "skipped": 1, "failed": 0, "set_aside": 3,
                                            "finished_at": "2027-01-15T08:00:00+00:00"})
         self.assertEqual(h.call("finish", {"created": "lots"})[0], 400)
 
