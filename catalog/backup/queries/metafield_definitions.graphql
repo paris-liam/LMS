@@ -1,0 +1,6 @@
+query ($cursor: String) {
+  metafieldDefinitions(ownerType: PRODUCT, first: 250, after: $cursor) {
+    pageInfo { hasNextPage endCursor }
+    nodes { name namespace key }
+  }
+}

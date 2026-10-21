@@ -1,0 +1,1 @@
+query { publications(first: 25) { nodes { id name } } }
