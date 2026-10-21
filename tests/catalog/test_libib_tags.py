@@ -61,6 +61,15 @@ class TestNewArrivals(unittest.TestCase):
         self.assertEqual(set(libib_adds(p)), {"1", "2", "3", "4"})
         self.assertEqual({pid for pid, _ in shopify(p)}, {"legend1", "legend2", "legend3", "alien"})
 
+    def test_product_with_two_barcodes_of_one_libib_item_counts_once(self):
+        items = [item("a", "1"), item("b", "3")]
+        rentals = [product("pA", ("1", "2"), created="2026-10-03T00:00:00Z"),
+                   product("pB", ("3",), created="2026-10-02T00:00:00Z")]
+        p = plan(items, state(rentals), count=1)
+        self.assertEqual(p.new_arrival_titles, 1)
+        self.assertEqual(libib_adds(p), {"a": frozenset({"new arrival"})})
+        self.assertEqual([(t.product_id, t.item_id) for t in p.link_targets], [("pA", "a")])
+
     def test_format_separates_titles(self):
         items = [item("a", "1"), item("b", "2")]
         rentals = [product("vhs", ("1",), title="Legend", vendor="VHS", created="2026-10-01T00:00:00Z"),

@@ -23,7 +23,7 @@ Gql = Callable[..., dict]
 PRODUCTS = """
 query($q: String!, $after: String) {
   products(first: 250, after: $after, query: $q) {
-    nodes { id title tags vendor createdAt variants(first: 5) { nodes { barcode } }
+    nodes { id title tags vendor createdAt variants(first: 100) { nodes { barcode } }
              libibJoinId: metafield(namespace: "custom", key: "libib_join_id") { value } }
     pageInfo { hasNextPage endCursor }
   }
@@ -34,7 +34,7 @@ query($after: String) {
     nodes {
       capabilities { publishable { status } }
       field(key: "product") {
-        reference { ... on Product { id title tags vendor createdAt variants(first: 5) { nodes { barcode } }
+        reference { ... on Product { id title tags vendor createdAt variants(first: 100) { nodes { barcode } }
              libibJoinId: metafield(namespace: "custom", key: "libib_join_id") { value } } }
       }
     }

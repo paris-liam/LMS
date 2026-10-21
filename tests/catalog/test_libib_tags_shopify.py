@@ -32,8 +32,10 @@ class FakeGql:
         self.picks = [page(picks or [])]
         self.user_error_for = user_error_for
         self.mutations = []
+        self.queries = []
 
     def __call__(self, query, **variables):
+        self.queries.append(query)
         if query.lstrip().startswith("mutation"):
             root = "tagsAdd" if "tagsAdd" in query else "tagsRemove"
             self.mutations.append((root, variables["id"], variables["tags"]))
@@ -53,6 +55,11 @@ class TestReadState(unittest.TestCase):
     def test_reads_vendor_and_created_at(self):
         p = read_state(FakeGql(rentals=[node("p1", vendor="Blu-Ray", created="2026-10-19T08:00:00Z")])).rentals[0]
         self.assertEqual((p.vendor, p.created_at, p.barcodes), ("Blu-Ray", "2026-10-19T08:00:00Z", ("111",)))
+
+    def test_reads_more_than_five_barcodes(self):
+        gql = FakeGql(rentals=[node("p1", barcodes=[str(n) for n in range(7)])])
+        self.assertEqual(len(read_state(gql).rentals[0].barcodes), 7)
+        self.assertIn("variants(first: 100)", gql.queries[0])
 
     def test_zero_rentals_raises(self):
         with self.assertRaises(InputShapeError):
