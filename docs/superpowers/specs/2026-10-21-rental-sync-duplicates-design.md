@@ -55,14 +55,16 @@ labels need one barcode per physical copy).
 | 1 | Same movie = same title + same format. |
 | 2 | Every match (Libib duplicate or Shopify copy) is approved by the client; "Not a duplicate" is always available. |
 | 3 | Shopify match is **by sibling barcode only**. A fuzzy Shopify search (format + genre + title) was dropped: after cleanup it would only fire for legacy 8-digit rentals with no Libib item, and attaching a `201…` copy to one creates a mixed product that neither the legacy Libib tooling nor the sync app fully owns. A Libib item for a movie that only exists as a legacy rental is created as its own product, as today; the periodic `python3 -m catalog duplicates` pass catches it, and moving the remaining legacy rentals into Libib closes the gap. |
-| 4 | **Cleanup is manual and complete before go-live:** the developer and client dedupe Libib and Shopify so that every new-flow rental product maps to exactly one Libib item and vice versa, including merging the existing one-product-per-copy rentals of a Libib item into one product with a variant per copy. The app may assume this holds. |
+| 4 | **Cleanup is a separate project, complete before go-live:** the developer (with Claude: analysis, plan, scripts) dedupes Libib and Shopify so that every new-flow rental product maps to exactly one Libib item and vice versa, including merging the existing one-product-per-copy rentals of a Libib item into one product with a variant per copy. The app may assume this holds. |
 | 5 | Built and tested on the dev store + the developer's test Libib account first. |
 
 ## Non-goals
 
-- **Cleaning up the existing duplicates.** Done by hand (decision 4). No
-  merge tool is built. (`python3 -m catalog duplicates` already lists
-  duplicate groups and can serve as the to-do list.)
+- **Cleaning up the existing duplicates.** A separate project with its own
+  brainstorm, plan and scripts (decision 4), done after this tool is built on
+  the dev store and before either goes live. Its merged products must take
+  the shape this spec defines (Genre option 1, Copy option 2, one variant per
+  barcode). `python3 -m catalog duplicates` already lists duplicate groups.
 - Fuzzy matching against Shopify products (decision 3).
 - Editing Libib from the app (Libib stays the source of truth; the client
   fixes Libib himself).
@@ -236,8 +238,7 @@ existing variant into `Copy 1` the first time. Constraints:
 ## Rollout
 
 1. Build + test on the dev store / test Libib (above).
-2. Developer and client clean up the existing rental duplicates on production
-   and in the real Libib by hand.
+2. The cleanup project (separate spec) dedupes production and the real Libib.
 3. Deploy to production, update the client guide (`tools/rental-sync/client-guide.md`)
    with the new cards and the Libib "add a copy" instructions, update
    `CLAUDE.md` roadmap #3 and the inventory memory.
