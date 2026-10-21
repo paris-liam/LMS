@@ -29,6 +29,7 @@ The Shopify-side collection pages will be hidden, which is separate work and not
 3. **Each movie poster on the homepage opens that movie's Libib item**, at `https://www.libib.com/u/littlemoviestore?solo=<join_id>`. Two sections have posters:
    - the New Arrivals rail (`sections/lms-new-releases.liquid`)
    - Community Picks (`sections/lms-staff-picks.liquid`)
+   - **`?solo=`, not `?id=`** (corrected 2026-10-21, after the user tested a link). On a direct visit, Libib 302-redirects `?id=` to the bare library page. `?solo=` opens the item, the same link Libib's own "Copy Link" makes.
 4. **The daily job stores each homepage movie's Libib link.** `python3 -m catalog libib tags` already matches every `new-arrival` and `community-pick` product to its Libib item. It also looks up that item's `join_id` and writes it to a product metafield. Those two tags are exactly the products the homepage sections can show.
 
 ## Non-goals
