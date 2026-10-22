@@ -172,6 +172,11 @@ rental two variants and try printing just one. Then:
 Either way the label's genre comes from **Variant Option 1**
 (`barcode-driven-upload-model`), so `Genre` must stay Option 1.
 
+**Resolved 2026-10-22 (developer, dev store):** a single variant can be
+printed; the LMS: RENTAL label shows the genre (Option 1), not `Copy N`; the
+storefront PDP and collection grid show no variant picker, swatch or "Copy"
+text. → **It can** branch: keep the `Barcode Not Printed` tag + barcode list.
+
 ### Adding a copy (new endpoint or a mode of `create`)
 
 Server-side, re-derived from Libib fields like `create` (the browser only
