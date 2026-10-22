@@ -39,3 +39,5 @@ libib-selftest/
 
 # libib tags run reports
 libib-tags/
+.vercel
+.env*
