@@ -75,8 +75,16 @@ def prepare(items: list[dict], shopify_barcodes: set[str]) -> dict:
     for item in new_flow:
         if item["barcode"] in shopify_barcodes:
             siblings.setdefault(item["id"], []).append(item["barcode"])
+    # A legacy copy's Shopify barcode is its Libib call number (its copy
+    # barcode when it has none); matches.py looks each one up.
+    legacy: dict[str, list[str]] = {}
+    for item in items:
+        if not is_new_flow_item(item.get("barcode"), item.get("call_number")):
+            barcode = (item.get("call_number") or item.get("barcode") or "").strip()
+            if barcode and barcode not in legacy.setdefault(item["id"], []):
+                legacy[item["id"]].append(barcode)
     new_ids = {i["id"] for i in new_flow if i["barcode"] not in shopify_barcodes}
-    duplicates = find_libib_duplicates(items, new_ids - set(siblings))
+    duplicates = find_libib_duplicates(items, new_ids - set(siblings) - set(legacy))
     ready, set_aside, in_shopify = [], [], 0
     for item in sorted(new_flow, key=_order):
         if item["barcode"] in shopify_barcodes:
@@ -86,6 +94,7 @@ def prepare(items: list[dict], shopify_barcodes: set[str]) -> dict:
         if counts[item["barcode"]] > 1:
             copy["set_aside"].append(f"barcode {item['barcode']} is on {counts[item['barcode']]} Libib copies")
         copy.update(item_id=item["id"], siblings_in_shopify=list(siblings.get(item["id"], [])),
+                    legacy_siblings=list(legacy.get(item["id"], [])),
                     libib_duplicate=None if copy["set_aside"] else duplicates.get(item["id"]), match=None)
         (set_aside if copy["set_aside"] else ready).append(copy)
     return {"ready": ready, "set_aside": set_aside, "already_in_shopify": in_shopify,

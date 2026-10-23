@@ -129,6 +129,33 @@ class TestPrepare(unittest.TestCase):
         self.assertEqual(copy["siblings_in_shopify"], ["2010000000038"])
         self.assertIsNone(copy["libib_duplicate"])
 
+    def test_new_copy_of_legacy_item_lists_legacy_siblings(self):
+        old = dict(self.items[3], id="c1", title="Fences", barcode="79859194")
+        new = dict(old, barcode="2010000000045")
+        result = prepare(self.items + [old, new], set())
+        copy = next(c for c in result["ready"] if c["barcode"] == "2010000000045")
+        self.assertEqual(copy["legacy_siblings"], ["79859194"])
+        self.assertEqual(copy["siblings_in_shopify"], [])
+        self.assertNotIn("79859194", {c["barcode"] for c in result["ready"] + result["set_aside"]})
+
+    def test_legacy_sibling_is_its_call_number(self):
+        old = dict(self.items[3], id="c1", title="Fences", barcode="2010000000052", call_number="20144891")
+        new = dict(old, barcode="2010000000045", call_number="")
+        result = prepare(self.items + [old, new], set())
+        copy = next(c for c in result["ready"] if c["barcode"] == "2010000000045")
+        self.assertEqual(copy["legacy_siblings"], ["20144891"])
+
+    def test_item_with_legacy_copies_is_not_a_libib_duplicate(self):
+        old = dict(self.items[0], id="c1", barcode="79859194", created="2026-10-20")
+        new = dict(old, barcode="2010000000045")
+        result = prepare(self.items + [old, new], set())
+        copy = next(c for c in result["ready"] if c["barcode"] == "2010000000045")
+        self.assertIsNone(copy["libib_duplicate"])
+
+    def test_new_item_has_no_legacy_siblings(self):
+        result = prepare(self.items, set())
+        self.assertEqual([c["legacy_siblings"] for c in result["ready"]], [[], []])
+
     def test_duplicate_item_flagged(self):
         twin = dict(self.items[0], id="b1", barcode="2010000000052", created="2026-10-20")
         result = prepare(self.items + [twin], set())

@@ -301,6 +301,9 @@ How the pipeline treats them:
   call number is blank (a legacy item can carry a Libib-generated `201…` barcode alongside its call
   number and stays with the legacy tooling). Shopify products are recognised by the `201…` barcode
   alone. The rental sync app uses the same rule (`catalog/core/barcodes.py:is_new_flow_item`).
+  A new copy in a Libib item that also has legacy copies can be added, as a variant, to the legacy
+  product those copies are on; the legacy variant stays first, so these tools still see a legacy
+  product.
 - `apply` may set only `Image Src`, `Image Alt Text` and `Tags` on a new-flow rental; any other
   planned change is listed as ignored ("comes from Libib").
 - `audit` accepts the 13-digit barcode and flags a new-flow rental that is unpublished

@@ -136,6 +136,15 @@ class TestDiff(unittest.TestCase):
         self.assertEqual(result.in_sync, ["jaws"])
         self.assertEqual(result.orphans, [])
 
+    def test_legacy_product_with_an_added_new_flow_copy_stays_legacy(self):
+        # The rental sync app can add a 201… copy to a legacy product; the
+        # snapshot row is the first variant, which is still the legacy copy.
+        mixed = rental(**{"Variant Count": "2"})
+        added = item(call="", barcode="2010000000014")
+        result = diff([mixed], [item(), added], {})
+        self.assertEqual(result.in_sync, ["jaws"])
+        self.assertEqual((result.blocked, result.orphans, result.eligible), ([], [], []))
+
     def test_new_flow_shopify_rentals_are_not_blocked(self):
         new = rental(handle="new-vhs-rental-2010000000014", barcode="2010000000014")
         result = diff([rental(), new], [item()], {})

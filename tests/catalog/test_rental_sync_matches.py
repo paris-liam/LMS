@@ -8,8 +8,9 @@ from tests_rental_sync_fakes import FakeShop  # noqa: E402
 from catalog.rental_sync.matches import NOT_FOUND, SEVERAL_PRODUCTS, attach_matches  # noqa: E402
 
 
-def copy(barcode, siblings):
-    return {"barcode": barcode, "item_id": "a1", "siblings_in_shopify": siblings, "set_aside": [],
+def copy(barcode, siblings, legacy=()):
+    return {"barcode": barcode, "item_id": "a1", "siblings_in_shopify": siblings,
+            "legacy_siblings": list(legacy), "set_aside": [],
             "libib_duplicate": None, "match": None}
 
 
@@ -59,6 +60,42 @@ class TestAttachMatches(unittest.TestCase):
                                 shop, shop.store)
         self.assertEqual(result["ready"], [])
         self.assertIn(NOT_FOUND, result["set_aside"][0]["set_aside"])
+
+    def test_legacy_sibling_owner_becomes_match(self):
+        shop = shop_with("79859194")
+        result = attach_matches({"ready": [copy("2010000000045", [], ["79859194"])], "set_aside": []},
+                                shop, shop.store)
+        self.assertEqual(result["ready"][0]["match"]["handle"], "existing-79859194")
+
+    def test_legacy_sibling_not_in_shopify_is_created(self):
+        shop = shop_with()
+        result = attach_matches({"ready": [copy("2010000000045", [], ["79859194"])], "set_aside": []},
+                                shop, shop.store)
+        self.assertEqual(result["set_aside"], [])
+        self.assertIsNone(result["ready"][0]["match"])
+
+    def test_legacy_siblings_on_two_products_set_aside(self):
+        shop = shop_with("79859194", "79859195")
+        result = attach_matches(
+            {"ready": [copy("2010000000045", [], ["79859194", "79859195"])], "set_aside": []},
+            shop, shop.store)
+        self.assertEqual(result["ready"], [])
+        self.assertIn(SEVERAL_PRODUCTS, result["set_aside"][0]["set_aside"])
+
+    def test_legacy_and_new_siblings_on_two_products_set_aside(self):
+        shop = shop_with("2010000000014", "79859194")
+        result = attach_matches(
+            {"ready": [copy("2010000000045", ["2010000000014"], ["79859194"])], "set_aside": []},
+            shop, shop.store)
+        self.assertIn(SEVERAL_PRODUCTS, result["set_aside"][0]["set_aside"])
+
+    def test_legacy_and_new_siblings_on_one_product_match(self):
+        shop = shop_with("2010000000014")
+        shop.barcodes["79859194"] = shop.barcodes["2010000000014"]
+        result = attach_matches(
+            {"ready": [copy("2010000000045", ["2010000000014"], ["79859194"])], "set_aside": []},
+            shop, shop.store)
+        self.assertEqual(result["ready"][0]["match"]["handle"], "existing-2010000000014")
 
     def test_owner_lookup_cached(self):
         shop = shop_with("2010000000014")

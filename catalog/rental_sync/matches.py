@@ -1,6 +1,6 @@
 """Resolve a new copy's siblings (other copies of the same Libib item already
-in Shopify) to the one Shopify product they live on, so the copy can be added
-there instead of making a second product."""
+in Shopify, new-flow or legacy 8-digit) to the one Shopify product they live
+on, so the copy can be added there instead of making a second product."""
 
 from catalog.rental_sync.create import admin_url
 
@@ -25,7 +25,14 @@ def attach_matches(result: dict, shop, store: str) -> dict:
 
     ready = []
     for copy in result["ready"]:
-        ids = list(dict.fromkeys(o["id"] for o in map(owner, copy["siblings_in_shopify"]) if o))
+        found = [o["id"] for o in map(owner, copy["siblings_in_shopify"]) if o]
+        if copy["siblings_in_shopify"] and not found:
+            copy["set_aside"].append(NOT_FOUND)
+            result["set_aside"].append(copy)
+            continue
+        # Legacy copies may never have reached Shopify; only the ones found count.
+        found += [o["id"] for o in map(owner, copy.get("legacy_siblings", [])) if o]
+        ids = list(dict.fromkeys(found))
         if len(ids) > 1:
             copy["set_aside"].append(SEVERAL_PRODUCTS)
             copy["products"] = [admin_url(store, i) for i in ids]
@@ -33,7 +40,7 @@ def attach_matches(result: dict, shop, store: str) -> dict:
             continue
         if ids and summary(ids[0]):
             copy["match"] = {**summary(ids[0]), "admin_url": admin_url(store, ids[0])}
-        elif copy["siblings_in_shopify"]:
+        elif ids:
             copy["set_aside"].append(NOT_FOUND)
             result["set_aside"].append(copy)
             continue

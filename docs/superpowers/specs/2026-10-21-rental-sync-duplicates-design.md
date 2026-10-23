@@ -41,8 +41,9 @@ labels need one barcode per physical copy).
    rental product in Shopify is added to that product as a new variant (with
    the copy's barcode), not created as a new product.
 3. **Find the matching product exactly**, by sibling barcode: another copy of
-   the same Libib item already on a Shopify variant. (A fuzzy Shopify search
-   was considered and dropped — see Decisions.)
+   the same Libib item already on a Shopify variant — a `201…` copy, or a
+   legacy 8-digit one (decision 3). (A fuzzy Shopify search was considered and
+   dropped — see Decisions.)
 4. **The client approves every match.** Nothing is attached to an existing
    product or flagged as a duplicate without the client seeing it.
 5. **Build and test on the dev store and the developer's test Libib account**
@@ -54,7 +55,7 @@ labels need one barcode per physical copy).
 |---|---|
 | 1 | Same movie = same title + same format. |
 | 2 | Every match (Libib duplicate or Shopify copy) is approved by the client; "Not a duplicate" is always available. |
-| 3 | Shopify match is **by sibling barcode only**. A fuzzy Shopify search (format + genre + title) was dropped: after cleanup it would only fire for legacy 8-digit rentals with no Libib item, and attaching a `201…` copy to one creates a mixed product that neither the legacy Libib tooling nor the sync app fully owns. A Libib item for a movie that only exists as a legacy rental is created as its own product, as today; the periodic `python3 -m catalog duplicates` pass catches it, and moving the remaining legacy rentals into Libib closes the gap. |
+| 3 | Shopify match is **by sibling barcode only**. A fuzzy Shopify search (format + genre + title) was dropped: after cleanup it would only fire for legacy 8-digit rentals with no Libib item. **Revised 2026-10-23:** a legacy copy *in the same Libib item* is a sibling too, because the client keeps the existing 8-digit barcodes and many of those copies are in Libib. A legacy copy's Shopify barcode is its Libib call number, or its copy barcode when it has none (the rule the Libib tooling uses). Legacy siblings are looked up one by one; one that isn't in Shopify is ignored, so a Libib item whose legacy copies never reached Shopify is created as a new product. A new copy added to a legacy product makes a mixed product: the legacy variant stays first (`Copy 1`), and the snapshot readers keep one row per product from the first variant, so `libib diff`/`fix`/`sync`, the audit and `apply` keep treating it as legacy (pinned by a `libib diff` test). An item that has legacy copies is never a Libib-duplicate candidate — it isn't new. |
 | 4 | **Cleanup is a separate project, complete before go-live:** the developer (with Claude: analysis, plan, scripts) dedupes Libib and Shopify so that every new-flow rental product maps to exactly one Libib item and vice versa, including merging the existing one-product-per-copy rentals of a Libib item into one product with a variant per copy. The app may assume this holds. |
 | 5 | Built and tested on the dev store + the developer's test Libib account first. |
 
@@ -70,7 +71,8 @@ labels need one barcode per physical copy).
   fixes Libib himself).
 - Pushing later Libib edits (title, description, poster, tags) onto existing
   products — still create-only for product fields.
-- Floor Sale products, legacy 8-digit rentals.
+- Floor Sale products. Legacy 8-digit rentals are never created or changed,
+  except that a new copy can be added to one as a variant (decision 3).
 - Reworking the audit `multiple-variants` rule or the Libib `copies = 1`
   check. They will start flagging merged rentals; that is the deferred phase
   of the inventory change and is decided separately (ask the developer).
@@ -115,8 +117,9 @@ Shopify, so it is never re-checked. If both items are new in the same run,
 only the later one (by Libib `created`) is flagged.
 
 **2. Shopify match (sibling barcode).** For copies that pass step 1: if
-another copy of the *same Libib item* has its barcode on a Shopify variant,
-that variant's product is the match. The client chooses:
+another copy of the *same Libib item* — `201…` or legacy 8-digit (decision 3) —
+has its barcode on a Shopify variant, that variant's product is the match. The
+client chooses:
 
 - **Add as a copy of this product**, or
 - **Skip this run** — the copy is set aside with "If this copy isn't the same
@@ -124,8 +127,9 @@ that variant's product is the match. The client chooses:
   would split one Libib item across two products and break decision 4; changed
   from "Create a new product" when the fuzzy search was dropped.)
 
-If the siblings' barcodes are spread over **more than one** product, the
-cleanup assumption (decision 4) is broken: set the copy aside with "This Libib
+If the siblings' barcodes are spread over **more than one** product (before
+the cleanup this is common for legacy items, which are one product per copy),
+the cleanup assumption (decision 4) is broken: set the copy aside with "This Libib
 item is on several Shopify products — combine them first" and the product
 links. Never guess.
 
