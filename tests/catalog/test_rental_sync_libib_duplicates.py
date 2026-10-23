@@ -33,6 +33,32 @@ class TestSameTitle(unittest.TestCase):
         self.assertTrue(same_title("Halloween (1978)", "Halloween"))
 
 
+    def test_shorter_title_inside_longer(self):
+        self.assertTrue(same_title("GODFATHER: CODA",
+                                   "Mario Puzo’s THE GODFATHER, Coda: The Death of Michael Corleone"))
+        self.assertTrue(same_title("John Wick 3", "John Wick: Chapter 3 - Parabellum"))
+        self.assertTrue(same_title("Spy Kids 2 The Island of Lost Dreams", "Spy Kids 2"))
+
+    def test_small_words_ignored_when_contained(self):
+        self.assertTrue(same_title("Lord of the RIngs Fellowship of the Ring",
+                                   "The Lord of the Rings: The Fellowship of the Ring"))
+
+    def test_contained_sequel_is_flagged_for_the_client(self):
+        # A title can't tell a subtitle from a sequel; "Not a duplicate" clears it.
+        self.assertTrue(same_title("Star Trek", "Star Trek Into Darkness"))
+
+    def test_one_word_title_is_never_contained(self):
+        self.assertFalse(same_title("Speed", "Speed Racer"))
+        self.assertFalse(same_title("The Ring", "Follow the River Ring"))
+
+    def test_contained_with_different_numbers(self):
+        self.assertFalse(same_title("The Godfather", "The Godfather Part II"))
+        self.assertFalse(same_title("Spider-Man", "The Amazing Spider-Man 2"))
+
+    def test_contained_with_different_editions_or_years(self):
+        self.assertFalse(same_title("Friday the 13th (1980)", "Friday the 13th Part 2 (1981)"))
+        self.assertFalse(same_title("Star Wars Trilogy", "Star Wars Trilogy Director's Cut"))
+
 class TestFindLibibDuplicates(unittest.TestCase):
     def test_flags_new_item_matching_old_item(self):
         items = [row("old", "Jaws", created="2026-09-01"), row("new", "Jaws", created="2026-10-14")]
@@ -74,6 +100,12 @@ class TestFindLibibDuplicates(unittest.TestCase):
                  row("new", "Jaws", created="2026-10-14")]
         self.assertEqual(find_libib_duplicates(items, {"new"})["new"]["item_id"], "m1")
 
+
+    def test_flags_a_new_item_whose_title_contains_the_old_one(self):
+        items = [row("coda", "GODFATHER: CODA", tags="4k, drama", created="2026-10-22"),
+                 row("new", "Mario Puzo’s THE GODFATHER, Coda: The Death of Michael Corleone",
+                     tags="4k, drama", created="2026-10-23")]
+        self.assertEqual(find_libib_duplicates(items, {"new"})["new"]["item_id"], "coda")
 
 if __name__ == "__main__":
     unittest.main()

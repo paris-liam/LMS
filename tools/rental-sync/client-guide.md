@@ -37,9 +37,12 @@ Open the sync page and log in.
 
 ### Possible duplicates in Libib
 
-This card means a new movie looks like one that's already an item in Libib (same title and format).
+This card means a new movie looks like one that's already an item in Libib: the same format, and the
+same title or one title inside the other (so "Godfather: Coda" and "Mario Puzo's The Godfather, Coda: The
+Death of Michael Corleone" are shown together).
 - If it's the same movie, fix it in Libib (add the copy to the existing item). It will sync next time.
-- If it's a different movie, such as a remake, click **Not a duplicate**. It becomes its own product.
+- If it's a different movie, such as a remake or a sequel ("Star Trek" and "Star Trek Into Darkness"),
+  click **Not a duplicate**. It becomes its own product.
 
 ### Already in Shopify?
 

@@ -100,7 +100,16 @@ whole library, synced or not):
 
 - same format tag, and
 - titles match by `catalog/duplicates/match.py`'s title tiers (exact,
-  normalized, fuzzy; editions such as "Director's Cut" are not the same movie).
+  normalized, fuzzy; editions such as "Director's Cut" are not the same movie),
+  or — **added 2026-10-23** — every word of the shorter title (2+ words, small
+  words like "the"/"of" aside) is in the longer one, with the same numbers,
+  editions and years: "GODFATHER: CODA" vs "Mario Puzo's THE GODFATHER, Coda:
+  The Death of Michael Corleone" (two releases, different UPCs, so a UPC match
+  wouldn't catch it either). This also flags sequels ("Star Trek" / "Star Trek
+  Into Darkness"); the client clears them with **Not a duplicate**. Measured on
+  the 2026-10-19 Libib export (3,861 items): 64 more pairs flagged, touching 103
+  items (about 2.7%), roughly 1 in 5 the same film. One-word titles are left
+  out ("Speed" / "Speed Racer" would add about 300 false flags).
 
 A match is shown as **"Possible duplicate in Libib"**: the new item and the
 existing item side by side (title, format, genres, copies, date added). The

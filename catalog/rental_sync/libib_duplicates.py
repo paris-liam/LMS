@@ -1,16 +1,19 @@
 """Which new Libib items are really another Libib item again.
 
 A candidate is flagged when some other item (synced or not) has the same
-format and the same title, so the person can add it as a copy of that item
-instead of making a second product. Pure: nothing here reads or writes a file.
+format and the same or a contained title, so the person can add it as a copy
+of that item instead of making a second product. Pure: nothing here reads or
+writes a file.
 """
 
 import re
 
-from catalog.duplicates.match import editions, fuzzy_match, is_box_set, normalize_title, title_year
+from catalog.duplicates.match import editions, fuzzy_match, is_box_set, normalize_title, number_tokens, title_year
 from catalog.rental_sync.transform import transform
 
 _TRAILING_ARTICLE = re.compile(r"^(.*),\s*(the|a|an)\s*$", re.IGNORECASE)
+SMALL_WORDS = {"the", "a", "an", "of", "and"}
+CONTAINED_MIN_WORDS = 2
 
 
 def _unsort(title: str) -> str:
@@ -27,7 +30,22 @@ def same_title(a: str, b: str) -> bool:
     if year_a and year_b and year_a != year_b:
         return False
     name_a, name_b = normalize_title(a), normalize_title(b)
-    return bool(name_a) and (name_a == name_b or fuzzy_match(name_a, name_b))
+    if not name_a or not name_b:
+        return False
+    return name_a == name_b or fuzzy_match(name_a, name_b) or _contained(name_a, name_b)
+
+
+def _contained(name_a: str, name_b: str) -> bool:
+    """Every word of the shorter title (2+ words, small words aside) is in the
+    longer one: 'Godfather Coda' in 'Mario Puzo's The Godfather, Coda: The Death
+    of Michael Corleone'. Sequels match too ('Star Trek' / 'Star Trek Into
+    Darkness') unless their numbers differ; the person clears those with Not a
+    duplicate. On the 2026-10-19 Libib export about 1 in 5 such pairs was the
+    same film."""
+    if number_tokens(name_a) != number_tokens(name_b):
+        return False
+    shorter, longer = sorted(({w for w in n.split() if w not in SMALL_WORDS} for n in (name_a, name_b)), key=len)
+    return len(shorter) >= CONTAINED_MIN_WORDS and shorter <= longer
 
 
 def _group_items(items: list[dict]) -> dict[str, dict]:
