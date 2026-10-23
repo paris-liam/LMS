@@ -22,10 +22,42 @@ Spec `docs/superpowers/specs/2026-10-21-rental-sync-duplicates-design.md`, plan
 `docs/superpowers/plans/2026-10-21-rental-sync-duplicates.md`. **Go-live waits on the separate
 duplicate-cleanup project** (dedupe production and the real Libib first). Tested on the dev store only.
 
-Not yet verified against real Shopify:
-- `productOptionsCreate` with `LEAVE_AS_IS` assigning "Copy 1" to the existing variant.
-- Whether Retail Barcode Labels can print a single variant. The client guide currently says to print
-  only the barcodes listed on the results page (one paragraph in section 3); change it if this fails.
+### Dev-store test (2026-10-22/23, plan Task 10)
+
+Preview `https://rental-sync-git-libib-sync-duplicates-liam-paris-projects.vercel.app` (Vercel
+project `rental-sync`), pointed at the dev store through a separate Dev Dashboard app ("LMS Rental
+Sync (dev)", the developer's own account; the production app belongs to the client's account and
+can't be installed on the dev store). Preview-only `SHOPIFY_STORE` / `SHOPIFY_CLIENT_ID` /
+`SHOPIFY_CLIENT_SECRET`; Production untouched.
+
+Every scenario passed, each product checked in admin (variants, barcodes, Copy values, qty 1,
+untaxed, Online Store only, tags) and the storefront PDP showing no Copy option:
+
+| Scenario | Test title | Result |
+|---|---|---|
+| New movie | GODFATHER: CODA | one product, one variant |
+| New item, two copies | The Godfather Part II | one product, Copy 1 / Copy 2 |
+| New copy of an item whose old copy is 8-digit | Fences (`79859194` + new `2010000000045`) | added to the existing Fences product; old variant became Copy 1 (`productOptionsCreate` `LEAVE_AS_IS` works) |
+| Second Libib item, different title | Mario Puzo's THE GODFATHER, Coda: The Death of Michael Corleone | flagged against GODFATHER: CODA; Skip this run created nothing |
+| Not a duplicate | same item | created as its own product |
+| Re-run | same exports | nothing new |
+
+Retail Barcode Labels prints a single variant, and the label shows the genre, not `Copy N`
+(plan Task 1, recorded in the spec). Not checked: the results page's print list and browser
+console errors (the Playwright walk-through was skipped).
+
+Two changes came out of the test, both in the spec:
+- **Legacy siblings (decision 3 revised):** a new copy matches the old 8-digit copies of its Libib
+  item, because the client keeps those barcodes. A mixed product's old copy stays first, so the
+  legacy tools still see a legacy product. The old copy keeps its own settings (Fences' is still
+  taxable and on POS/Shop); the cleanup project should normalize those.
+- **Contained titles:** a Libib item is also flagged when every word of the shorter title (2+
+  words) is in the longer one. It flags sequels too (about 4 in 5 of the extra flags on the
+  2026-10-19 export), which the client clears with Not a duplicate.
+
+Test data left on the dev store and in the test Libib account: the products above.
+`vercel curl` also created a deployment protection bypass token for the `rental-sync` project
+(revocable under Settings → Deployment Protection).
 
 ## Known minor issues (reviewed, deliberately left)
 

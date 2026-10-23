@@ -54,8 +54,12 @@ Design: `docs/superpowers/specs/2026-10-21-rental-sync-duplicates-design.md`.
 ## Testing on the dev store
 
 In Vercel, point the **Preview** environment's `SHOPIFY_STORE` at `lms-sandbox-lutsfahz.myshopify.com`
-and keep **Production** on `p0wkgv-wy.myshopify.com`. Deploy the branch as a preview and upload the
-test Libib account's exports, never the real ones.
+and keep **Production** on `p0wkgv-wy.myshopify.com`. The production app can't be installed on the dev
+store (it belongs to the client's account), so the dev store has its own Dev Dashboard app, "LMS Rental
+Sync (dev)", with the same scopes; its `SHOPIFY_CLIENT_ID` / `SHOPIFY_CLIENT_SECRET` are Preview-only
+variables. Push the branch; its preview is at
+`https://rental-sync-git-<branch>-liam-paris-projects.vercel.app`, behind Vercel Authentication
+(`vercel curl` gets through). Upload the test Libib account's exports, never the real ones.
 
 ## Password and sessions
 
