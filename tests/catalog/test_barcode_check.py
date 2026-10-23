@@ -4,7 +4,7 @@ import unittest
 from datetime import date
 from types import SimpleNamespace
 
-from catalog.shopify.barcode_check import floor_sale_without_barcode, read_variants, run_command, shared_barcodes
+from catalog.shopify.barcode_check import non_rental_without_barcode, read_variants, run_command, shared_barcodes
 
 
 def _variant(barcode, created, handle, tags=()):
@@ -17,9 +17,10 @@ VARIANTS = [
     _variant("34579450", "2026-07-09", "the-generals-daughter"),
     _variant("34579450", "2026-10-19", "nacho-libre"),
     _variant("11111111", "2026-10-19", "unique"),
-    _variant("", "2026-10-19", "no-barcode"),
-    _variant("", "2026-10-19", "no-barcode-either"),
+    _variant("", "2026-10-19", "rental-no-barcode", ["Rental"]),
+    _variant("", "2026-10-19", "rental-no-barcode-either", ["Rental", "Barcode Not Printed"]),
     _variant("", "2026-10-21", "floor-sale-flow-missed", ["Floor Sale"]),
+    _variant("", "2026-10-21", "merch-flow-missed"),
 ]
 
 
@@ -33,10 +34,11 @@ class TestSharedBarcodes(unittest.TestCase):
         self.assertEqual(list(shared_barcodes(VARIANTS, date(2026, 10, 19))), ["34579450"])
 
 
-class TestFloorSaleWithoutBarcode(unittest.TestCase):
-    def test_lists_only_floor_sale_copies_with_no_barcode(self):
-        self.assertEqual([v["handle"] for v in floor_sale_without_barcode(VARIANTS)], ["floor-sale-flow-missed"])
-        self.assertEqual(floor_sale_without_barcode(VARIANTS, date(2026, 10, 22)), [])
+class TestNonRentalWithoutBarcode(unittest.TestCase):
+    def test_lists_only_non_rental_variants_with_no_barcode(self):
+        self.assertEqual([v["handle"] for v in non_rental_without_barcode(VARIANTS)],
+                         ["floor-sale-flow-missed", "merch-flow-missed"])
+        self.assertEqual(non_rental_without_barcode(VARIANTS, date(2026, 10, 22)), [])
 
 
 class TestReadVariants(unittest.TestCase):
@@ -77,10 +79,11 @@ class TestCommand(unittest.TestCase):
         self.assertIn("the-generals-daughter", out)
         self.assertNotIn("71735546", out)
 
-    def test_lists_a_floor_sale_copy_flow_missed(self):
+    def test_lists_non_rental_variants_flow_missed(self):
         code, out = self._run("2026-10-20")
         self.assertEqual(code, 1)
         self.assertIn("floor-sale-flow-missed", out)
+        self.assertIn("merch-flow-missed", out)
         self.assertNotIn("34579450", out)
 
     def test_exit_0_when_nothing_new(self):
